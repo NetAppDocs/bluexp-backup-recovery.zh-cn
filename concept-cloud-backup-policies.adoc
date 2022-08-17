@@ -1,0 +1,196 @@
+---
+sidebar: sidebar 
+permalink: concept-cloud-backup-policies.html 
+keywords: backing up, back up, backup, back up volumes, cloud backup, backup policies, policies 
+summary: 本文档介绍Cloud Backup的备份策略配置设置。 
+---
+= Cloud Backup策略配置设置
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+本文档介绍Cloud Backup的备份策略配置设置。
+
+
+
+== 备份计划
+
+您可以通过Cloud Backup为每个工作环境创建多个备份策略、并使用唯一的计划。您可以为具有不同恢复点目标(RPO)的卷分配不同的备份策略。
+
+每个备份策略都为_Labels & Retenation_s提供了一个部分、您可以将其应用于备份文件。
+
+image:screenshot_backup_schedule_settings.png["创建备份策略时的备份计划设置的屏幕截图。"]
+
+计划分为两部分：标签和保留值：
+
+* *标签*用于定义从卷创建备份文件的频率。您可以选择以下类型的标签：
++
+** 您可以选择一个或多个选项：*每小时*、*每日*、*每周*、*每月*、 和*每年*的时间范围。
+** 您可以选择系统定义的策略之一、这些策略可提供3个月、1年和7年的备份和保留期限。
+** 如果您已使用ONTAP 系统管理器或ONTAP 命令行界面在集群上创建自定义备份保护策略、则可以选择其中一个策略。
+
+
+* "*保留*"值用于定义每个标签的备份文件数量(时间范围)。在一个类别或间隔内达到最大备份数后、较早的备份将被删除、以便始终拥有最新的备份。这还可以节省存储成本、因为过时的备份不会继续占用云中的空间。
+
+
+例如、假设您创建了一个备份策略、用于创建7个每周备份和12个每月备份：
+
+* 每周和每月都会为卷创建一个备份文件
+* 在第8周、第一个每周备份将被第8周的每周备份所取代(最多保留7个每周备份)
+* 在第13个月、第一个每月备份将替换为第13个月的每月备份(最多保留12个每月备份)
+
+
+
+
+== DataLock和勒索软件保护
+
+Cloud Backup为卷备份提供DataLock和勒索软件保护支持。通过这些功能、您可以锁定备份文件并对其进行扫描、以检测备份文件上可能存在的勒索软件。这是一个可选设置、当您希望为集群的卷备份提供额外保护时、可以在备份策略中定义此设置。
+
+这两项功能均可保护您的备份文件、以便您始终拥有一个有效的备份文件、以便在源数据遭受勒索软件攻击时从恢复数据。如果备份需要锁定并保留一段时间、则满足某些法规要求也会很有帮助。启用DataLock和勒索软件保护后、在Cloud Backup激活过程中配置的云分段将启用对象锁定。
+
+[CAUTION]
+====
+* 如果您计划使用DataLock和勒索软件保护、则必须在为该集群创建第一个备份策略并激活Cloud Backup时启用它。
+* 配置集群后、无法为其禁用DataLock和勒索软件保护。请勿在集群上启用此功能以试用。
+
+
+====
+
+
+=== 什么是DataLock
+
+DataLock可防止备份文件在一段时间内被修改或删除。此功能使用对象存储提供程序提供的技术进行"对象锁定"。备份文件锁定(并保留)的时间段称为DataLock保留期限。它基于您定义的备份策略计划和保留设置、外加14天的缓冲区。任何少于30天的DataLock保留策略将取整为最短30天。
+
+请注意、旧备份会在DataLock保留期限到期之后删除、而不是在备份策略保留期限之后删除。
+
+下面我们来看看这种方法的一些示例：
+
+* 如果您创建包含12个保留项的每月备份计划、则备份将锁定12个月(加上14天)、然后才会被删除(替换为下一个备份文件)。
+* 如果您创建的备份策略创建30个每日备份、7个每周备份、12个每月备份、则会有三个锁定的保留期限。"30个每日"备份将保留44天(30天加上14天缓冲)、"7个每周"备份将保留9周(7周加14天)、"12个每月"备份将保留12个月(加上14天)。
+* 如果您创建包含24个保留项的每小时备份计划、则您会认为备份会锁定24小时。但是、由于此时间少于最短30天、因此每个备份将被锁定并保留44天(30天加上14天缓冲区)。
++
+在最后一个案例中、您可以看到、如果每个备份文件锁定44天、则最终备份文件的数量将比使用每小时/24小时保留策略通常保留的备份文件数量多。通常、Cloud Backup创建第25个备份文件后、它会删除最早的备份、以使最大保留值保持在24 (根据策略)。在这种情况下、DataLock保留设置会覆盖备份策略中的策略保留设置。这可能会影响存储成本、因为备份文件将保存在对象存储中较长时间。
+
+
+
+
+
+=== 什么是勒索软件保护
+
+勒索软件保护会扫描您的备份文件、以查找勒索软件攻击的证据。通过校验和比较来检测勒索软件攻击。如果在备份文件与之前的备份文件中发现潜在的勒索软件、则新备份文件将替换为最新的备份文件、该备份文件不会显示任何勒索软件攻击的迹象。(已确定发生勒索软件攻击的文件将在替换后1天被删除。)
+
+勒索软件扫描在备份和还原过程的3个时间点进行：
+
+* 创建备份文件时
++
+首次将备份文件写入云存储时、不会对该备份文件执行扫描、而是在写入下一个备份文件时执行扫描。例如、如果为星期二设置了每周备份计划、则在星期二14创建备份。然后、在星期二21日创建另一个备份。此时、勒索软件扫描将从14号开始对备份文件运行。
+
+* 尝试从备份文件还原数据时
++
+您可以选择在从备份文件还原数据之前运行扫描、也可以跳过此扫描。
+
+* 手动
++
+您可以随时运行按需勒索软件保护扫描来验证特定备份文件的运行状况。如果您在特定卷上安装了勒索软件问题描述 、并且您希望验证该卷的备份是否不受影响、则此功能非常有用。
+
+
+
+
+CAUTION: 勒索软件扫描要求将备份文件下载到安装了Connector的Cloud Manager环境中。如果您在内部部署了Connector、则可能会从云提供商处产生额外的传出成本。因此、我们建议您在云中部署Connector、并且该连接器与存储备份的存储分段位于同一区域。
+
+
+
+=== DataLock和勒索软件保护设置
+
+每个备份策略都为_DataLock和勒索软件保护_提供了一个部分、您可以将其应用于备份文件。
+
+image:screenshot_datalock_ransomware_settings.png["创建备份策略时的DataLock和勒索软件保护设置屏幕截图。"]
+
+您可以为每个备份策略选择以下设置：
+
+* 无(默认)
++
+已禁用DataLock保护和勒索软件保护。
+
+* 企业级
++
+DataLock设置为_Enterprises_、其中具有特定权限的用户(link:concept-cloud-backup-policies.html#requirements["请参见下文"])可以在保留期间覆盖或删除备份文件。已启用勒索软件保护。
+
+* 合规性
++
+DataLock设置为_Compliance"、在保留期限内、任何用户都无法覆盖或删除备份文件。已启用勒索软件保护。
+
+
+
+
+
+=== 支持的工作环境和对象存储提供程序
+
+在以下公有 云提供商中使用对象存储时、您可以在以下工作环境中为ONTAP 卷启用DataLock和勒索软件保护。未来版本将添加更多公有 和私有云提供商。
+
+[cols="45,45"]
+|===
+| 源工作环境 | 备份文件目标ifdef：：AWS]] 
+
+
+| AWS 中的 Cloud Volumes ONTAP | Amazon S3 endf：：：AWS[] ifdef：：azure[] endf：：azure[] ifdef：：GCP () endf：：：GCP () ifdef.：：：AWS () 
+
+
+| 内部部署 ONTAP 系统 | Amazon S3 endif：：AWS [] ifdef：：azure[] endf：：azure[] ifdef：：GCP () endf：：：GCP () 
+|===
+
+
+=== 要求
+
+* 集群必须运行ONTAP 9.11.1或更高版本
+* 您必须使用Cloud Manager 3.9.21或更高版本(此时连接器必须部署在云中)
+* 要备份到AWS、以下S3权限必须属于为Connector提供权限的IAM角色：
++
+** S3 ： GetObjectVersionTagging
+** S3 ： GetBucketObjectLockConfiguration
+** S3：GetObjectVersionAcl
+** S3 ： PutObjectTagging
+** S3 ： DeleteObject
+** S3 ： DeleteObjectTagging
+** S3 ： GetObjectRetention
+** S3 ： DeleteObjectVersionTagging
+** S3 ： PutObject
+** S3 ： GetObject
+** S3 ： PutBucketObjectLockConfiguration
+** S3 ： GetLifeycleConfiguration
+** S3：ListBucketByTags
+** S3 ： GetBucketTagging
+** S3 ： DeleteObjectVersion
+** S3 ： ListBucketVersions
+** S3 ： ListBucket
+** S3 ： PutBucketTagging
+** S3 ： GetObjectTagging
+** S3 ： PutBucketVersioning
+** S3 ： PutObjectVersionTagging
+** S3 ： GetBucketVersioning
+** S3 ： GetBucketAcl
+** S3：BypassGovernanceRetention
+** S3 ： PutObjectRetention
+** S3 ： GetBucketLocation
+** S3 ： GetObjectVersion
++
+如果您希望管理员用户能够覆盖/删除使用企业模式锁定的备份文件、则必须将S3权限"S3：BypassGovernanceRetention"添加到Cloud Manager用户角色中。
+
+
+
+
+
+
+
+=== 限制
+
+* 如果您已在备份策略中配置归档存储、则无法使用DataLock和勒索软件保护。
+* 激活Cloud Backup时选择的DataLock选项(Enterprise或Compliance)必须用于该集群的所有备份策略。不能在单个集群上同时使用企业模式和合规模式锁定。
+* 如果启用DataLock、则所有卷备份都将被锁定。不能在一个集群中混用锁定卷备份和非锁定卷备份。
+* DataLock和勒索软件保护适用于使用启用了DataLock和勒索软件保护的备份策略的新卷备份。激活Cloud Backup后、您无法启用此功能。
+

@@ -18,6 +18,40 @@ summary: 了解 Cloud Backup 中的新增功能。
 
 
 
+== 2022年8月16日
+
+
+
+=== 现在、Azure Blob中的备份文件支持搜索和还原
+
+现在、将备份文件存储在Azure Blob存储中的用户可以使用"搜索和还原"方法还原卷和文件。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#prerequisites-2["请参见如何使用搜索和放大器还原卷和文件"^]。
+
+请注意、要使用此功能、需要在Connector角色中添加其他权限。使用3.9.21版软件(2022年8月)部署的Connector包含这些权限。如果您使用早期版本部署了Connector、则需要手动添加权限。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-azure.html#verify-or-add-permissions-to-the-connector["如有必要、请参见如何添加这些权限"^]。
+
+
+
+=== 我们增加了保护备份文件免遭删除和勒索软件攻击的功能
+
+Cloud Backup现在支持对象锁定、用于进行勒索软件安全备份。如果您的集群使用的是ONTAP 9.11.1或更高版本、而您的备份目标是Amazon S3、则现在可以使用一个名为_DataLock和勒索软件保护_的新备份策略选项。DataLock可防止您的备份文件被修改或删除、勒索软件保护功能会扫描您的备份文件、以查找您的备份文件遭到勒索软件攻击的证据。
+
+https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-cloud-backup-policies.html#datalock-and-ransomware-protection["详细了解如何使用DataLock和勒索软件保护来保护备份"^]。
+
+
+
+=== 对ONTAP 系统的备份策略进行了更多改进
+
+某些备份策略页面经过重新设计、可以更轻松地查看每个ONTAP 集群中的卷可用的所有备份策略。这样可以更轻松地查看可用策略的详细信息、以便您可以在卷上应用最佳策略。
+
+
+
+=== 拖放以启用Cloud Backup to Azure Blob和Google Cloud Storage
+
+如果 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-viewing-azure-blob.html["Azure Blob"^] 或 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-viewing-gcp-storage.html["Google Cloud 存储"^] 备份目标作为工作环境存在于Canvas上、您可以将本地ONTAP 集群或Cloud Volumes ONTAP 系统(安装在Azure或GCP中)拖动到工作环境中以启动备份设置向导。
+
+Amazon S3存储分段已具有此功能。
+
+
+
 == 2022年7月13日
 
 

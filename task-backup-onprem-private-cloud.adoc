@@ -163,7 +163,7 @@ S3 凭据:: 在设置到 StorageGRID 的备份时，备份向导会提示您为�
 
 
 
-NOTE: Cloud Manager Connector 内置了 Cloud Backup 功能。如果安装在无法连接 Internet 的站点上，则需要定期更新 Connector 软件才能访问新功能。检查 link:whats-new.html["Cloud Backup 新增功能"] 要查看每个 Cloud Backup 版本中的新功能，然后您可以按照步骤执行操作 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrading-the-connector-on-prem-without-internet-access["升级 Connector 软件"^] 希望使用新功能时。
+NOTE: Cloud Manager Connector 内置了 Cloud Backup 功能。如果安装在无法连接 Internet 的站点上，则需要定期更新 Connector 软件才能访问新功能。检查 link:whats-new.html["Cloud Backup 新增功能"] 要查看每个 Cloud Backup 版本中的新功能，然后您可以按照步骤执行操作 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrade-the-connector-on-prem-without-internet-access["升级 Connector 软件"^] 希望使用新功能时。
 
 
 
@@ -201,6 +201,9 @@ TIP: 将文件备份到 StorageGRID 时不支持 PAYGO 许可。
 .步骤
 . 在 Canvas 中，选择内部工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 > 备份卷 * 。
 +
+如果用于备份的StorageGRID 目标作为工作环境存在于Canvas上、则可以将集群拖动到StorageGRID 工作环境中以启动设置向导。
+
++
 image:screenshot_backup_onprem_enable.png["屏幕截图显示了 Backup & amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"]
 
 . 选择 * StorageGRID 提供程序 * ，单击 * 下一步 * ，然后输入提供程序详细信息：
@@ -222,7 +225,7 @@ image:screenshot_backup_provider_settings_storagegrid.png["显示将卷从内部
 . 输入要用于默认策略的备份策略详细信息、然后单击*下一步*。您可以选择现有策略、也可以通过在每个部分中输入所做的选择来创建新策略：
 +
 .. 输入默认策略的名称。您无需更改名称。
-.. 定义备份计划并选择要保留的备份数。 link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings-per-cluster["请参见您可以选择的现有策略列表"^]。
+.. 定义备份计划并选择要保留的备份数。 link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings["请参见您可以选择的现有策略列表"^]。
 +
 image:screenshot_backup_onprem_policy.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中选择备份计划和保留期限。"]
 

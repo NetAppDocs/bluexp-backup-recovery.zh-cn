@@ -73,6 +73,56 @@ image:diagram_cloud_backup_cvo_azure.png["显示 Cloud Backup 如何与备份文
 您需要为备份所在的存储空间订阅 Microsoft Azure 。
 
 --
+验证并向Connector添加权限:: 要使用Cloud Backup搜索和还原功能、您需要对Connector的角色拥有特定权限、以便它可以访问Azure Synapse Workspace和Data Lake存储帐户。请参见以下权限、如果需要修改策略、请按照以下步骤进行操作。
++
+--
+您必须在订阅中注册Azure Synapse分析资源提供商。 https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider["了解如何为您的订阅注册此资源提供商"^]。您必须是订阅*所有者*或*贡献者*才能注册资源提供程序。
+
+.步骤
+. 确定分配给 Connector 虚拟机的角色：
++
+.. 在 Azure 门户中，打开虚拟机服务。
+.. 选择 Connector 虚拟机。
+.. 在设置下，选择 * 身份 * 。
+.. 单击 * Azure 角色分配 * 。
+.. 记下分配给 Connector 虚拟机的自定义角色。
+
+
+. 更新自定义角色：
++
+.. 在 Azure 门户中，打开 Azure 订阅。
+.. 单击 * 访问控制（ IAM ） > 角色 * 。
+.. 单击自定义角色的省略号（ ... ），然后单击 * 编辑 * 。
+.. 单击 JSON 并添加以下权限：
++
+[source, json]
+----
+"Microsoft.Storage/checknameavailability/read",
+"Microsoft.Storage/operations/read",
+"Microsoft.Storage/storageAccounts/listkeys/action",
+"Microsoft.Storage/storageAccounts/read",
+"Microsoft.Storage/storageAccounts/write",
+"Microsoft.Storage/storageAccounts/blobServices/containers/read",
+"Microsoft.Storage/storageAccounts/listAccountSas/action",
+"Microsoft.Synapse/workspaces/write",
+"Microsoft.Synapse/workspaces/read",
+"Microsoft.Synapse/workspaces/delete",
+"Microsoft.Synapse/register/action",
+"Microsoft.Synapse/checkNameAvailability/action",
+"Microsoft.Synapse/workspaces/operationStatuses/read",
+"Microsoft.Synapse/workspaces/firewallRules/read",
+"Microsoft.Synapse/workspaces/replaceAllIpFirewallRules/action",
+"Microsoft.Synapse/workspaces/operationResults/read"
+----
++
+https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-azure.html["查看策略的完整 JSON 格式"^]
+
+.. 单击 * 查看 + 更新 * ，然后单击 * 更新 * 。
+
+
+
+
+--
 支持的 Azure 区域:: 所有 Azure 地区均支持 Cloud Backup https://cloud.netapp.com/cloud-volumes-global-regions["支持 Cloud Volumes ONTAP 的位置"^]；包括 Azure 政府区域。
 在其他 Azure 订阅中创建备份所需的设置:: 默认情况下，备份是使用与 Cloud Volumes ONTAP 系统相同的订阅创建的。如果要对备份使用其他 Azure 订阅，则必须使用 link:reference-backup-multi-account-azure.html["登录到 Azure 门户并链接这两个订阅"]。
 使用客户管理的密钥进行数据加密所需的信息:: 您可以在激活向导中使用自己的客户管理密钥进行数据加密，而不是使用默认的 Microsoft 管理的加密密钥。在这种情况下，您需要拥有 Azure 订阅，密钥存储名称和密钥。 https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["了解如何使用您自己的密钥"]。
@@ -114,6 +164,9 @@ Cloud Backup 在系统上启用，每天备份卷，并保留最近 30 个备份
 .步骤
 . 选择工作环境，然后单击右面板中备份和还原服务旁边的 * 启用 * 。
 +
+如果您的备份的Azure Blob目标作为工作环境存在于Canvas上、您可以将集群拖动到Azure Blob工作环境中以启动设置向导。
+
++
 image:screenshot_backup_cvo_enable.png["屏幕截图显示了 Cloud Backup Enable 按钮，该按钮可在您选择工作环境后使用。"]
 
 . 选择提供程序详细信息并单击 * 下一步 * ：
@@ -133,7 +186,7 @@ image:screenshot_backup_provider_settings_azure.png["显示将卷从 Cloud Volum
 . 输入要用于默认策略的备份策略详细信息、然后单击*下一步*。您可以选择现有策略、也可以通过在每个部分中输入所做的选择来创建新策略：
 +
 .. 输入默认策略的名称。您无需更改名称。
-.. 定义备份计划并选择要保留的备份数。 link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings-per-cluster["请参见您可以选择的现有策略列表"^]。
+.. 定义备份计划并选择要保留的备份数。 link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings["请参见您可以选择的现有策略列表"^]。
 .. 使用 ONTAP 9.10.1 及更高版本时，您可以选择在一定天数后将备份分层到 Azure 归档存储，以进一步优化成本。 link:reference-azure-backup-tiers.html["了解有关使用归档层的更多信息"]。
 +
 image:screenshot_backup_policy_azure.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中选择计划和备份保留。"]

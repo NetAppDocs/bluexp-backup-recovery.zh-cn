@@ -190,7 +190,7 @@ IP空间中的所有集群间LIF都必须能够访问对象存储。如果无法
 
 
 .步骤
-. 确认以下 S3 权限（从最新版本开始） https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager 策略"^]）是为 Connector 提供权限的 IAM 角色的一部分。
+. 确认以下 S3 权限（从最新版本开始） https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html["Cloud Manager 策略"^]）是为 Connector 提供权限的 IAM 角色的一部分。
 +
 [source, json]
 ----
@@ -216,6 +216,23 @@ IP空间中的所有集群间LIF都必须能够访问对象存储。如果无法
               "s3:GetBucketPolicy",
               "s3:PutBucketPublicAccessBlock",
               "s3:PutEncryptionConfiguration",
+              "s3:GetObjectVersionTagging",
+              "s3:GetBucketObjectLockConfiguration",
+              "s3:GetObjectVersionAcl",
+              "s3:PutObjectTagging",
+              "s3:DeleteObjectTagging",
+              "s3:GetObjectRetention",
+              "s3:DeleteObjectVersionTagging",
+              "s3:PutBucketObjectLockConfiguration",
+              "s3:ListBucketByTags",
+              "s3:DeleteObjectVersion",
+              "s3:GetObjectTagging",
+              "s3:PutBucketVersioning",
+              "s3:PutObjectVersionTagging",
+              "s3:GetBucketVersioning",
+              "s3:BypassGovernanceRetention",
+              "s3:PutObjectRetention",
+              "s3:GetObjectVersion",
               "athena:StartQueryExecution",
               "athena:GetQueryResults",
               "athena:GetQueryExecution",
@@ -233,7 +250,7 @@ IP空间中的所有集群间LIF都必须能够访问对象存储。如果无法
       },
 ----
 +
-如果您使用 3.9.15 或更高版本部署了 Connector ，则这些权限应已属于 IAM 角色。否则，您需要添加缺少的权限。具体来说就是 "Athena" 和 "glue" 权限，因为它们是搜索和还原所必需的。请参见 https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html["AWS 文档：编辑 IAM 策略"]。
+如果您使用3.9.21或更高版本部署了Connector、则这些权限应已属于IAM角色。否则，您需要添加缺少的权限。具体来说就是 "Athena" 和 "glue" 权限，因为它们是搜索和还原所必需的。请参见 https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html["AWS 文档：编辑 IAM 策略"]。
 
 . 激活此服务时，备份向导将提示您输入访问密钥和机密密钥。这些凭据将传递到 ONTAP 集群，以便 ONTAP 可以将数据备份和还原到 S3 存储分段。为此，您需要创建具有以下权限的 IAM 用户：
 +
@@ -365,10 +382,14 @@ image:screenshot_backup_onprem_aws_networking.png["屏幕截图显示了将卷�
 . 输入要用于默认策略的备份策略详细信息、然后单击*下一步*。您可以选择现有策略、也可以通过在每个部分中输入所做的选择来创建新策略：
 +
 .. 输入默认策略的名称。您无需更改名称。
-.. 定义备份计划并选择要保留的备份数。 link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings-per-cluster["请参见您可以选择的现有策略列表"^]。
-.. 使用 ONTAP 9.10.1 及更高版本时，您可以选择在一定天数后将备份分层到 S3 Glacier 或 S3 Glacier 深度归档存储，以进一步优化成本。 link:reference-aws-backup-tiers.html["了解有关使用归档层的更多信息"]。
+.. 定义备份计划并选择要保留的备份数。 link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings["请参见您可以选择的现有策略列表"^]。
+.. 或者、在使用ONTAP 9.11.1及更高版本时、您也可以选择通过配置_DataLock和勒索软件保护_设置之一来保护备份免受删除和勒索软件攻击。_DataLock_可防止您的备份文件被修改或删除、_勒索 软件保护_会扫描您的备份文件、以在备份文件中查找勒索软件攻击的证据。 link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["详细了解可用的DataLock设置"^]。
+.. 或者、在使用ONTAP 9.10.1及更高版本时、您也可以选择在一定天数后将备份分层到S3 Glacier或S3 Glacier深度归档存储、以进一步优化成本。 link:reference-aws-backup-tiers.html["了解有关使用归档层的更多信息"^]。
 +
 image:screenshot_backup_policy_aws.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中选择计划和备份保留。"]
+
++
+*重要信息：*如果您计划使用DataLock、则必须在激活Cloud Backup时在第一个策略中启用它。
 
 
 

@@ -81,7 +81,7 @@ image:diagram_cloud_backup_cvo_aws.png["显示 Cloud Backup 如何与备份文�
 支持的 AWS 区域:: 所有 AWS 地区均支持 Cloud Backup https://cloud.netapp.com/cloud-volumes-global-regions["支持 Cloud Volumes ONTAP 的位置"^]；包括 AWS GovCloud 地区。
 在其他 AWS 帐户中创建备份所需的设置:: 默认情况下，备份是使用与 Cloud Volumes ONTAP 系统相同的帐户创建的。如果要使用其他 AWS 帐户进行备份，则必须使用 link:reference-backup-multi-account-aws.html["登录到 AWS 门户并链接这两个帐户"]。
 使用客户管理的密钥进行数据加密所需的信息:: 您可以在激活向导中选择自己的客户管理的数据加密密钥，而不是使用默认的 Amazon S3 加密密钥。在这种情况下，您需要已设置加密受管密钥。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html["了解如何使用您自己的密钥"^]。
-需要 AWS 权限:: 为 Cloud Manager 提供权限的 IAM 角色必须包含最新版本的 S3 权限 https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager 策略"^]。
+需要 AWS 权限:: 为 Cloud Manager 提供权限的 IAM 角色必须包含最新版本的 S3 权限 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html["Cloud Manager 策略"^]。
 +
 --
 以下是策略中的特定权限：
@@ -110,6 +110,23 @@ image:diagram_cloud_backup_cvo_aws.png["显示 Cloud Backup 如何与备份文�
                 "s3:GetBucketPolicy",
                 "s3:PutBucketPublicAccessBlock",
                 "s3:PutEncryptionConfiguration",
+                "s3:GetObjectVersionTagging",
+                "s3:GetBucketObjectLockConfiguration",
+                "s3:GetObjectVersionAcl",
+                "s3:PutObjectTagging",
+                "s3:DeleteObjectTagging",
+                "s3:GetObjectRetention",
+                "s3:DeleteObjectVersionTagging",
+                "s3:PutBucketObjectLockConfiguration",
+                "s3:ListBucketByTags",
+                "s3:DeleteObjectVersion",
+                "s3:GetObjectTagging",
+                "s3:PutBucketVersioning",
+                "s3:PutObjectVersionTagging",
+                "s3:GetBucketVersioning",
+                "s3:BypassGovernanceRetention",
+                "s3:PutObjectRetention",
+                "s3:GetObjectVersion",
                 "athena:StartQueryExecution",
                 "athena:GetQueryResults",
                 "athena:GetQueryExecution",
@@ -129,7 +146,7 @@ image:diagram_cloud_backup_cvo_aws.png["显示 Cloud Backup 如何与备份文�
 --
 
 
-如果您使用 3.9.15 或更高版本部署了 Connector ，则这些权限应已属于 IAM 角色。否则，您需要添加缺少的权限。具体来说就是 "Athena" 和 "glue" 权限，因为它们是搜索和还原所必需的。
+如果您使用3.9.21或更高版本部署了Connector、则这些权限应已属于IAM角色。否则，您需要添加缺少的权限。具体来说就是 "Athena" 和 "glue" 权限，因为它们是搜索和还原所必需的。
 
 
 
@@ -184,10 +201,14 @@ image:screenshot_backup_provider_settings_aws.png["显示将卷从 Cloud Volumes
 . 输入要用于默认策略的备份策略详细信息、然后单击*下一步*。您可以选择现有策略、也可以通过在每个部分中输入所做的选择来创建新策略：
 +
 .. 输入默认策略的名称。您无需更改名称。
-.. 定义备份计划并选择要保留的备份数。 link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings-per-cluster["请参见您可以选择的现有策略列表"^]。
-.. 使用 ONTAP 9.10.1 及更高版本时，您可以选择在一定天数后将备份分层到 S3 Glacier 或 S3 Glacier 深度归档存储，以进一步优化成本。 link:reference-aws-backup-tiers.html["了解有关使用归档层的更多信息"]。
+.. 定义备份计划并选择要保留的备份数。 link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings["请参见您可以选择的现有策略列表"^]。
+.. 或者、在使用ONTAP 9.11.1及更高版本时、您也可以选择通过配置_DataLock和勒索软件保护_设置之一来保护备份免受删除和勒索软件攻击。_DataLock_可防止您的备份文件被修改或删除、_勒索 软件保护_会扫描您的备份文件、以在备份文件中查找勒索软件攻击的证据。 link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["详细了解可用的DataLock设置"^]。
+.. 或者、在使用ONTAP 9.10.1及更高版本时、您也可以选择在一定天数后将备份分层到S3 Glacier或S3 Glacier深度归档存储、以进一步优化成本。 link:reference-aws-backup-tiers.html["了解有关使用归档层的更多信息"]。
 +
 image:screenshot_backup_policy_aws.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中选择计划和备份保留。"]
+
++
+*重要信息：*如果您计划使用DataLock、则必须在激活Cloud Backup时在第一个策略中启用它。
 
 
 

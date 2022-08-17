@@ -149,6 +149,9 @@ Cloud Backup 在系统上启用，并备份您每天创建的卷，并保留最�
 .步骤
 . 选择工作环境，然后单击右面板中备份和还原服务旁边的 * 启用 * 。
 +
+如果用于备份的Google Cloud Storage目标作为工作环境存在于Canvas上、则可以将集群拖动到Google Cloud Storage工作环境中以启动设置向导。
+
++
 image:screenshot_backup_cvo_enable.png["屏幕截图显示了 Cloud Backup Settings 按钮，您可以在选择工作环境后使用该按钮。"]
 
 . 选择要为备份创建 Google Cloud Storage 存储分段的 Google Cloud Project 和区域，然后单击 * 下一步 * 。
@@ -161,7 +164,7 @@ image:screenshot_backup_provider_settings_gcp.png["显示将卷从 GCP 上安装
 . 输入要用于默认策略的备份策略详细信息、然后单击*下一步*。您可以选择现有策略、也可以通过在每个部分中输入所做的选择来创建新策略：
 +
 .. 输入默认策略的名称。您无需更改名称。
-.. 定义备份计划并选择要保留的备份数。 link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings-per-cluster["请参见您可以选择的现有策略列表"^]。
+.. 定义备份计划并选择要保留的备份数。 link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings["请参见您可以选择的现有策略列表"^]。
 +
 image:screenshot_backup_policy_gcp.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中启用或禁用此功能，然后选择备份保留。"]
 

@@ -51,7 +51,7 @@ image:screenshot_restore_dashboard.png["\" 还原信息板 \" 显示了使用 \"
 | 浏览文件夹样式的结构以查找单个备份文件中的卷或文件 | 在 * 所有备份文件 * 中按部分或完整卷名称，部分或完整文件名，大小范围以及其他搜索筛选器搜索卷或文件 
 
 
-| 卷和文件还原适用于存储在Amazon S3、Azure Blob、Google Cloud和NetApp StorageGRID 中的备份文件。 | 卷和文件还原适用于存储在Amazon S3和Google Cloud中的备份文件 
+| 卷和文件还原适用于存储在Amazon S3、Azure Blob、Google Cloud和NetApp StorageGRID 中的备份文件。 | 卷和文件还原适用于存储在Amazon S3、Azure Blob和Google Cloud中的备份文件 
 
 
 | 在无法访问Internet的站点中从StorageGRID 还原卷和文件 | 在非公开站点中不支持 
@@ -153,7 +153,10 @@ image:screenshot_restore_volume_selection.png["从还原信息板中选择还原
 +
 image:screenshot_restore_select_volume_snapshot.png["选择要还原的工作环境，卷和卷备份文件的屏幕截图。"]
 
-. 单击 * 继续 * 。
+. 单击 * 下一步 * 。
++
+请注意、如果对备份文件启用了勒索软件保护(如果您在备份策略中启用了DataLock和勒索软件保护)、则系统会提示您在还原数据之前对备份文件运行额外的勒索软件扫描。我们建议您扫描备份文件以查找勒索软件。
+
 . 在 _Select Destination_ 页面中，选择要还原卷的 * 工作环境 * 。
 +
 image:screenshot_restore_select_work_env_volume.png["为要还原的卷选择目标工作环境的屏幕截图。"]
@@ -222,7 +225,7 @@ Cloud Backup 会根据您选择的备份创建一个新卷。您可以 link:task
 
 
 
-=== 使用浏览和还原还原 ONTAP 文件
+=== 使用浏览和还原还原文件
 
 如果您只需要从 ONTAP 卷备份还原几个文件，则可以选择还原单个文件，而不是还原整个卷。您可以将文件还原到原始工作环境中的现有卷，也可以还原到使用同一云帐户的其他工作环境。您还可以将文件还原到内部 ONTAP 系统上的卷。
 
@@ -282,7 +285,10 @@ image:screenshot_restore_files_selection.png["从还原信息板中选择还原�
 +
 image:screenshot_restore_select_source.png["为要还原的文件选择卷和备份的屏幕截图。"]
 
-. 单击*继续*、此时将显示卷备份中的文件夹和文件列表。
+. 单击*下一步*、此时将显示卷备份中的文件夹和文件列表。
++
+请注意、如果对备份文件启用了勒索软件保护(如果您在备份策略中启用了DataLock和勒索软件保护)、则系统会提示您在还原数据之前对备份文件运行额外的勒索软件扫描。我们建议您扫描备份文件以查找勒索软件。
+
 +
 image:screenshot_restore_select_files.png["选择文件页面的屏幕截图，用于导航到要还原的文件。"]
 
@@ -374,6 +380,8 @@ endif::aws[]
 
 ifdef::azure[]
 
+link:reference-azure-backup-tiers.html["了解有关从 Azure 归档存储还原的更多信息"]。
+
 endif::azure[]
 
 开始之前，您应了解要还原的卷或文件的名称或位置。
@@ -398,16 +406,15 @@ video::RZktLe32hhQ[youtube,width=848,height=480]
 | Amazon S3 | AWS 内部 ONTAP 系统中的 Cloud Volumes ONTAP | AWS内部部署ONTAP 系统中的Cloud Volumes ONTAP endf：AWS [] ifdef：：azure[] 
 
 
-| Azure Blob | 当前不支持 | endif：：azure[] ifdef：：azure[] endf：：azure[] ifdef：：：gcp[] 
+| Azure Blob | Azure 内部 ONTAP 系统中的 Cloud Volumes ONTAP | Azure内部ONTAP 系统中的Cloud Volumes ONTAP endf：azure[] ifdef：：gcp[] 
 
 
 | Google Cloud 存储 | Google 内部 ONTAP 系统中的 Cloud Volumes ONTAP | Google内部部署ONTAP 系统中的Cloud Volumes ONTAP endf：gcp[] 
 
 
-| NetApp StorageGRID | 当前不支持 |  
+| NetApp StorageGRID | 当前不支持 | 当前不支持 
 |===
-
-TIP: 要获得此支持、必须在云提供商平台中部署Connector。如果您的内部安装了Connector、则不支持搜索和还原。
+必须在云提供商环境中部署Connector、才能使用搜索和还原执行还原操作。
 
 请注意， " 内部 ONTAP 系统 " 的引用包括 FAS ， AFF 和 ONTAP Select 系统。
 
@@ -440,6 +447,17 @@ ifdef::aws[]
 endif::aws[]
 
 ifdef::azure[]
+
+* Azure要求：
++
+** 您必须在订阅中注册Azure Synapse分析资源提供商。 https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider["了解如何为您的订阅注册此资源提供商"^]。您必须是订阅*所有者*或*贡献者*才能注册资源提供程序。
+** 必须将特定的Azure Synapse Workspace和Data Lake存储帐户权限添加到为Cloud Manager提供权限的用户角色中。 link:task-backup-onprem-to-azure.html#verify-or-add-permissions-to-the-connector["确保已正确配置所有权限"]。
++
+请注意、如果您已将Cloud Backup与以前配置的连接器结合使用、则现在需要将Azure Synapse Workspace和Data Lake存储帐户权限添加到Cloud Manager用户角色中。这些是新的，搜索和还原需要它们。
+
+
+
+
 
 endif::azure[]
 
@@ -494,6 +512,9 @@ ifdef::aws[]
 endif::aws[]
 
 ifdef::azure[]
+
+* 对于存储在Azure中的备份、它会配置一个Azure Synapse工作空间和一个Data Lake文件系统作为存储工作空间数据的容器。
+
 
 endif::azure[]
 

@@ -76,11 +76,11 @@ image:screenshot_backup_modify_policy_k8s.png["屏幕截图显示了备份设置
 
 . 在 _Manage Policies_ 页面中，为要在该工作环境中更改的备份策略单击 * 编辑策略 * 。
 +
-image:screenshot_backup_manage_policy_page_edit.png["显示 \" 管理策略 \" 页面中 \" 编辑策略 \" 按钮的屏幕截图。"]
+image:screenshot_backup_manage_policy_page_edit_k8s.png["显示 \" 管理策略 \" 页面中 \" 编辑策略 \" 按钮的屏幕截图。"]
 
 . 在 _Edit Policy_ 页面中，更改计划和备份保留，然后单击 * 保存 * 。
 +
-image:screenshot_backup_edit_policy.png["显示备份策略设置的屏幕截图，您可以在其中修改备份计划和备份保留设置。"]
+image:screenshot_backup_edit_policy_k8s.png["显示备份策略设置的屏幕截图，您可以在其中修改备份计划和备份保留设置。"]
 
 
 
@@ -181,7 +181,7 @@ image:screenshot_backup_view_k8s_backups_button.png["屏幕截图显示了可用
 此时将显示所有备份文件的列表。
 
 +
-image:screenshot_backup_view_backups.png["显示单个卷的所有备份文件列表的屏幕截图。"]
+image:screenshot_backup_view_backups_k8s.png["显示单个卷的所有备份文件列表的屏幕截图。"]
 
 . 单击 * 操作 * > * 删除所有备份 * 。
 +
@@ -205,11 +205,11 @@ image:screenshot_backup_view_k8s_backups_button.png["屏幕截图显示了可用
 此时将显示所有备份文件的列表。
 
 +
-image:screenshot_backup_view_backups.png["显示单个卷的所有备份文件列表的屏幕截图。"]
+image:screenshot_backup_view_backups_k8s.png["显示单个卷的所有备份文件列表的屏幕截图。"]
 
 . 单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于要删除的卷备份文件，然后单击 * 删除 * 。
 +
-image:screenshot_delete_one_backup.png["显示如何删除单个备份文件的屏幕截图。"]
+image:screenshot_delete_one_backup_k8s.png["显示如何删除单个备份文件的屏幕截图。"]
 
 . 在确认对话框中，单击 * 删除 * 。
 

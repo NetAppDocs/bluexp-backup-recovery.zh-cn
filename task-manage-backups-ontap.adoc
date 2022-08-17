@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-manage-backups-ontap.html 
 keywords: cloud backup, cloud backup service, backup schedule, change schedule, change backup schedule, modify schedule, modify backup schedule, retention, backup retention, delete, delete backups, deleting, deleting backups, disable, disable backups, turn off backups, disable cloud backup, turn off cloud backup 
-summary: 您可以通过更改备份计划，启用 / 禁用卷备份，删除备份等来管理 Cloud Volumes ONTAP 和内部 ONTAP 系统的备份。 
+summary: 您可以通过更改备份计划、创建新的备份策略、启用/禁用卷备份、删除备份等来管理Cloud Volumes ONTAP 和内部ONTAP 系统的备份。 
 ---
 = 管理 ONTAP 系统的备份
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 您可以通过更改备份计划，启用 / 禁用卷备份，删除�
 
 
 [role="lead"]
-您可以通过更改备份计划，启用 / 禁用卷备份，删除备份等来管理 Cloud Volumes ONTAP 和内部 ONTAP 系统的备份。
+您可以通过更改备份计划、创建新的备份策略、启用/禁用卷备份、删除备份等来管理Cloud Volumes ONTAP 和内部ONTAP 系统的备份。
 
 
 CAUTION: 请勿直接从云提供商环境管理或更改备份文件。这可能会损坏文件并导致配置不受支持。
@@ -27,7 +27,7 @@ CAUTION: 请勿直接从云提供商环境管理或更改备份文件。这可�
 
 .步骤
 . 从Cloud Manager左侧导航菜单中、单击*备份和还原*。
-. 单击 * 卷 * 选项卡可查看 Cloud Volumes ONTAP 和内部 ONTAP 系统的卷列表。
+. 单击*卷*选项卡可查看Cloud Volumes ONTAP 和内部ONTAP 系统的已备份卷列表。
 +
 image:screenshot_backup_dashboard.png["显示所有工作环境以及包含备份文件的卷的屏幕截图。"]
 
@@ -65,20 +65,30 @@ image:screenshot_backup_manage_volumes_page.png["管理卷页面，您可以在�
 
 您可以更改当前应用于工作环境中卷的备份策略的属性。更改备份策略会影响正在使用此策略的所有现有卷。
 
+[NOTE]
+====
+* 如果在为此集群激活Cloud Backup时在初始策略中启用了_DataLock和勒索软件保护_、则必须使用相同的DataLock设置(企业或合规性)配置您编辑的任何策略。如果在激活Cloud Backup时未启用_DataLock和勒索软件保护_、则无法立即启用DataLock。
+* 在AWS上创建备份时、如果在激活Cloud Backup时在第一个备份策略中选择_S3 Glacer_或_S3 Glacier Deep Archive_、则在编辑备份策略时、该层将是唯一可用的归档层。如果您在第一个备份策略中未选择任何归档层、则在编辑策略时、_S3 Glacer_将是您的唯一归档选项。
+
+
+====
 .步骤
 . 从 * 卷 * 选项卡中，选择 * 备份设置 * 。
 +
 image:screenshot_backup_settings_button.png["屏幕截图显示了卷选项卡中的备份设置按钮。"]
 
-. 从 _Backup Settings_ 页面中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于要更改设置的工作环境，请选择 * 管理策略 * 。
+. 从 _Backup Settings_ 页面中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于要更改策略设置的工作环境、请选择*管理策略*。
 +
 image:screenshot_backup_modify_policy.png["屏幕截图显示了备份设置页面中的管理策略选项。"]
 
-. 在 _Manage Policies_ 页面中，为要在该工作环境中更改的备份策略单击 * 编辑策略 * 。
+. 在_Manage Policies_页面中、单击*编辑*作为要在该工作环境中更改的备份策略。
++
+注意您可以单击 image:button_down_caret.png[""] 可查看策略的完整详细信息。
+
 +
 image:screenshot_backup_manage_policy_page_edit.png["显示 \" 管理策略 \" 页面中 \" 编辑策略 \" 按钮的屏幕截图。"]
 
-. 在 _Edit Policy_ 页面中，更改计划和备份保留，然后单击 * 保存 * 。
+. 从_Edit Policy_页面中、单击 image:button_down_caret.png[""] 要展开_Labels & Retenation_section以更改计划和/或备份保留、请单击*保存*。
 +
 image:screenshot_backup_edit_policy.png["显示备份策略设置的屏幕截图，您可以在其中修改备份计划和备份保留设置。"]
 
@@ -100,6 +110,8 @@ link:reference-azure-backup-tiers.html["了解有关使用 Azure 归档存储的
 
 endif::azure[]
 
++image:screenshot_backup_modify_policy_page2.png["屏幕截图显示了 Cloud Backup 的归档存储设置分层。"]
+
 +请注意、如果您停止将备份分层到归档存储、则已分层到归档存储的所有备份文件都会保留在该层中、而不会自动将这些备份移回标准层。
 
 
@@ -110,6 +122,13 @@ endif::azure[]
 
 如果要对工作环境中的某些卷应用新的备份策略，则首先需要将备份策略添加到工作环境中。然后，您可以 <<Changing the policy assigned to existing volumes,将此策略应用于该工作环境中的卷>>。
 
+[NOTE]
+====
+* 如果在为此集群激活Cloud Backup时在初始策略中启用了_DataLock和勒索软件保护_、则您创建的任何其他策略都必须使用相同的DataLock设置(企业或合规性)进行配置。如果在激活Cloud Backup时未启用_DataLock和勒索软件保护_、则无法使用DataLock创建新策略。
+* 在AWS上创建备份时、如果在激活Cloud Backup时在第一个备份策略中选择了_S3 Glacer_或_S3 Glacier Deep Archive_、则该层将是该集群未来备份策略中唯一可用的归档层。如果您在第一个备份策略中未选择任何归档层、则_S3 Glacier_将成为未来策略的唯一归档选项。
+
+
+====
 .步骤
 . 从 * 卷 * 选项卡中，选择 * 备份设置 * 。
 +
@@ -123,7 +142,7 @@ image:screenshot_backup_modify_policy.png["屏幕截图显示了备份设置页�
 +
 image:screenshot_backup_manage_policy_page_add.png["屏幕截图显示了 \" 管理策略 \" 页面中的 \" 添加新策略 \" 按钮。"]
 
-. 在 _Add New Policy_ 页面中，定义计划和备份保留，然后单击 * 保存 * 。
+. 从_添加新策略_页面中、单击 image:button_down_caret.png[""] 要展开_Labels & Retenation_section以定义计划和备份保留、请单击*保存*。
 +
 image:screenshot_backup_add_new_policy.png["显示备份策略设置的屏幕截图，您可以在其中添加备份计划和备份保留设置。"]
 
@@ -172,6 +191,10 @@ image:screenshot_backup_manage_volumes_page_change.png["管理卷页面，您可
 +
 image:screenshot_backup_change_policy.png["显示如何选择要应用于选定卷的新策略的屏幕截图。"]
 
++
+
+NOTE: 如果在为此集群激活Cloud Backup时在初始策略中启用了_DataLock和勒索软件保护_、则只会看到已配置DataLock的其他策略。如果在激活Cloud Backup时未启用_DataLock和勒索软件保护_、则只会看到未配置DataLock的其他策略。
+
 . 单击 * 保存 * 以提交更改。
 
 
@@ -210,7 +233,9 @@ image:screenshot_auto_backup.png["显示如何选择要分配给集群上所有�
 
 备份名称包含时间戳，以便您可以从其他计划的备份中确定按需备份。
 
-请注意、在创建临时备份时、系统会在源卷上创建Snapshot。由于此Snapshot不属于正常的Snapshot计划、因此不会关闭它。备份完成后、您可能需要从源卷中手动删除此Snapshot。这样可以释放与此Snapshot相关的块。Snapshot的名称将以`CBS-snapshot-adoc-`开头。 https://docs.netapp.com/us-en/ontap/san-admin/delete-all-existing-snapshot-copies-volume-task.html["请参见如何使用ONTAP 命令行界面删除快照"]。
+如果在为此集群激活Cloud Backup时启用了_DataLock和勒索软件保护_、则按需备份也会配置DataLock、保留期限为30天。临时备份不支持勒索软件扫描。 link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["了解有关DataLock和勒索软件保护的更多信息"^]。
+
+请注意、在创建临时备份时、系统会在源卷上创建Snapshot。由于此Snapshot不属于正常的Snapshot计划、因此不会关闭它。备份完成后、您可能需要从源卷中手动删除此Snapshot。这样可以释放与此Snapshot相关的块。Snapshot的名称将以`CBS-snapshot-adoc-`开头。 https://docs.netapp.com/us-en/ontap/san-admin/delete-all-existing-snapshot-copies-volume-task.html["请参见如何使用ONTAP 命令行界面删除快照"^]。
 
 
 NOTE: 数据保护卷不支持按需卷备份。
@@ -247,6 +272,34 @@ image:screenshot_backup_view_backups_button.png["屏幕截图显示了可用于�
 
 +
 image:screenshot_backup_view_backups.png["显示单个卷的所有备份文件列表的屏幕截图。"]
+
+
+
+
+
+== 对卷备份运行勒索软件扫描
+
+NetApp勒索软件保护软件会扫描您的备份文件、以便在创建备份文件以及还原备份文件中的数据时查找勒索软件攻击的证据。您还可以随时运行按需勒索软件保护扫描、以验证特定备份文件的可用性。如果您在特定卷上安装了勒索软件问题描述 、并且您希望验证该卷的备份是否不受影响、则此功能非常有用。
+
+只有在卷备份是从使用ONTAP 9.11.1或更高版本的系统创建的、并且您在备份策略中启用了_DataLock和勒索软件保护_时、此功能才可用。
+
+
+NOTE: 勒索软件扫描要求将备份文件下载到安装了Connector的Cloud Manager环境中。如果您在内部部署了Connector、则可能会从云提供商处产生额外的传出成本。因此、我们建议您在云中部署Connector、并且该连接器与存储备份的存储分段位于同一区域。
+
+.步骤
+. 从 * 卷 * 选项卡中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于源卷，然后选择 * 详细信息和备份列表 * 。
++
+image:screenshot_backup_view_backups_button.png["屏幕截图显示了可用于单个卷的详细信息和标记；备份列表按钮。"]
+
++
+此时将显示所有备份文件的列表。
+
+. 单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于要扫描的卷备份文件、请单击*勒索软件扫描*。
++
+image:screenshot_scan_one_backup.png["显示如何对单个备份文件运行勒索软件扫描的屏幕截图。"]
+
++
+勒索软件扫描列将显示扫描正在进行中。
 
 
 

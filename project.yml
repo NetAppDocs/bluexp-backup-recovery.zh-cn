@@ -7,6 +7,7 @@ settings:
   prod:
     pdf_enabled: true
     harmony_enabled: false
+  rss_page: whats-new.html
   filter:
     label: 云提供商
     default: 所有云提供商
@@ -34,7 +35,9 @@ sidebar:
     - title: 设置许可
       url: "/task-licensing-cloud-backup.html"
     - title: 监控备份和还原作业的状态
-      url: task-monitor-backup-jobs.html
+      url: "/task-monitor-backup-jobs.html"
+    - title: Cloud Backup策略设置
+      url: "/concept-cloud-backup-policies.html"
   - title: 备份和还原 ONTAP 数据
     entries:
     - title: 保护 ONTAP 数据
