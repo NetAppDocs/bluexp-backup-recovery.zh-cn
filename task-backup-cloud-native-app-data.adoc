@@ -1,0 +1,56 @@
+---
+sidebar: sidebar 
+permalink: task-backup-cloud-native-app-data.html 
+keywords: cloud native, application data, back up, policy, pre-canned policies, scheduled backups, on-demand backups 
+summary: 分配策略并备份数据库。 
+---
+= 备份Cloud原生 应用程序数据
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以分配预制策略、也可以创建策略、然后将其分配给数据库。分配策略后、将按照策略中定义的计划创建备份。您还可以创建按需备份。
+
+
+NOTE: 在为Oracle创建ASM磁盘组时、请确保磁盘组之间没有通用卷。每个磁盘组都需要具有专用卷。
+
+* 步骤 *
+
+. 在应用程序页面中、如果数据库未使用任何策略进行保护、请单击*分配策略*。
++
+如果使用一个或多个策略保护数据库、则可以通过单击来分配更多策略 image:icon-action.png["图标以选择操作"] >*分配策略*。
+
+. 选择策略并单击*分配*。
++
+备份将按照策略中定义的计划进行创建。
+
++
+
+NOTE: 服务帐户(_SnapCenter-account-<account_id>_)用于运行计划的备份操作。
+
+
+
+
+
+== 创建按需备份
+
+分配策略后、您可以为应用程序创建按需备份。
+
+* 步骤 *
+
+. 在应用程序页面中、单击 image:icon-action.png["图标以选择操作"] 对应于应用程序、然后单击*按需备份*。
+. 如果为应用程序分配了多个策略、请选择策略和保留值、然后单击*创建备份*。
+
+
+* 查找更多信息 *
+
+还原大型数据库(250 GB或更大)后、如果在同一数据库上执行完整备份、则操作可能会失败、并显示以下错误：
+
+`失败、状态代码为500、错误｛\"错误\"：｛\"代码\"：\"app_internal_error\"、\"消息\"：\"无法创建快照。原因：由于由快照备份的克隆、不允许执行快照操作。请稍后重试。`
+
+有关如何修复此问题描述 的信息、请参见： https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/Snapshot_operation_not_allowed_due_to_clones_backed_by_snapshots["由于由快照备份的克隆、不允许执行快照操作"]。

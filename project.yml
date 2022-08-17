@@ -83,20 +83,38 @@ sidebar:
       url: "/task-manage-backups-kubernetes.html"
     - title: 从 Kubernetes 备份还原
       url: "/task-restore-backups-kubernetes.html"
-  - title: 备份和还原内部应用程序数据
+  - title: 备份和还原应用程序数据
     entries:
-    - title: 保护内部应用程序数据
-      url: "/concept-protect-app-data-to-cloud.html"
-    - title: 将内部应用程序数据备份到云
-      url: "/task-backup-app-data-to-cloud.html"
-    - title: 管理应用程序的保护
-      url: "/task-manage-app-backups.html"
-    - title: 还原应用程序数据
+    - title: 备份和还原内部应用程序数据
       entries:
-      - title: 还原 Oracle 数据库
-        url: "/task-restore-oracle-data.html"
-      - title: 还原 SQL Server 数据库
-        url: "/task-restore-sql-data.html"
+      - title: 保护内部应用程序数据
+        url: "/concept-protect-app-data-to-cloud.html"
+      - title: 将内部应用程序数据备份到云
+        url: "/task-backup-app-data-to-cloud.html"
+      - title: 管理应用程序的保护
+        url: "/task-manage-app-backups.html"
+      - title: 还原应用程序数据
+        entries:
+        - title: 还原 Oracle 数据库
+          url: "/task-restore-oracle-data.html"
+        - title: 还原 SQL Server 数据库
+          url: "/task-restore-sql-data.html"
+    - title: 备份和还原Cloud原生 应用程序数据
+      entries:
+      - title: 保护您的Cloud原生 应用程序数据
+        url: "/concept-protect-cloud-app-data-to-cloud.html"
+      - title: 前提条件
+        url: "/reference-prereq-protect-cloud-native-app-data.html"
+      - title: 备份Cloud原生 应用程序数据
+        entries:
+        - title: 发现应用程序
+          url: "/task-discover-applications.html"
+        - title: 备份Cloud原生 应用程序数据
+          url: "/task-backup-cloud-native-app-data.html"
+      - title: 管理Cloud原生 应用程序数据的保护
+        url: "/task-manage-cloud-native-app-data.html"
+      - title: 还原Cloud原生 应用程序数据
+        url: "/task-restore-cloud-native-app-data.html"
   - title: 备份和还原虚拟机数据
     entries:
     - title: 保护虚拟机数据
@@ -173,14 +191,18 @@ homepage:
     - title: Kubernetes 集群到 Google Cloud
       url: task-backup-kubernetes-to-gcp.html
       flavor: gcp
-  - title: 备份和还原内部应用程序数据
+  - title: 备份和还原应用程序数据
     links:
     - title: 将内部应用程序数据备份到云
       url: task-backup-app-data-to-cloud.html
-    - title: 还原 Oracle 数据库
+    - title: 将Oracle数据库从云还原到内部
       url: task-restore-oracle-data.html
-    - title: 还原 SQL Server 数据库
+    - title: 将SQL Server数据库从云还原到内部
       url: task-restore-sql-data.html
+    - title: 备份Cloud原生 应用程序数据
+      url: task-backup-cloud-native-app-data.html
+    - title: 还原Cloud原生 应用程序数据
+      url: task-restore-cloud-native-app-data.html
   - title: 备份和还原虚拟机数据
     links:
     - title: 将数据存储库备份到云

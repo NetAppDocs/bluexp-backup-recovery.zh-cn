@@ -18,6 +18,16 @@ summary: 了解 Cloud Backup 中的新增功能。
 
 
 
+== 2022年8月18日
+
+
+
+=== 添加了保护Cloud原生 应用程序数据的支持
+
+Cloud Backup for Applications是一种基于SaaS的服务、可为在NetApp Cloud Storage上运行的应用程序提供数据保护功能。在NetApp Cloud Manager中启用的适用于应用程序的Cloud Backup可以为驻留在Amazon FSx for NetApp ONTAP 上的Oracle数据库提供高效、一致且基于策略的备份和还原。https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-cloud-app-data-to-cloud.html["了解更多信息。"]。
+
+
+
 == 2022年8月16日
 
 

@@ -1,0 +1,162 @@
+---
+sidebar: sidebar 
+permalink: task-manage-cloud-native-app-data.html 
+keywords: manage, view backup, monitor jobs, monitor 
+summary: 查看备份详细信息并监控所有作业的状态。 
+---
+= 管理Cloud原生 应用程序数据的保护
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+
+
+== 监控作业
+
+您可以监控在工作环境中启动的作业的状态。这样，您可以查看已成功完成的作业，当前正在进行的作业以及失败的作业，以便您可以诊断和修复任何问题。
+
+您可以查看所有操作及其状态的列表。每个操作或作业都有一个唯一的 ID 和一个状态。状态可以是：
+
+* 成功
+* 正在进行中
+* 已排队
+* 警告
+* 失败
+
+
+* 步骤 *
+
+. 单击*备份和还原*。
+. 单击*作业监控*
++
+您可以单击作业名称以查看与该操作对应的详细信息。如果您要查找特定作业，则可以：
+
++
+** 使用页面顶部的时间选择器查看特定时间范围的作业
+** 在搜索字段中输入部分作业名称
+** 在每个列标题中使用筛选器对结果进行排序
+
+
+
+
+
+
+== 查看备份详细信息
+
+您可以查看已创建的备份总数、用于创建备份的策略、数据库版本和代理ID。
+
+. 单击 * 备份和还原 * > * 应用程序 * 。
+. 单击 image:icon-action.png["图标以选择操作"] 对应于应用程序，然后单击 * 查看详细信息 * 。
+
+
+
+IMPORTANT: 代理ID与连接器关联。如果注册Oracle数据库主机期间使用的Connector不再存在、则该应用程序的后续备份将失败、因为新Connector的代理ID不同。您应运行*连接器更新* API以修改代理ID。
+
+
+
+== 更新连接器详细信息
+
+如果在注册Oracle数据库主机期间使用的Connector在AWS中不再存在或已损坏、则应部署一个新连接器。部署新连接器后、应运行*连接器更新* API以更新连接器详细信息。
+
+[listing]
+----
+curl --location --request PATCH 'https://snapcenter.cloudmanager.cloud.netapp.com/api/oracle/databases/connector-update' \
+--header 'x-account-id: <CM account-id>' \
+--header 'x-agent-id: <connector Agent ID >' \
+--header 'Authorization: Bearer token' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+"old_connector_id": "Old connector id that no longer exist",
+"new_connector_id": "New connector Id"
+}
+----
+更新Connector详细信息后、您应连接到Oracle数据库主机并执行以下步骤：
+
+. 获取Oracle数据库主机上运行的插件信息。`rpm -qi netapp-snapcenter-plugin-oracle`
+. 卸载此插件。`s使用/opt/netapp/snapcenter/spl/installation/plugins/uninstall`
+. 验证是否已成功卸载此插件。`rpm -qi netapp-snapcenter-plugin-oracle`
+
+
+卸载此插件后、您可以部署此插件。 link:reference-prereq-protect-cloud-native-app-data.html#deploy-snapcenter-plug-in-for-oracle["了解更多信息。"]。
+
+
+
+== 配置CA签名证书
+
+如果要为环境提供额外的安全性、可以配置CA签名证书。
+
+
+
+=== 配置CA签名证书以进行客户端证书身份验证
+
+此连接器使用自签名证书与插件进行通信。安装脚本会将自签名证书导入到密钥库中。您可以执行以下步骤将自签名证书替换为CA签名证书。
+
+* 您需要的内容 *
+
+您可以运行以下命令来获取_<base_mount_path>_：`sUdo Docker volume ls | grep SCS_cloud _volume _查｛'print $2'｝_ xargs sudo Docker volume inspect _ grep mountpoint`
+
+* 步骤 *
+
+. 登录到Connector。
+. 删除Connector虚拟机中位于_<base_mount_path>/client/certificate_的所有现有文件。
+. 将CA签名的证书和密钥文件复制到Connector虚拟机中的_<base_mount_path>/client/certificate_。
++
+文件名应为certification.pem和key.pem。certificate.pem应包含中间CA和根CA等整个证书链。
+
+. 使用名称certificate.p12创建证书的PKCS12格式、并保留在_<base_mount_path>/client/certificate_。
+. 将所有中间ca和root ca的certificate.p12和证书复制到位于/var/opt/snapcenter/spl/etc/的插件主机。
+. 登录到此插件主机。
+. 导航到_/var/opt/snapcenter/spl/etc_并运行keytool命令导入certificate.p12文件。`keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass SnapCenter -deststorepass SnapCenter -srccalibras agentcert -destalias agentcert -noprop`
+. 导入根CA和中间证书。`keytool -import -trustcacerks -keystore keystore.jks -storepass SnapCenter -alias trustedca -file <certificate.crT>`
++
+
+NOTE: certfile.crt是指根CA以及中间CA的证书。
+
+. 重新启动SPL：`systemctl restart spl`
+
+
+
+
+=== 为插件的服务器证书配置CA签名证书
+
+CA证书应具有Connector虚拟机与之通信的Oracle插件主机的确切名称。
+
+* 您需要的内容 *
+
+您可以运行以下命令来获取_<base_mount_path>_：`sUdo Docker volume ls | grep SCS_cloud _volume _查｛'print $2'｝_ xargs sudo Docker volume inspect _ grep mountpoint`
+
+* 步骤 *
+
+. 在插件主机上执行以下步骤：
++
+.. 导航到包含SPL密钥库的文件夹/var/opt/snapcenter/spl/etc_。
+.. 创建证书的PKCS12格式、此证书同时具有别名_splkeystorey的证书和密钥。
+.. 添加CA证书。`keytool -importkeystore -srckeystore <CertificatePathToImport>-srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcalibras splkeystore -destalias splkeystore -splkeystore -nodestalias splkeystore -noprop`
+.. 验证证书。`keytool -list -v -keystore keystore.jks`
+.. 重新启动SPL：`systemctl restart spl`
+
+
+. 在连接器上执行以下步骤：
++
+.. 以非root用户身份登录到Connector。
+.. 将整个CA证书链复制到位于_<base_mount_path>/server_的永久性卷。
++
+如果服务器文件夹不存在、请创建该文件夹。
+
+.. 连接到cloudmanager_SCS_cloud、并将_config.yml_中的* enableCACert_*修改为* true *。`sUdo Docker exec -t cloudmanager_SCS_cloud sed -i 's/enableCACert：false/enableCACert：true/g'/opt/netapp/cloudmanager-SCS-cloud/config/config.yml`
+.. 重新启动cloudmanager_SCS_cloud容器。`s使用Docker重新启动cloudmanager_SCS_cloud`
+
+
+
+
+
+
+== 访问REST API
+
+可以使用REST API将应用程序保护到云 https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/["此处"]。
+
+要访问REST API、您应获取具有联合身份验证的用户令牌。有关获取用户令牌的信息、请参见 https://docs.netapp.com/us-en/cloud-manager-automation/platform/create_user_token.html#create-a-user-token-with-federated-authentication["创建具有联合身份验证的用户令牌"]。

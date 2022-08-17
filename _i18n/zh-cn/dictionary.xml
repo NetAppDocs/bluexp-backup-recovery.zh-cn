@@ -2298,4 +2298,245 @@
   <block id="7600e0a33882cda0be97bd2356d39bbe" category="paragraph"><block ref="7600e0a33882cda0be97bd2356d39bbe" category="inline-image-macro-rx" type="image"></block></block>
   <block id="1487a5e00d27aaaa91d1643104c20943" category="paragraph">勒索软件扫描列将显示扫描正在进行中。</block>
   <block id="b01329b7279f4fcf0943153819def90d" category="sidebar">Cloud Backup策略设置</block>
+  <block id="15471566ffb385e256937957990dd60d" category="section-title">2022年8月18日</block>
+  <block id="d583f1393e45db7abf2dbb15da48eaad" category="section-title">添加了保护Cloud原生 应用程序数据的支持</block>
+  <block id="d59048f21fd887ad520398ce677be586" category="inline-link">了解更多信息。</block>
+  <block id="2593a2c9363d8a2c041c1dbe83f9c15d" category="paragraph">Cloud Backup for Applications是一种基于SaaS的服务、可为在NetApp Cloud Storage上运行的应用程序提供数据保护功能。在NetApp Cloud Manager中启用的适用于应用程序的Cloud Backup可以为驻留在Amazon FSx for NetApp ONTAP 上的Oracle数据库提供高效、一致且基于策略的备份和还原。<block ref="2ad7e7ba91bbada48f344044ccececc1" category="inline-link-rx"></block>。</block>
+  <block id="d1e18cf16b83a90a2911458097d3358c" category="summary">查看备份详细信息并监控所有作业的状态。</block>
+  <block id="a0535e3da7a79865ac35aff6cbcd9919" category="doc">管理Cloud原生 应用程序数据的保护</block>
+  <block id="4639d0e2e2909a747265c2f704128bca" category="section-title">监控作业</block>
+  <block id="a5cae278ab84c15ead127cbc4d6b2fc5" category="paragraph">您可以监控在工作环境中启动的作业的状态。这样，您可以查看已成功完成的作业，当前正在进行的作业以及失败的作业，以便您可以诊断和修复任何问题。</block>
+  <block id="728798e20e00a4c55a8af203c396664a" category="paragraph">您可以查看所有操作及其状态的列表。每个操作或作业都有一个唯一的 ID 和一个状态。状态可以是：</block>
+  <block id="f74780adaddcb04bf72bf42279df012b" category="list-text">单击*备份和还原*。</block>
+  <block id="2594a4aa0a4a9233f3cf8e1c4caa4a95" category="list-text">单击*作业监控*</block>
+  <block id="fe3d15e8bd4366923e66dfe06213a1c5" category="paragraph">您可以单击作业名称以查看与该操作对应的详细信息。如果您要查找特定作业，则可以：</block>
+  <block id="e645e09bf2ae6466ce5a92513bf9c99b" category="section-title">查看备份详细信息</block>
+  <block id="2026cd9f3452451ebd9f1826ae957f07" category="paragraph">您可以查看已创建的备份总数、用于创建备份的策略、数据库版本和代理ID。</block>
+  <block id="8307ee93b8170aa8987b3d6f8e51aac8" category="admonition">代理ID与连接器关联。如果注册Oracle数据库主机期间使用的Connector不再存在、则该应用程序的后续备份将失败、因为新Connector的代理ID不同。您应运行*连接器更新* API以修改代理ID。</block>
+  <block id="f9b1747cec7918dca1e5047effaf3259" category="section-title">更新连接器详细信息</block>
+  <block id="134a60e3938317ff562685b10b8fee90" category="paragraph">如果在注册Oracle数据库主机期间使用的Connector在AWS中不再存在或已损坏、则应部署一个新连接器。部署新连接器后、应运行*连接器更新* API以更新连接器详细信息。</block>
+  <block id="2905997274c538c5d6fbdf755bc6d755" category="paragraph">更新Connector详细信息后、您应连接到Oracle数据库主机并执行以下步骤：</block>
+  <block id="c95619f13c61aceb9ca308ac5737d119" category="list-text">获取Oracle数据库主机上运行的插件信息。`rpm -qi netapp-snapcenter-plugin-oracle`</block>
+  <block id="2db8ac6fb57f3dfda7f67af0f01e9870" category="list-text">卸载此插件。`s使用/opt/netapp/snapcenter/spl/installation/plugins/uninstall`</block>
+  <block id="84021a7592384dc15cd1c59ce7051645" category="list-text">验证是否已成功卸载此插件。`rpm -qi netapp-snapcenter-plugin-oracle`</block>
+  <block id="204818d35e6544dbc49720fa428fc2b7" category="paragraph">卸载此插件后、您可以部署此插件。 <block ref="7a9fe936bc0ede19b4e4e3b90573cf6b" category="inline-link-macro-rx"></block>。</block>
+  <block id="f713a5b618a13e567bd48c7c23bc1831" category="section-title">配置CA签名证书</block>
+  <block id="134db136339131109beaeb48cea408f5" category="paragraph">如果要为环境提供额外的安全性、可以配置CA签名证书。</block>
+  <block id="1be049720f3ffb604fc52816a938bb11" category="section-title">配置CA签名证书以进行客户端证书身份验证</block>
+  <block id="dbb66d78c3928dbc0e61b7f884e7d152" category="paragraph">此连接器使用自签名证书与插件进行通信。安装脚本会将自签名证书导入到密钥库中。您可以执行以下步骤将自签名证书替换为CA签名证书。</block>
+  <block id="d428ebb7ac02e1484781b38a799a4f99" category="paragraph">* 您需要的内容 *</block>
+  <block id="adf00ddb8543fe1ed45bb8de32ba885b" category="paragraph">您可以运行以下命令来获取_&lt;base_mount_path&gt;_：`sUdo Docker volume ls | grep SCS_cloud _volume _查｛'print $2'｝_ xargs sudo Docker volume inspect _ grep mountpoint`</block>
+  <block id="699212d80ab09d05f5a9a391baf6d544" category="list-text">登录到Connector。</block>
+  <block id="1845b86db638eeab64b5ff3ab9dbc93c" category="list-text">删除Connector虚拟机中位于_&lt;base_mount_path&gt;/client/certificate_的所有现有文件。</block>
+  <block id="a56e5be369d447142981b8da49d7d841" category="list-text">将CA签名的证书和密钥文件复制到Connector虚拟机中的_&lt;base_mount_path&gt;/client/certificate_。</block>
+  <block id="267fab2c93ee78a5b7b7c5cd3347f95d" category="paragraph">文件名应为certification.pem和key.pem。certificate.pem应包含中间CA和根CA等整个证书链。</block>
+  <block id="2efb3f1040cc3f0d3c2dd66f4495b045" category="list-text">使用名称certificate.p12创建证书的PKCS12格式、并保留在_&lt;base_mount_path&gt;/client/certificate_。</block>
+  <block id="6ae468147810acf5e01353e631db6d2e" category="list-text">将所有中间ca和root ca的certificate.p12和证书复制到位于/var/opt/snapcenter/spl/etc/的插件主机。</block>
+  <block id="49bcc463a5065066b6e686b906f3e34e" category="list-text">登录到此插件主机。</block>
+  <block id="2ded4a2cc80040552b54bdd308ecb919" category="list-text">导航到_/var/opt/snapcenter/spl/etc_并运行keytool命令导入certificate.p12文件。`keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass SnapCenter -deststorepass SnapCenter -srccalibras agentcert -destalias agentcert -noprop`</block>
+  <block id="0444de9e3c28e6b65560b207e6ea6eb4" category="list-text">导入根CA和中间证书。`keytool -import -trustcacerks -keystore keystore.jks -storepass SnapCenter -alias trustedca -file &lt;certificate.crT&gt;`</block>
+  <block id="0921a876e3fa3f2a29244d7daddce0fa" category="admonition">certfile.crt是指根CA以及中间CA的证书。</block>
+  <block id="22dfbb640fee5a33dc6e592f121a4423" category="list-text">重新启动SPL：`systemctl restart spl`</block>
+  <block id="e597c85c46a1bdddfd490c7ba2439138" category="section-title">为插件的服务器证书配置CA签名证书</block>
+  <block id="0b941bbfead62c679ca6504257b497f7" category="paragraph">CA证书应具有Connector虚拟机与之通信的Oracle插件主机的确切名称。</block>
+  <block id="b4d963286fa28cbb5370437141cd0168" category="list-text">在插件主机上执行以下步骤：</block>
+  <block id="7b852943c0907b3e2fc8ff580b6818ca" category="list-text">导航到包含SPL密钥库的文件夹/var/opt/snapcenter/spl/etc_。</block>
+  <block id="7dc3629efca54d7a3c55707ca70b7456" category="list-text">创建证书的PKCS12格式、此证书同时具有别名_splkeystorey的证书和密钥。</block>
+  <block id="f27e74c2f479d5c696c1f6493a57f9c3" category="list-text">添加CA证书。`keytool -importkeystore -srckeystore &lt;CertificatePathToImport&gt;-srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcalibras splkeystore -destalias splkeystore -splkeystore -nodestalias splkeystore -noprop`</block>
+  <block id="12fd234da34dd31a3a662ea38cd44d31" category="list-text">验证证书。`keytool -list -v -keystore keystore.jks`</block>
+  <block id="cb65bf79095d2a603886a95f598ed792" category="list-text">在连接器上执行以下步骤：</block>
+  <block id="a1aa9a792f7ca33ea1abf648a0ec7fdd" category="list-text">以非root用户身份登录到Connector。</block>
+  <block id="d1d5554a7a17586d4b526340b2b6eb45" category="list-text">将整个CA证书链复制到位于_&lt;base_mount_path&gt;/server_的永久性卷。</block>
+  <block id="be7eb785752c931973f4e426afdaa737" category="paragraph">如果服务器文件夹不存在、请创建该文件夹。</block>
+  <block id="d435e298ecd3e81d33c28c2ac5aaa9cf" category="list-text">连接到cloudmanager_SCS_cloud、并将_config.yml_中的* enableCACert_*修改为* true *。`sUdo Docker exec -t cloudmanager_SCS_cloud sed -i 's/enableCACert：false/enableCACert：true/g'/opt/netapp/cloudmanager-SCS-cloud/config/config.yml`</block>
+  <block id="beed6a355a0f3c2fec57e272c4df9a9b" category="list-text">重新启动cloudmanager_SCS_cloud容器。`s使用Docker重新启动cloudmanager_SCS_cloud`</block>
+  <block id="56221c5b2b531b839a3cd5c7e9c9cd9f" category="section-title">访问REST API</block>
+  <block id="e9d91293c5b15aa3d5a1944f0f3de884" category="paragraph">可以使用REST API将应用程序保护到云<block ref="34be8f96bca8ea568f4cd28ef35bb6b3" category="inline-link-rx"></block>。</block>
+  <block id="4512b12288e7290cb279f814b15ba5dc" category="inline-link">创建具有联合身份验证的用户令牌</block>
+  <block id="8753ca0304fc4dd31beb83f4a57f7b41" category="paragraph">要访问REST API、您应获取具有联合身份验证的用户令牌。有关获取用户令牌的信息、请参见<block ref="0eb587a835d0db317e25e938408a4ed2" category="inline-link-rx"></block>。</block>
+  <block id="4547c1343318e001ea786267b3cf7b84" category="summary">创建备份之前、请先完成前提条件。</block>
+  <block id="2b6b05a9503cc9277cb58c848aaebedb" category="paragraph">您应有权访问Cloud Manager、创建Cloud Manager帐户、创建工作环境和Connector、并部署适用于Oracle的SnapCenter 插件。</block>
+  <block id="e9f869a1fe63e475451ec5f9939329d0" category="section-title">访问 Cloud Manager</block>
+  <block id="63785c950a9f3cb1e82193ec1f7e49ee" category="inline-link-macro">注册到 NetApp Cloud Central</block>
+  <block id="5970bd5da21d70901770347c11bbaaaf" category="inline-link-macro">登录到 Cloud Manager</block>
+  <block id="0997707eec0eae6135d1ef326c72b2cc" category="paragraph">您应该 <block ref="dcf5e53b033259383f405d7eb45d19f3" category="inline-link-macro-rx"></block>， <block ref="183b44bd60add234aecf2ffe975eddd7" category="inline-link-macro-rx"></block>，然后设置 <block ref="8a2a59f9ec508dc199624b6dfabe5c9f" category="inline-link-macro-rx"></block>。</block>
+  <block id="bea93ac0c50dbd01324ebd42ff666cd8" category="section-title">为ONTAP 工作环境创建FSX</block>
+  <block id="bf7ec532103402eaed4653738655f6ad" category="inline-link-macro">开始使用适用于 ONTAP 的 Amazon FSX</block>
+  <block id="fdd19953ce3013e133d600a251e48a61" category="inline-link-macro">创建和管理适用于 ONTAP 的 Amazon FSX 工作环境</block>
+  <block id="231a24195067c2a2f27e2450ea7e64ed" category="paragraph">您应创建托管数据库的Amazon FSX for ONTAP 工作环境。有关信息、请参见 <block ref="44e37fc8d2d76ee1d15cd4a20acb0e0e" category="inline-link-macro-rx"></block> 和 <block ref="0e7e3006696ac3877ee032d5edb264d7" category="inline-link-macro-rx"></block>。</block>
+  <block id="e55bd0bd62587a7135a26e431bf28961" category="paragraph">您可以使用Cloud Manager或AWS创建NetApp FSX。如果您已使用AWS创建、则应在Cloud Manager中发现适用于ONTAP 系统的FSX。</block>
+  <block id="94ee7072c2750da1997438a715efb7d4" category="section-title">创建连接器</block>
+  <block id="3b6afa275397b4b253570f5eabb9a2a1" category="paragraph">客户管理员需要在AWS中部署一个连接器、以使Cloud Manager能够管理公有 云环境中的资源和流程。</block>
+  <block id="669d0dea66a5583967d79cc40bcc2eeb" category="inline-link-macro">通过 Cloud Manager 在 AWS 中创建连接器</block>
+  <block id="7929752d74ca66c9fd44a2ac7f86c9bd" category="paragraph">有关信息、请参见 <block ref="ec863d21fd023d992dac42777c6a3d19" category="inline-link-macro-rx"></block>。</block>
+  <block id="f6b8c8d4c527eaebdea85ded6d8cc15a" category="list-text">您应使用相同的连接器来管理FSX工作环境和Oracle数据库。</block>
+  <block id="9f69e13234533744e815d263723a5cd0" category="list-text">如果您的FSX工作环境和Oracle数据库位于同一个VPC中、则可以在同一个VPC中部署此连接器。</block>
+  <block id="fafa58ae12f83200fd5e76519a291a56" category="list-text">如果您的FSX工作环境和Oracle数据库位于不同的vPC中：</block>
+  <block id="cf0a8805abc36f57c061b63fdb27c4af" category="list-text">如果在FSX上配置了NAS (NFS)工作负载、则可以在任一VPC上创建连接器。</block>
+  <block id="4a2c2d38801ece7b96f22f796f2462e0" category="list-text">如果您仅配置了SAN工作负载、并且不打算使用任何NAS (NFS)工作负载、则应在创建FSX系统的VPC中创建连接器。</block>
+  <block id="ba6b286f0b29e48621c9d0bf4a77e627" category="admonition">要使用NAS (NFS)工作负载、您应在Oracle数据库VPC和FSX VPC之间设置传输网关。作为浮动IP地址的NFS IP地址只能通过传输网关从另一个VPC访问。我们无法通过对等VPC来访问浮动IP地址。</block>
+  <block id="7306372a8e221f9cbdc865504b72b173" category="paragraph">创建连接器后、单击*画布*&gt;*添加工作环境*、然后按照提示添加工作环境。确保已从连接器连接到Oracle数据库主机和FSX工作环境。此连接器应能够连接到FSX工作环境的集群管理IP地址。</block>
+  <block id="b45b202ba2cef5a8e5349896310f7f9d" category="admonition">创建连接器后、单击*连接器&gt;管理连接器*；选择连接器名称并复制连接器ID。</block>
+  <block id="5e61bf82718531b748f39eb54b38c9be" category="section-title">部署适用于Oracle的SnapCenter 插件</block>
+  <block id="e3582eb6307d182c5a2887fd0369d1bd" category="paragraph">您应在每个Oracle数据库主机上部署适用于Oracle的SnapCenter 插件。根据Oracle主机是否启用了基于SSH密钥的身份验证、您可以按照以下方法之一部署此插件。</block>
+  <block id="62dd90a4b8081cb4845caa73814d10a0" category="admonition">确保在每个Oracle数据库主机上安装了Java 8、并且正确设置了java_home变量。</block>
+  <block id="8bc030f1e919bad0129c5b3d55584aba" category="section-title">使用基于SSH密钥的身份验证进行插件部署</block>
+  <block id="8e838fded7b6768a9db83ab9aae95068" category="paragraph">如果在Oracle主机上启用了基于SSH密钥的身份验证、则可以执行以下步骤来部署此插件。在执行这些步骤之前、请确保已启用与连接器的SSH连接。</block>
+  <block id="d521743e97719d8ad5608d4bc9d5a2e7" category="list-text">以非root用户身份登录到Connector VM。</block>
+  <block id="da60bfd3c8edf7a67f3978209e164121" category="list-text">获取基本挂载路径。`sUdo Docker volume ls | grep SCS_cloud _volume _查｛'print $2'｝_ xargs sudo Docker volume inspect _ grep mountpoint`</block>
+  <block id="b53dbefef323a5c9bc3bba42f6ed328f" category="list-text">部署此插件。</block>
+  <block id="619078802916ca61a0299d0ee6490aa7" category="paragraph">`sUdo &lt;base_mount_path&gt;/scripts/oracle_plugin_copy_and_install.sh -host &lt;host_name&gt;-sshkey &lt;ssh_key_file&gt;-username &lt;user_name&gt;-port &lt;ssh_port&gt;-pluginport &lt;plug_port&gt;-installdir &lt;install_dir&gt;`</block>
+  <block id="d633b044fd8a9ca45f4d615327cbf109" category="list-text">host_name是Oracle主机的名称、这是一个必需参数。</block>
+  <block id="246e8001a4e784b85b078008797310ff" category="list-text">SSH_key_file是用于连接到Oracle主机的SSH密钥、这是一个必需参数。</block>
+  <block id="6dfc5d97de9ba63a607347a005f0ae81" category="list-text">user_name：在Oracle主机上具有SSH权限的用户、这是一个可选参数。默认值为EC2-user。</block>
+  <block id="3dbc2a858555e80cf398377571556499" category="list-text">SSH_port：Oracle主机上的SSH端口、这是一个可选参数。默认值为22</block>
+  <block id="e5a8e97642efe29ef958c3cafde091c8" category="list-text">plugin_port：插件使用的端口、这是一个可选参数。默认值为8145</block>
+  <block id="5e0c9d9b775ad3565e6649bfa8ec9800" category="list-text">install_dir：要部署此插件的目录、这是一个可选参数。默认值为/opt。</block>
+  <block id="1f4958a9fbdaa34d782046987faf9553" category="paragraph">例如：`sUdo /var/lib/docker/volumes/service-manager-2_cloudmanager_SCS_cloud_volume/_data/scripts/oracle_plugin_copy_and_install.sh -host xxx.xx.x.x -sshkey /keys/netapp-ssh.ppfk`</block>
+  <block id="19ce75ba7f615466dfa40bd305eda913" category="section-title">手动部署此插件</block>
+  <block id="1744dd19db9c80afac565572fb28289c" category="paragraph">如果Oracle主机上未启用基于SSH密钥的身份验证、则应执行以下手动步骤来部署此插件。</block>
+  <block id="e67d4d64b1a45fd340729c74de84b847" category="list-text">登录到Connector VM。</block>
+  <block id="274f1ac526644b363a1660f91b59759a" category="list-text">下载SnapCenter Linux主机插件二进制文件。`sUdo Docker exec -it cloudmanager_SCS_cloud curl -X get <block ref="b6b73f503ca62442f11ad4b84cc2f0bc" category="inline-link-rx"></block></block>
+  <block id="5f46deee08d4b3d1d62d6ffaf5f1db1c" category="list-text">获取下载插件的二进制路径。`s使用ls &lt;base_mount_path&gt;$(sudo Docker ps|grep -po"cloudmanager_SCS_cloud：.*？"|sed -e 's/*$//'|cut -f2 -d"：")/sc-linux-host-plugin/snapcenter_linux_host_plugin_scs.bin`</block>
+  <block id="b63053825a0c4e3a09fd276fe30a743b" category="list-text">使用scp或其他替代方法将_snapcenter_linux_host_plugin_SCS.bin_复制到每个Oracle数据库主机。</block>
+  <block id="24d579b70f755c08c217e309587abc2c" category="list-text">在Oracle数据库主机上、运行以下命令为二进制文件启用执行权限。`chmod +x snapcenter_linux_host_plugin_SCS.bin`</block>
+  <block id="c510a3598a8d1d8d28dc58297002b1f2" category="list-text">以root用户身份部署Oracle插件。`。/snapcenter_linux_host_plugin_scs.bin -I silent`</block>
+  <block id="e83ebe810e7607148882f52b5e3b71fd" category="list-text">将_certificate.p12_从Connector VM的_&lt;base_mount_path&gt;/client/certificate/_路径复制到插件主机上的_/var/opt/snapcenter/spl/etc/。</block>
+  <block id="7550e76395e0f500b3d970b6fa0ec73f" category="list-text">导航到_/var/opt/snapcenter/spl/etc_并执行keytool命令以导入证书。`keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass SnapCenter -deststorepass SnapCenter -srccalibras agentcert -destalias agentcert -noprop`</block>
+  <block id="c02273a1ac5db69a391d107c30235e7c" category="summary">分配策略并备份数据库。</block>
+  <block id="7e51ebaa71d2b6cbf4e46bba9bf8da43" category="doc">备份Cloud原生 应用程序数据</block>
+  <block id="4e7585fe5b33c787cec609e7fe6c85fb" category="paragraph">您可以分配预制策略、也可以创建策略、然后将其分配给数据库。分配策略后、将按照策略中定义的计划创建备份。您还可以创建按需备份。</block>
+  <block id="6aa308344acc0039bf47948542fd4e82" category="admonition">在为Oracle创建ASM磁盘组时、请确保磁盘组之间没有通用卷。每个磁盘组都需要具有专用卷。</block>
+  <block id="aeec20fb97ec5b367b439351c1c00204" category="list-text">在应用程序页面中、如果数据库未使用任何策略进行保护、请单击*分配策略*。</block>
+  <block id="114872d03378e25021c3cc928e318e8a" category="paragraph">如果使用一个或多个策略保护数据库、则可以通过单击来分配更多策略 <block ref="2231c326e067595aca2fb0545475acf4" category="inline-image-macro-rx" type="image"></block> &gt;*分配策略*。</block>
+  <block id="3c7ba9b9e3e6cc576a0786913d32d5df" category="list-text">选择策略并单击*分配*。</block>
+  <block id="098e4b45417a1ec0fafb90bed28e6424" category="paragraph">备份将按照策略中定义的计划进行创建。</block>
+  <block id="7ab4624b685848aa66b27397a83a5988" category="admonition">服务帐户(_SnapCenter-account-&lt;account_id&gt;_)用于运行计划的备份操作。</block>
+  <block id="c91ff5b89781f9b20673d63d2fbc4481" category="section-title">创建按需备份</block>
+  <block id="556daa2892e6c333b040f2f9ed98a222" category="paragraph">分配策略后、您可以为应用程序创建按需备份。</block>
+  <block id="ca46a9979585fdf43309efe203535615" category="list-text">在应用程序页面中、单击 <block ref="2231c326e067595aca2fb0545475acf4" category="inline-image-macro-rx" type="image"></block> 对应于应用程序、然后单击*按需备份*。</block>
+  <block id="7fd7a0a5300dbc1f2454a34738c54d80" category="list-text">如果为应用程序分配了多个策略、请选择策略和保留值、然后单击*创建备份*。</block>
+  <block id="fad3dbbe9841f42de249b688f1d47a80" category="paragraph">* 查找更多信息 *</block>
+  <block id="52d2104ff7f549558d1d92a9a7a2a1a3" category="paragraph">还原大型数据库(250 GB或更大)后、如果在同一数据库上执行完整备份、则操作可能会失败、并显示以下错误：</block>
+  <block id="f1019737785319ac86fe55929c140c9b" category="paragraph">`失败、状态代码为500、错误｛\"错误\"：｛\"代码\"：\"app_internal_error\"、\"消息\"：\"无法创建快照。原因：由于由快照备份的克隆、不允许执行快照操作。请稍后重试。`</block>
+  <block id="fe0a0332700b9a067272058245b48946" category="inline-link">由于由快照备份的克隆、不允许执行快照操作</block>
+  <block id="d78d082537913dac6697dabddff374dc" category="paragraph">有关如何修复此问题描述 的信息、请参见：<block ref="66c6329b50c8e15e4ce55612532f0653" category="inline-link-rx"></block>。</block>
+  <block id="a6c7c4de1c97d05aea18992c4dcc7774" category="summary">发现应用程序以分配策略并创建备份。</block>
+  <block id="b6a000d0b1cdbc32d0bef6d0258fa2f0" category="doc">发现应用程序</block>
+  <block id="b26de0535d797545cac86720fd096445" category="paragraph">您应发现主机上的数据库以分配策略并创建备份。</block>
+  <block id="f0ddc428cd7c3cf4949f9edfb049cb33" category="list-text">您应已创建适用于ONTAP 的FSX工作环境和连接器。</block>
+  <block id="5ff3ca14a716aed6cd7b9b8433daa620" category="list-text">确保此连接器已连接到适用于ONTAP 的FSX工作环境和Oracle数据库主机。</block>
+  <block id="07ac90068ab0b822a2eb368ff5b4a890" category="list-text">确保Cloud Manager用户具有"帐户管理员"角色。</block>
+  <block id="b284b4e1502b1e8b45eca415d2efe3b2" category="list-text">您应已部署适用于Oracle的SnapCenter 插件。 <block ref="7a9fe936bc0ede19b4e4e3b90573cf6b" category="inline-link-macro-rx"></block>。</block>
+  <block id="b86ebb4cc0bc3f74e54b9778132535d7" category="list-text">在Cloud Manager用户界面中、单击*备份和还原*&gt;*应用程序*。</block>
+  <block id="fe4137061bd2c33fe1c02ad6b9570b0e" category="list-text">单击发现应用程序。</block>
+  <block id="d20aa4d7347d2818451332f0d49b2253" category="list-text">选择* Cloud原生 *、然后单击*下一步*。</block>
+  <block id="63000a0fa2dbdc9bced04917b9fb5014" category="paragraph">系统会创建一个具有_Data SnapCenter System_角色的服务帐户、以便为此帐户中的所有用户执行计划的数据保护操作。</block>
+  <block id="2f1527fabf6b15b2c246b08aca9ef8a4" category="list-text">单击*帐户*&gt;*管理帐户*&gt;*成员*以查看服务帐户。</block>
+  <block id="0e0ba396f0687ce7517d861db155fb10" category="admonition">服务帐户(_SnapCenter-account-&lt;accounttid&gt;_)用于运行计划的备份操作。切勿删除此服务帐户。</block>
+  <block id="60b7fc487a9e8ffb8c92bd61f1e6f991" category="list-text">在指定主机详细信息页面中、输入Oracle数据库主机的详细信息、选中此复选框以确认此插件已安装在主机上、然后单击*发现*。</block>
+  <block id="0f450d6f93fc8c049d1423515f582f2d" category="list-text">显示主机上的所有数据库。如果数据库禁用了操作系统身份验证、则应单击*配置*来配置数据库身份验证。有关详细信息，请参见 <block ref="eb69440615f98753d53a91f4eeab39c2" category="inline-xref-macro-rx"></block>。</block>
+  <block id="3b8ee60b6a282d08697fd8cf49f22e98" category="list-text">单击*管理应用程序*、选择*添加*以添加新主机、选择*刷新*以发现新数据库、或者选择*删除*以删除数据库主机。</block>
+  <block id="16ed5cca317a8c59c781bc402c31999b" category="list-text">单击*设置*并选择*策略*以查看预制策略。查看预制策略、如果需要、您可以根据需要对其进行编辑或创建新策略。</block>
+  <block id="fd9cc0fdcc5cde5efec19c54d871da3a" category="section-title">配置Oracle数据库凭据</block>
+  <block id="94c3f93d78fcc4e31f273d4f220cd703" category="paragraph">您应配置用于对Oracle数据库执行数据保护操作的凭据。</block>
+  <block id="7809974cdd1cd4eb76ad1dcf91a3f425" category="list-text">如果数据库禁用了操作系统身份验证、则应单击*配置*来配置数据库身份验证。</block>
+  <block id="f285aa5a9da3baa99905c087902b8e87" category="list-text">在Database Settings或ASM Settings部分中指定用户名、密码和端口详细信息。</block>
+  <block id="8c204149f6ffccc490e6b851431463a6" category="paragraph">Oracle用户应具有sysdba特权、ASM用户应具有sysasm特权。</block>
+  <block id="3b5c5ae54533da138be94559c533a510" category="list-text">单击 * 配置 * 。</block>
+  <block id="af4141cf3fb8179af4deac9547c01278" category="section-title">创建策略</block>
+  <block id="91808c1a7549a55c53468ea4a50927d4" category="paragraph">如果不想编辑预制策略、可以创建策略。</block>
+  <block id="0afc66e0d31a963ebe19ebef4f887a60" category="list-text">在应用程序页面中、从设置下拉列表中选择*策略*。</block>
+  <block id="ab899735d36938b4c6cb8edd18a222e5" category="list-text">单击*创建策略*。</block>
+  <block id="d14a88e73f059d5716e327a50ec863a3" category="list-text">指定策略名称。</block>
+  <block id="478ed3048c4d215862134df0ae0d59db" category="list-text">(可选)编辑备份名称的格式。</block>
+  <block id="241958803b06afbd6f6eb3ef7dbbe9d8" category="list-text">指定计划和保留详细信息。</block>
+  <block id="f2a42a68e067e481d094b018459ef895" category="list-text">单击 * 创建 * 。</block>
+  <block id="2d60a7d5505e967af6be4b947aa60ea2" category="summary">在NetApp Cloud Manager中启用的适用于应用程序的Cloud Backup可以为驻留在Amazon FSx for NetApp ONTAP 上的Oracle®数据库提供高效、应用程序一致且基于策略的备份和还原。</block>
+  <block id="eb5668f5c3459c84cc715cf197e7c91a" category="doc">保护您的Cloud原生 应用程序数据</block>
+  <block id="ab1b44a5ff1afc799f4afe758f73f4db" category="paragraph">Cloud Backup for Applications是一种基于SaaS的服务、可为在NetApp Cloud Storage上运行的应用程序提供数据保护功能。在NetApp Cloud Manager中启用的适用于应用程序的Cloud Backup可以为驻留在Amazon FSx for NetApp ONTAP 上的Oracle数据库提供高效、一致且基于策略的备份和还原。</block>
+  <block id="2d242bb36ec91b32005f9296ff03a912" category="section-title">架构</block>
+  <block id="5e106a25aff8402c9cb720536f4f9763" category="paragraph">Cloud Backup for Applications架构包括以下组件。</block>
+  <block id="1de5da66f12460beeb95e94fe3acf74c" category="list-text">Cloud Backup for Applications是一组数据保护服务、由NetApp作为SaaS服务托管、基于Cloud Manager SaaS平台。</block>
+  <block id="5aa6aa9ade143b785fa0243d0138a6b5" category="paragraph">它会为驻留在NetApp Cloud Storage上的应用程序编排数据保护工作流。</block>
+  <block id="ed5f69fb9dcefc7c8d1ea57498acc62d" category="list-text">Cloud Backup for Applications UI与Cloud Manager UI集成在一起。</block>
+  <block id="64293a907ed741e8f0a2b7508ac14fb6" category="paragraph">Cloud Backup for Applications UI可提供多种存储和数据管理功能。</block>
+  <block id="e632fbfcf1324b1d2160076cbffec929" category="list-text">Cloud Manager Connector是Cloud Manager的一个组件、运行在云网络中、并与在Oracle数据库主机上运行的Amazon FSX存储文件系统和适用于Oracle的SnapCenter 插件进行交互。</block>
+  <block id="5c4f5775352fba72f33e34817f09707e" category="list-text">适用于Oracle的SnapCenter 插件是一个组件、它在每个Oracle数据库主机上运行、并在执行数据保护操作时与主机上运行的Oracle数据库进行交互。</block>
+  <block id="8fd81e906c023a2c3e318d13769fd642" category="inline-image-macro">显示Cloud Backup如何与不同组件进行通信的示意图</block>
+  <block id="c078c5cf04e16bf64233c82b0f994bcf" category="paragraph"><block ref="c078c5cf04e16bf64233c82b0f994bcf" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="28749d90f4cd68e33b1b408d538e85ce" category="paragraph">对于任何用户发起的请求、Cloud Backup for Applications UI都会与Cloud Manager SaaS进行通信、在验证请求后、SaaS会处理相同的请求。如果请求运行备份或还原等工作流、SaaS服务将启动此工作流、并在需要时将此呼叫转接到Cloud Manager Connector。然后、在运行工作流任务过程中、Connector会与适用于NetApp ONTAP 的Amazon FSX和适用于Oracle的SnapCenter 插件进行通信。</block>
+  <block id="ce820eb6e1b6a8cd96fc07f753a32646" category="paragraph">连接器可以部署在与Oracle数据库相同的VPC中、也可以部署在不同的VPC中。如果Connector和Oracle数据库位于不同的网络上、则应在它们之间建立网络连接。</block>
+  <block id="1f0b82560627b660c6c6958a1df834b8" category="section-title">支持的配置</block>
+  <block id="0f0f84cb9775a6f4ad6b4796bfcedfe9" category="list-text">操作系统</block>
+  <block id="70cfb8b329ca692c676669ef294b37c0" category="list-text">RHEL 7.5或更高版本以及8.x</block>
+  <block id="0d9cfc701256d81666be8cc96e8482b8" category="list-text">OL 7.5或更高版本以及8.x</block>
+  <block id="3a9b89e47751d4cfc28a55ca7c5efa97" category="list-text">存储系统：适用于ONTAP 的Amazon FSx</block>
+  <block id="fc2b0bcc44ac9f8bef7ad04de353a902" category="list-text">存储布局：NFS v3和v4.1 (支持DNFS)以及具有ASM的iSCSI (ASMFD、ASMLib和ASMUdev)</block>
+  <block id="477deb60a679be8d3ed7fc83c4ab4b80" category="list-text">应用程序：Oracle Standard和Oracle Enterprise—独立(原有和多租户—CDB和PDB)</block>
+  <block id="9a8f7463386e75f032fb3eacb8e8b03c" category="list-text">Oracle版本：12cR2、18c和19c</block>
+  <block id="e277e42688a9f44945fa8c1919bab726" category="section-title">支持的功能</block>
+  <block id="24952b37ce88035adf02c3d53375aee0" category="list-text">自动发现Oracle数据库</block>
+  <block id="7758fa39945c61d871cb2e22cbfde4ac" category="list-text">备份驻留在Amazon FSX for NetApp ONTAP 上的Oracle数据库</block>
+  <block id="a638d70a88de180abe34c16291fad0fe" category="list-text">完整备份(数据+控制+归档日志文件)</block>
+  <block id="f689f1139e089e78a96f2e9b69a62df4" category="list-text">按需备份</block>
+  <block id="4384c9d45fd41e6afb3574ea75e591da" category="list-text">根据系统定义或自定义策略计划备份</block>
+  <block id="4daab712a81f483acc692f943dfe93d2" category="paragraph">您可以在策略中指定不同的计划频率，例如每小时，每天，每周和每月。</block>
+  <block id="6e8413d03b75fe5c129c80ecf66704ec" category="list-text">根据策略保留备份</block>
+  <block id="e3252f42a980c18b105121b0076b45f4" category="list-text">从指定备份还原完整的Oracle数据库(数据文件+控制文件)</block>
+  <block id="be778790451ccfabb8b767b1ff36bbb6" category="list-text">仅从指定备份还原数据文件并仅从指定备份控制文件</block>
+  <block id="87f86331009f36ac6fc42b85e89dc536" category="list-text">使用直到SCN、直到时间、所有可用日志以及无恢复选项来恢复Oracle数据库</block>
+  <block id="60d9a229099000fec5710894db8b263b" category="list-text">监控备份和其他作业</block>
+  <block id="083c7158412d040e003ac1e9a9528d97" category="list-text">在信息板上显示保护摘要</block>
+  <block id="2dbc045edb5a2f6faf0c411d7f5f750f" category="list-text">通过电子邮件发送警报</block>
+  <block id="73dc94ffcc0a567690b7ed44ade89743" category="list-text">不支持Oracle 11g和21c版</block>
+  <block id="4f3dd1c11e04e3e830625603ea3a0656" category="list-text">不支持对备份执行挂载、克隆、目录和验证操作</block>
+  <block id="9c1f3568b85ef3ac4da7fc528340d6ba" category="list-text">不支持基于RAC的Oracle和Data Guard</block>
+  <block id="1814ab6cc8fc9cc32c4f16d1da6094aa" category="list-text">备份限制：</block>
+  <block id="9be91e24e83b7b8d24aef393ff8a2381" category="list-text">不支持联机数据或仅记录备份</block>
+  <block id="d190910a195191d85f25127df0bbb86a" category="list-text">不支持脱机备份</block>
+  <block id="45f390722d9189860abe14e4e14ebb87" category="list-text">不支持备份驻留在递归挂载点上的Oracle数据库</block>
+  <block id="5a9da4bd1ffdd301898f827c866a6242" category="list-text">对于位于多个与FSX卷重叠的ASM磁盘组上的Oracle数据库、不支持一致性组快照</block>
+  <block id="ce28a32d76b140c048ecb6813395af67" category="list-text">如果Oracle数据库是在ASM上配置的、请确保SVM名称在整个FSX系统中是唯一的。如果您在FSX系统中使用相同的SVM名称、则不支持备份位于这些SVM上的Oracle数据库。</block>
+  <block id="a0ff33890b3fd2f4c96ec82fd7574fa7" category="list-text">还原限制：</block>
+  <block id="4ef14390cecf5f2e8db0ad715ba85c82" category="list-text">不支持粒度还原、例如还原表空间和PDB</block>
+  <block id="f1efd5bb401cc568920943debec0ceaa" category="list-text">仅支持在NAS和SAN布局上原位还原Oracle数据库</block>
+  <block id="670750d3f8fb7d80a85c296423b52da5" category="list-text">不支持在SAN布局上仅还原控制文件或还原Oracle数据库的数据文件+控制文件</block>
+  <block id="4984eae824218c2ee5b053a837308d1c" category="list-text">在SAN布局中、如果适用于Oracle的SnapCenter 插件在ASM磁盘组上发现除Oracle数据文件以外的任何外部文件、还原操作将失败。外部文件可以是以下一种或多种类型：</block>
+  <block id="83f499a540b1323009c200d6f8cc9396" category="list-text">参数</block>
+  <block id="dc647eb65e6711e155375218212b3964" category="list-text">Password</block>
+  <block id="9358ddcf018549ad07e3696f1dff8b4c" category="list-text">归档日志</block>
+  <block id="bb139ed204a522e52c14c36896034ef9" category="list-text">联机日志</block>
+  <block id="84e9072345f79cd7577657ba68cc442b" category="list-text">ASM参数文件。</block>
+  <block id="64fe13c3daed1e3027d8bb4b94298917" category="paragraph">您应选中强制原位还原复选框以覆盖类型为参数、密码和归档日志的外部文件。</block>
+  <block id="7315764c2569272b1e380ace938a3acf" category="admonition">如果存在其他类型的外部文件、还原操作将失败、并且数据库无法恢复。如果您有其他类型的外部文件、则应在执行还原操作之前将其删除或移动到其他位置。</block>
+  <block id="290277c5012b9ace7fefb7c22949f0d8" category="paragraph">由于存在已知问题描述 、UI中的作业页面不会显示由于存在外部文件而导致的故障消息。如果在SAN预还原阶段发生故障、请检查连接器日志、以了解问题描述 的发生原因。</block>
+  <block id="bc75c7043b8e7365f3c8207f2cc978cc" category="summary">还原数据文件和/或控制文件、然后恢复数据库。</block>
+  <block id="2f82b783d7870b8b5a512057018fe6a5" category="doc">还原Cloud原生 应用程序数据</block>
+  <block id="c48a955b9e2bd6b7c7d520e85a16d929" category="paragraph">如果发生数据丢失、您可以还原数据文件、控制文件或这两者、然后恢复数据库。</block>
+  <block id="878f99c91be407d0f28af03c6c58cc11" category="list-text">单击 <block ref="2231c326e067595aca2fb0545475acf4" category="inline-image-macro-rx" type="image"></block> 对应于要还原的数据库、然后单击*查看详细信息*。</block>
+  <block id="0b666df245a6202aced91c7640467d2f" category="list-text">单击 <block ref="2231c326e067595aca2fb0545475acf4" category="inline-image-macro-rx" type="image"></block> 对应于要用于还原的数据备份、然后单击*还原*。</block>
+  <block id="843aa7f2a542d8c13efb89db29c10118" category="list-text">在还原范围部分中、执行以下操作：</block>
+  <block id="abad8f3214f3a57c46ff8ce273f3c2fa" category="paragraph">仅希望还原数据文件</block>
+  <block id="4bd405105ed225109f203541f762ba53" category="paragraph">选择*所有数据文件*。</block>
+  <block id="5e3a6b0deb07b1f0d86f9fd4c25d5341" category="paragraph">仅希望还原控制文件</block>
+  <block id="2b027c3e8a91495aa95819b2d3c346af" category="paragraph">选择*控制文件*</block>
+  <block id="e2409461f6ea701da10170dad92c38fc" category="paragraph">希望同时还原数据文件和控制文件</block>
+  <block id="d05b716bffd64ec8e96499377d58a7b2" category="paragraph">选择*所有数据文件*和*控制文件*。</block>
+  <block id="ad174c635135b0241d2c6d4374969f66" category="admonition">在ASM布局中、iSCSI不支持使用控制文件或仅使用控制文件还原数据文件。</block>
+  <block id="7d2ceeaac74ba98c2f8e824aabd0befa" category="paragraph">您也可以选中*强制原位还原*复选框。</block>
+  <block id="47834d28e751dd7e5975a028525b14e9" category="paragraph">强制原位还原*选项会覆盖数据文件磁盘组中的spfile、密码文件和归档日志文件。如果选择了*强制原位还原*选项、则应使用最新的备份。</block>
+  <block id="be7f025709fbae3f80cb8db551628640" category="list-text">在恢复范围部分中、执行以下操作：</block>
+  <block id="a536fe88f851033ec6d2f5f6c128564d" category="paragraph">选择*直到系统更改编号*并指定SCN。</block>
+  <block id="263cdfe5686f3877131daa2473fd6436" category="paragraph">希望恢复到特定日期和时间</block>
+  <block id="763290a7946a18694b0c5a20d1e9772f" category="paragraph">对于选定的恢复范围、您可以在*归档日志文件位置*字段中选择指定包含恢复所需归档日志的位置。</block>
+  <block id="1c4f2e7b048fcee5d429a4ba9afe4175" category="paragraph">如果要在恢复后以读写模式打开数据库、请选中此复选框。</block>
+  <block id="4b077d1c7e93e91ee6d4fb4a8eacdf33" category="list-text">单击*下一步*并查看详细信息。</block>
+  <block id="357a35aedd0c37deb3a881df778a9bb4" category="list-text">单击 * 还原 * 。</block>
+  <block id="4a5a82686ba9941f1667cdca6777b901" category="sidebar">备份和还原应用程序数据</block>
+  <block id="084829803f52f86aee9d787cb2c3581d" category="sidebar">备份和还原Cloud原生 应用程序数据</block>
+  <block id="b5604ed88817894a6aea9dc218c45b8e" category="sidebar">备份Cloud原生 应用程序数据</block>
+  <block id="e8a9eeac14cf83695d7d066f82b9ba23" category="sidebar">将Oracle数据库从云还原到内部</block>
+  <block id="0affc637f33b3e47ec0c95c6c88db865" category="sidebar">将SQL Server数据库从云还原到内部</block>
+  <block id="3a3684473cd3bbadce768d553de06b92" category="sidebar">还原Cloud原生 应用程序数据</block>
 </blocks>
