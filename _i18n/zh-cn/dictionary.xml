@@ -404,7 +404,6 @@
   <block id="d82c8d1619ad8176d665453cfb2e55f0" category="cell">53.</block>
   <block id="68d30a9594728bc39aa24be94b319d21" category="cell">84.</block>
   <block id="5878a7ab84fb43402106c575658472fa" category="cell">167.</block>
-  <block id="a7e7c161902b89529e86b7daad7aeeb5" category="paragraph">使用 ONTAP 系统管理器或 ONTAP 命令行界面在集群上创建的备份保护策略也会显示为选项。</block>
   <block id="5a86b6d60f717e520ba76b93bf1a3243" category="paragraph">达到某个类别或间隔的最大备份数后，较早的备份将被删除，以便始终拥有最新的备份。</block>
   <block id="6afa359ae2adeabaa8893b6d6e04b569" category="inline-link-macro">创建卷的按需备份</block>
   <block id="1095f97c4bec173a213de0ca32a85186" category="paragraph">请注意，您可以 <block ref="b7b6bc0e70e244618e72450b932ffb57" category="inline-link-macro-rx"></block> 除了从计划的备份创建的备份文件之外，还可以随时从备份信息板访问这些备份文件。</block>
@@ -491,7 +490,6 @@
   <block id="d5123a278330d06b4c6a49c46fbfea77" category="list-text">* 高 * ：检索速度最快，成本更高</block>
   <block id="8d70fe84b65f545b9afbc19b4cfad47d" category="list-text">* 标准 * ：检索速度较慢，成本较低</block>
   <block id="6126d3b472c1b1c4b6705061066b2d2f" category="inline-link">Azure 定价页面</block>
-  <block id="42cdaae1bb0a2c63736f18653f05a4d3" category="paragraph">每种方法的每 GB 检索费用和每次请求费用不同。有关按 Azure 地区列出的 Azure Archive 详细定价，请访问<block ref="999a6b0ef5bf4b54542c0d37075669b7" category="inline-link-rx"></block>。</block>
   <block id="44d79234e8cc3a930698d13630242596" category="list-text">还原在 Azure Archive 中归档的数据需要多长时间？</block>
   <block id="6aca3a1bf08dc93d3c63827bce83fb8d" category="list-text">还原时间由两部分组成：</block>
   <block id="01275562c5788c5ad8704b4ad3e51f6c" category="list-text">* 检索时间 * ：从 Azure Archive 检索已归档备份文件并将其置于冷存储中的时间。这有时称为 " 再融合 " 时间。根据您选择的还原优先级，检索时间会有所不同：</block>
@@ -499,7 +497,6 @@
   <block id="9c0683836e21c75a90fa25adbbbd8b6c" category="list-text">* 标准 * ： &lt; 15 小时</block>
   <block id="3a55623bb404bb02afb579f8019213e8" category="list-text">* 还原时间 * ：从冷存储中的备份文件还原数据的时间。这一时间与直接从冷存储执行的典型还原操作并无不同，因为此时不使用归档层。</block>
   <block id="88912c71cafd61e4eff373e99ff882b2" category="inline-link">此 Azure 常见问题解答</block>
-  <block id="a9b48704fbc5b34d71b112f5fc2c03c4" category="paragraph">有关 Azure 归档检索选项的详细信息，请参见<block ref="960a0efe526a68c25c3ba0f26ba0efbd" category="inline-link-rx"></block>。</block>
   <block id="1a006728799e11c8bf2ea45db7259826" category="summary">您可以通过更改备份计划，启用 / 禁用卷备份，删除备份等来管理 Kubernetes 系统的备份。</block>
   <block id="d9d975cbc0da4e37b5b7d60e338ad9df" category="doc">管理 Kubernetes 系统的备份</block>
   <block id="ac90263e404aa8dd4e258ec3b2975718" category="admonition">请勿直接从云提供商环境管理或更改备份文件。这可能会损坏文件并导致配置不受支持。</block>
@@ -2109,13 +2106,10 @@
   <block id="df69045929c0c3d81d05d291d9a65cdf" category="inline-link">如有必要、请参见如何添加这些权限</block>
   <block id="0d686592bdbc5c86f2ba1c8248bc44da" category="paragraph">请注意、要使用此功能、需要在Connector角色中添加其他权限。使用3.9.21版软件(2022年8月)部署的Connector包含这些权限。如果您使用早期版本部署了Connector、则需要手动添加权限。<block ref="0ebb6015b7a8d1b3b67f8b17b057acd1" category="inline-link-rx"></block>。</block>
   <block id="2f176cfab68c991edad2596ce5f71c26" category="section-title">我们增加了保护备份文件免遭删除和勒索软件攻击的功能</block>
-  <block id="0a3404862f01e82bee84db8919a15819" category="paragraph">Cloud Backup现在支持对象锁定、用于进行勒索软件安全备份。如果您的集群使用的是ONTAP 9.11.1或更高版本、而您的备份目标是Amazon S3、则现在可以使用一个名为_DataLock和勒索软件保护_的新备份策略选项。DataLock可防止您的备份文件被修改或删除、勒索软件保护功能会扫描您的备份文件、以查找您的备份文件遭到勒索软件攻击的证据。</block>
   <block id="9ca61d0605df8b23ed36445fbf3f2f6a" category="inline-link">详细了解如何使用DataLock和勒索软件保护来保护备份</block>
-  <block id="6dd6bb59703afa0fa4c54bab99ad8d4c" category="paragraph"><block ref="fe4d56bff61ff0408b8d5349d9b6a033" category="inline-link-rx"></block>。</block>
   <block id="a50aef84191a2a8583dff3169f0e9722" category="section-title">对ONTAP 系统的备份策略进行了更多改进</block>
   <block id="49ed93361b6144f58f401017aa6361d0" category="paragraph">某些备份策略页面经过重新设计、可以更轻松地查看每个ONTAP 集群中的卷可用的所有备份策略。这样可以更轻松地查看可用策略的详细信息、以便您可以在卷上应用最佳策略。</block>
   <block id="c386ae49c48be8bcc2fbd19ab4807c0a" category="section-title">拖放以启用Cloud Backup to Azure Blob和Google Cloud Storage</block>
-  <block id="b58db1afa291d3cbd84b014051cca4d9" category="paragraph">如果<block ref="a3c3477c66a633d03b9d52df95b2c874" category="inline-link-rx"></block> 或<block ref="d8758b85898e795623db75e4c1372f83" category="inline-link-rx"></block> 备份目标作为工作环境存在于Canvas上、您可以将本地ONTAP 集群或Cloud Volumes ONTAP 系统(安装在Azure或GCP中)拖动到工作环境中以启动备份设置向导。</block>
   <block id="b6f2e1a880ce20ab3d1039056746fa33" category="paragraph">Amazon S3存储分段已具有此功能。</block>
   <block id="e11804ac7111d8333d8a21998f8f8824" category="paragraph">如果在激活Cloud Backup时在第一个备份策略中选择_S3 Glacier或_S3 Glacier Deep Archive_、则该层将是该集群未来备份策略唯一可用的归档层。如果您在第一个备份策略中不选择任何归档层、则_S3 Glacier_将成为未来策略的唯一归档选项。</block>
   <block id="3978794209bf6e3d46ed93af65d2069d" category="list-text">确认以下 S3 权限（从最新版本开始）<block ref="8653992cee34401962fde5d56183ca3b" category="inline-link-rx"></block>）是为 Connector 提供权限的 IAM 角色的一部分。</block>
@@ -2158,13 +2152,11 @@
   <block id="72ed362887dfa09e979a0265f8247124" category="list-text">您可以选择系统定义的策略之一、这些策略可提供3个月、1年和7年的备份和保留期限。</block>
   <block id="c3453b6163eafb5ced9753c1ce3419e7" category="list-text">如果您已使用ONTAP 系统管理器或ONTAP 命令行界面在集群上创建自定义备份保护策略、则可以选择其中一个策略。</block>
   <block id="61b862400cd7156cb725e12fe1947d88" category="list-text">"*保留*"值用于定义每个标签的备份文件数量(时间范围)。在一个类别或间隔内达到最大备份数后、较早的备份将被删除、以便始终拥有最新的备份。这还可以节省存储成本、因为过时的备份不会继续占用云中的空间。</block>
-  <block id="d6ece57b14ea3d68c9628e88237b0d0a" category="paragraph">例如、假设您创建了一个备份策略、用于创建7个每周备份和12个每月备份：</block>
   <block id="292f9f5eb65ebf40fd71fda6e8b093e7" category="list-text">每周和每月都会为卷创建一个备份文件</block>
   <block id="b5cdfa0edd5a8bb432fe066f8fbcb82f" category="list-text">在第8周、第一个每周备份将被第8周的每周备份所取代(最多保留7个每周备份)</block>
   <block id="f229fe4211204b2ac0e2c6733e936325" category="list-text">在第13个月、第一个每月备份将替换为第13个月的每月备份(最多保留12个每月备份)</block>
   <block id="23433a4a1c369f850662f43bac40d8ae" category="section-title">DataLock和勒索软件保护</block>
   <block id="3960b74bd00136bf9d473cf143876ec1" category="paragraph">Cloud Backup为卷备份提供DataLock和勒索软件保护支持。通过这些功能、您可以锁定备份文件并对其进行扫描、以检测备份文件上可能存在的勒索软件。这是一个可选设置、当您希望为集群的卷备份提供额外保护时、可以在备份策略中定义此设置。</block>
-  <block id="76085670a3f59708cd25cb322f4d6f97" category="paragraph">这两项功能均可保护您的备份文件、以便您始终拥有一个有效的备份文件、以便在源数据遭受勒索软件攻击时从恢复数据。如果备份需要锁定并保留一段时间、则满足某些法规要求也会很有帮助。启用DataLock和勒索软件保护后、在Cloud Backup激活过程中配置的云分段将启用对象锁定。</block>
   <block id="6c73c9d6c177001ef79643ba7b341c9e" category="list-text">如果您计划使用DataLock和勒索软件保护、则必须在为该集群创建第一个备份策略并激活Cloud Backup时启用它。</block>
   <block id="9f6fa998ef483bd08f4d11dca07b347a" category="list-text">配置集群后、无法为其禁用DataLock和勒索软件保护。请勿在集群上启用此功能以试用。</block>
   <block id="921b747c1abfd997d26a273c0b62011b" category="section-title">什么是DataLock</block>
@@ -2301,7 +2293,6 @@
   <block id="15471566ffb385e256937957990dd60d" category="section-title">2022年8月18日</block>
   <block id="d583f1393e45db7abf2dbb15da48eaad" category="section-title">添加了保护Cloud原生 应用程序数据的支持</block>
   <block id="d59048f21fd887ad520398ce677be586" category="inline-link">了解更多信息。</block>
-  <block id="2593a2c9363d8a2c041c1dbe83f9c15d" category="paragraph">Cloud Backup for Applications是一种基于SaaS的服务、可为在NetApp Cloud Storage上运行的应用程序提供数据保护功能。在NetApp Cloud Manager中启用的适用于应用程序的Cloud Backup可以为驻留在Amazon FSx for NetApp ONTAP 上的Oracle数据库提供高效、一致且基于策略的备份和还原。<block ref="2ad7e7ba91bbada48f344044ccececc1" category="inline-link-rx"></block>。</block>
   <block id="d1e18cf16b83a90a2911458097d3358c" category="summary">查看备份详细信息并监控所有作业的状态。</block>
   <block id="a0535e3da7a79865ac35aff6cbcd9919" category="doc">管理Cloud原生 应用程序数据的保护</block>
   <block id="4639d0e2e2909a747265c2f704128bca" category="section-title">监控作业</block>
@@ -2539,4 +2530,15 @@
   <block id="e8a9eeac14cf83695d7d066f82b9ba23" category="sidebar">将Oracle数据库从云还原到内部</block>
   <block id="0affc637f33b3e47ec0c95c6c88db865" category="sidebar">将SQL Server数据库从云还原到内部</block>
   <block id="3a3684473cd3bbadce768d553de06b92" category="sidebar">还原Cloud原生 应用程序数据</block>
+  <block id="82aa9a316dbbb378e25972999e35a45b" category="paragraph">Cloud Backup for Applications是一种基于SaaS的服务、可为在NetApp Cloud Storage上运行的应用程序提供数据保护功能。Cloud Manager中启用的适用于应用程序的Cloud Backup可为驻留在Amazon FSx for NetApp ONTAP 上的Oracle数据库提供高效、应用程序一致且基于策略的备份和还原。<block ref="5774010e75c0af5301ef0cfe74198590" category="inline-link-rx"></block>。</block>
+  <block id="e7f0bd203723dde56c408349b772431e" category="paragraph">Cloud Backup现在支持对象锁定、用于进行勒索软件安全备份。如果您的集群使用的是ONTAP 9.11.1或更高版本、而您的备份目标是Amazon S3、则现在可以使用一个名为_DataLock和勒索软件保护_的新备份策略选项。DataLock可防止您的备份文件被修改或删除、勒索软件保护功能会扫描您的备份文件、以查找您的备份文件遭到勒索软件攻击的证据。<block ref="3f7eaa3e30bb5eb7a46ecb7c423ee7ad" category="inline-link-rx"></block>。</block>
+  <block id="4a13f748ffea2bf384ee164062e7e17f" category="paragraph">请注意、要使用此功能、需要在Connector角色中添加其他权限。使用3.9.21版软件部署的Connector包含这些权限。如果您使用早期版本部署了Connector、则需要手动添加权限。<block ref="b51546833a3c96ab5b8c4e49b196cd94" category="inline-link-rx"></block>。</block>
+  <block id="9fa4d73f6f3d752a69adeebba1959edb" category="section-title">Cloud Backup现在支持使用自定义SnapMirror标签创建的策略</block>
+  <block id="387856638678798c3ffb0e38b39170c6" category="paragraph">以前、Cloud Backup仅支持预定义的SnapMirror标签、例如每小时、每天、每周、每小时和每年。现在、Cloud Backup可以发现包含您使用System Manager或CLI创建的自定义SnapMirror标签的SnapMirror策略。这些新标签会显示在Cloud Backup UI中、您可以使用所选的SnapMirror标签将卷备份到云中。</block>
+  <block id="1c630f0a83d0317db1fef94fb4dac579" category="paragraph">如果<block ref="a3c3477c66a633d03b9d52df95b2c874" category="inline-link-rx"></block> 或<block ref="d8758b85898e795623db75e4c1372f83" category="inline-link-rx"></block> 备份目标作为工作环境存在于Canvas上、您可以将本地ONTAP 或Cloud Volumes ONTAP 工作环境(安装在Azure或GCP中)拖动到目标上以启动备份设置向导。</block>
+  <block id="a0646b3eeded4d50d4b53f936c6ea8ba" category="paragraph">每种方法的每 GB 检索费用和每次请求费用不同。有关按 Azure 地区列出的 Azure Archive 详细定价，请访问<block ref="4ee6d54a3207816e6d096f3e3d7f8896" category="inline-link-rx"></block>。</block>
+  <block id="198c941b68b959d876c1fe884654eb0f" category="paragraph">有关 Azure 归档检索选项的详细信息，请参见<block ref="932993244834a73e92c6a33c0a2e980e" category="inline-link-rx"></block>。</block>
+  <block id="3d30a92654c5a6882d28070729a841a2" category="paragraph">例如、假设您创建了一个备份策略、用于创建7个*每周*备份和12个*每月*备份：</block>
+  <block id="8532188e44adde5f81b7984cddff4e7d" category="paragraph">这两项功能均可保护您的备份文件、以便您始终拥有一个有效的备份文件、以便在源数据遭受勒索软件攻击时从恢复数据。如果备份需要锁定并保留一段时间、则满足某些法规要求也会很有帮助。启用DataLock和勒索软件保护后、在Cloud Backup激活过程中配置的云分段将启用对象锁定和对象版本控制。</block>
+  <block id="311552a792e16e94720630e5e49001fe" category="paragraph">使用 ONTAP 系统管理器或 ONTAP 命令行界面在集群上创建的备份保护策略也会显示为选项。其中包括使用自定义SnapMirror标签创建的策略。</block>
 </blocks>

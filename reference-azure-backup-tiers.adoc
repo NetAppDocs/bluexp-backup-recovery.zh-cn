@@ -41,7 +41,7 @@ https://docs.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview["了�
 * * 标准 * ：检索速度较慢，成本较低
 
 
-每种方法的每 GB 检索费用和每次请求费用不同。有关按 Azure 地区列出的 Azure Archive 详细定价，请访问 https://azure.microsoft.com/en-us/pricing/details/storage/blobs/["Azure 定价页面"]。
+每种方法的每 GB 检索费用和每次请求费用不同。有关按 Azure 地区列出的 Azure Archive 详细定价，请访问 https://azure.microsoft.com/en-us/pricing/details/storage/blobs/["Azure 定价页面"^]。
 
 --
 还原在 Azure Archive 中归档的数据需要多长时间？:: 还原时间由两部分组成：
@@ -56,7 +56,7 @@ https://docs.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview["了�
 * * 还原时间 * ：从冷存储中的备份文件还原数据的时间。这一时间与直接从冷存储执行的典型还原操作并无不同，因为此时不使用归档层。
 
 
-有关 Azure 归档检索选项的详细信息，请参见 https://azure.microsoft.com/en-us/pricing/details/storage/blobs/#faq["此 Azure 常见问题解答"]。
+有关 Azure 归档检索选项的详细信息，请参见 https://azure.microsoft.com/en-us/pricing/details/storage/blobs/#faq["此 Azure 常见问题解答"^]。
 
 --
 
