@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: concept-cloud-backup-policies.html 
-keywords: backing up, back up, backup, back up volumes, cloud backup, backup policies, policies 
+keywords: backing up, back up, backup, back up volumes, cloud backup, backup policies, policies, schedules 
 summary: 本文档介绍Cloud Backup的备份策略配置设置。 
 ---
 = Cloud Backup策略配置设置
@@ -193,4 +193,55 @@ DataLock设置为_Compliance"、在保留期限内、任何用户都无法覆盖
 * 激活Cloud Backup时选择的DataLock选项(Enterprise或Compliance)必须用于该集群的所有备份策略。不能在单个集群上同时使用企业模式和合规模式锁定。
 * 如果启用DataLock、则所有卷备份都将被锁定。不能在一个集群中混用锁定卷备份和非锁定卷备份。
 * DataLock和勒索软件保护适用于使用启用了DataLock和勒索软件保护的备份策略的新卷备份。激活Cloud Backup后、您无法启用此功能。
+
+
+
+
+== 归档存储设置
+
+使用特定云存储时、您可以在一定天数后将旧备份文件移至成本较低的存储类/访问层。请注意、如果已启用DataLock、则无法使用归档存储。
+
+在需要时、无法立即访问归档层中的数据、并且需要较高的检索成本、因此您需要考虑从归档备份文件还原数据的频率。
+
+在AWS或Azure中创建备份文件时、每个备份策略都会为_Archival Policy_提供一个部分、您可以将其应用于备份文件。
+
+image:screenshot_archive_tier_settings.png["创建备份策略时归档策略设置的屏幕截图。"]
+
+ifdef::aws[]
+
+* 在 AWS 中，备份从 _Standard_ 存储类开始，并在 30 天后过渡到 _Standard-Infrequent Access_ 存储类。
++
+如果集群使用的是ONTAP 9.10.1或更高版本、则可以选择在一定天数后在云备份UI中将旧备份分层到_S3 Glacer_或_S3 Glacier Deep Archive_存储、以进一步优化成本。 link:reference-aws-backup-tiers.html["了解有关 AWS 归档存储的更多信息"^]。
+
++
+请注意、如果在激活Cloud Backup时在第一个备份策略中选择_S3 Glacier_或_S3 Glacier Deep Archive_、则该层将是该集群未来备份策略可用的唯一归档层。如果您在第一个备份策略中不选择任何归档层、则_S3 Glacier_将成为未来策略的唯一归档选项。
+
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+* 在 Azure 中，备份与 _cool_ 访问层关联。
++
+如果集群使用的是ONTAP 9.10.1或更高版本、则可以选择在一定天数后在Cloud Backup UI中将旧备份分层到_Azure Archive_存储、以进一步优化成本。 link:reference-azure-backup-tiers.html["详细了解 Azure 归档存储"^]。
+
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+* 在 GCP 中，备份默认与 _Standard_ 存储类相关联。
++
+您可以使用成本较低的_Nearline_存储类、也可以使用_Coldline_或_Archive_存储类。但是、您可以通过Google而不是Cloud Backup UI来配置这些其他存储类。请参见 Google 主题 link:https://cloud.google.com/storage/docs/storage-classes["存储类"^] 有关更改Google Cloud存储分段的默认存储类的信息。
+
+
+
+endif::gcp[]
+
+* 在 StorageGRID 中，备份与 _Standard_ 存储类关联。
++
+目前没有可用的归档层。
+
 

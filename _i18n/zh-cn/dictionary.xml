@@ -2541,4 +2541,13 @@
   <block id="3d30a92654c5a6882d28070729a841a2" category="paragraph">例如、假设您创建了一个备份策略、用于创建7个*每周*备份和12个*每月*备份：</block>
   <block id="8532188e44adde5f81b7984cddff4e7d" category="paragraph">这两项功能均可保护您的备份文件、以便您始终拥有一个有效的备份文件、以便在源数据遭受勒索软件攻击时从恢复数据。如果备份需要锁定并保留一段时间、则满足某些法规要求也会很有帮助。启用DataLock和勒索软件保护后、在Cloud Backup激活过程中配置的云分段将启用对象锁定和对象版本控制。</block>
   <block id="311552a792e16e94720630e5e49001fe" category="paragraph">使用 ONTAP 系统管理器或 ONTAP 命令行界面在集群上创建的备份保护策略也会显示为选项。其中包括使用自定义SnapMirror标签创建的策略。</block>
+  <block id="9ee754e4742a85085c00a0da15114de7" category="section-title">归档存储设置</block>
+  <block id="96026c4e1b41892c6e751985a3886296" category="paragraph">在需要时、无法立即访问归档层中的数据、并且需要较高的检索成本、因此您需要考虑从归档备份文件还原数据的频率。</block>
+  <block id="9530f03bca8df90d015321461fae0545" category="paragraph">在AWS或Azure中创建备份文件时、每个备份策略都会为_Archival Policy_提供一个部分、您可以将其应用于备份文件。</block>
+  <block id="7efe72f6baeb19dc4e15e1feb217b66a" category="inline-image-macro">创建备份策略时归档策略设置的屏幕截图。</block>
+  <block id="bff3ba9699160e0c8d9eccbf41cf51f7" category="paragraph"><block ref="bff3ba9699160e0c8d9eccbf41cf51f7" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="cdef4910d3a4b39e3da863cfac74b555" category="paragraph">您可以使用成本较低的_Nearline_存储类、也可以使用_Coldline_或_Archive_存储类。但是、您可以通过Google而不是Cloud Backup UI来配置这些其他存储类。请参见 Google 主题 <block ref="ff20b961093fec8eb39137db849f78c4" category="inline-link-macro-rx"></block> 有关更改Google Cloud存储分段的默认存储类的信息。</block>
+  <block id="4171d78ae1a555db73fd760355ce3da1" category="paragraph">目前没有可用的归档层。</block>
+  <block id="2e5732b07b5a367d6ae6bf311bb4e064" category="paragraph">请参见 <block ref="94012c1ab2bd0160a2654e7678395191" category="inline-link-macro-rx"></block> 有关如何使用可用计划选项的更多详细信息。</block>
+  <block id="330ec284275e2a903b785453c26a379b" category="paragraph">请参见 <block ref="b960bc47dc855085c33b2bb2182e9e16" category="inline-link-macro-rx"></block> 有关归档旧备份文件的更多详细信息。</block>
 </blocks>

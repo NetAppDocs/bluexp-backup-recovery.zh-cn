@@ -309,6 +309,8 @@ endif::gcp[]
 
 达到某个类别或间隔的最大备份数后、较早的备份将被删除、以便始终拥有最新的备份(因此废弃的备份不会继续占用云中的空间)。
 
+请参见 link:concept-cloud-backup-policies.html#backup-schedules["备份计划"^] 有关如何使用可用计划选项的更多详细信息。
+
 请注意，您可以 link:task-manage-backups-ontap.html#creating-a-manual-volume-backup-at-any-time["创建卷的按需备份"] 除了从计划的备份创建的备份文件之外，还可以随时从备份信息板访问这些备份文件。
 
 
@@ -348,9 +350,6 @@ ifdef::aws[]
 +
 如果集群使用的是ONTAP 9.10.1或更高版本、则可以选择在一定天数后在云备份UI中将旧备份分层到_S3 Glacer_或_S3 Glacier Deep Archive_存储、以进一步优化成本。 link:reference-aws-backup-tiers.html["了解有关 AWS 归档存储的更多信息"^]。
 
-+
-请注意、如果在激活Cloud Backup时在第一个备份策略中选择_S3 Glacier_或_S3 Glacier Deep Archive_、则该层将是该集群未来备份策略可用的唯一归档层。如果您在第一个备份策略中不选择任何归档层、则_S3 Glacier_将成为未来策略的唯一归档选项。
-
 
 
 endif::aws[]
@@ -377,6 +376,8 @@ endif::gcp[]
 
 * 在 StorageGRID 中，备份与 _Standard_ 存储类关联。
 
+
+请参见 link:concept-cloud-backup-policies.html#archival-storage-settings["归档存储设置"] 有关归档旧备份文件的更多详细信息。
 
 
 
