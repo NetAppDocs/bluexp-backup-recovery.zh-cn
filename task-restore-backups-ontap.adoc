@@ -455,6 +455,7 @@ ifdef::azure[]
 +
 请注意、如果您已将Cloud Backup与以前配置的连接器结合使用、则现在需要将Azure Synapse Workspace和Data Lake存储帐户权限添加到Cloud Manager用户角色中。这些是新的，搜索和还原需要它们。
 
+** 必须为Connector配置*不具有*代理服务器、以便通过HTTP与Internet进行通信。如果您为Connector配置了HTTP代理服务器、则无法使用"搜索和替换"功能。
 
 
 
