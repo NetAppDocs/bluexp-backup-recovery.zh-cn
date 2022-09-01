@@ -52,6 +52,10 @@ curl --location --request POST 'https://netapp-cloud-account.auth0.com/oauth/tok
     "client_id": "Mu0V1ywgYteI6w1MbD15fKfVIUrNXGWC"
 }'
 ----
++
+
+NOTE: 来自 NetApp Cloud Central 的用户令牌具有到期日期。API 响应包括一个 "expires_in" 字段、该字段指出令牌何时过期。要刷新令牌、您需要再次调用此API。
+
 . 获取您的NetApp Cloud Central帐户ID。
 +
 [source, http]
@@ -179,13 +183,6 @@ curl --location --request GET 'https://cloudmanager.cloud.netapp.com/account/acc
     ]
 }
 ----
-.令牌过期时应执行什么操作？
-****
-来自 NetApp Cloud Central 的用户令牌具有到期日期。要刷新令牌、您需要再次调用步骤 1 中的 API 。
-
-API 响应包括一个 "expires_in" 字段、该字段指出令牌何时过期。
-
-****
 
 
 == API 参考

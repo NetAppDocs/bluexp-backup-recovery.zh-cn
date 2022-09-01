@@ -1774,9 +1774,6 @@
   <block id="7b029d80356dba73932cd4b67641ab73" category="listing-title">监控响应。</block>
   <block id="b6c768315d9228aa5e18b2250a18a10e" category="listing-title">响应。</block>
   <block id="c39d07aa3697a8b5b1eb9963f6cd194c" category="listing-title">监控、直到"状态"为"已完成"为止。</block>
-  <block id="d6f4f4fada8d5c3952a90492c3138e97" category="sidebar-title">令牌过期时应执行什么操作？</block>
-  <block id="1539598d4e260b03b9265b87976a6ab0" category="paragraph">来自 NetApp Cloud Central 的用户令牌具有到期日期。要刷新令牌、您需要再次调用步骤 1 中的 API 。</block>
-  <block id="5c5cd253b66501facf455779c806ee88" category="paragraph">API 响应包括一个 "expires_in" 字段、该字段指出令牌何时过期。</block>
   <block id="19ec08da81a826d919d64ab860845c04" category="section-title">API 参考</block>
   <block id="daeeb32b9a2ca59f58bedaba9bbc41b5" category="paragraph">有关每个Cloud Backup API的文档、请参见<block ref="323898002645c2363c910f7c119fd4d6" category="inline-link-rx"></block>。</block>
   <block id="381ea68c9177a4bf66e46b23e8b00041" category="paragraph">为Connector设置创建和管理S3存储分段的权限。您还需要为内部ONTAP 集群设置权限、以便其可以向S3存储分段读取和写入数据。</block>
@@ -1871,7 +1868,6 @@
   <block id="824ce1955c2b2d5f91cb80c86545d639" category="paragraph"><block ref="eb618b89294e80d594faecbc4641afee" category="inline-link-rx"></block>。<block ref="f39d73248b535226c2e16237e43ff2d0" category="inline-link-rx"></block>。</block>
   <block id="0a0c24e7fef8cd9bcb19d6db19987b93" category="paragraph">请注意、如果您先前使用了Cloud Restore实例/VM、则该实例/VM将自动删除。Cloud Backup进程将每天运行一次、以删除所有旧的Cloud Restore实例。此更改是完全透明的—不会对数据产生任何影响、您也不会注意到备份或还原作业发生了任何更改。</block>
   <block id="7d3723a161203e59b756ce8e77114fc0" category="admonition">如果Cloud Manager Connector部署在云中的政府区域或无法访问Internet的站点(非公开站点)中、则Cloud Backup仅支持从ONTAP 系统执行备份和还原操作。使用这些备用部署方法时、Cloud Backup不支持从Kubernetes集群、应用程序或虚拟机执行备份和还原操作。</block>
-  <block id="d8fc7ce817e791d9288e2c5b2f30d2e4" category="paragraph">请确保从以下链接生成刷新令牌：https://services.cloud.netapp.com/refresh-token/。刷新令牌是一个字母数字字符串、用于生成用户令牌。</block>
   <block id="f213760e51bc9d7895aab74f2fba377c" category="paragraph">默认策略每天备份卷，并保留每个卷的最新 30 个备份副本。更改为每小时、每天、每周、每月或每年备份、 或者、选择一个系统定义的策略以提供更多选项。您还可以更改要保留的备份副本数。</block>
   <block id="2da5030b3f916979a53299b49c96a213" category="paragraph">下图显示了*公有 connection*方法以及组件之间需要准备的连接。您可以使用内部安装的Connector、也可以使用在Google Cloud Platform VPC中部署的Connector。</block>
   <block id="e48ce03e2bde71049d742a96c5698f33" category="inline-image-macro">显示Cloud Backup如何通过公有 连接与集群上的卷以及备份文件所在的Google Cloud存储进行通信的图表。</block>
@@ -2194,7 +2190,6 @@
   <block id="d871807798c398066c07374cd00a3ae5" category="cell">Amazon S3 endif：：AWS [] ifdef：：azure[] endf：：azure[] ifdef：：GCP () endf：：：GCP ()</block>
   <block id="f3ec603ab9c35660f371c0fc057b7fd1" category="list-text">集群必须运行ONTAP 9.11.1或更高版本</block>
   <block id="8d9076f8d01c0c18932ba58acd4e1b5e" category="list-text">您必须使用Cloud Manager 3.9.21或更高版本(此时连接器必须部署在云中)</block>
-  <block id="1578c6d89f4aa3d68d6ae942cc341fc8" category="list-text">要备份到AWS、以下S3权限必须属于为Connector提供权限的IAM角色：</block>
   <block id="f8a21cbcda6edc5ae1bf2008fc82b99d" category="list-text">S3 ： GetObjectVersionTagging</block>
   <block id="bce339f31623f1dca1af841a36515224" category="list-text">S3 ： GetBucketObjectLockConfiguration</block>
   <block id="f80f99cee549d1cdd0a4fe6a1527ea90" category="list-text">S3：GetObjectVersionAcl</block>
@@ -2550,4 +2545,9 @@
   <block id="2e5732b07b5a367d6ae6bf311bb4e064" category="paragraph">请参见 <block ref="94012c1ab2bd0160a2654e7678395191" category="inline-link-macro-rx"></block> 有关如何使用可用计划选项的更多详细信息。</block>
   <block id="330ec284275e2a903b785453c26a379b" category="paragraph">请参见 <block ref="b960bc47dc855085c33b2bb2182e9e16" category="inline-link-macro-rx"></block> 有关归档旧备份文件的更多详细信息。</block>
   <block id="7e7595ef438d9d19d857be29daa1e8d2" category="list-text">必须为Connector配置*不具有*代理服务器、以便通过HTTP与Internet进行通信。如果您为Connector配置了HTTP代理服务器、则无法使用"搜索和替换"功能。</block>
+  <block id="4f461acb23e2f0a872de2a1c93858fac" category="list-text">要备份到AWS、以下S3权限必须属于为Connector提供权限的IAM角色。它们位于资源"arn：AWS：s3：：：：netapp-backup-*"的"backupS3Policy"部分中：</block>
+  <block id="7b2b7c08da06dd437ae98c50b4ace20f" category="inline-link">查看策略的完整JSON格式、在此可以复制和粘贴所需权限</block>
+  <block id="47161ef4ae449d43c829baee065648d2" category="paragraph"><block ref="63cdf6e3f2a869e9e35995fee340f32a" category="inline-link-rx"></block>。</block>
+  <block id="9644265a314e497bc18814e1694c3d27" category="paragraph">请确保从以下链接生成刷新令牌：https://services.cloud.netapp.com/refresh-token/。刷新令牌是一个字母数字字符串、用于生成用户令牌。</block>
+  <block id="777d6e4cc528ea2b29b7fc6903fb67a6" category="admonition">来自 NetApp Cloud Central 的用户令牌具有到期日期。API 响应包括一个 "expires_in" 字段、该字段指出令牌何时过期。要刷新令牌、您需要再次调用此API。</block>
 </blocks>

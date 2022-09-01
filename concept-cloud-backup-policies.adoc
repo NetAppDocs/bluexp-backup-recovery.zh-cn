@@ -149,7 +149,7 @@ DataLock设置为_Compliance"、在保留期限内、任何用户都无法覆盖
 
 * 集群必须运行ONTAP 9.11.1或更高版本
 * 您必须使用Cloud Manager 3.9.21或更高版本(此时连接器必须部署在云中)
-* 要备份到AWS、以下S3权限必须属于为Connector提供权限的IAM角色：
+* 要备份到AWS、以下S3权限必须属于为Connector提供权限的IAM角色。它们位于资源"arn：AWS：s3：：：：netapp-backup-*"的"backupS3Policy"部分中：
 +
 ** S3 ： GetObjectVersionTagging
 ** S3 ： GetBucketObjectLockConfiguration
@@ -180,6 +180,9 @@ DataLock设置为_Compliance"、在保留期限内、任何用户都无法覆盖
 ** S3 ： GetObjectVersion
 +
 如果您希望管理员用户能够覆盖/删除使用企业模式锁定的备份文件、则必须将S3权限"S3：BypassGovernanceRetention"添加到Cloud Manager用户角色中。
+
++
+https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html["查看策略的完整JSON格式、在此可以复制和粘贴所需权限"^]。
 
 
 
