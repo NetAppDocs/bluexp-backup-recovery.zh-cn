@@ -2550,4 +2550,5 @@
   <block id="47161ef4ae449d43c829baee065648d2" category="paragraph"><block ref="63cdf6e3f2a869e9e35995fee340f32a" category="inline-link-rx"></block>。</block>
   <block id="9644265a314e497bc18814e1694c3d27" category="paragraph">请确保从以下链接生成刷新令牌：https://services.cloud.netapp.com/refresh-token/。刷新令牌是一个字母数字字符串、用于生成用户令牌。</block>
   <block id="777d6e4cc528ea2b29b7fc6903fb67a6" category="admonition">来自 NetApp Cloud Central 的用户令牌具有到期日期。API 响应包括一个 "expires_in" 字段、该字段指出令牌何时过期。要刷新令牌、您需要再次调用此API。</block>
+  <block id="39d3d67728b58b0f9255268d852abfbe" category="admonition">Cloud Backup for Applications基础架构可以在区域内对可用性区域故障进行故障恢复。现在、它可以通过故障转移到新区域来支持区域故障、而此故障转移需要停机大约2小时。</block>
 </blocks>

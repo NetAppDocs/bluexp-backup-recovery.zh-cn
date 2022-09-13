@@ -47,6 +47,9 @@ image:diagram_nativecloud_backup_app.png["显示Cloud Backup如何与不同组�
 
 
 
+IMPORTANT: Cloud Backup for Applications基础架构可以在区域内对可用性区域故障进行故障恢复。现在、它可以通过故障转移到新区域来支持区域故障、而此故障转移需要停机大约2小时。
+
+
 
 == 支持的配置
 
