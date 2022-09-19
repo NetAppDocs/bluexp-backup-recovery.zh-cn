@@ -18,6 +18,42 @@ summary: 了解 Cloud Backup 中的新增功能。
 
 
 
+== 2022年9月19日
+
+
+
+=== 可以为StorageGRID 系统中的备份文件配置DataLock和勒索软件保护
+
+上一版本针对存储在Amazon S3存储分段中的备份引入了_DataLock和勒索软件保护_。此版本扩展了对StorageGRID 系统中存储的备份文件的支持。如果集群使用的是ONTAP 9.11.1或更高版本、而StorageGRID 系统运行的是11.6.0.3或更高版本、则可以使用此新的备份策略选项。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-cloud-backup-policies.html#datalock-and-ransomware-protection["详细了解如何使用DataLock和勒索软件保护来保护备份"^]。
+
+请注意、您需要运行的Connector软件版本为3.9.22或更高版本。连接器必须安装在您的内部环境中、并且可以安装在可访问Internet或不可访问Internet的站点中。
+
+
+
+=== 现在、您可以从备份文件中进行文件夹级还原
+
+现在、如果您需要访问某个备份文件(目录或共享)中的所有文件、则可以从该文件还原该文件夹。与还原整个卷相比、还原文件夹的效率要高得多。此功能可用于使用浏览和还原方法以及搜索和还原方法执行还原操作。此时、您只能选择和还原单个文件夹、并且只会还原该文件夹中的文件、而不会还原子文件夹或子文件夹中的文件。
+
+
+
+=== 现在、可以从已移至归档存储的备份中进行文件级还原
+
+过去、您只能从已移至归档存储的备份文件还原卷(仅限AWS和Azure)。现在、您可以从这些归档备份文件还原单个文件和文件夹。此功能可用于使用浏览和还原方法以及搜索和还原方法执行还原操作。
+
+
+
+=== 现在、文件级还原提供了覆盖原始源文件的选项
+
+过去、还原到原始卷的文件始终会作为前缀为"Restore_<file_name>"的新文件进行还原。现在、您可以选择在将源文件还原到卷上的原始位置时覆盖此源文件。此功能可用于使用浏览和还原方法以及搜索和还原方法执行还原操作。
+
+
+
+=== 拖放以启用云备份到StorageGRID 系统
+
+如果 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-viewing-azure-blob.html["StorageGRID"^] 备份目标作为工作环境存在于Canvas上、您可以将内部ONTAP 工作环境拖动到目标上以启动备份设置向导。
+
+
+
 == 2022年8月18日
 
 
@@ -25,10 +61,6 @@ summary: 了解 Cloud Backup 中的新增功能。
 === 添加了保护Cloud原生 应用程序数据的支持
 
 Cloud Backup for Applications是一种基于SaaS的服务、可为在NetApp Cloud Storage上运行的应用程序提供数据保护功能。Cloud Manager中启用的适用于应用程序的Cloud Backup可为驻留在Amazon FSx for NetApp ONTAP 上的Oracle数据库提供高效、应用程序一致且基于策略的备份和还原。https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-cloud-app-data-to-cloud.html["了解更多信息。"^]。
-
-
-
-== 2022年8月16日
 
 
 
@@ -101,10 +133,6 @@ Amazon S3存储分段已具有此功能。
 如果您的内部ONTAP 集群位于无法访问Internet的站点中、也称为非公开站点或脱机站点、则现在您可以使用Cloud Backup将卷数据备份到同一站点中的NetApp StorageGRID 系统。此功能还要求在脱机站点中部署Cloud Manager Connector (版本3.9.19或更高版本)。
 
 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html["请参见如何在脱机站点中安装Connector"]。https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html["了解如何将ONTAP 数据备份到脱机站点中的StorageGRID"]。
-
-
-
-== 2022年6月8日
 
 
 
@@ -341,88 +369,3 @@ link:task-manage-backups-ontap.html#creating-a-manual-volume-backup-at-any-time[
 
 
 === 现在，您可以从文件数超过 30 ， 000 的目录还原文件
-
-
-
-== 2021 年 8 月 1 日
-
-
-
-=== 可以定义专用端点连接，以便安全地备份到 Azure Blob
-
-在配置从内部 ONTAP 系统到 Azure Blob 的备份时，您可以在激活向导中定义与 Azure 私有端点的连接。这样，您就可以使用一个网络接口，将您以私密方式安全地连接到由 Azure Private Link 提供支持的服务。
-
-
-
-=== 现在支持每小时备份策略
-
-此新策略是对现有每日，每周和每月策略的补充。每小时备份策略可提供最小恢复点目标（ RPO ）。
-
-
-
-== 2021 年 7 月 7 日
-
-
-
-=== 现在，您可以使用不同的帐户在不同的区域创建备份
-
-现在，您可以使用与 Cloud Volumes ONTAP 系统不同的帐户 / 订阅创建备份。您还可以在部署 Cloud Volumes ONTAP 系统的区域以外的其他区域创建备份文件。
-
-在使用 AWS 或 Azure 时可以使用此功能，并且只有在现有工作环境上启用备份时才可使用此功能—在创建新的 Cloud Volumes ONTAP 工作环境时，此功能不可用。
-
-
-
-=== 现在，您可以在将数据备份到 Azure Blob 时选择自己由客户管理的数据加密密钥
-
-为了提高安全性和控制力，您可以在激活向导中选择自己的客户管理的数据加密密钥，而不是使用默认的 Microsoft 管理的加密密钥。在从内部 ONTAP 系统或从 Azure 中的 Cloud Volumes ONTAP 系统配置备份时，可以使用此选项。
-
-
-
-=== 现在，在使用单文件还原时，一次最多可以还原 100 个文件
-
-
-
-== 2021 年 6 月 7 日
-
-
-
-=== 使用 ONTAP 9.8 或更高版本时对 DP 卷取消了限制
-
-已解决备份数据保护（ DP ）卷的两个已知限制：
-
-* 以前，只有当 SnapMirror 关系类型为镜像存储或存储时，级联备份才起作用。现在，如果关系类型为 MirrorAllSnapshots ，则可以进行备份。
-* 现在，只要在 SnapMirror 策略中配置了 Cloud Backup ，它就可以使用任何备份标签。不再要求标签每天，每周或每月都包含名称。
-
-
-
-
-== 2021 年 5 月 5 日
-
-
-
-=== 将内部集群数据备份到 Google Cloud Storage 或 NetApp StorageGRID 系统
-
-现在，您可以创建从内部 ONTAP 系统到 Google 云存储或 NetApp StorageGRID 系统的备份。请参见 link:task-backup-onprem-to-gcp.html["备份到 Google Cloud Storage"^] 和 link:task-backup-onprem-private-cloud.html["备份到 StorageGRID"^] 了解详细信息。
-
-
-
-=== 现在，您可以使用 System Manager 执行 Cloud Backup 操作
-
-通过 ONTAP 9.9.1 中的一项新功能，您可以使用 System Manager 将内部 ONTAP 卷的备份发送到您通过云备份设置的对象存储。 link:https://docs.netapp.com/us-en/ontap/task_cloud_backup_data_using_cbs.html["了解如何使用 System Manager 使用 Cloud Backup 将卷备份到云。"^]
-
-
-
-=== 备份策略已通过一些增强功能进行了改进
-
-* 现在，您可以创建一个自定义策略，其中包括每日，每周和每月备份。
-* 更改备份策略时，会使用原始备份策略将适用场景 all new backups * 和 * 更改为所有卷。过去，此更改仅应用于新的卷备份。
-
-
-
-
-=== 其他备份和还原改进功能
-
-* 现在，在为备份文件配置云目标时，您可以选择与 Cloud Volumes ONTAP 系统所在区域不同的区域。
-* 可以为单个卷创建的备份文件数量已从 1 ， 019 个增加到 4 ， 000 个。
-* 除了先前删除单个卷的所有备份文件的功能之外，现在您只能删除一个卷的单个备份文件，也可以根据需要删除整个工作环境的所有备份文件。
-

@@ -22,7 +22,7 @@ Cloud Backup 支持两个 S3 归档存储类以及大多数地区。
 
 首次创建备份文件时，这些备份文件会存储在 S3 _Standard_ 存储中。此层已针对存储不常访问的数据进行了优化，但也允许您立即访问。30 天后，备份将过渡到 S3 _Standard-Infrequent Access_ 存储类以节省成本。
 
-如果源集群运行的是 ONTAP 9.10.1 或更高版本，您可以选择在一定天数（通常超过 30 天）后将备份分层到 _S3 Glacer_ 或 _S3 Glacier Deep Archive_ 存储，以便进一步优化成本。这些层中的数据无法在需要时立即访问，并且需要较高的检索成本，因此您需要考虑从这些归档备份文件还原数据的频率。请参见关于一节 <<Restoring data from archival storage,从归档存储还原数据>>。
+如果源集群运行的是 ONTAP 9.10.1 或更高版本，您可以选择在一定天数（通常超过 30 天）后将备份分层到 _S3 Glacer_ 或 _S3 Glacier Deep Archive_ 存储，以便进一步优化成本。这些层中的数据无法在需要时立即访问，并且需要较高的检索成本，因此您需要考虑从这些归档备份文件还原数据的频率。请参见关于一节  data from archival storage,从归档存储还原数据。
 
 如果在激活Cloud Backup时在第一个备份策略中选择_S3 Glacier或_S3 Glacier Deep Archive_、则该层将是该集群未来备份策略唯一可用的归档层。如果您在第一个备份策略中不选择任何归档层、则_S3 Glacier_将成为未来策略的唯一归档选项。
 

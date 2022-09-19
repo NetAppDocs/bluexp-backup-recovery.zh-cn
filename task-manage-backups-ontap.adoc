@@ -57,7 +57,7 @@ image:screenshot_backup_manage_volumes_page.png["管理卷页面，您可以在�
 . 单击 * 保存 * 以提交更改。
 
 
-* 注意： * 停止备份卷时，云提供商会继续为备份所用容量收取对象存储成本，除非您这样做 <<Deleting backups,删除备份>>。
+* 注意： * 停止备份卷时，云提供商会继续为备份所用容量收取对象存储成本，除非您这样做  backups,删除备份。
 
 
 
@@ -67,7 +67,7 @@ image:screenshot_backup_manage_volumes_page.png["管理卷页面，您可以在�
 
 [NOTE]
 ====
-* 如果在为此集群激活Cloud Backup时在初始策略中启用了_DataLock和勒索软件保护_、则必须使用相同的DataLock设置(企业或合规性)配置您编辑的任何策略。如果在激活Cloud Backup时未启用_DataLock和勒索软件保护_、则无法立即启用DataLock。
+* 如果在为此集群激活Cloud Backup时在初始策略中启用了_DataLock和勒索软件保护_、则必须使用相同的DataLock设置(监管或合规)配置您编辑的任何策略。如果在激活Cloud Backup时未启用_DataLock和勒索软件保护_、则无法立即启用DataLock。
 * 在AWS上创建备份时、如果在激活Cloud Backup时在第一个备份策略中选择_S3 Glacer_或_S3 Glacier Deep Archive_、则在编辑备份策略时、该层将是唯一可用的归档层。如果您在第一个备份策略中未选择任何归档层、则在编辑策略时、_S3 Glacer_将是您的唯一归档选项。
 
 
@@ -120,11 +120,11 @@ endif::azure[]
 
 在为工作环境启用 Cloud Backup 时，您最初选择的所有卷都会使用您定义的默认备份策略进行备份。如果要为具有不同恢复点目标（ RPO ）的某些卷分配不同的备份策略，您可以为该集群创建其他策略并将这些策略分配给其他卷。
 
-如果要对工作环境中的某些卷应用新的备份策略，则首先需要将备份策略添加到工作环境中。然后，您可以 <<Changing the policy assigned to existing volumes,将此策略应用于该工作环境中的卷>>。
+如果要对工作环境中的某些卷应用新的备份策略，则首先需要将备份策略添加到工作环境中。然后，您可以  the policy assigned to existing volumes,将此策略应用于该工作环境中的卷。
 
 [NOTE]
 ====
-* 如果在为此集群激活Cloud Backup时在初始策略中启用了_DataLock和勒索软件保护_、则您创建的任何其他策略都必须使用相同的DataLock设置(企业或合规性)进行配置。如果在激活Cloud Backup时未启用_DataLock和勒索软件保护_、则无法使用DataLock创建新策略。
+* 如果在为此集群激活Cloud Backup时在初始策略中启用了_DataLock和勒索软件保护_、则您创建的任何其他策略都必须使用相同的DataLock设置(监管或合规)进行配置。如果在激活Cloud Backup时未启用_DataLock和勒索软件保护_、则无法使用DataLock创建新策略。
 * 在AWS上创建备份时、如果在激活Cloud Backup时在第一个备份策略中选择了_S3 Glacer_或_S3 Glacier Deep Archive_、则该层将是该集群未来备份策略中唯一可用的归档层。如果您在第一个备份策略中未选择任何归档层、则_S3 Glacier_将成为未来策略的唯一归档选项。
 
 
@@ -172,7 +172,7 @@ endif::azure[]
 
 如果要更改备份频率或更改保留值，则可以更改分配给现有卷的备份策略。
 
-请注意，要应用于卷的策略必须已存在。 <<Adding a new backup policy,请参见如何为工作环境添加新的备份策略>>。
+请注意，要应用于卷的策略必须已存在。  a new backup policy,请参见如何为工作环境添加新的备份策略。
 
 .步骤
 . 从 * 卷 * 选项卡中，选择 * 备份设置 * 。
@@ -204,7 +204,7 @@ NOTE: 如果在为此集群激活Cloud Backup时在初始策略中启用了_Data
 
 如果在ONTAP 集群上首次激活云备份时未选择将备份策略自动分配给新创建的卷的选项、则可以稍后在_Backup Settings_页面中选择此选项。为新创建的卷分配备份策略可确保所有数据都受到保护。
 
-请注意，要应用于卷的策略必须已存在。 <<Adding a new backup policy,请参见如何为工作环境添加新的备份策略>>。
+请注意，要应用于卷的策略必须已存在。  a new backup policy,请参见如何为工作环境添加新的备份策略。
 
 您也可以禁用此设置、以使新创建的卷不会自动备份。在这种情况下、您需要手动为将来要备份的任何特定卷启用备份。
 
@@ -316,7 +316,7 @@ CAUTION: 如果您计划删除具有备份的工作环境或集群，则必须�
 
 === 删除工作环境中的所有备份文件
 
-删除工作环境中的所有备份不会禁用此工作环境中的卷将来备份。如果要停止在工作环境中创建所有卷的备份，可以停用备份 <<Disabling Cloud Backup for a working environment,如此处所述>>。
+删除工作环境中的所有备份不会禁用此工作环境中的卷将来备份。如果要停止在工作环境中创建所有卷的备份，可以停用备份  Cloud Backup for a working environment,如此处所述。
 
 .步骤
 . 从 * 卷 * 选项卡中，选择 * 备份设置 * 。
@@ -336,7 +336,7 @@ image:screenshot_delete_all_backups.png["选择删除所有备份按钮删除工
 
 删除卷的所有备份也会禁用该卷的未来备份。
 
-您可以 <<Enabling and disabling backups of volumes,重新开始为卷创建备份>> 可随时从管理备份页面访问。
+您可以  and disabling backups of volumes,重新开始为卷创建备份 可随时从管理备份页面访问。
 
 .步骤
 . 从 * 卷 * 选项卡中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于源卷，然后选择 * 详细信息和备份列表 * 。
@@ -382,11 +382,11 @@ image:screenshot_delete_one_backup.png["显示如何删除单个备份文件的�
 
 
 
-== 为工作环境禁用 Cloud Backup
+== 为工作环境停用Cloud Backup
 
-禁用工作环境的 Cloud Backup 会禁用系统上每个卷的备份，同时也会禁用还原卷的功能。不会删除任何现有备份。这样不会从此工作环境中取消注册备份服务—它基本上允许您将所有备份和还原活动暂停一段时间。
+在工作环境中停用Cloud Backup会禁用系统上每个卷的备份、同时也会禁用还原卷的功能。不会删除任何现有备份。这样不会从此工作环境中取消注册备份服务—它基本上允许您将所有备份和还原活动暂停一段时间。
 
-请注意，除非您的备份使用的容量，否则云提供商会继续向您收取对象存储成本 <<Deleting all backup files for a working environment,删除备份>>。
+请注意，除非您的备份使用的容量，否则云提供商会继续向您收取对象存储成本  all backup files for a working environment,删除备份。
 
 .步骤
 . 从 * 卷 * 选项卡中，选择 * 备份设置 * 。

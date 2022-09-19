@@ -36,8 +36,6 @@ sidebar:
       url: "/task-licensing-cloud-backup.html"
     - title: 监控备份和还原作业的状态
       url: "/task-monitor-backup-jobs.html"
-    - title: Cloud Backup策略设置
-      url: "/concept-cloud-backup-policies.html"
   - title: 备份和还原 ONTAP 数据
     entries:
     - title: 保护 ONTAP 数据
@@ -129,17 +127,14 @@ sidebar:
     url: "/api-backup-restore.html"
   - title: 参考
     entries:
+    - title: Cloud Backup策略设置
+      url: "/concept-cloud-backup-policies.html"
     - title: 支持的 AWS 归档存储层
       url: "/reference-aws-backup-tiers.html"
     - title: 支持的 Azure 归档访问层
       url: "/reference-azure-backup-tiers.html"
-    - title: 跨帐户和跨区域配置
-      url: "/reference-cross-account.html"
-      entries:
-      - title: 在 AWS 中配置备份以实现多帐户访问
-        url: "/reference-backup-multi-account-aws.html"
-      - title: 在 Azure 中配置备份以实现多帐户访问
-        url: "/reference-backup-multi-account-azure.html"
+    - title: 在 Azure 中配置备份以实现多帐户访问
+      url: "/reference-backup-multi-account-azure.html"
   - title: 知识和支持
     entries:
     - title: 注册以获得支持
@@ -248,4 +243,4 @@ homepage:
 product-family:
   name: Cloud Manager
   repo: cloud-manager-family
-  sidebar_label: All Cloud Manager documentation
+  sidebar_label: 所有 Cloud Manager 文档

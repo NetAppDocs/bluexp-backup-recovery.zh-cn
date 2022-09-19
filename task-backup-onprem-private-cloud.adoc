@@ -46,10 +46,10 @@ summary: 完成几个步骤，开始将数据从内部 ONTAP 系统备份到 Net
 选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 > 备份卷 * ，然后按照设置向导进行操作。
 
 [role="quick-margin-para"]
-image:screenshot_backup_onprem_enable.png["屏幕截图显示了 Backup & amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"]
+image:screenshot_backup_onprem_enable.png["屏幕截图显示了 Backup  amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"]
 
 [role="quick-margin-para"]
-选择 StorageGRID 作为提供程序，然后输入 StorageGRID 服务器和服务帐户详细信息。您还需要在卷所在的 ONTAP 集群中指定 IP 空间。
+选择StorageGRID 作为提供程序、然后输入StorageGRID 服务器和S3租户帐户详细信息。您还需要在卷所在的 ONTAP 集群中指定 IP 空间。
 
 [role="quick-margin-para"]
 image:screenshot_backup_provider_settings_storagegrid.png["显示将卷从 ONTAP 集群备份到 StorageGRID 时云提供商详细信息的屏幕截图。"]
@@ -89,7 +89,7 @@ https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.
 ONTAP 要求::
 +
 --
-* 建议至少使用ONTAP 9.7P5；ONTAP 9.8P11及更高版本。
+* 建议至少使用ONTAP 9.7P5；ONTAP 9.8P13及更高版本。
 * SnapMirror 许可证（作为超值包或数据保护包的一部分提供）。
 +
 * 注意： * 使用 Cloud Backup 时不需要 " 混合云捆绑包 " 。
@@ -132,9 +132,16 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 StorageGRID 必须满足以下要求。请参见 https://docs.netapp.com/us-en/storagegrid-116/["StorageGRID 文档"^] 有关详细信息 ...
 
 支持的 StorageGRID 版本:: 支持 StorageGRID 10.3 及更高版本。
-S3 凭据:: 在设置到 StorageGRID 的备份时，备份向导会提示您为服务帐户输入 S3 访问密钥和机密密钥。通过服务帐户， Cloud Backup 可以对用于存储备份的 StorageGRID 存储分段进行身份验证和访问。这些密钥是必需的，以便 StorageGRID 知道是谁发出请求。
 +
 --
+要对备份使用DataLock &勒索软件保护、您的StorageGRID 系统必须运行11.6.0.3或更高版本。
+
+--
+S3 凭据:: 您必须已创建S3租户帐户来控制对StorageGRID 存储的访问。 https://docs.netapp.com/us-en/storagegrid-116/admin/creating-tenant-account.html["有关详细信息、请参见StorageGRID 文档"^]。
++
+--
+在设置到StorageGRID 的备份时、备份向导会提示您为租户帐户提供S3访问密钥和机密密钥。通过租户帐户、Cloud Backup可以对用于存储备份的StorageGRID 存储分段进行身份验证和访问。这些密钥是必需的，以便 StorageGRID 知道是谁发出请求。
+
 这些访问密钥必须与具有以下权限的用户相关联：
 
 [source, json]
@@ -147,7 +154,7 @@ S3 凭据:: 在设置到 StorageGRID 的备份时，备份向导会提示您为�
 "s3:CreateBucket"
 ----
 --
-对象版本控制:: 不能在对象存储分段上启用 StorageGRID 对象版本控制。
+对象版本控制:: 不能在对象存储分段上手动启用StorageGRID 对象版本控制。
 
 
 
@@ -204,11 +211,12 @@ TIP: 将文件备份到 StorageGRID 时不支持 PAYGO 许可。
 如果用于备份的StorageGRID 目标作为工作环境存在于Canvas上、则可以将集群拖动到StorageGRID 工作环境中以启动设置向导。
 
 +
-image:screenshot_backup_onprem_enable.png["屏幕截图显示了 Backup & amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"]
+image:screenshot_backup_onprem_enable.png["屏幕截图显示了 Backup  amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"]
 
 . 选择 * StorageGRID 提供程序 * ，单击 * 下一步 * ，然后输入提供程序详细信息：
 +
-.. StorageGRID 网关节点的FQDN以及ONTAP 与StorageGRID 进行HTTPS通信时应使用的端口；例如：`s3.eng.company.com:8082`
+.. StorageGRID 网关节点的FQDN。
+.. ONTAP 与StorageGRID 进行HTTPS通信时应使用的端口。
 .. 用于访问存储备份的存储分段的访问密钥和机密密钥。
 .. 要备份的卷所在的 ONTAP 集群中的 IP 空间。此 IP 空间的集群间 LIF 必须具有出站 Internet 访问权限（在 " 非公开 " 站点中安装 Connector 时不需要）。
 +
@@ -226,8 +234,12 @@ image:screenshot_backup_provider_settings_storagegrid.png["显示将卷从内部
 +
 .. 输入默认策略的名称。您无需更改名称。
 .. 定义备份计划并选择要保留的备份数。 link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings["请参见您可以选择的现有策略列表"^]。
+.. 或者、在使用ONTAP 9.11.1及更高版本时、您也可以选择通过配置_DataLock和勒索软件保护_来保护备份免受删除和勒索软件攻击。_DataLock_可防止您的备份文件被修改或删除、_勒索 软件保护_会扫描您的备份文件、以在备份文件中查找勒索软件攻击的证据。 link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["详细了解可用的DataLock设置"^]。
 +
 image:screenshot_backup_onprem_policy.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中选择备份计划和保留期限。"]
+
++
+*重要信息：*如果您计划使用DataLock、则必须在激活Cloud Backup时在第一个策略中启用它。
 
 
 

@@ -23,7 +23,7 @@ summary: 完成几个步骤，开始将数据从 Cloud Volumes ONTAP 备份到 A
 按照以下步骤快速入门，或者向下滚动到其余部分以了解完整详细信息。
 
 .跨度 class="image><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] Alt-one"></span> 验证是否支持您的配置
-* 您正在 AWS 中运行 Cloud Volumes ONTAP 9.6 或更高版本。
+* 您正在AWS中运行Cloud Volumes ONTAP 9.7P5或更高版本。
 * 您已为备份所在的存储空间订阅了有效的云提供商。
 * 您已订阅 https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["Cloud Manager Marketplace Backup 产品"]，和 https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS 年度合同"]或您已购买 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["并激活"] NetApp 提供的 Cloud Backup BYOL 许可证。
 * 为 Cloud Manager Connector 提供权限的 IAM 角色包括最新版本的 S3 权限 https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager 策略"^]。
@@ -33,7 +33,7 @@ summary: 完成几个步骤，开始将数据从 Cloud Volumes ONTAP 备份到 A
 * 新系统：在工作环境向导中， Cloud Backup 默认处于启用状态。请务必保持此选项处于启用状态。
 * 现有系统：选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 * ，然后按照设置向导进行操作。
 +
-image:screenshot_backup_cvo_enable.png["屏幕截图显示了 Backup & amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"]
+image:screenshot_backup_cvo_enable.png["屏幕截图显示了 Backup  amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"]
 
 
 
@@ -65,7 +65,7 @@ image:screenshot_backup_policy_aws.png["显示 Cloud Backup 设置的屏幕截�
 
 image:diagram_cloud_backup_cvo_aws.png["显示 Cloud Backup 如何与备份文件所在的源系统和目标存储上的卷进行通信的示意图。"]
 
-支持的 ONTAP 版本:: 建议至少使用ONTAP 9.6；ONTAP 9.8P11及更高版本。
+支持的 ONTAP 版本:: 建议至少使用ONTAP 9.7P5；ONTAP 9.8P13及更高版本。
 许可证要求:: 对于 Cloud Backup PAYGO 许可， AWS Marketplace 中提供了 Cloud Manager 订阅，用于部署 Cloud Volumes ONTAP 和 Cloud Backup 。您需要 https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["订阅此 Cloud Manager 订阅"^] 启用 Cloud Backup 之前。Cloud Backup 的计费通过此订阅完成。
 +
 --
@@ -79,7 +79,14 @@ image:diagram_cloud_backup_cvo_aws.png["显示 Cloud Backup 如何与备份文�
 
 --
 支持的 AWS 区域:: 所有 AWS 地区均支持 Cloud Backup https://cloud.netapp.com/cloud-volumes-global-regions["支持 Cloud Volumes ONTAP 的位置"^]；包括 AWS GovCloud 地区。
-在其他 AWS 帐户中创建备份所需的设置:: 默认情况下，备份是使用与 Cloud Volumes ONTAP 系统相同的帐户创建的。如果要使用其他 AWS 帐户进行备份，则必须使用 link:reference-backup-multi-account-aws.html["登录到 AWS 门户并链接这两个帐户"]。
+在其他 AWS 帐户中创建备份所需的设置:: 默认情况下，备份是使用与 Cloud Volumes ONTAP 系统相同的帐户创建的。如果要使用其他AWS帐户进行备份、则必须：
++
+--
+* 在Cloud Manager中添加目标AWS帐户凭据
+* 将权限"S3：PutBucketPolicy"添加到为Cloud Manager提供权限的IAM角色中
+
+
+--
 使用客户管理的密钥进行数据加密所需的信息:: 您可以在激活向导中选择自己的客户管理的数据加密密钥，而不是使用默认的 Amazon S3 加密密钥。在这种情况下，您需要已设置加密受管密钥。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html["了解如何使用您自己的密钥"^]。
 需要 AWS 权限:: 为 Cloud Manager 提供权限的 IAM 角色必须包含最新版本的 S3 权限 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html["Cloud Manager 策略"^]。
 +
@@ -108,6 +115,7 @@ image:diagram_cloud_backup_cvo_aws.png["显示 Cloud Backup 如何与备份文�
                 "s3:GetBucketPublicAccessBlock",
                 "s3:GetBucketAcl",
                 "s3:GetBucketPolicy",
+                "s3:PutBucketPolicy",
                 "s3:PutBucketPublicAccessBlock",
                 "s3:PutEncryptionConfiguration",
                 "s3:GetObjectVersionTagging",
@@ -183,13 +191,13 @@ Cloud Backup 在系统上启用，每天备份卷，并保留最近 30 个备份
 如果您的备份的Amazon S3目标作为工作环境存在于Canvas上、您可以将集群拖动到Amazon S3工作环境中以启动设置向导。
 
 +
-image:screenshot_backup_cvo_enable.png["屏幕截图显示了 Backup & amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"]
+image:screenshot_backup_cvo_enable.png["屏幕截图显示了 Backup  amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"]
 
 . 选择提供程序详细信息并单击 * 下一步 * ：
 +
 .. 用于存储备份的 AWS 帐户。此帐户可以与 Cloud Volumes ONTAP 系统所驻留的帐户不同。
 +
-如果要使用其他 AWS 帐户进行备份，则必须使用 link:reference-backup-multi-account-aws.html["登录到 AWS 门户并链接这两个帐户"]。
+如果要使用其他AWS帐户进行备份、则必须在Cloud Manager中添加目标AWS帐户凭据、并将权限"S3：PutBucketPolicy"添加到为Cloud Manager提供权限的IAM角色。
 
 .. 要存储备份的区域。此区域可以与 Cloud Volumes ONTAP 系统所在的区域不同。
 .. 是使用默认 Amazon S3 加密密钥，还是从 AWS 帐户中选择您自己的客户管理密钥来管理数据加密。 (https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html["了解如何使用您自己的加密密钥"]）。

@@ -41,7 +41,7 @@ summary: 完成几个步骤，开始将数据从内部 ONTAP 系统备份到 Goo
 选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 > 备份卷 * ，然后按照设置向导进行操作。
 
 [role="quick-margin-para"]
-image:screenshot_backup_onprem_enable.png["屏幕截图显示了 Backup & amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"]
+image:screenshot_backup_onprem_enable.png["屏幕截图显示了 Backup  amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"]
 
 [role="quick-margin-para"]
 选择 Google Cloud 作为提供商，然后输入提供商详细信息。您还需要在卷所在的 ONTAP 集群中指定 IP 空间。
@@ -86,7 +86,7 @@ https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.
 ONTAP 要求::
 +
 --
-* 建议至少使用ONTAP 9.7P5；ONTAP 9.8P11及更高版本。
+* 建议至少使用ONTAP 9.7P5；ONTAP 9.8P13及更高版本。
 * SnapMirror 许可证（作为超值包或数据保护包的一部分提供）。
 +
 * 注意： * 使用 Cloud Backup 时不需要 " 混合云捆绑包 " 。
@@ -230,7 +230,7 @@ bigquery.tables.create
 如果用于备份的Google Cloud Storage目标作为工作环境存在于Canvas上、则可以将集群拖动到Google Cloud Storage工作环境中以启动设置向导。
 
 +
-image:screenshot_backup_onprem_enable.png["屏幕截图显示了 Backup & amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"]
+image:screenshot_backup_onprem_enable.png["屏幕截图显示了 Backup  amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"]
 
 . 选择 Google Cloud 作为您的提供商，然后单击 * 下一步 * 。
 . 输入提供程序详细信息并单击 * 下一步 * 。

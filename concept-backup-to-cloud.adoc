@@ -28,6 +28,8 @@ link:https://cloud.netapp.com/cloud-backup-service["了解有关 Cloud Backup �
 * 使用适用于VMware的Cloud Backup将数据存储库备份到云、并将虚拟机还原回内部vCenter。 link:concept-protect-vm-data.html["请参见此处的详细功能"]。
 
 
+https://www.youtube.com/watch?v=DF0knrH2a80["观看快速演示"^]
+
 
 TIP: 如果Cloud Manager Connector部署在云中的政府区域或无法访问Internet的站点(非公开站点)中、则Cloud Backup仅支持从ONTAP 系统执行备份和还原操作。使用这些备用部署方法时、Cloud Backup不支持从Kubernetes集群、应用程序或虚拟机执行备份和还原操作。
 

@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: task-licensing-cloud-backup.html 
-keywords: license, licensing, install, updating license, paygo license, byol license, nlf, license generator, backup license, add backup license, update backup license 
-summary: '您可以通过从云提供商购买按需购买(PAYGO)市场订阅或从NetApp购买自带许可证(BYOL)来获得Cloud Backup的许可。要在工作环境中激活Cloud Backup、为生产数据创建备份以及将备份数据还原到生产系统、需要有效的许可证。' 
+keywords: license, licensing, install, updating license, paygo license, byol license, nlf, license generator, backup license, add backup license, update backup license, annual 
+summary: '您可以通过从云提供商购买按需购买(PAYGO)或年度市场订阅、或者从NetApp购买自带许可证(BYOL)来获得Cloud Backup的许可。要在工作环境中激活Cloud Backup、为生产数据创建备份以及将备份数据还原到生产系统、需要有效的许可证。' 
 ---
 = 为 Cloud Backup 设置许可
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: '您可以通过从云提供商购买按需购买(PAYGO)市场订阅或
 
 
 [role="lead"]
-您可以通过从云提供商购买按需购买(PAYGO)市场订阅或从NetApp购买自带许可证(BYOL)来获得Cloud Backup的许可。要在工作环境中激活Cloud Backup、为生产数据创建备份以及将备份数据还原到生产系统、需要有效的许可证。
+您可以通过从云提供商购买按需购买(PAYGO)或年度市场订阅、或者从NetApp购买自带许可证(BYOL)来获得Cloud Backup的许可。要在工作环境中激活Cloud Backup、为生产数据创建备份以及将备份数据还原到生产系统、需要有效的许可证。
 
 在阅读其他内容之前，请先阅读一些注释：
 
@@ -200,7 +200,7 @@ image:screenshot_services_license_expire.png["在 \" 数字电子钱包 \" 页�
 
 . 如果 Cloud Manager 无法自动更新许可证（例如，安装在非公开站点时），则需要手动上传许可证文件。
 +
-.. 您可以 <<Obtain your Cloud Backup license file,从 NetApp 支持站点获取许可证文件>>。
+.. 您可以  your Cloud Backup license file,从 NetApp 支持站点获取许可证文件。
 .. 在数字电子邮件页面 _Data Services Licenses_ 选项卡上，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于要更新的服务序列号，请单击 * 更新许可证 * 。
 +
 image:screenshot_services_license_update1.png["选择特定服务的更新许可证按钮的屏幕截图。"]

@@ -64,7 +64,7 @@ image:screenshot_backup_policy_azure.png["屏幕截图显示了 Cloud Backup 设
 
 image:diagram_cloud_backup_cvo_azure.png["显示 Cloud Backup 如何与备份文件所在的源系统和目标存储上的卷进行通信的示意图。"]
 
-支持的 ONTAP 版本:: 建议至少使用ONTAP 9.7P5；ONTAP 9.8P11及更高版本。
+支持的 ONTAP 版本:: 建议至少使用ONTAP 9.7P5；ONTAP 9.8P13及更高版本。
 许可证要求:: 对于 Cloud Backup PAYGO 许可，在启用 Cloud Backup 之前，需要通过 Azure Marketplace 订阅。Cloud Backup 的计费通过此订阅完成。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-azure.html["您可以从工作环境向导的详细信息和 amp ；凭据页面订阅"^]。
 +
 --
@@ -125,7 +125,7 @@ https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-az
 --
 支持的 Azure 区域:: 所有 Azure 地区均支持 Cloud Backup https://cloud.netapp.com/cloud-volumes-global-regions["支持 Cloud Volumes ONTAP 的位置"^]；包括 Azure 政府区域。
 在其他 Azure 订阅中创建备份所需的设置:: 默认情况下，备份是使用与 Cloud Volumes ONTAP 系统相同的订阅创建的。如果要对备份使用其他 Azure 订阅，则必须使用 link:reference-backup-multi-account-azure.html["登录到 Azure 门户并链接这两个订阅"]。
-使用客户管理的密钥进行数据加密所需的信息:: 您可以在激活向导中使用自己的客户管理密钥进行数据加密，而不是使用默认的 Microsoft 管理的加密密钥。在这种情况下，您需要拥有 Azure 订阅，密钥存储名称和密钥。 https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["了解如何使用您自己的密钥"]。
+使用客户管理的密钥进行数据加密所需的信息:: 您可以在激活向导中使用自己的客户管理密钥进行数据加密，而不是使用默认的 Microsoft 管理的加密密钥。在这种情况下，您需要拥有 Azure 订阅，密钥存储名称和密钥。 https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["了解如何使用您自己的密钥"^]。
 
 
 
@@ -137,7 +137,7 @@ Cloud Backup 在工作环境向导中默认处于启用状态。请务必保持�
 请参见 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-azure.html["在 Azure 中启动 Cloud Volumes ONTAP"^] 有关创建 Cloud Volumes ONTAP 系统的要求和详细信息，请参见。
 
 
-NOTE: 如果要选择资源组的名称，请在部署 Cloud Volumes ONTAP 时 * 禁用 * 云备份。按照的步骤进行操作 <<enabling-cloud-backup-on-an-existing-system,在现有系统上启用 Cloud Backup>> 启用 Cloud Backup 并选择资源组。
+NOTE: 如果要选择资源组的名称，请在部署 Cloud Volumes ONTAP 时 * 禁用 * 云备份。按照的步骤进行操作 ,在现有系统上启用 Cloud Backup 启用 Cloud Backup 并选择资源组。
 
 .步骤
 . 单击 * 创建 Cloud Volumes ONTAP * 。
