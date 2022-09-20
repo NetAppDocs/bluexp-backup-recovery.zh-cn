@@ -2368,7 +2368,6 @@
   <block id="8996e9eaff78ab540aab279a66de20ac" category="inline-xref">使用Search &amp; amp；Restore还原卷、文件夹和文件</block>
   <block id="67e7c5cb86f955703ed9f6730af64fd6" category="list-text"><block ref="2695406f56a43b731bc71bc11df2f690" category="inline-xref-macro-rx"></block></block>
   <block id="3be60ab390e443d7cab393bf7054a58c" category="paragraph">在开始还原卷、文件夹或文件之前、您应知道要还原的卷的名称、卷所在工作环境的名称以及要从中还原的备份文件的大致日期。</block>
-  <block id="8d9d448b48e22adaa71555def5359f09" category="paragraph">*注意：*如果要还原的卷的备份文件位于归档存储中(从ONTAP 9.10.1开始)、则还原操作将需要较长时间并产生成本。此外、目标集群还必须运行ONTAP 9.10.1或更高版本来还原卷、以及运行9.11.1来还原文件夹或文件。</block>
   <block id="7ff418ea3dd2acd8ae27ed509d08a48b" category="paragraph">您可以将卷、文件夹或单个文件从ONTAP 备份文件还原到以下工作环境：</block>
   <block id="2e25696926fefd43b3529b13086c9690" category="cell">*文件夹和文件还原* ifdef：：AWS</block>
   <block id="2e43b583329f5406f8eb83df6ec39874" category="admonition">如果备份文件已配置DataLock &amp;勒索软件、则无法还原文件夹或文件。在这种情况下、您可以从备份文件还原整个卷、然后访问所需的文件。</block>
@@ -2413,7 +2412,6 @@
   <block id="33de9caf9e73a2815b32070111ac99d4" category="list-text">单击 * 还原 * ，您将返回到还原信息板，以便查看还原操作的进度。您也可以单击*作业监控*选项卡查看还原进度。</block>
   <block id="5b9c4d226a1b1a59e01d39143fab7e50" category="paragraph">您可以使用搜索和还原从ONTAP 备份文件还原卷、文件夹或文件。通过搜索和还原、您可以从存储在云存储上的特定提供商的所有备份中搜索特定卷、文件夹或文件、然后执行还原。您无需知道确切的工作环境名称或卷名称 - 搜索将查看所有卷备份文件。</block>
   <block id="ddc1dd6e781e5ceee9400e96abd01aca" category="paragraph">您可以将文件夹或文件还原到原始卷位置、同一工作环境中的其他卷或使用同一云帐户的其他工作环境。您还可以将文件夹和文件还原到内部ONTAP 系统上的卷。</block>
-  <block id="148341a9f262dd2566a8d09962c50c13" category="paragraph">如果要还原的卷的备份文件驻留在归档存储中(从ONTAP 9.10.1开始可用)、则还原操作将需要较长时间并产生额外成本。请注意、目标集群还必须运行ONTAP 9.10.1或更高版本来还原卷、以及运行9.11.1来还原文件夹或文件。</block>
   <block id="e1ddf1ac9e59a50d9ac5683a1d33e13a" category="cell">目标工作环境ifdef：：AWS]]</block>
   <block id="ea69bd234559eac714e5d0b94f7c07f5" category="list-text">在使用搜索和还原之前、您需要在要从中还原卷数据的每个源工作环境上启用"索引编制"。这样，索引目录就可以跟踪每个卷的备份文件。</block>
   <block id="0b70b5c6f495c9936344b6df542ed0de" category="list-text">按部分或完整卷名称、部分或完整文件名、大小范围、创建日期范围和其他搜索筛选器输入卷、文件夹或文件的搜索条件、然后单击*搜索*。</block>
@@ -2443,9 +2441,7 @@
   <block id="f2c9e54745387d4204d350aaf464ef16" category="paragraph">上一版本针对存储在Amazon S3存储分段中的备份引入了_DataLock和勒索软件保护_。此版本扩展了对StorageGRID 系统中存储的备份文件的支持。如果集群使用的是ONTAP 9.11.1或更高版本、而StorageGRID 系统运行的是11.6.0.3或更高版本、则可以使用此新的备份策略选项。<block ref="3f7eaa3e30bb5eb7a46ecb7c423ee7ad" category="inline-link-rx"></block>。</block>
   <block id="7db81221e474d169032014280bbe8e36" category="paragraph">请注意、您需要运行的Connector软件版本为3.9.22或更高版本。连接器必须安装在您的内部环境中、并且可以安装在可访问Internet或不可访问Internet的站点中。</block>
   <block id="dfa4dbaa7b53b80d828eeac39da445d5" category="section-title">现在、您可以从备份文件中进行文件夹级还原</block>
-  <block id="44049ef063184610d2b3d1f901e33c6a" category="paragraph">现在、如果您需要访问某个备份文件(目录或共享)中的所有文件、则可以从该文件还原该文件夹。与还原整个卷相比、还原文件夹的效率要高得多。此功能可用于使用浏览和还原方法以及搜索和还原方法执行还原操作。此时、您只能选择和还原单个文件夹、并且只会还原该文件夹中的文件、而不会还原子文件夹或子文件夹中的文件。</block>
   <block id="08c716b38dc966a670cdf75da8f3f86d" category="section-title">现在、可以从已移至归档存储的备份中进行文件级还原</block>
-  <block id="5a1b289592dc33da4fec4177e12f2abe" category="paragraph">过去、您只能从已移至归档存储的备份文件还原卷(仅限AWS和Azure)。现在、您可以从这些归档备份文件还原单个文件和文件夹。此功能可用于使用浏览和还原方法以及搜索和还原方法执行还原操作。</block>
   <block id="b0e03676724b8b6468356ef104a66e4f" category="section-title">现在、文件级还原提供了覆盖原始源文件的选项</block>
   <block id="f3e2c168c189da079b62c6ff6558a640" category="paragraph">过去、还原到原始卷的文件始终会作为前缀为"Restore_&lt;file_name&gt;"的新文件进行还原。现在、您可以选择在将源文件还原到卷上的原始位置时覆盖此源文件。此功能可用于使用浏览和还原方法以及搜索和还原方法执行还原操作。</block>
   <block id="736c2dbf2aa9f4b08b97a4f719b3cf5e" category="section-title">拖放以启用云备份到StorageGRID 系统</block>
@@ -2514,4 +2510,8 @@
   <block id="5a58de0e84e5db9ac743167d182029a5" category="section-title">为工作环境停用Cloud Backup</block>
   <block id="7d74a85f6ca999dc566f13bea483a788" category="paragraph">在工作环境中停用Cloud Backup会禁用系统上每个卷的备份、同时也会禁用还原卷的功能。不会删除任何现有备份。这样不会从此工作环境中取消注册备份服务—它基本上允许您将所有备份和还原活动暂停一段时间。</block>
   <block id="7ff191df90fac0fa94ab5c2b5101a5e9" category="sidebar">所有 Cloud Manager 文档</block>
+  <block id="201e1c2515e9474bbcf720fb750a48c0" category="paragraph">现在、如果您需要访问某个备份文件(目录或共享)中的所有文件、则可以从该文件还原该文件夹。与还原整个卷相比、还原文件夹的效率要高得多。在使用ONTAP 9.11.1或更高版本时、可以使用浏览和还原方法以及搜索和还原方法执行还原操作。此时、您只能选择和还原单个文件夹、并且只会还原该文件夹中的文件、而不会还原子文件夹或子文件夹中的文件。</block>
+  <block id="092186aa28f6e357cce0ba979d549724" category="paragraph">过去、您只能从已移至归档存储的备份文件还原卷(仅限AWS和Azure)。现在、您可以从这些归档备份文件还原单个文件。在使用ONTAP 9.11.1或更高版本时、可以使用浏览和还原方法以及搜索和还原方法执行还原操作。</block>
+  <block id="a82e38799f4647ec5a2bc71d39020ae3" category="paragraph">*注意：*如果要还原的卷的备份文件位于归档存储中(从ONTAP 9.10.1开始)、则还原操作将需要较长时间并产生成本。此外、目标集群还必须运行ONTAP 9.10.1或更高版本来执行卷还原、以及运行9.11.1来执行文件还原。</block>
+  <block id="550600f5b11e396f6d260ad4b5bad6b4" category="paragraph">如果要还原的卷的备份文件驻留在归档存储中(从ONTAP 9.10.1开始可用)、则还原操作将需要较长时间并产生额外成本。请注意、目标集群还必须运行ONTAP 9.10.1或更高版本来执行卷还原、以及运行9.11.1来执行文件还原。</block>
 </blocks>
