@@ -50,7 +50,7 @@ summary: 了解 Cloud Backup 中的新增功能。
 
 === 拖放以启用云备份到StorageGRID 系统
 
-如果 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-viewing-azure-blob.html["StorageGRID"^] 备份目标作为工作环境存在于Canvas上、您可以将内部ONTAP 工作环境拖动到目标上以启动备份设置向导。
+如果 https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-storagegrid.html["StorageGRID"^] 备份目标作为工作环境存在于Canvas上、您可以将内部ONTAP 工作环境拖动到目标上以启动Cloud Backup设置向导。
 
 
 

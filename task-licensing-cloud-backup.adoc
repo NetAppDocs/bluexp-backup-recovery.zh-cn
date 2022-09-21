@@ -20,6 +20,7 @@ summary: '您可以通过从云提供商购买按需购买(PAYGO)或年度市场
 
 * 如果您已在云提供商的市场上为 Cloud Volumes ONTAP 系统订阅了 Cloud Manager 按需购买（ PAYGO ）订阅，则也会自动订阅 Cloud Backup 。您无需重新订阅。
 * Cloud Backup 自带许可证（ BYOL ）是一种浮动许可证，您可以在与 Cloud Manager 帐户关联的所有系统上使用。因此、如果现有BYOL许可证提供了足够的备份容量、则无需再购买一个BYOL许可证。
+* 如果您使用的是BYOL许可证、建议同时订阅PAYGO订阅。如果备份的数据超过BYOL许可证允许的数量、则备份将通过按需购买订阅继续进行、不会中断服务。
 * 将内部 ONTAP 数据备份到 StorageGRID 时，您需要 BYOL 许可证，但云提供商存储空间不需要任何成本。
 
 
