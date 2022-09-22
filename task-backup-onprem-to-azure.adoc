@@ -145,6 +145,8 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html["在内部安装Connector"^]
 
 
+请注意、只有在云中部署了Connector时、政府云区域才支持Cloud Backup、而不是安装在内部或非公开站点中。
+
 
 
 === 为连接器准备网络连接
@@ -157,6 +159,7 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 ** 通过端口 443 （ HTTPS ）与 Cloud Backup Service 的出站 Internet 连接
 ** 通过端口 443 与 Blob 对象存储建立 HTTPS 连接
 ** 通过端口 443 与 ONTAP 集群管理 LIF 建立 HTTPS 连接
+** Azure和Azure政府部署还需要其他入站安全组规则。请参见 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-ports-azure.html["Azure 中连接器的规则"^] 了解详细信息。
 
 
 . 为 Azure 存储启用 vNet 私有端点。如果您从ONTAP 集群到vNet具有ExpressRoute或VPN连接、并且希望Connector和Blob存储之间的通信保持在虚拟专用网络中(*专用*连接)、则需要此功能。

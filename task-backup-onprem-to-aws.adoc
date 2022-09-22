@@ -90,6 +90,8 @@ Cloud Manager Connector 是 Cloud Manager 功能的主要软件。需要使用�
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html["在内部安装Connector"^]
 
 
+请注意、只有在云中部署了Connector时、GovCloud地区才支持Cloud Backup、而不是安装在内部或非公开站点中。
+
 
 
 === 连接器网络连接要求
@@ -98,6 +100,7 @@ Cloud Manager Connector 是 Cloud Manager 功能的主要软件。需要使用�
 +
 ** 通过端口443与Cloud Backup Service 和S3对象存储建立HTTPS连接 (https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html["请参见端点列表"^]）
 ** 通过端口 443 与 ONTAP 集群管理 LIF 建立 HTTPS 连接
+** AWS和AWS GovCloud部署需要其他入站和出站安全组规则。请参见 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-ports-aws.html["AWS 中连接器的规则"^] 了解详细信息。
 
 
 * link:task-backup-onprem-to-aws.html#set-up-s3-permissions["确保Connector具有管理S3存储分段的权限"]。
