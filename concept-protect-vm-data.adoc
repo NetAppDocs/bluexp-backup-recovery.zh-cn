@@ -16,7 +16,7 @@ summary: 了解有关保护虚拟机上数据的更多信息、并了解不同�
 [role="lead"]
 您可以通过将适用于VMware vSphere的SnapCenter 插件与Cloud Manager集成来保护虚拟机上的数据。您可以将数据存储库备份到云、并将虚拟机轻松还原回适用于VMware vSphere的内部部署SnapCenter 插件。
 
-您可以将数据存储库备份到Amazon Web Services S3或Microsoft Azure Blob。
+您可以将数据存储库备份到Amazon Web Services S3、Microsoft Azure Blob和StorageGRID。
 
 
 
@@ -40,54 +40,3 @@ summary: 了解有关保护虚拟机上数据的更多信息、并了解不同�
 下图显示了每个组件以及需要在它们之间准备的连接：
 
 image:cloud_backup_vm.png["虚拟机云备份的架构图。"]
-
-
-
-== 保护策略
-
-您应使用适用于虚拟机的Cloud Backup中定义的策略之一将数据存储库备份到云。
-
-
-NOTE: 不支持自定义策略。
-
-您可以通过单击Cloud Manager中的*备份和还原*>*虚拟机*>*策略*来查看默认策略。
-
-|===
-| Policy name | Label | 保留值 
-
-
- a| 
-1 年每日 LTR
- a| 
-每天
- a| 
-366.
-
-
-
- a| 
-5 年每日 LTR
- a| 
-每天
- a| 
-1830 年
-
-
-
- a| 
-7 年每周 LTR
- a| 
-每周
- a| 
-370
-
-
-
- a| 
-10 年每月 LTR
- a| 
-每月
- a| 
-120
-
-|===

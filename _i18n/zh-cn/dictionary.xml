@@ -451,7 +451,6 @@
   <block id="61f9980bdbfc26a31c724b0711e0c9d7" category="list-text">SnapCenter 中至少有一个每日，每周或每月策略，没有与 Cloud Manager 中的 Cloud Backup for Applications 策略相同的标签。</block>
   <block id="c895d0010b397b55778718d6ccc26b78" category="inline-image-macro">显示 Cloud Backup 如何与内部应用程序以及备份文件所在的目标存储进行通信的示意图。</block>
   <block id="bc983d441473b5c9a47c39b5fb57e53f" category="paragraph"><block ref="bc983d441473b5c9a47c39b5fb57e53f" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="1fb0ab1ae08802d159d677b839bdb6bd" category="section-title">保护策略</block>
   <block id="002f7378a5fcfc2f66cfea851a7fd5f4" category="cell">Policy name</block>
   <block id="b021df6aac4654c454f46c77646e745f" category="cell">Label</block>
   <block id="dfa56cb0ff8ac0e7087134a3d7e1f39d" category="cell">保留值</block>
@@ -1023,14 +1022,11 @@
   <block id="74530be68401a15b7ea1d28131ab97bc" category="list-text">指定管理员凭据。</block>
   <block id="bfb822fc24423e523038a16084714363" category="paragraph">Cloud Backup for Applications 仅支持集群管理。</block>
   <block id="aa8af91e5428a9ebec0674a12beb38a8" category="list-text">单击 * 添加工作环境 * 。</block>
-  <block id="8841c3ab9e3ed16d9f9a0d43c08cc8a8" category="list-text">选择并配置云提供商。</block>
-  <block id="af2a670f49a4622290f494ad6dcea729" category="open-title">配置 Amazon Web Services</block>
   <block id="4117af0b4d26b5ba222b63a2b7e1eb27" category="list-text">指定 AWS 帐户。</block>
   <block id="8b803eccc7b3025a4a30eb9283c44e50" category="list-text">在 AWS 访问密钥字段中，指定密钥。</block>
   <block id="6e3c30245930a39c89b2820d0afecc99" category="list-text">在 AWS 机密密钥字段中，指定密码。</block>
   <block id="b5d98853353bde168501864a9aa65bfd" category="list-text">选择要创建备份的区域。</block>
   <block id="17e71ff8be0504f2f0970de9d25aff47" category="list-text">指定已添加为工作环境的 ONTAP 集群的 IP 地址。</block>
-  <block id="9d4e2d4af7d5004d70454172e508b2dc" category="open-title">配置 Microsoft Azure</block>
   <block id="3cc0854835f3b022e6a1537884da217d" category="list-text">指定 Azure 订阅 ID 。</block>
   <block id="438d3dd7620068789776c4fbc687ceda" category="list-text">创建新资源组或使用现有资源组。</block>
   <block id="937fe6f3b88e5f7efd348b6104efe90c" category="list-text">在分配策略页面中，选择策略并单击 * 下一步 * 。</block>
@@ -1523,9 +1519,6 @@
   <block id="0291e73f7c30c841795ff165a80bdc0e" category="list-text">单击 <block ref="1d94ccc08c31bc8efbc06bfabc6854b6" category="inline-image-macro-rx" type="image"></block> 对应于要还原的虚拟机、然后单击*还原*。</block>
   <block id="9ed4c9021fe62521b5d2326bd893b1c0" category="list-text">选择要用于还原虚拟机的备份、然后单击*下一步*。</block>
   <block id="42387e1cb260fd1fb8624acde3767841" category="paragraph">虚拟机将还原到创建备份的同一位置。</block>
-  <block id="4d9574931c16abc6d4b59b575083bffd" category="summary">将数据存储库从内部ONTAP 备份到云。</block>
-  <block id="7048662b75c8f210e59f898d992521cc" category="doc">将数据存储库备份到云</block>
-  <block id="6dd46b526b8b23de64849cb2b9161407" category="paragraph">您可以通过将适用于VMware vSphere的SnapCenter 插件与Cloud Manager集成来将数据存储库备份到云。这将有助于VM管理员轻松快速地备份和归档数据以提高存储效率、并加快云过渡速度。</block>
   <block id="9a0c42190771559c2a8da5fac845d24d" category="admonition">确保您已满足所有要求 <block ref="a5bf58fdc6833048fad2d714a6e89f9c" category="inline-link-macro-rx"></block> 将数据存储库备份到云之前。</block>
   <block id="8f2653c5938080ffdd57904f850bc430" category="section-title">注册适用于VMware vSphere的SnapCenter 插件</block>
   <block id="908b804c1d5eb33816dbfe2d033e3e43" category="paragraph">您应在Cloud Manager中注册适用于VMware vSphere的SnapCenter 插件、以便在Cloud Manager中显示数据存储库和虚拟机。只有具有管理访问权限的用户才能注册适用于VMware vSphere的SnapCenter 插件。</block>
@@ -1534,11 +1527,8 @@
   <block id="4e5b953e1349e67f48dba9317bba75d3" category="list-text">单击*注册适用于VMware vSphere的SnapCenter 插件*。</block>
   <block id="d530421284e594531ff677ce26aca840" category="list-text">在适用于VMware vSphere的SnapCenter 插件字段中、指定适用于VMware vSphere的SnapCenter 插件的FQDN或IP地址。</block>
   <block id="0db60886ecbee2c8ae4b0a650b7ef422" category="list-text">在端口字段中、指定运行适用于VMware vSphere的SnapCenter 插件的端口号。</block>
-  <block id="d89a3944c2a1428f7efcadcc74009254" category="paragraph">您应确保此端口已打开、以便适用于VMware vSphere的SnapCenter 插件与适用于应用程序的云备份之间进行通信。</block>
   <block id="4eb88f79049bc78204f8659b66b7b655" category="list-text">在用户名和密码字段中、指定具有管理员角色的用户的凭据。</block>
   <block id="a5f2332b8c4899ab96469750896f3abd" category="paragraph">单击*备份和还原&gt;虚拟机*以查看使用适用于VMware vSphere的注册SnapCenter 插件符合保护条件的所有数据存储库和虚拟机。</block>
-  <block id="767d5a2c4b139b3eaffd11e9a1772a77" category="section-title">备份数据存储库</block>
-  <block id="2f95ab0bd04ff2aa6411e15c863087be" category="paragraph">您可以使用一个策略将一个或多个数据存储库同时备份到云中。只能为数据存储库分配默认策略。</block>
   <block id="1d419e3005bf4974f6070bbb53e5816f" category="list-text">单击 <block ref="1d94ccc08c31bc8efbc06bfabc6854b6" category="inline-image-macro-rx" type="image"></block> 对应于要备份的数据存储库、然后单击*激活备份*。</block>
   <block id="2b0057ced0fbbcb82bd3aeddd916912e" category="paragraph">配置您希望Cloud Manager发现的ONTAP 集群以备份数据存储库。为其中一个数据存储库添加工作环境后、可以对同一ONTAP 集群上的所有其他数据存储库重复使用该环境。</block>
   <block id="925e322b8ed2bad21cf3391e5e93df0a" category="list-text">单击与SVM对应的*添加工作环境*。</block>
@@ -1548,7 +1538,6 @@
   <block id="db7f740fbee2466830a1f559dba6b17b" category="list-text">创建新资源组或使用现有资源组。</block>
   <block id="ddac760f2c60fbb2375807e939befa9d" category="summary">了解有关保护虚拟机上数据的更多信息、并了解不同的策略。</block>
   <block id="97bfb69bf5a1d719c6265b922436bbaa" category="doc">保护虚拟机数据</block>
-  <block id="9dfb41ef96b06970eed334ebe8ebfdce" category="paragraph">您可以将数据存储库备份到Amazon Web Services S3或Microsoft Azure Blob。</block>
   <block id="bf12440e355f2cc41683d5da523c5fce" category="paragraph">在开始将数据存储库和虚拟机备份到云服务之前、请阅读以下要求、以确保您的配置受支持。</block>
   <block id="d511399444cf864b695600d159b7c93b" category="list-text">适用于VMware vSphere 4.6P1或更高版本的SnapCenter 插件</block>
   <block id="2d65c0d587a717a1de564ac474c18bc8" category="list-text">Cloud Manager 3.9或更高版本</block>
@@ -1562,9 +1551,6 @@
   <block id="6ee2c41b7a9bfae5bb618327d9499834" category="list-text">确保目标数据存储库不包含先前还原操作失败时格式为restore_xxx.xxxxxx_filename的陈旧虚拟机文件。在触发还原操作之前、您应删除陈旧的文件。</block>
   <block id="a059803f1ed59324d3428d6aa42a2e5d" category="inline-image-macro">虚拟机云备份的架构图。</block>
   <block id="9b56b7a48ea1f2ae532165c49455002a" category="paragraph"><block ref="9b56b7a48ea1f2ae532165c49455002a" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="b8b6d4fc48cb996b1ca14cbf78ac8cae" category="paragraph">您应使用适用于虚拟机的Cloud Backup中定义的策略之一将数据存储库备份到云。</block>
-  <block id="37a8959a214e35c525dec921ae5021bc" category="admonition">不支持自定义策略。</block>
-  <block id="af84c6f32a8cf07ced1b300921376b2a" category="paragraph">您可以通过单击Cloud Manager中的*备份和还原*&gt;*虚拟机*&gt;*策略*来查看默认策略。</block>
   <block id="4cfbdcb9aba741b123b3c46a8341bf59" category="sidebar">保护虚拟机数据</block>
   <block id="b2736084b30c35472d74c3c29a818a95" category="sidebar">管理虚拟机的保护</block>
   <block id="c2c86860cad5cd95ae9ef9c003e01d57" category="sidebar">还原虚拟机数据</block>
@@ -2548,7 +2534,6 @@
   <block id="acf994e4904e0990a43c8101030dd5e7" category="paragraph">如果要还原从二级存储移至对象存储的备份、则应添加主工作环境详细信息并设置IP空间。有关详细信息，请参见 <block ref="e02b8a08c7642873f6aa3b3d230cfbe4" category="inline-link-macro-rx"></block>。</block>
   <block id="39a39a3d5651d922f580216bf9d45b85" category="list-text">如果要将数据库的状态更改为执行还原和恢复操作所需的状态、请选择*数据库状态*。</block>
   <block id="7acc08861d4ed79ef851580e5f995af3" category="list-text">如果快照位于归档存储中、请指定从归档存储还原数据的优先级。</block>
-  <block id="e832ac1a52df9e5be90655bbbb8f4288" category="section-title">2022年9月30日</block>
   <block id="89d500a3ace67f6d47edb61231336589" category="section-title">Cloud Backup for Applications的增强功能</block>
   <block id="2e73884f73c53eee3aea96494fd4ff16" category="list-text">支持Google Cloud Provider (GCP)和StorageGRID 备份应用程序一致的快照</block>
   <block id="f617da6b50728500642eb376ab97b6f4" category="list-text">创建自定义策略</block>
@@ -2615,4 +2600,26 @@
   <block id="81fedcf72bda3098b5ab523c2f40b979" category="list-text">(可选)如果要在经过一定天数后将备份从对象存储移动到归档存储以实现成本优化、请选中*将备份分层到归档*复选框。</block>
   <block id="ce5717a5ac194f2c014f6deb6616dbb5" category="paragraph">只有在使用ONTAP 9.10.1或更高版本以及Amazon Web Services或Azure作为云提供商时、才能将备份从对象存储移动到归档存储。您应为每个云提供商配置归档访问层。</block>
   <block id="8fcec94b164f3e6b67e681668273f11f" category="paragraph">您可以编辑、复制和删除自定义策略。</block>
+  <block id="c420a910c4e7f566035c5d1b7b8aafc4" category="paragraph">您可以将数据存储库备份到Amazon Web Services S3、Microsoft Azure Blob和StorageGRID。</block>
+  <block id="c2ad71e1ba4efb575c70188690872b02" category="section-title">2022年9月27日</block>
+  <block id="0ec24d208e5df8843f6524b944c450f6" category="summary">将数据存储库从内部ONTAP 备份到AWS。</block>
+  <block id="1d5ad62b9217b4a3f085f517534f40bb" category="doc">将数据存储库备份到Amazon Web Services</block>
+  <block id="4d14c89c6829025e6961739f67adb3b2" category="paragraph">通过将适用于VMware vSphere的SnapCenter 插件与Cloud Manager集成、您可以将一个或多个数据存储库备份到Amazon Web Services。这将有助于VM管理员轻松快速地备份和归档数据以提高存储效率、并加快云过渡速度。</block>
+  <block id="52405c4e62742959f93902e51bb72d0b" category="list-text">选择* Amazon Web Services*将其配置为云提供商。</block>
+  <block id="210360badd0de9b811d995dd73e39d33" category="summary">将数据存储库从内部ONTAP 备份到Azure。</block>
+  <block id="32d2b45dd98e36ad888d7156b4532053" category="doc">将数据存储库备份到Microsoft Azure</block>
+  <block id="1db14c245026451badaa18ea629908ac" category="paragraph">您可以通过将适用于VMware vSphere的SnapCenter 插件与Cloud Manager集成来将一个或多个数据存储库备份到Microsoft Azure。这将有助于VM管理员轻松快速地备份和归档数据以提高存储效率、并加快云过渡速度。</block>
+  <block id="8a8bca40b3d548c634cd73d37e5a630c" category="list-text">选择* Microsoft Azure*将其配置为云提供程序。</block>
+  <block id="cf12172bd966bafd91b1daeef9357fe8" category="summary">将数据存储库从内部ONTAP 备份到StorageGRID。</block>
+  <block id="ba7b66b996d8928df996e4fd4fffa4a4" category="doc">将数据存储库备份到StorageGRID</block>
+  <block id="8cc3c787b878714882ebb903aea632ec" category="paragraph">您可以通过将适用于VMware vSphere的SnapCenter 插件与Cloud Manager集成来将一个或多个数据存储库备份到StorageGRID。这将有助于VM管理员轻松快速地备份和归档数据以提高存储效率、并加快云过渡速度。</block>
+  <block id="cf4e6e70123f43cdec5ffd93f792c083" category="list-text">指定存储服务器IP。</block>
+  <block id="10303a499a9e21a77e6dad69618c622b" category="list-text">选择访问密钥和机密密钥。</block>
+  <block id="fe8f95b60b7c4092ce03adfbb31e89b4" category="doc">创建用于备份虚拟机的策略</block>
+  <block id="d5b610f68fa011302b80020480862b25" category="paragraph">您可以创建策略或使用Cloud Manager中提供的以下预定义策略之一。</block>
+  <block id="43852dc1e0c3229284688eb4c01dfef0" category="paragraph">如果不想编辑预定义策略、应创建策略。</block>
+  <block id="0ef51421739da7017b4d3decc1813f4a" category="list-text">在虚拟机页面的设置下拉列表中、选择*策略*。</block>
+  <block id="05f2a09d30545d0cfce1840fb01af78f" category="paragraph">默认情况下、备份源将选择为主备份源。</block>
+  <block id="df66edfead273223d70ca57560d01593" category="summary">在Cloud Manager中注册适用于VMware vSphere的SnapCenter 插件。</block>
+  <block id="a0ba49a69c26d4de1afcac95ba435828" category="paragraph">您应确保此端口已打开、以便在适用于VMware vSphere的SnapCenter 插件与适用于虚拟机的云备份之间进行通信。</block>
 </blocks>

@@ -1,0 +1,69 @@
+---
+sidebar: sidebar 
+permalink: task-create-policies-vms.html 
+keywords: create policy, protection policies, predefined policies, custom policies 
+summary: 将数据存储库从内部ONTAP 备份到AWS。 
+---
+= 创建用于备份虚拟机的策略
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以创建策略或使用Cloud Manager中提供的以下预定义策略之一。
+
+|===
+| Policy name | Label | 保留值 
+
+
+ a| 
+1 年每日 LTR
+ a| 
+每天
+ a| 
+366.
+
+
+
+ a| 
+5 年每日 LTR
+ a| 
+每天
+ a| 
+1830 年
+
+
+
+ a| 
+7 年每周 LTR
+ a| 
+每周
+ a| 
+370
+
+
+
+ a| 
+10 年每月 LTR
+ a| 
+每月
+ a| 
+120
+
+|===
+如果不想编辑预定义策略、应创建策略。
+
+.步骤
+. 在虚拟机页面的设置下拉列表中、选择*策略*。
+. 单击*创建策略*。
+. 指定策略名称。
+. 指定计划和保留详细信息。
++
+默认情况下、备份源将选择为主备份源。
+
+. 单击 * 创建 * 。
+

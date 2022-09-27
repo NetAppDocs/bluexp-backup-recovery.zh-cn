@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: task-register-snapCenter-plug-in-for-vmware-vsphere.html 
+keywords: register, registration, SnapCenter Plug-in for VMware vSphere 
+summary: 在Cloud Manager中注册适用于VMware vSphere的SnapCenter 插件。 
+---
+= 注册适用于VMware vSphere的SnapCenter 插件
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您应在Cloud Manager中注册适用于VMware vSphere的SnapCenter 插件、以便在Cloud Manager中显示数据存储库和虚拟机。只有具有管理访问权限的用户才能注册适用于VMware vSphere的SnapCenter 插件。
+
+
+NOTE: 您可以注册多个适用于VMware vSphere的SnapCenter 插件。但是、注册后、您将无法删除适用于VMware vSphere的SnapCenter 插件。
+
+.步骤
+. 在Cloud Manager UI中、单击*备份和还原*>*虚拟机*。
+. 从*设置*下拉列表中、单击*适用于VMware vSphere的SnapCenter 插件*。
+. 单击*注册适用于VMware vSphere的SnapCenter 插件*。
+. 指定以下详细信息：
++
+.. 在适用于VMware vSphere的SnapCenter 插件字段中、指定适用于VMware vSphere的SnapCenter 插件的FQDN或IP地址。
+.. 在端口字段中、指定运行适用于VMware vSphere的SnapCenter 插件的端口号。
++
+您应确保此端口已打开、以便在适用于VMware vSphere的SnapCenter 插件与适用于虚拟机的云备份之间进行通信。
+
+.. 在用户名和密码字段中、指定具有管理员角色的用户的凭据。
+
+
+. 单击 * 注册 * 。
+
+
+* 完成后 *
+
+单击*备份和还原>虚拟机*以查看使用适用于VMware vSphere的注册SnapCenter 插件符合保护条件的所有数据存储库和虚拟机。

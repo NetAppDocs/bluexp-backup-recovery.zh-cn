@@ -132,8 +132,18 @@ sidebar:
     entries:
     - title: 保护虚拟机数据
       url: "/concept-protect-vm-data.html"
-    - title: 将数据存储库备份到云
-      url: "/task-backup-vm-data-to-cloud.html"
+    - title: 注册适用于VMware vSphere的SnapCenter 插件
+      url: "/task-register-snapCenter-plug-in-for-vmware-vsphere.html"
+    - title: 创建用于备份虚拟机的策略
+      url: "/task-create-policies-vms.html"
+    - title: 将数据存储库备份到Amazon Web Services
+      flavor: aws
+      url: "/task-backup-vm-data-to-aws.html"
+    - title: 将数据存储库备份到Microsoft Azure
+      flavor: azure
+      url: "/task-backup-vm-data-to-azure.html"
+    - title: 将数据存储库备份到StorageGRID
+      url: "/task-backup-vm-data-to-storagegrid.html"
     - title: 管理虚拟机的保护
       url: "/task-manage-vm-data-in-cloud.html"
     - title: 还原虚拟机数据
