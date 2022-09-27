@@ -1,0 +1,45 @@
+---
+sidebar: sidebar 
+permalink: task-mount-app-backup.html 
+keywords: mount, mount application backups, Oracle database, SAP HANA database 
+summary: 您可以将SAP HANA和Oracle备份挂载到给定数据库 
+---
+= 挂载应用程序备份
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+SnapCenter 不支持将Oracle和HANA备份还原到备用主机。因此、Cloud Backup for Applications允许您将Oracle和HANA备份挂载到给定主机。
+
+* 您需要的内容 *
+
+如果要挂载从二级存储移至对象存储的备份、则应添加主工作环境详细信息并设置IP空间。有关详细信息，请参见 link:task-manage-app-backups.html#set-ip-space-of-the-primary-working-environment["设置主工作环境的IP空间"]。
+
+* 步骤 *
+
+. 在 Cloud Manager UI 中，单击 * 备份和还原 * > * 应用程序 * 。
+. 在Filter by字段中、选择*类型*、然后从下拉列表中选择* SAP HANA *或* Oracle *。
+. 单击 image:icon-action.png["图标以选择操作"] 对应于受保护应用程序、然后选择*查看详细信息*。
+. 单击 image:icon-action.png["图标以选择操作"] 对应于备份、然后选择*挂载*。
++
+.. 指定以下项之一：
++
+... 对于NAS环境、指定要将从对象存储还原的备用卷导出到的主机的FQDN或IP地址。
+... 对于SAN环境、指定从对象存储还原的备用卷的LUN要映射到的主机启动程序。
+
+
+.. 指定要添加到备用卷名称的后缀。
+.. 如果快照位于归档存储中、请指定从归档存储中检索数据的优先级。
+.. 单击 * 挂载 * 。
+
+
+
+
+此操作仅会将存储挂载到给定主机上。您应手动挂载文件系统并启动数据库。使用备用卷后、存储管理员可以从ONTAP 集群中删除此卷。
+
+有关如何启动SAP HANA数据库的信息、请参见、 https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html["TR-4667：使用SnapCenter 自动执行SAP HANA系统复制和克隆操作"^]。

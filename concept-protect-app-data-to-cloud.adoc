@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: concept-protect-app-data-to-cloud.html 
-keywords: backing up, back up, backup, backup application data, Azure, Amazon Web services, Cloud Backup, Oracle database, Microsoft SQL Server database, policy, requirements 
+keywords: backing up, back up, backup, backup application data, Azure, Amazon Web services, Cloud Backup, Oracle database, Microsoft SQL Server database, policy, requirements, SAP HANA database 
 summary: 将适用于应用程序的云备份与 Cloud Manager 和内部 SnapCenter 相集成，将应用程序一致的 Snapshot 从内部 ONTAP 备份到云。 
 ---
 = 保护内部应用程序数据
@@ -16,26 +16,10 @@ summary: 将适用于应用程序的云备份与 Cloud Manager 和内部 SnapCen
 [role="lead"]
 您可以将适用于应用程序的 Cloud Backup 与 Cloud Manager 和内部 SnapCenter 集成，以便将应用程序一致的 Snapshot 从内部 ONTAP 备份到云。如果需要，您可以从云还原到内部 SnapCenter 服务器。
 
-您可以将内部ONTAP 系统中的Oracle和Microsoft SQL应用程序数据备份到以下云提供商：
-
-* Amazon Web Services
-* Microsoft Azure
+您可以将内部ONTAP 系统中的Oracle、Microsoft SQL和SAP HANA应用程序数据备份到Amazon Web Services、Microsoft Azure、Google Cloud和StorageGRID。
 
 
-ifdef::aws[]
-
-endif::aws[]
-
-ifdef::azure[]
-
-endif::azure[]
-
-ifdef::gcp[]
-
-endif::gcp[]
-
-
-NOTE: 您应使用 SnapCenter 软件 4.6 。
+NOTE: 您应使用SnapCenter 软件4.6或更高版本。
 
 有关适用于应用程序的 Cloud Backup 的详细信息，请参见：
 
@@ -51,63 +35,27 @@ NOTE: 您应使用 SnapCenter 软件 4.6 。
 
 * ONTAP 9.8 或更高版本
 * Cloud Manager 3.9
-* SnapCenter 服务器 4.6.
+* SnapCenter 服务器4.6或更高版本如果要使用以下功能、则应使用SnapCenter 服务器4.7：
++
+** 保护备份免受内部二级存储的影响
+** 保护SAP HANA应用程序
+** 保护VMware环境中的Oracle和SQL应用程序
+** 挂载备份
+** 停用备份
+** 取消注册SnapCenter 服务器
+
+
 * SnapCenter 服务器中应为每个应用程序至少提供一个备份
 * SnapCenter 中至少有一个每日，每周或每月策略，没有与 Cloud Manager 中的 Cloud Backup for Applications 策略相同的标签。
 
 
-下图显示了每个组件以及需要在它们之间准备的连接：
+
+NOTE: Cloud Backup for Applications不支持保护使用FQDN或IP地址添加的SVM上的应用程序。
+
+下图显示了备份到云时的每个组件以及需要在它们之间准备的连接：
 
 image:diagram_cloud_backup_app.png["显示 Cloud Backup 如何与内部应用程序以及备份文件所在的目标存储进行通信的示意图。"]
 
+下图显示了备份到StorageGRID 时的每个组件以及需要在它们之间准备的连接：
 
-
-== 保护策略
-
-您应使用 Cloud Backup for Applications 中定义的策略之一将应用程序数据备份到云。
-
-
-NOTE: 不支持自定义策略。
-
-|===
-| Policy name | Label | 保留值 
-
-
- a| 
-1 年每日 LTR
- a| 
-每天
- a| 
-366.
-
-
-
- a| 
-5 年每日 LTR
- a| 
-每天
- a| 
-1830 年
-
-
-
- a| 
-7 年每周 LTR
- a| 
-每周
- a| 
-370
-
-
-
- a| 
-10 年每月 LTR
- a| 
-每月
- a| 
-120
-
-|===
-可以使用 REST API 修改这些策略的标签和保留值，直到该策略与应用程序关联为止。一个应用程序只能关联一个策略，一旦关联，您就无法解除关联。
-
-除了适用于应用程序的云备份策略之外，您还需要至少一个 SnapCenter 策略来将应用程序数据备份到云。
+image:diagram_cloud_backup_onprem_storagegrid.png["显示 Cloud Backup 如何与备份文件所在的源系统和目标存储上的卷进行通信的示意图。"]

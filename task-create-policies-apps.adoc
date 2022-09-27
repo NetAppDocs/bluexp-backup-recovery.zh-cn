@@ -1,0 +1,79 @@
+---
+sidebar: sidebar 
+permalink: task-create-policies-apps.html 
+keywords: policy, create, pre-canned polices, custom policies, protection policies 
+summary: 使用预制策略或创建您自己的策略来保护应用程序。 
+---
+= 创建用于备份应用程序的策略
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以使用其中一个预制策略、也可以创建自定义策略将应用程序数据备份到云。如果不想编辑预制策略、可以创建策略。
+
+预制策略包括：
+
+|===
+| Policy name | Label | 保留值 
+
+
+ a| 
+1 年每日 LTR
+ a| 
+每天
+ a| 
+366.
+
+
+
+ a| 
+5 年每日 LTR
+ a| 
+每天
+ a| 
+1830 年
+
+
+
+ a| 
+7 年每周 LTR
+ a| 
+每周
+ a| 
+370
+
+
+
+ a| 
+10 年每月 LTR
+ a| 
+每月
+ a| 
+120
+
+|===
+* 步骤 *
+
+. 在 Cloud Manager UI 中，单击 * 备份和还原 * > * 应用程序 * 。
+. 从设置下拉列表中、单击*策略*>*创建策略*。
+. 在策略详细信息部分中、指定策略名称。
+. 在保留部分中、选择一种保留类型并指定要保留的备份数。
+. 选择主存储源或二级存储作为备份存储源。
+. (可选)如果要在经过一定天数后将备份从对象存储移动到归档存储以实现成本优化、请选中*将备份分层到归档*复选框。
++
+只有在使用ONTAP 9.10.1或更高版本以及Amazon Web Services或Azure作为云提供商时、才能将备份从对象存储移动到归档存储。您应为每个云提供商配置归档访问层。
+
+. 单击 * 创建 * 。
++
+您可以编辑、复制和删除自定义策略。
+
++
+
+NOTE: 您不能编辑或删除与应用程序关联的策略。
+
+

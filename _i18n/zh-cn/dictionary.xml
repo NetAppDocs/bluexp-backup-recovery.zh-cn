@@ -444,18 +444,14 @@
   <block id="0da172938aa3bca619803103b3df2ade" category="summary">将适用于应用程序的云备份与 Cloud Manager 和内部 SnapCenter 相集成，将应用程序一致的 Snapshot 从内部 ONTAP 备份到云。</block>
   <block id="18a6c204240510c87aba39d6d8b5d26b" category="doc">保护内部应用程序数据</block>
   <block id="37383c5357fd4592db933b96a8b85497" category="paragraph">您可以将适用于应用程序的 Cloud Backup 与 Cloud Manager 和内部 SnapCenter 集成，以便将应用程序一致的 Snapshot 从内部 ONTAP 备份到云。如果需要，您可以从云还原到内部 SnapCenter 服务器。</block>
-  <block id="0defa64858999a59daec4b1d2f4347aa" category="admonition">您应使用 SnapCenter 软件 4.6 。</block>
   <block id="bc2c0309ab805c8d369345a992e020bd" category="paragraph">在开始将应用程序数据备份到云服务之前，请阅读以下要求，以确保您的配置受支持。</block>
   <block id="c3ce6809be6bdc67ae978395484d0585" category="list-text">ONTAP 9.8 或更高版本</block>
   <block id="c6549239974f1da437beed516ee043bd" category="list-text">Cloud Manager 3.9</block>
-  <block id="d9b867faa03f263db1a1aef0d342b990" category="list-text">SnapCenter 服务器 4.6.</block>
   <block id="f3753469514d2cda99cee390aa2bf172" category="list-text">SnapCenter 服务器中应为每个应用程序至少提供一个备份</block>
   <block id="61f9980bdbfc26a31c724b0711e0c9d7" category="list-text">SnapCenter 中至少有一个每日，每周或每月策略，没有与 Cloud Manager 中的 Cloud Backup for Applications 策略相同的标签。</block>
   <block id="c895d0010b397b55778718d6ccc26b78" category="inline-image-macro">显示 Cloud Backup 如何与内部应用程序以及备份文件所在的目标存储进行通信的示意图。</block>
   <block id="bc983d441473b5c9a47c39b5fb57e53f" category="paragraph"><block ref="bc983d441473b5c9a47c39b5fb57e53f" category="inline-image-macro-rx" type="image"></block></block>
   <block id="1fb0ab1ae08802d159d677b839bdb6bd" category="section-title">保护策略</block>
-  <block id="ab8aa891de41102b90b60a6695c93b2b" category="paragraph">您应使用 Cloud Backup for Applications 中定义的策略之一将应用程序数据备份到云。</block>
-  <block id="5f8883ca1df3713b11a27ff48f310b27" category="admonition">不支持自定义策略。</block>
   <block id="002f7378a5fcfc2f66cfea851a7fd5f4" category="cell">Policy name</block>
   <block id="b021df6aac4654c454f46c77646e745f" category="cell">Label</block>
   <block id="dfa56cb0ff8ac0e7087134a3d7e1f39d" category="cell">保留值</block>
@@ -470,8 +466,6 @@
   <block id="f76a9390149b62241c42efed985a431a" category="paragraph">10 年每月 LTR</block>
   <block id="9030e39f00132d583da4122532e509e9" category="paragraph">每月</block>
   <block id="da4fb5c6e93e74d3df8527599fa62642" category="paragraph">120</block>
-  <block id="08feef3c93d2bc4677f8d07fbaa7c6e0" category="paragraph">可以使用 REST API 修改这些策略的标签和保留值，直到该策略与应用程序关联为止。一个应用程序只能关联一个策略，一旦关联，您就无法解除关联。</block>
-  <block id="aac966fa2e345d5aec1dfee10ddf8e83" category="paragraph">除了适用于应用程序的云备份策略之外，您还需要至少一个 SnapCenter 策略来将应用程序数据备份到云。</block>
   <block id="87ccee1471ec33aac8d0152747a90731" category="summary">Cloud Backup 支持一个 Azure 归档访问层以及大多数地区。</block>
   <block id="834584c768066ae32da6d93ce603642d" category="doc">Azure 归档层和还原检索时间</block>
   <block id="9da75d0f7d40b078d43b7554f93291a7" category="section-title">支持 Cloud Backup 的 Azure Blob 访问层</block>
@@ -693,12 +687,9 @@
   <block id="073db3a1088dabed85a0b9e458290ffe" category="summary">您可以查看策略和备份。根据数据库，策略或资源组的更改，您可以从 Cloud Manager UI 刷新更新。</block>
   <block id="d2107ef674d9474576deedf431042a37" category="doc">管理应用程序的保护</block>
   <block id="b7e23f2fbc84fffbedf563f644b8df93" category="section-title">查看策略</block>
-  <block id="e4150c5e7f08e683f115597274438525" category="paragraph">您可以查看所有默认预制策略。在查看每个策略的详细信息时，系统都会列出所有关联的 Cloud Backup for Applications 策略以及所有关联的应用程序。</block>
   <block id="8faad9c03119805d80b61715eb7b8c93" category="list-text">单击 * 备份和还原 * &gt; * 应用程序 * 。</block>
   <block id="8a53d8d9bdff689ff4cea2f3d55f43de" category="list-text">从 * 设置 * 下拉列表中，单击 * 策略 * 。</block>
   <block id="8bdf078d3946fd5743d8283e1dda131b" category="list-text">单击与要查看其详细信息的策略对应的 * 查看详细信息 * 。</block>
-  <block id="29f909b6270a39b26c10105317a7e1e2" category="paragraph">此时将列出关联的 Cloud Backup for Applications 策略和所有应用程序。</block>
-  <block id="fa1fa3aa4a308712f868f24290d1b2c4" category="admonition">您不应删除适用于应用程序的 Cloud Backup 策略。</block>
   <block id="186767ddfa4a5b30e2b4a7d5eb5fce25" category="inline-link">《 SnapCenter 软件 cmdlet 参考指南》</block>
   <block id="ba3a5c62da437b3b4c145ebaab697c6c" category="paragraph">您也可以运行 `Get-SmResources` SnapCenter cmdlet 来查看云扩展 SnapCenter 策略。有关可与 cmdlet 结合使用的参数及其说明的信息，可通过运行 get-help command_name 来获取。或者，您也可以参考<block ref="30086a18cf21b3d909c213d70f40a693" category="inline-link-rx"></block>。</block>
   <block id="168d35838d683733c740a323264bac1d" category="section-title">查看云上的备份</block>
@@ -787,8 +778,6 @@
   <block id="85a2ad69bad082451b7411021cbb2271" category="list-text">选择要为备份创建 Google Cloud Storage 存储分段的 Google Cloud Project 和区域，然后单击 * 下一步 * 。</block>
   <block id="437c2bff9e94c6e982529b9d2ef1cd3c" category="paragraph">请注意，项目必须具有具有预定义的存储管理员角色的服务帐户。</block>
   <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">法律声明</block>
-  <block id="4940124e8487cb4ea36f1511a195cf66" category="inline-link-macro">有关 Cloud Manager 3.9 的注意事项</block>
-  <block id="c069fcc68c5dfa73ccc99924c836cae9" category="list-text"><block ref="c069fcc68c5dfa73ccc99924c836cae9" category="inline-link-macro-rx"></block></block>
   <block id="72999cd653b12474752fb77bab9691e3" category="inline-link-macro">Cloud Backup 注意事项</block>
   <block id="75be9a02506771b87be972c89707f0d4" category="list-text"><block ref="75be9a02506771b87be972c89707f0d4" category="inline-link-macro-rx"></block></block>
   <block id="0b6eb60ffffdbd69e169beb358d8dd44" category="inline-link-macro">单文件还原注意事项</block>
@@ -959,7 +948,6 @@
   <block id="356a014d650e5ff75127d5c7f8512c9b" category="list-text">单击与要还原的数据库对应的 * 查看详细信息 * ，然后单击 * 还原 * 。</block>
   <block id="1dbebac3a4764e845f4bce351937d6b4" category="list-text">在还原类型页面上，执行以下操作：</block>
   <block id="5fece95e369981cd56f2f39bd68e7428" category="list-text">如果要还原控制文件以及完整数据库，请选择 * 控制文件 * 。</block>
-  <block id="8c3518e0223eba2a595a920ea1fa79f3" category="list-text">选择 * 如果需要还原和恢复更改数据库状态 * ，将数据库的状态更改为执行还原和恢复操作所需的状态。</block>
   <block id="4254dbd260949ca6f5ee8ef29a3dc68f" category="paragraph">数据库从高到低的各种状态包括打开，挂载，启动和关闭。如果数据库处于较高状态，但要执行还原操作，必须将此状态更改为较低状态，则必须选中此复选框。如果数据库处于较低的状态，但要执行还原操作，必须将其更改为较高的状态，则即使未选中此复选框，数据库状态也会自动更改。</block>
   <block id="e4602b24fbe5e3160ce64aa6ae40879b" category="paragraph">如果数据库处于打开状态，并且要还原，数据库需要处于挂载状态，则只有选中此复选框后，数据库状态才会更改。</block>
   <block id="2365d9113b1bc87e6269c4e30fec989f" category="list-text">在恢复范围页面上，执行以下操作：</block>
@@ -1007,11 +995,8 @@
   <block id="7fd7cfcd645e3badd19eeb02d6cb785e" category="list-text">选择 * 只读模式和可用 * 可使数据库保持只读模式。</block>
   <block id="1a75ffaf366e9a6a2ae845f891c957dd" category="paragraph">此选项将撤消未提交的事务，但会将撤消的操作保存在备用文件中，以便可以还原恢复效果。</block>
   <block id="415de6abf64e1b79451322907edcbcc2" category="paragraph">如果启用了撤消目录选项，则会还原更多事务日志。如果事务日志的还原操作失败，则可以回滚所做的更改。SQL Server 文档包含详细信息。</block>
-  <block id="d3f11bee5b2dea925005aed52309cde7" category="summary">完成几个步骤，将应用程序数据从 ONTAP 备份到云服务。</block>
   <block id="b5cf194caf973a23140a69fe0080c97a" category="doc">将内部应用程序数据备份到云</block>
-  <block id="06760aea54de2c6ef0c12b19d036bae7" category="paragraph">您可以通过将适用于应用程序的云备份与 Cloud Manager 和内部 SnapCenter 集成来将应用程序数据从 ONTAP 备份到云。</block>
   <block id="aa7d3e24c9aefdb463576ad781882e4a" category="section-title">注册 SnapCenter 服务器</block>
-  <block id="48d72cd16a4ca569e29532624a0b868d" category="paragraph">只有具有 SnapCenterAdmin 角色的用户才能注册运行 SnapCenter Server 4.6 的主机。您可以注册多个 SnapCenter 服务器主机，但一旦注册，便无法删除 SnapCenter 服务器主机。</block>
   <block id="0e4fb16657a8e26179d9104487074adc" category="list-text">单击 * 注册 SnapCenter Server* 。</block>
   <block id="12f2045076b291561318e5d9855f26de" category="list-text">指定以下详细信息：</block>
   <block id="a2b72916d92415d160f146588d422003" category="list-text">在 SnapCenter 服务器字段中，指定 SnapCenter 服务器主机的 FQDN 或 IP 地址。</block>
@@ -1023,24 +1008,16 @@
   <block id="9909e23ede42f2318acada35ac10bd3e" category="list-text">单击 * 注册 * 。</block>
   <block id="a2635d75789f249837881cc5136979e1" category="paragraph">* 完成后 *</block>
   <block id="8774a1166fd7ecb018d0ca8dd0c10ff6" category="paragraph">单击 * 备份和还原 * &gt; * 应用程序 * 可查看使用注册的 SnapCenter 服务器主机保护的所有应用程序。</block>
-  <block id="59f7c801508748e6c53ef687718def8f" category="admonition">对于 SQL Server 数据库，应用程序名称列会以 _application_name （主机名） _ 格式显示名称。如果您通过提供 _application_name （主机名） _ 格式的名称进行搜索，则不会显示 SQL Server 数据库详细信息。</block>
   <block id="424576c2dbd9f28977d41eb04b50cbe2" category="paragraph">支持的应用程序及其配置包括：</block>
-  <block id="39190b063efcdc2e1947ed3e876425de" category="list-text">Oracle 数据库：使用至少一个每日，每周或每月计划创建完整备份（数据 + 日志）。</block>
   <block id="4a72f37f045ebb34bb24555675861538" category="list-text">Microsoft SQL Server 数据库：</block>
   <block id="3d88c173f74b0d8fb61154f0c64b5d27" category="list-text">独立，故障转移集群实例和可用性组</block>
   <block id="579ccfb911c4dbe3a52bc9d928fc14c0" category="list-text">已创建完整备份，其中至少包含一个每日，每周或每月计划</block>
-  <block id="487e6dc2628eb1389961ff68d0517270" category="paragraph">不会显示以下 Oracle 和 SQL Server 数据库：</block>
   <block id="bbe7ceb379a1e3ea24ab8bde605209a3" category="list-text">没有备份的数据库</block>
   <block id="6403145bf43147af29b8d8774cbc49b2" category="list-text">仅具有按需或每小时策略的数据库</block>
-  <block id="bb1d96f302d5344f464aba06b9abf5c5" category="list-text">位于 RDM 或 VMDK 上的数据库</block>
-  <block id="55e3bdb562658c45577a90ead27db0ad" category="section-title">备份应用程序数据</block>
-  <block id="f8cc7f50b6243d3da7c4c3d9bc4238b0" category="paragraph">您可以使用一个策略同时将一个或多个应用程序保护到云中。只能分配默认的预制策略来保护应用程序。</block>
   <block id="931bb1e79f5cc1150b8f8963e0372a78" category="admonition">如果使用的是 Cloud Manager GUI ，则一次只能保护一个应用程序。但是，如果您使用的是 REST API ，则可以同时保护多个应用程序。</block>
-  <block id="baba47264acf044a305d822dd760d502" category="paragraph">如果要保护 SQL Server 实例，则会为该实例中符合条件的数据库的所有卷配置云保护。如果要保护 SQL Server 可用性组，则会为该可用性组中数据库的所有卷配置云保护。但是，根据备份首选项， Snapshot 将从相应的卷中复制。</block>
   <block id="f3f150537e8aa89ec04ac4e8202bd62f" category="list-text">单击 <block ref="2231c326e067595aca2fb0545475acf4" category="inline-image-macro-rx" type="image"></block> 对应于应用程序，然后单击 * 激活备份 * 。</block>
   <block id="e3999860c64cf7a6d0ff9b3f2bffe174" category="list-text">添加工作环境。</block>
   <block id="0b2aaaaf834876ea478a04625aa349a5" category="paragraph">配置托管运行应用程序的 SVM 的 ONTAP 集群。为其中一个应用程序添加工作环境后，可以对驻留在同一 ONTAP 集群上的所有其他应用程序重复使用该环境。</block>
-  <block id="6c0c785531145e018331062da53e0ee1" category="list-text">选择 SVM ，然后单击添加工作环境。</block>
   <block id="802c64cb5f599956d1d7617720a88498" category="list-text">在添加工作环境向导中：</block>
   <block id="a5337ca6f4f13937f5768cad8a3da3e8" category="list-text">指定 ONTAP 集群的 IP 地址。</block>
   <block id="74530be68401a15b7ea1d28131ab97bc" category="list-text">指定管理员凭据。</block>
@@ -1265,7 +1242,6 @@
   <block id="5559993f6f3050a853326203c63f7ed0" category="cell">浏览公有 云和本地 Snapshot 副本的结果</block>
   <block id="2ebbc61b9bf1d65389010d4baeb388c1" category="list-text">您已将 Kubernetes 集群发现为 Cloud Manager 工作环境。<block ref="9f26112087077321f30a8a9a55bedf44" category="inline-link-rx"></block>。</block>
   <block id="e63547e1b25be3f2854e3f50cbc53e4c" category="paragraph">您可以 <block ref="aa20de8329f0af2f510902910d29f0be" category="inline-link-macro-rx"></block>。您也可以 <block ref="091cc4395662354f7a5868ee2318ef97" category="inline-link-macro-rx"></block> 作为 GCP 中相同或不同 Kubernetes 集群上的新卷（位于同一区域）。</block>
-  <block id="15541295bd26cb0dbcc3c3b8b86b0ea9" category="admonition">在更新工作环境详细信息之前，您不应继续操作。更新工作环境详细信息可能需要长达 30 分钟的时间。30 分钟后，您应关闭向导并从步骤 1 重试以查看工作环境详细信息。如果未更新工作环境详细信息，则重试后，请确保添加了正确的工作环境。</block>
   <block id="a7aea8698166f2ca86f6eca652031639" category="list-text">集群上必须安装 Trident ，并且 Trident 版本必须至少为 21.1 。请参见<block ref="efafd7c7be663b6b746c03d24d88023f" category="inline-link-rx"></block> 或<block ref="23a633d2f31911781b4c35e0d8f7c8b9" category="inline-link-rx"></block>。</block>
   <block id="40ff48613d00df6a5c5543aa0140c38b" category="paragraph"><block ref="40ff48613d00df6a5c5543aa0140c38b" category="inline-image-macro-rx" type="image"></block></block>
   <block id="14f3ef2e312755e7942bb9d424acba3a" category="paragraph">有关适用于应用程序的 Cloud Backup 的详细信息，请参见：</block>
@@ -1283,7 +1259,6 @@
   <block id="74cc281b8e4c7e949e92e69bf209421f" category="summary">您可以监控在工作环境中启动的备份和还原作业的状态。这样，您可以查看已成功完成的作业，当前正在进行的作业以及失败的作业，以便您可以诊断和修复任何问题。</block>
   <block id="5fd6f798208daa9906f9880884735da2" category="paragraph">请注意，系统启动的作业（例如正在进行的备份操作）不会反映在 * 作业监控 * 选项卡中—仅显示用户启动的作业。</block>
   <block id="7a48560852ec8ed04802b3b0c1192f24" category="paragraph">您可以查看所有备份和还原操作及其当前状态的列表。其中包括从 Cloud Volumes ONTAP ，内部 ONTAP ，应用程序和 Kubernetes 系统执行的操作。每个操作或作业都有一个唯一的 ID 和一个状态。状态可以是：</block>
-  <block id="3f69cf45a57ed5ec31eab750cc861f13" category="paragraph">以下视频显示了有关保护数据库的快速演练：</block>
   <block id="aeaeee19a7c393222e407a525cf01991" category="section-title">添加 NSS 帐户</block>
   <block id="de2241fea60d98698faaa196ff73ee80" category="paragraph">通过支持信息板，您可以从一个位置添加和管理所有 NetApp 支持站点帐户。</block>
   <block id="5be2593b5948f30a15179a32daa73ee2" category="inline-link">注册一个</block>
@@ -1703,7 +1678,6 @@
   <block id="8602e5067e45157858fdce13f2d722c5" category="paragraph"><block ref="00d667b43393b5baa7f260d36e9ea7c9" category="inline-link-macro-rx"></block>。</block>
   <block id="740aabdace3792e528d0a385bbafa58c" category="paragraph">+<block ref="88ca6566bf61e897964d34c4a123e1db" category="inline-image-macro-rx" type="image"></block></block>
   <block id="30ba145ee7f6cbe8143b7b5e07c516fe" category="paragraph">+请注意、如果您停止将备份分层到归档存储、则已分层到归档存储的所有备份文件都会保留在该层中、而不会自动将这些备份移回标准层。</block>
-  <block id="0a215d6790086862e8e2eca1f4aef9d2" category="paragraph">您可以将内部ONTAP 系统中的Oracle和Microsoft SQL应用程序数据备份到以下云提供商：</block>
   <block id="6beccc67ff905f7da0b29dece26b0485" category="list-text">Amazon Web Services</block>
   <block id="1668ca1bd914c1d847f23b491319ac91" category="list-text">Microsoft Azure</block>
   <block id="53ebd529678afade9a8cc550535c4832" category="admonition">如果要选择资源组的名称，请在部署 Cloud Volumes ONTAP 时 * 禁用 * 云备份。按照的步骤进行操作 <block ref="518f1876d7249067cbf504987e6e7dc3" category="inline-xref-macro-rx"></block> 启用 Cloud Backup 并选择资源组。</block>
@@ -2521,4 +2495,124 @@
   <block id="ad016619a46ca8e0f75292c2c0d1a7a8" category="paragraph">请注意、只有在云中部署了Connector时、政府云区域才支持Cloud Backup、而不是安装在内部或非公开站点中。</block>
   <block id="b445de53411a165e9c56da6430c38d59" category="inline-link">Azure 中连接器的规则</block>
   <block id="f840409b357663e7b24e8296c05770a5" category="list-text">Azure和Azure政府部署还需要其他入站安全组规则。请参见<block ref="e1893ebf6f9d2e927a13d052b78eec9f" category="inline-link-rx"></block> 了解详细信息。</block>
+  <block id="2eeb194bf5c17f3408edda6fb4570318" category="summary">完成几个步骤、将应用程序数据从ONTAP 备份到Azure。</block>
+  <block id="007849ce4500e0ef940d682709a64c87" category="doc">将内部应用程序数据备份到Microsoft Azure</block>
+  <block id="10955ddc73ebe91eec2159d47e64bbae" category="paragraph">您可以通过将适用于应用程序的云备份与Cloud Manager和内部SnapCenter 集成来将应用程序数据从ONTAP 备份到Microsoft Azure。</block>
+  <block id="119bbd90cf306c9fdb87aee95a51d816" category="paragraph">您可以使用一个策略同时将一个或多个应用程序保护到云中。</block>
+  <block id="0e0a0b730150ab18d2f69b65245c64a3" category="list-text">选择SVM、然后单击*添加工作环境*。</block>
+  <block id="0338fa74556c30bb5b0f61729477209e" category="list-text">选择* Microsoft Azure*作为云提供程序。</block>
+  <block id="3ec390de7db5c59f007c717fb9aa2dac" category="list-text">指定IP空间。</block>
+  <block id="3cae1e7b0c1139a170789e9cf32899f8" category="list-text">选择归档层。</block>
+  <block id="e710c6d8124609e30a4a7712947c1e16" category="paragraph">建议设置归档层、因为这是一次性活动、不允许稍后进行设置。</block>
+  <block id="d14a27b37d19411318313c75f11baf13" category="inline-link">Cloud Manager注意事项</block>
+  <block id="8f4eecef1c8abf547a153a1486d48ab2" category="list-text"><block ref="8f4eecef1c8abf547a153a1486d48ab2" category="inline-link-rx"></block></block>
+  <block id="23959c4b9349bcd5e832610f8a4c21b5" category="summary">完成几个步骤、将应用程序数据从ONTAP 备份到AWS。</block>
+  <block id="a398d70f425729872aae3dc2d3e8feb1" category="doc">将内部应用程序数据备份到Amazon Web Services</block>
+  <block id="3d6b0bb6d82393ce2315f777d806431e" category="paragraph">您可以通过将适用于应用程序的云备份与Cloud Manager和内部SnapCenter 集成来将应用程序数据从ONTAP 备份到Amazon Web Services。</block>
+  <block id="e101aace9ab89472a4fdfde41fce9f4e" category="list-text">选择* Amazon Web Services*作为云提供商。</block>
+  <block id="53abd7822662a93e6bc58b003f475f63" category="summary">完成几个步骤以注册SnapCenter 服务器。</block>
+  <block id="6a08a60eb0e1154985f01ad3910ea19c" category="paragraph">只有具有SnapCenterAdmin角色的用户才能注册运行SnapCenter 服务器4.6或更高版本的主机。您可以注册多个SnapCenter 服务器主机。</block>
+  <block id="64ff69ee9593378d2c9472c37a03ada3" category="paragraph">默认情况下、系统会在每天午夜自动发现这些应用程序。您可以配置计划以发现应用程序。</block>
+  <block id="3b644027e5052c8dfc7017975352dbab" category="admonition">对于SQL Server数据库、应用程序名称列会以_application_name (实例名称)_格式显示名称。</block>
+  <block id="7566851f40372b59a37ca20ab49ac524" category="list-text">Oracle数据库：</block>
+  <block id="307702335ec628104af8eabe163ed840" category="list-text">已创建完整备份(数据+日志)、其中至少包含一个每日、每周或每月计划</block>
+  <block id="13b3735b7864b01d01da7477dc85d233" category="list-text">SAN、NFS、VMDA-SAN、VMDA-NFS和RDM</block>
+  <block id="93c6c9abd65a6423c75682e7387ccf3f" category="list-text">SAN、VMDA-SAN、VMDA-NFS和RDM</block>
+  <block id="fb66f7ade737c443afa34f7ca637f09c" category="list-text">SAP HANA数据库：</block>
+  <block id="0a66eba030aa21dc33775b41bb05bef2" category="list-text">单个容器1.x</block>
+  <block id="5d900c7791f0b4e13331bc25bb512e41" category="list-text">多个数据库容器2.x</block>
+  <block id="d7b51d3528b43ec99abf32071c46598f" category="list-text">HANA系统复制(HSR)</block>
+  <block id="054ebf0caef5f8ff3451668858653117" category="paragraph">主站点和二级站点上应至少有一个备份。您可以决定对二级系统执行主动故障转移或延迟故障转移。</block>
+  <block id="4a0aa541ca6173a725ef17e920bc4470" category="list-text">非数据卷(NDV)资源、例如HANA二进制文件、HANA归档日志卷、HANA共享卷等</block>
+  <block id="0903f4728cd0540dea2a76942b2b0ce9" category="paragraph">不会显示以下数据库：</block>
+  <block id="2f9bbcca9b6763c9b97b7fc28f8b1855" category="list-text">驻留在NVMe上的Oracle数据库</block>
+  <block id="37e05e9fe4c5bdfc4b0de270214165cd" category="summary">您可以将SAP HANA和Oracle备份挂载到给定数据库</block>
+  <block id="f806b720158d764a443413aa5a9a658d" category="doc">挂载应用程序备份</block>
+  <block id="20b6ee768aae1dad4f52822794ef22b3" category="paragraph">SnapCenter 不支持将Oracle和HANA备份还原到备用主机。因此、Cloud Backup for Applications允许您将Oracle和HANA备份挂载到给定主机。</block>
+  <block id="7c176ddea482778cb5ba129251e95a0e" category="inline-link-macro">设置主工作环境的IP空间</block>
+  <block id="f6a7ee3325b83cf5374e8579bf34cf67" category="paragraph">如果要挂载从二级存储移至对象存储的备份、则应添加主工作环境详细信息并设置IP空间。有关详细信息，请参见 <block ref="e02b8a08c7642873f6aa3b3d230cfbe4" category="inline-link-macro-rx"></block>。</block>
+  <block id="939f2d392cf3c053138a7886bce3b67c" category="list-text">在Filter by字段中、选择*类型*、然后从下拉列表中选择* SAP HANA *或* Oracle *。</block>
+  <block id="1f585f145f271e757924a10173abfa9a" category="list-text">单击 <block ref="2231c326e067595aca2fb0545475acf4" category="inline-image-macro-rx" type="image"></block> 对应于受保护应用程序、然后选择*查看详细信息*。</block>
+  <block id="b8dceecbf6473264df0fee99aa880aa8" category="list-text">单击 <block ref="2231c326e067595aca2fb0545475acf4" category="inline-image-macro-rx" type="image"></block> 对应于备份、然后选择*挂载*。</block>
+  <block id="03d405c84bfe0e1a6364e500af6864b1" category="list-text">指定以下项之一：</block>
+  <block id="fdc2ea7704fffb183409c208a25be1fd" category="list-text">对于NAS环境、指定要将从对象存储还原的备用卷导出到的主机的FQDN或IP地址。</block>
+  <block id="54c482133cb8d6602c8502f3a5e8636a" category="list-text">对于SAN环境、指定从对象存储还原的备用卷的LUN要映射到的主机启动程序。</block>
+  <block id="b246bdcdbe3bb4be2767d81ceabaa7c3" category="list-text">指定要添加到备用卷名称的后缀。</block>
+  <block id="86013e4eb67d3b4efa98a69c18999663" category="list-text">如果快照位于归档存储中、请指定从归档存储中检索数据的优先级。</block>
+  <block id="8ece1a3075cf82b4a6288d5a36855ff2" category="list-text">单击 * 挂载 * 。</block>
+  <block id="6fe9780b0385ecd858c3941911a2e883" category="paragraph">此操作仅会将存储挂载到给定主机上。您应手动挂载文件系统并启动数据库。使用备用卷后、存储管理员可以从ONTAP 集群中删除此卷。</block>
+  <block id="7a3492bffc26e95ce3669b39a1f14422" category="inline-link">TR-4667：使用SnapCenter 自动执行SAP HANA系统复制和克隆操作</block>
+  <block id="a53c24ea75123fb92d916ca3c6592e08" category="paragraph">有关如何启动SAP HANA数据库的信息、请参见、<block ref="d89e94a6aaf703375bdbc4104c3e8227" category="inline-link-rx"></block>。</block>
+  <block id="4a5026c08880a6cd747242fa16385aec" category="admonition">支持通过主系统还原二级备份。</block>
+  <block id="c4b2754c24325b7485882003d0c5d85a" category="admonition">不支持单文件还原(SFR)。</block>
+  <block id="acf994e4904e0990a43c8101030dd5e7" category="paragraph">如果要还原从二级存储移至对象存储的备份、则应添加主工作环境详细信息并设置IP空间。有关详细信息，请参见 <block ref="e02b8a08c7642873f6aa3b3d230cfbe4" category="inline-link-macro-rx"></block>。</block>
+  <block id="39a39a3d5651d922f580216bf9d45b85" category="list-text">如果要将数据库的状态更改为执行还原和恢复操作所需的状态、请选择*数据库状态*。</block>
+  <block id="7acc08861d4ed79ef851580e5f995af3" category="list-text">如果快照位于归档存储中、请指定从归档存储还原数据的优先级。</block>
+  <block id="e832ac1a52df9e5be90655bbbb8f4288" category="section-title">2022年9月30日</block>
+  <block id="89d500a3ace67f6d47edb61231336589" category="section-title">Cloud Backup for Applications的增强功能</block>
+  <block id="2e73884f73c53eee3aea96494fd4ff16" category="list-text">支持Google Cloud Provider (GCP)和StorageGRID 备份应用程序一致的快照</block>
+  <block id="f617da6b50728500642eb376ab97b6f4" category="list-text">创建自定义策略</block>
+  <block id="eaec67d5f8f719a2f05b5ded5dc4ce60" category="list-text">支持归档存储</block>
+  <block id="37976e53c610f9f37f8310aaacc3323e" category="list-text">备份SAP HANA应用程序</block>
+  <block id="bd3468a6ecb625b121385bd7f39c67e1" category="list-text">备份VMware环境中的Oracle和SQL应用程序</block>
+  <block id="a0f2b147a9c0eb0f8a59efd52556c7a2" category="list-text">从内部二级存储备份应用程序</block>
+  <block id="c05b61fb3f1a201cd787a5c713ee2461" category="list-text">停用备份</block>
+  <block id="40cfdc443f8536e4e751b21f465246d7" category="list-text">取消注册SnapCenter 服务器</block>
+  <block id="e75ce95021f32383e6a928c1b242bc34" category="section-title">适用于虚拟机的Cloud Backup增强功能</block>
+  <block id="46a34c0c1ccc14eb217db2e715c43df6" category="list-text">支持StorageGRID 备份一个或多个数据存储库</block>
+  <block id="ef53758645eb4a736d45c89bc0f0f03d" category="admonition">重要信息：支持通过主系统还原二级备份。</block>
+  <block id="c921edcd8b1c4265c566fc8d2ce4a9b5" category="paragraph">您可以通过在Cloud Manager UI中执行不同操作来管理应用程序保护。</block>
+  <block id="0265cbdb76704489ac9a7bbcaed7a2fd" category="paragraph">您可以查看所有策略。查看每个策略的详细信息时、系统都会列出所有关联的应用程序。</block>
+  <block id="548ac4488bc12e098791c3b365f344a8" category="paragraph">此时将列出关联的应用程序。</block>
+  <block id="fc85f5d8f0ed03c661f1f9db3972b018" category="admonition">您不能编辑或删除与应用程序关联的策略。</block>
+  <block id="73c43b8b0d9e0b68dac6c6ffb29419df" category="list-text">对于SAP HANA数据库、仅会列出数据备份和每个备份的结束日期。您可以选择备份并执行挂载操作。</block>
+  <block id="00ee72b37f44d1aa703da6770529f465" category="list-text">单击 <block ref="2231c326e067595aca2fb0545475acf4" category="inline-image-macro-rx" type="image"></block> 对应于SnapCenter 服务器、然后单击*取消注册*。</block>
+  <block id="2b34c38dda168481090a8622ff2c1712" category="paragraph">如果要还原或挂载从二级存储移至对象存储的备份、则应添加主工作环境详细信息并设置IP空间。</block>
+  <block id="d0badf3ec6806846f5e8c09b2d17916a" category="list-text">在Cloud Manager UI中、单击*画布*&gt;*添加工作环境*。</block>
+  <block id="06e3a8b8802d9b7d6de822c69b78b532" category="list-text">指定主工作环境详细信息、然后单击*添加*。</block>
+  <block id="045b8f4fa7c5c6b0b66dee919bc47804" category="list-text">单击*备份和还原*&gt;*卷*。</block>
+  <block id="c7087e755792869dcff756ce6d7b1738" category="list-text">单击 <block ref="2231c326e067595aca2fb0545475acf4" category="inline-image-macro-rx" type="image"></block> 对应于任何卷、然后单击*详细信息*。</block>
+  <block id="d4badf7460fbe89af7d282991c4e0764" category="list-text">单击 <block ref="2231c326e067595aca2fb0545475acf4" category="inline-image-macro-rx" type="image"></block> 对应于备份、然后单击*还原*。</block>
+  <block id="dc97342ac8274a03738ec4722f6ac22c" category="list-text">在向导中、选择新添加的主工作环境作为目标。</block>
+  <block id="4a938aa86ba9c09b265a5dc95f09a99c" category="summary">完成几个步骤、将应用程序数据从ONTAP 备份到GCP。</block>
+  <block id="e7626d40bde0cb9f25e876222f0bb5fc" category="doc">将内部应用程序数据备份到StorageGRID</block>
+  <block id="2ddb9baf1865f05a1baf4eac6cea72c4" category="paragraph">您可以通过将适用于应用程序的云备份与Cloud Manager和内部SnapCenter 集成来将应用程序数据从ONTAP 备份到StorageGRID。</block>
+  <block id="588f7b73c2097f4262c5a26678a85f36" category="paragraph">您可以使用一个策略同时将一个或多个应用程序保护到StorageGRID。</block>
+  <block id="3c129ae4117659984e8ff0ffd5717f67" category="paragraph">将数据备份到 StorageGRID 时，您的内部必须具有一个连接器。您需要安装新的Connector或确保当前选定的Connector位于内部。无论是否可访问 Internet ，均可将 Connector 安装在站点中。</block>
+  <block id="59a3f2ec9c1e69a907655f1e19a09af2" category="inline-link-macro">为StorageGRID 创建连接器</block>
+  <block id="1806359058903db4df45ce103a9946d5" category="paragraph">有关信息，请参见 <block ref="af7b391f127d97d1c0df069f7e4831fa" category="inline-link-macro-rx"></block>。</block>
+  <block id="6c5cc1315b69c8256bbc33cf47a5a7ab" category="list-text">选择* StorageGRID *。</block>
+  <block id="e4f27df637464ead79d45fbf616da778" category="list-text">指定StorageGRID 服务器的FQDN以及运行StorageGRID 服务器的端口。</block>
+  <block id="8e9f3213cd82bd04250d546c82ac9bcc" category="paragraph">以FQDN：port格式输入详细信息。</block>
+  <block id="da490d8bb350d1ff5d204e7bdf4b2c7d" category="list-text">在访问密钥字段中、指定密钥。</block>
+  <block id="2eccdae60857b53f97fd58344a87c912" category="list-text">在机密密钥字段中、指定密码。</block>
+  <block id="c50fb53b4416ee77cca5964869eb7313" category="paragraph">您可以将内部ONTAP 系统中的Oracle、Microsoft SQL和SAP HANA应用程序数据备份到Amazon Web Services、Microsoft Azure、Google Cloud和StorageGRID。</block>
+  <block id="7de0faf266e13fc4fb95e2e3b3f92770" category="admonition">您应使用SnapCenter 软件4.6或更高版本。</block>
+  <block id="351f25e3e7fc628f73a433013b9820a6" category="list-text">SnapCenter 服务器4.6或更高版本如果要使用以下功能、则应使用SnapCenter 服务器4.7：</block>
+  <block id="40a593f0986fe870ba02d32e411a2b0d" category="list-text">保护备份免受内部二级存储的影响</block>
+  <block id="972409cf66d07489b16470afa9a8721a" category="list-text">保护SAP HANA应用程序</block>
+  <block id="0dbe1d2fb09bf62a540d7c669b09c09b" category="list-text">保护VMware环境中的Oracle和SQL应用程序</block>
+  <block id="4ff9f79b41bbc3b25bc2217ecbbf3632" category="list-text">挂载备份</block>
+  <block id="cabbb1ff97c94098b2df5921e1e3a187" category="list-text">停用备份</block>
+  <block id="29959df44aa132d91a14a42aae1e4be3" category="list-text">取消注册SnapCenter 服务器</block>
+  <block id="6b0dd047f807e93274e1f2e25e9b2a57" category="admonition">Cloud Backup for Applications不支持保护使用FQDN或IP地址添加的SVM上的应用程序。</block>
+  <block id="29d7639a0c7b9ce1eeb1a132409265c0" category="paragraph">下图显示了备份到云时的每个组件以及需要在它们之间准备的连接：</block>
+  <block id="908a0e47cd03ccd04955cb93b0d41ef4" category="paragraph">下图显示了备份到StorageGRID 时的每个组件以及需要在它们之间准备的连接：</block>
+  <block id="cba6a24686804eb1d7fea3608588a013" category="doc">将内部应用程序数据备份到Google Cloud</block>
+  <block id="73b1edb53fa203c2e4cd95bda6e13351" category="paragraph">您可以通过将适用于应用程序的云备份与Cloud Manager和内部SnapCenter 集成来将应用程序数据从ONTAP 备份到Google Cloud。</block>
+  <block id="fa860b204216c5fc8423fbeb3cc0cb75" category="list-text">选择* Google Cloud Platform*作为云提供商。</block>
+  <block id="511e1b14d4a83c658fb7834ec40ec44b" category="list-text">选择要在其中创建用于备份的Google Cloud Storage存储分段的Google Cloud Project。</block>
+  <block id="fa0f3e6189a17df2b37f1f89872dbee4" category="list-text">在Google Cloud Access Key字段中、指定密钥。</block>
+  <block id="3ee34b7fd8f9ec35694f9ada246e9a7b" category="list-text">在Google Cloud Secret Key字段中、指定密码。</block>
+  <block id="5f1ca0dc5a7a1c5b872ab6837d27232f" category="summary">使用预制策略或创建您自己的策略来保护应用程序。</block>
+  <block id="8a4528cef726e4e36a30d918236162fc" category="doc">创建用于备份应用程序的策略</block>
+  <block id="484afcea82814f5fe85e74e6007b321a" category="paragraph">您可以使用其中一个预制策略、也可以创建自定义策略将应用程序数据备份到云。如果不想编辑预制策略、可以创建策略。</block>
+  <block id="9277f475e08326320a5de6bbf7d46b79" category="paragraph">预制策略包括：</block>
+  <block id="d25a033ca2c7e38b92faa1b51d470cd4" category="list-text">从设置下拉列表中、单击*策略*&gt;*创建策略*。</block>
+  <block id="6c643a108a881a4245932f23d7c76c22" category="list-text">在策略详细信息部分中、指定策略名称。</block>
+  <block id="9f6b1aa82322cc4f853fe0fe7c532ff0" category="list-text">在保留部分中、选择一种保留类型并指定要保留的备份数。</block>
+  <block id="db2205364549e4c4841dc9b5d66f62a3" category="list-text">选择主存储源或二级存储作为备份存储源。</block>
+  <block id="81fedcf72bda3098b5ab523c2f40b979" category="list-text">(可选)如果要在经过一定天数后将备份从对象存储移动到归档存储以实现成本优化、请选中*将备份分层到归档*复选框。</block>
+  <block id="ce5717a5ac194f2c014f6deb6616dbb5" category="paragraph">只有在使用ONTAP 9.10.1或更高版本以及Amazon Web Services或Azure作为云提供商时、才能将备份从对象存储移动到归档存储。您应为每个云提供商配置归档访问层。</block>
+  <block id="8fcec94b164f3e6b67e681668273f11f" category="paragraph">您可以编辑、复制和删除自定义策略。</block>
 </blocks>

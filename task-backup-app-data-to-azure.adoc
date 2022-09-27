@@ -1,0 +1,60 @@
+---
+sidebar: sidebar 
+permalink: task-backup-app-data-to-azure.html 
+keywords: backing up, back up, backup, backup application data, Microsoft Azure, Azure, Cloud Backup, cloud backup service, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: 完成几个步骤、将应用程序数据从ONTAP 备份到Azure。 
+---
+= 将内部应用程序数据备份到Microsoft Azure
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以通过将适用于应用程序的云备份与Cloud Manager和内部SnapCenter 集成来将应用程序数据从ONTAP 备份到Microsoft Azure。
+
+您可以使用一个策略同时将一个或多个应用程序保护到云中。
+
+
+IMPORTANT: 如果使用的是 Cloud Manager GUI ，则一次只能保护一个应用程序。但是，如果您使用的是 REST API ，则可以同时保护多个应用程序。
+
+* 步骤 *
+
+. 在 Cloud Manager UI 中，单击 * 备份和还原 * > * 应用程序 * 。
+. 单击 image:icon-action.png["图标以选择操作"] 对应于应用程序，然后单击 * 激活备份 * 。
+. 在分配策略页面中，选择策略并单击 * 下一步 * 。
+. 添加工作环境。
++
+配置托管运行应用程序的 SVM 的 ONTAP 集群。为其中一个应用程序添加工作环境后，可以对驻留在同一 ONTAP 集群上的所有其他应用程序重复使用该环境。
+
++
+.. 选择SVM、然后单击*添加工作环境*。
+.. 在添加工作环境向导中：
++
+... 指定 ONTAP 集群的 IP 地址。
+... 指定管理员凭据。
++
+Cloud Backup for Applications 仅支持集群管理。
+
+
+
+.. 单击 * 添加工作环境 * 。
+
+
+. 选择* Microsoft Azure*作为云提供程序。
++
+.. 指定 Azure 订阅 ID 。
+.. 选择要创建备份的区域。
+.. 创建新资源组或使用现有资源组。
+.. 指定IP空间。
+.. 选择归档层。
++
+建议设置归档层、因为这是一次性活动、不允许稍后进行设置。
+
+
+
+. 查看详细信息并单击 * 激活备份 * 。
+

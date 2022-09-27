@@ -18,6 +18,32 @@ summary: 了解 Cloud Backup 中的新增功能。
 
 
 
+== 2022年9月30日
+
+
+
+=== Cloud Backup for Applications的增强功能
+
+* 支持Google Cloud Provider (GCP)和StorageGRID 备份应用程序一致的快照
+* 创建自定义策略
+* 支持归档存储
+* 备份SAP HANA应用程序
+* 备份VMware环境中的Oracle和SQL应用程序
+* 从内部二级存储备份应用程序
+* 停用备份
+* 取消注册SnapCenter 服务器
+
+
+
+
+=== 适用于虚拟机的Cloud Backup增强功能
+
+* 支持StorageGRID 备份一个或多个数据存储库
+* 创建自定义策略
+
+
+
+
 == 2022年9月19日
 
 

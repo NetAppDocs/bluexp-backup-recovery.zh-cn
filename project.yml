@@ -87,8 +87,21 @@ sidebar:
       entries:
       - title: 保护内部应用程序数据
         url: "/concept-protect-app-data-to-cloud.html"
-      - title: 将内部应用程序数据备份到云
-        url: "/task-backup-app-data-to-cloud.html"
+      - title: 注册 SnapCenter 服务器
+        url: "/task-register-snapcenter-server.html"
+      - title: 创建用于备份应用程序的策略
+        url: "/task-create-policies-apps.html"
+      - title: 将内部应用程序数据备份到Amazon Web Services
+        flavor: aws
+        url: "/task-backup-app-data-to-aws.html"
+      - title: 将内部应用程序数据备份到Microsoft Azure
+        flavor: azure
+        url: "/task-backup-app-data-to-azure.html"
+      - title: 将内部应用程序数据备份到Google Cloud
+        flavor: gcp
+        url: "/task-backup-app-data-to-gcp.html"
+      - title: 将内部应用程序数据备份到StorageGRID
+        url: "/task-backup-app-data-to-storagegrid.html"
       - title: 管理应用程序的保护
         url: "/task-manage-app-backups.html"
       - title: 还原应用程序数据
@@ -97,6 +110,8 @@ sidebar:
           url: "/task-restore-oracle-data.html"
         - title: 还原 SQL Server 数据库
           url: "/task-restore-sql-data.html"
+      - title: 挂载应用程序备份
+        url: "/task-mount-app-backup.html"
     - title: 备份和还原Cloud原生 应用程序数据
       entries:
       - title: 保护您的Cloud原生 应用程序数据

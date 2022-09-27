@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: task-manage-app-backups.html 
-keywords: manage, Azure, Amazon Web services, Oracle database, Microsoft SQL Server database, backups, policy, monitor, jobs, monitor jobs 
+keywords: manage, Azure, Amazon Web services, Oracle database, Microsoft SQL Server database, backups, policy, monitor, jobs, monitor jobs, SAP HANA database 
 summary: 您可以查看策略和备份。根据数据库，策略或资源组的更改，您可以从 Cloud Manager UI 刷新更新。 
 ---
 = 管理应用程序的保护
@@ -14,23 +14,23 @@ summary: 您可以查看策略和备份。根据数据库，策略或资源组�
 
 
 [role="lead"]
-您可以查看策略和备份。根据数据库，策略或资源组的更改，您可以从 Cloud Manager UI 刷新更新。
+您可以通过在Cloud Manager UI中执行不同操作来管理应用程序保护。
 
 
 
 == 查看策略
 
-您可以查看所有默认预制策略。在查看每个策略的详细信息时，系统都会列出所有关联的 Cloud Backup for Applications 策略以及所有关联的应用程序。
+您可以查看所有策略。查看每个策略的详细信息时、系统都会列出所有关联的应用程序。
 
 . 单击 * 备份和还原 * > * 应用程序 * 。
 . 从 * 设置 * 下拉列表中，单击 * 策略 * 。
 . 单击与要查看其详细信息的策略对应的 * 查看详细信息 * 。
 +
-此时将列出关联的 Cloud Backup for Applications 策略和所有应用程序。
+此时将列出关联的应用程序。
 
 +
 
-NOTE: 您不应删除适用于应用程序的 Cloud Backup 策略。
+NOTE: 您不能编辑或删除与应用程序关联的策略。
 
 
 
@@ -52,6 +52,7 @@ IMPORTANT: 列出备份所需的时间取决于 ONTAP 的默认复制计划（�
 * 对于 Oracle 数据库，系统会列出数据备份和日志备份，每个备份的 SCN 编号，每个备份的结束日期。您只能选择数据备份并将数据库还原到内部 SnapCenter 服务器。
 * 对于 Microsoft SQL Server 数据库，仅会列出完整备份和每个备份的结束日期。您可以选择备份并将数据库还原到内部 SnapCenter 服务器。
 * 对于 Microsoft SQL Server 实例，不会列出备份，而是仅列出该实例下的数据库。
+* 对于SAP HANA数据库、仅会列出数据备份和每个备份的结束日期。您可以选择备份并执行挂载操作。
 
 
 
@@ -88,6 +89,15 @@ NOTE: 在启用云保护之前创建的备份不会列出进行还原。
 
 
 
+== 取消注册SnapCenter 服务器
+
+. 单击 * 备份和还原 * > * 应用程序 * 。
+. 从 * 设置 * 下拉列表中，单击 * SnapCenter Servers* 。
+. 单击 image:icon-action.png["图标以选择操作"] 对应于SnapCenter 服务器、然后单击*取消注册*。
+
+
+
+
 == 监控作业
 
 系统会为所有 Cloud Backup 操作创建作业。您可以监控在每个任务中执行的所有作业和所有子任务。
@@ -97,6 +107,23 @@ NOTE: 在启用云保护之前创建的备份不会列出进行还原。
 启动操作时，将显示一个窗口，指出作业已启动。您可以单击此链接来监控作业。
 
 . 单击主任务可查看每个子任务的子任务和状态。
+
+
+
+
+== 设置主工作环境的IP空间
+
+如果要还原或挂载从二级存储移至对象存储的备份、则应添加主工作环境详细信息并设置IP空间。
+
+* 步骤 *
+
+. 在Cloud Manager UI中、单击*画布*>*添加工作环境*。
+. 指定主工作环境详细信息、然后单击*添加*。
+. 单击*备份和还原*>*卷*。
+. 单击 image:icon-action.png["图标以选择操作"] 对应于任何卷、然后单击*详细信息*。
+. 单击 image:icon-action.png["图标以选择操作"] 对应于备份、然后单击*还原*。
+. 在向导中、选择新添加的主工作环境作为目标。
+. 指定IP空间。
 
 
 
