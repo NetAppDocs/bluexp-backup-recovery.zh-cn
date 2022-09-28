@@ -178,6 +178,8 @@ homepage:
       url: whats-new.html
     - title: 设置许可
       url: task-licensing-cloud-backup.html
+    - title: 监控备份和还原作业的状态
+      url: task-monitor-backup-jobs.html
   - title: 将 ONTAP 数据备份到云
     links:
     - title: Cloud Volumes ONTAP 到 Amazon S3
@@ -244,11 +246,11 @@ homepage:
       url: "/task-backup-vm-data-to-storagegrid.html"
     - title: 从云还原虚拟机
       url: task-restore-vm-data.html
-  - title: 从备份文件还原数据
+  - title: 从ONTAP 备份文件还原数据
     links:
     - title: 还原 ONTAP 卷
       url: task-restore-backups-ontap.html
-    - title: 还原 ONTAP 文件
+    - title: 从ONTAP 卷还原文件和文件夹
       url: task-restore-backups-ontap.html
     - title: 还原 Kubernetes 卷
       url: task-restore-backups-kubernetes.html
@@ -268,8 +270,6 @@ homepage:
       url: task-manage-backups-ontap.html#viewing-the-list-of-backups-for-each-volume
     - title: 删除备份
       url: task-manage-backups-ontap.html#deleting-backups
-    - title: 监控备份和还原作业的状态
-      url: task-monitor-backup-jobs.html
   - title: 博客社区
     links:
     - title: NetApp 社区

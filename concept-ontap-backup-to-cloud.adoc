@@ -16,7 +16,7 @@ summary: Cloud Backup 提供备份和还原功能，用于保护和长期归档 
 [role="lead"]
 Cloud Backup 提供备份和还原功能，用于保护和长期归档 ONTAP 集群数据。备份会自动生成并存储在公有或私有云帐户的对象存储中，而与用于近期恢复或克隆的卷 Snapshot 副本无关。
 
-如有必要、您可以将整个_volume"、"文件夹"或"一个或多个_files"从备份还原到相同或不同的工作环境。
+必要时、您可以将整个_volume"、"_folder"或一个或多个_files"从备份还原到相同或不同的工作环境。
 
 
 
@@ -67,14 +67,14 @@ Cloud Backup 提供备份和还原功能，用于保护和长期归档 ONTAP 集
 
 | 内部部署 ONTAP 系统 | ifdef：：：AWS]] Amazon S3 endf：：AWS]] ifdef：：azure[] Azure Blob endf：：azure[] ifdef：：GCP；Google Cloud Storage endf：：GCP；NetApp StorageGRID 
 |===
-您可以将卷或单个文件从 ONTAP 备份文件还原到以下工作环境：
+您可以将卷、文件夹或单个文件从ONTAP 备份文件还原到以下工作环境：
 
 [cols="25,33,37"]
 |===
 | 备份文件 2+| 目标工作环境 
 
 
-| * 位置 * | * 卷还原 * | *文件还原* ifdef：：AWS 
+| * 位置 * | * 卷还原 * | *文件夹和文件还原* ifdef：：AWS 
 
 
 | Amazon S3 | AWS 内部 ONTAP 系统中的 Cloud Volumes ONTAP | AWS内部部署ONTAP 系统中的Cloud Volumes ONTAP endf：AWS [] ifdef：：azure[] 
