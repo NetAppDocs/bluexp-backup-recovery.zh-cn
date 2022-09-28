@@ -213,8 +213,17 @@ homepage:
       flavor: gcp
   - title: 备份和还原应用程序数据
     links:
-    - title: 将内部应用程序数据备份到云
-      url: task-backup-app-data-to-cloud.html
+    - title: 将内部应用程序数据备份到Amazon Web Services
+      flavor: aws
+      url: "/task-backup-app-data-to-aws.html"
+    - title: 将内部应用程序数据备份到Microsoft Azure
+      flavor: azure
+      url: "/task-backup-app-data-to-azure.html"
+    - title: 将内部应用程序数据备份到Google Cloud
+      flavor: gcp
+      url: "/task-backup-app-data-to-gcp.html"
+    - title: 将内部应用程序数据备份到StorageGRID
+      url: "/task-backup-app-data-to-storagegrid.html"
     - title: 将Oracle数据库从云还原到内部
       url: task-restore-oracle-data.html
     - title: 将SQL Server数据库从云还原到内部
@@ -225,8 +234,14 @@ homepage:
       url: task-restore-cloud-native-app-data.html
   - title: 备份和还原虚拟机数据
     links:
-    - title: 将数据存储库备份到云
-      url: task-backup-vm-data-to-cloud.html
+    - title: 将数据存储库备份到Amazon Web Services
+      flavor: aws
+      url: "/task-backup-vm-data-to-aws.html"
+    - title: 将数据存储库备份到Microsoft Azure
+      flavor: azure
+      url: "/task-backup-vm-data-to-azure.html"
+    - title: 将数据存储库备份到StorageGRID
+      url: "/task-backup-vm-data-to-storagegrid.html"
     - title: 从云还原虚拟机
       url: task-restore-vm-data.html
   - title: 从备份文件还原数据
