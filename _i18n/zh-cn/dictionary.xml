@@ -2442,10 +2442,8 @@
   <block id="550600f5b11e396f6d260ad4b5bad6b4" category="paragraph">如果要还原的卷的备份文件驻留在归档存储中(从ONTAP 9.10.1开始可用)、则还原操作将需要较长时间并产生额外成本。请注意、目标集群还必须运行ONTAP 9.10.1或更高版本来执行卷还原、以及运行9.11.1来执行文件还原。</block>
   <block id="01fa460d0b4e6c77f9b145e51a76fbd6" category="paragraph">如果<block ref="81ffc4823c79c3e10cfa644aead6e93c" category="inline-link-rx"></block> 备份目标作为工作环境存在于Canvas上、您可以将内部ONTAP 工作环境拖动到目标上以启动Cloud Backup设置向导。</block>
   <block id="e90eafa7bd87aa0ac2eee6c1722ef9e4" category="list-text">如果您使用的是BYOL许可证、建议同时订阅PAYGO订阅。如果备份的数据超过BYOL许可证允许的数量、则备份将通过按需购买订阅继续进行、不会中断服务。</block>
-  <block id="14ec6f8e662a83e1b5c675a211b8b029" category="paragraph">请注意、只有在云中部署了Connector时、GovCloud地区才支持Cloud Backup、而不是安装在内部或非公开站点中。</block>
   <block id="fd1958e5e74317f89c6c16bbca7d1446" category="inline-link">AWS 中连接器的规则</block>
   <block id="56d39ecb5bf4d2ec753c12fbb0e00108" category="list-text">AWS和AWS GovCloud部署需要其他入站和出站安全组规则。请参见<block ref="74fb388667736bb2b34ea14720dd63e3" category="inline-link-rx"></block> 了解详细信息。</block>
-  <block id="ad016619a46ca8e0f75292c2c0d1a7a8" category="paragraph">请注意、只有在云中部署了Connector时、政府云区域才支持Cloud Backup、而不是安装在内部或非公开站点中。</block>
   <block id="b445de53411a165e9c56da6430c38d59" category="inline-link">Azure 中连接器的规则</block>
   <block id="f840409b357663e7b24e8296c05770a5" category="list-text">Azure和Azure政府部署还需要其他入站安全组规则。请参见<block ref="e1893ebf6f9d2e927a13d052b78eec9f" category="inline-link-rx"></block> 了解详细信息。</block>
   <block id="2eeb194bf5c17f3408edda6fb4570318" category="summary">完成几个步骤、将应用程序数据从ONTAP 备份到Azure。</block>
@@ -2666,4 +2664,8 @@
   <block id="f8a98c701370ca7b2e41192ca7baaa6b" category="list-text">连接器必须部署在云中</block>
   <block id="d82ac33ca1171e71de283e404129a0c4" category="paragraph">如果集群使用的是 ONTAP 9.10.1 或更高版本，则可以选择在一定天数后将旧备份分层到 _S3 Glacer_ 或 _S3 Glacier Deep Archive_ 存储，以进一步优化成本。 <block ref="f7fa7b0a9e810d8c500bcf785a34f359" category="inline-link-macro-rx"></block>。</block>
   <block id="3dfe42849739012935ae4b966fa89d76" category="paragraph">如果集群使用的是 ONTAP 9.10.1 或更高版本，您可以选择在一定天数后将较早的备份分层到 _Azure Archive_ 存储，以进一步优化成本。 <block ref="2f91ed687cd1d1d6d8235865263a43ff" category="inline-link-macro-rx"></block>。</block>
+  <block id="541b5050a50a0e3040c978cd339ac40f" category="inline-link">了解如何在AWS GovCloud地区创建Connector</block>
+  <block id="3a93813464b52092578b75c490a315d3" category="paragraph">如果连接器部署在云中、则GovCloud地区支持Cloud Backup、而不是安装在内部或非公开站点中。此外、您还必须从AWS Marketplace部署Connector。您不能从Cloud Manager SaaS网站在政府区域部署Connector。<block ref="8b836e33a466c00dcf60eebb57972847" category="inline-link-rx"></block>。</block>
+  <block id="50f6114c76c0178ff63cce6c4efbb5bc" category="inline-link">了解如何在Azure政府区域创建Connector</block>
+  <block id="73e80c85d0469fdbf73937e3b2fc2017" category="paragraph">如果Connector部署在云中、则Azure政府区域支持Cloud Backup、而不是安装在内部或非公开站点中。此外、您还必须从Azure Marketplace部署Connector。您不能从Cloud Manager SaaS网站在政府区域部署Connector。<block ref="9758449d9191108f8c90137ecdba7919" category="inline-link-rx"></block>。</block>
 </blocks>

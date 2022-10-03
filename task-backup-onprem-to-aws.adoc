@@ -90,7 +90,7 @@ Cloud Manager Connector 是 Cloud Manager 功能的主要软件。需要使用�
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html["在内部安装Connector"^]
 
 
-请注意、只有在云中部署了Connector时、GovCloud地区才支持Cloud Backup、而不是安装在内部或非公开站点中。
+如果连接器部署在云中、则GovCloud地区支持Cloud Backup、而不是安装在内部或非公开站点中。此外、您还必须从AWS Marketplace部署Connector。您不能从Cloud Manager SaaS网站在政府区域部署Connector。 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-launching-aws-mktp.html#create-the-connector-in-an-aws-government-region["了解如何在AWS GovCloud地区创建Connector"]。
 
 
 
