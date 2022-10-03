@@ -1725,7 +1725,6 @@
   <block id="19b05e78d3464eff3a0a4847f0b66324" category="list-text">使用GCP时、您可以向NetApp申请一个私人优惠、然后在Cloud Backup激活期间从Google Cloud Marketplace订阅时选择计划。</block>
   <block id="cf6d8dee9b177c1138ae0ee4e07dc2f3" category="inline-link-macro">了解如何设置年度合同</block>
   <block id="cc0eb7dbb8893977120a22b09b8c4ca0" category="paragraph"><block ref="f5d5ae39791d9eaf9e8591b7cfcc3b96" category="inline-link-macro-rx"></block>。</block>
-  <block id="7fc2834f67e497ab1b49f283ea0500e6" category="paragraph">在为工作环境启用 Cloud Backup 时，您最初选择的所有卷都会使用您定义的默认备份策略进行备份。如果要为具有不同恢复点目标(RPO)的某些卷分配不同的备份策略、则可以为该集群创建其他策略、并在激活备份后将这些策略分配给其他卷。</block>
   <block id="c47b9175ecebbf21ca2cd87a3a34dc85" category="paragraph">您可以选择对所有卷进行每小时、每天、每周、每月和每年备份的组合。您还可以选择系统定义的策略之一，这些策略可提供 3 个月， 1 年和 7 年的备份和保留期限。这些策略包括：</block>
   <block id="952a500aaf6d2c5ad8514e3fa5bd6474" category="paragraph">达到某个类别或间隔的最大备份数后、较早的备份将被删除、以便始终拥有最新的备份(因此废弃的备份不会继续占用云中的空间)。</block>
   <block id="6cc30d6c33bfc4f65037828783c2a89d" category="paragraph">Cloud Backup支持以下类型的卷：</block>
@@ -1890,19 +1889,14 @@
   <block id="b376676c4c1945b60563d3f5ea93e159" category="summary">本文档介绍Cloud Backup的备份策略配置设置。</block>
   <block id="f06685f05a46539219fb2db68c9ade26" category="doc">Cloud Backup策略配置设置</block>
   <block id="1ac86f6dd27abfcb13588ec9dff9ba2a" category="section-title">备份计划</block>
-  <block id="47af5e4e96b94681a1fda003140d66de" category="paragraph">您可以通过Cloud Backup为每个工作环境创建多个备份策略、并使用唯一的计划。您可以为具有不同恢复点目标(RPO)的卷分配不同的备份策略。</block>
   <block id="4c2b90bc53de152e23fccbce641ea19e" category="paragraph">每个备份策略都为_Labels &amp; Retenation_s提供了一个部分、您可以将其应用于备份文件。</block>
   <block id="154eb228b3f63f7705fe329177ea16b6" category="inline-image-macro">创建备份策略时的备份计划设置的屏幕截图。</block>
   <block id="38175fe10c317ca778ce56abf9d3ff3f" category="paragraph"><block ref="38175fe10c317ca778ce56abf9d3ff3f" category="inline-image-macro-rx" type="image"></block></block>
   <block id="dca086ae01946b6cf950f1291d93aac6" category="paragraph">计划分为两部分：标签和保留值：</block>
-  <block id="2b98372cf63d6e1e40baa5a92732edd0" category="list-text">*标签*用于定义从卷创建备份文件的频率。您可以选择以下类型的标签：</block>
   <block id="5a35ddef63d61c71445e13d3c9588a2d" category="list-text">您可以选择一个或多个选项：*每小时*、*每日*、*每周*、*每月*、 和*每年*的时间范围。</block>
-  <block id="72ed362887dfa09e979a0265f8247124" category="list-text">您可以选择系统定义的策略之一、这些策略可提供3个月、1年和7年的备份和保留期限。</block>
   <block id="c3453b6163eafb5ced9753c1ce3419e7" category="list-text">如果您已使用ONTAP 系统管理器或ONTAP 命令行界面在集群上创建自定义备份保护策略、则可以选择其中一个策略。</block>
   <block id="61b862400cd7156cb725e12fe1947d88" category="list-text">"*保留*"值用于定义每个标签的备份文件数量(时间范围)。在一个类别或间隔内达到最大备份数后、较早的备份将被删除、以便始终拥有最新的备份。这还可以节省存储成本、因为过时的备份不会继续占用云中的空间。</block>
   <block id="292f9f5eb65ebf40fd71fda6e8b093e7" category="list-text">每周和每月都会为卷创建一个备份文件</block>
-  <block id="b5cdfa0edd5a8bb432fe066f8fbcb82f" category="list-text">在第8周、第一个每周备份将被第8周的每周备份所取代(最多保留7个每周备份)</block>
-  <block id="f229fe4211204b2ac0e2c6733e936325" category="list-text">在第13个月、第一个每月备份将替换为第13个月的每月备份(最多保留12个每月备份)</block>
   <block id="23433a4a1c369f850662f43bac40d8ae" category="section-title">DataLock和勒索软件保护</block>
   <block id="3960b74bd00136bf9d473cf143876ec1" category="paragraph">Cloud Backup为卷备份提供DataLock和勒索软件保护支持。通过这些功能、您可以锁定备份文件并对其进行扫描、以检测备份文件上可能存在的勒索软件。这是一个可选设置、当您希望为集群的卷备份提供额外保护时、可以在备份策略中定义此设置。</block>
   <block id="6c73c9d6c177001ef79643ba7b341c9e" category="list-text">如果您计划使用DataLock和勒索软件保护、则必须在为该集群创建第一个备份策略并激活Cloud Backup时启用它。</block>
@@ -1910,15 +1904,10 @@
   <block id="921b747c1abfd997d26a273c0b62011b" category="section-title">什么是DataLock</block>
   <block id="dfb62b997a26ac6f842b39091a92428a" category="paragraph">DataLock可防止备份文件在一段时间内被修改或删除。此功能使用对象存储提供程序提供的技术进行"对象锁定"。备份文件锁定(并保留)的时间段称为DataLock保留期限。它基于您定义的备份策略计划和保留设置、外加14天的缓冲区。任何少于30天的DataLock保留策略将取整为最短30天。</block>
   <block id="f6494bde8c5d58e1a40bf174c8083f96" category="paragraph">下面我们来看看这种方法的一些示例：</block>
-  <block id="19606e2b227c881953690cfcbb2621ad" category="list-text">如果您创建包含12个保留项的每月备份计划、则备份将锁定12个月(加上14天)、然后才会被删除(替换为下一个备份文件)。</block>
   <block id="4f326e1a4453cc79600c1df4374d2c22" category="list-text">如果您创建的备份策略创建30个每日备份、7个每周备份、12个每月备份、则会有三个锁定的保留期限。"30个每日"备份将保留44天(30天加上14天缓冲)、"7个每周"备份将保留9周(7周加14天)、"12个每月"备份将保留12个月(加上14天)。</block>
-  <block id="74e291c59b5337829d6b959b562110ba" category="list-text">如果您创建包含24个保留项的每小时备份计划、则您会认为备份会锁定24小时。但是、由于此时间少于最短30天、因此每个备份将被锁定并保留44天(30天加上14天缓冲区)。</block>
-  <block id="d9d4ba4e9716540e097a3623daaf1962" category="paragraph">在最后一个案例中、您可以看到、如果每个备份文件锁定44天、则最终备份文件的数量将比使用每小时/24小时保留策略通常保留的备份文件数量多。通常、Cloud Backup创建第25个备份文件后、它会删除最早的备份、以使最大保留值保持在24 (根据策略)。在这种情况下、DataLock保留设置会覆盖备份策略中的策略保留设置。这可能会影响存储成本、因为备份文件将保存在对象存储中较长时间。</block>
   <block id="57f10edfffe2adcbce7ee7a76dc7702f" category="section-title">什么是勒索软件保护</block>
-  <block id="cad8a645661899cd5a1b0a948cae91fd" category="paragraph">勒索软件保护会扫描您的备份文件、以查找勒索软件攻击的证据。通过校验和比较来检测勒索软件攻击。如果在备份文件与之前的备份文件中发现潜在的勒索软件、则新备份文件将替换为最新的备份文件、该备份文件不会显示任何勒索软件攻击的迹象。(已确定发生勒索软件攻击的文件将在替换后1天被删除。)</block>
   <block id="6178bb3c1b6a8af3ec3a7000d38df00e" category="paragraph">勒索软件扫描在备份和还原过程的3个时间点进行：</block>
   <block id="74fdca54d2260fb26943ee68a4de7888" category="list-text">创建备份文件时</block>
-  <block id="07b31f5674c57b8903c6b15b2144b514" category="paragraph">首次将备份文件写入云存储时、不会对该备份文件执行扫描、而是在写入下一个备份文件时执行扫描。例如、如果为星期二设置了每周备份计划、则在星期二14创建备份。然后、在星期二21日创建另一个备份。此时、勒索软件扫描将从14号开始对备份文件运行。</block>
   <block id="f656e9389b65beefa5f22506a262c68a" category="list-text">尝试从备份文件还原数据时</block>
   <block id="d71c7fafb5eead8d41c2869b8c551f6a" category="paragraph">您可以选择在从备份文件还原数据之前运行扫描、也可以跳过此扫描。</block>
   <block id="826c19d01b527f2701cc3460b9c889de" category="list-text">手动</block>
@@ -1974,7 +1963,6 @@
   <block id="f5ef24e218bb7a52732b62958bb89c68" category="list-text">扫描备份文件以查找可能的勒索软件攻击、并自动删除/替换受感染的备份。</block>
   <block id="3f28b1a3a0b3b6c8294e56323ec13e18" category="list-text">将旧备份文件分层到归档存储以节省成本。</block>
   <block id="fe66ea47b1e195d0a8f311d62ee027d8" category="paragraph">向云提供商支付对象存储容量以及向云写入和读取备份文件的资源费用。</block>
-  <block id="ea7f0ec7b7c9b030700a4f123edfd3eb" category="list-text">对于使用搜索和还原的卷或文件还原、某些资源由云提供商配置、搜索请求扫描的数据量会产生每TiB成本。</block>
   <block id="8006ced8739173ca22ba2b0d83f53268" category="inline-link">Azure Synapse工作空间</block>
   <block id="31f9c16bc3570a56499294176c354ee7" category="inline-link">Azure数据湖存储</block>
   <block id="82ba9e045163c7c72098c50671704351" category="list-text">在Azure中、是<block ref="a3ff4de37e7a195a145416e9f02577ac" category="inline-link-rx"></block> 和<block ref="47b506e6a2508a9b210c02fa89bbdc24" category="inline-link-rx"></block> 在您的存储帐户中配置以存储和分析数据。</block>
@@ -1985,7 +1973,6 @@
   <block id="136194d46b42cb1f4c0ffea5b134879e" category="list-text">企业级。DataLock模式设置为_Enterprise"、具有特定权限的用户可以在保留期间覆盖或删除备份文件。已启用勒索软件保护。</block>
   <block id="b0e2bacf658f248f5b3198bb6ec3cf68" category="list-text">合规性。DataLock模式设置为_Compliance"、在保留期限内、任何用户都无法覆盖或删除备份文件。已启用勒索软件保护。</block>
   <block id="307f506933fa37350a3739584fc7749a" category="paragraph">保留期限与计划保留期限相同；加上14天。例如、保留了_5_副本的_weekly_备份会将每个备份文件锁定5周。保留了_6_副本的_monthly备份将锁定每个备份文件6个月。</block>
-  <block id="5d9fc27df9d43a3f4819efb43ba8f23a" category="paragraph">如果您的备份目标为Amazon S3、则当前可以获得支持。其他存储提供程序目标将在未来版本中添加。</block>
   <block id="668420eb25c0657fa1ed103061b132a1" category="admonition">如果要将备份分层到归档存储、则无法启用DataLock。</block>
   <block id="e4d473c7eaa0d5a17a8380f5a1f05a7e" category="paragraph">请参见 <block ref="6fd60dcfbd658d3c6de952e2d3164749" category="inline-link-macro-rx"></block> 有关DataLock和勒索软件保护的工作原理的更多详细信息。</block>
   <block id="648e07eb3f255382cd68dd1ee61b6561" category="section-title">旧备份文件的归档存储</block>
@@ -2417,16 +2404,13 @@
   <block id="639be990cfca56ab4b63685d8bacd437" category="list-text">通过提交非技术案例<block ref="2298f47e4dad19a3156da7ce6116d9b1" category="inline-link-rx"></block></block>
   <block id="aa254718f2c52dc147bfd8f98b0c4840" category="inline-link">Cloud Insights 和Cloud Secure</block>
   <block id="86fef274eb09e789513af0922e579b5a" category="inline-link">ONTAP 提供的反勒索软件保护</block>
-  <block id="f27beac3d097dd791847516307a68045" category="paragraph">此功能不会为源卷提供保护、仅会为这些源卷的备份提供保护。使用NetApp<block ref="2e57621b97dadc1cef3dd80d75e83676" category="inline-link-rx"></block>或部分<block ref="086d55e347fe71de47923b356a73187b" category="inline-link-rx"></block> 以保护源卷。</block>
   <block id="dc52d5a83e31ec66da3344056a4e4e39" category="paragraph">请注意、旧备份会在DataLock保留期限到期后删除、而不是在备份策略保留期限到期后删除。</block>
   <block id="49a6926ab95494c4de6e1f26bab7e4d5" category="list-text">监管(不适用于StorageGRID)</block>
   <block id="4e828df72a865dff97ed752d2c9c8307" category="paragraph">DataLock设置为_Governance_模式、其中具有特定权限的用户(<block ref="6091ac16b06103b3d1b14d6f408bb364" category="inline-link-macro-rx"></block>)可以在保留期间覆盖或删除备份文件。已启用勒索软件保护。</block>
   <block id="5a080c775e60ee1f55b487821cc05ac3" category="paragraph">DataLock设置为_Compliance"模式、在此保留期间、任何用户都无法覆盖或删除备份文件。已启用勒索软件保护。</block>
-  <block id="2d950277b1c4175f1241fd34170e963f" category="admonition">StorageGRID S3对象锁定功能提供了一个DataLock模式、相当于合规模式。不支持等效的监管模式、因此任何用户都无法绕过保留设置、覆盖受保护的备份或删除备份。</block>
   <block id="189baba290165c9a7ddf7f3c3ec05a6a" category="paragraph">在以下公有 和私有云提供商中使用对象存储时、您可以在以下工作环境中对ONTAP 卷启用DataLock和勒索软件保护。未来版本将添加更多云提供商。</block>
   <block id="12ffabaafd850d6e279869bb1cd0b7c8" category="cell">ifdef：：：AWS]] Amazon S3 endf：：AWS[] ifdef：：azure[] endf：：azure[] ifdef：：GCP () endf：：GCP () NetApp StorageGRID</block>
   <block id="de45b13527319d3765cb25daa45622e5" category="list-text">您必须使用Cloud Manager 3.9.21或更高版本</block>
-  <block id="57eabf5a162d469521b2a0fa9368dd35" category="list-text">对于AWS、连接器必须部署在云中</block>
   <block id="46651d9c49a465cb6fa5e07cd6981948" category="list-text">以下S3权限必须属于为Connector提供权限的IAM角色。它们位于资源"arn：AWS：s3：：：：netapp-backup-*"的"backupS3Policy"部分中：</block>
   <block id="709168c65e2b4e5806ef96ffe25ed710" category="paragraph">只有当您希望管理员用户能够覆盖/删除使用监管模式锁定的备份文件时、才必须添加"S3：BypassGovernanceRetention"。</block>
   <block id="a0cfa687d678b7bdaa6e05ad4367a96d" category="list-text">对于StorageGRID ：</block>
@@ -2438,7 +2422,6 @@
   <block id="cd2965bfeacaceb11394002abe013260" category="summary">您可以通过从云提供商购买按需购买(PAYGO)或年度市场订阅、或者从NetApp购买自带许可证(BYOL)来获得Cloud Backup的许可。要在工作环境中激活Cloud Backup、为生产数据创建备份以及将备份数据还原到生产系统、需要有效的许可证。</block>
   <block id="ca636232aaf17fe5d8fef3b105b4363c" category="list-text">将卷、文件夹或单个文件还原到源系统或其他系统。</block>
   <block id="ead18a75e8ad08c3fd02c4ded3f53521" category="list-text">可浏览且可搜索的文件目录、用于选择单个文件夹和文件以进行单个文件还原。</block>
-  <block id="b05129b87daa8f26e20ce7f835876ea3" category="list-text">目前、对象存储上的WORM/Compliance模式仅在Amazon S3和StorageGRID 上受支持。这称为DataLock功能。</block>
   <block id="e831d27edb715928e8204ce285611618" category="section-title">文件和文件夹还原限制</block>
   <block id="79ec871c574dbe9adf17973bdb4bf029" category="paragraph">这些限制适用于恢复文件和文件夹的搜索和还原以及浏览和还原方法；除非特别说明。</block>
   <block id="7a6f7d393f4de35501272976e1ba9e03" category="list-text">浏览和还原以及搜索和还原一次可以还原1个文件夹。</block>
@@ -2662,4 +2645,25 @@
   <block id="262efb8db11032d91af39217fa610e82" category="paragraph">您可以将卷、文件夹或单个文件从ONTAP 备份文件还原到以下工作环境：</block>
   <block id="5a885bd71d1142c7d1b89fcfcf197a41" category="sidebar">从ONTAP 备份文件还原数据</block>
   <block id="ba9a6951ecf97e593c2140f66a8574bf" category="sidebar">从ONTAP 卷还原文件和文件夹</block>
+  <block id="855a635321caeb08d8525de5eea56651" category="list-text">要使用"搜索和还原"还原数据、某些资源由云提供商配置、搜索请求扫描的数据量会产生每TiB成本。(浏览和还原不需要这些资源。)</block>
+  <block id="c03019f9be2cb226dc19ca939f4d2a98" category="paragraph">在为工作环境启用 Cloud Backup 时，您最初选择的所有卷都会使用您定义的默认备份策略进行备份。如果要为具有不同恢复点目标(RPO)的某些卷分配不同的备份策略、则可以为该集群创建其他策略、并在激活Cloud Backup后将这些策略分配给其他卷。</block>
+  <block id="887b3715a8c6b9f979173f9bb78db138" category="paragraph">如果您的备份目标为Amazon S3或NetApp StorageGRID 、则当前可以获得支持。其他存储提供程序目标将在未来版本中添加。</block>
+  <block id="eec8499000c8f659d98df740f918b905" category="list-text">目前、对象存储上的WORM/Compliance模式仅在Amazon S3和StorageGRID 上受支持。这称为DataLock功能、必须使用Cloud Backup设置对其进行管理。</block>
+  <block id="5116aee7e891450dd457789d0b3857e4" category="paragraph">本文档介绍使用Cloud Backup Service 时内部ONTAP 系统和Cloud Volumes ONTAP 系统的备份策略配置设置。</block>
+  <block id="f576f81f502b655c924b76cc045e8946" category="paragraph">您可以通过Cloud Backup为每个工作环境(集群)创建多个备份策略、并使用唯一的计划。您可以为具有不同恢复点目标(RPO)的卷分配不同的备份策略。</block>
+  <block id="3b190b83ddc2ee9e610caa6dc209fbaf" category="list-text">*标签*用于定义从卷创建(或更新)备份文件的频率。您可以选择以下类型的标签：</block>
+  <block id="42f0dfacb9775e138cb12f277162bec2" category="list-text">您可以选择系统定义的策略之一、这些策略可提供3个月、1年或7年的备份和保留。</block>
+  <block id="cc52989062051281d16ab44b8c24cbef" category="list-text">在第8周删除第一个每周备份、并添加第8周的新每周备份(最多保留7个每周备份)</block>
+  <block id="1d7733f94633408426a8b5de97f97f13" category="list-text">在第13个月、删除了第一个每月备份、并添加了第13个月的新每月备份(最多保留12个每月备份)</block>
+  <block id="105cf1dd74d7a9079245d031f91df8b0" category="paragraph">此功能不会为源卷提供保护；仅适用于这些源卷的备份。使用NetApp<block ref="2e57621b97dadc1cef3dd80d75e83676" category="inline-link-rx"></block>或部分<block ref="086d55e347fe71de47923b356a73187b" category="inline-link-rx"></block> 以保护源卷。</block>
+  <block id="f88d31c8fba76a471a02f0b65a9ac963" category="list-text">如果您创建包含12个保留项的每月备份计划、则每个备份将在删除前锁定12个月(外加14天)。</block>
+  <block id="bf7c437191fdcde55e7d7e2fc049c230" category="list-text">如果您创建一个保留24个保留项的每小时备份计划、则可能会认为备份会锁定24小时。但是、由于此时间少于最短30天、因此每个备份将被锁定并保留44天(30天加上14天缓冲区)。</block>
+  <block id="681e74daf8a2c7a6316ddee6727d3b7f" category="paragraph">在最后一个案例中、您可以看到、如果每个备份文件锁定44天、则最终备份文件的数量将比使用每小时/24小时保留策略通常保留的备份文件数量多。通常、在Cloud Backup创建第25个备份文件时、它会删除最旧的备份、以使最大保留值保持在24 (根据策略)。在这种情况下、DataLock保留设置会覆盖备份策略中的策略保留设置。这可能会影响存储成本、因为备份文件将保存在对象存储中较长时间。</block>
+  <block id="e81b2d9a99c319820fe2a1d0b0d7f2bf" category="paragraph">勒索软件保护会扫描您的备份文件、以查找勒索软件攻击的证据。通过校验和比较来检测勒索软件攻击。如果在备份文件与之前的备份文件中发现潜在的勒索软件、则新备份文件将替换为最新的备份文件、该备份文件不会显示任何勒索软件攻击的迹象。(已确定发生勒索软件攻击的文件将在替换后1天被删除。)</block>
+  <block id="c545a26c4ed6190e3a8c71826161a528" category="paragraph">首次将备份文件写入云存储时、不会对该备份文件执行扫描、而是在写入*下一个*备份文件时执行扫描。例如、如果为星期二设置了每周备份计划、则在星期二14创建备份。然后、在星期二21日创建另一个备份。此时、勒索软件扫描将从14号开始对备份文件运行。</block>
+  <block id="e3ab630e3f610a8213d19aed9bf024c4" category="admonition">StorageGRID S3对象锁定功能提供了一个DataLock模式、相当于合规模式。不支持等效的监管模式、因此任何用户都无法绕过保留设置、覆盖受保护的备份或删除锁定的备份。</block>
+  <block id="83933361b1e2abf7e7f406666cc9c104" category="list-text">对于AWS：</block>
+  <block id="f8a98c701370ca7b2e41192ca7baaa6b" category="list-text">连接器必须部署在云中</block>
+  <block id="d82ac33ca1171e71de283e404129a0c4" category="paragraph">如果集群使用的是 ONTAP 9.10.1 或更高版本，则可以选择在一定天数后将旧备份分层到 _S3 Glacer_ 或 _S3 Glacier Deep Archive_ 存储，以进一步优化成本。 <block ref="f7fa7b0a9e810d8c500bcf785a34f359" category="inline-link-macro-rx"></block>。</block>
+  <block id="3dfe42849739012935ae4b966fa89d76" category="paragraph">如果集群使用的是 ONTAP 9.10.1 或更高版本，您可以选择在一定天数后将较早的备份分层到 _Azure Archive_ 存储，以进一步优化成本。 <block ref="2f91ed687cd1d1d6d8235865263a43ff" category="inline-link-macro-rx"></block>。</block>
 </blocks>

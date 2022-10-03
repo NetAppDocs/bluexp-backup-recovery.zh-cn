@@ -51,7 +51,7 @@ Cloud Backup 提供备份和还原功能，用于保护和长期归档 ONTAP 集
 
 通过 Cloud Backup ，您可以将 ONTAP 卷从以下工作环境备份到以下公有 和私有云提供商中的对象存储：
 
-[cols="45,45"]
+[cols="50,50"]
 |===
 | 源工作环境 | 备份文件目标ifdef：：AWS]] 
 
@@ -123,7 +123,7 @@ Cloud Backup支持以下类型的卷：
 +
 由于云备份会保留源卷的存储效率，因此您需要为云提供商的对象存储成本支付 data_after_ ONTAP 效率（适用于应用重复数据删除和数据压缩后少量的数据）。
 
-* 对于使用搜索和还原的卷或文件还原、某些资源由云提供商配置、搜索请求扫描的数据量会产生每TiB成本。
+* 要使用"搜索和还原"还原数据、某些资源由云提供商配置、搜索请求扫描的数据量会产生每TiB成本。(浏览和还原不需要这些资源。)
 +
 ifdef::aws[]
 
@@ -240,8 +240,6 @@ link:task-licensing-cloud-backup.html#use-an-annual-contract["了解如何设置
 
 在 Cloud Volumes ONTAP 或内部 ONTAP 系统上启用 Cloud Backup 时，此服务会对您的数据执行完整备份。备份映像中不包含卷快照。初始备份之后，所有额外备份都是增量备份，这意味着只会备份更改的块和新块。这样可以将网络流量降至最低。
 
-在大多数情况下，您将使用 Cloud Manager UI 执行所有备份操作。但是，从 ONTAP 9.9.1 开始，您可以使用 ONTAP System Manager 对内部 ONTAP 集群启动卷备份操作。 https://docs.netapp.com/us-en/ontap/task_cloud_backup_data_using_cbs.html["了解如何使用 System Manager 使用 Cloud Backup 将卷备份到云。"^]
-
 
 CAUTION: 直接从云提供商环境中执行的任何备份文件管理或更改操作可能会损坏这些文件，并导致配置不受支持。
 
@@ -285,7 +283,7 @@ endif::gcp[]
 
 === 可自定义的备份计划和保留设置
 
-在为工作环境启用 Cloud Backup 时，您最初选择的所有卷都会使用您定义的默认备份策略进行备份。如果要为具有不同恢复点目标(RPO)的某些卷分配不同的备份策略、则可以为该集群创建其他策略、并在激活备份后将这些策略分配给其他卷。
+在为工作环境启用 Cloud Backup 时，您最初选择的所有卷都会使用您定义的默认备份策略进行备份。如果要为具有不同恢复点目标(RPO)的某些卷分配不同的备份策略、则可以为该集群创建其他策略、并在激活Cloud Backup后将这些策略分配给其他卷。
 
 您可以选择对所有卷进行每小时、每天、每周、每月和每年备份的组合。您还可以选择系统定义的策略之一，这些策略可提供 3 个月， 1 年和 7 年的备份和保留期限。这些策略包括：
 
@@ -331,7 +329,7 @@ TIP: 数据保护卷备份的保留期限与源 SnapMirror 关系中定义的保
 
 保留期限与计划保留期限相同；加上14天。例如、保留了_5_副本的_weekly_备份会将每个备份文件锁定5周。保留了_6_副本的_monthly备份将锁定每个备份文件6个月。
 
-如果您的备份目标为Amazon S3、则当前可以获得支持。其他存储提供程序目标将在未来版本中添加。
+如果您的备份目标为Amazon S3或NetApp StorageGRID 、则当前可以获得支持。其他存储提供程序目标将在未来版本中添加。
 
 
 TIP: 如果要将备份分层到归档存储、则无法启用DataLock。
@@ -428,7 +426,7 @@ endif::gcp[]
 * 不支持 SM-BC 配置。
 * 仅 ONTAP 二级系统支持 MetroCluster （ MCC ）备份： MCC > SnapMirror > ONTAP > 云备份 > 对象存储。
 * ONTAP 不支持扇出从一个卷到多个对象存储的 SnapMirror 关系；因此， Cloud Backup 不支持此配置。
-* 目前、对象存储上的WORM/Compliance模式仅在Amazon S3和StorageGRID 上受支持。这称为DataLock功能。
+* 目前、对象存储上的WORM/Compliance模式仅在Amazon S3和StorageGRID 上受支持。这称为DataLock功能、必须使用Cloud Backup设置对其进行管理。
 
 
 

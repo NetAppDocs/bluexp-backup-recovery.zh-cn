@@ -14,13 +14,13 @@ summary: 本文档介绍Cloud Backup的备份策略配置设置。
 
 
 [role="lead"]
-本文档介绍Cloud Backup的备份策略配置设置。
+本文档介绍使用Cloud Backup Service 时内部ONTAP 系统和Cloud Volumes ONTAP 系统的备份策略配置设置。
 
 
 
 == 备份计划
 
-您可以通过Cloud Backup为每个工作环境创建多个备份策略、并使用唯一的计划。您可以为具有不同恢复点目标(RPO)的卷分配不同的备份策略。
+您可以通过Cloud Backup为每个工作环境(集群)创建多个备份策略、并使用唯一的计划。您可以为具有不同恢复点目标(RPO)的卷分配不同的备份策略。
 
 每个备份策略都为_Labels & Retenation_s提供了一个部分、您可以将其应用于备份文件。
 
@@ -28,10 +28,10 @@ image:screenshot_backup_schedule_settings.png["创建备份策略时的备份计
 
 计划分为两部分：标签和保留值：
 
-* *标签*用于定义从卷创建备份文件的频率。您可以选择以下类型的标签：
+* *标签*用于定义从卷创建(或更新)备份文件的频率。您可以选择以下类型的标签：
 +
 ** 您可以选择一个或多个选项：*每小时*、*每日*、*每周*、*每月*、 和*每年*的时间范围。
-** 您可以选择系统定义的策略之一、这些策略可提供3个月、1年和7年的备份和保留期限。
+** 您可以选择系统定义的策略之一、这些策略可提供3个月、1年或7年的备份和保留。
 ** 如果您已使用ONTAP 系统管理器或ONTAP 命令行界面在集群上创建自定义备份保护策略、则可以选择其中一个策略。
 
 
@@ -41,8 +41,8 @@ image:screenshot_backup_schedule_settings.png["创建备份策略时的备份计
 例如、假设您创建了一个备份策略、用于创建7个*每周*备份和12个*每月*备份：
 
 * 每周和每月都会为卷创建一个备份文件
-* 在第8周、第一个每周备份将被第8周的每周备份所取代(最多保留7个每周备份)
-* 在第13个月、第一个每月备份将替换为第13个月的每月备份(最多保留12个每月备份)
+* 在第8周删除第一个每周备份、并添加第8周的新每周备份(最多保留7个每周备份)
+* 在第13个月、删除了第一个每月备份、并添加了第13个月的新每月备份(最多保留12个每月备份)
 
 
 
@@ -53,7 +53,7 @@ Cloud Backup为卷备份提供DataLock和勒索软件保护支持。通过这些
 
 这两项功能均可保护您的备份文件、以便您始终拥有一个有效的备份文件、以便在源数据遭受勒索软件攻击时从恢复数据。如果备份需要锁定并保留一段时间、则满足某些法规要求也会很有帮助。启用DataLock和勒索软件保护后、在Cloud Backup激活过程中配置的云分段将启用对象锁定和对象版本控制。
 
-此功能不会为源卷提供保护、仅会为这些源卷的备份提供保护。使用NetApp https://cloud.netapp.com/ci-sde-plp-cloud-secure-info-trial?hsCtaTracking=fefadff4-c195-4b6a-95e3-265d8ce7c0cd%7Cb696fdde-c026-4007-a39e-5e986c4d27c6["Cloud Insights 和Cloud Secure"^]或部分 https://docs.netapp.com/us-en/ontap/anti-ransomware/index.html["ONTAP 提供的反勒索软件保护"^] 以保护源卷。
+此功能不会为源卷提供保护；仅适用于这些源卷的备份。使用NetApp https://cloud.netapp.com/ci-sde-plp-cloud-secure-info-trial?hsCtaTracking=fefadff4-c195-4b6a-95e3-265d8ce7c0cd%7Cb696fdde-c026-4007-a39e-5e986c4d27c6["Cloud Insights 和Cloud Secure"^]或部分 https://docs.netapp.com/us-en/ontap/anti-ransomware/index.html["ONTAP 提供的反勒索软件保护"^] 以保护源卷。
 
 [CAUTION]
 ====
@@ -72,11 +72,11 @@ DataLock可防止备份文件在一段时间内被修改或删除。此功能使
 
 下面我们来看看这种方法的一些示例：
 
-* 如果您创建包含12个保留项的每月备份计划、则备份将锁定12个月(加上14天)、然后才会被删除(替换为下一个备份文件)。
+* 如果您创建包含12个保留项的每月备份计划、则每个备份将在删除前锁定12个月(外加14天)。
 * 如果您创建的备份策略创建30个每日备份、7个每周备份、12个每月备份、则会有三个锁定的保留期限。"30个每日"备份将保留44天(30天加上14天缓冲)、"7个每周"备份将保留9周(7周加14天)、"12个每月"备份将保留12个月(加上14天)。
-* 如果您创建包含24个保留项的每小时备份计划、则您会认为备份会锁定24小时。但是、由于此时间少于最短30天、因此每个备份将被锁定并保留44天(30天加上14天缓冲区)。
+* 如果您创建一个保留24个保留项的每小时备份计划、则可能会认为备份会锁定24小时。但是、由于此时间少于最短30天、因此每个备份将被锁定并保留44天(30天加上14天缓冲区)。
 +
-在最后一个案例中、您可以看到、如果每个备份文件锁定44天、则最终备份文件的数量将比使用每小时/24小时保留策略通常保留的备份文件数量多。通常、Cloud Backup创建第25个备份文件后、它会删除最早的备份、以使最大保留值保持在24 (根据策略)。在这种情况下、DataLock保留设置会覆盖备份策略中的策略保留设置。这可能会影响存储成本、因为备份文件将保存在对象存储中较长时间。
+在最后一个案例中、您可以看到、如果每个备份文件锁定44天、则最终备份文件的数量将比使用每小时/24小时保留策略通常保留的备份文件数量多。通常、在Cloud Backup创建第25个备份文件时、它会删除最旧的备份、以使最大保留值保持在24 (根据策略)。在这种情况下、DataLock保留设置会覆盖备份策略中的策略保留设置。这可能会影响存储成本、因为备份文件将保存在对象存储中较长时间。
 
 
 
@@ -90,7 +90,7 @@ DataLock可防止备份文件在一段时间内被修改或删除。此功能使
 
 * 创建备份文件时
 +
-首次将备份文件写入云存储时、不会对该备份文件执行扫描、而是在写入下一个备份文件时执行扫描。例如、如果为星期二设置了每周备份计划、则在星期二14创建备份。然后、在星期二21日创建另一个备份。此时、勒索软件扫描将从14号开始对备份文件运行。
+首次将备份文件写入云存储时、不会对该备份文件执行扫描、而是在写入*下一个*备份文件时执行扫描。例如、如果为星期二设置了每周备份计划、则在星期二14创建备份。然后、在星期二21日创建另一个备份。此时、勒索软件扫描将从14号开始对备份文件运行。
 
 * 尝试从备份文件还原数据时
 +
@@ -130,7 +130,7 @@ DataLock设置为_Compliance"模式、在此保留期间、任何用户都无法
 
 
 
-NOTE: StorageGRID S3对象锁定功能提供了一个DataLock模式、相当于合规模式。不支持等效的监管模式、因此任何用户都无法绕过保留设置、覆盖受保护的备份或删除备份。
+NOTE: StorageGRID S3对象锁定功能提供了一个DataLock模式、相当于合规模式。不支持等效的监管模式、因此任何用户都无法绕过保留设置、覆盖受保护的备份或删除锁定的备份。
 
 
 
@@ -138,7 +138,7 @@ NOTE: StorageGRID S3对象锁定功能提供了一个DataLock模式、相当于�
 
 在以下公有 和私有云提供商中使用对象存储时、您可以在以下工作环境中对ONTAP 卷启用DataLock和勒索软件保护。未来版本将添加更多云提供商。
 
-[cols="45,45"]
+[cols="50,50"]
 |===
 | 源工作环境 | 备份文件目标ifdef：：AWS]] 
 
@@ -158,41 +158,45 @@ NOTE: StorageGRID S3对象锁定功能提供了一个DataLock模式、相当于�
 
 ifdef::aws[]
 
-* 对于AWS、连接器必须部署在云中
-* 以下S3权限必须属于为Connector提供权限的IAM角色。它们位于资源"arn：AWS：s3：：：：netapp-backup-*"的"backupS3Policy"部分中：
+* 对于AWS：
 +
-** S3 ： GetObjectVersionTagging
-** S3 ： GetBucketObjectLockConfiguration
-** S3：GetObjectVersionAcl
-** S3 ： PutObjectTagging
-** S3 ： DeleteObject
-** S3 ： DeleteObjectTagging
-** S3 ： GetObjectRetention
-** S3 ： DeleteObjectVersionTagging
-** S3 ： PutObject
-** S3 ： GetObject
-** S3 ： PutBucketObjectLockConfiguration
-** S3 ： GetLifeycleConfiguration
-** S3：ListBucketByTags
-** S3 ： GetBucketTagging
-** S3 ： DeleteObjectVersion
-** S3 ： ListBucketVersions
-** S3 ： ListBucket
-** S3 ： PutBucketTagging
-** S3 ： GetObjectTagging
-** S3 ： PutBucketVersioning
-** S3 ： PutObjectVersionTagging
-** S3 ： GetBucketVersioning
-** S3 ： GetBucketAcl
-** S3：BypassGovernanceRetention
-** S3 ： PutObjectRetention
-** S3 ： GetBucketLocation
-** S3 ： GetObjectVersion
+** 连接器必须部署在云中
+** 以下S3权限必须属于为Connector提供权限的IAM角色。它们位于资源"arn：AWS：s3：：：：netapp-backup-*"的"backupS3Policy"部分中：
++
+*** S3 ： GetObjectVersionTagging
+*** S3 ： GetBucketObjectLockConfiguration
+*** S3：GetObjectVersionAcl
+*** S3 ： PutObjectTagging
+*** S3 ： DeleteObject
+*** S3 ： DeleteObjectTagging
+*** S3 ： GetObjectRetention
+*** S3 ： DeleteObjectVersionTagging
+*** S3 ： PutObject
+*** S3 ： GetObject
+*** S3 ： PutBucketObjectLockConfiguration
+*** S3 ： GetLifeycleConfiguration
+*** S3：ListBucketByTags
+*** S3 ： GetBucketTagging
+*** S3 ： DeleteObjectVersion
+*** S3 ： ListBucketVersions
+*** S3 ： ListBucket
+*** S3 ： PutBucketTagging
+*** S3 ： GetObjectTagging
+*** S3 ： PutBucketVersioning
+*** S3 ： PutObjectVersionTagging
+*** S3 ： GetBucketVersioning
+*** S3 ： GetBucketAcl
+*** S3：BypassGovernanceRetention
+*** S3 ： PutObjectRetention
+*** S3 ： GetBucketLocation
+*** S3 ： GetObjectVersion
 +
 只有当您希望管理员用户能够覆盖/删除使用监管模式锁定的备份文件时、才必须添加"S3：BypassGovernanceRetention"。
 
 +
 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html["查看策略的完整JSON格式、在此可以复制和粘贴所需权限"^]。
+
+
 
 
 
@@ -234,7 +238,7 @@ ifdef::aws[]
 
 * 在 AWS 中，备份从 _Standard_ 存储类开始，并在 30 天后过渡到 _Standard-Infrequent Access_ 存储类。
 +
-如果集群使用的是ONTAP 9.10.1或更高版本、则可以选择在一定天数后在云备份UI中将旧备份分层到_S3 Glacer_或_S3 Glacier Deep Archive_存储、以进一步优化成本。 link:reference-aws-backup-tiers.html["了解有关 AWS 归档存储的更多信息"^]。
+如果集群使用的是 ONTAP 9.10.1 或更高版本，则可以选择在一定天数后将旧备份分层到 _S3 Glacer_ 或 _S3 Glacier Deep Archive_ 存储，以进一步优化成本。 link:reference-aws-backup-tiers.html["了解有关 AWS 归档存储的更多信息"^]。
 
 +
 请注意、如果在激活Cloud Backup时在第一个备份策略中选择_S3 Glacier_或_S3 Glacier Deep Archive_、则该层将是该集群未来备份策略可用的唯一归档层。如果您在第一个备份策略中不选择任何归档层、则_S3 Glacier_将成为未来策略的唯一归档选项。
@@ -247,7 +251,7 @@ ifdef::azure[]
 
 * 在 Azure 中，备份与 _cool_ 访问层关联。
 +
-如果集群使用的是ONTAP 9.10.1或更高版本、则可以选择在一定天数后在Cloud Backup UI中将旧备份分层到_Azure Archive_存储、以进一步优化成本。 link:reference-azure-backup-tiers.html["详细了解 Azure 归档存储"^]。
+如果集群使用的是 ONTAP 9.10.1 或更高版本，您可以选择在一定天数后将较早的备份分层到 _Azure Archive_ 存储，以进一步优化成本。 link:reference-azure-backup-tiers.html["详细了解 Azure 归档存储"^]。
 
 
 
