@@ -64,7 +64,7 @@ image:screenshot_backup_policy_gcp.png["显示 Cloud Backup 设置的屏幕截�
 在配置从内部 ONTAP 系统到 Google 云存储的备份时，您可以使用两种连接方法。
 
 * 公有 连接—使用公有 Google 端点将 ONTAP 系统直接连接到 Google 云存储。
-* 专用连接—使用 VPN 或专用服务连接，并通过使用专用 IP 地址的专用 Google 访问接口路由流量。
+* 专用连接—使用VPN或Google Cloud Interconnect、并通过使用专用IP地址的专用Google访问接口路由流量。
 
 
 下图显示了*公有 connection*方法以及组件之间需要准备的连接。您可以使用内部安装的Connector、也可以使用在Google Cloud Platform VPC中部署的Connector。
