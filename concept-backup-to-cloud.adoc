@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: concept-backup-to-cloud.html 
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, billing, cost, on-premises ontap, onprem, kubernetes, applications 
-summary: Cloud Backup 是一项适用于 Cloud Manager 工作环境的服务，可提供备份和还原功能来保护和长期归档数据。备份会自动生成并存储在公有 或私有云帐户的对象存储中。 
+summary: Cloud Backup是一项适用于BlueXP工作环境的服务、可提供备份和还原功能来保护和长期归档数据。备份会自动生成并存储在公有 或私有云帐户的对象存储中。 
 ---
 = 了解 Cloud Backup
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: Cloud Backup 是一项适用于 Cloud Manager 工作环境的服务，�
 
 
 [role="lead"]
-Cloud Backup 是一项适用于 Cloud Manager 工作环境的服务，可提供备份和还原功能来保护和长期归档数据。备份会自动生成并存储在公有 或私有云帐户的对象存储中。
+Cloud Backup是一项适用于BlueXP (以前称为Cloud Manager)工作环境的服务、可提供备份和还原功能来保护和长期归档数据。备份会自动生成并存储在公有 或私有云帐户的对象存储中。
 
 如有必要，您可以将整个 _volume" 从备份还原到相同或不同的工作环境。备份 ONTAP 数据时，您还可以选择将备份中的一个或多个 _files_ 还原到相同或不同的工作环境。
 
@@ -31,7 +31,7 @@ link:https://cloud.netapp.com/cloud-backup-service["了解有关 Cloud Backup �
 https://www.youtube.com/watch?v=DF0knrH2a80["观看快速演示"^]
 
 
-TIP: 如果Cloud Manager Connector部署在云中的政府区域或无法访问Internet的站点(非公开站点)中、则Cloud Backup仅支持从ONTAP 系统执行备份和还原操作。使用这些备用部署方法时、Cloud Backup不支持从Kubernetes集群、应用程序或虚拟机执行备份和还原操作。
+TIP: 当BlueXP Connector部署在云中的政府区域或无法访问Internet的站点(非公开站点)中时、Cloud Backup仅支持从ONTAP 系统执行备份和还原操作。使用这些备用部署方法时、Cloud Backup不支持从Kubernetes集群、应用程序或虚拟机执行备份和还原操作。
 
 
 
@@ -39,7 +39,7 @@ TIP: 如果Cloud Manager Connector部署在云中的政府区域或无法访问I
 
 在 Cloud Volumes ONTAP 或内部 ONTAP 系统上启用 Cloud Backup 时，此服务会对您的数据执行完整备份。备份映像中不包含卷快照。初始备份之后，所有额外备份都是增量备份，这意味着只会备份更改的块和新块。这样可以将网络流量降至最低。
 
-在大多数情况下，您将使用 Cloud Manager UI 执行所有备份操作。但是，从 ONTAP 9.9.1 开始，您可以使用 ONTAP System Manager 对内部 ONTAP 集群启动卷备份操作。 https://docs.netapp.com/us-en/ontap/task_cloud_backup_data_using_cbs.html["了解如何使用 System Manager 使用 Cloud Backup 将卷备份到云。"^]
+在大多数情况下、您将使用BlueXP UI执行所有备份操作。但是，从 ONTAP 9.9.1 开始，您可以使用 ONTAP System Manager 对内部 ONTAP 集群启动卷备份操作。 https://docs.netapp.com/us-en/ontap/task_cloud_backup_data_using_cbs.html["了解如何使用 System Manager 使用 Cloud Backup 将卷备份到云。"^]
 
 下图显示了每个组件之间的关系：
 
@@ -49,30 +49,30 @@ image:diagram_cloud_backup_general.png["显示 Cloud Backup 如何与备份文�
 
 === 备份所在位置
 
-备份副本存储在 Cloud Manager 在云帐户中创建的对象存储中。每个集群 / 工作环境有一个对象存储， Cloud Manager 将该对象存储命名为： "netapp-backup-clusteruuid" 。请确保不要删除此对象存储。
+备份副本存储在BlueXP在云帐户中创建的对象存储中。每个集群/工作环境有一个对象存储、BlueXP将该对象存储命名为："netapp-backup-clusteruuid"。请确保不要删除此对象存储。
 
 ifdef::aws[]
 
-* 在 AWS 中， Cloud Manager 可启用 https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html["Amazon S3 块公有访问功能"^] 在 S3 存储分段上。
+* 在AWS中、BlueXP会启用 https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html["Amazon S3 块公有访问功能"^] 在 S3 存储分段上。
 
 
 endif::aws[]
 
 ifdef::azure[]
 
-* 在 Azure 中， Cloud Manager 使用新的或现有的资源组以及 Blob 容器的存储帐户。云管理器 https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent["阻止对 Blob 数据的公有访问"] 默认情况下。
+* 在Azure中、BlueXP使用新的或现有的资源组以及Blob容器的存储帐户。BlueXP https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent["阻止对 Blob 数据的公有访问"] 默认情况下。
 
 
 endif::azure[]
 
 ifdef::gcp[]
 
-* 在 GCP 中， Cloud Manager 会使用一个新项目或现有项目，并为 Google Cloud Storage 存储分段使用存储帐户。
+* 在GCP中、BlueXP使用新项目或现有项目、并为Google Cloud Storage存储分段使用存储帐户。
 
 
 endif::gcp[]
 
-* 在 StorageGRID 中， Cloud Manager 会将现有存储帐户用于对象存储分段。
+* 在StorageGRID 中、BlueXP会将现有存储帐户用于对象存储分段。
 
 
 

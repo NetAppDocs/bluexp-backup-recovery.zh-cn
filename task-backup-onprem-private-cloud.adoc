@@ -25,7 +25,7 @@ summary: 完成几个步骤，开始将数据从内部 ONTAP 系统备份到 Net
 按照以下步骤快速入门，或者向下滚动到其余部分以了解完整详细信息。
 
 .跨度 class="image><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] Alt-one"></span> 验证是否支持您的配置
-* 您已发现内部集群并将其添加到 Cloud Manager 中的工作环境中。请参见 https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["发现 ONTAP 集群"^] 了解详细信息。
+* 您已发现内部集群并将其添加到BlueXP中的工作环境中。请参见 https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["发现 ONTAP 集群"^] 了解详细信息。
 +
 ** 此集群运行的是 ONTAP 9.7P5 或更高版本。
 ** 集群具有 SnapMirror 许可证—它作为超值包或数据保护包的一部分提供。
@@ -82,7 +82,7 @@ image:diagram_cloud_backup_onprem_storagegrid.png["显示 Cloud Backup 如何与
 
 === 准备 ONTAP 集群
 
-您需要先在 Cloud Manager 中发现内部 ONTAP 集群，然后才能开始备份卷数据。
+您需要先在BlueXP中发现内部ONTAP 集群、然后才能开始备份卷数据。
 
 https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["了解如何发现集群"^]。
 
@@ -170,7 +170,7 @@ S3 凭据:: 您必须已创建S3租户帐户来控制对StorageGRID 存储的访
 
 
 
-NOTE: Cloud Manager Connector 内置了 Cloud Backup 功能。如果安装在无法连接 Internet 的站点上，则需要定期更新 Connector 软件才能访问新功能。检查 link:whats-new.html["Cloud Backup 新增功能"] 要查看每个 Cloud Backup 版本中的新功能，然后您可以按照步骤执行操作 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrade-the-connector-on-prem-without-internet-access["升级 Connector 软件"^] 希望使用新功能时。
+NOTE: Cloud Backup功能内置在BlueXP Connector中。如果安装在无法连接 Internet 的站点上，则需要定期更新 Connector 软件才能访问新功能。检查 link:whats-new.html["Cloud Backup 新增功能"] 要查看每个 Cloud Backup 版本中的新功能，然后您可以按照步骤执行操作 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrade-the-connector-on-prem-without-internet-access["升级 Connector 软件"^] 希望使用新功能时。
 
 
 

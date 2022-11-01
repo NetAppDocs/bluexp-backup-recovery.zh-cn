@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: concept-protect-vm-data.html 
-keywords: protect virtual machines, vm, policy, policies, backup back up, restore, SnapCenter Plug-in 
+keywords: protect virtual machines, vm, policy, policies, backup back up, restore, SnapCenter Plug-in, Cloud Manager, BlueXP 
 summary: 了解有关保护虚拟机上数据的更多信息、并了解不同的策略。 
 ---
 = 保护虚拟机数据
@@ -14,7 +14,7 @@ summary: 了解有关保护虚拟机上数据的更多信息、并了解不同�
 
 
 [role="lead"]
-您可以通过将适用于VMware vSphere的SnapCenter 插件与Cloud Manager集成来保护虚拟机上的数据。您可以将数据存储库备份到云、并将虚拟机轻松还原回适用于VMware vSphere的内部部署SnapCenter 插件。
+您可以通过将适用于VMware vSphere的SnapCenter 插件与BlueXP (以前称为Cloud Manager)集成来保护虚拟机上的数据。您可以将数据存储库备份到云、并将虚拟机轻松还原回适用于VMware vSphere的内部部署SnapCenter 插件。
 
 您可以将数据存储库备份到Amazon Web Services S3、Microsoft Azure Blob和StorageGRID。
 
@@ -26,9 +26,9 @@ summary: 了解有关保护虚拟机上数据的更多信息、并了解不同�
 
 * 适用于VMware vSphere 4.6P1或更高版本的SnapCenter 插件
 * ONTAP 9.8 或更高版本
-* Cloud Manager 3.9或更高版本
+* BlueXP 3.9或更高版本
 * 适用于VMware vSphere 4.6P1的SnapCenter 插件应至少已创建一个备份。
-* 适用于VMware vSphere的SnapCenter 插件中至少有一个每日、每周或每月策略、没有与Cloud Manager中适用于虚拟机的Cloud Backup策略的标签或标签。
+* 适用于VMware vSphere的SnapCenter 插件中至少有一个每日、每周或每月策略、没有与BlueXP中适用于虚拟机的Cloud Backup策略相同的标签。
 * 对于预制策略、适用于VMware vSphere的SnapCenter 插件和云中的数据存储库的计划层应相同。
 * 确保数据存储库中没有FlexGroup 卷、因为不支持备份和还原FlexGroup 卷。
 * 请确保所有卷均未加密、因为不支持还原加密卷。

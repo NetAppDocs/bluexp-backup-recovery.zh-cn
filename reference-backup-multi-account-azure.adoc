@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: reference-backup-multi-account-azure.html 
 keywords: microsoft azure, azure, regions, blob, multiple accounts, multiple regions, backup 
-summary: 您可以通过 Cloud Backup 在 Azure 帐户中创建备份文件，此帐户与源 Cloud Volumes ONTAP 卷所在位置不同，并且与 Cloud Manager Connector 所在帐户不同。 
+summary: 通过Cloud Backup、您可以在Azure帐户中创建备份文件、此帐户与源Cloud Volumes ONTAP 卷所在位置不同、并且与BlueXP Connector所在帐户不同。 
 ---
 = 在 Azure 中配置用于多帐户访问的备份
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 您可以通过 Cloud Backup 在 Azure 帐户中创建备份文件，�
 
 
 [role="lead"]
-通过 Cloud Backup ，您可以在与源 Cloud Volumes ONTAP 卷所在位置不同的 Azure 帐户中创建备份文件。这两个帐户都可以与 Cloud Manager Connector 所在的帐户不同。
+通过 Cloud Backup ，您可以在与源 Cloud Volumes ONTAP 卷所在位置不同的 Azure 帐户中创建备份文件。这两个帐户都可以与BlueXP Connector所在的帐户不同。
 
 只有在您使用时，才需要执行这些步骤 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-azure.html["将 Cloud Volumes ONTAP 数据备份到 Azure Blob 存储"^]。
 
@@ -24,7 +24,7 @@ summary: 您可以通过 Cloud Backup 在 Azure 帐户中创建备份文件，�
 
 == 在帐户之间设置 vNet 对等关系
 
-请注意，如果您希望 Cloud Manager 在其他帐户 / 区域管理您的 Cloud Volumes ONTAP 系统，则需要设置 vNet 对等关系。存储帐户连接不需要建立 vNet 对等关系。
+请注意、如果您希望BlueXP在其他帐户/区域管理您的Cloud Volumes ONTAP 系统、则需要设置vNet对等关系。存储帐户连接不需要建立 vNet 对等关系。
 
 . 登录到 Azure 门户，然后从主页选择 Virtual Networks 。
 . 选择要用作订阅 1 的订阅，然后单击要设置对等关系的 vNet 。
@@ -103,7 +103,7 @@ image:screenshot_azure_networking1.png[""]
 
 . 在 Private Endpoint _Basics 页面中：
 +
-** 选择订阅 2 （部署 Cloud Manager Connector 和 Cloud Volumes ONTAP 系统的位置）和资源组。
+** 选择订阅2 (部署了BlueXP Connector和Cloud Volumes ONTAP 系统的位置)和资源组。
 ** 输入端点名称。
 ** 选择区域。
 +

@@ -23,7 +23,7 @@ summary: 完成以下几个步骤，开始将 EKS Kubernetes 集群上的永久�
 按照以下步骤快速入门，或者向下滚动到其余部分以了解完整详细信息。
 
 .跨度 class="image><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] Alt-one"></span> 查看前提条件
-* 您已将 Kubernetes 集群发现为 Cloud Manager 工作环境。
+* 您已将Kubernetes集群发现为一个BlueXP工作环境。
 +
 ** 集群上必须安装 Trident ，并且 Trident 版本必须为 21.1 或更高版本。
 ** 要用于创建要备份的永久性卷的所有 PVC 都必须将 "snapshotPolicy" 设置为 "default" 。
@@ -33,7 +33,7 @@ summary: 完成以下几个步骤，开始将 EKS Kubernetes 集群上的永久�
 
 * 您已为备份所在的存储空间订阅了有效的云提供商。
 * 您已订阅 https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["Cloud Manager Marketplace Backup 产品"]，和 https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS 年度合同"]或您已购买 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["并激活"] NetApp 提供的 Cloud Backup BYOL 许可证。
-* 为 Cloud Manager Connector 提供权限的 IAM 角色包括最新版本的 S3 权限 https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager 策略"^]。
+* 为BlueXP Connector提供权限的IAM角色包括最新版本的S3权限 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html["BlueXP策略"^]。
 
 
 [role="quick-margin-para"]
@@ -66,7 +66,7 @@ image:diagram_cloud_backup_k8s_cvo_aws.png["显示 Cloud Backup 如何与备份�
 Kubernetes 集群要求::
 +
 --
-* 您已将 Kubernetes 集群发现为 Cloud Manager 工作环境。 https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-kubernetes-discover-aws.html["了解如何发现 Kubernetes 集群"^]。
+* 您已将Kubernetes集群发现为一个BlueXP工作环境。 https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-kubernetes-discover-aws.html["了解如何发现 Kubernetes 集群"^]。
 * 集群上必须安装 Trident ，并且 Trident 版本必须至少为 21.1 。请参见 https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-k8s-manage-trident.html["如何安装 Trident"^] 或 https://docs.netapp.com/us-en/trident/trident-managing-k8s/upgrade-trident.html["如何升级 Trident 版本"^]。
 * 集群必须使用 AWS 上的 Cloud Volumes ONTAP 作为其后端存储。
 * Cloud Volumes ONTAP 系统必须与Kubernetes集群位于同一AWS区域、并且必须运行ONTAP 9.7P5或更高版本(建议使用ONTAP 9.8P11及更高版本)。
@@ -139,7 +139,7 @@ spec:
 
 --
 支持的 AWS 区域:: 所有 AWS 地区均支持 Cloud Backup https://cloud.netapp.com/cloud-volumes-global-regions["支持 Cloud Volumes ONTAP 的位置"^]。
-需要 AWS 备份权限:: 为 Cloud Manager 提供权限的 IAM 角色必须包含最新版本的 S3 权限 https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager 策略"^]。
+需要 AWS 备份权限:: 为BlueXP提供权限的IAM角色必须包括最新版本的S3权限 https://mysupport.netapp.com/site/info/cloud-manager-policies["BlueXP策略"^]。
 +
 --
 以下是策略中的特定 S3 权限：

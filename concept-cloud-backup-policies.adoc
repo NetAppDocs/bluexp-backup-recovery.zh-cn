@@ -103,7 +103,7 @@ DataLock可防止备份文件在一段时间内被修改或删除。此功能使
 
 
 
-CAUTION: 勒索软件扫描要求将备份文件下载到安装了Connector的Cloud Manager环境中。如果您在内部部署了Connector、则可能会从云提供商处产生额外的传出成本。因此、我们建议您在云中部署Connector、并且该连接器与存储备份的存储分段位于同一区域。
+CAUTION: 勒索软件扫描要求将备份文件下载到安装了Connector的BlueXP环境中。如果您在内部部署了Connector、则可能会从云提供商处产生额外的传出成本。因此、我们建议您在云中部署Connector、并且该连接器与存储备份的存储分段位于同一区域。
 
 
 
@@ -153,7 +153,7 @@ NOTE: StorageGRID S3对象锁定功能提供了一个DataLock模式、相当于�
 === 要求
 
 * 集群必须运行ONTAP 9.11.1或更高版本
-* 您必须使用Cloud Manager 3.9.21或更高版本
+* 您必须使用BlueXP 3.9.21或更高版本
 
 
 ifdef::aws[]

@@ -14,7 +14,7 @@ summary: 将数据存储库从内部ONTAP 备份到AWS。
 
 
 [role="lead"]
-您可以创建策略或使用Cloud Manager中提供的以下预定义策略之一。
+您可以创建策略或使用BlueXP中提供的以下预定义策略之一。
 
 |===
 | Policy name | Label | 保留值 

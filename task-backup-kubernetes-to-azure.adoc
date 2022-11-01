@@ -23,7 +23,7 @@ summary: 完成几个步骤，开始将数据从 AKS Kubernetes 集群上的永�
 按照以下步骤快速入门，或者向下滚动到其余部分以了解完整详细信息。
 
 .跨度 class="image><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] Alt-one"></span> 查看前提条件
-* 您已将 Kubernetes 集群发现为 Cloud Manager 工作环境。
+* 您已将Kubernetes集群发现为一个BlueXP工作环境。
 +
 ** 集群上必须安装 Trident ，并且 Trident 版本必须为 21.1 或更高版本。
 ** 要用于创建要备份的永久性卷的所有 PVC 都必须将 "snapshotPolicy" 设置为 "default" 。
@@ -65,7 +65,7 @@ image:diagram_cloud_backup_k8s_cvo_azure.png["显示 Cloud Backup 如何与备�
 Kubernetes 集群要求::
 +
 --
-* 您已将 Kubernetes 集群发现为 Cloud Manager 工作环境。 https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-kubernetes-discover-azure.html["了解如何发现 Kubernetes 集群"^]。
+* 您已将Kubernetes集群发现为一个BlueXP工作环境。 https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-kubernetes-discover-azure.html["了解如何发现 Kubernetes 集群"^]。
 * 集群上必须安装 Trident ，并且 Trident 版本必须至少为 21.1 。请参见 https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-k8s-manage-trident.html["如何安装 Trident"^] 或 https://docs.netapp.com/us-en/trident/trident-managing-k8s/upgrade-trident.html["如何升级 Trident 版本"^]。
 * 集群必须使用 Azure 上的 Cloud Volumes ONTAP 作为其后端存储。
 * Cloud Volumes ONTAP 系统必须与Kubernetes集群位于同一Azure区域、并且必须运行ONTAP 9.7P5或更高版本(建议使用ONTAP 9.8P11及更高版本)。

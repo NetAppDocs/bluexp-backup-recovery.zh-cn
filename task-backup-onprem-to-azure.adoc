@@ -25,7 +25,7 @@ summary: 完成几个步骤，开始将数据从内部 ONTAP 系统备份到 Azu
 按照以下步骤快速入门，或者向下滚动到其余部分以了解完整详细信息。
 
 .跨度 class="image><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] Alt-one"></span> 验证是否支持您的配置
-* 您已发现内部集群并将其添加到 Cloud Manager 中的工作环境中。请参见 https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["发现 ONTAP 集群"^] 了解详细信息。
+* 您已发现内部集群并将其添加到BlueXP中的工作环境中。请参见 https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["发现 ONTAP 集群"^] 了解详细信息。
 +
 ** 此集群运行的是 ONTAP 9.7P5 或更高版本。
 ** 集群具有 SnapMirror 许可证—它作为超值包或数据保护包的一部分提供。
@@ -90,7 +90,7 @@ image:diagram_cloud_backup_onprem_azure_private.png["显示Cloud Backup如何通
 
 === 准备 ONTAP 集群
 
-您需要先在 Cloud Manager 中发现内部 ONTAP 集群，然后才能开始备份卷数据。
+您需要先在BlueXP中发现内部ONTAP 集群、然后才能开始备份卷数据。
 
 https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["了解如何发现集群"^]。
 
@@ -145,7 +145,7 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html["在内部安装Connector"^]
 
 
-如果Connector部署在云中、则Azure政府区域支持Cloud Backup、而不是安装在内部或非公开站点中。此外、您还必须从Azure Marketplace部署Connector。您不能从Cloud Manager SaaS网站在政府区域部署Connector。 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-launching-azure-mktp.html["了解如何在Azure政府区域创建Connector"]。
+如果Connector部署在云中、则Azure政府区域支持Cloud Backup、而不是安装在内部或非公开站点中。此外、您还必须从Azure Marketplace部署Connector。您不能从BlueXP SaaS网站在政府区域部署Connector。 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-launching-azure-mktp.html["了解如何在Azure政府区域创建Connector"]。
 
 
 

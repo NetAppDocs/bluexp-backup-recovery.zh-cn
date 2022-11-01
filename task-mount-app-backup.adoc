@@ -22,7 +22,7 @@ SnapCenter 不支持将Oracle和HANA备份还原到备用主机。因此、Cloud
 
 * 步骤 *
 
-. 在 Cloud Manager UI 中，单击 * 备份和还原 * > * 应用程序 * 。
+. 在BlueXP UI中、单击*保护*>*备份和恢复*>*应用程序*。
 . 在Filter by字段中、选择*类型*、然后从下拉列表中选择* SAP HANA *或* Oracle *。
 . 单击 image:icon-action.png["图标以选择操作"] 对应于受保护应用程序、然后选择*查看详细信息*。
 . 单击 image:icon-action.png["图标以选择操作"] 对应于备份、然后选择*挂载*。

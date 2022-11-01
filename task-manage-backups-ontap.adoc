@@ -26,7 +26,7 @@ CAUTION: 请勿直接从云提供商环境管理或更改备份文件。这可�
 您可以在备份信息板中查看当前正在备份的所有卷的列表。
 
 .步骤
-. 从Cloud Manager左侧导航菜单中、单击*备份和还原*。
+. 从BlueXP菜单中、选择*保护>备份和恢复*。
 . 单击*卷*选项卡可查看Cloud Volumes ONTAP 和内部ONTAP 系统的已备份卷列表。
 +
 image:screenshot_backup_dashboard.png["显示所有工作环境以及包含备份文件的卷的屏幕截图。"]
@@ -223,7 +223,7 @@ image:screenshot_auto_backup.png["显示如何选择要分配给集群上所有�
 
 
 
-现在、此备份策略将应用于使用Cloud Manager、System Manager或ONTAP 命令行界面在此工作环境中创建的任何新卷。
+现在、此备份策略将应用于在此工作环境中使用BlueXP、System Manager或ONTAP 命令行界面创建的任何新卷。
 
 
 
@@ -284,7 +284,7 @@ NetApp勒索软件保护软件会扫描您的备份文件、以便在创建备�
 只有在卷备份是从使用ONTAP 9.11.1或更高版本的系统创建的、并且您在备份策略中启用了_DataLock和勒索软件保护_时、此功能才可用。
 
 
-NOTE: 勒索软件扫描要求将备份文件下载到安装了Connector的Cloud Manager环境中。如果您在内部部署了Connector、则可能会从云提供商处产生额外的传出成本。因此、我们建议您在云中部署Connector、并且该连接器与存储备份的存储分段位于同一区域。
+NOTE: 勒索软件扫描要求将备份文件下载到安装了Connector的BlueXP环境中。如果您在内部部署了Connector、则可能会从云提供商处产生额外的传出成本。因此、我们建议您在云中部署Connector、并且该连接器与存储备份的存储分段位于同一区域。
 
 .步骤
 . 从 * 卷 * 选项卡中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于源卷，然后选择 * 详细信息和备份列表 * 。

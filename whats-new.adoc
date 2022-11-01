@@ -24,7 +24,7 @@ summary: 了解 Cloud Backup 中的新增功能。
 
 === Cloud Backup for Applications的增强功能
 
-* 支持Google Cloud Provider (GCP)和StorageGRID 备份应用程序一致的快照
+* 支持Google Cloud Platform (GCP)和StorageGRID 备份应用程序一致的快照
 * 创建自定义策略
 * 支持归档存储
 * 备份SAP HANA应用程序
@@ -86,7 +86,7 @@ summary: 了解 Cloud Backup 中的新增功能。
 
 === 添加了保护Cloud原生 应用程序数据的支持
 
-Cloud Backup for Applications是一种基于SaaS的服务、可为在NetApp Cloud Storage上运行的应用程序提供数据保护功能。Cloud Manager中启用的适用于应用程序的Cloud Backup可为驻留在Amazon FSx for NetApp ONTAP 上的Oracle数据库提供高效、应用程序一致且基于策略的备份和还原。https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-cloud-app-data-to-cloud.html["了解更多信息。"^]。
+Cloud Backup for Applications是一种基于SaaS的服务、可为在NetApp Cloud Storage上运行的应用程序提供数据保护功能。在BlueXP中启用的适用于应用程序的云备份可为驻留在Amazon FSX for NetApp ONTAP 上的Oracle数据库提供高效、一致且基于策略的备份和还原。https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-cloud-app-data-to-cloud.html["了解更多信息。"^]。
 
 
 
@@ -156,7 +156,7 @@ Amazon S3存储分段已具有此功能。
 
 === 增加了对在无法访问Internet的站点中备份内部ONTAP 集群数据的支持
 
-如果您的内部ONTAP 集群位于无法访问Internet的站点中、也称为非公开站点或脱机站点、则现在您可以使用Cloud Backup将卷数据备份到同一站点中的NetApp StorageGRID 系统。此功能还要求在脱机站点中部署Cloud Manager Connector (版本3.9.19或更高版本)。
+如果您的内部ONTAP 集群位于无法访问Internet的站点中、也称为非公开站点或脱机站点、则现在您可以使用Cloud Backup将卷数据备份到同一站点中的NetApp StorageGRID 系统。此功能还要求在脱机站点中部署BlueXP Connector (3.9.19或更高版本)。
 
 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html["请参见如何在脱机站点中安装Connector"]。https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html["了解如何将ONTAP 数据备份到脱机站点中的StorageGRID"]。
 
@@ -164,7 +164,7 @@ https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-o
 
 === 适用于虚拟机的Cloud Backup 1.1.0现已正式上市
 
-您可以通过将适用于VMware vSphere的SnapCenter 插件与Cloud Manager集成来保护虚拟机上的数据。您可以将数据存储库备份到云、并将虚拟机轻松还原回适用于VMware vSphere的内部部署SnapCenter 插件。
+您可以通过将适用于VMware vSphere的SnapCenter 插件与BlueXP集成来保护虚拟机上的数据。您可以将数据存储库备份到云、并将虚拟机轻松还原回适用于VMware vSphere的内部部署SnapCenter 插件。
 
 https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-vm-data.html["了解有关保护虚拟机到云的更多信息"]。
 
@@ -282,7 +282,7 @@ link:concept-protect-app-data-to-cloud.html["了解有关保护内部应用程�
 
 === 通过一个新选项，您可以自动将默认备份策略应用于新创建的卷
 
-过去，激活 Cloud Backup 后在工作环境中创建的新卷要求您手动应用备份策略。现在，无论卷是在 Cloud Manager ， System Manager ， CLI 中创建的，还是使用 API 创建的， Cloud Backup 都将发现卷并应用您选择作为默认策略的备份策略。
+过去，激活 Cloud Backup 后在工作环境中创建的新卷要求您手动应用备份策略。现在、无论卷是在BlueXP、System Manager、CLI中创建的、还是使用API创建的、Cloud Backup都将发现卷并应用您选择作为默认策略的备份策略。
 
 如果在新的工作环境中启用备份，或者从 _Manage Volumes_ 页面为现有工作环境启用备份，则可以使用此选项。
 
@@ -344,7 +344,7 @@ link:concept-protect-app-data-to-cloud.html["了解有关保护内部应用程�
 
 === Cloud Backup BYOL 许可证已移至 " 数字电子钱包 " 中的 " 数据服务许可证 " 选项卡
 
-Cloud Backup 的 BYOL 许可已从 Cloud Backup Licenses 选项卡移至 Cloud Manager Digital Wallet 中的 Data Services Licenses 选项卡。
+Cloud Backup的BYOL许可已从Cloud Backup Licenses选项卡移至BlueXP Digital Wallet中的Data Services Licenses选项卡。
 
 
 

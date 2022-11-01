@@ -28,7 +28,7 @@ summary: 备份存储在云帐户的对象存储中，以便您可以从特定�
 
 == 还原信息板
 
-您可以使用还原信息板执行卷、文件夹和文件还原操作。要访问还原信息板、请单击Cloud Manager左侧导航菜单中的*备份和还原*、然后单击*还原*选项卡。您也可以单击 image:screenshot_gallery_options.gif["更多按钮"] > " 服务 " 面板中的备份和还原服务中的 * 查看还原信息板 * 。
+您可以使用还原信息板执行卷、文件夹和文件还原操作。要访问还原信息板、请单击BlueXP菜单中的*备份和恢复*、然后单击*还原*选项卡。您也可以单击 image:screenshot_gallery_options.gif["更多按钮"] > " 服务 " 面板中的备份和还原服务中的 * 查看还原信息板 * 。
 
 
 NOTE: 必须已为至少一个工作环境激活 Cloud Backup ，并且必须存在初始备份文件。
@@ -145,7 +145,7 @@ image:diagram_browse_restore_volume.png["一个图，显示了使用浏览和放
 
 video::9Og5agUWyRk[youtube,width=848,height=480,end=164]
 .步骤
-. 选择 * 备份和还原 * 服务。
+. 从BlueXP菜单中、选择*保护>备份和恢复*。
 . 单击 * 还原 * 选项卡，此时将显示还原信息板。
 . 在 _Browse & Restore_ 部分中，单击 * 还原卷 * 。
 +
@@ -285,7 +285,7 @@ image:diagram_browse_restore_file.png["一个图，显示了使用浏览和放�
 
 video::9Og5agUWyRk[youtube,width=848,height=480,start=165]
 .步骤
-. 选择 * 备份和还原 * 服务。
+. 从BlueXP菜单中、选择*保护>备份和恢复*。
 . 单击 * 还原 * 选项卡，此时将显示还原信息板。
 . 在_Browse & Restore_部分中、单击*还原文件或文件夹*。
 +
@@ -457,7 +457,7 @@ video::RZktLe32hhQ[youtube,width=848,height=480]
 ** ONTAP 版本必须为 9.8 或更高版本。
 ** 卷所在的 Storage VM （ SVM ）必须已配置数据 LIF 。
 ** 必须在卷上启用 NFS 。
-** 必须在 SVM 上激活 SnapDiff RPC 服务器。在工作环境中启用索引时， Cloud Manager 会自动执行此操作。
+** 必须在 SVM 上激活 SnapDiff RPC 服务器。在工作环境中启用索引时、BlueXP会自动执行此操作。
 
 
 
@@ -466,9 +466,9 @@ ifdef::aws[]
 
 * AWS 要求：
 +
-** 必须将特定的 Amazon Athena ， AWS glue 和 AWS S3 权限添加到为 Cloud Manager 提供权限的用户角色中。 link:task-backup-onprem-to-aws.html#set-up-s3-permissions["确保已正确配置所有权限"]。
+** 必须将特定的Amazon Athena、AWS glue和AWS S3权限添加到为BlueXP提供权限的用户角色中。 link:task-backup-onprem-to-aws.html#set-up-s3-permissions["确保已正确配置所有权限"]。
 +
-请注意，如果您已经在使用 Cloud Backup 时使用了过去配置的连接器，则现在需要将 Athena 和粘附权限添加到 Cloud Manager 用户角色中。这些是新的，搜索和还原需要它们。
+请注意、如果您已经在使用Cloud Backup时使用了过去配置的连接器、则现在需要将Athena和粘附权限添加到BlueXP用户角色中。这些是新的，搜索和还原需要它们。
 
 
 
@@ -481,9 +481,9 @@ ifdef::azure[]
 * Azure要求：
 +
 ** 您必须在订阅中注册Azure Synapse分析资源提供商。 https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider["了解如何为您的订阅注册此资源提供商"^]。您必须是订阅*所有者*或*贡献者*才能注册资源提供程序。
-** 必须将特定的Azure Synapse Workspace和Data Lake存储帐户权限添加到为Cloud Manager提供权限的用户角色中。 link:task-backup-onprem-to-azure.html#verify-or-add-permissions-to-the-connector["确保已正确配置所有权限"]。
+** 必须将特定的Azure Synapse Workspace和Data Lake存储帐户权限添加到为BlueXP提供权限的用户角色中。 link:task-backup-onprem-to-azure.html#verify-or-add-permissions-to-the-connector["确保已正确配置所有权限"]。
 +
-请注意、如果您已将Cloud Backup与以前配置的连接器结合使用、则现在需要将Azure Synapse Workspace和Data Lake存储帐户权限添加到Cloud Manager用户角色中。这些是新的，搜索和还原需要它们。
+请注意、如果您已经在使用Cloud Backup时使用了过去配置的连接器、则现在需要将Azure Synapse Workspace和Data Lake存储帐户权限添加到BlueXP用户角色中。这些是新的，搜索和还原需要它们。
 
 ** 必须为Connector配置*不具有*代理服务器、以便通过HTTP与Internet进行通信。如果您为Connector配置了HTTP代理服务器、则无法使用"搜索和替换"功能。
 
@@ -496,9 +496,9 @@ ifdef::gcp[]
 
 * Google Cloud要求：
 +
-** 必须将特定的Google BigQuery权限添加到为Cloud Manager提供权限的用户角色中。 link:task-backup-onprem-to-gcp.html#verify-or-add-permissions-to-the-connector["确保已正确配置所有权限"]。
+** 必须将特定的Google BigQuery权限添加到为BlueXP提供权限的用户角色中。 link:task-backup-onprem-to-gcp.html#verify-or-add-permissions-to-the-connector["确保已正确配置所有权限"]。
 +
-请注意、如果您已经在使用Cloud Backup时使用了过去配置的连接器、则现在需要将BigQuery权限添加到Cloud Manager用户角色中。这些是新的，搜索和还原需要它们。
+请注意、如果您已经在使用Cloud Backup时使用了过去配置的连接器、则现在需要将BigQuery权限添加到BlueXP用户角色中。这些是新的，搜索和还原需要它们。
 
 
 
@@ -577,7 +577,7 @@ image:screenshot_restore_enable_indexing.png["显示已激活索引目录的工�
 你先请  the Indexed Catalog for each working environment,已为您的工作环境启用索引编制、您可以使用搜索和还原还原来还原卷、文件夹和文件。这样，您就可以使用多种筛选器来查找要从所有备份文件还原的确切文件或卷。
 
 .步骤
-. 选择 * 备份和还原 * 服务。
+. 从BlueXP菜单中、选择*保护>备份和恢复*。
 . 单击 * 还原 * 选项卡，此时将显示还原信息板。
 . 在 _Search & Restore_ 部分中，单击 * 搜索和还原 * 。
 +

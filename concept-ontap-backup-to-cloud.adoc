@@ -94,7 +94,7 @@ Cloud Backup 提供备份和还原功能，用于保护和长期归档 ONTAP 集
 
 === 支持无 Internet 连接的站点
 
-Cloud Backup 可在没有 Internet 连接的站点（也称为 " 脱机 " 或 " 暗 " 站点）中使用，以便将卷数据从本地内部 ONTAP 系统备份到本地 NetApp StorageGRID 系统。此配置还支持卷和文件还原。在这种情况下、您需要在非公开站点中部署Cloud Manager Connector (最低版本为3.9.20)。请参见 link:task-backup-onprem-private-cloud.html["将内部 ONTAP 数据备份到 StorageGRID"] 了解详细信息。
+Cloud Backup 可在没有 Internet 连接的站点（也称为 " 脱机 " 或 " 暗 " 站点）中使用，以便将卷数据从本地内部 ONTAP 系统备份到本地 NetApp StorageGRID 系统。此配置还支持卷和文件还原。在这种情况下、您需要在非公开站点中部署BlueXP Connector (最低版本为3.9.20)。请参见 link:task-backup-onprem-private-cloud.html["将内部 ONTAP 数据备份到 StorageGRID"] 了解详细信息。
 
 
 
@@ -190,7 +190,7 @@ Cloud Backup可用于以下消费模式：
 
 BYOL 基于期限（ 12 ， 24 或 36 个月） _ 和 _ 容量，以 1 TiB 为增量。您需要向 NetApp 支付一段时间（如 1 年）使用此服务的费用，最大容量（如 10 TiB ）。
 
-您将收到一个序列号，您可以在 Cloud Manager 数字电子邮件页面中输入此序列号来启用此服务。达到任一限制后，您需要续订许可证。备份 BYOL 许可证适用场景 与关联的所有源系统 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-netapp-accounts.html["Cloud Manager 帐户"^]。
+您将收到一个序列号、您可以在BlueXP数字电子邮件页面中输入此序列号来启用此服务。达到任一限制后，您需要续订许可证。备份 BYOL 许可证适用场景 与关联的所有源系统 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-netapp-accounts.html["BlueXP帐户"^]。
 
 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["了解如何管理 BYOL 许可证"]。
 
@@ -251,30 +251,30 @@ image:diagram_cloud_backup_general.png["显示 Cloud Backup 如何与备份文�
 
 === 备份所在位置
 
-备份副本存储在 Cloud Manager 在云帐户中创建的对象存储中。每个集群 / 工作环境有一个对象存储， Cloud Manager 将该对象存储命名为： "netapp-backup-clusteruuid" 。请确保不要删除此对象存储。
+备份副本存储在BlueXP在云帐户中创建的对象存储中。每个集群/工作环境有一个对象存储、BlueXP将该对象存储命名为："netapp-backup-clusteruuid"。请确保不要删除此对象存储。
 
 ifdef::aws[]
 
-* 在 AWS 中， Cloud Manager 可启用 https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html["Amazon S3 块公有访问功能"^] 在 S3 存储分段上。
+* 在AWS中、BlueXP会启用 https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html["Amazon S3 块公有访问功能"^] 在 S3 存储分段上。
 
 
 endif::aws[]
 
 ifdef::azure[]
 
-* 在 Azure 中， Cloud Manager 使用新的或现有的资源组以及 Blob 容器的存储帐户。云管理器 https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent["阻止对 Blob 数据的公有访问"] 默认情况下。
+* 在Azure中、BlueXP使用新的或现有的资源组以及Blob容器的存储帐户。BlueXP https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent["阻止对 Blob 数据的公有访问"] 默认情况下。
 
 
 endif::azure[]
 
 ifdef::gcp[]
 
-* 在 GCP 中， Cloud Manager 会使用一个新项目或现有项目，并为 Google Cloud Storage 存储分段使用存储帐户。
+* 在GCP中、BlueXP使用新项目或现有项目、并为Google Cloud Storage存储分段使用存储帐户。
 
 
 endif::gcp[]
 
-* 在 StorageGRID 中， Cloud Manager 会将现有存储帐户用于对象存储分段。
+* 在StorageGRID 中、BlueXP会将现有存储帐户用于对象存储分段。
 
 
 如果您希望将来更改集群的目标对象存储，则需要 link:task-manage-backups-ontap.html#unregistering-cloud-backup-for-a-working-environment["取消注册适用于工作环境的 Cloud Backup"^]，然后使用新的云提供商信息启用 Cloud Backup 。
@@ -439,7 +439,7 @@ endif::gcp[]
 * 搜索和还原一次可以还原1个文件。
 * 浏览和还原以及搜索和还原一次可以还原1个文件夹。
 * 要还原的文件必须使用与目标卷上的语言相同的语言。如果语言不同，您将收到一条错误消息。
-* 如果在不同子网中将同一帐户与不同的 Cloud Manager 结合使用，则不支持文件级还原。
+* 如果在不同子网中对不同的BlueXP系统使用同一帐户、则不支持文件级还原。
 * 如果备份文件位于归档存储中、则无法还原单个文件夹。
 * 如果Connector安装在无法访问Internet的站点(非公开站点)上、则不支持使用搜索和还原进行文件级还原。
 

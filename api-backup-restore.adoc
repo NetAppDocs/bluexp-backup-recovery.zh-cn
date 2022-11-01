@@ -74,7 +74,7 @@ Header:
 ----
 [{"accountPublicId":"account-i6vJXvZW","accountName":"rashidn","isSaas":true,"isGov":false,"isPrivatePreviewEnabled":false,"is3rdPartyServicesEnabled":false,"accountSerial":"96064469711530003565","userRole":"Role-1"}………
 ----
-. 获取包含Cloud Manager Connector ID的x-agent-id。
+. 获取包含BlueXP Connector ID的x-agent-id。
 +
 [source, http]
 ----
@@ -101,7 +101,7 @@ Header:
 
 以下示例显示了一个API调用、用于在Azure云中的East-US-2区域使用一个新策略激活工作环境备份、该策略将每天、每小时和每周标签设置为180天后进行归档。请注意、此操作仅在工作环境中启用备份、但不会备份任何卷。如果选择"auto-backup-enabled"：true、则系统中已存在的任何卷都会进行备份、并添加未来的卷。
 
-您会看到、我们使用的是Cloud Central帐户ID "account-DpTfcxN3"、Cloud Manager Connector ID "iZwFfeVCzjWnzGlw8RgD0QQNANZvpP7Icliers"和用户令牌"Bearer JhbGciOiJSIU1NiIISI1NIJVJIJIJIJI1NIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJI…
+您会看到我们使用的是Cloud Central帐户ID "account-DpTfcxN3"、BlueXP连接器ID "iZwFfeVCzjWnzGlw8RgD0QQNANZvpP7Icliers"和用户令牌"Bearer JhbGciOiJUJCII1NiIISIJI1JUIJIJIJIJIJI1NIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJI…
 
 [source, http]
 ----
