@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: task-backup-onprem-to-aws.html 
-keywords: backing up, back up, backup, backup on-prem ontap, on-premises, back up volumes, cloud backup, aws, aws s3, amazon s3 
+keywords: backing up, back up, backup, backup on-prem ontap, on-premises, back up volumes, cloud backup, aws, aws s3, amazon s3, govcloud, government 
 summary: 完成几个步骤，开始将数据从内部 ONTAP 系统备份到 Amazon S3 存储。 
 ---
 = 将内部 ONTAP 数据备份到 Amazon S3
@@ -88,9 +88,11 @@ BlueXP Connector是BlueXP功能的主要软件。需要使用连接器来备份�
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html["连接器入门"^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html["在AWS中安装连接器"^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html["在内部安装Connector"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-launching-aws-mktp.html#create-the-connector-in-an-aws-government-region["在AWS GovCloud区域中安装Connector"^]
++
+如果连接器部署在云中、则GovCloud地区支持Cloud Backup、而不是安装在您的内部环境中。此外、您还必须从AWS Marketplace部署Connector。您不能从BlueXP SaaS网站在政府区域部署Connector。
 
 
-如果连接器部署在云中、则GovCloud地区支持Cloud Backup、而不是安装在内部或非公开站点中。此外、您还必须从AWS Marketplace部署Connector。您不能从BlueXP SaaS网站在政府区域部署Connector。 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-launching-aws-mktp.html#create-the-connector-in-an-aws-government-region["了解如何在AWS GovCloud地区创建Connector"]。
 
 
 
@@ -218,6 +220,7 @@ IP空间中的所有集群间LIF都必须能够访问对象存储。如果无法
               "s3:GetBucketAcl",
               "s3:GetBucketPolicy",
               "s3:PutBucketPolicy",
+              "s3:PutBucketOwnershipControls"
               "s3:PutBucketPublicAccessBlock",
               "s3:PutEncryptionConfiguration",
               "s3:GetObjectVersionTagging",
@@ -397,21 +400,27 @@ image:screenshot_backup_policy_aws.png["显示 Cloud Backup 设置的屏幕截�
 
 
 
-. 在选择卷页面中，使用默认备份策略选择要备份的卷。如果要为某些卷分配不同的备份策略，可以创建其他策略并稍后将其应用于这些卷。
+. 在选择卷页面中、使用定义的备份策略选择要备份的卷。如果要为某些卷分配不同的备份策略，可以创建其他策略并稍后将其应用于这些卷。
 +
-** 要备份所有卷，请选中标题行（image:button_backup_all_volumes.png[""]）。
+** 要备份所有现有卷以及将来添加的任何卷、请选中"备份所有现有卷和未来卷..."框。我们建议使用此选项、以便备份所有卷、您不必记住为新卷启用备份。
+** 要仅备份现有卷、请选中标题行(image:button_backup_all_volumes.png[""]）。
 ** 要备份单个卷，请选中每个卷对应的框（image:button_backup_1_volume.png[""]）。
 +
 image:screenshot_backup_select_volumes.png["选择要备份的卷的屏幕截图。"]
 
+** 如果此工作环境中的卷存在与您为此工作环境选择的备份计划标签匹配的本地Snapshot副本(例如、每日、每周等)、则会显示一条附加提示"将现有Snapshot副本作为备份副本导出到对象存储"。如果要将所有历史快照作为备份文件复制到对象存储、请选中此框、以确保为卷提供最全面的保护。
 
-
-+
-如果希望将来添加的所有卷都启用备份，只需选中 " 自动备份未来卷 ..." 复选框即可。如果禁用此设置，则需要手动为未来的卷启用备份。
 
 . 单击 * 激活备份 * ， Cloud Backup 将开始对卷进行初始备份。
 
 
-Cloud Backup 将开始对每个选定卷进行初始备份，此时将显示卷备份信息板，以便您可以监控备份的状态。
+系统会在您输入的 S3 访问密钥和机密密钥所指示的服务帐户中自动创建 S3 存储分段，备份文件存储在该处。此时将显示卷备份信息板，以便您可以监控备份的状态。您还可以使用监控备份和还原作业的状态 link:task-monitor-backup-jobs.html["作业监控面板"^]。
 
-您可以 link:task-manage-backups-ontap.html["启动和停止卷备份或更改备份计划"^]。您也可以 link:task-restore-backups-ontap.html["从备份文件还原整个卷或单个文件"^] 连接到 AWS 中的 Cloud Volumes ONTAP 系统或内部 ONTAP 系统。
+
+
+== 下一步是什么？
+
+* 您可以 link:task-manage-backups-ontap.html["管理备份文件和备份策略"^]。其中包括启动和停止备份、删除备份、添加和更改备份计划等。
+* 您可以 link:task-manage-backup-settings-ontap.html["管理集群级别的备份设置"^]。其中包括更改ONTAP 用于访问云存储的存储密钥、更改可用于将备份上传到对象存储的网络带宽、更改未来卷的自动备份设置等。
+* 您也可以 link:task-restore-backups-ontap.html["从备份文件还原卷、文件夹或单个文件"^] 连接到 AWS 中的 Cloud Volumes ONTAP 系统或内部 ONTAP 系统。
+

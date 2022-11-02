@@ -444,7 +444,8 @@ video::RZktLe32hhQ[youtube,width=848,height=480]
 
 | NetApp StorageGRID | 当前不支持 
 |===
-必须在云提供商环境中部署Connector、才能使用搜索和还原执行还原操作。
+
+TIP: 对于搜索和还原、从Amazon S3或Azure Blob还原备份时、可以在云提供商或内部部署Connector。从Google Cloud Storage还原备份时、必须在云中部署Connector。
 
 请注意， " 内部 ONTAP 系统 " 的引用包括 FAS ， AFF 和 ONTAP Select 系统。
 

@@ -45,6 +45,8 @@ image:screenshot_backup_schedule_settings.png["创建备份策略时的备份计
 * 在第13个月、删除了第一个每月备份、并添加了第13个月的新每月备份(最多保留12个每月备份)
 
 
+请注意、在将年度备份传输到对象存储后、系统会自动从源系统中删除此备份。可以更改此默认行为 link:task-manage-backup-settings-ontap#change-whether-yearly-snapshots-are-removed-from-the-source-system["在高级设置页面中"] 适用于工作环境。
+
 
 
 == DataLock和勒索软件保护

@@ -26,9 +26,11 @@ Cloud Backup 提供备份和还原功能，用于保护和长期归档 ONTAP 集
 
 * 将数据卷的独立副本备份到低成本对象存储。
 * 将单个备份策略应用于集群中的所有卷，或者将不同的备份策略分配给具有唯一恢复点目标的卷。
+* 创建一个备份策略、以应用于集群中将来创建的所有卷。
 * 创建不可变的备份文件、以便在保留期限内锁定这些文件。
 * 扫描备份文件以查找可能的勒索软件攻击、并自动删除/替换受感染的备份。
 * 将旧备份文件分层到归档存储以节省成本。
+* 删除备份关系、以便在保留卷备份的同时归档不需要的源卷。
 * 从云备份到云，从内部系统备份到公有或私有云。
 * 对于 Cloud Volumes ONTAP 系统，备份可以位于不同的订阅 / 帐户或不同的区域。
 * 使用 AES-256 位空闲加密和正在传输的 TLS 1.2 HTTPS 连接保护备份数据。
@@ -238,7 +240,7 @@ link:task-licensing-cloud-backup.html#use-an-annual-contract["了解如何设置
 
 == Cloud Backup 的工作原理
 
-在 Cloud Volumes ONTAP 或内部 ONTAP 系统上启用 Cloud Backup 时，此服务会对您的数据执行完整备份。备份映像中不包含卷快照。初始备份之后，所有额外备份都是增量备份，这意味着只会备份更改的块和新块。这样可以将网络流量降至最低。
+在 Cloud Volumes ONTAP 或内部 ONTAP 系统上启用 Cloud Backup 时，此服务会对您的数据执行完整备份。备份映像中不包含卷快照。初始备份之后，所有额外备份都是增量备份，这意味着只会备份更改的块和新块。这样可以将网络流量降至最低。Cloud Backup基于构建 https://docs.netapp.com/us-en/ontap/concepts/snapmirror-cloud-backups-object-store-concept.html["NetApp SnapMirror Cloud技术"]。
 
 
 CAUTION: 直接从云提供商环境中执行的任何备份文件管理或更改操作可能会损坏这些文件，并导致配置不受支持。
@@ -320,21 +322,14 @@ TIP: 数据保护卷备份的保留期限与源 SnapMirror 关系中定义的保
 
 如果您的集群使用的是ONTAP 9.11.1或更高版本、您可以保护备份免受删除和勒索软件攻击。每个备份策略都为_DataLock和勒索软件保护_提供了一个部分、可在特定时间段(_retention period_)内应用于备份文件。_DataLock_可防止您的备份文件被修改或删除。_勒索 软件保护_扫描您的备份文件、以查找创建备份文件以及还原备份文件中的数据时发生勒索软件攻击的证据。
 
-您可以为每个备份策略选择以下设置：
-
-* 无已禁用DataLock保护和勒索软件保护。
-* 企业级。DataLock模式设置为_Enterprise"、具有特定权限的用户可以在保留期间覆盖或删除备份文件。已启用勒索软件保护。
-* 合规性。DataLock模式设置为_Compliance"、在保留期限内、任何用户都无法覆盖或删除备份文件。已启用勒索软件保护。
-
-
-保留期限与计划保留期限相同；加上14天。例如、保留了_5_副本的_weekly_备份会将每个备份文件锁定5周。保留了_6_副本的_monthly备份将锁定每个备份文件6个月。
+备份保留期限与备份计划保留期限相同；加上14天。例如、保留了_5_副本的_weekly_备份会将每个备份文件锁定5周。保留了_6_副本的_monthly备份将锁定每个备份文件6个月。
 
 如果您的备份目标为Amazon S3或NetApp StorageGRID 、则当前可以获得支持。其他存储提供程序目标将在未来版本中添加。
 
+请参见 link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["DataLock和勒索软件保护"^] 有关DataLock和勒索软件保护的工作原理的更多详细信息。
+
 
 TIP: 如果要将备份分层到归档存储、则无法启用DataLock。
-
-请参见 link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["DataLock和勒索软件保护"^] 有关DataLock和勒索软件保护的工作原理的更多详细信息。
 
 
 

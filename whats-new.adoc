@@ -18,6 +18,73 @@ summary: 了解 Cloud Backup 中的新增功能。
 
 
 
+== 2022年11月2日
+
+
+
+=== 能够将旧Snapshot副本导出到基线备份文件
+
+如果工作环境中的卷具有与备份计划标签匹配的任何本地Snapshot副本(例如、每日、每周等)、则可以将这些历史快照作为备份文件导出到对象存储。这样、您可以通过将旧的Snapshot副本移动到基线备份副本中来初始化云中的备份。
+
+在为您的工作环境激活Cloud Backup时、此选项可用。您也可以稍后在中更改此设置 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backup-settings-ontap.html["高级设置页面"]。
+
+
+
+=== Cloud Backup现在可用于归档源系统上不再需要的卷
+
+现在、您可以删除卷的备份关系。如果您希望停止创建新备份文件并删除源卷、但保留所有现有备份文件、则可以使用此功能提供归档机制。这样、您就可以在将来根据需要从备份文件还原卷、同时从源存储系统中清除空间。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backups-ontap.html#deleting-volume-backup-relationships["了解如何操作"]。
+
+
+
+=== 添加了支持功能、可以通过电子邮件或通知中心接收Cloud Backup警报
+
+Cloud Backup已集成到BlueXP通知服务中。您可以通过单击BlueXP菜单栏中的通知铃来显示Cloud Backup通知。此外、您还可以将BlueXP配置为通过电子邮件发送警报通知、以便即使未登录到系统、您也可以了解重要的系统活动。可以将此电子邮件发送给需要了解备份和还原活动的任何收件人。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#use-the-job-monitor-to-view-backup-and-restore-job-status["了解如何操作"]。
+
+
+
+=== 通过新的高级设置页面、您可以更改集群级别的备份设置
+
+通过此新页面、您可以更改在为每个ONTAP 系统激活Cloud Backup时设置的多个集群级别备份设置。您还可以修改应用为"默认"备份设置的某些设置。您可以更改的一整套备份设置包括：
+
+* 为ONTAP 系统授予访问对象存储权限的存储密钥
+* 分配用于将备份上传到对象存储的网络带宽
+* 未来卷的自动备份设置(和策略)
+* 归档存储类(仅限AWS)
+* 初始基线备份文件中是否包含历史Snapshot副本
+* 是否从源系统中删除"每年"快照
+* 连接到对象存储的ONTAP IP空间(如果激活期间选择不正确)
+
+
+https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backup-settings-ontap.html["了解有关管理集群级别备份设置的更多信息"]。
+
+
+
+=== 现在、在使用内部部署连接器时、您可以使用搜索和还原从公有 云还原备份文件
+
+在先前版本中、增加了在内部部署连接器时向公有 云创建备份文件的支持。在此版本中、我们仍支持在您的内部部署Connector时使用搜索和还原从Amazon S3或Azure Blob还原备份。
+
+目前、在使用搜索和还原从Google Cloud Storage还原备份时、必须在Google Cloud Platform中部署Connector。StorageGRID 系统不支持搜索和还原-在这种情况下、您必须使用浏览和还原。
+
+
+
+=== 已更新作业监控页面
+
+已对进行了以下更新 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html["作业监控页面"]：
+
+* 您可以使用"workload"列筛选页面以查看以下备份服务的作业：卷、应用程序、虚拟机和Kubernetes。
+* 如果要查看特定备份作业的这些详细信息、可以为"用户名"和"作业类型"添加新列。
+* "作业详细信息"页面将显示为完成主作业而正在运行的所有子作业。
+* 此页面每15分钟自动刷新一次、以便您始终可以看到最新的作业状态结果。您可以单击*刷新*按钮立即更新此页面。
+
+
+
+
+=== AWS跨帐户备份增强功能
+
+如果要对Cloud Volumes ONTAP 备份使用与源卷不同的AWS帐户、则必须在BlueXP中添加目标AWS帐户凭据、并且必须将权限"S3：PutBucketPolicy"和"S3：PutBucketOwnershipControls"添加到为BlueXP提供权限的IAM角色中。过去、您需要在AWS控制台中配置许多设置、而不再需要这样做。
+
+
+
 == 2022年9月28日
 
 
@@ -367,31 +434,3 @@ Cloud Backup的BYOL许可已从Cloud Backup Licenses选项卡移至BlueXP Digita
 === 能够为工作环境取消注册 Cloud Backup
 
 现在，您可以轻松地完成这项工作 link:task_manage_backups.html#unregistering-cloud-backup-for-a-working-environment["为工作环境取消注册 Cloud Backup"] 如果您不想再对该工作环境使用备份功能（或需要付费），
-
-
-
-== 2021 年 9 月 2 日
-
-
-
-=== 能够为卷创建按需备份
-
-现在，您可以随时创建按需备份来捕获卷的当前状态。如果对卷进行了重要更改，而您不想等待下一次计划的备份来保护该数据，则此功能非常有用。
-
-link:task-manage-backups-ontap.html#creating-a-manual-volume-backup-at-any-time["了解如何创建按需备份"]。
-
-
-
-=== 可以定义专用接口连接，以便安全地备份到 Amazon S3
-
-在配置从内部 ONTAP 系统到 Amazon S3 的备份时，现在您可以在激活向导中定义与专用接口端点的连接。这样，您就可以使用一个网络接口，将内部系统以私密和安全的方式连接到由 AWS PrivateLink 提供支持的服务。 link:task-backup-onprem-to-aws.html#preparing-amazon-s3-for-backups["查看有关此选项的详细信息"]。
-
-
-
-=== 现在，您可以在将数据备份到 Amazon S3 时选择自己由客户管理的数据加密密钥
-
-为了提高安全性和控制力，您可以在激活向导中选择自己的客户管理的数据加密密钥，而不是使用默认的 Amazon S3 加密密钥。在从内部 ONTAP 系统或 AWS 中的 Cloud Volumes ONTAP 系统配置备份时，可以使用此选项。
-
-
-
-=== 现在，您可以从文件数超过 30 ， 000 的目录还原文件

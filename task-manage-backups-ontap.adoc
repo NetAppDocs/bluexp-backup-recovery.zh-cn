@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-manage-backups-ontap.html 
 keywords: cloud backup, cloud backup service, backup schedule, change schedule, change backup schedule, modify schedule, modify backup schedule, retention, backup retention, delete, delete backups, deleting, deleting backups, disable, disable backups, turn off backups, disable cloud backup, turn off cloud backup 
-summary: 您可以通过更改备份计划、创建新的备份策略、启用/禁用卷备份、删除备份等来管理Cloud Volumes ONTAP 和内部ONTAP 系统的备份。 
+summary: 您可以通过更改备份计划、创建新备份策略、启用/禁用卷备份、暂停备份、删除备份等方式来管理Cloud Volumes ONTAP 和内部ONTAP 系统的备份。 
 ---
 = 管理 ONTAP 系统的备份
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 您可以通过更改备份计划、创建新的备份策略、启用/�
 
 
 [role="lead"]
-您可以通过更改备份计划、创建新的备份策略、启用/禁用卷备份、删除备份等来管理Cloud Volumes ONTAP 和内部ONTAP 系统的备份。
+您可以通过更改备份计划、创建新备份策略、启用/禁用卷备份、暂停备份、删除备份等方式来管理Cloud Volumes ONTAP 和内部ONTAP 系统的备份。
 
 
 CAUTION: 请勿直接从云提供商环境管理或更改备份文件。这可能会损坏文件并导致配置不受支持。
@@ -39,7 +39,9 @@ image:screenshot_backup_dashboard.png["显示所有工作环境以及包含备�
 
 == 启用和禁用卷备份
 
-如果您不需要卷的备份副本，并且不想为存储备份付费，则可以停止备份卷。如果当前未备份新卷，您也可以将其添加到备份列表中。
+如果当前未备份任何新卷、您可以为其激活备份。您还可以为先前已停用的任何卷激活备份。
+
+您可以停用卷的备份、以便不生成其他备份。这也会禁用从备份文件还原卷数据的功能。这样、您就可以将所有备份和还原活动暂停一段时间。任何现有备份都不会被删除、因此除非您这样做、否则云提供商会继续为您的备份所使用的容量收取对象存储成本 link:deleting-all-backup-files-for-a-volume["删除备份"]。
 
 .步骤
 . 从 * 卷 * 选项卡中，选择 * 备份设置 * 。
@@ -56,8 +58,6 @@ image:screenshot_backup_manage_volumes_page.png["管理卷页面，您可以在�
 
 . 单击 * 保存 * 以提交更改。
 
-
-* 注意： * 停止备份卷时，云提供商会继续为备份所用容量收取对象存储成本，除非您这样做  backups,删除备份。
 
 
 
@@ -200,33 +200,6 @@ NOTE: 如果在为此集群激活Cloud Backup时在初始策略中启用了_Data
 
 
 
-== 设置要分配给新卷的备份策略
-
-如果在ONTAP 集群上首次激活云备份时未选择将备份策略自动分配给新创建的卷的选项、则可以稍后在_Backup Settings_页面中选择此选项。为新创建的卷分配备份策略可确保所有数据都受到保护。
-
-请注意，要应用于卷的策略必须已存在。  a new backup policy,请参见如何为工作环境添加新的备份策略。
-
-您也可以禁用此设置、以使新创建的卷不会自动备份。在这种情况下、您需要手动为将来要备份的任何特定卷启用备份。
-
-.步骤
-. 从 * 卷 * 选项卡中，选择 * 备份设置 * 。
-+
-image:screenshot_backup_settings_button.png["屏幕截图显示了备份设置按钮，您可以在选择工作环境后使用该按钮。"]
-
-. 在 _Backup Settings page_ 中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于存在卷的工作环境、请选择*自动备份新卷*。
-+
-image:screenshot_auto_backup_new_volumes.png["从备份设置页面选择自动备份新卷选项的屏幕截图。"]
-
-. 选中"自动备份新卷..."复选框、选择要应用于新卷的备份策略、然后单击*保存*。
-+
-image:screenshot_auto_backup.png["显示如何选择要分配给集群上所有未来卷的备份策略的屏幕截图。"]
-
-
-
-现在、此备份策略将应用于在此工作环境中使用BlueXP、System Manager或ONTAP 命令行界面创建的任何新卷。
-
-
-
 == 随时创建手动卷备份
 
 您可以随时创建按需备份，以捕获卷的当前状态。如果对卷进行了非常重要的更改，而您不希望等待下一次计划备份来保护该数据，或者如果卷当前未进行备份，而您希望捕获其当前状态，则此功能将非常有用。
@@ -307,7 +280,9 @@ image:screenshot_scan_one_backup.png["显示如何对单个备份文件运行勒
 
 == 删除备份
 
-您可以通过 Cloud Backup 删除单个备份文件，删除卷的所有备份或删除工作环境中所有卷的所有备份。如果您不再需要备份，或者删除了源卷并希望删除所有备份，则可能需要删除所有备份。
+您可以通过 Cloud Backup 删除单个备份文件，删除卷的所有备份或删除工作环境中所有卷的所有备份。如果您不再需要备份、或者您删除了源卷并希望删除所有备份、则可能需要删除所有备份。
+
+请注意、您无法删除已使用DataLock和勒索软件保护锁定的备份文件。如果您选择了一个或多个锁定的备份文件、则用户界面中的"删除"选项将不可用。
 
 
 CAUTION: 如果您计划删除具有备份的工作环境或集群，则必须删除备份 * 在删除系统之前 * 。删除系统时， Cloud Backup 不会自动删除备份，并且用户界面当前不支持在删除系统后删除这些备份。对于任何剩余备份，您仍需支付对象存储成本费用。
@@ -379,6 +354,41 @@ image:screenshot_delete_one_backup.png["显示如何删除单个备份文件的�
 
 . 在确认对话框中，单击 * 删除 * 。
 
+
+
+
+== 删除卷备份关系
+
+如果要停止创建新备份文件并删除源卷、但保留所有现有备份文件、则删除卷的备份关系将提供归档机制。这样、您就可以在将来根据需要从备份文件还原卷、同时从源存储系统中清除空间。
+
+您不能从Cloud Backup用户界面删除源卷。但是、您可以在"画布"、和上打开"卷详细信息"页面 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes["从该位置删除卷"]。
+
+
+NOTE: 删除关系后、您无法删除单个卷备份文件。但是、您可以 link:task-manage-backups-ontap.html#deleting-all-backup-files-for-a-volume["删除卷的所有备份"] 如果要删除所有备份文件。
+
+.步骤
+. 从 * 卷 * 选项卡中，选择 * 备份设置 * 。
++
+image:screenshot_backup_settings_button.png["屏幕截图显示了备份设置按钮，您可以在选择工作环境后使用该按钮。"]
+
+. 在 _Backup Settings page_ 中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于工作环境，请选择 * 管理卷 * 。
++
+image:screenshot_backup_manage_volumes.png["屏幕截图显示了备份设置页面中的管理卷按钮。"]
+
+. 选中要删除备份关系的一个或多个卷对应的复选框、然后单击*删除关系*。
++
+image:screenshot_delete_relationship.png["显示如何删除多个卷的备份关系的屏幕截图。"]
+
+. 单击 * 保存 * 以提交更改。
+
+
+请注意、您也可以从卷页面中删除单个卷的备份关系。
+
+image:screenshot_delete_relationship_single.png["显示如何删除单个卷的备份关系的屏幕截图。"]
+
+查看每个卷的备份列表时、您会看到"关系状态"列为*已删除关系*。
+
+image:screenshot_backup_view_no_relationship.png["显示删除卷备份关系后关系已删除状态的屏幕截图。"]
 
 
 
