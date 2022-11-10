@@ -2644,7 +2644,6 @@
   <block id="8fa9fc7dcc8c23904d4a616698a7a223" category="paragraph">您可以在*作业监控*选项卡中查看所有备份和还原操作及其当前状态的列表。其中包括从Cloud Volumes ONTAP 、内部ONTAP 、应用程序、虚拟机和Kubernetes系统执行的操作。每个操作或作业都有一个唯一的 ID 和一个状态。状态可以是：</block>
   <block id="505a83f220c02df2f85c3810cd9ceb38" category="list-text">success</block>
   <block id="e26263e363fecef775843a8d72ae75f8" category="paragraph">如果要查找特定作业、您可以：</block>
-  <block id="b4c7b1f52d0a6c15993076d79d22628c" category="list-text">使用页面顶部的时间选择器可查看特定时间段的作业</block>
   <block id="d9adc9312afedb38a2612892c29f9ec2" category="list-text">在每个列标题中使用筛选器对结果进行排序。例如、"工作负载"列的筛选器可用于查看以下类别中的作业：</block>
   <block id="3919b07e397df4ea5f1ccc5ad0f35b8a" category="list-text">卷(Cloud Volumes ONTAP 和内部ONTAP 卷)</block>
   <block id="1ddf333c6654f7f89c739dddfb4cc429" category="list-text">应用程序</block>
@@ -2657,10 +2656,6 @@
   <block id="b58d9a206bdb4f66bef72d876e8c275e" category="section-title">使用通知中心查看备份和还原警报</block>
   <block id="40da6f1400e45d080a97992a6a539894" category="inline-image-macro">通知铃</block>
   <block id="01d7db5ac182c0b2dc523448e4c1a34b" category="paragraph">通知中心会跟踪已启动的备份和还原作业的进度、以便您可以验证操作是否成功。您可以通过单击(<block ref="df7c8a71ca3da4359e40e121f18f87b9" category="inline-image-macro-rx" type="image"></block>)。此外、您还可以将BlueXP配置为通过电子邮件发送警报通知、以便即使未登录到系统、您也可以了解重要的系统活动。</block>
-  <block id="9d06bbee27c7c52aee4ed8f45598a47e" category="paragraph">目前、有三个事件将触发电子邮件警报：</block>
-  <block id="0f217a680c2fae12a2aef1605523e63b" category="list-text">备份激活失败</block>
-  <block id="bd05c05b26ad99e0b7734e77c6615dbc" category="list-text">还原失败</block>
-  <block id="0d1bc1ce0ffc15450740c0c168790109" category="list-text">临时(按需)备份失败</block>
   <block id="cef1c38108b72f8eb8fba5c231923d9c" category="paragraph">默认情况下、BlueXP客户管理员将收到所有"严重"和"建议"警报的电子邮件。默认情况下、所有其他用户和收件人都配置为不接收任何通知电子邮件。您可以向NetApp云帐户中的任何BlueXP用户或需要了解备份和还原活动的任何其他收件人发送电子邮件。</block>
   <block id="a1c41906d0e1e81a4ce819d12975d647" category="paragraph">要接收Cloud Backup电子邮件警报、您需要选择通知类型"严重"和"错误"。</block>
   <block id="44d4deb8868ac8159ee85f4a8e68725c" category="inline-link">了解有关通知中心以及如何为备份和还原作业发送警报电子邮件的更多信息</block>
@@ -2715,7 +2710,6 @@
   <block id="aa561ba34fe652162fed2a07f12593c1" category="list-text">更改分配用于将备份上传到对象存储的网络带宽</block>
   <block id="11fdb6dde8ff715d780c091b4866b526" category="list-text">更改归档存储类(仅限AWS)</block>
   <block id="54ccc53455625170e0d9225f1d12c305" category="list-text">更改未来卷的自动备份设置(和策略)</block>
-  <block id="da83f4088cfea6a8c07863d1dd3a06f0" category="list-text">更改历史Snapshot副本是否包含在初始基线备份文件中</block>
   <block id="90262b49b516aea0770d54c5389860ab" category="list-text">更改是否从源系统中删除"每年"快照</block>
   <block id="0b1dbe1ca2e686301ad63250cc03207d" category="section-title">查看集群级别的备份设置</block>
   <block id="ed0a9603eb52469e5089b682941c8579" category="paragraph">您可以查看每个工作环境的集群级别备份设置。</block>
@@ -2737,7 +2731,6 @@
   <block id="69f49af99be101331b7adf45a31d1ff9" category="section-title">更改连接到对象存储的ONTAP IP空间</block>
   <block id="6e1bb784e48dbc68cd86c7478f6a1d16" category="paragraph">您可以更改连接到对象存储的ONTAP IP空间。此选项仅在从内部ONTAP 系统备份数据时可用-它不适用于Cloud Volumes ONTAP 系统。</block>
   <block id="fe2348305cb832db0607d4941ba06ff1" category="paragraph">如果系统正在将卷数据主动备份到对象存储、则不应使用此选项。只有在首次在内部ONTAP 系统上激活备份时选择的IP空间不正确时、才应使用此选项。</block>
-  <block id="2ec8522fb627c9277002b72183b02c88" category="paragraph">请参阅入门文档、将数据从内部ONTAP 系统备份到云提供商、以确保已为新的IP空间正确配置ONTAP 配置。例如：</block>
   <block id="7a81527905d341365c1c48c1c2df82f7" category="list-text">托管要备份的卷的每个 ONTAP 节点都需要一个集群间 LIF 。</block>
   <block id="b61284a9f89e31d7eca6523e6a26baf1" category="list-text">LIF必须与ONTAP 连接到对象存储时应使用的IP空间相关联。</block>
   <block id="8373574988dfec20642b8146055e60ea" category="list-text">节点的集群间LIF必须能够访问对象存储。</block>
@@ -2746,10 +2739,8 @@
   <block id="7782aa7e3e532fc975c4c9fd409a0cd1" category="paragraph"><block ref="7782aa7e3e532fc975c4c9fd409a0cd1" category="inline-image-macro-rx" type="image"></block></block>
   <block id="9f4a0a8969226290161358177e49f679" category="paragraph">只需选择新的IP空间并单击*应用*即可。之后、您可以从该IP空间中的聚合中选择要备份的卷。</block>
   <block id="5fb03dafd6274ec459f4ae7b73182f44" category="section-title">更改可用于将备份上传到对象存储的网络带宽</block>
-  <block id="8a75fbddacee811141e1743b04ce7747" category="paragraph">默认情况下、在为工作环境激活Cloud Backup时、ONTAP 可以使用无限的带宽将数据从工作环境传输到对象存储。如果需要限制传输期间使用的网络带宽量、可以选择1到1、000 Mbps之间的值作为最大传输速率。</block>
   <block id="1f93761cc5827e33d0eab0b81e59533a" category="inline-image-macro">Advanced Settings页面中最大传输速率条目的屏幕截图。</block>
   <block id="b6b92ac68c60c85a484c906db8777124" category="paragraph"><block ref="b6b92ac68c60c85a484c906db8777124" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="74cc52c7c289df31888fc04f6bdb8413" category="paragraph">选择单选按钮*无限制*以指示没有限制、或者选择*有限*单选按钮并输入可使用的最大带宽。</block>
   <block id="0e90335213cfc4fed49846f4e44e57d3" category="section-title">更改归档存储类</block>
   <block id="8d45cbf2cc7abced70e253acc8c53957" category="paragraph">如果要更改备份文件存储一定天数(通常超过30天)时使用的归档存储类、则可以在此处进行更改。使用归档存储的任何备份策略都会立即更改以使用此新存储类。</block>
   <block id="5028cfaccc8708e90dc537ae32bd3cf2" category="paragraph">在将备份文件写入Amazon S3时、此选项适用于内部ONTAP 和Cloud Volumes ONTAP 系统(使用ONTAP 9.10.1或更高版本)。</block>
@@ -2767,8 +2758,6 @@
   <block id="82bdb7270f3d2ffc39f1a3ee094d5e8a" category="paragraph"><block ref="82bdb7270f3d2ffc39f1a3ee094d5e8a" category="inline-image-macro-rx" type="image"></block></block>
   <block id="8c6367e42cd8d2e09365265f2ef8621b" category="paragraph">启用后、此备份策略将应用于在此工作环境中使用BlueXP、System Manager、ONTAP 命令行界面或API创建的任何新卷。</block>
   <block id="260734931fc90337787f8eab9f95f6af" category="section-title">更改是否将历史Snapshot副本导出为备份文件</block>
-  <block id="27c37010bd2f00bedab738367c01ec45" category="paragraph">如果此工作环境中的卷存在与此工作环境中使用的备份计划标签匹配的任何本地Snapshot副本(例如、每日、每周等)、您可以将这些历史快照作为备份文件导出到对象存储。这样、您就可以通过将较早的快照副本移动到基线备份副本中来初始化云中的备份。</block>
-  <block id="8f3eb38987d6f48885d716830b4c0240" category="paragraph">请注意、数据保护(DP)卷不支持此选项。</block>
   <block id="e1260315a439b823ca53a44a12cdbed4" category="inline-image-macro">"高级设置"页面中的导出现有Snapshot副本条目的屏幕截图。</block>
   <block id="4c55333e1e917a54978d32ab7a324b08" category="paragraph"><block ref="4c55333e1e917a54978d32ab7a324b08" category="inline-image-macro-rx" type="image"></block></block>
   <block id="51a3a396e404f898f2e45dad30b6b1da" category="paragraph">只需选择是否要导出现有Snapshot副本、然后单击*应用*即可。</block>
@@ -2811,4 +2800,20 @@
   <block id="95bdcffb51de388c8d204ebc69a73e61" category="section-title">AWS跨帐户备份增强功能</block>
   <block id="ae3795f53c6086a9639e4652dbff318b" category="paragraph">如果要对Cloud Volumes ONTAP 备份使用与源卷不同的AWS帐户、则必须在BlueXP中添加目标AWS帐户凭据、并且必须将权限"S3：PutBucketPolicy"和"S3：PutBucketOwnershipControls"添加到为BlueXP提供权限的IAM角色中。过去、您需要在AWS控制台中配置许多设置、而不再需要这样做。</block>
   <block id="ef88ffe6f484bdfc25f97445be29df28" category="sidebar">管理集群级别的备份设置</block>
+  <block id="749775c831a251b1841492d6cd64446b" category="paragraph">此屏幕截图显示了默认列/字段标题。您可以单击 <block ref="835a7e197f8f78cae39058ebe9f7b1c4" category="inline-image-macro-rx" type="image"></block> 显示和隐藏列标题、或者为"用户名"和"类型"添加2个附加标题。</block>
+  <block id="9596c723878bfc4072c4881a7877ce59" category="list-text">使用页面左上角的时间选择器可查看特定时间段的作业</block>
+  <block id="8c8d15cbcb23d4d9a941a520eed8f594" category="list-text">对于某个状态、单击*查看作业*、例如、在"失败"下、仅查看失败的作业</block>
+  <block id="aa72dffd28e8e8bc6bede04c2bfb9b8a" category="paragraph">目前、有四个事件将触发电子邮件警报：</block>
+  <block id="86adb6c119fde87f974199cf61935f54" category="list-text">在工作环境中激活Cloud Backup失败</block>
+  <block id="17d0a830cae7a9ee38e63d4d74257685" category="list-text">Cloud Backup还原操作失败</block>
+  <block id="4a4cfe5483874f73014159f5baca5462" category="list-text">临时(按需)卷备份失败</block>
+  <block id="01c236efa847517aec154a45e404d759" category="list-text">在您的系统上检测到潜在的勒索软件攻击</block>
+  <block id="30dae49f6de63e85b78b96b2080bb0bb" category="paragraph">您不必删除源卷。您可以删除卷的备份关系并保留源卷。在这种情况下、您可以稍后在卷上"激活"备份。在这种情况下、仍会使用原始基线备份副本—不会创建新的基线备份副本并将其导出到云。请注意、如果您重新激活备份关系、则会为卷分配默认备份策略。</block>
+  <block id="495f64bce7d9d754a435527baf769353" category="paragraph">只有在系统运行ONTAP 9.12.1或更高版本时、此功能才可用。</block>
+  <block id="228129642e2d421577991251a19c55f5" category="list-text">更改历史Snapshot副本是否包含在未来卷的初始基线备份文件中</block>
+  <block id="886fd7da3e081fa21e258a3d2c55adaa" category="paragraph">有关将数据从内部ONTAP 系统备份到特定云提供商的信息、请参见入门文档、以确保已为新的IP空间正确配置ONTAP 设置。例如：</block>
+  <block id="12ada5b9617c3b45c33107e57c89ecb9" category="paragraph">默认情况下、在为工作环境激活Cloud Backup时、ONTAP 可以使用无限的带宽将备份数据从工作环境中的卷传输到对象存储。如果您发现备份流量正在影响正常用户工作负载、则可以限制传输期间使用的网络带宽量。您可以选择一个介于1到1、000 Mbps之间的值作为最大传输速率。</block>
+  <block id="057d6c600d485e4ee55de2a7a7001dc5" category="paragraph">选择*受限*单选按钮并输入可使用的最大带宽、或者选择*无限制*以指示没有限制。</block>
+  <block id="45d792202c91671265c4a5c1b4b44f68" category="paragraph">如果卷的任何本地Snapshot副本与您在此工作环境中使用的备份计划标签匹配(例如、每日、每周等)、您可以将这些历史快照作为备份文件导出到对象存储。这样、您就可以通过将较早的快照副本移动到基线备份副本中来初始化云中的备份。</block>
+  <block id="6e5adfd3f87f76739bd90a17c2764063" category="paragraph">请注意、此选项仅为新卷适用场景 新备份文件、数据保护(DP)卷不支持此选项。</block>
 </blocks>
