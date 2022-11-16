@@ -14,7 +14,7 @@ summary: 在NetApp BlueXP中启用的适用于应用程序的云备份可为驻�
 
 
 [role="lead"]
-Cloud Backup for Applications是一种基于SaaS的服务、可为在NetApp Cloud Storage上运行的应用程序提供数据保护功能。在NetApp BlueXP中启用的适用于应用程序的云备份(formerlt Cloud Manager)可为驻留在Amazon FSx for NetApp ONTAP 上的Oracle数据库提供高效、应用程序一致且基于策略的备份和还原。
+Cloud Backup for Applications是一种基于SaaS的服务、可为在NetApp Cloud Storage上运行的应用程序提供数据保护功能。在NetApp BlueXP (以前称为Cloud Manager)中启用适用于应用程序的Cloud Backup、可为驻留在Amazon FSX for NetApp ONTAP 上的Oracle数据库提供高效、应用程序一致且基于策略的备份和还原。
 
 
 

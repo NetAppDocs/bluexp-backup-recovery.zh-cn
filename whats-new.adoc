@@ -36,7 +36,7 @@ summary: 了解 Cloud Backup 中的新增功能。
 
 
 
-=== 添加了支持功能、可以通过电子邮件或通知中心接收Cloud Backup警报
+=== 添加了通过电子邮件和通知中心接收Cloud Backup警报的支持
 
 Cloud Backup已集成到BlueXP通知服务中。您可以通过单击BlueXP菜单栏中的通知铃来显示Cloud Backup通知。此外、您还可以将BlueXP配置为通过电子邮件发送警报通知、以便即使未登录到系统、您也可以了解重要的系统活动。可以将此电子邮件发送给需要了解备份和还原活动的任何收件人。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#use-the-job-monitor-to-view-backup-and-restore-job-status["了解如何操作"]。
 
@@ -59,11 +59,11 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backup-se
 
 
 
-=== 现在、在使用内部部署连接器时、您可以使用搜索和还原从公有 云还原备份文件
+=== 现在、您可以在使用内部部署连接器时使用搜索和还原来还原备份文件
 
-在先前版本中、增加了在内部部署连接器时向公有 云创建备份文件的支持。在此版本中、我们仍支持在您的内部部署Connector时使用搜索和还原从Amazon S3或Azure Blob还原备份。
+在先前版本中、增加了在内部部署连接器时向公有 云创建备份文件的支持。在此版本中、我们仍支持在您的内部部署Connector时使用搜索和还原从Amazon S3或Azure Blob还原备份。搜索和还原还支持将备份从StorageGRID 系统还原到内部ONTAP 系统。
 
-目前、在使用搜索和还原从Google Cloud Storage还原备份时、必须在Google Cloud Platform中部署Connector。StorageGRID 系统不支持搜索和还原-在这种情况下、您必须使用浏览和还原。
+目前、在使用搜索和还原从Google Cloud Storage还原备份时、必须在Google Cloud Platform中部署Connector。
 
 
 

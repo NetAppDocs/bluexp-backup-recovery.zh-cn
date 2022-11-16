@@ -25,7 +25,7 @@ summary: 完成几个步骤，开始将数据从 Cloud Volumes ONTAP 备份到 A
 .跨度 class="image><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] Alt-one"></span> 验证是否支持您的配置
 * 您正在AWS中运行Cloud Volumes ONTAP 9.7P5或更高版本。
 * 您已为备份所在的存储空间订阅了有效的云提供商。
-* 您已订阅 https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["Cloud Manager Marketplace Backup 产品"]，和 https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS 年度合同"]或您已购买 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["并激活"] NetApp 提供的 Cloud Backup BYOL 许可证。
+* 您已订阅 https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["BlueXP Marketplace备份服务"]，和 https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS 年度合同"]或您已购买 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["并激活"] NetApp 提供的 Cloud Backup BYOL 许可证。
 * 为BlueXP Connector提供权限的IAM角色包括最新版本的S3权限 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions.html["BlueXP策略"^]。
 
 
@@ -69,7 +69,7 @@ image:screenshot_backup_policy_aws.png["显示 Cloud Backup 设置的屏幕截�
 image:diagram_cloud_backup_cvo_aws.png["显示 Cloud Backup 如何与备份文件所在的源系统和目标存储上的卷进行通信的示意图。"]
 
 支持的 ONTAP 版本:: 建议至少使用ONTAP 9.7P5；ONTAP 9.8P13及更高版本。
-许可证要求:: 对于 Cloud Backup PAYGO 许可， AWS Marketplace 中提供了 Cloud Manager 订阅，用于部署 Cloud Volumes ONTAP 和 Cloud Backup 。您需要 https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["订阅此 Cloud Manager 订阅"^] 启用 Cloud Backup 之前。Cloud Backup 的计费通过此订阅完成。
+许可证要求:: 对于云备份PAYGO许可、AWS Marketplace中提供了一个BlueXP订阅、用于部署Cloud Volumes ONTAP 和云备份。您需要 https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["订阅此BlueXP订阅"^] 启用 Cloud Backup 之前。Cloud Backup 的计费通过此订阅完成。
 +
 --
 对于能够同时备份 Cloud Volumes ONTAP 数据和内部 ONTAP 数据的年度合同，您需要从订阅 https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS Marketplace 页面"^] 然后 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html["将订阅与您的 AWS 凭据关联"^]。

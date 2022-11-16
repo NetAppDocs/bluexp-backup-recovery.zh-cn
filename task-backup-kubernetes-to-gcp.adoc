@@ -33,7 +33,7 @@ summary: 完成几个步骤，开始将数据从 GKEKubernetes 集群上的永�
 
 * 您已为备份所在的存储空间订阅了有效的 GCP 。
 * 您的 Google Cloud Project 中有一个服务帐户，该帐户具有预定义的存储管理员角色。
-* 您已订阅 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["Cloud Manager Marketplace Backup 产品"^]或您已购买 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["并激活"^] NetApp 提供的 Cloud Backup BYOL 许可证。
+* 您已订阅 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["BlueXP Marketplace备份服务"^]或您已购买 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["并激活"^] NetApp 提供的 Cloud Backup BYOL 许可证。
 
 
 [role="quick-margin-para"]
@@ -173,4 +173,4 @@ image:screenshot_backup_select_volumes_k8s.png["选择要备份的永久性卷�
 
 此时将显示 Kubernetes 信息板，以便您可以监控备份的状态。
 
-您可以 link:task-managing-backups-kubernetes.html["启动和停止卷备份或更改备份计划"^]。您也可以 link:task-restore-backups-kubernetes.html#restoring-volumes-from-a-kubernetes-backup-file["从备份文件还原整个卷"^] 作为 GCP 中相同或不同 Kubernetes 集群上的新卷（位于同一区域）。
+您可以 link:task-manage-backups-kubernetes.html["启动和停止卷备份或更改备份计划"^]。您也可以 link:task-restore-backups-kubernetes.html#restoring-volumes-from-a-kubernetes-backup-file["从备份文件还原整个卷"^] 作为 GCP 中相同或不同 Kubernetes 集群上的新卷（位于同一区域）。

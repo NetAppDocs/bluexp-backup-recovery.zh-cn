@@ -229,9 +229,9 @@ https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-az
 
 === 验证许可证要求
 
-* 在为集群激活Cloud Backup之前、您需要从Azure订阅按需购买(PAYGO) Cloud Manager Marketplace产品、或者从NetApp购买并激活Cloud Backup BYOL许可证。这些许可证适用于您的帐户，可在多个系统中使用。
+* 在为集群激活Cloud Backup之前、您需要从Azure订阅按需购买(PAYGO) BlueXP Marketplace产品、或者从NetApp购买并激活Cloud Backup BYOL许可证。这些许可证适用于您的帐户，可在多个系统中使用。
 +
-** 对于 Cloud Backup PAYGO 许可，您需要订阅 https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["Azure 酒店"^] Cloud Manager Marketplace提供了使用Cloud Backup的服务。Cloud Backup 的计费通过此订阅完成。
+** 对于 Cloud Backup PAYGO 许可，您需要订阅 https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["Azure 酒店"^] 使用Cloud Backup的BlueXP Marketplace产品。Cloud Backup 的计费通过此订阅完成。
 ** 对于 Cloud Backup BYOL 许可，您需要 NetApp 提供的序列号，以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["了解如何管理 BYOL 许可证"]。
 
 
@@ -274,7 +274,7 @@ image:screenshot_backup_onprem_to_azure.png["显示将卷从内部集群备份�
 
 
 
-. 如果您的帐户没有Cloud Backup许可证、此时将提示您选择要使用的充电方法类型。您可以订阅Azure提供的按需购买(PAYGO) Cloud Manager Marketplace产品(如果您有多个订阅、则需要选择一个)、或者从NetApp购买并激活Cloud Backup BYOL许可证。 link:task-licensing-cloud-backup.html["了解如何设置Cloud Backup许可。"]
+. 如果您的帐户没有Cloud Backup许可证、此时将提示您选择要使用的充电方法类型。您可以订阅Azure提供的按需购买(PAYGO) BlueXP Marketplace产品(如果您有多个订阅、则需要选择一个)、或者从NetApp购买并激活Cloud Backup BYOL许可证。 link:task-licensing-cloud-backup.html["了解如何设置Cloud Backup许可。"]
 . 输入网络连接详细信息并单击 * 下一步 * 。
 +
 .. 要备份的卷所在的 ONTAP 集群中的 IP 空间。此 IP 空间的集群间 LIF 必须具有出站 Internet 访问权限。

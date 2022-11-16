@@ -263,7 +263,7 @@ ifdef::gcp[]
 
 * 在 GCP 中，备份默认与 _Standard_ 存储类相关联。
 +
-您可以使用成本较低的_Nearline_存储类、也可以使用_Coldline_或_Archive_存储类。但是、您可以通过Google而不是Cloud Backup UI来配置这些其他存储类。请参见 Google 主题 link:https://cloud.google.com/storage/docs/storage-classes["存储类"^] 有关更改Google Cloud存储分段的默认存储类的信息。
+您可以使用成本较低的_Nearline_存储类、也可以使用_Coldline_或_Archive_存储类。但是、您可以通过Google而不是Cloud Backup UI来配置这些其他存储类。请参见 Google 主题 https://cloud.google.com/storage/docs/storage-classes["存储类"^] 有关更改Google Cloud存储分段的默认存储类的信息。
 
 
 

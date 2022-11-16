@@ -187,9 +187,9 @@ bigquery.tables.create
 
 === 验证许可证要求
 
-* 在为集群激活Cloud Backup之前、您需要从Google订阅按需购买(PAYGO) Cloud Manager Marketplace产品、或者从NetApp购买并激活Cloud Backup BYOL许可证。这些许可证适用于您的帐户，可在多个系统中使用。
+* 在为集群激活Cloud Backup之前、您需要从Google订阅按需购买(PAYGO) BlueXP Marketplace产品、或者从NetApp购买并激活Cloud Backup BYOL许可证。这些许可证适用于您的帐户，可在多个系统中使用。
 +
-** 对于 Cloud Backup PAYGO 许可，您需要订阅 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project["Google"^] Cloud Manager Marketplace提供了使用Cloud Backup的服务。Cloud Backup 的计费通过此订阅完成。
+** 对于 Cloud Backup PAYGO 许可，您需要订阅 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project["Google"^] 使用Cloud Backup的BlueXP Marketplace产品。Cloud Backup 的计费通过此订阅完成。
 ** 对于 Cloud Backup BYOL 许可，您需要 NetApp 提供的序列号，以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["了解如何管理 BYOL 许可证"]。
 
 
@@ -244,7 +244,7 @@ image:screenshot_backup_onprem_to_google.png["显示将卷从内部集群备份�
 
 
 
-. 如果您的帐户没有Cloud Backup许可证、此时将提示您选择要使用的充电方法类型。您可以订阅Google提供的按需购买(PAYGO) Cloud Manager Marketplace产品(如果您有多个订阅、则需要选择一个)、或者从NetApp购买并激活Cloud Backup BYOL许可证。 link:task-licensing-cloud-backup.html["了解如何设置Cloud Backup许可。"]
+. 如果您的帐户没有Cloud Backup许可证、此时将提示您选择要使用的充电方法类型。您可以从Google订阅按需购买(PAYGO) BlueXP Marketplace产品(或者如果您有多个订阅、则需要选择一个)、或者从NetApp购买并激活Cloud Backup BYOL许可证。 link:task-licensing-cloud-backup.html["了解如何设置Cloud Backup许可。"]
 . 输入要用于默认策略的备份策略详细信息、然后单击*下一步*。您可以选择现有策略、也可以通过在每个部分中输入所做的选择来创建新策略：
 +
 .. 输入默认策略的名称。您无需更改名称。
@@ -269,6 +269,8 @@ image:screenshot_backup_select_volumes.png["选择要备份的卷的屏幕截图
 
 
 Google Cloud Storage存储分段会在您输入的Google访问密钥和机密密钥指示的服务帐户中自动创建、并且备份文件会存储在该服务帐户中。此时将显示卷备份信息板，以便您可以监控备份的状态。您还可以使用监控备份和还原作业的状态 link:task-monitor-backup-jobs.html["作业监控面板"^]。
+
+默认情况下、备份与_Standard_存储类相关联。您可以使用成本较低的_Nearline_、_Coldline_或_Archive_存储类。但是、您可以通过Google而非Cloud Backup UI配置存储类。请参见 Google 主题 https://cloud.google.com/storage/docs/changing-default-storage-class["更改存储分段的默认存储类"^] 了解详细信息。
 
 
 

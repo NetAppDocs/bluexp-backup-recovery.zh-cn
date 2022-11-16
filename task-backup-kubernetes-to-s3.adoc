@@ -32,7 +32,7 @@ summary: 完成以下几个步骤，开始将 EKS Kubernetes 集群上的永久�
 
 
 * 您已为备份所在的存储空间订阅了有效的云提供商。
-* 您已订阅 https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["Cloud Manager Marketplace Backup 产品"]，和 https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS 年度合同"]或您已购买 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["并激活"] NetApp 提供的 Cloud Backup BYOL 许可证。
+* 您已订阅 https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["BlueXP Marketplace备份服务"]，和 https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS 年度合同"]或您已购买 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["并激活"] NetApp 提供的 Cloud Backup BYOL 许可证。
 * 为BlueXP Connector提供权限的IAM角色包括最新版本的S3权限 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html["BlueXP策略"^]。
 
 
@@ -126,7 +126,7 @@ spec:
 
 
 --
-许可证要求:: 对于云备份PAYGO许可、AWS Marketplace中提供了一个订阅、用于部署Cloud Volumes ONTAP 和云备份。您需要 https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["订阅此 Cloud Manager 订阅"^] 启用 Cloud Backup 之前。Cloud Backup 的计费通过此订阅完成。
+许可证要求:: 对于云备份PAYGO许可、AWS Marketplace中提供了一个订阅、用于部署Cloud Volumes ONTAP 和云备份。您需要 https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["订阅此BlueXP订阅"^] 启用 Cloud Backup 之前。Cloud Backup 的计费通过此订阅完成。
 +
 --
 对于能够同时备份 Cloud Volumes ONTAP 数据和内部 ONTAP 数据的年度合同，您需要从订阅 https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS Marketplace 页面"^] 然后 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html["将订阅与您的 AWS 凭据关联"^]。
@@ -213,4 +213,4 @@ image:screenshot_backup_select_volumes_k8s.png["选择要备份的永久性卷�
 
 此时将显示 Kubernetes 信息板，以便您可以监控备份的状态。
 
-您可以 link:task-managing-backups-kubernetes.html["启动和停止卷备份或更改备份计划"^]。您也可以 link:task-restore-backups-kubernetes.html#restoring-volumes-from-a-kubernetes-backup-file["从备份文件还原整个卷"^] 作为 AWS 中相同或不同 Kubernetes 集群上的新卷（位于同一区域）。
+您可以 link:task-manage-backups-kubernetes.html["启动和停止卷备份或更改备份计划"^]。您也可以 link:task-restore-backups-kubernetes.html#restoring-volumes-from-a-kubernetes-backup-file["从备份文件还原整个卷"^] 作为 AWS 中相同或不同 Kubernetes 集群上的新卷（位于同一区域）。
