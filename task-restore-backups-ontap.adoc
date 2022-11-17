@@ -28,7 +28,7 @@ summary: 备份存储在云帐户的对象存储中，以便您可以从特定�
 
 == 还原信息板
 
-您可以使用还原信息板执行卷、文件夹和文件还原操作。要访问还原信息板、请单击BlueXP菜单中的*备份和恢复*、然后单击*还原*选项卡。您也可以单击 image:screenshot_gallery_options.gif["更多按钮"] > " 服务 " 面板中的备份和还原服务中的 * 查看还原信息板 * 。
+您可以使用还原信息板执行卷、文件夹和文件还原操作。要访问还原信息板、请单击BlueXP菜单中的*备份和恢复*、然后单击*还原*选项卡。您也可以单击 image:screenshot_gallery_options.gif["更多按钮"] >从"服务"面板的备份和恢复服务中查看*还原信息板*。
 
 
 NOTE: 必须已为至少一个工作环境激活 Cloud Backup ，并且必须存在初始备份文件。
@@ -560,9 +560,9 @@ endif::gcp[]
 
 +
 ** 如果您的帐户中没有云提供商凭据、则索引目录信息将存储在Connector上。
-** 如果您有 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-aws.html["AWS 凭据"^] 或 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-azure.html["Azure credentials"^] 在帐户中、索引目录存储在云提供商处、就像部署在云中的Connector一样。
+** 如果您有 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-aws.html["AWS 凭据"^] 或 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-azure.html["Azure credentials"^] 在帐户中、索引目录存储在云提供商处、就像部署在云中的Connector一样。(如果您同时拥有这两个凭据、则默认情况下会选择AWS。)
 +
-使用此实施时、请参见上述AWS和Azure要求。即使您使用的是内部部署Connector、也必须同时满足云提供商对Connector权限和云提供商资源的要求。
+即使您使用的是内部部署Connector、也必须同时满足云提供商对Connector权限和云提供商资源的要求。使用此实施时、请参见上述AWS和Azure要求。
 
 
 
@@ -678,7 +678,10 @@ image:screenshot_restore_step2_search_restore.png["显示如何查看符合搜�
 +
 ifdef::aws[]
 
-** 从 Amazon S3 还原时，请选择目标卷所在 ONTAP 集群中的 IP 空间，输入您创建的用户的访问密钥和机密密钥，以便为 ONTAP 集群授予对 S3 存储分段的访问权限。 此外，还可以选择一个专用 VPC 端点来实现安全数据传输。
++
+*** 从 Amazon S3 还原时，请选择目标卷所在 ONTAP 集群中的 IP 空间，输入您创建的用户的访问密钥和机密密钥，以便为 ONTAP 集群授予对 S3 存储分段的访问权限。 此外，还可以选择一个专用 VPC 端点来实现安全数据传输。
+
+
 
 
 

@@ -49,7 +49,7 @@ summary: 完成几个步骤，开始将数据从内部 ONTAP 系统备份到 Ama
 或者，您也可以为数据加密设置自己的自定义管理密钥，而不是使用默认的 Amazon S3 加密密钥。  your AWS environment,了解如何让 AWS S3 环境做好接收 ONTAP 备份的准备。
 
 [role="quick-margin-para"]
-选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 > 备份卷 * 。然后，按照设置向导定义默认备份策略和要保留的备份数，并选择要备份的卷。
+选择工作环境、然后单击右侧面板中备份和恢复服务旁边的*启用>备份卷*。然后，按照设置向导定义默认备份策略和要保留的备份数，并选择要备份的卷。
 
 [role="quick-margin-para"]
  Cloud Backup,了解如何在卷上激活 Cloud Backup 。
@@ -355,12 +355,12 @@ Please enter Certificate: Press <Enter> when done
 可随时直接从内部工作环境启用 Cloud Backup 。
 
 .步骤
-. 在 Canvas 中，选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 > 备份卷 * 。
+. 在Canvas中、选择工作环境、然后单击右侧面板中备份和恢复服务旁边的*启用>备份卷*。
 +
 如果您的备份的Amazon S3目标作为工作环境存在于Canvas上、您可以将集群拖动到Amazon S3工作环境中以启动设置向导。
 
 +
-image:screenshot_backup_onprem_enable.png["屏幕截图显示了 Backup  amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"]
+image:screenshot_backup_onprem_enable.png["屏幕截图显示了\"启用备份和恢复\"按钮、该按钮可在您选择工作环境后使用。"]
 
 . 选择 Amazon Web Services 作为您的提供商，然后单击 * 下一步 * 。
 . 输入提供程序详细信息并单击 * 下一步 * 。

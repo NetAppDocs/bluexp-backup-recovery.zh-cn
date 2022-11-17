@@ -37,7 +37,7 @@ summary: 完成以下几个步骤，开始将 EKS Kubernetes 集群上的永久�
 
 
 [role="quick-margin-para"]
-选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 * ，然后按照设置向导进行操作。
+选择工作环境、然后单击右侧面板中备份和恢复服务旁边的*启用*、然后按照设置向导进行操作。
 
 [role="quick-margin-para"]
 image:screenshot_backup_cvo_enable.png["屏幕截图显示了 Cloud Backup Enable 按钮，该按钮可在您选择工作环境后使用。"]
@@ -182,7 +182,7 @@ spec:
 可以随时直接从Kubernetes工作环境启用Cloud Backup。
 
 .步骤
-. 选择工作环境，然后单击右面板中备份和还原服务旁边的 * 启用 * 。
+. 选择工作环境、然后单击右面板中备份和恢复服务旁边的*启用*。
 +
 如果您的备份的Amazon S3目标作为工作环境存在于Canvas上、您可以将Kubernetes集群拖动到Amazon S3工作环境中以启动设置向导。
 

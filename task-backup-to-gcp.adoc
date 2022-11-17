@@ -31,7 +31,7 @@ summary: 完成几个步骤，开始将数据从 Cloud Volumes ONTAP 备份到 G
 
 .跨度 class="image><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png"[] Alt-twe"></span> 在新系统或现有系统上启用 Cloud Backup
 * 新系统：完成新的工作环境向导后，可以启用 Cloud Backup 。
-* 现有系统：选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 * ，然后按照设置向导进行操作。
+* 现有系统：选择工作环境、然后单击右侧面板中备份和恢复服务旁边的*启用*、然后按照设置向导进行操作。
 +
 image:screenshot_backup_cvo_enable.png["屏幕截图显示了 Cloud Backup Enable 按钮，该按钮可在您选择工作环境后使用。"]
 
@@ -145,7 +145,7 @@ Cloud Backup 在系统上启用，并备份您每天创建的卷，并保留最�
 您可以随时直接从工作环境启用 Cloud Backup 。
 
 .步骤
-. 选择工作环境，然后单击右面板中备份和还原服务旁边的 * 启用 * 。
+. 选择工作环境、然后单击右面板中备份和恢复服务旁边的*启用*。
 +
 如果用于备份的Google Cloud Storage目标作为工作环境存在于Canvas上、则可以将集群拖动到Google Cloud Storage工作环境中以启动设置向导。
 

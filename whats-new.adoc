@@ -61,7 +61,7 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backup-se
 
 === 现在、您可以在使用内部部署连接器时使用搜索和还原来还原备份文件
 
-在先前版本中、增加了在内部部署连接器时向公有 云创建备份文件的支持。在此版本中、我们仍支持在您的内部部署Connector时使用搜索和还原从Amazon S3或Azure Blob还原备份。搜索和还原还支持将备份从StorageGRID 系统还原到内部ONTAP 系统。
+在先前版本中、增加了在内部部署连接器时向公有 云创建备份文件的支持。在此版本中、我们仍支持在您的内部部署Connector时使用搜索和还原从Amazon S3或Azure Blob还原备份。搜索和还原还支持立即将备份从StorageGRID 系统还原到内部ONTAP 系统。
 
 目前、在使用搜索和还原从Google Cloud Storage还原备份时、必须在Google Cloud Platform中部署Connector。
 

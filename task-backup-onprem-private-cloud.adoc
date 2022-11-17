@@ -43,10 +43,10 @@ summary: 完成几个步骤，开始将数据从内部 ONTAP 系统备份到 Net
 
 
 [role="quick-margin-para"]
-选择工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 > 备份卷 * ，然后按照设置向导进行操作。
+选择工作环境、然后单击右侧面板中备份和恢复服务旁边的*启用>备份卷*、然后按照设置向导进行操作。
 
 [role="quick-margin-para"]
-image:screenshot_backup_onprem_enable.png["屏幕截图显示了 Backup  amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"]
+image:screenshot_backup_onprem_enable.png["屏幕截图显示了\"启用备份和恢复\"按钮、该按钮可在您选择工作环境后使用。"]
 
 [role="quick-margin-para"]
 选择StorageGRID 作为提供程序、然后输入StorageGRID 服务器和S3租户帐户详细信息。您还需要在卷所在的 ONTAP 集群中指定 IP 空间。
@@ -209,12 +209,12 @@ TIP: 将文件备份到 StorageGRID 时不支持 PAYGO 许可。
 可随时直接从内部工作环境启用 Cloud Backup 。
 
 .步骤
-. 在 Canvas 中，选择内部工作环境，然后单击右侧面板中备份和还原服务旁边的 * 启用 > 备份卷 * 。
+. 在Canvas中、选择内部工作环境、然后单击右侧面板中备份和恢复服务旁边的*启用>备份卷*。
 +
 如果用于备份的StorageGRID 目标作为工作环境存在于Canvas上、则可以将集群拖动到StorageGRID 工作环境中以启动设置向导。
 
 +
-image:screenshot_backup_onprem_enable.png["屏幕截图显示了 Backup  amp ； Restore Enable 按钮，该按钮可在您选择工作环境后使用。"]
+image:screenshot_backup_onprem_enable.png["屏幕截图显示了\"启用备份和恢复\"按钮、该按钮可在您选择工作环境后使用。"]
 
 . 选择 * StorageGRID 提供程序 * ，单击 * 下一步 * ，然后输入提供程序详细信息：
 +
