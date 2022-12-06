@@ -24,7 +24,8 @@ summary: 完成几个步骤，开始将数据从内部 ONTAP 系统备份到 Net
 
 按照以下步骤快速入门，或者向下滚动到其余部分以了解完整详细信息。
 
-.跨度 class="image><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] Alt-one"></span> 验证是否支持您的配置
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"] 验证是否支持您的配置
+[role="quick-margin-list"]
 * 您已发现内部集群并将其添加到BlueXP中的工作环境中。请参见 https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["发现 ONTAP 集群"^] 了解详细信息。
 +
 ** 此集群运行的是 ONTAP 9.7P5 或更高版本。
@@ -42,18 +43,21 @@ summary: 完成几个步骤，开始将数据从内部 ONTAP 系统备份到 Net
 * 您的 StorageGRID 安装了 10.3 或更高版本，并且访问密钥具有 S3 权限。
 
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"] 在系统上启用 Cloud Backup
 [role="quick-margin-para"]
 选择工作环境、然后单击右侧面板中备份和恢复服务旁边的*启用>备份卷*、然后按照设置向导进行操作。
 
 [role="quick-margin-para"]
 image:screenshot_backup_onprem_enable.png["屏幕截图显示了\"启用备份和恢复\"按钮、该按钮可在您选择工作环境后使用。"]
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三个"] 输入 StorageGRID 详细信息
 [role="quick-margin-para"]
 选择StorageGRID 作为提供程序、然后输入StorageGRID 服务器和S3租户帐户详细信息。您还需要在卷所在的 ONTAP 集群中指定 IP 空间。
 
 [role="quick-margin-para"]
 image:screenshot_backup_provider_settings_storagegrid.png["显示将卷从 ONTAP 集群备份到 StorageGRID 时云提供商详细信息的屏幕截图。"]
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"] 定义默认备份策略
 [role="quick-margin-para"]
 默认策略每天备份卷，并保留每个卷的最新 30 个备份副本。更改为每小时、每天、每周、每月或每年备份、 或者、选择一个系统定义的策略以提供更多选项。您还可以更改要保留的备份副本数。
 
@@ -63,6 +67,7 @@ image:screenshot_backup_provider_settings_storagegrid.png["显示将卷从 ONTAP
 [role="quick-margin-para"]
 image:screenshot_backup_onprem_policy.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中选择备份计划和保留期限。"]
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["五个"] 选择要备份的卷
 [role="quick-margin-para"]
 在选择卷页面中，使用默认备份策略确定要备份的卷。如果要为某些卷分配不同的备份策略，可以创建其他策略并稍后将其应用于卷。
 
@@ -251,12 +256,13 @@ image:screenshot_backup_onprem_policy.png["显示 Cloud Backup 设置的屏幕�
 +
 image:screenshot_backup_select_volumes.png["选择要备份的卷的屏幕截图。"]
 
-** 如果此工作环境中的卷存在与您为此工作环境选择的备份计划标签匹配的本地Snapshot副本(例如、每日、每周等)、则会显示一条附加提示"将现有Snapshot副本作为备份副本导出到对象存储"。如果要将所有历史快照作为备份文件复制到对象存储、请选中此框、以确保为卷提供最全面的保护。
+** 如果此工作环境中的读/写卷有任何本地Snapshot副本与您刚刚为此工作环境选择的备份计划标签(例如、每日、每周等)匹配、则会显示一条额外的提示"将现有Snapshot副本作为备份副本导出到对象存储"。如果要将所有历史快照作为备份文件复制到对象存储、请选中此框、以确保为卷提供最全面的保护。
 
 
 . 单击 * 激活备份 * ， Cloud Backup 将开始对每个选定卷进行初始备份。
 
 
+.结果
 系统会在您输入的 S3 访问密钥和机密密钥所指示的服务帐户中自动创建 S3 存储分段，备份文件存储在该处。此时将显示卷备份信息板，以便您可以监控备份的状态。您还可以使用监控备份和还原作业的状态 link:task-monitor-backup-jobs.html["作业监控面板"^]。
 
 

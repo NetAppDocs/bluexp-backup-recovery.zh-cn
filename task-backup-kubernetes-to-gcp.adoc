@@ -22,7 +22,8 @@ summary: 完成几个步骤，开始将数据从 GKEKubernetes 集群上的永�
 
 按照以下步骤快速入门，或者向下滚动到其余部分以了解完整详细信息。
 
-.跨度 class="image><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] Alt-one"></span> 查看前提条件
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"] 查看前提条件
+[role="quick-margin-list"]
 * 您已将Kubernetes集群发现为一个BlueXP工作环境。
 +
 ** 集群上必须安装 Trident ，并且 Trident 版本必须为 21.1 或更高版本。
@@ -36,18 +37,21 @@ summary: 完成几个步骤，开始将数据从 GKEKubernetes 集群上的永�
 * 您已订阅 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["BlueXP Marketplace备份服务"^]或您已购买 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["并激活"^] NetApp 提供的 Cloud Backup BYOL 许可证。
 
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"] 在现有Kubernetes集群上启用Cloud Backup
 [role="quick-margin-para"]
 选择工作环境、然后单击右侧面板中备份和恢复服务旁边的*启用*、然后按照设置向导进行操作。
 
 [role="quick-margin-para"]
 image:screenshot_backup_cvo_enable.png["屏幕截图显示了 Cloud Backup Enable 按钮，该按钮可在您选择工作环境后使用。"]
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三个"] 定义备份策略
 [role="quick-margin-para"]
 默认策略每天备份卷，并保留每个卷的最新 30 个备份副本。更改为每小时，每天，每周或每月备份，或者选择一个提供更多选项的系统定义策略。您还可以更改要保留的备份副本数。
 
 [role="quick-margin-para"]
 image:screenshot_backup_policy_k8s_azure.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中选择备份计划和保留期限。"]
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"] 选择要备份的卷
 [role="quick-margin-para"]
 在选择卷页面中确定要备份的卷。备份文件将使用与 Cloud Volumes ONTAP 系统相同的 GCP 订阅和区域存储在 Google 云存储分段中。
 
@@ -169,8 +173,10 @@ image:screenshot_backup_select_volumes_k8s.png["选择要备份的永久性卷�
 . 单击 * 激活备份 * ， Cloud Backup 将开始对每个选定卷进行初始备份。
 
 
+.结果
 备份文件将使用与 Cloud Volumes ONTAP 系统相同的 GCP 订阅和区域存储在 Google 云存储分段中。
 
 此时将显示 Kubernetes 信息板，以便您可以监控备份的状态。
 
+.下一步是什么？
 您可以 link:task-manage-backups-kubernetes.html["启动和停止卷备份或更改备份计划"^]。您也可以 link:task-restore-backups-kubernetes.html#restoring-volumes-from-a-kubernetes-backup-file["从备份文件还原整个卷"^] 作为 GCP 中相同或不同 Kubernetes 集群上的新卷（位于同一区域）。

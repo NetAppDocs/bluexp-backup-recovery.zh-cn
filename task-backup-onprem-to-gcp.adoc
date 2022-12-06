@@ -24,7 +24,8 @@ summary: 完成几个步骤，开始将数据从内部 ONTAP 系统备份到 Goo
 
 按照以下步骤快速入门，或者向下滚动到其余部分以了解完整详细信息。
 
-.跨度 class="image><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] Alt-one"></span> 验证是否支持您的配置
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"] 验证是否支持您的配置
+[role="quick-margin-list"]
 * 您已发现内部集群并将其添加到BlueXP中的工作环境中。请参见 https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["发现 ONTAP 集群"^] 了解详细信息。
 +
 ** 此集群运行的是 ONTAP 9.7P5 或更高版本。
@@ -37,21 +38,28 @@ summary: 完成几个步骤，开始将数据从内部 ONTAP 系统备份到 Goo
 * 您的 Google 帐户具有访问密钥和机密密钥，因此 ONTAP 集群可以备份和还原数据。
 
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"] 在系统上启用 Cloud Backup
 [role="quick-margin-para"]
 选择工作环境、然后单击右侧面板中备份和恢复服务旁边的*启用>备份卷*、然后按照设置向导进行操作。
 
 [role="quick-margin-para"]
 image:screenshot_backup_onprem_enable.png["屏幕截图显示了\"启用备份和恢复\"按钮、该按钮可在您选择工作环境后使用。"]
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三个"] 选择云提供商并输入提供商详细信息
 [role="quick-margin-para"]
 选择 Google Cloud 作为提供商，然后输入提供商详细信息。您还需要在卷所在的 ONTAP 集群中指定 IP 空间。
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"] 定义默认备份策略
 [role="quick-margin-para"]
 默认策略每天备份卷，并保留每个卷的最新 30 个备份副本。更改为每小时、每天、每周、每月或每年备份、 或者、选择一个系统定义的策略以提供更多选项。您还可以更改要保留的备份副本数。
 
 [role="quick-margin-para"]
+默认情况下、备份存储在标准存储中。如果集群使用的是ONTAP 9.12.1或更高版本、则可以选择在一定天数后将备份分层到Google Archive存储、以便进一步优化成本。 link:concept-cloud-backup-policies.html["详细了解可用的Cloud Backup策略配置设置"^]。
+
+[role="quick-margin-para"]
 image:screenshot_backup_policy_gcp.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中选择备份计划和保留期限。"]
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["五个"] 选择要备份的卷
 [role="quick-margin-para"]
 在选择卷页面中，使用默认备份策略确定要备份的卷。如果要为某些卷分配不同的备份策略，可以创建其他策略并稍后将其应用于卷。
 
@@ -115,6 +123,9 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 
 * 节点的集群间 LIF 能够访问对象存储。
 * 已为卷所在的 Storage VM 配置 DNS 服务器。请参见操作说明 https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html["为 SVM 配置 DNS 服务"^]。
++
+如果您使用的是专用Google访问或专用服务连接、请确保已将DNS服务器配置为将storage.googleapis.com指向正确的内部(私有) IP地址。
+
 * 请注意，如果您使用的 IP 空间与默认 IP 空间不同，则可能需要创建静态路由才能访问对象存储。
 * 如有必要，请更新防火墙规则，以允许通过端口 443 从 ONTAP 到对象存储的 Cloud Backup Service 连接，以及通过端口 53 （ TCP/UDP ）从 Storage VM 到 DNS 服务器的名称解析流量。
 
@@ -147,9 +158,9 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 ** 通过端口 443 与 ONTAP 集群管理 LIF 建立 HTTPS 连接
 
 
-. 在计划部署 Connector 的子网上启用专用 Google 访问。 https://cloud.google.com/vpc/docs/configure-private-google-access["私有 Google 访问"^] 如果您从ONTAP 集群直接连接到VPC、并且希望连接器和Google Cloud Storage之间的通信保持在虚拟专用网络中(*专用*连接)、则需要此连接。
+. 在计划部署Connector的子网上启用专用Google访问(或专用服务连接)。 https://cloud.google.com/vpc/docs/configure-private-google-access["私有 Google 访问"^] 或 https://cloud.google.com/vpc/docs/configure-private-service-connect-apis#on-premises["专用服务连接"^] 如果您从ONTAP 集群直接连接到VPC、并且希望连接器和Google Cloud Storage之间的通信保持在虚拟专用网络中(*专用*连接)、则需要此连接。
 +
-请注意，私有 Google 访问适用于仅具有内部（私有） IP 地址（无外部 IP 地址）的 VM 实例。
+按照Google说明设置这些私有访问选项。确保DNS服务器已配置为将www.googleapis.com和storage.googleapis.com指向正确的内部(私有) IP地址。
 
 
 
@@ -248,6 +259,7 @@ image:screenshot_backup_onprem_to_google.png["显示将卷从内部集群备份�
 +
 .. 输入默认策略的名称。您无需更改名称。
 .. 定义备份计划并选择要保留的备份数。 link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings["请参见您可以选择的现有策略列表"^]。
+.. 使用ONTAP 9.12.1或更高版本时、您可以选择在一定天数后将备份分层到归档存储、以便进一步优化成本。 link:concept-cloud-backup-policies.html["详细了解可用的Cloud Backup策略配置设置"^]。
 +
 image:screenshot_backup_policy_gcp.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中选择备份计划和保留期限。"]
 
@@ -261,15 +273,14 @@ image:screenshot_backup_policy_gcp.png["显示 Cloud Backup 设置的屏幕截�
 +
 image:screenshot_backup_select_volumes.png["选择要备份的卷的屏幕截图。"]
 
-** 如果此工作环境中的卷存在与您为此工作环境选择的备份计划标签匹配的本地Snapshot副本(例如、每日、每周等)、则会显示一条附加提示"将现有Snapshot副本作为备份副本导出到对象存储"。如果要将所有历史快照作为备份文件复制到对象存储、请选中此框、以确保为卷提供最全面的保护。
+** 如果此工作环境中的读/写卷有任何本地Snapshot副本与您刚刚为此工作环境选择的备份计划标签(例如、每日、每周等)匹配、则会显示一条额外的提示"将现有Snapshot副本作为备份副本导出到对象存储"。如果要将所有历史快照作为备份文件复制到对象存储、请选中此框、以确保为卷提供最全面的保护。
 
 
 . 单击 * 激活备份 * ， Cloud Backup 将开始对卷进行初始备份。
 
 
+.结果
 Google Cloud Storage存储分段会在您输入的Google访问密钥和机密密钥指示的服务帐户中自动创建、并且备份文件会存储在该服务帐户中。此时将显示卷备份信息板，以便您可以监控备份的状态。您还可以使用监控备份和还原作业的状态 link:task-monitor-backup-jobs.html["作业监控面板"^]。
-
-默认情况下、备份与_Standard_存储类相关联。您可以使用成本较低的_Nearline_、_Coldline_或_Archive_存储类。但是、您可以通过Google而非Cloud Backup UI配置存储类。请参见 Google 主题 https://cloud.google.com/storage/docs/changing-default-storage-class["更改存储分段的默认存储类"^] 了解详细信息。
 
 
 

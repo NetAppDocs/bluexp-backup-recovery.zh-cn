@@ -66,4 +66,5 @@ image:screenshot_restore_k8s_volume.png["有关要还原永久性卷的目标信
 . 单击 * 还原 * ，您将返回到 Kubernetes 信息板，以便查看还原操作的进度。
 
 
+.结果
 BlueXP会根据您选择的备份在Kubernetes集群中创建一个新卷。您可以 link:task-manage-backups-kubernetes.html["管理此新卷的备份设置"] 根据需要。

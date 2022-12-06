@@ -18,6 +18,32 @@ summary: 了解 Cloud Backup 中的新增功能。
 
 
 
+== 2022年12月6日
+
+
+
+=== 支持Google归档存储类
+
+备份文件最初是在Google标准存储类中创建的。现在、您可以选择在一定天数后将旧备份分层到Google Archive存储、以便进一步优化成本。
+
+目前、使用ONTAP 9.12.1或更高版本的内部ONTAP 集群支持此功能。目前、此功能不适用于Cloud Volumes ONTAP 系统。
+
+
+
+=== 支持FlexGroup 卷
+
+Cloud Backup现在支持FlexGroup 卷。使用ONTAP 9.12.1或更高版本时、您可以将FlexGroup 卷备份到公有 和私有云存储。如果您的工作环境包含FlexVol 和FlexGroup 卷、则在更新ONTAP 软件后、您可以备份这些系统上的任何FlexGroup 卷。
+
+https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html#supported-volumes["请参见支持的卷类型的完整列表"]。
+
+
+
+=== 能够将数据从备份还原到Cloud Volumes ONTAP 系统上的特定聚合
+
+在早期版本中、只有在将数据还原到内部ONTAP 系统时、才能选择聚合。现在、在将数据还原到Cloud Volumes ONTAP 系统时、此功能有效。
+
+
+
 == 2022年11月2日
 
 

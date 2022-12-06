@@ -19,6 +19,7 @@ summary: 您可以将虚拟机从云还原到内部SnapCenter。
 
 NOTE: 您不能还原跨数据存储库的虚拟机。
 
+.您需要的内容
 确保您已满足所有要求 link:concept-protect-vm-data.html#Requirements["要求"] 从云还原虚拟机之前。
 
 .步骤

@@ -34,7 +34,7 @@ Cloud Backup Service 中定义了八类端点：
 
 要开始使用Cloud Backup API、您需要获取用户令牌、Cloud Central帐户ID和Cloud Connector ID。
 
-在进行API调用时、您将在Authorization标头中添加用户令牌、并在x-agent-id标头中添加Cloud Connector ID。您应在API中使用Cloud Central帐户ID。
+进行API调用时、您需要在Authorization标头中添加用户令牌、并在x-agent-id标头中添加Cloud Connector ID。您应在API中使用Cloud Central帐户ID。
 
 .步骤
 . 从 NetApp Cloud Central 获取用户令牌。
@@ -101,7 +101,8 @@ Header:
 
 以下示例显示了一个API调用、用于在Azure云中的East-US-2区域使用一个新策略激活工作环境备份、该策略将每天、每小时和每周标签设置为180天后进行归档。请注意、此操作仅在工作环境中启用备份、但不会备份任何卷。如果选择"auto-backup-enabled"：true、则系统中已存在的任何卷都会进行备份、并添加未来的卷。
 
-您会看到我们使用的是Cloud Central帐户ID "account-DpTfcxN3"、BlueXP连接器ID "iZwFfeVCzjWnzGlw8RgD0QQNANZvpP7Icliers"和用户令牌"Bearer JhbGciOiJUJCII1NiIISIJI1JUIJIJIJIJIJI1NIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJIJI…
+.API请求
+您将看到我们使用的是Cloud Central帐户ID `account-DpTFcxN3`、BlueXP Connector ID `iZwFFeVCZjWnzGlw8RgD0QQNANZvpP7Iclients`和用户令牌 `Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5rSXlPVFUzUWpZek1E…y6nyhBjwkeMwHc4ValobjUmju2x0xUH48g` 在此命令中。
 
 [source, http]
 ----

@@ -24,35 +24,40 @@ summary: 完成几个步骤，开始将数据从内部 ONTAP 系统备份到 Ama
 
 按照以下步骤快速入门。本主题的以下各节提供了每个步骤的详细信息。
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"] 确定要使用的配置方法
 [role="quick-margin-para"]
 选择是通过公有 Internet将内部ONTAP 集群直接连接到AWS S3、还是使用VPN或AWS Direct Connect并通过专用VPC端点接口将流量路由到AWS S3。
 
 [role="quick-margin-para"]
- diagrams for connection options,请参见可用的连接方法。
+<<连接选项的网络图,请参见可用的连接方法。>>
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"] 准备您的BlueXP Connector
 [role="quick-margin-para"]
 如果您已在AWS VPC或内部部署了Connector、则可以随时完成所有操作。如果没有、则需要创建一个连接器、将ONTAP 数据备份到AWS S3存储。您还需要自定义 Connector 的网络设置，以便它可以连接到 AWS S3 。
 
 [role="quick-margin-para"]
- your Connector,请参见如何创建 Connector 以及如何定义所需的网络设置。
+<<准备您的连接器,请参见如何创建 Connector 以及如何定义所需的网络设置。>>
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三个"] 准备内部ONTAP 集群
 [role="quick-margin-para"]
 在BlueXP中发现您的ONTAP 集群、验证集群是否满足最低要求、并自定义网络设置、以便集群可以连接到AWS S3。
 
 [role="quick-margin-para"]
- your ONTAP cluster,了解如何使内部 ONTAP 集群做好准备。
+<<准备 ONTAP 集群,了解如何使内部 ONTAP 集群做好准备。>>
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"] 准备Amazon S3作为备份目标
 [role="quick-margin-para"]
 为Connector设置创建和管理S3存储分段的权限。您还需要为内部ONTAP 集群设置权限、以便其可以向S3存储分段读取和写入数据。
 
 [role="quick-margin-para"]
-或者，您也可以为数据加密设置自己的自定义管理密钥，而不是使用默认的 Amazon S3 加密密钥。  your AWS environment,了解如何让 AWS S3 环境做好接收 ONTAP 备份的准备。
+或者，您也可以为数据加密设置自己的自定义管理密钥，而不是使用默认的 Amazon S3 加密密钥。 <<准备 AWS 环境,了解如何让 AWS S3 环境做好接收 ONTAP 备份的准备。>>
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["五个"] 在系统上启用 Cloud Backup
 [role="quick-margin-para"]
 选择工作环境、然后单击右侧面板中备份和恢复服务旁边的*启用>备份卷*。然后，按照设置向导定义默认备份策略和要保留的备份数，并选择要备份的卷。
 
 [role="quick-margin-para"]
- Cloud Backup,了解如何在卷上激活 Cloud Backup 。
+<<启用 Cloud Backup,了解如何在卷上激活 Cloud Backup 。>>
 
 
 
@@ -106,7 +111,7 @@ BlueXP Connector是BlueXP功能的主要软件。需要使用连接器来备份�
 
 
 * link:task-backup-onprem-to-aws.html#set-up-s3-permissions["确保Connector具有管理S3存储分段的权限"]。
-* 如果从ONTAP 集群到VPC具有直接连接或VPN连接、并且您希望连接器和S3之间的通信保持在AWS内部网络中(*专用*连接)、则需要启用连接到S3的VPC端点接口。  your system for a private connection using a VPC endpoint interface,请参见如何设置 VPC 端点接口。
+* 如果从ONTAP 集群到VPC具有直接连接或VPN连接、并且您希望连接器和S3之间的通信保持在AWS内部网络中(*专用*连接)、则需要启用连接到S3的VPC端点接口。 <<使用VPC端点接口为系统配置专用连接,请参见如何设置 VPC 端点接口。>>
 
 
 
@@ -160,7 +165,7 @@ IP空间中的所有集群间LIF都必须能够访问对象存储。如果无法
 
 * 必须已为卷所在的 Storage VM 配置 DNS 服务器。请参见操作说明 https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html["为 SVM 配置 DNS 服务"^]。
 * 如有必要，请更新防火墙规则，以允许通过端口 443 从 ONTAP 到对象存储的 Cloud Backup 连接以及通过端口 53 （ TCP/UDP ）从 Storage VM 到 DNS 服务器的名称解析流量。
-* 如果在AWS中使用专用VPC接口端点进行S3连接、则要使用HTTPS/443、您需要将S3端点证书加载到ONTAP 集群中。  your system for a private connection using a VPC endpoint interface,请参见如何设置 VPC 端点接口并加载 S3 证书。
+* 如果在AWS中使用专用VPC接口端点进行S3连接、则要使用HTTPS/443、您需要将S3端点证书加载到ONTAP 集群中。 <<使用VPC端点接口为系统配置专用连接,请参见如何设置 VPC 端点接口并加载 S3 证书。>>
 * link:task-backup-onprem-to-aws.html#set-up-s3-permissions["确保ONTAP 集群具有访问S3存储分段的权限"]。
 
 
@@ -220,7 +225,7 @@ IP空间中的所有集群间LIF都必须能够访问对象存储。如果无法
               "s3:GetBucketAcl",
               "s3:GetBucketPolicy",
               "s3:PutBucketPolicy",
-              "s3:PutBucketOwnershipControls"
+              "s3:PutBucketOwnershipControls",
               "s3:PutBucketPublicAccessBlock",
               "s3:PutEncryptionConfiguration",
               "s3:GetObjectVersionTagging",
@@ -282,6 +287,36 @@ IP空间中的所有集群间LIF都必须能够访问对象存储。如果无法
         }
     ]
 }
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "s3:ListBucket",
+                "s3:GetBucketLocation"
+            ],
+            "Resource": "arn:aws:s3:::netapp-backup*",
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:DeleteObject",
+                "s3:ListAllMyBuckets",
+                "s3:PutObjectTagging",
+                "s3:GetObjectTagging",
+                "s3:RestoreObject",
+                "s3:GetBucketObjectLockConfiguration",
+                "s3:GetObjectRetention",
+                "s3:PutBucketObjectLockConfiguration",
+                "s3:PutObjectRetention"
+            ],
+            "Resource": "arn:aws:s3:::netapp-backup*/*",
+            "Effect": "Allow"
+        }
+    ]
+}
 ----
 +
 请参见 https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html["AWS 文档：创建角色以向 IAM 用户委派权限"^] 了解详细信息。
@@ -305,7 +340,7 @@ IP空间中的所有集群间LIF都必须能够访问对象存储。如果无法
 如果您希望通过Internet从内部数据中心到VPC建立更安全的连接、可以在备份激活向导中选择AWS PrivateLink连接。如果您计划使用VPN或AWS Direct Connect通过使用专用IP地址的VPC端点接口连接内部系统、则必须使用此功能。此类型的连接如中所示 link:task-backup-onprem-to-aws.html#network-diagrams-for-connection-options["第二个图"]。
 
 . 使用 Amazon VPC 控制台或命令行创建接口端点配置。 https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html["请参见有关使用适用于 Amazon S3 的 AWS PrivateLink 的详细信息"^]。
-. 修改与BlueXP Connector关联的安全组配置。您必须将此策略更改为 "Custom" （自定义）（从 "Full Access" ），并且必须将其更改为 "Custom" （自定义）  up S3 permissions,从备份策略添加 S3 权限 如前面所示。
+. 修改与BlueXP Connector关联的安全组配置。您必须将此策略更改为 "Custom" （自定义）（从 "Full Access" ），并且必须将其更改为 "Custom" （自定义） <<设置 S3 权限,从备份策略添加 S3 权限>> 如前面所示。
 +
 image:screenshot_backup_aws_sec_group.png["与 Connector 关联的 AWS 安全组的屏幕截图。"]
 
@@ -408,12 +443,13 @@ image:screenshot_backup_policy_aws.png["显示 Cloud Backup 设置的屏幕截�
 +
 image:screenshot_backup_select_volumes.png["选择要备份的卷的屏幕截图。"]
 
-** 如果此工作环境中的卷存在与您为此工作环境选择的备份计划标签匹配的本地Snapshot副本(例如、每日、每周等)、则会显示一条附加提示"将现有Snapshot副本作为备份副本导出到对象存储"。如果要将所有历史快照作为备份文件复制到对象存储、请选中此框、以确保为卷提供最全面的保护。
+** 如果此工作环境中的读/写卷有任何本地Snapshot副本与您刚刚为此工作环境选择的备份计划标签(例如、每日、每周等)匹配、则会显示一条额外的提示"将现有Snapshot副本作为备份副本导出到对象存储"。如果要将所有历史快照作为备份文件复制到对象存储、请选中此框、以确保为卷提供最全面的保护。
 
 
 . 单击 * 激活备份 * ， Cloud Backup 将开始对卷进行初始备份。
 
 
+.结果
 系统会在您输入的 S3 访问密钥和机密密钥所指示的服务帐户中自动创建 S3 存储分段，备份文件存储在该处。此时将显示卷备份信息板，以便您可以监控备份的状态。您还可以使用监控备份和还原作业的状态 link:task-monitor-backup-jobs.html["作业监控面板"^]。
 
 

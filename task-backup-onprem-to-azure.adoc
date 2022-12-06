@@ -24,7 +24,8 @@ summary: 完成几个步骤，开始将数据从内部 ONTAP 系统备份到 Azu
 
 按照以下步骤快速入门，或者向下滚动到其余部分以了解完整详细信息。
 
-.跨度 class="image><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] Alt-one"></span> 验证是否支持您的配置
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"] 验证是否支持您的配置
+[role="quick-margin-list"]
 * 您已发现内部集群并将其添加到BlueXP中的工作环境中。请参见 https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["发现 ONTAP 集群"^] 了解详细信息。
 +
 ** 此集群运行的是 ONTAP 9.7P5 或更高版本。
@@ -36,24 +37,28 @@ summary: 完成几个步骤，开始将数据从内部 ONTAP 系统备份到 Azu
 * 您已为备份所在的对象存储空间订阅有效的 Azure 。
 
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"] 在系统上启用 Cloud Backup
 [role="quick-margin-para"]
 选择工作环境、然后单击右侧面板中备份和恢复服务旁边的*启用>备份卷*、然后按照设置向导进行操作。
 
 [role="quick-margin-para"]
 image:screenshot_backup_onprem_enable.png["屏幕截图显示了\"启用备份和恢复\"按钮、该按钮可在您选择工作环境后使用。"]
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三个"] 选择云提供商并输入提供商详细信息
 [role="quick-margin-para"]
 选择 Microsoft Azure 作为您的提供程序，然后输入提供程序详细信息。您需要选择 Azure 订阅以及要创建备份的区域。您还可以选择自己的客户管理密钥进行数据加密，而不是使用默认的 Microsoft 管理的加密密钥。
 
 [role="quick-margin-para"]
 image:screenshot_backup_onprem_to_azure.png["显示将卷从内部集群备份到 Azure Blob 存储时云提供商详细信息的屏幕截图。"]
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"] 选择集群 IP 空间以及可选使用专用 vNet 端点
 [role="quick-margin-para"]
 选择卷所在 ONTAP 集群中的 IP 空间。您还可以选择使用现有 Azure 私有端点，以便从内部数据中心更安全地连接到 vNet 。
 
 [role="quick-margin-para"]
 image:screenshot_backup_onprem_azure_networking.png["屏幕截图显示了将卷从 ONTAP 系统备份到 Azure Blob 存储时的网络连接详细信息。"]
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["五个"] 定义默认备份策略
 [role="quick-margin-para"]
 默认策略每天备份卷，并保留每个卷的最新 30 个备份副本。更改为每小时、每天、每周、每月或每年备份、 或者、选择一个系统定义的策略以提供更多选项。您还可以更改要保留的备份副本数。
 
@@ -63,6 +68,7 @@ image:screenshot_backup_onprem_azure_networking.png["屏幕截图显示了将卷
 [role="quick-margin-para"]
 image:screenshot_backup_policy_azure.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中选择备份计划和保留期限。"]
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["六个"] 选择要备份的卷
 [role="quick-margin-para"]
 在选择卷页面中，使用默认备份策略确定要备份的卷。如果要为某些卷分配不同的备份策略，可以创建其他策略并稍后将其应用于卷。
 
@@ -173,6 +179,7 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 
 要使用Cloud Backup搜索和还原功能、您需要对Connector的角色拥有特定权限、以便它可以访问Azure Synapse Workspace和Data Lake存储帐户。请参见以下权限、如果需要修改策略、请按照以下步骤进行操作。
 
+.开始之前
 您必须在订阅中注册Azure Synapse分析资源提供商。 https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider["了解如何为您的订阅注册此资源提供商"^]。您必须是订阅*所有者*或*贡献者*才能注册资源提供程序。
 
 .步骤
@@ -302,12 +309,13 @@ image:screenshot_backup_policy_azure.png["显示 Cloud Backup 设置的屏幕截
 +
 image:screenshot_backup_select_volumes.png["选择要备份的卷的屏幕截图。"]
 
-** 如果此工作环境中的卷存在与您为此工作环境选择的备份计划标签匹配的本地Snapshot副本(例如、每日、每周等)、则会显示一条附加提示"将现有Snapshot副本作为备份副本导出到对象存储"。如果要将所有历史快照作为备份文件复制到对象存储、请选中此框、以确保为卷提供最全面的保护。
+** 如果此工作环境中的读/写卷有任何本地Snapshot副本与您刚刚为此工作环境选择的备份计划标签(例如、每日、每周等)匹配、则会显示一条额外的提示"将现有Snapshot副本作为备份副本导出到对象存储"。如果要将所有历史快照作为备份文件复制到对象存储、请选中此框、以确保为卷提供最全面的保护。
 
 
 . 单击 * 激活备份 * ， Cloud Backup 将开始对卷进行初始备份。
 
 
+.结果
 系统会在您输入的资源组中自动创建Blob存储容器、并且备份文件会存储在该资源组中。此时将显示卷备份信息板，以便您可以监控备份的状态。您还可以使用监控备份和还原作业的状态 link:task-monitor-backup-jobs.html["作业监控面板"^]。
 
 
