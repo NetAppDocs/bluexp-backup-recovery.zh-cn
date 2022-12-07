@@ -32,12 +32,12 @@ Cloud Backup Service 中定义了八类端点：
 
 == 入门
 
-要开始使用Cloud Backup API、您需要获取用户令牌、Cloud Central帐户ID和Cloud Connector ID。
+要开始使用Cloud Backup API、您需要获取用户令牌、您的BlueXP帐户ID和BlueXP Connector ID。
 
-进行API调用时、您需要在Authorization标头中添加用户令牌、并在x-agent-id标头中添加Cloud Connector ID。您应在API中使用Cloud Central帐户ID。
+进行API调用时、您需要在Authorization标头中添加用户令牌、并在x-agent-id标头中添加BlueXP Connector ID。您应在API中使用BlueXP帐户ID。
 
 .步骤
-. 从 NetApp Cloud Central 获取用户令牌。
+. 从NetApp BlueXP网站获取用户令牌。
 +
 请确保从以下链接生成刷新令牌：https://services.cloud.netapp.com/refresh-token/。刷新令牌是一个字母数字字符串、用于生成用户令牌。
 
@@ -54,9 +54,9 @@ curl --location --request POST 'https://netapp-cloud-account.auth0.com/oauth/tok
 ----
 +
 
-NOTE: 来自 NetApp Cloud Central 的用户令牌具有到期日期。API 响应包括一个 "expires_in" 字段、该字段指出令牌何时过期。要刷新令牌、您需要再次调用此API。
+NOTE: BlueXP网站中的用户令牌具有到期日期。API 响应包括一个 "expires_in" 字段、该字段指出令牌何时过期。要刷新令牌、您需要再次调用此API。
 
-. 获取您的NetApp Cloud Central帐户ID。
+. 获取您的BlueXP帐户ID。
 +
 [source, http]
 ----
@@ -99,10 +99,12 @@ Header:
 
 == 使用API的示例
 
-以下示例显示了一个API调用、用于在Azure云中的East-US-2区域使用一个新策略激活工作环境备份、该策略将每天、每小时和每周标签设置为180天后进行归档。请注意、此操作仅在工作环境中启用备份、但不会备份任何卷。如果选择"auto-backup-enabled"：true、则系统中已存在的任何卷都会进行备份、并添加未来的卷。
+以下示例显示了一个API调用、用于在Azure云中的East-US-2区域使用新策略在工作环境中激活Cloud Backup、此策略设置了每日、每小时和每周标签、并在天后将其归档为180天。请注意、此操作仅在工作环境中启用备份、但不会备份任何卷。
+
+如果选择"auto-backup-enabled"："true"、则系统中已存在的任何卷都将进行备份、并且将来的任何卷也将进行备份。
 
 .API请求
-您将看到我们使用的是Cloud Central帐户ID `account-DpTFcxN3`、BlueXP Connector ID `iZwFFeVCZjWnzGlw8RgD0QQNANZvpP7Iclients`和用户令牌 `Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5rSXlPVFUzUWpZek1E…y6nyhBjwkeMwHc4ValobjUmju2x0xUH48g` 在此命令中。
+您将看到我们使用的是BlueXP帐户ID `account-DpTFcxN3`、BlueXP Connector ID `iZwFFeVCZjWnzGlw8RgD0QQNANZvpP7Iclients`和用户令牌 `Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5rSXlPVFUzUWpZek1E…y6nyhBjwkeMwHc4ValobjUmju2x0xUH48g` 在此命令中。
 
 [source, http]
 ----
