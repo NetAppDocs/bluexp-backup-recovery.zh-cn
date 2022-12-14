@@ -113,16 +113,19 @@ endif::gcp[]
 
 [cols="50,50"]
 |===
-| 备份文件位置目标工作环境ifdef：：AWS]] | Amazon S3 
+| 备份文件位置 | 目标工作环境ifdef：：AWS]] 
 
 
-| AWS内部部署ONTAP 系统中的Cloud Volumes ONTAP endf：AWS [] ifdef：：azure[] | Azure Blob 
+| Amazon S3 | AWS内部部署ONTAP 系统中的Cloud Volumes ONTAP endf：AWS [] ifdef：：azure[] 
 
 
-| Azure内部ONTAP 系统中的Cloud Volumes ONTAP endf：azure[] ifdef：：gcp[] | Google Cloud 存储 
+| Azure Blob | Azure内部ONTAP 系统中的Cloud Volumes ONTAP endf：azure[] ifdef：：gcp[] 
 
 
-| Google内部部署ONTAP 系统中的Cloud Volumes ONTAP endf：gcp[] | NetApp StorageGRID 
+| Google Cloud 存储 | Google内部部署ONTAP 系统中的Cloud Volumes ONTAP endf：gcp[] 
+
+
+| NetApp StorageGRID | 内部部署 ONTAP 系统 
 |===
 对于浏览和还原、可以将连接器安装在以下位置：
 

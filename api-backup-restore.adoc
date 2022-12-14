@@ -16,16 +16,17 @@ summary: 通过Web UI提供的Cloud Backup功能也可通过RESTful API获得。
 [role="lead"]
 通过Web UI提供的Cloud Backup功能也可通过RESTful API获得。
 
-Cloud Backup Service 中定义了八类端点：
+Cloud Backup中定义了九类端点：
 
-* backup
-* 目录
-* 云
-* 作业
-* license
-* 还原
-* 单个文件级还原(SFR)
-* 工作环境
+* 备份—管理云和内部资源的备份操作、并检索备份数据的详细信息
+* 目录-根据查询管理文件的索引目录搜索(搜索和还原)
+* 云—从BlueXP中检索有关各种云提供商资源的信息
+* 作业—管理BlueXP数据库上的作业详细信息条目
+* 许可证-从BlueXP检索工作环境的许可证有效性
+* 勒索软件扫描—对特定备份文件启动勒索软件扫描
+* Restore—用于执行卷和文件级还原操作
+* SFR—从备份文件中检索文件以执行单个文件级还原操作(浏览和还原)
+* 工作环境—管理备份策略、并配置与工作环境关联的目标对象存储
 
 
 
@@ -60,7 +61,7 @@ NOTE: BlueXP网站中的用户令牌具有到期日期。API 响应包括一个 
 +
 [source, http]
 ----
-GET 'https://cloudmanager.cloud.netapp.com/tenancy/account' -H 'authority: cloudmanager.cloud.netapp.com'
+GET 'https://api.bluexp.netapp.com/tenancy/account' -H 'authority: api.bluexp.netapp.com'
 Header:
 -H 'accept: application/json'
 -H 'accept-language: en-GB,en;q=0.9'
@@ -108,7 +109,7 @@ Header:
 
 [source, http]
 ----
-curl --location --request POST 'https://cloudmanager.cloud.netapp.com/account/account-DpTFcxN3/providers/cloudmanager_cbs/api/v3/backup/working-environment/VsaWorkingEnvironment-99hPYEgk' \
+curl --location --request POST 'https://api.bluexp.netapp.com/account/account-DpTFcxN3/providers/cloudmanager_cbs/api/v3/backup/working-environment/VsaWorkingEnvironment-99hPYEgk' \
 --header 'x-agent-id: iZwFFeVCZjWnzGlw8RgD0QQNANZvpP7Iclients' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
@@ -150,7 +151,7 @@ curl --location --request POST 'https://cloudmanager.cloud.netapp.com/account/ac
 .监控响应。
 [source, http]
 ----
-curl --location --request GET 'https://cloudmanager.cloud.netapp.com/account/account-DpTFcxN3/providers/cloudmanager_cbs/api/v1/job/1b34b6f6-8f43-40fb-9a52-485b0dfe893a' \
+curl --location --request GET 'https://api.bluexp.netapp.com/account/account-DpTFcxN3/providers/cloudmanager_cbs/api/v1/job/1b34b6f6-8f43-40fb-9a52-485b0dfe893a' \
 --header 'x-agent-id: iZwFFeVCZjWnzGlw8RgD0QQNANZvpP7Iclients' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \

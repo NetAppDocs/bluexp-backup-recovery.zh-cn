@@ -113,13 +113,12 @@ Cloud Backup支持以下类型的卷：
 
 [NOTE]
 ====
-* FlexGroup 限制*：
+* FlexGroup 卷还原限制*：
 
-* 内部ONTAP 系统支持完整卷还原；目前不支持Cloud Volumes ONTAP 系统。
+* 只有内部ONTAP 系统才支持完整卷还原(目前不支持Cloud Volumes ONTAP 系统)。
 * 内部ONTAP 和Cloud Volumes ONTAP 系统均支持文件级还原。
 * 当前不支持目录/文件夹还原。
-* 无法将备份移动到归档存储。
-* 备份无法使用DataLock和勒索软件保护。
+* 此时、可以将卷还原到单个聚合。
 
 
 ====
@@ -189,7 +188,7 @@ Cloud Backup可用于以下消费模式：
 
 [NOTE]
 ====
-如果您从NetApp购买BYOL许可证、则还需要从云提供商的市场订阅PAYGO产品。您的许可证始终会先付费、但在以下情况下、您将从市场上的每小时费率中扣除费用：
+如果您从NetApp购买BYOL许可证、则还需要从云提供商的市场订阅PAYGO产品。您的许可证始终会先付费，但在以下情况下，您将从市场上的每小时费率中扣除费用：
 
 * 超出许可容量时
 * 许可证期限到期时
@@ -212,7 +211,7 @@ link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["了解如
 
 === 按需购买订阅
 
-Cloud Backup 以按需购买模式提供基于消费的许可。在通过云提供商的市场订阅后，您可以按 GiB 为备份的数据付费— ​there 无需预先付费。您的云提供商会通过每月账单向您开具账单。
+Cloud Backup 以按需购买模式提供基于消费的许可。通过云提供商的市场订阅后、您可以按GiB为备份的数据付费、无需预先支付费用。您的云提供商会通过每月账单向您开具账单。
 
 link:task-licensing-cloud-backup.html#use-a-cloud-backup-paygo-subscription["了解如何设置按需购买订阅"]。
 
@@ -414,6 +413,7 @@ endif::gcp[]
 ** 如果在SnapMirror目标卷上创建Snapshot的本地副本(无论使用的SnapMirror标签如何)、则这些Snapshot不会作为备份移动到云中。此时、您需要为源DP卷创建一个包含所需标签的Snapshot策略、以便Cloud Backup对其进行备份。
 
 
+* FlexGroup 卷备份无法移动到归档存储、也无法使用DataLock和勒索软件保护。
 * 支持 SVM-DR 卷备份，但有以下限制：
 +
 ** 仅支持从 ONTAP 二级系统进行备份。

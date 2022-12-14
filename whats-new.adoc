@@ -22,9 +22,27 @@ summary: 了解 Cloud Backup 中的新增功能。
 
 
 
-=== 支持Google归档存储类
+=== 所需的Connector出站Internet访问端点更改
 
-备份文件最初是在Google标准存储类中创建的。现在、您可以选择在一定天数后将旧备份分层到Google Archive存储、以便进一步优化成本。
+由于Cloud Backup发生了更改、您需要更改以下连接器端点才能成功执行Cloud Backup操作：
+
+[cols="50,50"]
+|===
+| 旧端点 | 新端点 
+
+
+| https://cloudmanager.cloud.netapp.com[] | https://api.bluexp.netapp.com[] 
+
+
+| https://*.cloudmanager.cloud.netapp.com[] | https://*.api.bluexp.netapp.com[] 
+|===
+请查看的完整端点列表 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html#outbound-internet-access["AWS"^]， https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html#outbound-internet-access["Google Cloud"^]或 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html#outbound-internet-access["Azure 酒店"^] 云环境。
+
+
+
+=== 支持在UI中选择Google Archival存储类
+
+备份文件最初是在Google标准存储类中创建的。现在、您可以使用Cloud Backup UI在一定天数后将旧备份分层到Google Archive存储、以便进一步优化成本。
 
 目前、使用ONTAP 9.12.1或更高版本的内部ONTAP 集群支持此功能。目前、此功能不适用于Cloud Volumes ONTAP 系统。
 

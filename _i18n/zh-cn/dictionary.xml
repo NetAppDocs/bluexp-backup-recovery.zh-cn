@@ -1066,7 +1066,6 @@
   <block id="813011e2103649bb71f124adedcc10ea" category="sidebar">博客社区</block>
   <block id="dd490b81914dd945601e442a41cb4222" category="sidebar">NetApp 社区</block>
   <block id="ad203e818e0c9d7f42f1c260b33875f3" category="sidebar">云网络研讨会</block>
-  <block id="ecc9f3e43779256709f6205768b035dc" category="paragraph">Cloud Backup 以按需购买模式提供基于消费的许可。在通过云提供商的市场订阅后，您可以按 GiB 为备份的数据付费— ​there 无需预先付费。您的云提供商会通过每月账单向您开具账单。</block>
   <block id="cedae03e22c7bb2c103685dfa74cddab" category="paragraph">BYOL 基于期限（ 12 ， 24 或 36 个月） _ 和 _ 容量，以 1 TiB 为增量。您需要向 NetApp 支付一段时间（如 1 年）使用此服务的费用，最大容量（如 10 TiB ）。</block>
   <block id="ea002f9386d9cd059f69c6d59dbea06c" category="list-text">备份和还原 Kubernetes 永久性卷。 <block ref="03139d1d874301f535e307718cfea817" category="inline-link-macro-rx"></block>。</block>
   <block id="7a6c8511ba9b6f1392c7f34fbd81508d" category="list-text">使用适用于应用程序的 Cloud Backup 将应用程序一致的快照从内部 ONTAP 备份到云。 <block ref="0cae341dd31c4bfca67f66dd24fe06e1" category="inline-link-macro-rx"></block>。</block>
@@ -1397,15 +1396,6 @@
   <block id="cf8915b92cd8246fa33ede992991143a" category="summary">通过Web UI提供的Cloud Backup功能也可通过RESTful API获得。</block>
   <block id="83d4ca6f3242470b8b6011e0437e8875" category="doc">Cloud Backup API</block>
   <block id="efbb9906182277bbe4fa02293b54accb" category="paragraph">通过Web UI提供的Cloud Backup功能也可通过RESTful API获得。</block>
-  <block id="4bf340facb217ae6764d899b29239d58" category="paragraph">Cloud Backup Service 中定义了八类端点：</block>
-  <block id="402051f4be0cc3aad33bcf3ac3d6532b" category="list-text">backup</block>
-  <block id="46f22f2a56ddd091f4b2b2c35c5ca989" category="list-text">目录</block>
-  <block id="a1234b3161b4fbfdfb96dd576b65bbea" category="list-text">云</block>
-  <block id="9dddd5ce1b1375bc497feeb871842d4b" category="list-text">作业</block>
-  <block id="718779752b851ac0dc6281a8c8d77e7e" category="list-text">license</block>
-  <block id="bb2ac0b8da1f64a3498af147ba43fc10" category="list-text">还原</block>
-  <block id="cddd2b11445e1c8453ea0da106dab7a6" category="list-text">单个文件级还原(SFR)</block>
-  <block id="d9a2a68e5e36f917b84ad2543b9d7eb9" category="list-text">工作环境</block>
   <block id="cb59b87e00d11222bfd9159d0d23836f" category="section-title">入门</block>
   <block id="b3080cdc3d4f3f5baa6015e73aeff8f4" category="paragraph">此API将返回如下响应。您可以通过解析*例.[0].[代理].[agentId]*中的输出来检索代理ID。</block>
   <block id="b62dbbecd6533f9627427d34160e7d75" category="section-title">使用API的示例</block>
@@ -1505,12 +1495,8 @@
   <block id="9f0a90a5aa72e2d8a79c1f4913cfc4eb" category="list-text">输入默认策略的名称。您无需更改名称。</block>
   <block id="3b4d703b29a9da1e70d08b65d53fe521" category="paragraph">Cloud Backup可用于以下消费模式：</block>
   <block id="38692e39e588de5b1294ee4cca656080" category="list-text">* BYOL*：从NetApp购买的许可证、可用于任何云提供商。</block>
-  <block id="bd49b5209f967def5a92bc3d2db5e8dd" category="list-text">* PAYGO*：从云提供商的市场按小时订阅。</block>
-  <block id="0d2bbbe00cb4b26974b0290ce799d3ef" category="list-text">*年度*：云提供商市场提供的年度合同。</block>
-  <block id="29a55eb332633103c7b13e64eb6e3cda" category="paragraph">如果您从NetApp购买BYOL许可证、则还需要从云提供商的市场订阅PAYGO产品。您的许可证始终会先付费、但在以下情况下、您将从市场上的每小时费率中扣除费用：</block>
   <block id="6246af80c9ea9c857c70d2c643fcb249" category="list-text">超出许可容量时</block>
   <block id="fdde7a7f3783aa0ce1e585f8be9c2def" category="list-text">许可证期限到期时</block>
-  <block id="494603b817eced385b74900033fb1e44" category="paragraph">如果您从某个市场签有年度合同、则所有Cloud Backup消费均会从该合同中扣除。您不能将年度市场合同与BYOL混合搭配使用。</block>
   <block id="9757bd87f9a5ff6758600430092b3955" category="paragraph">请注意、首次注册PAYGO订阅时、您可以获得30天免费试用。</block>
   <block id="421539f25601331f9f5f1e59cdb43e21" category="section-title">年度合同</block>
   <block id="49a09607b95f46b9056878d3c4fdbc41" category="paragraph">使用AWS时、可以获得两份年期合同、合同期限分别为12、24或36个月：</block>
@@ -1753,7 +1739,6 @@
   <block id="c84ee35eef49d3ea170dc5583bae97eb" category="section-title">备份限制</block>
   <block id="dd717dd6a5197fd72bf9aae1e454dd3e" category="list-text">备份数据保护(DP)卷时：</block>
   <block id="c73aeadbe74d06b3eebf4d0a5f283344" category="list-text">与SnapMirror标签`APP_consistent`和`all_source_snapshot`的关系不会备份到云。</block>
-  <block id="fc67d9698234eb37a3aee3e7929f04f9" category="list-text">如果在SnapMirror目标卷上创建Snapshot的本地副本(无论使用的SnapMirror标签如何)、则这些Snapshot不会作为备份移动到云中。此时、您需要为源DP卷创建一个包含所需标签的Snapshot策略、以便Cloud Backup对其进行备份。</block>
   <block id="ff65f252d2a0aa40e634cf2ad7eaa2d3" category="list-text">数据保护卷不支持使用*立即备份*按钮进行临时卷备份。</block>
   <block id="f9f784798392e12769fac127e94ef591" category="paragraph">如果您使用3.9.21或更高版本部署了Connector、则这些权限应已属于IAM角色。否则，您需要添加缺少的权限。具体来说就是 "Athena" 和 "glue" 权限，因为它们是搜索和还原所必需的。</block>
   <block id="e83377d046e6ba641ad164b4cb484f6d" category="list-text">或者、在使用ONTAP 9.10.1及更高版本时、您也可以选择在一定天数后将备份分层到S3 Glacier或S3 Glacier深度归档存储、以进一步优化成本。 <block ref="58f01ad9ea7ce8fd23147681b9f27af7" category="inline-link-macro-rx"></block>。</block>
@@ -2030,7 +2015,6 @@
   <block id="92e7e64290ff37f2ae2bd9287b6710b0" category="list-text">或者、在使用ONTAP 9.11.1及更高版本时、您也可以选择通过配置_DataLock和勒索软件保护_来保护备份免受删除和勒索软件攻击。_DataLock_可防止您的备份文件被修改或删除、_勒索 软件保护_会扫描您的备份文件、以在备份文件中查找勒索软件攻击的证据。 <block ref="a1590ca0a57c2e20ed40ac0f3384a5af" category="inline-link-macro-rx"></block>。</block>
   <block id="642c6cdace2b813772c203eeab710f8a" category="summary">备份存储在云帐户的对象存储中，以便您可以从特定时间点还原数据。您可以从备份文件还原整个ONTAP 卷、也可以从备份文件还原文件夹或单个文件。</block>
   <block id="7ada527d1dd84b409531cc41597f383e" category="paragraph">您可以将*文件夹*还原到原始工作环境中的卷、使用相同云帐户的其他工作环境中的卷或内部ONTAP 系统上的卷。</block>
-  <block id="33db5b42d69afb61eeb2827297155200" category="paragraph">概括地说、当您需要从过去一周或一个月还原特定卷、文件夹或文件时、_Browse &amp; Restore"通常会更好—您知道文件的名称和位置、以及文件的最后一个状态良好的日期。通常、当您需要还原卷、文件夹或文件时、_Search &amp; Restore"会更好、但您不记得确切的名称、卷所在的卷或最后一个状态良好的日期。</block>
   <block id="d04e8ed2daf2cfbac4df96c77bda4638" category="cell">浏览文件夹样式的结构以查找单个备份文件中的卷、文件夹或文件</block>
   <block id="7a035a915239cf76211880a31a8e3764" category="cell">在*所有备份文件*中按部分或完整卷名称、部分或完整文件夹/文件名称、大小范围以及其他搜索筛选器搜索卷、文件夹或文件</block>
   <block id="4b41d0742a9aae0ba9c0d4a963b3f0d8" category="cell">在无法访问Internet的站点中从StorageGRID 还原卷、文件夹和文件</block>
@@ -2777,7 +2761,6 @@
   <block id="9469202592824934bca3fb2cb931658f" category="paragraph">*注意：*如果要还原的卷的备份文件位于归档存储中(从ONTAP 9.10.1开始)、则还原操作将需要较长时间并产生成本。此外、目标集群还必须运行ONTAP 9.10.1或更高版本来执行卷还原、9.11.1来执行文件还原、9.12.1来执行Google Archive。</block>
   <block id="e57e5c06a7f562addb87315f013677ab" category="inline-link-macro">了解有关从Google归档存储还原的更多信息</block>
   <block id="9412087e43270b75b90fb61a57336ae4" category="paragraph"><block ref="3c746f2f3db6e0c7091d37b11706df4d" category="inline-link-macro-rx"></block>。</block>
-  <block id="af75701c9a037579ad781827217afca6" category="cell">备份文件位置目标工作环境ifdef：：AWS]]</block>
   <block id="14bc89f69d47048d5fa04ec00dbd4951" category="list-text">输入要用于还原的卷的名称、然后选择此卷要驻留的Storage VM和聚合。默认情况下，使用 * &lt;source_volume_name&gt;_Restore* 作为卷名称。</block>
   <block id="a4601bed84cfcc515268c444afd2de52" category="paragraph"><block ref="bb0b0cd162d3c161f2efdc6c31126950" category="inline-link-macro-rx"></block>。Google Archive存储层中的备份文件几乎会立即还原、并且不需要"还原"优先级。</block>
   <block id="8eea62084ca7e541d918e823422bd82e" category="paragraph-title">结果</block>
@@ -2866,21 +2849,14 @@
   <block id="080b8dd3f3323a86a22c3af13ee1c495" category="list-text">从搜索和还原页面中、运行几次目录搜索以确认索引目录还原已成功完成。</block>
   <block id="650c5c3b9794e3433e90f3f1f307a2c3" category="list-text">目前不支持SnapLock 合规性卷。</block>
   <block id="bab09e9304b5c4bff1eb4287ce6071b7" category="list-text">FlexGroup 卷(需要ONTAP 9.12.1或更高版本)</block>
-  <block id="3578b42a5d98371821e8bbbfa580402f" category="paragraph">* FlexGroup 限制*：</block>
-  <block id="8525e25820e0d207d1868887b689a388" category="list-text">内部ONTAP 系统支持完整卷还原；目前不支持Cloud Volumes ONTAP 系统。</block>
   <block id="475af0c0d6321583d7e7e8aefaa8c0ea" category="list-text">内部ONTAP 和Cloud Volumes ONTAP 系统均支持文件级还原。</block>
   <block id="6843e74fcdf0b33118de40008961bd8e" category="list-text">当前不支持目录/文件夹还原。</block>
-  <block id="863100ef97e97497031f0cd9659a9626" category="list-text">无法将备份移动到归档存储。</block>
-  <block id="74278f940fba2609e018606700d622ac" category="list-text">备份无法使用DataLock和勒索软件保护。</block>
   <block id="7528a8dc2386db915543addb19c65967" category="paragraph">在 Cloud Volumes ONTAP 或内部 ONTAP 系统上启用 Cloud Backup 时，此服务会对您的数据执行完整备份。备份映像中不包含卷快照。初始备份之后，所有额外备份都是增量备份，这意味着只会备份更改的块和新块。这样可以将网络流量降至最低。Cloud Backup基于构建<block ref="d8c60b64404c334d98470563ebc11aa0" category="inline-link-rx"></block>。</block>
   <block id="181beb5ba2cd4630deb7eb4905bcf5d0" category="list-text">在 GCP 中，备份与 _Standard_ 存储类关联。</block>
   <block id="e3ef2b7eb11e46c821f75f7c65663319" category="inline-link-macro">了解有关Google归档存储的更多信息</block>
   <block id="ed5d221b71e51e1e1409dda86fedb054" category="paragraph">如果您的内部集群使用的是ONTAP 9.12.1或更高版本、您可以选择在一定天数后将旧备份分层到云备份UI中的_Archive_存储、以进一步优化成本。(此功能当前不适用于Cloud Volumes ONTAP 系统。) <block ref="60cdd04e7131e97598ce1c583d8c9a5e" category="inline-link-macro-rx"></block>。</block>
   <block id="7675fc79dcb00b07887361a923ba9860" category="list-text">如果备份文件驻留在归档存储中、则无法还原单个文件夹。</block>
-  <block id="46aa79ab08e63016ec0d69e8688a5ae4" category="paragraph">VPC网关端点必须已存在于VPC中。</block>
   <block id="70762168244eed6d4b30ab53961acada" category="inline-link">了解如何执行此操作</block>
-  <block id="ee61366a45648d82d0b1cf2d520d62d9" category="list-text">在BlueXP中添加目标AWS帐户凭据。<block ref="201f99c67ca9910466fe537f8e186b88" category="inline-link-rx"></block>。</block>
-  <block id="867a5700ef9337300481641feed4fadf" category="list-text">将权限"S3：PutBucketPolicy"和"S3：PutBucketOwnershipControls"添加到为BlueXP Connector提供权限的IAM角色中。</block>
   <block id="ce03951df7fb3e2e2a2d44f1f519bfc7" category="list-text">所需的AWS Connector权限</block>
   <block id="5fc7bffc6ccf29fc2aae8be1237ab6b8" category="list-text">所需的AWS Cloud Volumes ONTAP 权限</block>
   <block id="4739ea782eb59e2b0593d9f546ccdb1c" category="inline-link">Cloud Volumes ONTAP 策略</block>
@@ -2914,8 +2890,6 @@
   <block id="e486e66993d53788be809532aaa39de8" category="paragraph">如果卷的任何本地Snapshot副本与您在此工作环境中使用的备份计划标签匹配(例如、每日、每周等)、您可以将这些历史快照作为备份文件导出到对象存储。这样、您可以通过将旧的Snapshot副本移动到基线备份副本中来初始化云中的备份。</block>
   <block id="65fd1c000589ff36a794229f1987490d" category="paragraph">请注意、此选项仅对新读/写卷的新备份文件进行适用场景 处理、数据保护(DP)卷不支持此选项。</block>
   <block id="5c0fff562b33dc0a5a3acac30ed2d313" category="section-title">2022年12月6日</block>
-  <block id="095cf56774a1692bc55bacaa0dfdfd8e" category="section-title">支持Google归档存储类</block>
-  <block id="a11d9289acedc3e5b501dc8760967251" category="paragraph">备份文件最初是在Google标准存储类中创建的。现在、您可以选择在一定天数后将旧备份分层到Google Archive存储、以便进一步优化成本。</block>
   <block id="738d31d37e16df450b2af9540e98c7d4" category="paragraph">目前、使用ONTAP 9.12.1或更高版本的内部ONTAP 集群支持此功能。目前、此功能不适用于Cloud Volumes ONTAP 系统。</block>
   <block id="4547c4a9db890b3449aca4e706555007" category="section-title">支持FlexGroup 卷</block>
   <block id="dd7d3cf5e78a510a4d10a46ebb784dc8" category="paragraph">Cloud Backup现在支持FlexGroup 卷。使用ONTAP 9.12.1或更高版本时、您可以将FlexGroup 卷备份到公有 和私有云存储。如果您的工作环境包含FlexVol 和FlexGroup 卷、则在更新ONTAP 软件后、您可以备份这些系统上的任何FlexGroup 卷。</block>
@@ -2957,4 +2931,42 @@
   <block id="3d230e49f0e908474dc66b75f9fe1a42" category="paragraph">以下示例显示了一个API调用、用于在Azure云中的East-US-2区域使用新策略在工作环境中激活Cloud Backup、此策略设置了每日、每小时和每周标签、并在天后将其归档为180天。请注意、此操作仅在工作环境中启用备份、但不会备份任何卷。</block>
   <block id="f8d12ed26ccbabf790e2b8039b322046" category="paragraph">如果选择"auto-backup-enabled"："true"、则系统中已存在的任何卷都将进行备份、并且将来的任何卷也将进行备份。</block>
   <block id="056e3b6ecd6329a08267381680ade8b7" category="paragraph">您将看到我们使用的是BlueXP帐户ID<block ref="50deb7e0fbc66ff8a640c6692b57f062" prefix=" " category="inline-code"></block>、BlueXP Connector ID<block ref="4c8927d7befc11ec79983636b1168c7e" prefix=" " category="inline-code"></block>和用户令牌<block ref="4def1da2868e8cb4ae96d8dc41f88f59" prefix=" " category="inline-code"></block> 在此命令中。</block>
+  <block id="7fca796fb2e827602e2cedf3a042e67f" category="paragraph">概括地说、当您需要从过去一周或一个月还原特定卷、文件夹或文件时、_Browse &amp; Restore"通常会更好—您知道文件的名称和位置、以及文件的最后一个状态良好的日期。通常、当您需要还原卷、文件夹或文件时、_Search &amp; Restore"会更好、但您不记得确切的名称、卷所在的卷或最后一个状态良好的日期。</block>
+  <block id="f63030c33368c9800cc44a8f8e79e3ae" category="paragraph">* FlexGroup 卷还原限制*：</block>
+  <block id="edf17b5a6d6f509fefc6faa660cd0be4" category="list-text">只有内部ONTAP 系统才支持完整卷还原(目前不支持Cloud Volumes ONTAP 系统)。</block>
+  <block id="4edc78fc5c04f1cf55893ac0c9ec6f56" category="list-text">此时、可以将卷还原到单个聚合。</block>
+  <block id="1e101142b61a711e7fbc92238adf9d20" category="list-text">* PAYGO*：从云提供商的市场按小时订阅。</block>
+  <block id="146cb6145f5238f0a019636047844250" category="list-text">*年度*：云提供商市场提供的年度合同。</block>
+  <block id="0de9db73ae6cc6898033595f94ad00e5" category="paragraph">如果您从NetApp购买BYOL许可证、则还需要从云提供商的市场订阅PAYGO产品。您的许可证始终会先付费，但在以下情况下，您将从市场上的每小时费率中扣除费用：</block>
+  <block id="4bfee78dfee8df44f634310837e39f18" category="paragraph">如果您从某个市场签有年度合同、则所有Cloud Backup消费均会从该合同中扣除。您不能将年度市场合同与BYOL混合搭配使用。</block>
+  <block id="ad28f8f849480a4631fcbda2422f9afa" category="paragraph">Cloud Backup 以按需购买模式提供基于消费的许可。通过云提供商的市场订阅后、您可以按GiB为备份的数据付费、无需预先支付费用。您的云提供商会通过每月账单向您开具账单。</block>
+  <block id="2802742de18e4e6fd33742e9f320577d" category="paragraph">备份副本存储在BlueXP在云帐户中创建的对象存储中。每个集群/工作环境有一个对象存储、BlueXP将该对象存储命名为："netapp-backup-clusteruuid"。请确保不要删除此对象存储。</block>
+  <block id="bea14d044add005ebbc3ac7671a9bac7" category="list-text">如果在SnapMirror目标卷上创建Snapshot的本地副本(无论使用的SnapMirror标签如何)、则这些Snapshot不会作为备份移动到云中。此时、您需要为源DP卷创建一个包含所需标签的Snapshot策略、以便Cloud Backup对其进行备份。</block>
+  <block id="a5de9c26eaee9b57d8bcd1ff4d49f888" category="list-text">FlexGroup 卷备份无法移动到归档存储、也无法使用DataLock和勒索软件保护。</block>
+  <block id="9defdde711056fe7bbfd4e7bfc21de90" category="inline-link">详细了解网关端点</block>
+  <block id="5395d21beaf13b09f8644c9586a34bbb" category="paragraph">VPC网关端点必须已存在于VPC中。<block ref="efccbdf33ae534e50311d23fe5ad227e" category="inline-link-rx"></block>。</block>
+  <block id="172483accc796d1a4b4deb4fe01ad8d4" category="list-text">验证权限"S3：PutBucketPolicy"和"S3：PutBucketOwnershipControls"是否属于为BlueXP Connector提供权限的IAM角色。</block>
+  <block id="7a5694ab81955cab1df533aecf5b621f" category="list-text">在BlueXP中添加目标AWS帐户凭据。<block ref="30ba017617a87d5bf31b4d6429094c83" category="inline-link-rx"></block>。</block>
+  <block id="cf8c3678cd107c70b39f91362bc50612" category="list-text">在第二个帐户的用户凭据中添加以下权限：</block>
+  <block id="1220600a03e84f199822458dedc2ecbb" category="paragraph">Cloud Backup中定义了九类端点：</block>
+  <block id="2cb92dc9664b8bd89b66c1b586d1b5d2" category="list-text">备份—管理云和内部资源的备份操作、并检索备份数据的详细信息</block>
+  <block id="0a924c1567df8b244e9ce16ecf18158d" category="list-text">目录-根据查询管理文件的索引目录搜索(搜索和还原)</block>
+  <block id="06edcf8e7a33c320645fd0ea9368455d" category="list-text">云—从BlueXP中检索有关各种云提供商资源的信息</block>
+  <block id="bbc08f31565cf18b34651c7d285d9911" category="list-text">作业—管理BlueXP数据库上的作业详细信息条目</block>
+  <block id="24a0195c713a5929a91f430eefb31465" category="list-text">许可证-从BlueXP检索工作环境的许可证有效性</block>
+  <block id="f3e008a63710b1317b4340caf4a574bd" category="list-text">勒索软件扫描—对特定备份文件启动勒索软件扫描</block>
+  <block id="383364de1ac57828a17c795ac72c6b9c" category="list-text">Restore—用于执行卷和文件级还原操作</block>
+  <block id="50091c079ab0009fa21807b8bbc81cfd" category="list-text">SFR—从备份文件中检索文件以执行单个文件级还原操作(浏览和还原)</block>
+  <block id="96fa87fed0ba1143a920c3c8d44c8754" category="list-text">工作环境—管理备份策略、并配置与工作环境关联的目标对象存储</block>
+  <block id="73358bf2a9d2d2c32dbbab5b76681d7f" category="section-title">所需的Connector出站Internet访问端点更改</block>
+  <block id="06c42f4f82e29b4e90570ef70b538ed4" category="paragraph">由于Cloud Backup发生了更改、您需要更改以下连接器端点才能成功执行Cloud Backup操作：</block>
+  <block id="eb75f7332becd8b3fbb2a59ea0bd0536" category="cell">旧端点</block>
+  <block id="afcce2fe2d959c0f4554e7815a50e8e4" category="cell">新端点</block>
+  <block id="c4d1d84171458f4e2b69163203db5d8a" category="cell"><block ref="c4d1d84171458f4e2b69163203db5d8a" category="inline-link-rx"></block></block>
+  <block id="4122f436cdd6caafddd779363c085012" category="cell"><block ref="4122f436cdd6caafddd779363c085012" category="inline-link-rx"></block></block>
+  <block id="fb5182328f54790471e76bed4fb4cadd" category="cell"><block ref="fb5182328f54790471e76bed4fb4cadd" category="inline-link-rx"></block></block>
+  <block id="819a13756c5141d19acea431a1fce1e5" category="cell"><block ref="819a13756c5141d19acea431a1fce1e5" category="inline-link-rx"></block></block>
+  <block id="0e40b9cba041560c9517bc49757da3c7" category="paragraph">请查看的完整端点列表<block ref="4c9e3e17ba20f553394e5bc78e402946" category="inline-link-rx"></block>，<block ref="cd3c6f623ccf3e34f9d46b28c47f2a3d" category="inline-link-rx"></block>或<block ref="80755100f97c37f8aa8e3d999b0a43d9" category="inline-link-rx"></block> 云环境。</block>
+  <block id="e3a84cf85e2ede3f349ff73485707901" category="section-title">支持在UI中选择Google Archival存储类</block>
+  <block id="862c6bfd630667f5b535d9741b4f08fc" category="paragraph">备份文件最初是在Google标准存储类中创建的。现在、您可以使用Cloud Backup UI在一定天数后将旧备份分层到Google Archive存储、以便进一步优化成本。</block>
 </blocks>

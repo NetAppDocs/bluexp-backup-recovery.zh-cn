@@ -73,7 +73,7 @@ image:screenshot_backup_policy_aws.png["显示 Cloud Backup 设置的屏幕截�
 
 image:diagram_cloud_backup_cvo_aws.png["显示 Cloud Backup 如何与备份文件所在的源系统和目标存储上的卷进行通信的示意图。"]
 
-VPC网关端点必须已存在于VPC中。
+VPC网关端点必须已存在于VPC中。 https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-s3.html["详细了解网关端点"^]。
 
 支持的 ONTAP 版本:: 建议至少使用ONTAP 9.7P5；ONTAP 9.8P13及更高版本。
 许可证要求:: 对于云备份PAYGO许可、AWS Marketplace中提供了一个BlueXP订阅、用于部署Cloud Volumes ONTAP 和云备份。您需要 https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["订阅此BlueXP订阅"^] 启用 Cloud Backup 之前。Cloud Backup 的计费通过此订阅完成。
@@ -89,14 +89,6 @@ VPC网关端点必须已存在于VPC中。
 
 --
 支持的 AWS 区域:: 所有 AWS 地区均支持 Cloud Backup https://cloud.netapp.com/cloud-volumes-global-regions["支持 Cloud Volumes ONTAP 的位置"^]；包括 AWS GovCloud 地区。
-在其他 AWS 帐户中创建备份所需的设置:: 默认情况下，备份是使用与 Cloud Volumes ONTAP 系统相同的帐户创建的。如果要使用其他AWS帐户进行备份、则必须：
-+
---
-* 在BlueXP中添加目标AWS帐户凭据。 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html#add-additional-credentials-to-a-connector["了解如何执行此操作"]。
-* 将权限"S3：PutBucketPolicy"和"S3：PutBucketOwnershipControls"添加到为BlueXP Connector提供权限的IAM角色中。
-
-
---
 使用客户管理的密钥进行数据加密所需的信息:: 您可以在激活向导中选择自己的客户管理的数据加密密钥，而不是使用默认的 Amazon S3 加密密钥。在这种情况下，您需要已设置加密受管密钥。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html["了解如何使用您自己的密钥"^]。
 所需的AWS Connector权限:: 为BlueXP提供权限的IAM角色必须包括最新版本的S3权限 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html["BlueXP策略"^]。
 +
@@ -171,6 +163,28 @@ VPC网关端点必须已存在于VPC中。
 +
 --
 如果您使用BlueXP 3.9.23或更高版本创建了Cloud Volumes ONTAP 工作环境、则这些权限应已属于IAM角色。否则，您需要添加缺少的权限。
+
+--
+在其他 AWS 帐户中创建备份所需的设置:: 默认情况下，备份是使用与 Cloud Volumes ONTAP 系统相同的帐户创建的。如果要使用其他AWS帐户进行备份、则必须：
++
+--
+* 验证权限"S3：PutBucketPolicy"和"S3：PutBucketOwnershipControls"是否属于为BlueXP Connector提供权限的IAM角色。
+* 在BlueXP中添加目标AWS帐户凭据。 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html#add-additional-credentials-to-a-connector["了解如何执行此操作"^]。
+* 在第二个帐户的用户凭据中添加以下权限：
++
+....
+"athena:StartQueryExecution",
+"athena:GetQueryResults",
+"athena:GetQueryExecution",
+"glue:GetDatabase",
+"glue:GetTable",
+"glue:CreateTable",
+"glue:CreateDatabase",
+"glue:GetPartitions",
+"glue:BatchCreatePartition",
+"glue:BatchDeletePartition"
+....
+
 
 --
 
