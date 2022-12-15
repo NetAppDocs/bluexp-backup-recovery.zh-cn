@@ -31,10 +31,10 @@ summary: 了解 Cloud Backup 中的新增功能。
 | 旧端点 | 新端点 
 
 
-| https://cloudmanager.cloud.netapp.com[] | https://api.bluexp.netapp.com[] 
+| https://cloudmanager.cloud.netapp.com | https://api.bluexp.netapp.com 
 
 
-| https://*.cloudmanager.cloud.netapp.com[] | https://*.api.bluexp.netapp.com[] 
+| https://*.cloudmanager.cloud.netapp.com | https://*.api.bluexp.netapp.com 
 |===
 请查看的完整端点列表 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html#outbound-internet-access["AWS"^]， https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html#outbound-internet-access["Google Cloud"^]或 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html#outbound-internet-access["Azure 酒店"^] 云环境。
 
@@ -50,7 +50,7 @@ summary: 了解 Cloud Backup 中的新增功能。
 
 === 支持FlexGroup 卷
 
-Cloud Backup现在支持FlexGroup 卷。使用ONTAP 9.12.1或更高版本时、您可以将FlexGroup 卷备份到公有 和私有云存储。如果您的工作环境包含FlexVol 和FlexGroup 卷、则在更新ONTAP 软件后、您可以备份这些系统上的任何FlexGroup 卷。
+Cloud Backup现在支持备份和还原FlexGroup 卷。使用ONTAP 9.12.1或更高版本时、您可以将FlexGroup 卷备份到公有 和私有云存储。如果您的工作环境包含FlexVol 和FlexGroup 卷、则在更新ONTAP 软件后、您可以备份这些系统上的任何FlexGroup 卷。
 
 https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html#supported-volumes["请参见支持的卷类型的完整列表"]。
 
@@ -418,63 +418,3 @@ link:concept-protect-app-data-to-cloud.html["了解有关保护内部应用程�
 === 此版本中更改了 Cloud Backup Service 费用，以便与行业标准更加一致
 
 现在，您无需根据备份文件的大小为 NetApp 支付容量费用，而是仅为所保护的数据付费，该数据是通过要备份的源 ONTAP 卷的逻辑已用容量（在 ONTAP 效率之前）计算得出的。此容量也称为前端 TB （前端 TB ）。
-
-
-
-== 2021 年 11 月 28 日
-
-
-
-=== 能够将 EKS Kubernetes 集群中的永久性卷备份到 Amazon S3
-
-如果您的 EKS 集群安装了 NetApp Astra Trident ，并且使用 Cloud Volumes ONTAP for AWS 作为集群的后端存储，则可以将卷备份到 Amazon S3 或从 Amazon S3 还原卷。 link:task-backup-kubernetes-to-s3.html["有关详细信息，请访问此处"]。
-
-
-
-=== 用于备份 DP 卷的增强功能
-
-现在， Cloud Backup 支持为 SVM-DR 关系中目标 ONTAP 系统上的 DP 卷创建备份。存在一些限制，请参见 link:concept-ontap-backup-to-cloud.html#limitations["限制"] 了解详细信息。
-
-
-
-== 2021 年 11 月 5 日
-
-
-
-=== 可以在将卷还原到内部 ONTAP 系统时选择专用端点
-
-从 Amazon S3 或 Azure Blob 上的备份文件将卷还原到内部 ONTAP 系统时，现在您可以选择一个私有端点，用于以私密方式安全地连接到内部系统。
-
-
-
-=== 现在，您可以在数天后将旧备份文件分层到归档存储，以节省成本
-
-如果集群运行的是 ONTAP 9.10.1 或更高版本，而您使用的是 AWS 或 Azure 云存储，则可以将备份分层到归档存储。请参见有关的详细信息 link:reference-aws-backup-tiers.html["AWS S3 归档存储类"] 和 link:reference-azure-backup-tiers.html["Azure Blob 归档访问层"]。
-
-
-
-=== Cloud Backup BYOL 许可证已移至 " 数字电子钱包 " 中的 " 数据服务许可证 " 选项卡
-
-Cloud Backup的BYOL许可已从Cloud Backup Licenses选项卡移至BlueXP Digital Wallet中的Data Services Licenses选项卡。
-
-
-
-== 2021 年 10 月 4 日
-
-
-
-=== 现在，在执行卷或文件还原时，备份文件大小将显示在备份页面中
-
-如果您要删除不必要的大型备份文件，或者您可以比较备份文件大小，以确定可能因恶意软件攻击而导致的任何异常备份文件，则此功能非常有用。
-
-
-
-=== TCO 计算器可用于比较 Cloud Backup 成本
-
-总拥有成本计算器可帮助您了解 Cloud Backup 的总拥有成本，并将这些成本与传统备份解决方案进行比较，并估算潜在节省量。请查看https://cloud.netapp.com/cloud-backup-service-tco-calculator["此处"^]。
-
-
-
-=== 能够为工作环境取消注册 Cloud Backup
-
-现在，您可以轻松地完成这项工作 link:task_manage_backups.html#unregistering-cloud-backup-for-a-working-environment["为工作环境取消注册 Cloud Backup"] 如果您不想再对该工作环境使用备份功能（或需要付费），
