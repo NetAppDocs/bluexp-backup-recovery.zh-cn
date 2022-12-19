@@ -16,6 +16,8 @@ summary: 将数据存储库从内部ONTAP 备份到AWS。
 [role="lead"]
 通过将适用于VMware vSphere的SnapCenter 插件与BlueXP集成、您可以将一个或多个数据存储库备份到Amazon Web Services。这将有助于VM管理员轻松快速地备份和归档数据以提高存储效率、并加快云过渡速度。
 
+如果数据存储库与归档策略关联、则您可以选择归档层。支持的归档层为Glacier和Glacier Deep。
+
 
 NOTE: 确保您已满足所有要求 link:concept-protect-vm-data.html#Requirements["要求"] 将数据存储库备份到云之前。
 
@@ -45,6 +47,10 @@ NOTE: 确保您已满足所有要求 link:concept-protect-vm-data.html#Requireme
 .. 在AWS机密密钥字段中、指定数据加密的密码。
 .. 选择要创建备份的区域。
 .. 指定已添加为工作环境的 ONTAP 集群的 IP 地址。
+.. 选择归档层。
++
+建议设置归档层、因为这是一次性活动、不允许稍后进行设置。
+
 
 
 . 查看详细信息并单击 * 激活备份 * 。

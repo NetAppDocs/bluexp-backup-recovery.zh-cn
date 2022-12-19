@@ -14,7 +14,7 @@ summary: 完成几个步骤、将应用程序数据从ONTAP 备份到GCP。
 
 
 [role="lead"]
-您可以通过将适用于应用程序的云备份与BlueXP和内部SnapCenter 集成来将应用程序数据从ONTAP 备份到Google云平台。
+您可以通过将适用于应用程序的云备份与Cloud Manager和内部SnapCenter 集成来将应用程序数据从ONTAP 备份到Google云平台。
 
 您可以使用一个策略同时将一个或多个应用程序保护到云中。
 

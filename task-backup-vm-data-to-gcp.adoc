@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
-permalink: task-backup-vm-data-to-azure.html 
-keywords: back up, backup, backup virtual machine data, Microsoft Azure, cloud backup, backup datastores 
-summary: 将数据存储库从内部ONTAP 备份到Azure。 
+permalink: task-backup-vm-data-to-gcp.html 
+keywords: back up, backup, backup virtual machine data, gcp, google cloud platform, cloud backup, backup datastores 
+summary: 将数据存储库从内部ONTAP 备份到Google云平台。 
 ---
-= 将数据存储库备份到Microsoft Azure
+= 将数据存储库备份到Google Cloud Platform
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,9 +14,7 @@ summary: 将数据存储库从内部ONTAP 备份到Azure。
 
 
 [role="lead"]
-通过将适用于VMware vSphere的SnapCenter 插件与BlueXP集成、您可以将一个或多个数据存储库备份到Microsoft Azure。这将有助于VM管理员轻松快速地备份和归档数据以提高存储效率、并加快云过渡速度。
-
-如果数据存储库与归档策略关联、则您可以选择归档层。支持的归档层是Azure Archive Blob Storage。
+通过将适用于VMware vSphere的SnapCenter 插件与BlueXP集成、您可以将一个或多个数据存储库备份到Google云平台。这将有助于VM管理员轻松快速地备份和归档数据以提高存储效率、并加快云过渡速度。
 
 
 NOTE: 确保您已满足所有要求 link:concept-protect-vm-data.html#Requirements["要求"] 将数据存储库备份到云之前。
@@ -40,16 +38,13 @@ NOTE: 确保您已满足所有要求 link:concept-protect-vm-data.html#Requireme
 .. 单击 * 添加工作环境 * 。
 
 
-. 选择* Microsoft Azure*将其配置为云提供程序。
+. 选择* Google Cloud Platform*将其配置为云提供程序。
 +
-.. 指定 Azure 订阅 ID 。
+.. 选择要在其中创建用于备份的 Google Cloud Storage 存储分段的 Google Cloud Project 。
+.. 在Google Cloud Access Key字段中、指定密钥。
+.. 在Google Cloud Secret Key字段中、指定密码。
 .. 选择要创建备份的区域。
-.. 创建新资源组或使用现有资源组。
-.. 指定已添加为工作环境的 ONTAP 集群的 IP 地址。
-.. 选择归档层。
-+
-建议设置归档层、因为这是一次性活动、不允许稍后进行设置。
-
+.. 指定IP空间。
 
 
 . 查看详细信息并单击 * 激活备份 * 。

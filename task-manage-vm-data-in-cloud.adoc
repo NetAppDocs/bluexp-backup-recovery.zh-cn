@@ -50,7 +50,7 @@ summary: 您可以查看数据存储库和虚拟机、并编辑适用于VMware v
 
 == 编辑适用于VMware vSphere的SnapCenter 插件实例
 
-您可以在BlueXP中编辑适用于VMware vSphere的SnapCenter 插件的详细信息
+您可以在BlueXP中编辑适用于VMware vSphere的SnapCenter 插件的详细信息。
 
 .步骤
 . 在BlueXP UI中、单击*保护*>*备份和恢复*>*虚拟机*>*设置*>*适用于VMware vSphere的SnapCenter 插件*。

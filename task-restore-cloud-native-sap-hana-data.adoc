@@ -1,0 +1,111 @@
+---
+sidebar: sidebar 
+permalink: task-restore-cloud-native-sap-hana-data.html 
+keywords: cloud native, application data, restore, data files, SAP HANA, database, recovery, Cloud Manager, BlueXP 
+summary: 还原数据文件、然后恢复数据库。 
+---
+= 还原云原生SAP HANA数据库
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+如果发生数据丢失、您可以还原数据和非数据文件、然后恢复数据库。
+
+
+
+== 预处理脚本和后处理脚本
+
+您可以在创建策略时提供预处理脚本、后处理脚本和退出脚本。在执行还原操作时、这些脚本会在HANA主机上运行。
+
+支持的脚本格式包括.sh、python脚本、perl脚本等。
+
+主机管理员应将预处理文件和后处理文件注册到中 `/opt/NetApp/snapcenter/scc/etc/allowed_commands.config file``
+
+`[root@scspa2622265001 etc]# cat allowed_commands.config
+command: mount
+command: umount
+command: /mnt/scripts/pre_script.sh
+command: /mnt/scripts/post_script.sh`
+
+
+
+== 环境变量
+
+对于还原工作流、以下环境变量可作为prestpt和postScript的一部分提供。
+
+|===
+| 环境变量 | Description 
+
+
+ a| 
+SID
+ a| 
+选择用于还原的HANA数据库的系统标识符
+
+
+
+ a| 
+备份名称
+ a| 
+为还原操作选择的备份名称
+
+
+
+ a| 
+UserStoreKeyNames
+ a| 
+已为HANA数据库配置用户存储密钥
+
+
+
+ a| 
+OSDBUser
+ a| 
+已为HANA数据库配置OSDBUser
+
+|===
+
+
+== 还原云原生SAP HANA数据库
+
+*您需要的内容*
+
+. SAP HANA系统必须处于已停止状态。
+. 您可以提供一个预处理程序来停止SAP HANA系统。
+
+
+* 步骤 *
+
+. 单击 image:icon-action.png["图标以选择操作"] 对应于要还原的数据库、然后单击*查看详细信息*。
+. 单击 image:icon-action.png["图标以选择操作"] 对应于要用于还原的数据备份、然后单击*还原*。
+. 在*还原系统*页面中、输入脚本。
+. 单击 * 还原 * 。
+
+
+* 完成后 *
+
+* 还原后、手动恢复SAP HANA系统或提供一个用于执行SAP HANA系统恢复的脚本。
+
+
+
+
+== 还原非数据卷
+
+. 在*应用程序*页面中、从下拉框中选择非数据卷。
+. 单击 image:icon-action.png["图标以选择操作"] 对应于要还原的备份、然后单击*还原*。
+
+
+
+
+== 还原全局非数据卷
+
+* 步骤 *
+
+. 在*应用程序*页面中、单击要还原的全局非数据卷。
+. 单击 image:icon-action.png["图标以选择操作"] 对应于要还原的全局非数据卷、然后单击*还原*。
+

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-create-policies-vms.html 
 keywords: create policy, protection policies, predefined policies, custom policies 
-summary: 将数据存储库从内部ONTAP 备份到AWS。 
+summary: 创建用于备份虚拟机的策略 
 ---
 = 创建用于备份虚拟机的策略
 :hardbreaks:
@@ -60,10 +60,19 @@ summary: 将数据存储库从内部ONTAP 备份到AWS。
 .步骤
 . 在虚拟机页面的设置下拉列表中、选择*策略*。
 . 单击*创建策略*。
-. 指定策略名称。
-. 指定计划和保留详细信息。
+. 在策略详细信息部分中、指定策略名称。
+. 在保留部分中、选择一种保留类型并指定要保留的备份数。
+. 选择主存储源或二级存储作为备份存储源。
+. (可选)如果要在经过一定天数后将备份从对象存储移动到归档存储以实现成本优化、请选中*将备份分层到归档*复选框、然后输入应在多少天后将备份归档。
 +
-默认情况下、备份源将选择为主备份源。
+只有在使用ONTAP 9.10.1或更高版本以及Amazon Web Services或Azure作为云提供商时、才能将备份从对象存储移动到归档存储。您应为每个云提供商配置归档访问层。
 
 . 单击 * 创建 * 。
++
+您可以编辑、复制和删除自定义策略。
+
++
+
+NOTE: 您不能编辑或删除与虚拟机关联的策略。
+
 

@@ -18,6 +18,47 @@ summary: 了解 Cloud Backup 中的新增功能。
 
 
 
+== 2022年12月19日
+
+
+
+=== Cloud Backup for Applications的增强功能
+
+* SAP HANA数据库
++
+** 支持基于策略备份和还原驻留在Azure NetApp Files (ANF)上的SAP HANA数据库
+** 支持自定义策略
+
+
+* Oracle数据库
++
+** 添加主机并自动部署插件
+** 支持自定义策略
+** 支持基于策略备份、还原和克隆Cloud Volumes ONTAP 上的Oracle数据库
+** 支持基于策略备份和还原驻留在Amazon FSX for NetApp ONTAP 上的Oracle数据库
+** 支持使用连接和复制方法还原Oracle数据库
+** 支持Oracle 21c
+** 支持克隆云本机Oracle数据库
+
+
+
+
+
+
+=== Cloud Backup增强功能
+
+* 虚拟机
++
+** 从内部二级存储备份虚拟机
+** 支持自定义策略
+** 支持Google Cloud Platform (GCP)备份一个或多个数据存储库
+** 支持低成本云存储、例如Glacier、Deep Glacier和Azure Archive
+
+
+
+
+
+
 == 2022年12月6日
 
 

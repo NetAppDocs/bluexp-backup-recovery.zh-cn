@@ -14,9 +14,9 @@ summary: 了解有关保护虚拟机上数据的更多信息、并了解不同�
 
 
 [role="lead"]
-您可以通过将适用于VMware vSphere的SnapCenter 插件与BlueXP (以前称为Cloud Manager)集成来保护虚拟机上的数据。您可以将数据存储库备份到云、并将虚拟机轻松还原回适用于VMware vSphere的内部部署SnapCenter 插件。
+您可以通过将适用于VMware vSphere的SnapCenter 插件与BlueXP (以前称为Cloud Manager)集成来保护虚拟机上的数据。您可以将数据存储库从内部主存储和二级存储备份到云、并轻松地将虚拟机还原回内部部署的适用于VMware vSphere的SnapCenter 插件。
 
-您可以将数据存储库备份到Amazon Web Services S3、Microsoft Azure Blob和StorageGRID。
+您可以将数据存储库备份到Amazon Web Services S3 (支持的归档层为Glacier和Deep Glacier)、Microsoft Azure Blob (支持的归档层为Azure Archive)、Google Cloud Platform和StorageGRID。
 
 
 
@@ -25,10 +25,14 @@ summary: 了解有关保护虚拟机上数据的更多信息、并了解不同�
 在开始将数据存储库和虚拟机备份到云服务之前、请阅读以下要求、以确保您的配置受支持。
 
 * 适用于VMware vSphere 4.6P1或更高版本的SnapCenter 插件
++
+** 您应使用适用于VMware vSphere 4.7P1或更高版本的SnapCenter 插件从内部二级存储备份虚拟机。
+
+
 * ONTAP 9.8 或更高版本
 * BlueXP 3.9或更高版本
 * 适用于VMware vSphere 4.6P1的SnapCenter 插件应至少已创建一个备份。
-* 适用于VMware vSphere的SnapCenter 插件中至少有一个每日、每周或每月策略、没有与BlueXP中适用于虚拟机的Cloud Backup策略相同的标签。
+* 适用于VMware vSphere的SnapCenter 插件中至少有一个每日、每周或每月策略、没有与BlueXP中虚拟机策略相同的标签。
 * 对于预制策略、适用于VMware vSphere的SnapCenter 插件和云中的数据存储库的计划层应相同。
 * 确保数据存储库中没有FlexGroup 卷、因为不支持备份和还原FlexGroup 卷。
 * 请确保所有卷均未加密、因为不支持还原加密卷。
@@ -39,4 +43,4 @@ summary: 了解有关保护虚拟机上数据的更多信息、并了解不同�
 
 下图显示了每个组件以及需要在它们之间准备的连接：
 
-image:cloud_backup_vm.png["虚拟机云备份的架构图。"]
+image:cloud_backup_vm.png["架构图"]

@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
-permalink: task-backup-cloud-native-app-data.html 
-keywords: cloud native, application data, back up, policy, pre-canned policies, scheduled backups, on-demand backups 
-summary: 分配策略并备份数据库。 
+permalink: task-backup-cloud-native-oracle-data.html 
+keywords: admin role, service account, pre-canned policies, cloud manager, BlueXP, scheduled backups, on-demand backups, create policy, Oracle database, backup limitations 
+summary: 创建Oracle数据库的计划备份或按需备份。 
 ---
-= 备份Cloud原生 应用程序数据
+= 备份云本机Oracle数据库
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,10 +14,32 @@ summary: 分配策略并备份数据库。
 
 
 [role="lead"]
-您可以分配预制策略、也可以创建策略、然后将其分配给数据库。分配策略后、将按照策略中定义的计划创建备份。您还可以创建按需备份。
+您应分配一个预制策略或您创建的策略、然后进行备份。
 
 
-NOTE: 在为Oracle创建ASM磁盘组时、请确保磁盘组之间没有通用卷。每个磁盘组都需要具有专用卷。
+
+== 创建用于保护Oracle数据库的策略
+
+如果不想编辑预制策略、可以创建策略。
+
+* 步骤 *
+
+. 在应用程序页面中、从设置下拉列表中选择*策略*。
+. 单击*创建策略*。
+. 指定策略名称。
+. (可选)编辑备份名称的格式。
+. 指定计划和保留详细信息。
+. 单击 * 创建 * 。
+
+
+
+
+== 创建Oracle数据库的备份
+
+您可以分配预制策略、也可以创建策略、然后将其分配给数据库。分配策略后、将按照策略中定义的计划创建备份。
+
+
+NOTE: 对于Oracle、在创建ASM磁盘组时、请确保磁盘组之间没有通用卷。每个磁盘组都需要具有专用卷。
 
 * 步骤 *
 
@@ -37,7 +59,7 @@ NOTE: 服务帐户(_SnapCenter-account-<account_id>_)用于运行计划的备份
 
 
 
-== 创建按需备份
+== 创建Oracle数据库的按需备份
 
 分配策略后、您可以为应用程序创建按需备份。
 
@@ -54,3 +76,14 @@ NOTE: 服务帐户(_SnapCenter-account-<account_id>_)用于运行计划的备份
 `失败、状态代码为500、错误｛\"错误\"：｛\"代码\"：\"app_internal_error\"、\"消息\"：\"无法创建快照。原因：由于由快照备份的克隆、不允许执行快照操作。请稍后重试。`
 
 有关如何修复此问题描述 的信息、请参见： https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/Snapshot_operation_not_allowed_due_to_clones_backed_by_snapshots["由于由快照备份的克隆、不允许执行快照操作"]。
+
+
+
+== 限制
+
+* 不支持联机数据或仅记录备份
+* 不支持脱机备份
+* 不支持备份驻留在递归挂载点上的Oracle数据库
+* 对于位于多个与FSX卷重叠的ASM磁盘组上的Oracle数据库、不支持一致性组快照
+* 如果Oracle数据库是在ASM上配置的、请确保SVM名称在整个FSX系统中是唯一的。如果您在FSX系统中使用相同的SVM名称、则不支持备份位于这些SVM上的Oracle数据库。
+

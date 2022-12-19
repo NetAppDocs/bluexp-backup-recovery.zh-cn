@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
-permalink: task-restore-cloud-native-app-data.html 
-keywords: cloud native, application data, restore, data files, control files, recovery 
+permalink: task-restore-cloud-native-oracle-data.html 
+keywords: cloud native, application data, restore, data files, control files, recovery, Cloud Manager, BlueXP, Oracle database, Oracle 
 summary: 还原数据文件和/或控制文件、然后恢复数据库。 
 ---
-= 还原Cloud原生 应用程序数据
+= 还原云本机Oracle数据库
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -15,6 +15,11 @@ summary: 还原数据文件和/或控制文件、然后恢复数据库。
 
 [role="lead"]
 如果发生数据丢失、您可以还原数据文件、控制文件或这两者、然后恢复数据库。
+
+* 您需要的内容 *
+
+如果Oracle 21c数据库处于已启动状态、还原操作将失败。要成功还原数据库、应运行以下命令。
+`cp -f <ORACLE_HOME>/jdbc/lib/ojdbc8.jar /opt/NetApp/snapcenter/spl/plugins/sco/lib ojdbc8-8.jar`
 
 * 步骤 *
 
@@ -54,7 +59,18 @@ NOTE: 在ASM布局中、iSCSI不支持使用控制文件或仅使用控制文件
 您也可以选中*强制原位还原*复选框。
 
 +
-强制原位还原*选项会覆盖数据文件磁盘组中的spfile、密码文件和归档日志文件。如果选择了*强制原位还原*选项、则应使用最新的备份。
+在SAN布局中、如果适用于Oracle的SnapCenter 插件在ASM磁盘组上发现除Oracle数据文件以外的任何外部文件、则会执行连接和复制还原方法。外部文件可以是以下一种或多种类型：
+
++
+** 参数
+** Password
+** 归档日志
+** 联机日志
+** ASM参数文件。
++
+"Force in-place restore*"选项会覆盖参数、密码和归档日志类型的外部文件。如果选择了*强制原位还原*选项、则应使用最新的备份。
+
+
 
 . 在恢复范围部分中、执行以下操作：
 +
@@ -97,4 +113,15 @@ NOTE: 在ASM布局中、iSCSI不支持使用控制文件或仅使用控制文件
 
 . 单击*下一步*并查看详细信息。
 . 单击 * 还原 * 。
+
+
+
+
+== 限制
+
+* 不支持粒度还原、例如还原表空间和PDB
+* 如果某些磁盘组包含外部文件、则会同时使用原位还原和连接并复制还原方法。但是、不支持同时使用这两种方法执行还原、并且还原操作将失败。数据库将保持挂载状态、您需要手动将数据库置于打开状态。
++
+由于存在已知问题描述 、UI中的作业页面不会显示由于存在外部文件而导致的故障消息。如果在SAN预还原阶段发生故障、请检查连接器日志、以了解问题描述 的发生原因。
+
 
