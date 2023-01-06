@@ -58,31 +58,6 @@ summary: 在每个Oracle数据库主机上部署适用于Oracle的SnapCenter 插
 
 
 
-=== 手动部署此插件
-
-如果Oracle主机上未启用基于SSH密钥的身份验证、则应执行以下手动步骤来部署此插件。
-
-* 步骤 *
-
-. 登录到Connector VM。
-. 下载SnapCenter Linux主机插件二进制文件。`sUdo Docker exec -it cloudmanager_SCS_cloud curl -X get 'http://127.0.0.1/deploy/downloadLinuxPlugin'`[]
-. 获取基本挂载路径。`sUdo Docker volume ls | grep SCS_cloud _volume _查｛'print $2'｝_ xargs sudo Docker volume inspect _ grep mountpoint`
-. 获取下载插件的二进制路径。`s使用ls <base_mount_path>$(sudo Docker ps|grep -po"cloudmanager_SCS_cloud：.*？"|sed -e 's/*$//'|cut -f2 -d"：")/sc-linux-host-plugin/snapcenter_linux_host_plugin_scs.bin`
-. 使用scp或其他替代方法将_snapcenter_linux_host_plugin_SCS.bin_复制到每个Oracle数据库主机。
-+
-应将_snapcenter_linux_host_plugin_SCS.bin_复制到非root用户可访问的位置。
-
-. 使用非root用户帐户登录到Oracle数据库主机、然后运行以下命令为二进制文件启用执行权限。
-`chmod +x snapcenter_linux_host_plugin_scs.bin`
-. 以sudo非root用户身份部署Oracle插件。
-`./snapcenter_linux_host_plugin_scs.bin -i silent -DSPL_USER=<non-root-user>`
-. 将_certificate.p12_从Connector VM的_<base_mount_path>/client/certificate/_路径复制到插件主机上的_/var/opt/snapcenter/spl/etc/。
-. 导航到_/var/opt/snapcenter/spl/etc_并执行keytool命令以导入证书。`keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass SnapCenter -deststorepass SnapCenter -srccalibras agentcert -destalias agentcert -noprop`
-. 重新启动SPL：`systemctl restart spl`
-
-
-
-
 === 使用脚本部署此插件
 
 如果在Oracle主机上为非root用户启用了基于SSH密钥的身份验证、则可以执行以下步骤来部署此插件。在执行这些步骤之前、请确保已启用与连接器的SSH连接。
@@ -106,6 +81,31 @@ summary: 在每个Oracle数据库主机上部署适用于Oracle的SnapCenter 插
 
 例如：
 `sudo /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/oracle_plugin_copy_and_install.sh --host xxx.xx.x.x --sshkey /keys/netapp-ssh.ppk`
+
+
+
+=== 手动部署此插件
+
+如果Oracle主机上未启用基于SSH密钥的身份验证、则应执行以下手动步骤来部署此插件。
+
+* 步骤 *
+
+. 登录到Connector VM。
+. 下载SnapCenter Linux主机插件二进制文件。`sUdo Docker exec -it cloudmanager_SCS_cloud curl -X get 'http://127.0.0.1/deploy/downloadLinuxPlugin'`[]
+. 获取基本挂载路径。`sUdo Docker volume ls | grep SCS_cloud _volume _查｛'print $2'｝_ xargs sudo Docker volume inspect _ grep mountpoint`
+. 获取下载插件的二进制路径。`s使用ls <base_mount_path>$(sudo Docker ps|grep -po"cloudmanager_SCS_cloud：.*？"|sed -e 's/*$//'|cut -f2 -d"：")/sc-linux-host-plugin/snapcenter_linux_host_plugin_scs.bin`
+. 使用scp或其他替代方法将_snapcenter_linux_host_plugin_SCS.bin_复制到每个Oracle数据库主机。
++
+应将_snapcenter_linux_host_plugin_SCS.bin_复制到非root用户可访问的位置。
+
+. 使用非root用户帐户登录到Oracle数据库主机、然后运行以下命令为二进制文件启用执行权限。
+`chmod +x snapcenter_linux_host_plugin_scs.bin`
+. 以sudo非root用户身份部署Oracle插件。
+`./snapcenter_linux_host_plugin_scs.bin -i silent -DSPL_USER=<non-root-user>`
+. 将_certificate.p12_从Connector VM的_<base_mount_path>/client/certificate/_路径复制到插件主机上的_/var/opt/snapcenter/spl/etc/。
+. 导航到_/var/opt/snapcenter/spl/etc_并执行keytool命令以导入证书。`keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass SnapCenter -deststorepass SnapCenter -srccalibras agentcert -destalias agentcert -noprop`
+. 重新启动SPL：`systemctl restart spl`
+
 
 
 

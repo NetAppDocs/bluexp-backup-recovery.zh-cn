@@ -29,9 +29,9 @@ NOTE: 确保在每个SAP HANA数据库主机上都安装了Java 11 (64位) Oracl
 
 . 登录到Connector VM。
 . 下载Linux主机插件二进制文件。
-`sudo docker exec -it cloudmanager_scs_cloud curl -X GET 'http://127.0.0.1/deploy/downloadLinuxPlugin'``
+`sudo docker exec -it cloudmanager_scs_cloud curl -X GET 'http://127.0.0.1/deploy/downloadLinuxPlugin'`
 . 获取基本挂载路径。`sUdo Docker volume ls | grep SCS_cloud _volume _查｛'print $2'｝_ xargs sudo Docker volume inspect _ grep mountpoint`
-. 从复制第1行到第16行 `oracle_checksum_scs.txt`` 文件位于 `base_mount_path/version/sc-linux-host-plugin/`
+. 从复制第1行到第16行 `oracle_checksum_scs.txt` 文件位于 `base_mount_path/version/sc-linux-host-plugin/`
 . 登录到SAP HANA数据库主机并执行以下步骤：
 +
 .. 创建非root用户帐户、专用密钥对并分配权限。
@@ -39,34 +39,6 @@ NOTE: 确保在每个SAP HANA数据库主机上都安装了Java 11 (64位) Oracl
 +
 在上述行中、将<LINUXUSER> 替换为您创建并保存在visuod实用程序中的非root用户。
 
-
-
-
-
-
-
-== 手动部署此插件
-
-如果HANA主机上未启用基于SSH密钥的身份验证、则应执行以下手动步骤来部署此插件。
-
-* 步骤 *
-
-. 登录到Connector VM。
-. 下载Linux主机插件二进制文件。
-`# sudo docker exec -it cloudmanager_scs_cloud curl -X GET 'http://127.0.0.1/deploy/downloadLinuxPlugin'``
-. 获取基本挂载路径。
-`sudo docker volume ls | grep scs_cloud_volume | awk {'print $2'} | xargs sudo docker volume inspect | grep Mountpoint``
-. 获取下载插件的二进制路径。
-`sudo ls <base_mount_path> $(sudo docker ps|grep -Po "cloudmanager_scs_cloud:.*? "|sed -e 's/ *$//'|cut -f2 -d":")/sc-linux-host-plugin/snapcenter_linux_host_plugin_scs.bin``
-. 复制 `snapcenter_linux_host_plugin_scs.bin`` 使用scp或其他替代方法访问每个SAP HANA数据库主机。
-. 在SAP HANA数据库主机上、运行以下命令为二进制文件启用执行权限。
-`chmod +x snapcenter_linux_host_plugin_scs.bin`
-. 以sudo非root用户身份部署SAP HANA插件。``./snapcenter_linux_host_plugin_scs.bin -i silent -DSPL_USER=<non-root-user>``
-. 复制 在插件主机上。
-+
-.. 导航到`/var/opt/snapcenter/spl/etc`` and execute the keytool command to import the certificate.
-`keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt``
-.. 重新启动SPL： `systemctl restart spl``
 
 
 
@@ -91,6 +63,33 @@ NOTE: 确保在每个SAP HANA数据库主机上都安装了Java 11 (64位) Oracl
 ** SSH_port：HANA主机上的SSH端口、这是一个可选参数。默认值为22。
 ** plugin_port：插件使用的端口、这是一个可选参数。默认值为8145。
 ** install_dir：要部署此插件的目录、这是一个可选参数。默认值为/opt。
+
+
+
+
+
+
+== 手动部署此插件
+
+如果HANA主机上未启用基于SSH密钥的身份验证、则应执行以下手动步骤来部署此插件。
+
+* 步骤 *
+
+. 登录到Connector VM。
+. 下载Linux主机插件二进制文件。
+`# sudo docker exec -it cloudmanager_scs_cloud curl -X GET 'http://127.0.0.1/deploy/downloadLinuxPlugin'`
+. 获取基本挂载路径。`sUdo Docker volume ls | grep SCS_cloud _volume _查｛'print $2'｝_ xargs sudo Docker volume inspect _ grep mountpoint`
+. 获取下载插件的二进制路径。`s使用ls <base_mount_path>$(sudo Docker ps|grep -po"cloudmanager_SCS_cloud：.*？"|sed -e 's/*$//'|cut -f2 -d"：")/sc-linux-host-plugin/snapcenter_linux_host_plugin_scs.bin`
+. 复制 `snapcenter_linux_host_plugin_scs.bin` 使用scp或其他替代方法访问每个SAP HANA数据库主机。
+. 在SAP HANA数据库主机上、运行以下命令为二进制文件启用执行权限。
+`chmod +x snapcenter_linux_host_plugin_scs.bin`
+. 以sudo非root用户身份部署SAP HANA插件。
+`./snapcenter_linux_host_plugin_scs.bin -i silent -DSPL_USER=<non-root-user>`
+. 复制 `certificate.p12` from `<base_mount_path>/client/certificate/` Connector VM到的路径 `/var/opt/snapcenter/spl/etc/` 在插件主机上。
++
+.. 导航到 `/var/opt/snapcenter/spl/etc` 并执行keytool命令以导入证书。
+`keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass snapcenter -deststorepass snapcenter -srcalias agentcert -destalias agentcert -noprompt`
+.. 重新启动SPL：`systemctl restart spl`
 
 
 
