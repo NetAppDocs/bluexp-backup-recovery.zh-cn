@@ -62,6 +62,9 @@ image:screenshot_backup_provider_settings_storagegrid.png["显示将卷从 ONTAP
 默认策略每天备份卷，并保留每个卷的最新 30 个备份副本。更改为每小时、每天、每周、每月或每年备份、 或者、选择一个系统定义的策略以提供更多选项。您还可以更改要保留的备份副本数。
 
 [role="quick-margin-para"]
+如果您的集群使用的是ONTAP 9.12.1或更高版本、而您使用的是StorageGRID 11.3或更高版本、则可以选择在一定天数后将旧备份分层到AWS S3 Glacier或S3 Glacier深度归档存储、以便进一步优化成本。
+
+[role="quick-margin-para"]
 或者、在使用ONTAP 9.11.1及更高版本时、您也可以选择通过配置_DataLock和勒索软件保护_设置之一来保护备份免受删除和勒索软件攻击。 link:concept-cloud-backup-policies.html["详细了解可用的Cloud Backup策略配置设置"^]。
 
 [role="quick-margin-para"]
@@ -80,11 +83,11 @@ image:screenshot_backup_onprem_policy.png["显示 Cloud Backup 设置的屏幕�
 
 在开始将内部卷备份到 StorageGRID 之前，请阅读以下要求，以确保您的配置受支持。
 
-下图显示了将内部 ONTAP 系统备份到 StorageGRID 时的每个组件以及需要在它们之间准备的连接：
+下图显示了将内部ONTAP 系统备份到StorageGRID 时的每个组件以及需要在它们之间准备的连接。
 
 image:diagram_cloud_backup_onprem_storagegrid.png["显示 Cloud Backup 如何与备份文件所在的源系统和目标存储上的卷进行通信的示意图。"]
 
-如果 Connector 和内部 ONTAP 系统安装在无法访问 Internet 的内部位置，则 StorageGRID 系统必须位于同一内部数据中心。
+如果将连接器和内部ONTAP 系统安装在无法访问Internet的内部位置("非公开站点")、则StorageGRID 系统必须位于同一内部数据中心。在非公开站点配置中、不支持将旧备份文件归档到公共云。
 
 
 
@@ -144,6 +147,8 @@ StorageGRID 必须满足以下要求。请参见 https://docs.netapp.com/us-en/s
 --
 要对备份使用DataLock &勒索软件保护、您的StorageGRID 系统必须运行11.6.0.3或更高版本。
 
+要将较早的备份分层到云归档存储、您的StorageGRID 系统必须运行11.3或更高版本。
+
 --
 S3 凭据:: 您必须已创建S3租户帐户来控制对StorageGRID 存储的访问。 https://docs.netapp.com/us-en/storagegrid-116/admin/creating-tenant-account.html["有关详细信息、请参见StorageGRID 文档"^]。
 +
@@ -180,6 +185,8 @@ S3 凭据:: 您必须已创建S3租户帐户来控制对StorageGRID 存储的访
 
 NOTE: Cloud Backup功能内置在BlueXP Connector中。如果安装在无法连接 Internet 的站点上，则需要定期更新 Connector 软件才能访问新功能。检查 link:whats-new.html["Cloud Backup 新增功能"] 要查看每个 Cloud Backup 版本中的新功能，然后您可以按照步骤执行操作 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrade-the-connector-on-prem-without-internet-access["升级 Connector 软件"^] 希望使用新功能时。
 
+强烈建议在没有Internet连接的站点上安装Connector时、定期为Cloud Backup配置数据创建本地备份。 link:reference-backup-cbs-db-in-dark-site.html["了解如何在非公开站点中备份Cloud Backup数据"^]。
+
 
 
 === 为连接器准备网络连接
@@ -195,6 +202,31 @@ NOTE: Cloud Backup功能内置在BlueXP Connector中。如果安装在无法连�
 
 
 
+
+
+
+=== 准备将旧备份文件归档到公共云存储
+
+将较旧的备份文件分层到归档存储可为您可能不需要的备份使用成本较低的存储类、从而节省资金。StorageGRID 是一种内部(私有云)解决方案 、不提供归档存储、但您可以将旧备份文件迁移到公共云归档存储。
+
+要求::
++
+--
+* 您的集群必须使用ONTAP 9.12.1或更高版本
+* 您的StorageGRID 必须使用11.3或更高版本
+* 您的StorageGRID 必须是 https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-storagegrid.html["已在BlueXP画布中发现并提供"^]
+* 目前、只有AWS S3存储类才支持归档存储。您可以选择将备份分层到AWS S3 Glacier或S3 Glacier深度归档存储。 link:reference-aws-backup-tiers.html["了解有关AWS归档层的更多信息"^]。
+* 您需要为备份所在的存储空间注册AWS S3订阅。
+
+
+--
+
+
+在为集群的备份策略定义归档设置时、您将输入云提供商凭据并选择要使用的存储类。Cloud Backup会在您为集群激活备份时创建云分段。AWS归档存储所需的信息如下所示。
+
+image:screenshot_sg_archive_to_aws.png["将备份文件从StorageGRID 归档到AWS S3所需信息的屏幕截图。"]
+
+您选择的归档策略设置将在StorageGRID 中生成信息生命周期管理(ILM)策略、并将这些设置添加为"规则"。如果存在活动的ILM策略、则新规则将添加到ILM策略中、以将数据移动到归档层。如果现有ILM策略处于"建议"状态、则无法创建和激活新的ILM策略。 https://docs.netapp.com/us-en/storagegrid-116/ilm/index.html["详细了解StorageGRID ILM策略和规则"^]。
 
 
 
@@ -239,7 +271,8 @@ image:screenshot_backup_provider_settings_storagegrid.png["显示将卷从内部
 +
 .. 输入默认策略的名称。您无需更改名称。
 .. 定义备份计划并选择要保留的备份数。 link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings["请参见您可以选择的现有策略列表"^]。
-.. 或者、在使用ONTAP 9.11.1及更高版本时、您也可以选择通过配置_DataLock和勒索软件保护_来保护备份免受删除和勒索软件攻击。_DataLock_可防止您的备份文件被修改或删除、_勒索 软件保护_会扫描您的备份文件、以在备份文件中查找勒索软件攻击的证据。 link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["详细了解可用的DataLock设置"^]。
+.. 如果您的集群使用的是ONTAP 9.11.1或更高版本、则可以选择通过配置_DataLock和勒索软件保护_来保护您的备份免受删除和勒索软件攻击。_DataLock_可防止您的备份文件被修改或删除、_勒索 软件保护_会扫描您的备份文件、以在备份文件中查找勒索软件攻击的证据。 link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["详细了解可用的DataLock设置"^]。
+.. 如果您的集群使用的是ONTAP 9.12.1或更高版本、而您使用的是StorageGRID 11.3或更高版本、则可以选择在一定天数后将旧备份分层到AWS S3 Glacier或S3 Glacier深度归档存储、以便进一步优化成本。 <<准备将旧备份文件归档到公共云存储,了解如何为此功能配置系统>>。
 +
 image:screenshot_backup_onprem_policy.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中选择备份计划和保留期限。"]
 

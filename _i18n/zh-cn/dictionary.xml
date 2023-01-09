@@ -162,7 +162,6 @@
   <block id="07c2ea1cc6b7f654f42d3f074f3c13f4" category="summary">完成几个步骤，开始将数据从 Cloud Volumes ONTAP 备份到 Azure Blob 存储。</block>
   <block id="f6c96f9db00475dfd6c371ca50af3d5b" category="doc">将 Cloud Volumes ONTAP 数据备份到 Azure Blob 存储</block>
   <block id="2433628c53fed80ea9d352a1bcd9ce45" category="paragraph">按照以下步骤快速入门，或者向下滚动到其余部分以了解完整详细信息。</block>
-  <block id="f4ca70a51e36ab5a53700df413dab643" category="list-text">您正在 Azure 中运行 Cloud Volumes ONTAP 9.7P5 或更高版本。</block>
   <block id="fc054407571c2d4dfcfbb5057d24c238" category="list-text">您已为备份所在的存储空间订阅了有效的云提供商。</block>
   <block id="e44764e5848db6ece6d5d4bce23a85b7" category="inline-link-macro">并激活</block>
   <block id="23dbb22134961553d5b555f78c0d3634" category="list-text">新系统：在工作环境向导中， Cloud Backup 默认处于启用状态。请务必保持此选项处于启用状态。</block>
@@ -248,7 +247,6 @@
   <block id="e950616aa291f7c208ba1c81279fac86" category="list-text">Connector 必须与 Google 存储和集群建立所需的网络连接。</block>
   <block id="8bdd358a89f9eb4aa9db585fe0022c49" category="list-text">您已为备份所在的对象存储空间订阅有效的 Google 。</block>
   <block id="aba00b3a9824359e1b71c654d0e30236" category="list-text">您的 Google 帐户具有访问密钥和机密密钥，因此 ONTAP 集群可以备份和还原数据。</block>
-  <block id="7ffdeee26efbb4de92b2a7d6b5011f0b" category="paragraph">选择 Google Cloud 作为提供商，然后输入提供商详细信息。您还需要在卷所在的 ONTAP 集群中指定 IP 空间。</block>
   <block id="2e1115d39f7972f9468b4f2ab39cff31" category="paragraph"><block ref="2e1115d39f7972f9468b4f2ab39cff31" category="inline-image-macro-rx" type="image"></block></block>
   <block id="be956322a93c4a7bc2b8c8b049f7496e" category="paragraph">在开始将内部卷备份到 Google Cloud 存储之前，请阅读以下要求，以确保您的配置受支持。</block>
   <block id="0ee205b9a66364b8bd529d4a5a68568a" category="list-text">ONTAP 集群通过端口 443 从集群间 LIF 启动 HTTPS 连接到 Google Cloud 存储，以执行备份和还原操作。</block>
@@ -259,16 +257,11 @@
   <block id="8b36e9207c24c76e6719268e49201d94" category="inline-link">Google</block>
   <block id="a6dcd23c3ac238175abaf161ac1ebec0" category="paragraph">您需要为备份所在的对象存储空间订阅 Google 。</block>
   <block id="22d599494fb27c8f85e36d489a5fe77d" category="section-title">准备用于备份的 Google Cloud Storage</block>
-  <block id="dfa2ebc2c5048f9486fe3dbffbc52438" category="paragraph">设置备份时，您需要为具有存储管理员权限的服务帐户提供存储访问密钥。通过服务帐户， Cloud Backup 可以对用于存储备份的云存储分段进行身份验证和访问。需要提供密钥，以便 Google Cloud Storage 知道谁在发出请求。</block>
-  <block id="08b66c293c38e17964ad1686888ef26c" category="inline-link">创建具有预定义的存储管理员角色的服务帐户</block>
-  <block id="442a5b2cd4109c0203483d91fc544ccf" category="list-text"><block ref="cbd838ab5a582921645cc152129d502d" category="inline-link-rx"></block>。</block>
   <block id="037f057bec36e168c4cbef4fb3d7baef" category="inline-link">GCP 存储设置</block>
   <block id="53b7d7a30f51832e17a6116b67b1ed1b" category="list-text">转至<block ref="68a5b209ce3843ce6d342e4d1299b53b" category="inline-link-rx"></block> 并为服务帐户创建访问密钥：</block>
-  <block id="b1ca97074a9a438ddbe4b7a8de533728" category="list-text">选择一个项目，然后单击 * 互操作性 * 。如果尚未执行此操作，请单击 * 启用互操作性访问 * 。</block>
   <block id="2888f76ffbc5da2864448f44f9438096" category="list-text">在 * 服务帐户的访问密钥 * 下，单击 * 为服务帐户创建密钥 * ，选择刚刚创建的服务帐户，然后单击 * 创建密钥 * 。</block>
   <block id="e70be257e1b959fc5e5a47150ae303c3" category="paragraph">稍后在配置备份服务时，您需要在 Cloud Backup 中输入密钥。</block>
   <block id="60e390e46e8053a449cd4b01f03eb2b1" category="list-text">选择 Google Cloud 作为您的提供商，然后单击 * 下一步 * 。</block>
-  <block id="230e4929fb2833e313996458b4c8cfc5" category="list-text">您希望在其中创建用于备份的 Google Cloud Storage 存储分段的 Google Cloud Project 。（项目必须具有具有预定义的存储管理员角色的服务帐户。）</block>
   <block id="df01e222f706a6e606e31a3c39365e1e" category="list-text">用于存储备份的 Google 访问密钥和机密密钥。</block>
   <block id="fab2c1fd526bfec515ab263855629395" category="list-text">要存储备份的 Google 区域。</block>
   <block id="a2533530877329fd448b78c28606ffc4" category="inline-image-macro">显示将卷从内部集群备份到 Google Cloud Storage 时云提供商详细信息的屏幕截图。</block>
@@ -655,7 +648,6 @@
   <block id="020c911dde61e6dcdb0fdc14a39191bc" category="summary">完成几个步骤，开始将数据从 Cloud Volumes ONTAP 备份到 Google Cloud 存储。</block>
   <block id="16d4cdec56b3c490095eb1c28b330e1f" category="doc">将 Cloud Volumes ONTAP 数据备份到 Google 云存储</block>
   <block id="e196accd41672418154158d3bf8e1006" category="paragraph">完成几个步骤，开始将数据从 Cloud Volumes ONTAP 备份到 Google 云存储。</block>
-  <block id="ed67205a4d86653559f5c0f0973afc52" category="list-text">您正在 GCP 中运行 Cloud Volumes ONTAP 9.7P5 或更高版本。</block>
   <block id="1bb2c0187913772397ee94ba85aff22c" category="list-text">您已为备份所在的存储空间订阅了有效的 GCP 。</block>
   <block id="721df1cfc096c8fe936071e3747d828d" category="list-text">您的 Google Cloud Project 中有一个服务帐户，该帐户具有预定义的存储管理员角色。</block>
   <block id="534e7b1b233af6dcaf3fe6265a36586b" category="list-text">新系统：完成新的工作环境向导后，可以启用 Cloud Backup 。</block>
@@ -690,7 +682,6 @@
   <block id="5e807f8371650cef9e33a4d42fdac697" category="list-text">完成向导中的页面以部署系统，如中所述<block ref="cb0c89ebc39bea4b1064543ce799882f" category="inline-link-rx"></block>。</block>
   <block id="44f7ee201aadf50852f08554367ab6cf" category="paragraph">Cloud Backup 在系统上启用，并备份您每天创建的卷，并保留最近 30 个备份副本。</block>
   <block id="fd45898f75263130be297845518a221f" category="paragraph">您可以随时直接从工作环境启用 Cloud Backup 。</block>
-  <block id="85a2ad69bad082451b7411021cbb2271" category="list-text">选择要为备份创建 Google Cloud Storage 存储分段的 Google Cloud Project 和区域，然后单击 * 下一步 * 。</block>
   <block id="437c2bff9e94c6e982529b9d2ef1cd3c" category="paragraph">请注意，项目必须具有具有预定义的存储管理员角色的服务帐户。</block>
   <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">法律声明</block>
   <block id="72999cd653b12474752fb77bab9691e3" category="inline-link-macro">Cloud Backup 注意事项</block>
@@ -709,7 +700,6 @@
   <block id="a6267aa9363ea23a39e2827d0d338a8f" category="paragraph"><block ref="a6267aa9363ea23a39e2827d0d338a8f" category="inline-image-macro-rx" type="image"></block></block>
   <block id="f432a56abcf880039b4fc76adc99cbcd" category="paragraph">系统会在您输入的 S3 访问密钥和机密密钥所指示的服务帐户中自动创建 S3 存储分段，备份文件存储在该处。</block>
   <block id="da95680877c2d8ff430e738df948144e" category="paragraph">在开始将内部卷备份到 StorageGRID 之前，请阅读以下要求，以确保您的配置受支持。</block>
-  <block id="35a7772387f55277aaf5e7a6fe0fd1de" category="paragraph">下图显示了将内部 ONTAP 系统备份到 StorageGRID 时的每个组件以及需要在它们之间准备的连接：</block>
   <block id="7c9c2c9135c9dd5b2198f3d2e909e271" category="paragraph"><block ref="7c9c2c9135c9dd5b2198f3d2e909e271" category="inline-image-macro-rx" type="image"></block></block>
   <block id="56b804288a96913690a4b3ca49ceea54" category="list-text">ONTAP 需要从连接器到集群管理 LIF 的入站连接。连接器必须位于您的内部。</block>
   <block id="556dad95e1ddce5110bf583aefc08e81" category="list-text">如有必要，请更新防火墙规则，以允许通过您指定的端口（通常为端口 443 ）从 ONTAP 到对象存储的 Cloud Backup Service 连接，并允许通过端口 53 （ TCP/UDP ）从 Storage VM 到 DNS 服务器的名称解析流量。</block>
@@ -806,7 +796,6 @@
   <block id="7c9a067ed7fc3d318d415405ab0cb349" category="list-text">集群要求：</block>
   <block id="042e2868bd27cf0f2d07239f80a976dd" category="list-text">ONTAP 版本必须为 9.8 或更高版本。</block>
   <block id="6f0cd96277bd61a1a3f4c2504033ded7" category="list-text">卷所在的 Storage VM （ SVM ）必须已配置数据 LIF 。</block>
-  <block id="5aa886d067197e66c77587733a464d79" category="list-text">必须在卷上启用 NFS 。</block>
   <block id="b08d607bff755a82c8c9d9351d968b4a" category="list-text">AWS 要求：</block>
   <block id="4c633b18d08cc2b8986282359ac32e3f" category="section-title">搜索和还原过程</block>
   <block id="1bf27db2b6cddc0bbfeb50bd92d954d2" category="inline-link">Amazon Athena 交互式查询服务</block>
@@ -1063,7 +1052,6 @@
   <block id="91c3ddf19f416d0a8c7658b15c646d42" category="paragraph">从备份文件还原卷时， Cloud Backup 会使用备份中的数据创建一个 _new_ 卷。您可以将数据还原到原始工作环境中的卷，也可以还原到与源工作环境位于同一云帐户中的其他工作环境。您还可以将卷还原到内部 ONTAP 系统。</block>
   <block id="f69b765af6afabfc9faf4bcb989c85e7" category="paragraph">Cloud Backup 会根据您选择的备份创建一个新卷。您可以 <block ref="62168a5d0f839a246ab4456ea89ba04c" category="inline-link-macro-rx"></block> 根据需要。</block>
   <block id="2cfe9659cdef6b61005a35e5ad1c7305" category="paragraph">如果选择多个文件，则所有文件都将还原到您选择的同一目标卷。因此，如果要将文件还原到不同的卷，则需要多次运行还原过程。</block>
-  <block id="c87406bc7afbf4c1491aba5c6a89782b" category="paragraph">搜索操作还会查找 ONTAP 卷中存在的所有本地 Snapshot 副本。与从备份文件还原数据相比，从本地 Snapshot 副本还原数据的速度更快，成本更低，因此您可能需要从 Snapshot 还原数据。您可以从 " 画布 " 上的 " 卷详细信息 " 页面将快照还原为新卷。</block>
   <block id="bd0f4c161a252516fc5ca2f8121fe5d5" category="paragraph">从备份文件还原卷时， Cloud Backup 会使用备份中的数据创建一个 _new_ 卷。您可以将数据还原为原始工作环境中的卷，也可以还原到与源工作环境位于同一云帐户中的其他工作环境。您还可以将卷还原到内部 ONTAP 系统。</block>
   <block id="dea8c22fb34052b0f4a9a5e32405ef9a" category="paragraph">" 搜索结果 " 页面将显示文件或卷与您的搜索条件匹配的所有位置。</block>
   <block id="dd69890bcf98aded30cef2070bda977a" category="list-text">单击 * 查看所有备份 * 以查看要用于还原卷或文件的位置，然后在要使用的实际备份文件上单击 * 还原 * 。</block>
@@ -1228,7 +1216,6 @@
   <block id="d279d008f3f2141ce1fc250d370bf6a9" category="paragraph">已转移到 PAYGO 许可证的系统将自动返回到 BYOL 许可证。如果系统运行时没有许可证、则会停止显示警告。</block>
   <block id="10f89ed6604369a92daf5a87a1c4f18c" category="list-text">验证并向Connector添加权限</block>
   <block id="afcaeb8a33eef207414e875d7fa75193" category="inline-link-macro">云控制台</block>
-  <block id="c2460b8a49ca9d7a6f36222771d77ae4" category="list-text">在中 <block ref="90b0dbeec03910bdea419bc944660763" category="inline-link-macro-rx"></block>下，转到 * 角色 * 页面。</block>
   <block id="cd94368c3fb0f5830daaa821b7867010" category="list-text">使用页面顶部的下拉列表，选择包含要编辑的角色的项目或组织。</block>
   <block id="faca795779c0bd6b6eb9d726aeb9fe83" category="list-text">单击一个自定义角色。</block>
   <block id="2179345c723745012afae6b2ce8b7947" category="list-text">单击 * 编辑角色 * 以更新角色的权限。</block>
@@ -1434,7 +1421,6 @@
   <block id="e25a9f6fb169550c2eb662453971516f" category="paragraph"><block ref="e25a9f6fb169550c2eb662453971516f" category="inline-image-macro-rx" type="image"></block></block>
   <block id="f23af0fb3293030465a68a6d46401ecc" category="list-text">使用适用于VMware的Cloud Backup将数据存储库备份到云、并将虚拟机还原回内部vCenter。 <block ref="7d3aa28b08d11afec4b666dd6503d425" category="inline-link-macro-rx"></block>。</block>
   <block id="0868f24313a597293d06e71f7f63fd1e" category="list-text">无论是否可访问 Internet ，均可将 Connector 安装在站点中。</block>
-  <block id="97a9760662f83584b35ab92e7aad1071" category="paragraph">如果 Connector 和内部 ONTAP 系统安装在无法访问 Internet 的内部位置，则 StorageGRID 系统必须位于同一内部数据中心。</block>
   <block id="360446e3fb6e2087ba1eda4d6e9eafde" category="list-text">节点的集群间 LIF 可以访问对象存储（如果在 " 非公开 " 站点中安装了 Connector ，则不需要）。</block>
   <block id="6dca065caf89927398e08355b9d7718e" category="paragraph">将数据备份到 StorageGRID 时，您的内部必须具有一个连接器。您需要安装新的 Connector 或确保当前选定的 Connector 位于内部。无论是否可访问 Internet ，均可将 Connector 安装在站点中。</block>
   <block id="f6428d68ab8312cad4e05d9222dbabc5" category="inline-link">在无法访问 Internet 的 Linux 主机上安装 Connector</block>
@@ -1483,7 +1469,6 @@
   <block id="53356882cec477de26a5ac4371a30b82" category="list-text">SnapLock 企业卷(需要ONTAP 9.11.1或更高版本)</block>
   <block id="02e3f175b6b6db384cc8a9f19dfd8b6a" category="section-title">2022年7月13日</block>
   <block id="f2c95e400c19071fbcd562467ddc48b3" category="section-title">添加了对备份SnapLock 企业卷的支持</block>
-  <block id="e5fff8c021afd86e8d7cd1a5b82dec8e" category="paragraph">现在、您可以使用云备份将SnapLock 企业卷备份到公有 和私有云。此功能要求您的ONTAP 系统运行的是ONTAP 9.11.1或更高版本。但是、目前不支持SnapLock 合规性卷。</block>
   <block id="975ab611b7133feabb2a325e663f8347" category="section-title">现在、您可以在使用内部部署连接器时在公有 云中创建备份文件</block>
   <block id="8d2224260491150c834f946712c069a0" category="paragraph">过去、您需要将Connector部署在与创建备份文件相同的云提供商中。现在、您可以使用内部部署的Connector创建备份文件、将本地ONTAP 系统备份到Amazon S3、Azure Blob和Google云存储。(在StorageGRID 系统上创建备份文件时、始终需要使用内部连接器。)</block>
   <block id="f42fcdabb7c9a7075b26292ed8cb7a23" category="section-title">在为ONTAP 系统创建备份策略时、还可以使用其他功能</block>
@@ -1900,7 +1885,6 @@
   <block id="9ee754e4742a85085c00a0da15114de7" category="section-title">归档存储设置</block>
   <block id="7efe72f6baeb19dc4e15e1feb217b66a" category="inline-image-macro">创建备份策略时归档策略设置的屏幕截图。</block>
   <block id="bff3ba9699160e0c8d9eccbf41cf51f7" category="paragraph"><block ref="bff3ba9699160e0c8d9eccbf41cf51f7" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="4171d78ae1a555db73fd760355ce3da1" category="paragraph">目前没有可用的归档层。</block>
   <block id="2e5732b07b5a367d6ae6bf311bb4e064" category="paragraph">请参见 <block ref="94012c1ab2bd0160a2654e7678395191" category="inline-link-macro-rx"></block> 有关如何使用可用计划选项的更多详细信息。</block>
   <block id="330ec284275e2a903b785453c26a379b" category="paragraph">请参见 <block ref="b960bc47dc855085c33b2bb2182e9e16" category="inline-link-macro-rx"></block> 有关归档旧备份文件的更多详细信息。</block>
   <block id="7e7595ef438d9d19d857be29daa1e8d2" category="list-text">必须为Connector配置*不具有*代理服务器、以便通过HTTP与Internet进行通信。如果您为Connector配置了HTTP代理服务器、则无法使用"搜索和替换"功能。</block>
@@ -1916,7 +1900,6 @@
   <block id="168036087bcdae960471ab9c23a03efa" category="list-text">不能在对象存储分段上手动启用StorageGRID 对象版本控制。</block>
   <block id="5f98d57ca0c8691b6e1217691d5b1094" category="list-text">StorageGRID 网关节点的FQDN。</block>
   <block id="de589f45b99515535f818a20a828ed99" category="list-text">ONTAP 与StorageGRID 进行HTTPS通信时应使用的端口。</block>
-  <block id="92e7e64290ff37f2ae2bd9287b6710b0" category="list-text">或者、在使用ONTAP 9.11.1及更高版本时、您也可以选择通过配置_DataLock和勒索软件保护_来保护备份免受删除和勒索软件攻击。_DataLock_可防止您的备份文件被修改或删除、_勒索 软件保护_会扫描您的备份文件、以在备份文件中查找勒索软件攻击的证据。 <block ref="a1590ca0a57c2e20ed40ac0f3384a5af" category="inline-link-macro-rx"></block>。</block>
   <block id="642c6cdace2b813772c203eeab710f8a" category="summary">备份存储在云帐户的对象存储中，以便您可以从特定时间点还原数据。您可以从备份文件还原整个ONTAP 卷、也可以从备份文件还原文件夹或单个文件。</block>
   <block id="7ada527d1dd84b409531cc41597f383e" category="paragraph">您可以将*文件夹*还原到原始工作环境中的卷、使用相同云帐户的其他工作环境中的卷或内部ONTAP 系统上的卷。</block>
   <block id="d04e8ed2daf2cfbac4df96c77bda4638" category="cell">浏览文件夹样式的结构以查找单个备份文件中的卷、文件夹或文件</block>
@@ -2038,7 +2021,6 @@
   <block id="e831d27edb715928e8204ce285611618" category="section-title">文件和文件夹还原限制</block>
   <block id="79ec871c574dbe9adf17973bdb4bf029" category="paragraph">这些限制适用于恢复文件和文件夹的搜索和还原以及浏览和还原方法；除非特别说明。</block>
   <block id="7a6f7d393f4de35501272976e1ba9e03" category="list-text">浏览和还原以及搜索和还原一次可以还原1个文件夹。</block>
-  <block id="2e47b96ebcc91dcfee6b5804d47d3820" category="list-text">您正在AWS中运行Cloud Volumes ONTAP 9.7P5或更高版本。</block>
   <block id="7ed26bbb75f4d5a15f22c2e06ce64775" category="list-text">默认情况下，备份是使用与 Cloud Volumes ONTAP 系统相同的帐户创建的。如果要使用其他AWS帐户进行备份、则必须：</block>
   <block id="315fa9b600d5877a548fb6493014cdc0" category="list-text">如果在为此集群激活Cloud Backup时在初始策略中启用了_DataLock和勒索软件保护_、则必须使用相同的DataLock设置(监管或合规)配置您编辑的任何策略。如果在激活Cloud Backup时未启用_DataLock和勒索软件保护_、则无法立即启用DataLock。</block>
   <block id="147ea6861d62ba04b46cbb346ad32a93" category="list-text">如果在为此集群激活Cloud Backup时在初始策略中启用了_DataLock和勒索软件保护_、则您创建的任何其他策略都必须使用相同的DataLock设置(监管或合规)进行配置。如果在激活Cloud Backup时未启用_DataLock和勒索软件保护_、则无法使用DataLock创建新策略。</block>
@@ -2336,7 +2318,6 @@
   <block id="3a41597d5116718fb24622669197f3e8" category="paragraph">单击*备份和恢复*&gt;*虚拟机*可查看使用适用于VMware vSphere的注册SnapCenter 插件符合保护条件的所有数据存储库和虚拟机。</block>
   <block id="d4f4c5ccc817cf84f5825246d829cabe" category="list-text">您已将Kubernetes集群发现为一个BlueXP工作环境。</block>
   <block id="fbd33db6168b024f7fb941bc669aa81a" category="list-text">您已将Kubernetes集群发现为一个BlueXP工作环境。<block ref="9f26112087077321f30a8a9a55bedf44" category="inline-link-rx"></block>。</block>
-  <block id="466b90fa557f0884965a272b2e01ec39" category="list-text">必须在 SVM 上激活 SnapDiff RPC 服务器。在工作环境中启用索引时、BlueXP会自动执行此操作。</block>
   <block id="7dbea888521fb9c4360764add4f59e05" category="list-text">必须将特定的Amazon Athena、AWS glue和AWS S3权限添加到为BlueXP提供权限的用户角色中。 <block ref="172464504974bed7b77dd155db5fb92b" category="inline-link-macro-rx"></block>。</block>
   <block id="03ee3f0eead5f2b738977ac3926782b1" category="paragraph">请注意、如果您已经在使用Cloud Backup时使用了过去配置的连接器、则现在需要将Athena和粘附权限添加到BlueXP用户角色中。这些是新的，搜索和还原需要它们。</block>
   <block id="97b5e4c408de2e312a0b1fc4e2535f1f" category="list-text">必须将特定的Azure Synapse Workspace和Data Lake存储帐户权限添加到为BlueXP提供权限的用户角色中。 <block ref="3f613adb79f1db61c1db3e20329cd95a" category="inline-link-macro-rx"></block>。</block>
@@ -2406,7 +2387,6 @@
   <block id="827847975a80bac18a6ca2764d35dd87" category="inline-link-macro">详细了解可用的Cloud Backup策略配置设置</block>
   <block id="eef42d7f28b590d9b42d8fbddb7a3937" category="paragraph">或者、在使用ONTAP 9.11.1及更高版本时、您也可以选择通过配置_DataLock和勒索软件保护_设置之一来保护备份免受删除和勒索软件攻击。 <block ref="87ffafedb97d3b50ea58ef296117bbac" category="inline-link-macro-rx"></block>。</block>
   <block id="1b023ff169abba0d2ae3b5eda4b0662e" category="list-text">您也可以 <block ref="691b942cd3d613931fde06fad7da9248" category="inline-link-macro-rx"></block> 内部部署的ONTAP 系统。</block>
-  <block id="873cdf52ec54bab55a108a2a77fe541f" category="summary">您可以监控在工作环境中启动的备份和还原作业的状态。这样，您可以查看已成功完成的作业，当前正在进行的作业以及失败的作业，以便您可以诊断和修复任何问题。您还可以将通知配置为通过电子邮件发送、以便即使未登录到系统、您也能获知重要的系统活动。</block>
   <block id="10ad842a6a3246a44700dd2f0005c89c" category="section-title">使用作业监控器查看备份和还原作业状态</block>
   <block id="8fa9fc7dcc8c23904d4a616698a7a223" category="paragraph">您可以在*作业监控*选项卡中查看所有备份和还原操作及其当前状态的列表。其中包括从Cloud Volumes ONTAP 、内部ONTAP 、应用程序、虚拟机和Kubernetes系统执行的操作。每个操作或作业都有一个唯一的 ID 和一个状态。状态可以是：</block>
   <block id="505a83f220c02df2f85c3810cd9ceb38" category="list-text">success</block>
@@ -2416,13 +2396,10 @@
   <block id="1ddf333c6654f7f89c739dddfb4cc429" category="list-text">应用程序</block>
   <block id="76b0fa668c1cd016096eb9bc1bfde44a" category="list-text">虚拟机</block>
   <block id="30136395f01879792198317c11831ea4" category="list-text">Kubernetes</block>
-  <block id="ee500d90f2bbe338004152cd72405d74" category="paragraph">请注意、此页面每15分钟自动刷新一次、以便您始终可以看到最新的作业状态结果。您可以单击*刷新*按钮立即更新此页面。</block>
-  <block id="2c269153024be49f954a614b0a13da62" category="paragraph">要查看与特定作业对应的详细信息、请单击该作业的名称。您将在"作业详细信息"页面中看到为完成主作业而正在运行的所有子作业。</block>
   <block id="ead1b755a95c48c918fa1c54aead1fbb" category="inline-image-macro">显示"作业详细信息"页面的屏幕截图。</block>
   <block id="02e4b55a2c03c05864dc080ed278886c" category="paragraph"><block ref="02e4b55a2c03c05864dc080ed278886c" category="inline-image-macro-rx" type="image"></block></block>
   <block id="b58d9a206bdb4f66bef72d876e8c275e" category="section-title">使用通知中心查看备份和还原警报</block>
   <block id="40da6f1400e45d080a97992a6a539894" category="inline-image-macro">通知铃</block>
-  <block id="01d7db5ac182c0b2dc523448e4c1a34b" category="paragraph">通知中心会跟踪已启动的备份和还原作业的进度、以便您可以验证操作是否成功。您可以通过单击(<block ref="df7c8a71ca3da4359e40e121f18f87b9" category="inline-image-macro-rx" type="image"></block>)。此外、您还可以将BlueXP配置为通过电子邮件发送警报通知、以便即使未登录到系统、您也可以了解重要的系统活动。</block>
   <block id="cef1c38108b72f8eb8fba5c231923d9c" category="paragraph">默认情况下、BlueXP客户管理员将收到所有"严重"和"建议"警报的电子邮件。默认情况下、所有其他用户和收件人都配置为不接收任何通知电子邮件。您可以向NetApp云帐户中的任何BlueXP用户或需要了解备份和还原活动的任何其他收件人发送电子邮件。</block>
   <block id="a1c41906d0e1e81a4ce819d12975d647" category="paragraph">要接收Cloud Backup电子邮件警报、您需要选择通知类型"严重"和"错误"。</block>
   <block id="44d4deb8868ac8159ee85f4a8e68725c" category="inline-link">了解有关通知中心以及如何为备份和还原作业发送警报电子邮件的更多信息</block>
@@ -2553,7 +2530,6 @@
   <block id="5b839de8a8e7b5f30407c5dc2cfdabd2" category="list-text">您可以使用"workload"列筛选页面以查看以下备份服务的作业：卷、应用程序、虚拟机和Kubernetes。</block>
   <block id="a2ed310c63a1aba1225315fe5f7f60ee" category="list-text">如果要查看特定备份作业的这些详细信息、可以为"用户名"和"作业类型"添加新列。</block>
   <block id="bcce731a4ced178ba1457a0965f1a878" category="list-text">"作业详细信息"页面将显示为完成主作业而正在运行的所有子作业。</block>
-  <block id="dbe9251780901a4775188539e940cce0" category="list-text">此页面每15分钟自动刷新一次、以便您始终可以看到最新的作业状态结果。您可以单击*刷新*按钮立即更新此页面。</block>
   <block id="95bdcffb51de388c8d204ebc69a73e61" category="section-title">AWS跨帐户备份增强功能</block>
   <block id="ae3795f53c6086a9639e4652dbff318b" category="paragraph">如果要对Cloud Volumes ONTAP 备份使用与源卷不同的AWS帐户、则必须在BlueXP中添加目标AWS帐户凭据、并且必须将权限"S3：PutBucketPolicy"和"S3：PutBucketOwnershipControls"添加到为BlueXP提供权限的IAM角色中。过去、您需要在AWS控制台中配置许多设置、而不再需要这样做。</block>
   <block id="ef88ffe6f484bdfc25f97445be29df28" category="sidebar">管理集群级别的备份设置</block>
@@ -2643,14 +2619,12 @@
   <block id="2974170a8b1b5b4a2ac69aacd4c1c9c3" category="list-text">从支持注册页面找到您的帐户ID序列号。</block>
   <block id="50a1dc01b7312307c34a888071586955" category="list-text">复制上述第2步中的帐户序列号、完成安全检查、然后确认您已阅读NetApp的全球数据隐私政策。</block>
   <block id="cc8b0535948da368f832027c19b7f853" category="list-text">请务必复制上面用于序列号字段的帐户序列号(960xxxx)。这样可以加快帐户处理速度。</block>
-  <block id="9469202592824934bca3fb2cb931658f" category="paragraph">*注意：*如果要还原的卷的备份文件位于归档存储中(从ONTAP 9.10.1开始)、则还原操作将需要较长时间并产生成本。此外、目标集群还必须运行ONTAP 9.10.1或更高版本来执行卷还原、9.11.1来执行文件还原、9.12.1来执行Google Archive。</block>
   <block id="e57e5c06a7f562addb87315f013677ab" category="inline-link-macro">了解有关从Google归档存储还原的更多信息</block>
   <block id="9412087e43270b75b90fb61a57336ae4" category="paragraph"><block ref="3c746f2f3db6e0c7091d37b11706df4d" category="inline-link-macro-rx"></block>。</block>
   <block id="14bc89f69d47048d5fa04ec00dbd4951" category="list-text">输入要用于还原的卷的名称、然后选择此卷要驻留的Storage VM和聚合。默认情况下，使用 * &lt;source_volume_name&gt;_Restore* 作为卷名称。</block>
   <block id="a4601bed84cfcc515268c444afd2de52" category="paragraph"><block ref="bb0b0cd162d3c161f2efdc6c31126950" category="inline-link-macro-rx"></block>。Google Archive存储层中的备份文件几乎会立即还原、并且不需要"还原"优先级。</block>
   <block id="8eea62084ca7e541d918e823422bd82e" category="paragraph-title">结果</block>
   <block id="b696dfa697a630f834f39ef334da1579" category="list-text">要执行_folder_还原操作、ONTAP 版本必须为9.11.1或更高版本。ifdef：：AWS。</block>
-  <block id="f7c73a8bcc6ec99dca8a19a69746f9dc" category="paragraph">如果要还原的卷的备份文件驻留在归档存储中(从ONTAP 9.10.1开始可用)、则还原操作将需要较长时间并产生额外成本。请注意、目标集群还必须运行ONTAP 9.10.1或更高版本来执行卷还原、9.11.1来执行文件还原、9.12.1来执行Google Archive。</block>
   <block id="149fb738a290d4d7e242bb7a559fed06" category="inline-link-macro">查看有关这些要求的详细信息</block>
   <block id="877b0f756f66e3e84fa762dc3c8a2b9e" category="list-text">从 Amazon S3 还原时，请选择目标卷所在 ONTAP 集群中的 IP 空间，输入您创建的用户的访问密钥和机密密钥，以便为 ONTAP 集群授予对 S3 存储分段的访问权限。 此外，还可以选择一个专用 VPC 端点来实现安全数据传输。 <block ref="59db365b1913b0034fd7f8109883ec93" category="inline-link-macro-rx"></block>。</block>
   <block id="f1bad5bccc0926b2365a948394ec0c3b" category="list-text">从Azure Blob还原时、请选择目标卷所在的ONTAP 集群中的IP空间、也可以选择vNet和子网来选择用于安全数据传输的私有端点。 <block ref="a7e5c84b094b3a8759a279cc77c2362b" category="inline-link-macro-rx"></block>。</block>
@@ -2686,18 +2660,14 @@
   <block id="90a2b3614b10514530462c20f49310e9" category="paragraph">您需要备份两种类型的数据：</block>
   <block id="4daedd65baee68d93f5c1ba1298f4e4a" category="list-text">Cloud Backup数据库</block>
   <block id="42f4d5b158a93e293d624d39bf3d9c3e" category="list-text">索引目录文件(用于搜索和还原功能)</block>
-  <block id="6a360030c0944ed786f9c83f788a0715" category="paragraph">Cloud Backup数据库或索引目录文件中从未包含任何卷数据。</block>
   <block id="9120e18c07abc0ccffe71aedbba5bc10" category="section-title">备份Cloud Backup数据库</block>
   <block id="2905857ff704be9c2beb191f3a164c59" category="paragraph">Cloud Backup数据库包含所有卷、备份文件、备份策略和配置信息的列表。</block>
   <block id="8c1b248edb88a6de85b408ee92f9d0c3" category="list-text">使用适当的凭据登录到Connector主机系统。</block>
   <block id="efd75f5230ec23281732b80a345896d9" category="list-text">输入以下命令、输入MySQL容器Shell：</block>
   <block id="ea88528cf92a2583181519ef77cd0928" category="list-text">在容器Shell中、部署"env"。</block>
   <block id="fb4d2049eb8a30a41f47794ab189550a" category="list-text">您需要MySQL数据库密码、因此请复制密钥"mysql_root_password"的值。</block>
-  <block id="71a947bdbdf184c6af28cdd06fe3ca88" category="list-text">输入以下命令备份Cloud Backup MySQL数据库：</block>
   <block id="7db6ebf161f7a9da5769ee912be2da41" category="list-text">输入以下命令、从MySQL Docker容器复制MySQL数据库备份：</block>
-  <block id="f80ad56051adb2380df8c550217f8ea6" category="list-text">将备份复制到网络中的安全位置。如果要创建到本地StorageGRID 卷的ONTAP 备份、则可以使用该位置的系统。</block>
   <block id="155dea4952585272f1c0844ef81cfd9a" category="section-title">备份索引目录文件</block>
-  <block id="e13687ed35f680800f122a94f776bc3e" category="paragraph">索引目录用于搜索和还原功能。它包含有关每个卷和每个备份文件的信息、可使您在还原卷数据时快速高效地进行搜索。</block>
   <block id="ef634fffc66ae93838b8ca070447f663" category="list-text">在Connector主机系统上、将目录更改为"/tmp"。</block>
   <block id="7cb88c443fc924903c835b571b479a4e" category="list-text">找到索引目录文件夹。它以字符串*目录*开头。</block>
   <block id="8569fa5b25edd3388fba8c4d5fbbdf9d" category="list-text">输入以下命令以压缩"catalog &lt;_xxxxxx_&gt;"文件夹：</block>
@@ -2706,13 +2676,9 @@
   <block id="c68e25209d430f055bb6e33f3e3b4fed" category="paragraph">如果您的内部连接器发生灾难性故障、则需要安装新的Connector、然后将Cloud Backup数据还原到新的Connector。</block>
   <block id="76c03ea1561a108c492740542135bf41" category="paragraph">要将Cloud Backup系统恢复到工作状态、需要执行4项任务：</block>
   <block id="f0f8593cf8d423b69e3ba1407f6f5b05" category="inline-link">在新的内部Linux主机上安装新的Connector</block>
-  <block id="156efc7e7346ddcd688a6720c1666bea" category="list-text"><block ref="156efc7e7346ddcd688a6720c1666bea" category="inline-link-rx"></block></block>
   <block id="4ea3b71370c485479872f790680ce4b4" category="list-text">还原Cloud Backup数据库</block>
   <block id="bac8f03e2f29846dbab5b2b784213272" category="list-text">还原索引目录文件</block>
-  <block id="9d40ebeace97c319e8246e0447991b88" category="list-text">将所有内部ONTAP 系统重新发现到BlueXP用户界面</block>
   <block id="f19661624edbf73361ae75955e672733" category="paragraph">确认系统恢复正常运行后、建议您创建新的备份文件。</block>
-  <block id="a3f8f3e803fe1f12829bd879a4212372" category="list-text">安装新的Connector后、使用相应的凭据登录到Connector主机系统。</block>
-  <block id="b65d7abdd1b32aa352c11a8e2736220b" category="list-text">将MySQL备份从安全位置复制到新的Connector主机。</block>
   <block id="ee8d56e3bf2ec5617d7b8febb655c287" category="list-text">使用以下命令将备份复制到MySQL Docker容器：</block>
   <block id="bb319ca7a8d748d2ce5adf7548a5803c" category="list-text">使用以下命令输入MySQL容器Shell：</block>
   <block id="58cd44673ee99119180601eef0ae358a" category="list-text">使用以下命令还原Cloud Backup MySQL数据库：</block>
@@ -2722,15 +2688,11 @@
   <block id="f9083b6cbd32e754624254bf8a15bbd5" category="list-text">将索引目录备份zip文件从安全位置复制到"/tmp"文件夹中的新Connector主机。</block>
   <block id="4137b6be705d5f9d9f9bcc8018e1f70a" category="list-text">使用以下命令解压缩"catalogxxxxxx.zip文件：</block>
   <block id="82ed93b77a5223377d1a45ab463f6fb3" category="list-text">运行* ls*命令以确保已创建"catalogxxxxxx"文件夹、并且子文件夹"changes"和"snapshots"位于下方。</block>
-  <block id="293d2ec7f3441372d965e1f67d0e7214" category="section-title">发现集群并验证Cloud Backup设置</block>
   <block id="202fec1254d856dde5dee6e53f5eb9e9" category="inline-link">了解所有内部ONTAP 工作环境</block>
-  <block id="03b1c4147aa5c46889d8153c6552b7ce" category="list-text"><block ref="179610062d14a1a80cba7318c7e8f765" category="inline-link-rx"></block> 您先前环境中提供的。</block>
   <block id="f8fe3d533b3c8ec77c886cdbfcbd8c60" category="inline-link">发现您的StorageGRID 系统</block>
-  <block id="012ba9fde8487c1dd821b1c9fba89266" category="list-text">（可选）<block ref="96a264e98dd669c84cc531f3c314c13a" category="inline-link-rx"></block>。</block>
   <block id="e828f5871c88d64ebf2a764153246360" category="list-text">选择每个ONTAP 工作环境、然后单击右侧面板中备份和恢复服务旁边的*查看备份*。</block>
   <block id="36c688567530141607520ff8f371abad" category="paragraph">您应该能够查看为卷创建的所有备份。</block>
   <block id="ca58572920332b0113296b57e60a56de" category="list-text">在还原信息板的搜索和还原部分下、单击*索引设置*。</block>
-  <block id="e33e607084aa892db97b23f266651e04" category="paragraph">确保先前在中启用了索引编目的工作环境保持启用状态。</block>
   <block id="080b8dd3f3323a86a22c3af13ee1c495" category="list-text">从搜索和还原页面中、运行几次目录搜索以确认索引目录还原已成功完成。</block>
   <block id="650c5c3b9794e3433e90f3f1f307a2c3" category="list-text">目前不支持SnapLock 合规性卷。</block>
   <block id="bab09e9304b5c4bff1eb4287ce6071b7" category="list-text">FlexGroup 卷(需要ONTAP 9.12.1或更高版本)</block>
@@ -2756,11 +2718,9 @@
   <block id="c57b731ee494dd2c5422da75f8283d02" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> 在系统上启用 Cloud Backup</block>
   <block id="4c9a0feab9499a53c704c9db0adc3926" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block> 选择云提供商并输入提供商详细信息</block>
   <block id="3b39c09e2f4aebd9e4dafe73f9fdeabe" category="paragraph">默认情况下、备份存储在标准存储中。如果集群使用的是ONTAP 9.12.1或更高版本、则可以选择在一定天数后将备份分层到Google Archive存储、以便进一步优化成本。 <block ref="87ffafedb97d3b50ea58ef296117bbac" category="inline-link-macro-rx"></block>。</block>
-  <block id="820fd47da31bb7e371c067563d9f2cd2" category="paragraph">如果您使用的是专用Google访问或专用服务连接、请确保已将DNS服务器配置为将storage.googleapis.com指向正确的内部(私有) IP地址。</block>
   <block id="8d95102bf9140e4354a61dced325fdb3" category="paragraph">如果您已在Google Cloud Platform VPC中部署了Connector、则可以随时完成所有操作。如果没有、则需要在该位置创建一个连接器、将ONTAP 数据备份到Google Cloud存储。您不能使用部署在其他云提供商或内部环境中的Connector。</block>
   <block id="697b9d2300ad9e2f011376f9c9a30392" category="inline-link">专用服务连接</block>
   <block id="7747fb16d3b3ebca41d53c73111f029f" category="list-text">在计划部署Connector的子网上启用专用Google访问(或专用服务连接)。<block ref="befc9e6419c4dc26dd25bf8222d3c172" category="inline-link-rx"></block> 或<block ref="d4dc822b3b70edddfbd179916941cf96" category="inline-link-rx"></block> 如果您从ONTAP 集群直接连接到VPC、并且希望连接器和Google Cloud Storage之间的通信保持在虚拟专用网络中(*专用*连接)、则需要此连接。</block>
-  <block id="77ad64cda7f3f0a896fe326acfe64c20" category="paragraph">按照Google说明设置这些私有访问选项。确保DNS服务器已配置为将www.googleapis.com和storage.googleapis.com指向正确的内部(私有) IP地址。</block>
   <block id="a749fefaadd4a1a540a6422d310ad685" category="list-text">使用ONTAP 9.12.1或更高版本时、您可以选择在一定天数后将备份分层到归档存储、以便进一步优化成本。 <block ref="87ffafedb97d3b50ea58ef296117bbac" category="inline-link-macro-rx"></block>。</block>
   <block id="301d9a7273c6553e974ed7816033c909" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block> 选择集群 IP 空间以及可选使用专用 vNet 端点</block>
   <block id="c6a4a4ea42501e26c847a39ca95c134d" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block> 定义默认备份策略</block>
@@ -2927,7 +2887,6 @@
   <block id="88094c6c8ad963e6131e3c23988917d4" category="list-text">支持使用连接和复制方法还原Oracle数据库</block>
   <block id="7d6f6d1efeae8c573a74a091cc119cb9" category="list-text">支持Oracle 21c</block>
   <block id="35d9afe1e1e85a29b0de625fd2a9a44a" category="list-text">支持克隆云本机Oracle数据库</block>
-  <block id="2b02d4e6e1f394b4dc9da1cac8c404a3" category="section-title">Cloud Backup增强功能</block>
   <block id="137f19e6e2dc1219f33553b812627bc2" category="list-text">虚拟机</block>
   <block id="c2452add37f94598e06d237edc68078b" category="list-text">从内部二级存储备份虚拟机</block>
   <block id="8e21c62b69b7c01b40ec93ceb9c4b5cd" category="list-text">支持Google Cloud Platform (GCP)备份一个或多个数据存储库</block>
@@ -3363,4 +3322,126 @@
   <block id="f21f4c2a14663fba17fd663498932188" category="list-text">以sudo非root用户身份部署SAP HANA插件。<block ref="a9b0283be469b80a16d7090f132ac831" prefix=" " category="inline-code"></block></block>
   <block id="8125c29989803ad0a7a3fcd80763904a" category="list-text">复制<block ref="7730e5c2e030df9de4e60d7586534d1d" prefix=" " category="inline-code"></block> from<block ref="6a722c9070d74bb0503ce0417b0cad70" prefix=" " category="inline-code"></block> Connector VM到的路径<block ref="b99636c9e34de318e385a63d2cb037a1" prefix=" " category="inline-code"></block> 在插件主机上。</block>
   <block id="ef1e764c716d2aa5406d3d434b9c8614" category="list-text">导航到<block ref="0dc0b955539cf9119a9695bb3312c8cb" prefix=" " category="inline-code"></block> 并执行keytool命令以导入证书。<block ref="0d48a0d1a6daee261d59f76e1ce65f98" prefix=" " category="inline-code"></block></block>
+  <block id="fd9064c3951e4ceddd0e2ae6bf2708e5" category="paragraph">*注意：*如果包含要还原的数据的备份文件位于归档存储中(从ONTAP 9.10.1开始)、则还原操作将需要较长时间并产生成本。此外、目标集群还必须运行ONTAP 9.10.1或更高版本来执行卷还原、9.11.1来执行文件还原、9.12.1来执行Google Archive和StorageGRID。</block>
+  <block id="996e1ad0df7144c78c9638cef2553e17" category="paragraph">搜索操作还会查找 ONTAP 卷中存在的所有本地 Snapshot 副本。与从备份文件还原数据相比，从本地 Snapshot 副本还原数据的速度更快，成本更低，因此您可能需要从 Snapshot 还原数据。您可以从Canvas上的卷详细信息页面(而不是从Cloud Backup)将Snapshot还原为新卷。</block>
+  <block id="c003f27675e7048b4dd9d00ba4f2f343" category="paragraph">如果要还原的卷的备份文件驻留在归档存储中(从ONTAP 9.10.1开始可用)、则还原操作将需要较长时间并产生额外成本。请注意、目标集群还必须运行ONTAP 9.10.1或更高版本来执行卷还原、9.11.1来执行文件还原、9.12.1来执行Google Archive和StorageGRID。</block>
+  <block id="aba6991b1b269dad52e52cd4c3998779" category="list-text">必须在卷上启用NFS (支持NFS和SMB/CIFS卷)。</block>
+  <block id="4870c40d3a9790a30e2c950188cce666" category="list-text">必须在 SVM 上激活 SnapDiff RPC 服务器。在工作环境中启用索引时、BlueXP会自动执行此操作。(SnapDiff是一种技术、可快速识别两个Snapshot副本之间的文件和目录差异。)</block>
+  <block id="3583d22777b682d17c7d912cdbfe39ae" category="list-text">您已发现内部集群并将其添加为BlueXP中的工作环境。请参见<block ref="04e8e773ac6637419158f2743860946e" category="inline-link-rx"></block> 了解详细信息。</block>
+  <block id="a39a3a8413839ba93362257bd4ae066b" category="list-text">集群运行的是ONTAP 9.7P5或更高版本(建议使用ONTAP 9.8P13及更高版本)。</block>
+  <block id="f01bc3a9f1abc31db81523be2ef9e811" category="paragraph">选择 Google Cloud 作为提供商，然后输入提供商详细信息。您需要在卷所在的ONTAP 集群中指定IP空间。您还可以选择自己的客户管理密钥进行数据加密、而不是使用默认的Google管理的加密密钥。</block>
+  <block id="810f2cc6519ce771cf16343b5e8f75b3" category="inline-image-macro">显示将卷从内部ONTAP 系统备份到Google云存储分段时云提供商详细信息的屏幕截图。</block>
+  <block id="f287cb4e24a724872537899eb5d9682d" category="paragraph"><block ref="f287cb4e24a724872537899eb5d9682d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="7dfd82301201229d10d2b7f30a3a9e1e" category="paragraph">如果您使用的是专用Google访问或专用服务连接、请确保已将DNS服务器配置为指向<block ref="3f4ca1d8ed90e1a3c0451eb42e58e5ef" prefix=" " category="inline-code"></block> 正确的内部(专用) IP地址。</block>
+  <block id="eb459fb8cd981c7e5f0e78a70a2b5b3e" category="list-text">如有必要、请更新防火墙规则、以允许通过端口443从ONTAP 到对象存储的Cloud Backup连接、以及通过端口53 (TCP/UDP)从Storage VM到DNS服务器的名称解析流量。</block>
+  <block id="a4cee2fc0fbf35cc350b6c809b0fde73" category="paragraph">按照Google说明设置这些私有访问选项。确保已将DNS服务器配置为指向<block ref="473b30be766431f8982e4e0c5267a321" prefix=" " category="inline-code"></block> 和<block ref="3f4ca1d8ed90e1a3c0451eb42e58e5ef" prefix=" " category="inline-code"></block> 正确的内部(专用) IP地址。</block>
+  <block id="89786972ebb5d82191ae05695b18af61" category="inline-link">Google Cloud Console</block>
+  <block id="19f12756ac5dc154a1953209912fa013" category="list-text">在中<block ref="6f302cade9285379185cc50702d4e32d" category="inline-link-rx"></block>下，转到 * 角色 * 页面。</block>
+  <block id="1ed0a28cd2dfc8f3fe96737a23ab2d11" category="paragraph">设置备份时、您需要为具有特定权限的服务帐户提供存储访问密钥。通过服务帐户， Cloud Backup 可以对用于存储备份的云存储分段进行身份验证和访问。需要提供密钥，以便 Google Cloud Storage 知道谁在发出请求。</block>
+  <block id="fc08b36bdc07ed26699904e7366b7a75" category="inline-link">创建新角色</block>
+  <block id="57fabc4b9bda4ca1a792eb3e9b91c146" category="list-text"><block ref="d366e10b62e06826a8148ba57999a9a3" category="inline-link-rx"></block> 具有以下权限：</block>
+  <block id="ab6fcc124e86604f6bab5da13aaea51a" category="inline-link">转到服务帐户页面</block>
+  <block id="7dc4b63dc4834aecd751b91ed3de3d39" category="list-text">在 Google Cloud 控制台中，<block ref="72863ecd427c906452e0c3d21111bdac" category="inline-link-rx"></block>。</block>
+  <block id="0894024ee935148d86c9827d799389ac" category="list-text">选择您的云项目。</block>
+  <block id="59a53d9856e55e6fc033c86e4387c316" category="list-text">单击*创建服务帐户*并提供所需信息：</block>
+  <block id="7804f90af05e35898d30a79bf21e0c6f" category="list-text">* 服务帐户详细信息 * ：输入名称和问题描述。</block>
+  <block id="9eb59ff65a78f23373b8ad69068d7395" category="list-text">*授予此服务帐户对项目的访问权限*：选择您刚刚创建的自定义角色。</block>
+  <block id="e13a15252a4dbf9779c44afe477e3343" category="list-text">单击 * 完成 * 。</block>
+  <block id="1b9cd9f1d110a19c8b1050fa1e561e7b" category="list-text">选择一个项目，然后单击 * 互操作性 * 。如果尚未启用互操作性访问，请单击 * 启用互操作性访问 * 。</block>
+  <block id="cb5b8455e39199ad360babf0d764750a" category="section-title">使用客户管理的加密密钥(CMEK)</block>
+  <block id="47bb831f95ab1288c32b97aba5fa20cb" category="inline-link">详细了解客户管理的加密密钥</block>
+  <block id="15384dc3b70c9b07babeb039640c6cd0" category="paragraph">您可以使用自己由客户管理的密钥进行数据加密、而不是使用默认的Google管理的加密密钥。在这种情况下、您需要具有密钥环和密钥名称、以便可以在激活向导中添加此信息。<block ref="f8e0e63bffb58004a25f7278cd43c42c" category="inline-link-rx"></block>。</block>
+  <block id="f850c5b79269cb96d63324524deffe7d" category="paragraph">您还需要在角色中添加以下必需权限、Connector for CMEE才能正常工作：</block>
+  <block id="2381bd859243711ef52a6003e1f2a815" category="paragraph">* CMEE注意事项：*</block>
+  <block id="59fb95b874bcbbfbda9fa6989e37cce4" category="list-text">支持HSM (硬件支持)和软件生成的密钥。</block>
+  <block id="59446873896ed16ae8f1cb30ccfe0a7a" category="list-text">新创建的或导入的Cloud KMS密钥均受支持。</block>
+  <block id="2b3b83fb44538b632325042aba519ab5" category="list-text">仅支持区域密钥、不支持全局密钥。</block>
+  <block id="d9c15cd950d71f46009911fed97cd7ad" category="list-text">目前、仅支持"对称加密/解密"目的。</block>
+  <block id="259867979057b5e6ad5fa3df5144f0da" category="list-text">Cloud Backup会为与存储帐户关联的服务代理分配"CryptoKey Encrypter/Decrypter (roles/cloudkms.CryptoKeyEncrypterDecrypter)" IAM角色。</block>
+  <block id="e5270a4abac17c25b3ef1bd1f0178ffa" category="list-text">您希望在其中创建用于备份的 Google Cloud Storage 存储分段的 Google Cloud Project 。(项目必须具有具有具有特定权限的自定义角色的服务帐户- <block ref="fcf105bce6a0d8360050e7cca51db497" category="inline-xref-macro-rx"></block>）</block>
+  <block id="f8db587738d0ddf87ce3a2c057f297b7" category="list-text">无论您是使用默认的Google管理的加密密钥、还是选择您自己的客户管理的密钥来管理数据加密。要使用CMEE、您需要具有密钥环和密钥名称。<block ref="f8e0e63bffb58004a25f7278cd43c42c" category="inline-link-rx"></block>。</block>
+  <block id="7c8c3c3e25f0041dee3a27547aa13698" category="list-text">要使Cloud Backup搜索和还原功能正常工作、必须打开端口1433、以便在Connector和Azure Synapse SQL服务之间进行通信。</block>
+  <block id="88a11892e7418e1eee8c952df9545b46" category="section-title">2023年1月9日</block>
+  <block id="b17d2155a07524d0e8a3d1eb73a257c3" category="section-title">能够将旧备份文件从StorageGRID 系统移动到AWS S3归档存储</block>
+  <block id="76592785cd14862cf74d11289e50ed92" category="paragraph">现在、您可以将旧备份文件从StorageGRID 系统分层到AWS S3中的归档存储。这样、您就可以释放StorageGRID 系统上的空间、并通过对旧备份文件使用成本低廉的存储类节省资金。您可以选择将备份分层到AWS S3 Glacier或S3 Glacier深度归档存储。</block>
+  <block id="ec9614a46239aa59499c4a94e919963a" category="inline-link">单击此处了解更多信息</block>
+  <block id="481c6a107a47fcbb610d4e79b7d8bc01" category="paragraph">如果集群使用的是ONTAP 9.12.1或更高版本、而StorageGRID 系统使用的是11.3或更高版本、则可以使用此功能。<block ref="ba1010a667c53f122912d421bb932c28" category="inline-link-rx"></block>。</block>
+  <block id="5baabb9bbca503ea382779d0fce7e9c5" category="section-title">可以在Google Cloud上为数据加密选择您自己由客户管理的密钥</block>
+  <block id="d42d3ab595b05475b681bcec25a25c6b" category="paragraph">将数据从ONTAP 系统备份到Google云存储时、现在您可以在激活向导中选择自己的客户管理的数据加密密钥、而不是使用默认的Google管理的加密密钥。只需先设置客户管理的加密密钥、然后在激活Cloud Backup时输入详细信息即可。</block>
+  <block id="b9395c2030b2a8ad48d31ad52bd9f6e9" category="section-title">服务帐户不再需要"存储管理员"角色来在Google Cloud Storage中创建备份</block>
+  <block id="d7cf6019b64afefeee4361ce4c22ce30" category="inline-link">请参见如何准备用于备份的Google Cloud存储</block>
+  <block id="121b4934193e6ec77a35338afd1028bb" category="paragraph">在早期版本中、支持Cloud Backup访问Google Cloud Storage存储分段的服务帐户需要"存储管理员"角色。现在、您可以创建一个自定义角色、并为该服务帐户分配一组经过精简的权限。<block ref="cdc0823dc4910df979845484c27cfc1d" category="inline-link-rx"></block>。</block>
+  <block id="fe1757784884bfcaf0ca6254fb7fa44e" category="section-title">能够以.csv报告的形式下载作业监控结果页面</block>
+  <block id="5ae1400b4fd16294ac8af42e98d8a9ed" category="inline-link">请参见如何生成作业监控报告</block>
+  <block id="c8a0a8bdcaf1f25cbadde68224d6591d" category="paragraph">筛选"作业监控"页面以显示您感兴趣的作业和操作后、现在可以生成并下载该数据的.csv文件。然后、您可以分析这些信息、或者将报告发送给组织中的其他人员。<block ref="f54dc22fe93134a0b2767a291dba51f5" category="inline-link-rx"></block>。</block>
+  <block id="4f4a2e17ef7aa2669f99a3748377015f" category="list-text">此页面每15分钟自动刷新一次、以便您始终可以看到最新的作业状态结果。您可以单击*刷新*按钮立即更新此页面。</block>
+  <block id="b5c6b00b01586b598af43c9744b7abbf" category="paragraph">现在、您可以使用云备份将SnapLock 企业卷备份到公有 和私有云。此功能要求您的ONTAP 系统运行的是ONTAP 9.11.1或更高版本。但是、目前不支持SnapLock 合规性卷。</block>
+  <block id="c2957acd301b96ab66a098d21d407ec6" category="summary">您可以监控在工作环境中启动的备份和还原作业的状态。这样，您可以查看已成功完成的作业，当前正在进行的作业以及失败的作业，以便您可以诊断和修复任何问题。您还可以将通知配置为通过电子邮件发送、以便即使未登录到系统、您也能了解重要的系统活动。</block>
+  <block id="ff11f62f1fefd326fa418557508f0bb3" category="inline-image-macro">刷新按钮</block>
+  <block id="ec07be2e9042814beca41a92a8df587b" category="paragraph">请注意、此页面每15分钟自动刷新一次、以便您始终可以看到最新的作业状态结果。您可以单击 <block ref="e42fbc94b6d5b113bb8925ec57acbe3b" category="inline-image-macro-rx" type="image"></block> 按钮以立即更新页面。</block>
+  <block id="8b512d5ba4f8158f9bbde90865caba8c" category="section-title">将作业监控结果下载为报告</block>
+  <block id="ae976c2662f0510c956866f26b3e7c91" category="inline-image-macro">下载按钮</block>
+  <block id="17d49cbe3e073a57d023fcd4f76f67a3" category="paragraph">如果要在优化作业监控主页面后将其内容下载为报告、请单击 <block ref="481ffb3cda2f04d006c0bbcaeeccf883" category="inline-image-macro-rx" type="image"></block> 按钮。Cloud Backup会生成一个.CSV文件、您可以根据需要查看此文件并将其发送给其他组。CSV文件最多包含10、000行数据。</block>
+  <block id="ec7d92235d0dc6e0acfa017dfe7f1dbd" category="section-title">查看作业详细信息</block>
+  <block id="1bc59241eb9bf200909aad328d7d6f94" category="paragraph">您可以通过单击特定作业的名称来查看与该作业对应的详细信息。您将在"作业详细信息"页面中看到为完成主作业而正在运行的所有子作业。</block>
+  <block id="e415c99bdef560f45a5ed65de16a1f1c" category="paragraph">通知中心会跟踪您已启动的备份和还原作业的进度、以便您可以验证操作是否成功。您可以通过单击(<block ref="df7c8a71ca3da4359e40e121f18f87b9" category="inline-image-macro-rx" type="image"></block>)。此外、您还可以将BlueXP配置为通过电子邮件发送警报通知、以便即使未登录到系统、您也可以了解重要的系统活动。</block>
+  <block id="3ce5b4dc9c8f2be5c856c5ecbade36be" category="list-text">您正在Azure中运行Cloud Volumes ONTAP 9.7P5或更高版本(建议使用ONTAP 9.8P13及更高版本)。</block>
+  <block id="555662c8177ef0a8b7bd61c88704ac20" category="list-text">您正在AWS中运行Cloud Volumes ONTAP 9.7P5或更高版本(建议使用ONTAP 9.8P13及更高版本)。</block>
+  <block id="42db682583d3eb9a753380374c8e1b40" category="paragraph">请注意、Cloud Backup数据库或索引目录文件中从未包含任何卷数据。</block>
+  <block id="ea875f7f1cbce7ccafa3294588db9171" category="list-text">输入以下命令、备份Cloud Backup MySQL数据库：</block>
+  <block id="f89ceb52adf6438c575a46d20a693abb" category="list-text">将备份复制到网络中的安全位置。如果要创建到本地StorageGRID 卷的ONTAP 备份、则可以使用该位置的系统。</block>
+  <block id="c404e3c86dc07dadeb1ba026f8f68641" category="paragraph">索引目录用于搜索和还原功能。它包含有关每个卷和每个备份文件的信息、可使您在查找要还原的卷数据时快速高效地进行搜索。</block>
+  <block id="49ec960387a7762f70c9454eff39ff67" category="list-text">安装新的BlueXP Connector</block>
+  <block id="f7610e9182682c46b21a456bb9f88633" category="list-text">在BlueXP UI中重新发现所有内部ONTAP 系统和StorageGRID 系统</block>
+  <block id="65432ae2b80d2de48c0eff9f34726b87" category="inline-link">还原备份数据库后、将Connector软件升级到最新版本</block>
+  <block id="2e7f569a13a8775ddbc8714475ad7db7" category="paragraph">安装新的BlueXP Connector时、请确保下载的软件版本与原始Connector上安装的软件版本相同。定期更改Cloud Backup数据库结构可能会使较新的软件版本与原始数据库备份不兼容。您可以<block ref="d77ae51b7aa47031957bd13dfa8d8fa8" category="inline-link-rx"></block>。</block>
+  <block id="fb91cab4ff80a23255e3962dd363d180" category="inline-link">在新的内部Linux主机上安装BlueXP Connector</block>
+  <block id="147eee6c59a90af6498494b9e5153835" category="list-text"><block ref="147eee6c59a90af6498494b9e5153835" category="inline-link-rx"></block></block>
+  <block id="ecbcbb16fdbff1b3b59d0639b270e056" category="list-text">使用刚刚创建的管理员用户凭据登录到BlueXP。</block>
+  <block id="5fb01033092428057d91703462850bb8" category="list-text">将MySQL备份从安全位置复制到新的Connector主机。</block>
+  <block id="47088be6cbcb439bd7241ec72edf3a91" category="section-title">发现ONTAP 集群和StorageGRID 系统</block>
+  <block id="1832485ebcd99cd5b4b3491a8cffd638" category="list-text"><block ref="9033f64bdbb62eae631654d0a3df291b" category="inline-link-rx"></block> 您先前环境中提供的。</block>
+  <block id="1b7fb9def2cbf0701ee8453186654b5b" category="list-text"><block ref="a5cecadb957adccfe222c1147dfa0b64" category="inline-link-rx"></block>。</block>
+  <block id="8a817b57889a6e642ad7fb06e7b26c80" category="section-title">设置StorageGRID 环境详细信息</block>
+  <block id="95405ad3ad814456093255e6d36ee69e" category="inline-link">BlueXP API</block>
+  <block id="10e047f5e5b14e395de98b85ed4c9291" category="paragraph">添加与您的ONTAP 工作环境关联的StorageGRID 系统的详细信息、这些详细信息是在使用的原始连接器设置中设置的<block ref="40510467bd8e1f43a6541476355593dd" category="inline-link-rx"></block>。</block>
+  <block id="ed28e31454bb8c9849e6271a030b2762" category="paragraph">您需要对要将数据备份到StorageGRID 的每个ONTAP 系统执行这些步骤。</block>
+  <block id="3f1b9decb18d57a001f26c7273adeddc" category="list-text">使用以下OAuth/令牌API提取授权令牌。</block>
+  <block id="f2b2dd8a7061a4f2836de5feda40a45e" category="paragraph">此API将返回如下响应。您可以检索授权令牌、如下所示。</block>
+  <block id="74e96d8b9d4abdf183199553dd665e53" category="list-text">使用租户/外部/资源API提取工作环境ID和X-Agent-ID。</block>
+  <block id="69473e9fe37da40f59b6a4abb9d0b124" category="paragraph">此API将返回如下响应。"resourcesIdentifier"下的值表示_WorkingEnvironment ID_、"agentId"下的值表示_x-agent-id_。</block>
+  <block id="3d84eb6c8f7ba56269ac1eb9fb7b5940" category="list-text">使用与工作环境关联的StorageGRID 系统的详细信息更新Cloud Backup数据库。请务必输入StorageGRID 的完全限定域名以及访问密钥和存储密钥、如下所示：</block>
+  <block id="130a4df0285ca3d6a664db04d607c971" category="section-title">验证Cloud Backup设置</block>
+  <block id="98c648bc34880f7f4d457836f8d482d7" category="paragraph">确保先前已启用索引编目的工作环境保持启用状态。</block>
+  <block id="29296806c9458e6f9b360ca27eab0dac" category="list-text">数据会在块级别进行还原、并将数据直接放置在您指定的位置、同时保留原始ACL。</block>
+  <block id="98c5dd0d4e4b94048525760a7e30fd9f" category="inline-link-macro">了解有关从StorageGRID 归档备份文件的更多信息</block>
+  <block id="c9530b8dd09db9c948a2d65976dd98fe" category="paragraph">如果您的内部集群使用的是ONTAP 9.12.1或更高版本、而您的StorageGRID 系统使用的是11.3或更高版本、则可以将较早的备份文件归档到公共云归档存储。目前、只有AWS S3存储类才支持归档存储。您可以选择在一定天数后将备份分层到AWS _S3 Glacer_或_S3 Glacier Deep Archive_存储。 <block ref="363267dd6106568fded10aaeda2ee302" category="inline-link-macro-rx"></block>。</block>
+  <block id="29331ccc5b0d6188fad90573f3b1bde1" category="list-text">您正在GCP中运行Cloud Volumes ONTAP 9.7P5或更高版本(建议使用ONTAP 9.8P13及更高版本)。</block>
+  <block id="8eea324303c1dff2b89095050e381e68" category="paragraph">选择要为备份创建Google Cloud Storage存储分段的Google Cloud Project和区域。您还可以选择自己的客户管理密钥进行数据加密、而不是使用默认的Google管理的加密密钥。</block>
+  <block id="3faa891caeff03d695c501cc0759c886" category="list-text">使用客户管理的加密密钥(CMEK)所需的信息</block>
+  <block id="2599350a4e955ee44290aa8aca0871d2" category="list-text">要为备份创建Google Cloud Storage存储分段的Google Cloud Project和区域。</block>
+  <block id="38fbb45a27b21096249ed80da88ec578" category="paragraph">如果您的集群使用的是ONTAP 9.12.1或更高版本、而您使用的是StorageGRID 11.3或更高版本、则可以选择在一定天数后将旧备份分层到AWS S3 Glacier或S3 Glacier深度归档存储、以便进一步优化成本。</block>
+  <block id="cac9868917effa10c15d3dafdd2bd043" category="paragraph">下图显示了将内部ONTAP 系统备份到StorageGRID 时的每个组件以及需要在它们之间准备的连接。</block>
+  <block id="d1eea7086b8dc17469efa8e41a303777" category="paragraph">如果将连接器和内部ONTAP 系统安装在无法访问Internet的内部位置("非公开站点")、则StorageGRID 系统必须位于同一内部数据中心。在非公开站点配置中、不支持将旧备份文件归档到公共云。</block>
+  <block id="0276e5d8afdc46e144ae840aae5be338" category="paragraph">要将较早的备份分层到云归档存储、您的StorageGRID 系统必须运行11.3或更高版本。</block>
+  <block id="f8436f6242c5e270dd0e25a1a05d34a4" category="inline-link-macro">了解如何在非公开站点中备份Cloud Backup数据</block>
+  <block id="02bf1c0a02190999eeab71bbe7fff71c" category="paragraph">强烈建议在没有Internet连接的站点上安装Connector时、定期为Cloud Backup配置数据创建本地备份。 <block ref="07f517d916bbf45a47c5d9dc6a000920" category="inline-link-macro-rx"></block>。</block>
+  <block id="89d604768fdd7e6fda1e2bdb512ac56e" category="section-title">准备将旧备份文件归档到公共云存储</block>
+  <block id="483f68b62cb5a3e5d608257045622894" category="paragraph">将较旧的备份文件分层到归档存储可为您可能不需要的备份使用成本较低的存储类、从而节省资金。StorageGRID 是一种内部(私有云)解决方案 、不提供归档存储、但您可以将旧备份文件迁移到公共云归档存储。</block>
+  <block id="9da2e088609ab78eb6aa7a0ffe0637b3" category="list-text">您的集群必须使用ONTAP 9.12.1或更高版本</block>
+  <block id="7bbe58a850cc71a0ff06edd40213c29c" category="list-text">您的StorageGRID 必须使用11.3或更高版本</block>
+  <block id="170d42742a62bce031fc4ab2cfd0c056" category="inline-link">已在BlueXP画布中发现并提供</block>
+  <block id="98c4206e171ce9b62f1dadef4f4da528" category="list-text">您的StorageGRID 必须是<block ref="a62572fc02ca2a884f6a1e42d38d1d55" category="inline-link-rx"></block></block>
+  <block id="68aa7e5e44b2aff449b0543b49e563bd" category="inline-link-macro">了解有关AWS归档层的更多信息</block>
+  <block id="9ac50560d5fb673e5d33906e46dd98c6" category="list-text">目前、只有AWS S3存储类才支持归档存储。您可以选择将备份分层到AWS S3 Glacier或S3 Glacier深度归档存储。 <block ref="99a80ab47f2b3c111e86aba05224c42e" category="inline-link-macro-rx"></block>。</block>
+  <block id="ec1bc3c970d4b572c193f7ae566018d4" category="list-text">您需要为备份所在的存储空间注册AWS S3订阅。</block>
+  <block id="832d0ea7eab67f52faa651ad1475e14a" category="paragraph">在为集群的备份策略定义归档设置时、您将输入云提供商凭据并选择要使用的存储类。Cloud Backup会在您为集群激活备份时创建云分段。AWS归档存储所需的信息如下所示。</block>
+  <block id="1561c5b8437cf775ebce2ca08e284b68" category="inline-image-macro">将备份文件从StorageGRID 归档到AWS S3所需信息的屏幕截图。</block>
+  <block id="4e82138d6097530281cd6cb668514613" category="paragraph"><block ref="4e82138d6097530281cd6cb668514613" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e3f77a85430d8ff3b4a253ea611bd9ee" category="inline-link">详细了解StorageGRID ILM策略和规则</block>
+  <block id="3bb8e0b301b3650899fdd92490d4f2b8" category="paragraph">您选择的归档策略设置将在StorageGRID 中生成信息生命周期管理(ILM)策略、并将这些设置添加为"规则"。如果存在活动的ILM策略、则新规则将添加到ILM策略中、以将数据移动到归档层。如果现有ILM策略处于"建议"状态、则无法创建和激活新的ILM策略。<block ref="6561077144087ebe496b43ff07401cd5" category="inline-link-rx"></block>。</block>
+  <block id="43e902efcea42d88512963cd9451ec29" category="list-text">如果您的集群使用的是ONTAP 9.11.1或更高版本、则可以选择通过配置_DataLock和勒索软件保护_来保护您的备份免受删除和勒索软件攻击。_DataLock_可防止您的备份文件被修改或删除、_勒索 软件保护_会扫描您的备份文件、以在备份文件中查找勒索软件攻击的证据。 <block ref="a1590ca0a57c2e20ed40ac0f3384a5af" category="inline-link-macro-rx"></block>。</block>
+  <block id="b1e78dfdd8adc3005cff56ffd24b2af1" category="inline-xref">了解如何为此功能配置系统</block>
+  <block id="57e477fd9dd6f84cb8ac24711869c4f5" category="list-text">如果您的集群使用的是ONTAP 9.12.1或更高版本、而您使用的是StorageGRID 11.3或更高版本、则可以选择在一定天数后将旧备份分层到AWS S3 Glacier或S3 Glacier深度归档存储、以便进一步优化成本。 <block ref="c2797d22435b48dabeada89d48523cd9" category="inline-xref-macro-rx"></block>。</block>
+  <block id="8b1fecd8a08d1d10ad201653d8d4088f" category="sidebar">在非公开站点中备份Cloud Backup数据库</block>
 </blocks>

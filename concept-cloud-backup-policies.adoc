@@ -255,7 +255,7 @@ endif::azure[]
 
 ifdef::gcp[]
 
-* 在 GCP 中，备份默认与 _Standard_ 存储类相关联。
+* 在 GCP 中，备份与 _Standard_ 存储类关联。
 +
 如果您的内部集群使用的是ONTAP 9.12.1或更高版本、您可以选择在一定天数后将旧备份分层到云备份UI中的_Archive_存储、以进一步优化成本。(此功能当前不适用于Cloud Volumes ONTAP 系统。) link:reference-google-backup-tiers.html["了解有关Google归档存储的更多信息"^]。
 
@@ -265,6 +265,6 @@ endif::gcp[]
 
 * 在 StorageGRID 中，备份与 _Standard_ 存储类关联。
 +
-目前没有可用的归档层。
+如果您的内部集群使用的是ONTAP 9.12.1或更高版本、而您的StorageGRID 系统使用的是11.3或更高版本、则可以将较早的备份文件归档到公共云归档存储。目前、只有AWS S3存储类才支持归档存储。您可以选择在一定天数后将备份分层到AWS _S3 Glacer_或_S3 Glacier Deep Archive_存储。 link:task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage["了解有关从StorageGRID 归档备份文件的更多信息"^]。
 
 

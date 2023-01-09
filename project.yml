@@ -198,6 +198,8 @@ sidebar:
       url: "/reference-azure-backup-tiers.html"
     - title: 支持的Google归档存储层
       url: "/reference-google-backup-tiers.html"
+    - title: 在非公开站点中备份Cloud Backup数据库
+      url: "/reference-backup-cbs-db-in-dark-site.html"
     - title: 在 Azure 中配置备份以实现多帐户访问
       url: "/reference-backup-multi-account-azure.html"
   - title: 知识和支持

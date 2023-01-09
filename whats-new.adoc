@@ -18,6 +18,36 @@ summary: 了解 Cloud Backup 中的新增功能。
 
 
 
+== 2023年1月9日
+
+
+
+=== 能够将旧备份文件从StorageGRID 系统移动到AWS S3归档存储
+
+现在、您可以将旧备份文件从StorageGRID 系统分层到AWS S3中的归档存储。这样、您就可以释放StorageGRID 系统上的空间、并通过对旧备份文件使用成本低廉的存储类节省资金。您可以选择将备份分层到AWS S3 Glacier或S3 Glacier深度归档存储。
+
+如果集群使用的是ONTAP 9.12.1或更高版本、而StorageGRID 系统使用的是11.3或更高版本、则可以使用此功能。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage["单击此处了解更多信息"]。
+
+
+
+=== 可以在Google Cloud上为数据加密选择您自己由客户管理的密钥
+
+将数据从ONTAP 系统备份到Google云存储时、现在您可以在激活向导中选择自己的客户管理的数据加密密钥、而不是使用默认的Google管理的加密密钥。只需先设置客户管理的加密密钥、然后在激活Cloud Backup时输入详细信息即可。
+
+
+
+=== 服务帐户不再需要"存储管理员"角色来在Google Cloud Storage中创建备份
+
+在早期版本中、支持Cloud Backup访问Google Cloud Storage存储分段的服务帐户需要"存储管理员"角色。现在、您可以创建一个自定义角色、并为该服务帐户分配一组经过精简的权限。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-gcp.html#preparing-google-cloud-storage-for-backups["请参见如何准备用于备份的Google Cloud存储"]。
+
+
+
+=== 能够以.csv报告的形式下载作业监控结果页面
+
+筛选"作业监控"页面以显示您感兴趣的作业和操作后、现在可以生成并下载该数据的.csv文件。然后、您可以分析这些信息、或者将报告发送给组织中的其他人员。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#download-job-monitoring-results-as-a-report["请参见如何生成作业监控报告"]。
+
+
+
 == 2022年12月19日
 
 
@@ -45,7 +75,7 @@ summary: 了解 Cloud Backup 中的新增功能。
 
 
 
-=== Cloud Backup增强功能
+=== 适用于虚拟机的Cloud Backup增强功能
 
 * 虚拟机
 +

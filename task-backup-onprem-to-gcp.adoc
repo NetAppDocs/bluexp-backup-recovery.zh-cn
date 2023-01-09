@@ -26,9 +26,9 @@ summary: 完成几个步骤，开始将数据从内部 ONTAP 系统备份到 Goo
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"] 验证是否支持您的配置
 [role="quick-margin-list"]
-* 您已发现内部集群并将其添加到BlueXP中的工作环境中。请参见 https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["发现 ONTAP 集群"^] 了解详细信息。
+* 您已发现内部集群并将其添加为BlueXP中的工作环境。请参见 https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["发现 ONTAP 集群"^] 了解详细信息。
 +
-** 此集群运行的是 ONTAP 9.7P5 或更高版本。
+** 集群运行的是ONTAP 9.7P5或更高版本(建议使用ONTAP 9.8P13及更高版本)。
 ** 集群具有 SnapMirror 许可证—它作为超值包或数据保护包的一部分提供。
 ** 集群必须与 Google 存储和 Connector 建立所需的网络连接。
 
@@ -47,7 +47,10 @@ image:screenshot_backup_onprem_enable.png["屏幕截图显示了\"启用备份�
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三个"] 选择云提供商并输入提供商详细信息
 [role="quick-margin-para"]
-选择 Google Cloud 作为提供商，然后输入提供商详细信息。您还需要在卷所在的 ONTAP 集群中指定 IP 空间。
+选择 Google Cloud 作为提供商，然后输入提供商详细信息。您需要在卷所在的ONTAP 集群中指定IP空间。您还可以选择自己的客户管理密钥进行数据加密、而不是使用默认的Google管理的加密密钥。
+
+[role="quick-margin-para"]
+image:screenshot_backup_onprem_to_google.png["显示将卷从内部ONTAP 系统备份到Google云存储分段时云提供商详细信息的屏幕截图。"]
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"] 定义默认备份策略
 [role="quick-margin-para"]
@@ -124,10 +127,10 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 * 节点的集群间 LIF 能够访问对象存储。
 * 已为卷所在的 Storage VM 配置 DNS 服务器。请参见操作说明 https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html["为 SVM 配置 DNS 服务"^]。
 +
-如果您使用的是专用Google访问或专用服务连接、请确保已将DNS服务器配置为将storage.googleapis.com指向正确的内部(私有) IP地址。
+如果您使用的是专用Google访问或专用服务连接、请确保已将DNS服务器配置为指向 `storage.googleapis.com` 正确的内部(专用) IP地址。
 
 * 请注意，如果您使用的 IP 空间与默认 IP 空间不同，则可能需要创建静态路由才能访问对象存储。
-* 如有必要，请更新防火墙规则，以允许通过端口 443 从 ONTAP 到对象存储的 Cloud Backup Service 连接，以及通过端口 53 （ TCP/UDP ）从 Storage VM 到 DNS 服务器的名称解析流量。
+* 如有必要、请更新防火墙规则、以允许通过端口443从ONTAP 到对象存储的Cloud Backup连接、以及通过端口53 (TCP/UDP)从Storage VM到DNS服务器的名称解析流量。
 
 
 --
@@ -160,7 +163,7 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 
 . 在计划部署Connector的子网上启用专用Google访问(或专用服务连接)。 https://cloud.google.com/vpc/docs/configure-private-google-access["私有 Google 访问"^] 或 https://cloud.google.com/vpc/docs/configure-private-service-connect-apis#on-premises["专用服务连接"^] 如果您从ONTAP 集群直接连接到VPC、并且希望连接器和Google Cloud Storage之间的通信保持在虚拟专用网络中(*专用*连接)、则需要此连接。
 +
-按照Google说明设置这些私有访问选项。确保DNS服务器已配置为将www.googleapis.com和storage.googleapis.com指向正确的内部(私有) IP地址。
+按照Google说明设置这些私有访问选项。确保已将DNS服务器配置为指向 `www.googleapis.com` 和 `storage.googleapis.com` 正确的内部(专用) IP地址。
 
 
 
@@ -171,7 +174,7 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 要使用Cloud Backup的"搜索和还原"功能、您需要对Connector的角色拥有特定权限、以便它可以访问Google Cloud BigQuery服务。请参见以下权限、如果需要修改策略、请按照以下步骤进行操作。
 
 .步骤
-. 在中 link:https://console.cloud.google.com["云控制台"^]下，转到 * 角色 * 页面。
+. 在中 https://console.cloud.google.com["Google Cloud Console"^]下，转到 * 角色 * 页面。
 . 使用页面顶部的下拉列表，选择包含要编辑的角色的项目或组织。
 . 单击一个自定义角色。
 . 单击 * 编辑角色 * 以更新角色的权限。
@@ -195,6 +198,79 @@ bigquery.tables.create
 
 
 
+=== 准备用于备份的 Google Cloud Storage
+
+设置备份时、您需要为具有特定权限的服务帐户提供存储访问密钥。通过服务帐户， Cloud Backup 可以对用于存储备份的云存储分段进行身份验证和访问。需要提供密钥，以便 Google Cloud Storage 知道谁在发出请求。
+
+.步骤
+. 在中 https://console.cloud.google.com["Google Cloud Console"^]下，转到 * 角色 * 页面。
+. https://cloud.google.com/iam/docs/creating-custom-roles#creating_a_custom_role["创建新角色"^] 具有以下权限：
++
+[source, json]
+----
+storage.buckets.create
+storage.buckets.delete
+storage.buckets.get
+storage.buckets.list
+storage.buckets.update
+storage.buckets.getIamPolicy
+storage.multipartUploads.create
+storage.objects.create
+storage.objects.delete
+storage.objects.get
+storage.objects.list
+storage.objects.update
+----
+. 在 Google Cloud 控制台中， https://console.cloud.google.com/iam-admin/serviceaccounts["转到服务帐户页面"^]。
+. 选择您的云项目。
+. 单击*创建服务帐户*并提供所需信息：
++
+.. * 服务帐户详细信息 * ：输入名称和问题描述。
+.. *授予此服务帐户对项目的访问权限*：选择您刚刚创建的自定义角色。
+.. 单击 * 完成 * 。
+
+
+. 转至 https://console.cloud.google.com/storage/settings["GCP 存储设置"^] 并为服务帐户创建访问密钥：
++
+.. 选择一个项目，然后单击 * 互操作性 * 。如果尚未启用互操作性访问，请单击 * 启用互操作性访问 * 。
+.. 在 * 服务帐户的访问密钥 * 下，单击 * 为服务帐户创建密钥 * ，选择刚刚创建的服务帐户，然后单击 * 创建密钥 * 。
++
+稍后在配置备份服务时，您需要在 Cloud Backup 中输入密钥。
+
+
+
+
+
+
+
+==== 使用客户管理的加密密钥(CMEK)
+
+您可以使用自己由客户管理的密钥进行数据加密、而不是使用默认的Google管理的加密密钥。在这种情况下、您需要具有密钥环和密钥名称、以便可以在激活向导中添加此信息。 https://cloud.google.com/kms/docs/cmek["详细了解客户管理的加密密钥"^]。
+
+您还需要在角色中添加以下必需权限、Connector for CMEE才能正常工作：
+
+[source, json]
+----
+cloudkms.cryptoKeys.get
+cloudkms.cryptoKeys.getIamPolicy
+cloudkms.cryptoKeys.list
+cloudkms.cryptoKeys.setIamPolicy
+cloudkms.keyRings.get
+cloudkms.keyRings.getIamPolicy
+cloudkms.keyRings.list
+cloudkms.keyRings.setIamPolicy
+----
+* CMEE注意事项：*
+
+* 支持HSM (硬件支持)和软件生成的密钥。
+* 新创建的或导入的Cloud KMS密钥均受支持。
+* 仅支持区域密钥、不支持全局密钥。
+* 目前、仅支持"对称加密/解密"目的。
+* Cloud Backup会为与存储帐户关联的服务代理分配"CryptoKey Encrypter/Decrypter (roles/cloudkms.CryptoKeyEncrypterDecrypter)" IAM角色。
+
+
+
+
 === 验证许可证要求
 
 * 在为集群激活Cloud Backup之前、您需要从Google订阅按需购买(PAYGO) BlueXP Marketplace产品、或者从NetApp购买并激活Cloud Backup BYOL许可证。这些许可证适用于您的帐户，可在多个系统中使用。
@@ -206,25 +282,6 @@ bigquery.tables.create
 * 您需要为备份所在的对象存储空间订阅 Google 。
 +
 您可以在所有区域创建从内部系统到Google Cloud Storage的备份 https://cloud.netapp.com/cloud-volumes-global-regions["支持 Cloud Volumes ONTAP 的位置"^]。您可以在设置服务时指定要存储备份的区域。
-
-
-
-
-
-=== 准备用于备份的 Google Cloud Storage
-
-设置备份时，您需要为具有存储管理员权限的服务帐户提供存储访问密钥。通过服务帐户， Cloud Backup 可以对用于存储备份的云存储分段进行身份验证和访问。需要提供密钥，以便 Google Cloud Storage 知道谁在发出请求。
-
-.步骤
-. https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating_a_service_account["创建具有预定义的存储管理员角色的服务帐户"^]。
-. 转至 https://console.cloud.google.com/storage/settings["GCP 存储设置"^] 并为服务帐户创建访问密钥：
-+
-.. 选择一个项目，然后单击 * 互操作性 * 。如果尚未执行此操作，请单击 * 启用互操作性访问 * 。
-.. 在 * 服务帐户的访问密钥 * 下，单击 * 为服务帐户创建密钥 * ，选择刚刚创建的服务帐户，然后单击 * 创建密钥 * 。
-+
-稍后在配置备份服务时，您需要在 Cloud Backup 中输入密钥。
-
-
 
 
 
@@ -245,10 +302,11 @@ image:screenshot_backup_onprem_enable.png["屏幕截图显示了\"启用备份�
 . 选择 Google Cloud 作为您的提供商，然后单击 * 下一步 * 。
 . 输入提供程序详细信息并单击 * 下一步 * 。
 +
-.. 您希望在其中创建用于备份的 Google Cloud Storage 存储分段的 Google Cloud Project 。（项目必须具有具有预定义的存储管理员角色的服务帐户。）
+.. 您希望在其中创建用于备份的 Google Cloud Storage 存储分段的 Google Cloud Project 。(项目必须具有具有具有特定权限的自定义角色的服务帐户- <<准备用于备份的 Google Cloud Storage,如此处所述>>）
 .. 用于存储备份的 Google 访问密钥和机密密钥。
 .. 要存储备份的 Google 区域。
 .. 要备份的卷所在的 ONTAP 集群中的 IP 空间。此 IP 空间的集群间 LIF 必须具有出站 Internet 访问权限。
+.. 无论您是使用默认的Google管理的加密密钥、还是选择您自己的客户管理的密钥来管理数据加密。要使用CMEE、您需要具有密钥环和密钥名称。 https://cloud.google.com/kms/docs/cmek["详细了解客户管理的加密密钥"^]。
 +
 image:screenshot_backup_onprem_to_google.png["显示将卷从内部集群备份到 Google Cloud Storage 时云提供商详细信息的屏幕截图。"]
 

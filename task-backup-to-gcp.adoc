@@ -24,7 +24,7 @@ summary: 完成几个步骤，开始将数据从 Cloud Volumes ONTAP 备份到 G
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"] 验证是否支持您的配置
 [role="quick-margin-list"]
-* 您正在 GCP 中运行 Cloud Volumes ONTAP 9.7P5 或更高版本。
+* 您正在GCP中运行Cloud Volumes ONTAP 9.7P5或更高版本(建议使用ONTAP 9.8P13及更高版本)。
 * 您已为备份所在的存储空间订阅了有效的 GCP 。
 * 您的 Google Cloud Project 中有一个服务帐户，该帐户具有预定义的存储管理员角色。
 * 您已订阅 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["BlueXP Marketplace备份服务"^]或您已购买 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["并激活"^] NetApp 提供的 Cloud Backup BYOL 许可证。
@@ -41,7 +41,7 @@ image:screenshot_backup_cvo_enable.png["屏幕截图显示了 Cloud Backup Enabl
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三个"] 输入提供程序详细信息
 [role="quick-margin-para"]
-选择要在其中创建用于备份的 Google Cloud Storage 存储分段的 Google Cloud Project 。
+选择要为备份创建Google Cloud Storage存储分段的Google Cloud Project和区域。您还可以选择自己的客户管理密钥进行数据加密、而不是使用默认的Google管理的加密密钥。
 
 [role="quick-margin-para"]
 image:screenshot_backup_provider_settings_gcp.png["显示将卷从 GCP 上安装的 Cloud Volumes ONTAP 系统备份到 Google 云存储分段时云提供商详细信息的屏幕截图。"]
@@ -104,6 +104,32 @@ bigquery.tables.create
 
 
 --
+使用客户管理的加密密钥(CMEK)所需的信息:: 您可以使用自己由客户管理的密钥进行数据加密、而不是使用默认的Google管理的加密密钥。在这种情况下、您需要具有密钥环和密钥名称、以便可以在激活向导中添加此信息。 https://cloud.google.com/kms/docs/cmek["详细了解客户管理的加密密钥"^]。
++
+--
+您还需要在角色中添加以下必需权限、Connector for CMEE才能正常工作：
+
+[source, json]
+----
+cloudkms.cryptoKeys.get
+cloudkms.cryptoKeys.getIamPolicy
+cloudkms.cryptoKeys.list
+cloudkms.cryptoKeys.setIamPolicy
+cloudkms.keyRings.get
+cloudkms.keyRings.getIamPolicy
+cloudkms.keyRings.list
+cloudkms.keyRings.setIamPolicy
+----
+* CMEE注意事项：*
+
+* 支持HSM (硬件支持)和软件生成的密钥。
+* 新创建的或导入的Cloud KMS密钥均受支持。
+* 仅支持区域密钥、不支持全局密钥。
+* 目前、仅支持"对称加密/解密"目的。
+* Cloud Backup会为与存储帐户关联的服务代理分配"CryptoKey Encrypter/Decrypter (roles/cloudkms.CryptoKeyEncrypterDecrypter)" IAM角色。
+
+
+--
 
 
 
@@ -158,12 +184,17 @@ Cloud Backup 在系统上启用，并备份您每天创建的卷，并保留最�
 +
 image:screenshot_backup_cvo_enable.png["屏幕截图显示了 Cloud Backup Settings 按钮，您可以在选择工作环境后使用该按钮。"]
 
-. 选择要为备份创建 Google Cloud Storage 存储分段的 Google Cloud Project 和区域，然后单击 * 下一步 * 。
+. 选择提供程序详细信息并单击 * 下一步 * ：
++
+.. 要为备份创建Google Cloud Storage存储分段的Google Cloud Project和区域。
+.. 无论您是使用默认的Google管理的加密密钥、还是选择您自己的客户管理的密钥来管理数据加密。要使用CMEE、您需要具有密钥环和密钥名称。 https://cloud.google.com/kms/docs/cmek["详细了解客户管理的加密密钥"^]。
 +
 image:screenshot_backup_provider_settings_gcp.png["显示将卷从 GCP 上安装的 Cloud Volumes ONTAP 系统备份到 Google 云存储分段时云提供商详细信息的屏幕截图。"]
 
 +
 请注意，项目必须具有具有预定义的存储管理员角色的服务帐户。
+
+
 
 . 输入要用于默认策略的备份策略详细信息、然后单击*下一步*。您可以选择现有策略、也可以通过在每个部分中输入所做的选择来创建新策略：
 +
