@@ -463,7 +463,6 @@
   <block id="2bfa980473a5e104b4ba06a383a064c8" category="paragraph"><block ref="2bfa980473a5e104b4ba06a383a064c8" category="inline-image-macro-rx" type="image"></block></block>
   <block id="c7a220fc58ccea879a68f706ca98ac0c" category="list-text">单击 * 保存 * 以提交更改。</block>
   <block id="8764d766d622ae40812776b15d742a79" category="inline-xref">删除备份</block>
-  <block id="1cdf12d909faca3295263dc58dc5d4b8" category="paragraph">* 注意： * 停止备份卷时，云提供商会继续为备份所用容量收取对象存储成本，除非您这样做 <block ref="e2e48247dd6dcee2daca407937463dc9" category="inline-xref-macro-rx"></block>。</block>
   <block id="ad7037225e1a7db97ed58953b9110f81" category="section-title">正在添加新备份策略</block>
   <block id="c0cad1a6c15f5188e53bda023704429c" category="paragraph">在为工作环境启用 Cloud Backup 时，您最初选择的所有卷都会使用您定义的默认备份策略进行备份。如果要为具有不同恢复点目标（ RPO ）的某些卷分配不同的备份策略，您可以为该集群创建其他策略并将这些策略分配给其他卷。</block>
   <block id="35ca84c9ac716ce66e06cc6b1cf45a92" category="inline-xref">将此策略应用于该工作环境中的卷</block>
@@ -547,9 +546,6 @@
   <block id="963d2836c97952a191ac974f0e9b5e67" category="inline-link-macro">请参见如何为集群创建新的备份策略并将其分配给选定卷</block>
   <block id="b702b8a648700d54afccce0b8de7766a" category="paragraph">如果在新的工作环境中启用备份，或者从 _Manage Volumes_ 页面为现有工作环境启用备份，则可以使用此选项。</block>
   <block id="7a99d9487fc9540fa7bee7c2eb717413" category="inline-link-macro">请参见如何使用作业监控器</block>
-  <block id="586301717819197e24001cac47efdaaa" category="section-title">2022 年 1 月 2 日</block>
-  <block id="8b0675f2bcc5bb7f00dbceec71509372" category="paragraph">如果您的 AKS 集群安装了 NetApp Astra Trident ，并且使用适用于 Azure 的 Cloud Volumes ONTAP 作为集群的后端存储，则可以将卷备份到 Azure Blob 存储以及从 Azure Blob 存储还原卷。 <block ref="dedf276821ed6d29dbf4b6c6ac7e23c3" category="inline-link-macro-rx"></block>。</block>
-  <block id="8f26fba202051bdab8552c6642789714" category="paragraph">现在，您无需根据备份文件的大小为 NetApp 支付容量费用，而是仅为所保护的数据付费，该数据是通过要备份的源 ONTAP 卷的逻辑已用容量（在 ONTAP 效率之前）计算得出的。此容量也称为前端 TB （前端 TB ）。</block>
   <block id="6c92285fa6d3e827b198d120ea3ac674" category="inline-link">此处</block>
   <block id="ee0db59fec59c2b3e6c6583a61bf12b6" category="doc">监控备份和还原作业的状态</block>
   <block id="30ae8fff8898dc197acd49d9c0797d20" category="list-text">成功</block>
@@ -1072,8 +1068,6 @@
   <block id="57ccb73ee63efac047dc0eeebb63f5a1" category="section-title">现在，您可以将备份策略分配给单个集群中的各个卷</block>
   <block id="81bbbb41117b46d39dbcf4b7db2f1e38" category="section-title">通过一个新选项，您可以自动将默认备份策略应用于新创建的卷</block>
   <block id="739f8a5ac1453fdcd33ce781cd333914" category="section-title">新的作业监控器可用于查看所有备份和还原作业的正在处理状态</block>
-  <block id="3d83253385058dc12afb77a2f730e4c2" category="section-title">能够将永久性卷从 AKS Kubernetes 集群备份到 Azure Blob 存储</block>
-  <block id="14c8359231c23d6f5c54ca5cd66b7645" category="section-title">此版本中更改了 Cloud Backup Service 费用，以便与行业标准更加一致</block>
   <block id="cd1b53810620b8c77681a96dd010c21c" category="list-text">对于 Cloud Backup BYOL 许可，您需要 NetApp 提供的序列号，以便在许可证有效期和容量内使用此服务。 <block ref="47744e5312ce42ad8130a5365d7fb0d0" category="inline-link-macro-rx"></block>。</block>
   <block id="cbc540ff279c66e1f0e285002a107926" category="list-text">对于 Cloud Backup PAYGO 许可，可通过订阅<block ref="92655de6fae7d07ed3897ce19d51b88d" category="inline-link-rx"></block> 在启用 Cloud Backup 之前为必填项。Cloud Backup 的计费通过此订阅完成。<block ref="2dcb14e4aff486ad01ca943b2718d3a3" category="inline-link-rx"></block>。</block>
   <block id="c1d703bdf53bad5718c774b5ba1504f9" category="paragraph">StorageGRID 必须满足以下要求。请参见<block ref="a9591d68f190d64ce21caf15a77d51e9" category="inline-link-rx"></block> 有关详细信息 ...</block>
@@ -2369,7 +2363,6 @@
   <block id="bd5465eb0e8cf8f303aee7ea9420c8b1" category="sidebar">BlueXP博客</block>
   <block id="e4f8a35ee8df8b5c247f6e3286e42891" category="sidebar">BlueXP用例</block>
   <block id="7a45e6298bb69116e2c6db653fb88884" category="sidebar">所有BlueXP文档</block>
-  <block id="58ba7a61ebb07a1d7ec3d3aac8a698c7" category="paragraph"><block ref="2557c337dfecad402162dac53d872fb6" category="inline-link-rx"></block>。</block>
   <block id="dbb5638e73887ef4301df1c7b10993df" category="inline-link">在AWS GovCloud区域中安装Connector</block>
   <block id="9ead7424c07e39075bc88d26cf29486d" category="list-text"><block ref="9ead7424c07e39075bc88d26cf29486d" category="inline-link-rx"></block></block>
   <block id="74af27074013d973d4d84d17e513984c" category="paragraph">如果连接器部署在云中、则GovCloud地区支持Cloud Backup、而不是安装在您的内部环境中。此外、您还必须从AWS Marketplace部署Connector。您不能从BlueXP SaaS网站在政府区域部署Connector。</block>
@@ -3444,4 +3437,7 @@
   <block id="b1e78dfdd8adc3005cff56ffd24b2af1" category="inline-xref">了解如何为此功能配置系统</block>
   <block id="57e477fd9dd6f84cb8ac24711869c4f5" category="list-text">如果您的集群使用的是ONTAP 9.12.1或更高版本、而您使用的是StorageGRID 11.3或更高版本、则可以选择在一定天数后将旧备份分层到AWS S3 Glacier或S3 Glacier深度归档存储、以便进一步优化成本。 <block ref="c2797d22435b48dabeada89d48523cd9" category="inline-xref-macro-rx"></block>。</block>
   <block id="8b1fecd8a08d1d10ad201653d8d4088f" category="sidebar">在非公开站点中备份Cloud Backup数据库</block>
+  <block id="fe3f1bd257c4451d8f8bcbf9a1a58d34" category="paragraph"><block ref="1247b899b5e6800d8fd9e850903ad55a" category="inline-link-rx"></block>。</block>
+  <block id="275b9b785d71f45bb8f134005ece056a" category="paragraph">*注意：*停止备份卷时、云提供商会继续为备份所用容量收取对象存储成本、除非您这样做 <block ref="e2e48247dd6dcee2daca407937463dc9" category="inline-xref-macro-rx"></block>。</block>
+  <block id="46fb0ddeabbcb2b9784add28928cfe7a" category="paragraph">请注意，要应用于卷的策略必须已存在。</block>
 </blocks>

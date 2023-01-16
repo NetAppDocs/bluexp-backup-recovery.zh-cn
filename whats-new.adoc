@@ -473,19 +473,3 @@ link:concept-protect-app-data-to-cloud.html["了解有关保护内部应用程�
 === 新的作业监控器可用于查看所有备份和还原作业的正在处理状态
 
 如果您对多个卷启动了操作，例如更改备份策略或删除备份，则作业监控器会非常有用，这样您可以查看操作何时在所有卷上完成。 link:task-monitor-backup-jobs.html["请参见如何使用作业监控器"]。
-
-
-
-== 2022 年 1 月 2 日
-
-
-
-=== 能够将永久性卷从 AKS Kubernetes 集群备份到 Azure Blob 存储
-
-如果您的 AKS 集群安装了 NetApp Astra Trident ，并且使用适用于 Azure 的 Cloud Volumes ONTAP 作为集群的后端存储，则可以将卷备份到 Azure Blob 存储以及从 Azure Blob 存储还原卷。 link:task-backup-kubernetes-to-azure.html["有关详细信息，请访问此处"]。
-
-
-
-=== 此版本中更改了 Cloud Backup Service 费用，以便与行业标准更加一致
-
-现在，您无需根据备份文件的大小为 NetApp 支付容量费用，而是仅为所保护的数据付费，该数据是通过要备份的源 ONTAP 卷的逻辑已用容量（在 ONTAP 效率之前）计算得出的。此容量也称为前端 TB （前端 TB ）。

@@ -18,7 +18,7 @@ Cloud Backup是一项适用于BlueXP (以前称为Cloud Manager)工作环境的�
 
 如有必要，您可以将整个 _volume" 从备份还原到相同或不同的工作环境。备份 ONTAP 数据时，您还可以选择将备份中的一个或多个 _files_ 还原到相同或不同的工作环境。
 
-https://cloud.netapp.com/cloud-backup-service["了解有关 Cloud Backup 的更多信息"^]。
+https://bluexp.netapp.com/cloud-backup["了解有关 Cloud Backup 的更多信息"^]。
 
 备份和还原可用于：
 
