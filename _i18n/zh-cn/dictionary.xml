@@ -1424,8 +1424,6 @@
   <block id="1ad501aca706aedda73a497f3e05cad4" category="list-text">通过端口 443 与 Cloud Backup 建立出站 Internet 连接（在 " 非公开 " 站点中安装 Connector 时不需要）</block>
   <block id="7213734d8950b4641631fa35737ef55d" category="list-text">要备份的卷所在的 ONTAP 集群中的 IP 空间。此 IP 空间的集群间 LIF 必须具有出站 Internet 访问权限（在 " 非公开 " 站点中安装 Connector 时不需要）。</block>
   <block id="9fe942ae01924dd657ce7f1996246cc6" category="section-title">支持无 Internet 连接的站点</block>
-  <block id="012009e84c36a8660d26e3a3201d2fe9" category="list-text">如果Connector安装在无法访问Internet的站点(非公开站点)上、则不支持使用搜索和还原进行文件级还原。</block>
-  <block id="2deb7493de6dd6e8fd3126d72d730f68" category="cell">在非公开站点中不支持</block>
   <block id="664bf8c6e31ba8a710f5213d1874cd18" category="list-text">如果您有备份许可证文件（安装在非公开站点时需要），请选择 * 上传许可证文件 * 选项，然后按照提示附加该文件。</block>
   <block id="d4e2be367ddcfb2b47d5711136446363" category="section-title">2022年6月14日</block>
   <block id="dd16b8804cbc8afa6e2f6deb9acf5bcf" category="section-title">增加了对在无法访问Internet的站点中备份内部ONTAP 集群数据的支持</block>
@@ -2555,11 +2553,9 @@
   <block id="e191225ef89ae4b4097edff77c5ad2a5" category="list-text">对于Amazon S3、Connector可以部署在AWS或内部环境中</block>
   <block id="2bdfeeb4dec8a7b723d287568533182e" category="list-text">对于Azure Blob、可以将Connector部署在Azure或您的内部环境中</block>
   <block id="477b6dc7ebfe6a69105359bdce55f421" category="list-text">对于Google Cloud Storage、必须在Google Cloud Platform VPC中部署Connector</block>
-  <block id="e379a23dde4555ac0507594521c2f485" category="list-text">对于StorageGRID 、必须在内部部署此连接器</block>
   <block id="c49f59ffa802db74f79cfe31499cbec3" category="section-title">还原文件夹和文件</block>
   <block id="a6d15ed479d88aab273727debe09b199" category="paragraph">按照以下步骤将文件夹或文件从ONTAP 卷备份还原到卷。您应知道要用于还原文件夹或文件的卷名称和备份文件的日期。此功能使用实时浏览功能，以便您可以查看每个备份文件中的目录和文件列表。</block>
   <block id="1c01241cf7c3489f40f6f12fb4239c09" category="paragraph">对于搜索和还原、可以将连接器安装在以下位置：</block>
-  <block id="b3099050d137cae2d6b32ee13fa2a9a2" category="list-text">对于StorageGRID 、连接器必须部署在您的内部环境中、并具有Internet连接</block>
   <block id="50dbd12360a1c9bec9e23472af649ee9" category="list-text">StorageGRID 要求：</block>
   <block id="2372538267040a6e644c149e870e7242" category="paragraph">根据您的配置、可通过两种方式实施搜索和还原：</block>
   <block id="d1bf7f840fa5b89e3ec98ec94dcf9f3c" category="list-text">如果您的帐户中没有云提供商凭据、则索引目录信息将存储在Connector上。</block>
@@ -2756,7 +2752,6 @@
   <block id="373e31603b5a78ab3bc84cbe57c892b5" category="paragraph">每个备份策略都为_Archival Policy_提供了一个部分、您可以将其应用于备份文件。</block>
   <block id="0776412162b9ad0d387bbf818146d659" category="sidebar">支持的Google归档存储层</block>
   <block id="91770f038cd944a1d3b9b347edeb2b10" category="sidebar">新增功能</block>
-  <block id="442630401ddd0f14988d739183c35505" category="list-text">目前、对象存储上的WORM/Compliance模式仅在Amazon S3和StorageGRID 上受支持。这称为DataLock功能、必须使用Cloud Backup设置对其进行管理。</block>
   <block id="b2ff0fb046b03e40e599f1561ed5ebd3" category="list-text">不支持从FlexGroup 卷还原到FlexVol 卷、或将FlexVol 卷还原到FlexGroup 卷。</block>
   <block id="c911798e68210cf43e7a5a85f31ebebe" category="paragraph">要开始使用Cloud Backup API、您需要获取用户令牌、您的BlueXP帐户ID和BlueXP Connector ID。</block>
   <block id="30bc6b6cbbb254a1299f2544d8a09731" category="paragraph">进行API调用时、您需要在Authorization标头中添加用户令牌、并在x-agent-id标头中添加BlueXP Connector ID。您应在API中使用BlueXP帐户ID。</block>
@@ -2778,7 +2773,6 @@
   <block id="ad28f8f849480a4631fcbda2422f9afa" category="paragraph">Cloud Backup 以按需购买模式提供基于消费的许可。通过云提供商的市场订阅后、您可以按GiB为备份的数据付费、无需预先支付费用。您的云提供商会通过每月账单向您开具账单。</block>
   <block id="2802742de18e4e6fd33742e9f320577d" category="paragraph">备份副本存储在BlueXP在云帐户中创建的对象存储中。每个集群/工作环境有一个对象存储、BlueXP将该对象存储命名为："netapp-backup-clusteruuid"。请确保不要删除此对象存储。</block>
   <block id="bea14d044add005ebbc3ac7671a9bac7" category="list-text">如果在SnapMirror目标卷上创建Snapshot的本地副本(无论使用的SnapMirror标签如何)、则这些Snapshot不会作为备份移动到云中。此时、您需要为源DP卷创建一个包含所需标签的Snapshot策略、以便Cloud Backup对其进行备份。</block>
-  <block id="a5de9c26eaee9b57d8bcd1ff4d49f888" category="list-text">FlexGroup 卷备份无法移动到归档存储、也无法使用DataLock和勒索软件保护。</block>
   <block id="9defdde711056fe7bbfd4e7bfc21de90" category="inline-link">详细了解网关端点</block>
   <block id="5395d21beaf13b09f8644c9586a34bbb" category="paragraph">VPC网关端点必须已存在于VPC中。<block ref="efccbdf33ae534e50311d23fe5ad227e" category="inline-link-rx"></block>。</block>
   <block id="172483accc796d1a4b4deb4fe01ad8d4" category="list-text">验证权限"S3：PutBucketPolicy"和"S3：PutBucketOwnershipControls"是否属于为BlueXP Connector提供权限的IAM角色。</block>
@@ -3427,7 +3421,6 @@
   <block id="98c4206e171ce9b62f1dadef4f4da528" category="list-text">您的StorageGRID 必须是<block ref="a62572fc02ca2a884f6a1e42d38d1d55" category="inline-link-rx"></block></block>
   <block id="68aa7e5e44b2aff449b0543b49e563bd" category="inline-link-macro">了解有关AWS归档层的更多信息</block>
   <block id="9ac50560d5fb673e5d33906e46dd98c6" category="list-text">目前、只有AWS S3存储类才支持归档存储。您可以选择将备份分层到AWS S3 Glacier或S3 Glacier深度归档存储。 <block ref="99a80ab47f2b3c111e86aba05224c42e" category="inline-link-macro-rx"></block>。</block>
-  <block id="ec1bc3c970d4b572c193f7ae566018d4" category="list-text">您需要为备份所在的存储空间注册AWS S3订阅。</block>
   <block id="832d0ea7eab67f52faa651ad1475e14a" category="paragraph">在为集群的备份策略定义归档设置时、您将输入云提供商凭据并选择要使用的存储类。Cloud Backup会在您为集群激活备份时创建云分段。AWS归档存储所需的信息如下所示。</block>
   <block id="1561c5b8437cf775ebce2ca08e284b68" category="inline-image-macro">将备份文件从StorageGRID 归档到AWS S3所需信息的屏幕截图。</block>
   <block id="4e82138d6097530281cd6cb668514613" category="paragraph"><block ref="4e82138d6097530281cd6cb668514613" category="inline-image-macro-rx" type="image"></block></block>
@@ -3440,4 +3433,13 @@
   <block id="fe3f1bd257c4451d8f8bcbf9a1a58d34" category="paragraph"><block ref="1247b899b5e6800d8fd9e850903ad55a" category="inline-link-rx"></block>。</block>
   <block id="275b9b785d71f45bb8f134005ece056a" category="paragraph">*注意：*停止备份卷时、云提供商会继续为备份所用容量收取对象存储成本、除非您这样做 <block ref="e2e48247dd6dcee2daca407937463dc9" category="inline-xref-macro-rx"></block>。</block>
   <block id="46fb0ddeabbcb2b9784add28928cfe7a" category="paragraph">请注意，要应用于卷的策略必须已存在。</block>
+  <block id="da241970bf8ab518d4b9fd4ec20e3a48" category="list-text">您需要为备份所在的存储空间注册Amazon S3帐户。</block>
+  <block id="3c6238f54517e5cf7923ae4c33a5eff9" category="list-text">对于StorageGRID 、连接器必须部署在您的内部环境中；可以访问Internet、也可以不访问Internet</block>
+  <block id="cd1cceb157b5982d899b66d18217af64" category="list-text">如果在非公开站点中使用Connector、则索引目录信息将存储在Connector上(需要连接器3.9.25或更高版本)。</block>
+  <block id="e083799711dc9b588bbb440525564506" category="section-title">增加了对在无法访问Internet的站点中使用搜索和还原还原还原数据的支持</block>
+  <block id="7582bcce7533bd53ab590d04904ea75b" category="paragraph">如果您要将数据从内部ONTAP 集群备份到无法访问Internet的站点(也称为非公开站点或脱机站点)中的StorageGRID 、则现在可以根据需要使用搜索和还原还原还原选项还原数据。此功能要求在脱机站点中部署BlueXP Connector (3.9.25或更高版本)。</block>
+  <block id="c9ec78264dce9938676b736265201e28" category="inline-link">请参见如何使用搜索和放大器还原ONTAP 数据</block>
+  <block id="74aacc002c6d6d85e9786012bf71af08" category="paragraph"><block ref="fbe0ce057e5d8013a227c4cb944242a5" category="inline-link-rx"></block>。<block ref="eb618b89294e80d594faecbc4641afee" category="inline-link-rx"></block>。</block>
+  <block id="4f60787e5fe87ac0aa425be67237edec" category="list-text">FlexGroup 卷备份无法移动到归档存储、也无法使用DataLock和勒索软件保护。</block>
+  <block id="1f973e0276bdcc7629141de9466f59f2" category="list-text">目前、对象存储上的WORM/Compliance模式仅在Amazon S3和StorageGRID 上受支持。这称为DataLock功能、必须使用Cloud Backup设置来管理、而不是使用云提供商界面。</block>
 </blocks>

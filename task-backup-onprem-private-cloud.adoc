@@ -216,7 +216,7 @@ NOTE: Cloud Backup功能内置在BlueXP Connector中。如果安装在无法连�
 * 您的StorageGRID 必须使用11.3或更高版本
 * 您的StorageGRID 必须是 https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-storagegrid.html["已在BlueXP画布中发现并提供"^]
 * 目前、只有AWS S3存储类才支持归档存储。您可以选择将备份分层到AWS S3 Glacier或S3 Glacier深度归档存储。 link:reference-aws-backup-tiers.html["了解有关AWS归档层的更多信息"^]。
-* 您需要为备份所在的存储空间注册AWS S3订阅。
+* 您需要为备份所在的存储空间注册Amazon S3帐户。
 
 
 --

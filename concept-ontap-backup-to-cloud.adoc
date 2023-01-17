@@ -406,6 +406,10 @@ endif::gcp[]
 
 
 
+== 限制
+
+
+
 === 备份限制
 
 * 要将旧备份文件分层到归档存储、集群必须运行ONTAP 9.10.1或更高版本。从归档存储中的备份文件还原卷还要求目标集群运行 ONTAP 9.10.1+ 。
@@ -427,7 +431,7 @@ endif::gcp[]
 * 数据保护卷不支持使用*立即备份*按钮进行临时卷备份。
 * 不支持 SM-BC 配置。
 * ONTAP 不支持扇出从一个卷到多个对象存储的 SnapMirror 关系；因此， Cloud Backup 不支持此配置。
-* 目前、对象存储上的WORM/Compliance模式仅在Amazon S3和StorageGRID 上受支持。这称为DataLock功能、必须使用Cloud Backup设置对其进行管理。
+* 目前、对象存储上的WORM/Compliance模式仅在Amazon S3和StorageGRID 上受支持。这称为DataLock功能、必须使用Cloud Backup设置来管理、而不是使用云提供商界面。
 
 
 
@@ -440,7 +444,8 @@ endif::gcp[]
 * 搜索和还原一次可以还原1个文件。
 * 浏览和还原以及搜索和还原一次可以还原1个文件夹。
 * 不支持从FlexGroup 卷还原到FlexVol 卷、或将FlexVol 卷还原到FlexGroup 卷。
-* 如果Connector安装在无法访问Internet的站点(非公开站点)上、则不支持使用搜索和还原进行文件级还原。
+
+
 * 如果备份文件驻留在归档存储中、则无法还原单个文件夹。
 * 要还原的文件必须使用与目标卷上的语言相同的语言。如果语言不同，您将收到一条错误消息。
 

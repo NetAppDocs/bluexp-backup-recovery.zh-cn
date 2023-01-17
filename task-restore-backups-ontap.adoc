@@ -56,7 +56,7 @@ image:screenshot_restore_dashboard.png["\" 还原信息板 \" 显示了使用 \"
 | 卷和文件还原适用于存储在Amazon S3、Azure Blob、Google Cloud和NetApp StorageGRID 中的备份文件 | 卷和文件还原适用于存储在Amazon S3、Azure Blob、Google Cloud和NetApp StorageGRID 中的备份文件 
 
 
-| 在无法访问Internet的站点中从StorageGRID 还原卷、文件夹和文件 | 在非公开站点中不支持 
+| 在无法访问Internet的站点中从StorageGRID 还原卷、文件夹和文件 | 在无法访问Internet的站点中从StorageGRID 还原卷、文件夹和文件 
 
 
 | 不处理已重命名或删除的文件 | 处理新创建 / 删除 / 重命名的目录以及新创建 / 删除 / 重命名的文件 
@@ -150,7 +150,7 @@ ifdef::gcp[]
 
 endif::gcp[]
 
-* 对于StorageGRID 、必须在内部部署此连接器
+* 对于StorageGRID 、连接器必须部署在您的内部环境中；可以访问Internet、也可以不访问Internet
 
 
 请注意， " 内部 ONTAP 系统 " 的引用包括 FAS ， AFF 和 ONTAP Select 系统。
@@ -505,7 +505,7 @@ ifdef::gcp[]
 
 endif::gcp[]
 
-* 对于StorageGRID 、连接器必须部署在您的内部环境中、并具有Internet连接
+* 对于StorageGRID 、连接器必须部署在您的内部环境中；可以访问Internet、也可以不访问Internet
 
 
 请注意， " 内部 ONTAP 系统 " 的引用包括 FAS ， AFF 和 ONTAP Select 系统。
@@ -574,6 +574,7 @@ endif::gcp[]
 
 +
 ** 如果您的帐户中没有云提供商凭据、则索引目录信息将存储在Connector上。
+** 如果在非公开站点中使用Connector、则索引目录信息将存储在Connector上(需要连接器3.9.25或更高版本)。
 ** 如果您有 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-aws.html["AWS 凭据"^] 或 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-azure.html["Azure credentials"^] 在帐户中、索引目录存储在云提供商处、就像部署在云中的Connector一样。(如果您同时拥有这两个凭据、则默认情况下会选择AWS。)
 +
 即使您使用的是内部部署Connector、也必须同时满足云提供商对Connector权限和云提供商资源的要求。使用此实施时、请参见上述AWS和Azure要求。

@@ -42,6 +42,14 @@ summary: 了解 Cloud Backup 中的新增功能。
 
 
 
+=== 增加了对在无法访问Internet的站点中使用搜索和还原还原还原数据的支持
+
+如果您要将数据从内部ONTAP 集群备份到无法访问Internet的站点(也称为非公开站点或脱机站点)中的StorageGRID 、则现在可以根据需要使用搜索和还原还原还原选项还原数据。此功能要求在脱机站点中部署BlueXP Connector (3.9.25或更高版本)。
+
+https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#restoring-ontap-data-using-search-restore["请参见如何使用搜索和放大器还原ONTAP 数据"]。https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html["请参见如何在脱机站点中安装Connector"]。
+
+
+
 === 能够以.csv报告的形式下载作业监控结果页面
 
 筛选"作业监控"页面以显示您感兴趣的作业和操作后、现在可以生成并下载该数据的.csv文件。然后、您可以分析这些信息、或者将报告发送给组织中的其他人员。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#download-job-monitoring-results-as-a-report["请参见如何生成作业监控报告"]。
