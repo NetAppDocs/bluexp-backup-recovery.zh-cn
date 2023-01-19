@@ -2359,7 +2359,6 @@
   <block id="c95623cd0395d5a6bb6105b9d32f197b" category="inline-link">BlueXP通知</block>
   <block id="e8a6d0f19a957eac14b9917a6c92899b" category="list-text"><block ref="e8a6d0f19a957eac14b9917a6c92899b" category="inline-link-rx"></block></block>
   <block id="bd5465eb0e8cf8f303aee7ea9420c8b1" category="sidebar">BlueXP博客</block>
-  <block id="e4f8a35ee8df8b5c247f6e3286e42891" category="sidebar">BlueXP用例</block>
   <block id="7a45e6298bb69116e2c6db653fb88884" category="sidebar">所有BlueXP文档</block>
   <block id="dbb5638e73887ef4301df1c7b10993df" category="inline-link">在AWS GovCloud区域中安装Connector</block>
   <block id="9ead7424c07e39075bc88d26cf29486d" category="list-text"><block ref="9ead7424c07e39075bc88d26cf29486d" category="inline-link-rx"></block></block>
@@ -2785,7 +2784,6 @@
   <block id="bbc08f31565cf18b34651c7d285d9911" category="list-text">作业—管理BlueXP数据库上的作业详细信息条目</block>
   <block id="24a0195c713a5929a91f430eefb31465" category="list-text">许可证-从BlueXP检索工作环境的许可证有效性</block>
   <block id="f3e008a63710b1317b4340caf4a574bd" category="list-text">勒索软件扫描—对特定备份文件启动勒索软件扫描</block>
-  <block id="383364de1ac57828a17c795ac72c6b9c" category="list-text">Restore—用于执行卷和文件级还原操作</block>
   <block id="50091c079ab0009fa21807b8bbc81cfd" category="list-text">SFR—从备份文件中检索文件以执行单个文件级还原操作(浏览和还原)</block>
   <block id="96fa87fed0ba1143a920c3c8d44c8754" category="list-text">工作环境—管理备份策略、并配置与工作环境关联的目标对象存储</block>
   <block id="73358bf2a9d2d2c32dbbab5b76681d7f" category="section-title">所需的Connector出站Internet访问端点更改</block>
@@ -3352,9 +3350,7 @@
   <block id="b17d2155a07524d0e8a3d1eb73a257c3" category="section-title">能够将旧备份文件从StorageGRID 系统移动到AWS S3归档存储</block>
   <block id="76592785cd14862cf74d11289e50ed92" category="paragraph">现在、您可以将旧备份文件从StorageGRID 系统分层到AWS S3中的归档存储。这样、您就可以释放StorageGRID 系统上的空间、并通过对旧备份文件使用成本低廉的存储类节省资金。您可以选择将备份分层到AWS S3 Glacier或S3 Glacier深度归档存储。</block>
   <block id="ec9614a46239aa59499c4a94e919963a" category="inline-link">单击此处了解更多信息</block>
-  <block id="481c6a107a47fcbb610d4e79b7d8bc01" category="paragraph">如果集群使用的是ONTAP 9.12.1或更高版本、而StorageGRID 系统使用的是11.3或更高版本、则可以使用此功能。<block ref="ba1010a667c53f122912d421bb932c28" category="inline-link-rx"></block>。</block>
   <block id="5baabb9bbca503ea382779d0fce7e9c5" category="section-title">可以在Google Cloud上为数据加密选择您自己由客户管理的密钥</block>
-  <block id="d42d3ab595b05475b681bcec25a25c6b" category="paragraph">将数据从ONTAP 系统备份到Google云存储时、现在您可以在激活向导中选择自己的客户管理的数据加密密钥、而不是使用默认的Google管理的加密密钥。只需先设置客户管理的加密密钥、然后在激活Cloud Backup时输入详细信息即可。</block>
   <block id="b9395c2030b2a8ad48d31ad52bd9f6e9" category="section-title">服务帐户不再需要"存储管理员"角色来在Google Cloud Storage中创建备份</block>
   <block id="d7cf6019b64afefeee4361ce4c22ce30" category="inline-link">请参见如何准备用于备份的Google Cloud存储</block>
   <block id="121b4934193e6ec77a35338afd1028bb" category="paragraph">在早期版本中、支持Cloud Backup访问Google Cloud Storage存储分段的服务帐户需要"存储管理员"角色。现在、您可以创建一个自定义角色、并为该服务帐户分配一组经过精简的权限。<block ref="cdc0823dc4910df979845484c27cfc1d" category="inline-link-rx"></block>。</block>
@@ -3414,7 +3410,6 @@
   <block id="f8436f6242c5e270dd0e25a1a05d34a4" category="inline-link-macro">了解如何在非公开站点中备份Cloud Backup数据</block>
   <block id="02bf1c0a02190999eeab71bbe7fff71c" category="paragraph">强烈建议在没有Internet连接的站点上安装Connector时、定期为Cloud Backup配置数据创建本地备份。 <block ref="07f517d916bbf45a47c5d9dc6a000920" category="inline-link-macro-rx"></block>。</block>
   <block id="89d604768fdd7e6fda1e2bdb512ac56e" category="section-title">准备将旧备份文件归档到公共云存储</block>
-  <block id="483f68b62cb5a3e5d608257045622894" category="paragraph">将较旧的备份文件分层到归档存储可为您可能不需要的备份使用成本较低的存储类、从而节省资金。StorageGRID 是一种内部(私有云)解决方案 、不提供归档存储、但您可以将旧备份文件迁移到公共云归档存储。</block>
   <block id="9da2e088609ab78eb6aa7a0ffe0637b3" category="list-text">您的集群必须使用ONTAP 9.12.1或更高版本</block>
   <block id="7bbe58a850cc71a0ff06edd40213c29c" category="list-text">您的StorageGRID 必须使用11.3或更高版本</block>
   <block id="170d42742a62bce031fc4ab2cfd0c056" category="inline-link">已在BlueXP画布中发现并提供</block>
@@ -3437,9 +3432,23 @@
   <block id="3c6238f54517e5cf7923ae4c33a5eff9" category="list-text">对于StorageGRID 、连接器必须部署在您的内部环境中；可以访问Internet、也可以不访问Internet</block>
   <block id="cd1cceb157b5982d899b66d18217af64" category="list-text">如果在非公开站点中使用Connector、则索引目录信息将存储在Connector上(需要连接器3.9.25或更高版本)。</block>
   <block id="e083799711dc9b588bbb440525564506" category="section-title">增加了对在无法访问Internet的站点中使用搜索和还原还原还原数据的支持</block>
-  <block id="7582bcce7533bd53ab590d04904ea75b" category="paragraph">如果您要将数据从内部ONTAP 集群备份到无法访问Internet的站点(也称为非公开站点或脱机站点)中的StorageGRID 、则现在可以根据需要使用搜索和还原还原还原选项还原数据。此功能要求在脱机站点中部署BlueXP Connector (3.9.25或更高版本)。</block>
   <block id="c9ec78264dce9938676b736265201e28" category="inline-link">请参见如何使用搜索和放大器还原ONTAP 数据</block>
   <block id="74aacc002c6d6d85e9786012bf71af08" category="paragraph"><block ref="fbe0ce057e5d8013a227c4cb944242a5" category="inline-link-rx"></block>。<block ref="eb618b89294e80d594faecbc4641afee" category="inline-link-rx"></block>。</block>
   <block id="4f60787e5fe87ac0aa425be67237edec" category="list-text">FlexGroup 卷备份无法移动到归档存储、也无法使用DataLock和勒索软件保护。</block>
   <block id="1f973e0276bdcc7629141de9466f59f2" category="list-text">目前、对象存储上的WORM/Compliance模式仅在Amazon S3和StorageGRID 上受支持。这称为DataLock功能、必须使用Cloud Backup设置来管理、而不是使用云提供商界面。</block>
+  <block id="0c1029565d47087d49e25dbc4e2a20e9" category="list-text">Restore—用于执行卷、文件和文件夹级别的还原操作</block>
+  <block id="b7027e7163ab44680c3c69296db41564" category="paragraph">如果您的内部集群使用的是ONTAP 9.12.1或更高版本、而StorageGRID 系统使用的是11.3或更高版本、则可以使用此功能。<block ref="ba1010a667c53f122912d421bb932c28" category="inline-link-rx"></block>。</block>
+  <block id="0b17a5b6850808b4455bcd3d8bf54966" category="paragraph">将数据从ONTAP 系统备份到Google云存储时、现在您可以在激活向导中选择自己的客户管理的数据加密密钥、而不是使用默认的Google管理的加密密钥。只需先在Google中设置客户管理的加密密钥、然后在激活Cloud Backup时输入详细信息。</block>
+  <block id="a282fca785a0e402e0b5cdde4c380d6d" category="paragraph">如果您要将数据从内部ONTAP 集群备份到无法访问Internet的站点(也称为非公开站点或脱机站点)中的StorageGRID 、则现在可以根据需要使用搜索和还原选项还原数据。此功能要求在脱机站点中部署BlueXP Connector (3.9.25或更高版本)。</block>
+  <block id="d0729ea313d81752ff62b4b9a3f956b7" category="paragraph">将较旧的备份文件分层到归档存储可为您可能不需要的备份使用成本较低的存储类、从而节省资金。StorageGRID 是一种内部(私有云)解决方案 、不提供归档存储、但您可以将旧备份文件移动到公共云归档存储。以这种方式使用时、分层到云存储或从云存储还原的数据将在StorageGRID 和云存储之间传输-此数据传输不涉及BlueXP。</block>
+  <block id="a4a085a9787be2fa9b79bdf6aa072546" category="list-text">StorageGRID 应对存储分段具有完全控制访问权限 <block ref="08fd47fd7b45cb2848f70fc30872fe0d" prefix="(" category="inline-code"></block>)；但是、如果无法执行此操作、则存储分段策略必须向StorageGRID 授予以下S3权限：</block>
+  <block id="9ba767f0be9f0bee0980958cc583e14c" category="list-text"><block ref="e24d90c482d00361a495cd937be3bb7b" prefix="" category="inline-code"></block></block>
+  <block id="abd3980be6419b43c4ada2fde9c93bd1" category="list-text"><block ref="ec68e11afcd3e390ebf5080e8af5b735" prefix="" category="inline-code"></block></block>
+  <block id="94ab3733a115c1db662684796c5e5f70" category="list-text"><block ref="53cfd5032381d05f65cbc6d64e0004f5" prefix="" category="inline-code"></block></block>
+  <block id="c51afd34d09e8287bb3c293b4c19f57a" category="list-text"><block ref="05cce54a3c6e4b27fe1202c73065ac29" prefix="" category="inline-code"></block></block>
+  <block id="f4f5a5034e34b12200aaca19a2871aea" category="list-text"><block ref="2fadb459df3bdee0dccfda5cc625c37b" prefix="" category="inline-code"></block></block>
+  <block id="80ce9d537bd04197e7c7cc4227525715" category="list-text"><block ref="9c6f56f3012c2178f15d4346495a0a67" prefix="" category="inline-code"></block></block>
+  <block id="4014cba1d3679d7444ccb96338d9ee36" category="list-text"><block ref="8e0864f8129f5d2b658668b9103e83a5" prefix="" category="inline-code"></block></block>
+  <block id="139e90f4554bdc4681ca70203e695cd5" category="list-text"><block ref="28e5f48e9f12d4928897b706c15e527a" prefix="" category="inline-code"></block></block>
+  <block id="7eca941847083ddad64a04d3dca6b3b8" category="sidebar">Cloud Backup用例</block>
 </blocks>

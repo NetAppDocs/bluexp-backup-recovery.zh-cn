@@ -26,13 +26,13 @@ summary: 了解 Cloud Backup 中的新增功能。
 
 现在、您可以将旧备份文件从StorageGRID 系统分层到AWS S3中的归档存储。这样、您就可以释放StorageGRID 系统上的空间、并通过对旧备份文件使用成本低廉的存储类节省资金。您可以选择将备份分层到AWS S3 Glacier或S3 Glacier深度归档存储。
 
-如果集群使用的是ONTAP 9.12.1或更高版本、而StorageGRID 系统使用的是11.3或更高版本、则可以使用此功能。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage["单击此处了解更多信息"]。
+如果您的内部集群使用的是ONTAP 9.12.1或更高版本、而StorageGRID 系统使用的是11.3或更高版本、则可以使用此功能。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage["单击此处了解更多信息"]。
 
 
 
 === 可以在Google Cloud上为数据加密选择您自己由客户管理的密钥
 
-将数据从ONTAP 系统备份到Google云存储时、现在您可以在激活向导中选择自己的客户管理的数据加密密钥、而不是使用默认的Google管理的加密密钥。只需先设置客户管理的加密密钥、然后在激活Cloud Backup时输入详细信息即可。
+将数据从ONTAP 系统备份到Google云存储时、现在您可以在激活向导中选择自己的客户管理的数据加密密钥、而不是使用默认的Google管理的加密密钥。只需先在Google中设置客户管理的加密密钥、然后在激活Cloud Backup时输入详细信息。
 
 
 
@@ -44,7 +44,7 @@ summary: 了解 Cloud Backup 中的新增功能。
 
 === 增加了对在无法访问Internet的站点中使用搜索和还原还原还原数据的支持
 
-如果您要将数据从内部ONTAP 集群备份到无法访问Internet的站点(也称为非公开站点或脱机站点)中的StorageGRID 、则现在可以根据需要使用搜索和还原还原还原选项还原数据。此功能要求在脱机站点中部署BlueXP Connector (3.9.25或更高版本)。
+如果您要将数据从内部ONTAP 集群备份到无法访问Internet的站点(也称为非公开站点或脱机站点)中的StorageGRID 、则现在可以根据需要使用搜索和还原选项还原数据。此功能要求在脱机站点中部署BlueXP Connector (3.9.25或更高版本)。
 
 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#restoring-ontap-data-using-search-restore["请参见如何使用搜索和放大器还原ONTAP 数据"]。https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html["请参见如何在脱机站点中安装Connector"]。
 
