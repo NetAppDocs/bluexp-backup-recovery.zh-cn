@@ -1908,7 +1908,6 @@
   <block id="7e9e3d210bbdc9a1da52aaf1ad227746" category="section-title">使用浏览和还原还原文件夹和文件</block>
   <block id="27816218998e04ffd3077d0806e7798b" category="paragraph">如果您只需要从ONTAP 卷备份还原几个文件、则可以选择还原文件夹或单个文件、而不是还原整个卷。您可以将文件夹和文件还原到原始工作环境中的现有卷、也可以还原到使用同一云帐户的其他工作环境。您还可以将文件夹和文件还原到内部ONTAP 系统上的卷。</block>
   <block id="ced64378309b598ee856f94695ccdd3a" category="paragraph">此时、您只能选择和还原一个文件夹。并且只会还原该文件夹中的文件—不会还原子文件夹或子文件夹中的文件。</block>
-  <block id="8d2050d73759f67297630e3e686d074f" category="list-text">如果备份文件驻留在归档存储中、则当前不支持文件夹级还原。在这种情况下、您可以从尚未归档的较新备份文件还原文件夹、也可以从归档的备份还原整个卷、然后访问所需的文件夹和文件。</block>
   <block id="502b9bcf8737b06b486f332278870bbf" category="list-text">要执行_files_还原操作、ONTAP 版本必须为9.6或更高版本。</block>
   <block id="cee5f78cfda5fc2f3b24ce19bdf5119a" category="section-title">文件夹和文件还原过程</block>
   <block id="f3c6f7e9aebf0c7de403d55832a37318" category="list-text">如果要从卷备份还原文件夹或一个或多个文件、请单击*还原*选项卡、然后单击_Browse &amp; Restore_下的*还原文件或文件夹*。</block>
@@ -3451,4 +3450,6 @@
   <block id="4014cba1d3679d7444ccb96338d9ee36" category="list-text"><block ref="8e0864f8129f5d2b658668b9103e83a5" prefix="" category="inline-code"></block></block>
   <block id="139e90f4554bdc4681ca70203e695cd5" category="list-text"><block ref="28e5f48e9f12d4928897b706c15e527a" prefix="" category="inline-code"></block></block>
   <block id="7eca941847083ddad64a04d3dca6b3b8" category="sidebar">Cloud Backup用例</block>
+  <block id="66d2847cfd42bf73060fb82fb4345a9a" category="list-text">如果备份文件已配置DataLock &amp;勒索软件、则当前不支持文件夹级还原。在这种情况下、您可以从备份文件还原整个卷、然后访问所需的文件夹和文件。</block>
+  <block id="5571d67bc301ab9246278c7b368f2013" category="list-text">如果备份文件驻留在归档存储中、则当前不支持文件夹级还原。在这种情况下、您可以从尚未归档的较新备份文件还原文件夹、也可以从归档的备份还原整个卷、然后访问所需的文件夹和文件。</block>
 </blocks>
