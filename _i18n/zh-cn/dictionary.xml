@@ -739,7 +739,6 @@
   <block id="2acfaf00d1f43b0bc630fdcf43c20bb3" category="paragraph">下表对这两种方法进行了比较。</block>
   <block id="1181e345cf6d2eaef5900c975d430d7d" category="cell">浏览和还原</block>
   <block id="7d0014a7ab187c6931fc2183a6074420" category="cell">搜索和还原</block>
-  <block id="fa6009564cbbb803ab9e939ec7396236" category="cell">不处理已重命名或删除的文件</block>
   <block id="609c9e9bd29468f2ba84839f3741b886" category="cell">处理新创建 / 删除 / 重命名的目录以及新创建 / 删除 / 重命名的文件</block>
   <block id="8425d41c6f9d3b6f077b56c4d49651a4" category="paragraph">在使用任一还原方法之前，请确保已为环境配置了唯一的资源要求。以下各节将介绍这些要求。</block>
   <block id="91679e5e03d41aefa89ddfa7649b05d2" category="paragraph">请参见要使用的还原操作类型的要求和还原步骤：</block>
@@ -3452,4 +3451,13 @@
   <block id="7eca941847083ddad64a04d3dca6b3b8" category="sidebar">Cloud Backup用例</block>
   <block id="66d2847cfd42bf73060fb82fb4345a9a" category="list-text">如果备份文件已配置DataLock &amp;勒索软件、则当前不支持文件夹级还原。在这种情况下、您可以从备份文件还原整个卷、然后访问所需的文件夹和文件。</block>
   <block id="5571d67bc301ab9246278c7b368f2013" category="list-text">如果备份文件驻留在归档存储中、则当前不支持文件夹级还原。在这种情况下、您可以从尚未归档的较新备份文件还原文件夹、也可以从归档的备份还原整个卷、然后访问所需的文件夹和文件。</block>
+  <block id="0375f4855be072c7d856a0233cc21de9" category="section-title">支持云提供商解决方案</block>
+  <block id="be845c219bb74b14349ffa6e27e7aef3" category="paragraph">有关已集成到BlueXP中的以下云提供商解决方案的技术支持、请参阅该产品的BlueXP文档中的"获得帮助"。</block>
+  <block id="5bf5309465f91318228a7f956b826348" category="list-text"><block ref="5bf5309465f91318228a7f956b826348" category="inline-link-macro-rx"></block></block>
+  <block id="7450cfde7058dc5e1f7909d0280fd7ae" category="inline-link-macro">Azure NetApp Files</block>
+  <block id="0e2bc9c853e0af52ead12823c025e58b" category="list-text"><block ref="0e2bc9c853e0af52ead12823c025e58b" category="inline-link-macro-rx"></block></block>
+  <block id="b0cee72642f5457a71ddd0b49efb6d93" category="inline-link-macro">适用于 Google Cloud 的 Cloud Volumes Service</block>
+  <block id="02efcbea18b9485a78a41871dce1e64d" category="list-text"><block ref="02efcbea18b9485a78a41871dce1e64d" category="inline-link-macro-rx"></block></block>
+  <block id="67b74e19355f9340daf7f62ceb8233d5" category="list-text">端口1433必须处于打开状态、以便在Connector和Azure Synapse SQL服务之间进行通信。</block>
+  <block id="8042f6982b79849d158e3d7ac9190cc2" category="cell">如果文件已删除或重命名、并且用户不知道原始文件名、则不会处理文件恢复</block>
 </blocks>

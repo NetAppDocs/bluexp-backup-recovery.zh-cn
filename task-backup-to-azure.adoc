@@ -82,24 +82,25 @@ image:diagram_cloud_backup_cvo_azure.png["显示 Cloud Backup 如何与备份文
 +
 --
 .开始之前
-您必须在订阅中注册Azure Synapse分析资源提供商。 https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider["了解如何为您的订阅注册此资源提供商"^]。您必须是订阅*所有者*或*贡献者*才能注册资源提供程序。
-
+* 您必须在订阅中注册Azure Synapse分析资源提供商。 https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider["了解如何为您的订阅注册此资源提供商"^]。您必须是订阅*所有者*或*贡献者*才能注册资源提供程序。
+* 端口1433必须处于打开状态、以便在Connector和Azure Synapse SQL服务之间进行通信。
++
 .步骤
-. 确定分配给 Connector 虚拟机的角色：
+.. 确定分配给 Connector 虚拟机的角色：
 +
-.. 在 Azure 门户中，打开虚拟机服务。
-.. 选择 Connector 虚拟机。
-.. 在设置下，选择 * 身份 * 。
-.. 单击 * Azure 角色分配 * 。
-.. 记下分配给 Connector 虚拟机的自定义角色。
+... 在 Azure 门户中，打开虚拟机服务。
+... 选择 Connector 虚拟机。
+... 在设置下，选择 * 身份 * 。
+... 单击 * Azure 角色分配 * 。
+... 记下分配给 Connector 虚拟机的自定义角色。
 
 
-. 更新自定义角色：
+.. 更新自定义角色：
 +
-.. 在 Azure 门户中，打开 Azure 订阅。
-.. 单击 * 访问控制（ IAM ） > 角色 * 。
-.. 单击自定义角色的省略号（ ... ），然后单击 * 编辑 * 。
-.. 单击 JSON 并添加以下权限：
+... 在 Azure 门户中，打开 Azure 订阅。
+... 单击 * 访问控制（ IAM ） > 角色 * 。
+... 单击自定义角色的省略号（ ... ），然后单击 * 编辑 * 。
+... 单击 JSON 并添加以下权限：
 +
 [source, json]
 ----
@@ -125,7 +126,9 @@ image:diagram_cloud_backup_cvo_azure.png["显示 Cloud Backup 如何与备份文
 +
 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-azure.html["查看策略的完整 JSON 格式"^]
 
-.. 单击 * 查看 + 更新 * ，然后单击 * 更新 * 。
+... 单击 * 查看 + 更新 * ，然后单击 * 更新 * 。
+
+
 
 
 
