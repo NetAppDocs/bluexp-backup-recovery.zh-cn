@@ -44,6 +44,11 @@ https://docs.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview["了�
 每种方法的每 GB 检索费用和每次请求费用不同。有关按 Azure 地区列出的 Azure Archive 详细定价，请访问 https://azure.microsoft.com/en-us/pricing/details/storage/blobs/["Azure 定价页面"^]。
 
 --
+
+
+
+NOTE: 将数据从Azure还原到StorageGRID 系统时、不支持高优先级。
+
 还原在 Azure Archive 中归档的数据需要多长时间？:: 还原时间由两部分组成：
 +
 --

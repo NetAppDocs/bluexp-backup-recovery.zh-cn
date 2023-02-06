@@ -45,7 +45,7 @@ summary: 完成几个步骤，开始将数据从内部 ONTAP 系统备份到 Net
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"] 在系统上启用 Cloud Backup
 [role="quick-margin-para"]
-选择工作环境、然后单击右侧面板中备份和恢复服务旁边的*启用>备份卷*、然后按照设置向导进行操作。
+选择源ONTAP 工作环境、然后单击右侧面板中备份和恢复服务旁边的*启用>备份卷*、然后按照设置向导进行操作。
 
 [role="quick-margin-para"]
 image:screenshot_backup_onprem_enable.png["屏幕截图显示了\"启用备份和恢复\"按钮、该按钮可在您选择工作环境后使用。"]
@@ -62,10 +62,10 @@ image:screenshot_backup_provider_settings_storagegrid.png["显示将卷从 ONTAP
 默认策略每天备份卷，并保留每个卷的最新 30 个备份副本。更改为每小时、每天、每周、每月或每年备份、 或者、选择一个系统定义的策略以提供更多选项。您还可以更改要保留的备份副本数。
 
 [role="quick-margin-para"]
-如果您的集群使用的是ONTAP 9.12.1或更高版本、而您使用的是StorageGRID 11.3或更高版本、则可以选择在一定天数后将旧备份分层到AWS S3 Glacier或S3 Glacier深度归档存储、以便进一步优化成本。
+如果集群使用的是ONTAP 9.12.1或更高版本、而StorageGRID 系统使用的是11.4或更高版本、则可以选择在一定天数后将旧备份分层到公共云归档层、以进一步优化成本。目前支持AWS S3 Glacer/S3 Glacier深度归档或Azure归档存储层。
 
 [role="quick-margin-para"]
-或者、在使用ONTAP 9.11.1及更高版本时、您也可以选择通过配置_DataLock和勒索软件保护_设置之一来保护备份免受删除和勒索软件攻击。 link:concept-cloud-backup-policies.html["详细了解可用的Cloud Backup策略配置设置"^]。
+如果您的集群使用的是ONTAP 9.11.1或更高版本、则可以选择通过配置_DataLock和勒索软件保护_设置之一来保护您的备份免受删除和勒索软件攻击。 link:concept-cloud-backup-policies.html["详细了解可用的Cloud Backup策略配置设置"^]。
 
 [role="quick-margin-para"]
 image:screenshot_backup_onprem_policy.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中选择备份计划和保留期限。"]
@@ -75,7 +75,7 @@ image:screenshot_backup_onprem_policy.png["显示 Cloud Backup 设置的屏幕�
 在选择卷页面中，使用默认备份策略确定要备份的卷。如果要为某些卷分配不同的备份策略，可以创建其他策略并稍后将其应用于卷。
 
 [role="quick-margin-para"]
-系统会在您输入的 S3 访问密钥和机密密钥所指示的服务帐户中自动创建 S3 存储分段，备份文件存储在该处。
+在StorageGRID 上、系统会自动在您输入的S3访问密钥和机密密钥所指示的服务帐户中创建S3存储分段、并且备份文件会存储在该处。
 
 
 
@@ -209,14 +209,23 @@ NOTE: Cloud Backup功能内置在BlueXP Connector中。如果安装在无法连�
 
 将较旧的备份文件分层到归档存储可为您可能不需要的备份使用成本较低的存储类、从而节省资金。StorageGRID 是一种内部(私有云)解决方案 、不提供归档存储、但您可以将旧备份文件移动到公共云归档存储。以这种方式使用时、分层到云存储或从云存储还原的数据将在StorageGRID 和云存储之间传输-此数据传输不涉及BlueXP。
 
-要求::
-+
---
+通过当前支持、您可以将备份归档到AWS _S3 Glacier //_S3 Glacier Deep Archive_或_Azure Archive_存储。
+
+* ONTAP 要求*
+
 * 您的集群必须使用ONTAP 9.12.1或更高版本
-* 您的StorageGRID 必须使用11.3或更高版本
-* 您的StorageGRID 必须是 https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-storagegrid.html["已在BlueXP画布中发现并提供"^]
-* 目前、只有AWS S3存储类才支持归档存储。您可以选择将备份分层到AWS S3 Glacier或S3 Glacier深度归档存储。 link:reference-aws-backup-tiers.html["了解有关AWS归档层的更多信息"^]。
-* 您需要为备份所在的存储空间注册Amazon S3帐户。
+
+
+* StorageGRID 要求*
+
+* 您的StorageGRID 必须使用11.4或更高版本
+* 您的StorageGRID 必须是 https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-storagegrid.html["已在BlueXP画布中发现并提供"^]。
+
+
+* Amazon S3要求*
+
+* 您需要为归档备份所在的存储空间注册Amazon S3帐户。
+* 您可以选择将备份分层到AWS S3 Glacier或S3 Glacier深度归档存储。 link:reference-aws-backup-tiers.html["了解有关AWS归档层的更多信息"^]。
 * StorageGRID 应对存储分段具有完全控制访问权限 (`s3:*`)；但是、如果无法执行此操作、则存储分段策略必须向StorageGRID 授予以下S3权限：
 +
 ** `s3:AbortMultipartUpload`
@@ -231,12 +240,15 @@ NOTE: Cloud Backup功能内置在BlueXP Connector中。如果安装在无法连�
 
 
 
---
+* Azure Blob要求*
+
+* 您需要为归档备份所在的存储空间注册Azure订阅。
+* 通过激活向导、您可以使用现有资源组来管理用于存储备份的Blob容器、也可以创建新的资源组。
 
 
-在为集群的备份策略定义归档设置时、您将输入云提供商凭据并选择要使用的存储类。Cloud Backup会在您为集群激活备份时创建云分段。AWS归档存储所需的信息如下所示。
+在为集群的备份策略定义归档设置时、您将输入云提供商凭据并选择要使用的存储类。Cloud Backup会在您为集群激活备份时创建云分段。AWS和Azure归档存储所需的信息如下所示。
 
-image:screenshot_sg_archive_to_aws.png["将备份文件从StorageGRID 归档到AWS S3所需信息的屏幕截图。"]
+image:screenshot_sg_archive_to_cloud.png["将备份文件从StorageGRID 归档到AWS S3或Azure Blob所需信息的屏幕截图。"]
 
 您选择的归档策略设置将在StorageGRID 中生成信息生命周期管理(ILM)策略、并将这些设置添加为"规则"。如果存在活动的ILM策略、则新规则将添加到ILM策略中、以将数据移动到归档层。如果现有ILM策略处于"建议"状态、则无法创建和激活新的ILM策略。 https://docs.netapp.com/us-en/storagegrid-116/ilm/index.html["详细了解StorageGRID ILM策略和规则"^]。
 
@@ -284,7 +296,7 @@ image:screenshot_backup_provider_settings_storagegrid.png["显示将卷从内部
 .. 输入默认策略的名称。您无需更改名称。
 .. 定义备份计划并选择要保留的备份数。 link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings["请参见您可以选择的现有策略列表"^]。
 .. 如果您的集群使用的是ONTAP 9.11.1或更高版本、则可以选择通过配置_DataLock和勒索软件保护_来保护您的备份免受删除和勒索软件攻击。_DataLock_可防止您的备份文件被修改或删除、_勒索 软件保护_会扫描您的备份文件、以在备份文件中查找勒索软件攻击的证据。 link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["详细了解可用的DataLock设置"^]。
-.. 如果您的集群使用的是ONTAP 9.12.1或更高版本、而您使用的是StorageGRID 11.3或更高版本、则可以选择在一定天数后将旧备份分层到AWS S3 Glacier或S3 Glacier深度归档存储、以便进一步优化成本。 <<准备将旧备份文件归档到公共云存储,了解如何为此功能配置系统>>。
+.. 如果集群使用的是ONTAP 9.12.1或更高版本、而StorageGRID 系统使用的是版本11.4或更高版本、则可以选择在一定天数后将较早的备份分层到公共云归档层。目前支持AWS S3 Glacer/S3 Glacier深度归档或Azure归档存储层。 <<准备将旧备份文件归档到公共云存储,了解如何为此功能配置系统>>。
 +
 image:screenshot_backup_onprem_policy.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中选择备份计划和保留期限。"]
 

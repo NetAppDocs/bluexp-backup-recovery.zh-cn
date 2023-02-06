@@ -55,6 +55,8 @@ Cloud Backup为卷备份提供DataLock和勒索软件保护支持。通过这些
 
 这两项功能均可保护您的备份文件、以便您始终拥有一个有效的备份文件、以便在源数据遭受勒索软件攻击时从恢复数据。如果备份需要锁定并保留一段时间、则满足某些法规要求也会很有帮助。启用DataLock和勒索软件保护后、在Cloud Backup激活过程中配置的云分段将启用对象锁定和对象版本控制。
 
+https://bluexp.netapp.com/blog/cbs-blg-the-bluexp-feature-that-protects-backups-from-ransomware["有关详细信息、请参见DataLock和勒索软件保护博客"^]。
+
 此功能不会为源卷提供保护；仅适用于这些源卷的备份。使用NetApp https://cloud.netapp.com/ci-sde-plp-cloud-secure-info-trial?hsCtaTracking=fefadff4-c195-4b6a-95e3-265d8ce7c0cd%7Cb696fdde-c026-4007-a39e-5e986c4d27c6["Cloud Insights 和Cloud Secure"^]或部分 https://docs.netapp.com/us-en/ontap/anti-ransomware/index.html["ONTAP 提供的反勒索软件保护"^] 以保护源卷。
 
 [CAUTION]
@@ -110,48 +112,84 @@ DataLock可防止备份文件在一段时间内被修改或删除。此功能使
 
 每个备份策略都为_DataLock和勒索软件保护_提供了一个部分、您可以将其应用于备份文件。
 
-image:screenshot_datalock_ransomware_settings.png["创建备份策略时的DataLock和勒索软件保护设置屏幕截图。"]
+image:screenshot_datalock_ransomware_settings.png["创建备份策略时AWS、Azure和StorageGRID 的DataLock和勒索软件保护设置的屏幕截图。"]
 
 您可以为每个备份策略选择以下设置：
 
-* 无(默认)
+[role="tabbed-block"]
+====
+.AWS
+--
+* *无*(默认)
 +
 已禁用DataLock保护和勒索软件保护。
 
-* 监管(不适用于StorageGRID)
+* *监管*
 +
-DataLock设置为_Governance_模式、其中具有特定权限的用户(link:concept-cloud-backup-policies.html#requirements["请参见下文"])可以在保留期间覆盖或删除备份文件。已启用勒索软件保护。
+DataLock设置为_Governance_模式、其中用户使用 `s3:BypassGovernanceRetention` 权限(link:concept-cloud-backup-policies.html#requirements["请参见下文"])可以在保留期间覆盖或删除备份文件。已启用勒索软件保护。
 
-* 合规性
+* *合规性*
 +
 DataLock设置为_Compliance"模式、在此保留期间、任何用户都无法覆盖或删除备份文件。已启用勒索软件保护。
 
 
 
+--
+.Azure 酒店
+--
+* *无*(默认)
++
+已禁用DataLock保护和勒索软件保护。
 
-NOTE: StorageGRID S3对象锁定功能提供了一个DataLock模式、相当于合规模式。不支持等效的监管模式、因此任何用户都无法绕过保留设置、覆盖受保护的备份或删除锁定的备份。
+* *已解锁*
++
+备份文件会在保留期限内受到保护。保留期限可以增加或缩短。通常需要24小时来测试系统。已启用勒索软件保护。
 
+* *已锁定*
++
+备份文件会在保留期限内受到保护。保留期限可以增加、但不能缩短。满足完全合规性要求。已启用勒索软件保护。
+
+
+
+--
+.StorageGRID
+--
+* *无*(默认)
++
+已禁用DataLock保护和勒索软件保护。
+
+* *合规性*
++
+DataLock设置为_Compliance"模式、在此保留期间、任何用户都无法覆盖或删除备份文件。已启用勒索软件保护。
+
+
+
+--
+====
 
 
 === 支持的工作环境和对象存储提供程序
 
 在以下公有 和私有云提供商中使用对象存储时、您可以在以下工作环境中对ONTAP 卷启用DataLock和勒索软件保护。未来版本将添加更多云提供商。
 
-[cols="50,50"]
+[cols="55,45"]
 |===
 | 源工作环境 | 备份文件目标ifdef：：AWS]] 
 
 
-| AWS 中的 Cloud Volumes ONTAP | Amazon S3 endif：：AWS [] ifdef：：azure[] endf：：azure[] ifdef：：GCP () endf：：：GCP () 
+| AWS 中的 Cloud Volumes ONTAP | Amazon S3 endif：：AWS]] ifdef：：azure[] 
 
 
-| 内部部署 ONTAP 系统 | ifdef：：：AWS]] Amazon S3 endf：：AWS[] ifdef：：azure[] endf：：azure[] ifdef：：GCP () endf：：GCP () NetApp StorageGRID 
+| Azure 中的 Cloud Volumes ONTAP | Azure Blob endf：：azure[] ifdef：：gcp[] endf：：gcp[] 
+
+
+| 内部部署 ONTAP 系统 | ifdef：：：AWS]] Amazon S3 endf：：AWS]] ifdef：：azure[] Azure Blob endf：：azure[] ifdef：：GCP () endf：：GCP () NetApp StorageGRID 
 |===
 
 
 === 要求
 
-* 集群必须运行ONTAP 9.11.1或更高版本
+* 集群必须运行ONTAP 9.11.1或更高版本(对于Azure、为9.12.1)
 * 您必须使用BlueXP 3.9.21或更高版本
 
 
@@ -200,6 +238,17 @@ https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aw
 
 endif::aws[]
 
+ifdef::azure[]
+
+* 对于Azure：
++
+** 连接器可以部署在云中或内部环境中
+
+
+
+
+endif::azure[]
+
 * 对于StorageGRID ：
 +
 ** 连接器必须部署在您的内部环境中(可以安装在可访问Internet或不可访问Internet的站点中)
@@ -213,7 +262,8 @@ endif::aws[]
 === 限制
 
 * 如果您已在备份策略中配置归档存储、则无法使用DataLock和勒索软件保护。
-* 激活Cloud Backup时选择的DataLock选项(监管或合规)必须用于该集群的所有备份策略。不能在单个集群上同时使用监管和合规模式锁定。
+* 激活Cloud Backup时选择的DataLock选项必须用于该集群的所有备份策略。
+* 不能在一个集群上同时使用这两种DataLock模式。
 * 如果启用DataLock、则所有卷备份都将被锁定。不能在一个集群中混用锁定卷备份和非锁定卷备份。
 * DataLock和勒索软件保护适用于使用启用了DataLock和勒索软件保护的备份策略的新卷备份。激活Cloud Backup后、您无法启用此功能。
 
@@ -234,7 +284,7 @@ ifdef::aws[]
 
 * 在 AWS 中，备份从 _Standard_ 存储类开始，并在 30 天后过渡到 _Standard-Infrequent Access_ 存储类。
 +
-如果集群使用的是 ONTAP 9.10.1 或更高版本，则可以选择在一定天数后将旧备份分层到 _S3 Glacer_ 或 _S3 Glacier Deep Archive_ 存储，以进一步优化成本。 link:reference-aws-backup-tiers.html["了解有关 AWS 归档存储的更多信息"^]。
+如果集群使用的是ONTAP 9.10.1或更高版本、则可以将较早的备份分层到_S3 Glacer_或_S3 Glacier Deep Archive_存储。 link:reference-aws-backup-tiers.html["了解有关 AWS 归档存储的更多信息"^]。
 
 +
 请注意、如果在激活Cloud Backup时在第一个备份策略中选择_S3 Glacier_或_S3 Glacier Deep Archive_、则该层将是该集群未来备份策略可用的唯一归档层。如果您在第一个备份策略中不选择任何归档层、则_S3 Glacier_将成为未来策略的唯一归档选项。
@@ -247,7 +297,7 @@ ifdef::azure[]
 
 * 在 Azure 中，备份与 _cool_ 访问层关联。
 +
-如果集群使用的是 ONTAP 9.10.1 或更高版本，您可以选择在一定天数后将较早的备份分层到 _Azure Archive_ 存储，以进一步优化成本。 link:reference-azure-backup-tiers.html["详细了解 Azure 归档存储"^]。
+如果集群使用的是ONTAP 9.10.1或更高版本、则可以将较早的备份分层到_Azure Archive_存储。 link:reference-azure-backup-tiers.html["详细了解 Azure 归档存储"^]。
 
 
 
@@ -257,7 +307,7 @@ ifdef::gcp[]
 
 * 在 GCP 中，备份与 _Standard_ 存储类关联。
 +
-如果您的内部集群使用的是ONTAP 9.12.1或更高版本、您可以选择在一定天数后将旧备份分层到云备份UI中的_Archive_存储、以进一步优化成本。(此功能当前不适用于Cloud Volumes ONTAP 系统。) link:reference-google-backup-tiers.html["了解有关Google归档存储的更多信息"^]。
+如果您的内部集群使用的是ONTAP 9.12.1或更高版本、您可以选择在一定天数后将旧备份分层到云备份UI中的_Archive_存储、以进一步优化成本。 link:reference-google-backup-tiers.html["了解有关Google归档存储的更多信息"^]。
 
 
 
@@ -265,6 +315,20 @@ endif::gcp[]
 
 * 在 StorageGRID 中，备份与 _Standard_ 存储类关联。
 +
-如果您的内部集群使用的是ONTAP 9.12.1或更高版本、而您的StorageGRID 系统使用的是11.3或更高版本、则可以将较早的备份文件归档到公共云归档存储。目前、只有AWS S3存储类才支持归档存储。您可以选择在一定天数后将备份分层到AWS _S3 Glacer_或_S3 Glacier Deep Archive_存储。 link:task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage["了解有关从StorageGRID 归档备份文件的更多信息"^]。
+如果您的内部集群使用的是ONTAP 9.12.1或更高版本、而您的StorageGRID 系统使用的是11.4或更高版本、则可以将较早的备份文件归档到公共云归档存储。
 
 
+
+ifdef::aws[]
+
++*对于AWS、您可以将备份分层到AWS _S3 Glacer_或_S3 Glacier Deep Archive_存储。 link:reference-aws-backup-tiers.html["了解有关 AWS 归档存储的更多信息"^]。
+
+endif::aws[]
+
+ifdef::azure[]
+
++*对于Azure、您可以将较早的备份分层到_Azure Archive_存储。 link:reference-azure-backup-tiers.html["详细了解 Azure 归档存储"^]。
+
+endif::azure[]
+
++link:task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage["了解有关从StorageGRID 归档备份文件的更多信息"^]。

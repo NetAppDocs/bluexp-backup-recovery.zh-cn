@@ -18,6 +18,52 @@ summary: 了解 Cloud Backup 中的新增功能。
 
 
 
+== 2023年2月6日
+
+
+
+=== 能够将旧备份文件从StorageGRID 系统移动到Azure归档存储
+
+现在、您可以将旧备份文件从StorageGRID 系统分层到Azure中的归档存储。这样、您就可以释放StorageGRID 系统上的空间、并通过对旧备份文件使用成本低廉的存储类节省资金。
+
+如果您的内部集群使用的是ONTAP 9.12.1或更高版本、而StorageGRID 系统使用的是11.4或更高版本、则可以使用此功能。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage["单击此处了解更多信息"^]。
+
+
+
+=== 可以为Azure Blob中的备份文件配置DataLock和勒索软件保护
+
+现在、存储在Azure Blob中的备份文件支持DataLock和勒索软件保护。如果您的Cloud Volumes ONTAP 或内部ONTAP 系统运行的是ONTAP 9.12.1或更高版本、现在您可以锁定备份文件并对其进行扫描、以检测可能的勒索软件。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-cloud-backup-policies.html#datalock-and-ransomware-protection["详细了解如何使用DataLock和勒索软件保护来保护备份"^]。
+
+
+
+=== 备份和还原FlexGroup 卷增强功能
+
+* 现在、您可以在还原FlexGroup 卷时选择多个聚合。在上一版本中、您只能选择一个聚合。
+* 现在、Cloud Volumes ONTAP 系统支持FlexGroup 卷还原。在上一个版本中、您只能还原到内部ONTAP 系统。
+
+
+
+
+=== Cloud Volumes ONTAP 系统可以将较早的备份移动到Google归档存储
+
+备份文件最初是在Google标准存储类中创建的。现在、您可以使用Cloud Backup将旧备份分层到Google Archive存储、以进一步优化成本。上一版本仅在内部ONTAP 集群中支持此功能—现在支持在Google Cloud中部署的Cloud Volumes ONTAP 系统。
+
+
+
+=== 现在、您可以通过卷还原操作选择要还原卷数据的SVM
+
+现在、您可以将卷数据还原到ONTAP 集群中的不同Storage VM。过去无法选择Storage VM。
+
+
+
+=== 增强了对MetroCluster 配置中卷的支持
+
+现在、如果使用的是ONTAP 9.12.1 GA或更高版本、则在MetroCluster 配置中连接到主系统时、支持备份。整个备份配置将传输到二级系统、以便在切换后自动继续备份到云。
+
+https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html#backup-limitations["有关详细信息、请参见备份限制"]。
+
+
+
 == 2023年1月9日
 
 

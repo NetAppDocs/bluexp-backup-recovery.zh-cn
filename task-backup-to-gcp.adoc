@@ -51,7 +51,10 @@ image:screenshot_backup_provider_settings_gcp.png["显示将卷从 GCP 上安装
 默认策略每天备份卷，并保留每个卷的最新 30 个备份副本。更改为每小时、每天、每周、每月或每年备份、 或者、选择一个系统定义的策略以提供更多选项。您还可以更改要保留的备份副本数。
 
 [role="quick-margin-para"]
-image:screenshot_backup_policy_gcp_no_archive.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中启用或禁用此功能，然后选择备份保留。"]
+默认情况下、备份存储在标准存储中。如果集群使用的是ONTAP 9.12.1或更高版本、则可以选择在一定天数后将备份分层到归档存储、以进一步优化成本。 link:concept-cloud-backup-policies.html["详细了解可用的Cloud Backup策略配置设置"^]。
+
+[role="quick-margin-para"]
+image:screenshot_backup_policy_gcp.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中启用或禁用此功能，然后选择备份保留。"]
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["五个"] 选择要备份的卷
 [role="quick-margin-para"]
@@ -200,8 +203,9 @@ image:screenshot_backup_provider_settings_gcp.png["显示将卷从 GCP 上安装
 +
 .. 输入默认策略的名称。您无需更改名称。
 .. 定义备份计划并选择要保留的备份数。 link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings["请参见您可以选择的现有策略列表"^]。
+.. 使用ONTAP 9.12.1或更高版本时、您可以选择在一定天数后将备份分层到归档存储、以便进一步优化成本。 link:concept-cloud-backup-policies.html["详细了解可用的Cloud Backup策略配置设置"^]。
 +
-image:screenshot_backup_policy_gcp_no_archive.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中启用或禁用此功能，然后选择备份保留。"]
+image:screenshot_backup_policy_gcp.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中启用或禁用此功能，然后选择备份保留。"]
 
 
 

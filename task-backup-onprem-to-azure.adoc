@@ -63,6 +63,9 @@ image:screenshot_backup_onprem_azure_networking.png["屏幕截图显示了将卷
 默认策略每天备份卷，并保留每个卷的最新 30 个备份副本。更改为每小时、每天、每周、每月或每年备份、 或者、选择一个系统定义的策略以提供更多选项。您还可以更改要保留的备份副本数。
 
 [role="quick-margin-para"]
+或者、在使用ONTAP 9.12.1及更高版本时、您也可以选择通过配置_DataLock和勒索软件保护_设置之一来保护备份免受删除和勒索软件攻击。 link:concept-cloud-backup-policies.html["详细了解可用的Cloud Backup策略配置设置"^]。
+
+[role="quick-margin-para"]
 默认情况下，备份存储在冷访问层中。如果集群使用的是 ONTAP 9.10.1 或更高版本，则可以选择在一定天数后将备份分层到 Azure 归档存储，以便进一步优化成本。 link:concept-cloud-backup-policies.html["详细了解可用的Cloud Backup策略配置设置"^]。
 
 [role="quick-margin-para"]
@@ -181,7 +184,7 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 要使用Cloud Backup搜索和还原功能、您需要对Connector的角色拥有特定权限、以便它可以访问Azure Synapse Workspace和Data Lake存储帐户。请参见以下权限、如果需要修改策略、请按照以下步骤进行操作。
 
 .开始之前
-您必须在订阅中注册Azure Synapse分析资源提供商。 https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider["了解如何为您的订阅注册此资源提供商"^]。您必须是订阅*所有者*或*贡献者*才能注册资源提供程序。
+您必须在订阅中注册Azure Synapse分析资源提供程序(称为"microsoft.Synape")。 https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider["了解如何为您的订阅注册此资源提供商"^]。您必须是订阅*所有者*或*贡献者*才能注册资源提供程序。
 
 .步骤
 . 确定分配给 Connector 虚拟机的角色：
@@ -298,6 +301,7 @@ image:screenshot_backup_onprem_azure_networking.png["屏幕截图显示了将卷
 +
 .. 输入默认策略的名称。您无需更改名称。
 .. 定义备份计划并选择要保留的备份数。 link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings["请参见您可以选择的现有策略列表"^]。
+.. 或者、在使用ONTAP 9.12.1及更高版本时、您也可以选择通过配置_DataLock和勒索软件保护_设置之一来保护备份免受删除和勒索软件攻击。_DataLock_可防止您的备份文件被修改或删除、_勒索 软件保护_会扫描您的备份文件、以在备份文件中查找勒索软件攻击的证据。 link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["详细了解可用的DataLock设置"^]。
 .. 使用 ONTAP 9.10.1 及更高版本时，您可以选择在一定天数后将备份分层到 Azure 归档存储，以进一步优化成本。 link:reference-azure-backup-tiers.html["了解有关使用归档层的更多信息"]。
 +
 image:screenshot_backup_policy_azure.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中选择计划和备份保留。"]
