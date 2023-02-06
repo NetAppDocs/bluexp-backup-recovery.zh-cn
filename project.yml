@@ -21,7 +21,7 @@ settings:
     - name: Microsoft Azure
       alias: Azure 酒店
       id: azure
-  langs: zh-cn,us-en,ja-jp,zh-tw,ko-kr,fr-fr,de-de
+  langs: zh-cn,us-en,ja-jp,ko-kr,zh-tw,de-de,fr-fr
 sidebar:
   entries:
   - title: Cloud Backup 文档
