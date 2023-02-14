@@ -3511,4 +3511,5 @@
   <block id="92a755b6d9fa88006d2c9e3907a504a5" category="list-text">对于卷、您可以选择原始目标工作环境、也可以选择备用工作环境。还原FlexGroup 卷时、您可以选择多个聚合。</block>
   <block id="de0ace3ca6a340bec96b9fe94ee00c37" category="paragraph">默认情况下、备份存储在标准存储中。如果集群使用的是ONTAP 9.12.1或更高版本、则可以选择在一定天数后将备份分层到归档存储、以进一步优化成本。 <block ref="87ffafedb97d3b50ea58ef296117bbac" category="inline-link-macro-rx"></block>。</block>
   <block id="0a0a678be4028579aac1f022ed126971" category="paragraph"><block ref="0a0a678be4028579aac1f022ed126971" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="3ff977a010b4bffe09adf01a3ba75903" category="admonition">不支持基于iSCSI/FC/NVMe和VVol的VMFS数据存储库。</block>
 </blocks>
