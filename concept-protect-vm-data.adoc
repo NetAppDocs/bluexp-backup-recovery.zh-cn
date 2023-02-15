@@ -31,6 +31,7 @@ summary: 了解有关保护虚拟机上数据的更多信息、并了解不同�
 
 * ONTAP 9.8 或更高版本
 * BlueXP 3.9或更高版本
+* 仅支持NFS数据存储库。不支持基于iSCSI/FC/NVMe和VVol的VMFS数据存储库。
 * 适用于VMware vSphere 4.6P1的SnapCenter 插件应至少已创建一个备份。
 * 适用于VMware vSphere的SnapCenter 插件中至少有一个每日、每周或每月策略、没有与BlueXP中虚拟机策略相同的标签。
 * 对于预制策略、适用于VMware vSphere的SnapCenter 插件和云中的数据存储库的计划层应相同。

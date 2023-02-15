@@ -1249,8 +1249,6 @@
   <block id="c592537d7c4342754740fa8b36640686" category="section-title">查看数据存储库和虚拟机</block>
   <block id="3fad99d665e8244fc38412e798c501af" category="paragraph">此时将显示使用适用于VMware vSphere的注册SnapCenter 插件进行保护的数据存储库和虚拟机。</block>
   <block id="78166ce4ccceeedfbf6aeb8682851072" category="paragraph">* 关于此任务 *</block>
-  <block id="6b0050118b87748ccc2e6422181d4463" category="list-text">仅显示NFS数据存储库。</block>
-  <block id="4a60f4a892ee2b36c77a92d2aa8f7a15" category="list-text">仅会显示已在适用于VMware vSphere的SnapCenter 插件中成功创建备份至少一个的数据存储库。</block>
   <block id="21d67fc25940b8b3b749e37ad8e29e79" category="list-text">单击要查看其数据存储库和虚拟机的适用于VMware vSphere的SnapCenter 插件。</block>
   <block id="b4aa547260f4fe266f03ec3a845576a5" category="section-title">编辑适用于VMware vSphere的SnapCenter 插件实例</block>
   <block id="65e94d24e7bbe43abc97d317024d0fcd" category="list-text">单击并选择*编辑*</block>
@@ -3511,5 +3509,5 @@
   <block id="92a755b6d9fa88006d2c9e3907a504a5" category="list-text">对于卷、您可以选择原始目标工作环境、也可以选择备用工作环境。还原FlexGroup 卷时、您可以选择多个聚合。</block>
   <block id="de0ace3ca6a340bec96b9fe94ee00c37" category="paragraph">默认情况下、备份存储在标准存储中。如果集群使用的是ONTAP 9.12.1或更高版本、则可以选择在一定天数后将备份分层到归档存储、以进一步优化成本。 <block ref="87ffafedb97d3b50ea58ef296117bbac" category="inline-link-macro-rx"></block>。</block>
   <block id="0a0a678be4028579aac1f022ed126971" category="paragraph"><block ref="0a0a678be4028579aac1f022ed126971" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="3ff977a010b4bffe09adf01a3ba75903" category="admonition">不支持基于iSCSI/FC/NVMe和VVol的VMFS数据存储库。</block>
+  <block id="8453fab1acf37cb3dad50bd528b75148" category="list-text">仅支持NFS数据存储库。不支持基于iSCSI/FC/NVMe和VVol的VMFS数据存储库。</block>
 </blocks>
