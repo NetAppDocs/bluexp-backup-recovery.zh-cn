@@ -17,7 +17,7 @@ summary: BlueXP可为驻留在Amazon FSX for NetApp ONTAP 或Cloud Volumes ONTAP
 Cloud Backup for Applications是一种基于SaaS的服务、可为在NetApp Cloud Storage上运行的应用程序提供数据保护功能。在BlueXP (以前称为Cloud Manager)中启用的Cloud Backup for Applications可为以下应用程序提供高效、应用程序一致且基于策略的保护：
 
 * 位于Amazon FSX for NetApp ONTAP 和Cloud Volumes ONTAP 上的Oracle数据库
-* 驻留在Azure NetApp Files (ANF)上的SAP HANA系统。
+* 驻留在Azure NetApp Files 上的SAP HANA系统
 
 
 
@@ -144,7 +144,7 @@ IMPORTANT: Cloud Backup for Applications SaaS基础架构可在一个区域内�
 ** 通过SAP HANA认证的SLES 12 SP5或更高版本以及15个spx平台
 
 
-* 存储系统：Azure NetApp Files (ANF)
+* 存储系统：Azure NetApp Files
 * 存储布局：对于数据和日志、Azure仅支持NFSv4.1。
 * 数据库布局：
 +

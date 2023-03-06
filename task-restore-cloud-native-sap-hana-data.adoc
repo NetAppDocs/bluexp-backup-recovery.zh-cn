@@ -18,26 +18,23 @@ summary: 还原数据文件、然后恢复数据库。
 
 
 
-== 预处理脚本和后处理脚本
+== 还原云原生SAP HANA数据库
 
-您可以在创建策略时提供预处理脚本、后处理脚本和退出脚本。在执行还原操作时、这些脚本会在HANA主机上运行。
+*您需要的内容*
 
-支持的脚本格式包括.sh、python脚本、perl脚本等。
-
-主机管理员应将预处理文件和后处理文件注册到中 `/opt/NetApp/snapcenter/scc/etc/allowed_commands.config file``
-
-`[root@scspa2622265001 etc]# cat allowed_commands.config
-command: mount
-command: umount
-command: /mnt/scripts/pre_script.sh
-command: /mnt/scripts/post_script.sh`
+. SAP HANA系统必须处于已停止状态。
+. 您可以提供一个预处理程序来停止SAP HANA系统。
 
 
+* 步骤 *
 
-== 环境变量
-
+. 单击 image:icon-action.png["图标以选择操作"] 对应于要还原的数据库、然后单击*查看详细信息*。
+. 单击 image:icon-action.png["图标以选择操作"] 对应于要用于还原的数据备份、然后单击*还原*。
+. 在*还原系统*页面中、输入脚本。 link:task-backup-cloud-native-sap-hana-data.html#prescripts-and-postscripts["了解更多信息。"]
++
 对于还原工作流、以下环境变量可作为prestpt和postScript的一部分提供。
 
++
 |===
 | 环境变量 | Description 
 
@@ -69,21 +66,6 @@ OSDBUser
 已为HANA数据库配置OSDBUser
 
 |===
-
-
-== 还原云原生SAP HANA数据库
-
-*您需要的内容*
-
-. SAP HANA系统必须处于已停止状态。
-. 您可以提供一个预处理程序来停止SAP HANA系统。
-
-
-* 步骤 *
-
-. 单击 image:icon-action.png["图标以选择操作"] 对应于要还原的数据库、然后单击*查看详细信息*。
-. 单击 image:icon-action.png["图标以选择操作"] 对应于要用于还原的数据备份、然后单击*还原*。
-. 在*还原系统*页面中、输入脚本。
 . 单击 * 还原 * 。
 
 

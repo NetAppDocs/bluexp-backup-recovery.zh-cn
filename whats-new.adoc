@@ -110,7 +110,7 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-
 
 * SAP HANA数据库
 +
-** 支持基于策略备份和还原驻留在Azure NetApp Files (ANF)上的SAP HANA数据库
+** 支持基于策略备份和还原驻留在Azure NetApp Files 上的SAP HANA数据库
 ** 支持自定义策略
 
 

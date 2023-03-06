@@ -4,7 +4,7 @@ permalink: task-add-host-discover-oracle-databases.html
 keywords: Cloud Manager, BlueXP, SnapCenter Plug-in for Oracle, Oracle, database, host, deploy, add host, discover 
 summary: 在每个Oracle数据库主机上部署适用于Oracle的SnapCenter 插件。 
 ---
-= 添加主机并发现Oracle数据库
+= 部署适用于Oracle的SnapCenter 插件并添加数据库主机
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,16 @@ summary: 在每个Oracle数据库主机上部署适用于Oracle的SnapCenter 插
 
 
 [role="lead"]
-您应添加主机并发现主机上的数据库、以分配策略并创建备份。您可以在已部署此插件时手动添加主机、也可以使用SSH添加主机。
+您应在每个Oracle数据库主机上部署适用于Oracle的SnapCenter 插件、添加数据库主机并发现主机上的数据库、以分配策略并创建备份。
+
+* 如果为数据库主机启用了SSH、则可以使用以下方法之一部署此插件：
++
+** 部署此插件并使用SSH选项向主机添加UI。 <<使用SSH选项部署此插件并从UI添加主机,了解更多信息。>>。
+** 使用脚本部署插件、并使用手动选项从UI添加主机。 <<使用脚本部署插件、并使用手动选项从UI添加主机,了解更多信息。>>。
+
+
+* 如果禁用了SSH、请手动部署此插件并使用手动选项从UI添加主机。 <<手动部署此插件并使用手动选项从UI添加主机,了解更多信息。>>。
+
 
 
 
@@ -26,18 +35,16 @@ summary: 在每个Oracle数据库主机上部署适用于Oracle的SnapCenter 插
 * 确保Connector可连接到工作环境和Oracle数据库主机。
 * 确保BlueXP用户具有"帐户管理员"角色。
 * 确保在每个Oracle数据库主机上安装了Java 11 (64位) Oracle Java或OpenJDK、并且正确设置了java_home变量。
-* 您应已创建非root用户。有关信息、请参见 <<配置非root用户>>。
-* 如果要手动添加主机、应首先部署此插件。您可以部署此插件 <<手动部署此插件,手动>> 或 <<使用脚本部署此插件,使用脚本>>。
-+
-您应在每个Oracle数据库主机上部署此插件。
+* 您应已创建SnapCenter 用户并为SnapCenter 用户配置sudo。有关信息、请参见 <<为SnapCenter 用户配置sudo>>。
+* 如果使用基于SSH的部署、请确保Connector已启用与SSH端口的通信(默认值：22)。
+* 确保Connector已启用与插件端口的通信(默认值为8145)、以便操作正常运行。
 
 
 
 
+=== 为SnapCenter 用户配置sudo
 
-=== 配置非root用户
-
-您应配置一个非root用户以部署此插件。
+您应创建一个SnapCenter 用户并为该用户配置sudo。
 
 * 步骤 *
 
@@ -47,10 +54,10 @@ summary: 在每个Oracle数据库主机上部署适用于Oracle的SnapCenter 插
 . 从*_base_mount_path_/_version_/SC-Linux-host-plugin/*上的* ORACLE_checksum_SCS.txt*文件中复制第1行到第16行。
 . 登录到Oracle数据库主机并执行以下步骤：
 +
-.. 创建非root用户帐户、专用密钥对并分配权限。有关信息、请参见 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html#create-user-account["创建用户帐户"^]。
+.. 创建SnapCenter 用户帐户、专用密钥对并分配权限。有关信息、请参见 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html#create-user-account["创建用户帐户"^]。
 .. 使用visudo Linux实用程序将您在步骤4中复制的行粘贴到_/etc/sudoers_文件中。
 +
-在上述行中、将<LINUXUSER> 替换为您创建的非root用户、并将文件保存在visudo实用程序中。
+在上述行中、将<LINUXUSER> 替换为您创建的SnapCenter 用户、并将文件保存在visudo实用程序中。
 
 
 
@@ -58,62 +65,7 @@ summary: 在每个Oracle数据库主机上部署适用于Oracle的SnapCenter 插
 
 
 
-=== 使用脚本部署此插件
-
-如果在Oracle主机上为非root用户启用了基于SSH密钥的身份验证、则可以执行以下步骤来部署此插件。在执行这些步骤之前、请确保已启用与连接器的SSH连接。
-
-* 步骤 *
-
-. 登录到Connector VM。
-. 获取基本挂载路径。`sUdo Docker volume ls | grep SCS_cloud _volume _查｛'print $2'｝_ xargs sudo Docker volume inspect _ grep mountpoint`
-. 使用Connector中提供的帮助程序脚本部署此插件。
-`sudo <base_mount_path>/scripts/oracle_plugin_copy_and_install.sh --host <host_name> --sshkey <ssh_key_file> --username <user_name> --port <ssh_port> --pluginport <plugin_port> --installdir <install_dir>`
-+
-** host_name是Oracle主机的名称、这是一个必需参数。
-** SSH_key_file是非root用户的SSH密钥、用于连接到Oracle主机。这是一个必需参数。
-** user_name：在Oracle主机上具有SSH权限的非root用户、这是一个可选参数。默认值为EC2-user。
-** SSH_port：Oracle主机上的SSH端口、这是一个可选参数。默认值为22
-** plugin_port：插件使用的端口、这是一个可选参数。默认值为8145
-** install_dir：要部署此插件的目录、这是一个可选参数。默认值为/opt。
-
-
-
-
-例如：
-`sudo /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/oracle_plugin_copy_and_install.sh --host xxx.xx.x.x --sshkey /keys/netapp-ssh.ppk`
-
-
-
-=== 手动部署此插件
-
-如果Oracle主机上未启用基于SSH密钥的身份验证、则应执行以下手动步骤来部署此插件。
-
-* 步骤 *
-
-. 登录到Connector VM。
-. 下载SnapCenter Linux主机插件二进制文件。`sUdo Docker exec -it cloudmanager_SCS_cloud curl -X get 'http://127.0.0.1/deploy/downloadLinuxPlugin'`[]
-. 获取基本挂载路径。`sUdo Docker volume ls | grep SCS_cloud _volume _查｛'print $2'｝_ xargs sudo Docker volume inspect _ grep mountpoint`
-. 获取下载插件的二进制路径。`s使用ls <base_mount_path>$(sudo Docker ps|grep -po"cloudmanager_SCS_cloud：.*？"|sed -e 's/*$//'|cut -f2 -d"：")/sc-linux-host-plugin/snapcenter_linux_host_plugin_scs.bin`
-. 使用scp或其他替代方法将_snapcenter_linux_host_plugin_SCS.bin_复制到每个Oracle数据库主机。
-+
-应将_snapcenter_linux_host_plugin_SCS.bin_复制到非root用户可访问的位置。
-
-. 使用非root用户帐户登录到Oracle数据库主机、然后运行以下命令为二进制文件启用执行权限。
-`chmod +x snapcenter_linux_host_plugin_scs.bin`
-. 以sudo非root用户身份部署Oracle插件。
-`./snapcenter_linux_host_plugin_scs.bin -i silent -DSPL_USER=<non-root-user>`
-. 将_certificate.p12_从Connector VM的_<base_mount_path>/client/certificate/_路径复制到插件主机上的_/var/opt/snapcenter/spl/etc/。
-. 导航到_/var/opt/snapcenter/spl/etc_并执行keytool命令以导入证书。`keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass SnapCenter -deststorepass SnapCenter -srccalibras agentcert -destalias agentcert -noprop`
-. 重新启动SPL：`systemctl restart spl`
-
-
-
-
-== 添加主机
-
-您应添加主机并发现Oracle数据库。
-
-* 步骤 *
+== 使用SSH选项部署此插件并从UI添加主机
 
 . 在BlueXP用户界面中、单击*保护*>*备份和恢复*>*应用程序*。
 . 单击发现应用程序。
@@ -129,37 +81,11 @@ NOTE: 服务帐户(_SnapCenter-account-<accounttid>_)用于运行计划的备份
 
 
 
-. 在添加主机页面中、执行以下操作之一：
+. 在添加主机页面中、执行以下操作：
 +
-|===
-| 如果您 ... | 执行此操作 ... 
-
-
- a| 
-已部署此插件 <<手动部署此插件,手动>> 或 <<使用脚本部署此插件,使用脚本>>
- a| 
-.. 选择*手动*。
-.. 指定部署此插件的主机的FQDN或IP地址。
-+
-确保使用FQDN或IP地址时、Connector可以与数据库主机进行通信。
-
-.. 指定插件端口。
-+
-默认端口为8145。
-
-.. 选择Connector。
-.. 选中此复选框以确认此插件已安装在主机上
-.. 单击*发现应用程序*。
-
-
-
-
- a| 
-希望自动部署此插件
- a| 
 .. 选择*使用SSH*。
 .. 指定要安装此插件的主机的FQDN或IP地址。
-.. 指定用户名(<<配置非root用户,非root用户>>)、以便将插件软件包复制到主机。
+.. 指定用户名(<<Configure a sudo for SnapCenter user,sudo SnapCenter 用户>>)、以便将插件软件包复制到主机。
 .. 指定SSH和插件端口。
 +
 默认SSH端口为22、插件端口为8145。
@@ -174,17 +100,150 @@ NOTE: 服务帐户(_SnapCenter-account-<accounttid>_)用于运行计划的备份
 NOTE: SSH私钥不会存储在应用程序的任何位置、也不会用于任何其他操作。
 
 .. 单击 * 下一步 * 。
-
-
-|===
 +
-** 显示主机上的所有数据库。如果数据库禁用了操作系统身份验证、则应单击*配置*来配置数据库身份验证。有关详细信息，请参见 <<配置Oracle数据库凭据>>。
-** 单击*设置*并选择*主机*以查看所有主机。单击*删除*以删除数据库主机。
+*** 显示主机上的所有数据库。如果数据库禁用了操作系统身份验证、则应单击*配置*来配置数据库身份验证。有关详细信息，请参见 <<配置Oracle数据库凭据>>。
+*** 单击*设置*并选择*主机*以查看所有主机。单击*删除*以删除数据库主机。
 +
 
 NOTE: 用于查看特定主机的筛选器不起作用。在筛选器中指定主机名时、将显示所有主机。
 
-** 单击*设置*并选择*策略*以查看预制策略。查看预制策略、如果需要、您可以根据需要对其进行编辑或创建新策略。
+*** 单击*设置*并选择*策略*以查看预制策略。查看预制策略、如果需要、您可以根据需要对其进行编辑或创建新策略。
+
+
+
+
+
+
+
+
+== 使用脚本部署插件、并使用手动选项从UI添加主机
+
+如果在Oracle主机上为SnapCenter 用户启用了基于SSH密钥的身份验证、则可以执行以下步骤来部署此插件。在执行这些步骤之前、请确保已启用与连接器的SSH连接。
+
+* 步骤 *
+
+. 登录到Connector VM。
+. 获取基本挂载路径。`sUdo Docker volume ls | grep SCS_cloud _volume _查｛'print $2'｝_ xargs sudo Docker volume inspect _ grep mountpoint`
+. 使用Connector中提供的帮助程序脚本部署此插件。
+`sudo <base_mount_path>/scripts/oracle_plugin_copy_and_install.sh --host <host_name> --sshkey <ssh_key_file> --username <user_name> --port <ssh_port> --pluginport <plugin_port> --installdir <install_dir>`
++
+** host_name是Oracle主机的名称、这是一个必需参数。
+** SSH_key_file是SnapCenter 用户的SSH密钥、用于连接到Oracle主机。这是一个必需参数。
+** user_name：在Oracle主机上具有SSH权限的SnapCenter 用户、这是一个可选参数。默认值为EC2-user。
+** SSH_port：Oracle主机上的SSH端口、这是一个可选参数。默认值为22
+** plugin_port：插件使用的端口、这是一个可选参数。默认值为8145
+** install_dir：要部署此插件的目录、这是一个可选参数。默认值为/opt。
++
+例如：
+`sudo /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/oracle_plugin_copy_and_install.sh --host xxx.xx.x.x --sshkey /keys/netapp-ssh.ppk`
+
+
+
+. 在BlueXP用户界面中、单击*保护*>*备份和恢复*>*应用程序*。
+. 单击发现应用程序。
+. 选择* Cloud原生 *、然后单击*下一步*。
++
+系统会创建一个具有_Data SnapCenter System_角色的服务帐户、以便为此帐户中的所有用户执行计划的数据保护操作。
+
++
+** 单击*帐户*>*管理帐户*>*成员*以查看服务帐户。
++
+
+NOTE: 服务帐户(_SnapCenter-account-<accounttid>_)用于运行计划的备份操作。切勿删除此服务帐户。
+
+
+
+. 在添加主机页面中、执行以下操作：
++
+.. 选择*手动*。
+.. 指定部署此插件的主机的FQDN或IP地址。
++
+确保使用FQDN或IP地址时、Connector可以与数据库主机进行通信。
+
+.. 指定插件端口。
++
+默认端口为8145。
+
+.. 选择Connector。
+.. 选中此复选框以确认此插件已安装在主机上
+.. 单击*发现应用程序*。
++
+*** 显示主机上的所有数据库。如果数据库禁用了操作系统身份验证、则应单击*配置*来配置数据库身份验证。有关详细信息，请参见 <<配置Oracle数据库凭据>>。
+*** 单击*设置*并选择*主机*以查看所有主机。单击*删除*以删除数据库主机。
++
+
+NOTE: 用于查看特定主机的筛选器不起作用。在筛选器中指定主机名时、将显示所有主机。
+
+*** 单击*设置*并选择*策略*以查看预制策略。查看预制策略、如果需要、您可以根据需要对其进行编辑或创建新策略。
+
+
+
+
+
+
+
+
+== 手动部署此插件并使用手动选项从UI添加主机
+
+如果Oracle数据库主机上未启用基于SSH密钥的身份验证、则应执行以下手动步骤来部署此插件、然后使用手动选项从UI添加此主机。
+
+* 步骤 *
+
+. 登录到Connector VM。
+. 下载SnapCenter Linux主机插件二进制文件。`sUdo Docker exec -it cloudmanager_SCS_cloud curl -X get 'http://127.0.0.1/deploy/downloadLinuxPlugin'`[]
+. 获取基本挂载路径。`sUdo Docker volume ls | grep SCS_cloud _volume _查｛'print $2'｝_ xargs sudo Docker volume inspect _ grep mountpoint`
+. 获取下载插件的二进制路径。`s使用ls <base_mount_path>$(sudo Docker ps|grep -po"cloudmanager_SCS_cloud：.*？"|sed -e 's/*$//'|cut -f2 -d"：")/sc-linux-host-plugin/snapcenter_linux_host_plugin_scs.bin`
+. 使用scp或其他替代方法将_snapcenter_linux_host_plugin_SCS.bin_复制到每个Oracle数据库主机。
++
+应将_snapcenter_linux_host_plugin_SCS.bin_复制到SnapCenter 用户可访问的位置。
+
+. 使用SnapCenter 用户帐户登录到Oracle数据库主机、然后运行以下命令为二进制文件启用执行权限。
+`chmod +x snapcenter_linux_host_plugin_scs.bin`
+. 以sudo SnapCenter 用户身份部署Oracle插件。
+`./snapcenter_linux_host_plugin_scs.bin -i silent -DSPL_USER=<snapcenter-user>`
+. 将_certificate.p12_从Connector VM的_<base_mount_path>/client/certificate/_路径复制到插件主机上的_/var/opt/snapcenter/spl/etc/。
+. 导航到_/var/opt/snapcenter/spl/etc_并执行keytool命令以导入证书。`keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass SnapCenter -deststorepass SnapCenter -srccalibras agentcert -destalias agentcert -noprop`
+. 重新启动SPL：`systemctl restart spl`
+. 通过从Connector运行以下命令、验证此插件是否可从Connector访问。
+`docker exec -it cloudmanager_scs_cloud curl -ik \https://<FQDN or IP of the plug-in host>:<plug-in port>/getVersion --cert /config/client/certificate/certificate.pem --key /config/client/certificate/key.pem`
+. 在BlueXP用户界面中、单击*保护*>*备份和恢复*>*应用程序*。
+. 单击发现应用程序。
+. 选择* Cloud原生 *、然后单击*下一步*。
++
+系统会创建一个具有_Data SnapCenter System_角色的服务帐户、以便为此帐户中的所有用户执行计划的数据保护操作。
+
++
+** 单击*帐户*>*管理帐户*>*成员*以查看服务帐户。
++
+
+NOTE: 服务帐户(_SnapCenter-account-<accounttid>_)用于运行计划的备份操作。切勿删除此服务帐户。
+
+
+
+. 在添加主机页面中、执行以下操作：
++
+.. 选择*手动*。
+.. 指定部署此插件的主机的FQDN或IP地址。
++
+确保使用FQDN或IP地址时、Connector可以与数据库主机进行通信。
+
+.. 指定插件端口。
++
+默认端口为8145。
+
+.. 选择Connector。
+.. 选中此复选框以确认此插件已安装在主机上
+.. 单击*发现应用程序*。
++
+*** 显示主机上的所有数据库。如果数据库禁用了操作系统身份验证、则应单击*配置*来配置数据库身份验证。有关详细信息，请参见 <<配置Oracle数据库凭据>>。
+*** 单击*设置*并选择*主机*以查看所有主机。单击*删除*以删除数据库主机。
++
+
+NOTE: 用于查看特定主机的筛选器不起作用。在筛选器中指定主机名时、将显示所有主机。
+
+*** 单击*设置*并选择*策略*以查看预制策略。查看预制策略、如果需要、您可以根据需要对其进行编辑或创建新策略。
+
+
 
 
 
