@@ -251,8 +251,38 @@ endif::azure[]
 
 * 对于StorageGRID ：
 +
-** 连接器必须部署在您的内部环境中(可以安装在可访问Internet或不可访问Internet的站点中)
 ** 要完全支持DataLock功能、需要使用StorageGRID 11.6.0.3及更高版本
+** 连接器必须部署在您的内部环境中(可以安装在可访问Internet或不可访问Internet的站点中)
+** 以下S3权限必须属于为Connector提供权限的IAM角色：
++
+*** S3 ： GetObjectVersionTagging
+*** S3 ： GetBucketObjectLockConfiguration
+*** S3：GetObjectVersionAcl
+*** S3 ： PutObjectTagging
+*** S3 ： DeleteObject
+*** S3 ： DeleteObjectTagging
+*** S3 ： GetObjectRetention
+*** S3 ： DeleteObjectVersionTagging
+*** S3 ： PutObject
+*** S3 ： GetObject
+*** S3 ： PutBucketObjectLockConfiguration
+*** S3 ： GetLifeycleConfiguration
+*** S3：ListBucketByTags
+*** S3 ： GetBucketTagging
+*** S3 ： DeleteObjectVersion
+*** S3 ： ListBucketVersions
+*** S3 ： ListBucket
+*** S3 ： PutBucketTagging
+*** S3 ： GetObjectTagging
+*** S3 ： PutBucketVersioning
+*** S3 ： PutObjectVersionTagging
+*** S3 ： GetBucketVersioning
+*** S3 ： GetBucketAcl
+*** S3 ： PutObjectRetention
+*** S3 ： GetBucketLocation
+*** S3 ： GetObjectVersion
+
+
 
 
 

@@ -93,7 +93,11 @@ Cloud Backup 提供备份和还原功能，用于保护和长期归档 ONTAP 集
 
 === 支持无 Internet 连接的站点
 
-Cloud Backup 可在没有 Internet 连接的站点（也称为 " 脱机 " 或 " 暗 " 站点）中使用，以便将卷数据从本地内部 ONTAP 系统备份到本地 NetApp StorageGRID 系统。此配置还支持卷和文件还原。在这种情况下、您需要在非公开站点中部署BlueXP Connector (最低版本为3.9.20)。请参见 link:task-backup-onprem-private-cloud.html["将内部 ONTAP 数据备份到 StorageGRID"] 了解详细信息。
+Cloud Backup可在没有Internet连接的站点(也称为"脱机"或"暗"站点)中使用、以备份卷数据。此配置还支持卷和文件还原。在这种情况下、您需要在非公开站点中部署BlueXP Connector。
+
+* 您可以将本地内部ONTAP 系统中的数据备份到本地NetApp StorageGRID 系统。请参见 link:task-backup-onprem-private-cloud.html["将内部 ONTAP 数据备份到 StorageGRID"] 了解详细信息。
+* 您可以将数据从AWS和Azure商业区域中安装的Cloud Volumes ONTAP 系统备份到Amazon S3或Azure Blob。请参见 link:task-backup-to-s3.html["将 Cloud Volumes ONTAP 数据备份到 Amazon S3"] 和 link:task-backup-to-azure.html["将Cloud Volumes ONTAP 数据备份到Azure Blob"]。
+
 
 
 
@@ -430,7 +434,7 @@ endif::gcp[]
 * 数据保护卷不支持使用*立即备份*按钮进行临时卷备份。
 * 不支持 SM-BC 配置。
 * ONTAP 不支持扇出从一个卷到多个对象存储的 SnapMirror 关系；因此， Cloud Backup 不支持此配置。
-* 目前、对象存储上的WORM/Compliance模式仅在Amazon S3和StorageGRID 上受支持。这称为DataLock功能、必须使用Cloud Backup设置来管理、而不是使用云提供商界面。
+* 目前、Amazon S3、Azure和StorageGRID 支持对象存储上的WORM/Compliance模式。这称为DataLock功能、必须使用Cloud Backup设置来管理、而不是使用云提供商界面。
 
 
 
@@ -441,10 +445,16 @@ endif::gcp[]
 
 * 浏览和还原一次最多可还原100个单个文件。
 * 搜索和还原一次可以还原1个文件。
-* 浏览和还原以及搜索和还原一次可以还原1个文件夹。
+* 使用ONTAP 9.13.0或更高版本时、浏览和还原以及搜索和还原可以还原文件夹及其所有文件和子文件夹。
++
+如果使用的ONTAP 版本高于9.11.1、但低于9.13.0、则还原操作只能还原选定文件夹、并且该文件夹中的文件不会还原子文件夹或子文件夹中的文件。
+
++
+如果使用的ONTAP 版本早于9.11.1、则不支持文件夹还原。
+
 * FlexGroup 卷当前不支持目录/文件夹还原。
-* 不支持从FlexGroup 卷还原到FlexVol 卷、或将FlexVol 卷还原到FlexGroup 卷。
 * 如果备份文件驻留在归档存储中、则无法还原单个文件夹。
+* 不支持从FlexGroup 卷还原到FlexVol 卷、或将FlexVol 卷还原到FlexGroup 卷。
 * 要还原的文件必须使用与目标卷上的语言相同的语言。如果语言不同，您将收到一条错误消息。
-* 将数据从Azure还原到StorageGRID 系统时、不支持_High_还原优先级。
+* 将数据从Azure归档存储还原到StorageGRID 系统时、不支持_High_还原优先级。
 

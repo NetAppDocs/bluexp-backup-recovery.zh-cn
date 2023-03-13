@@ -18,6 +18,28 @@ summary: 了解 Cloud Backup 中的新增功能。
 
 
 
+== 2023年3月9日
+
+
+
+=== 文件夹级别的还原操作现在包括所有子文件夹和文件
+
+过去、在还原文件夹时、只会还原该文件夹中的文件、而不会还原子文件夹或子文件夹中的文件。现在、如果您使用的是ONTAP 9.13.0或更高版本、则会还原选定文件夹中的所有子文件夹和文件。如果顶级文件夹中有多个嵌套文件夹、则可以节省大量时间和资金。
+
+
+
+=== 能够在非公开站点中备份Cloud Volumes ONTAP 系统中的数据
+
+现在、您可以将数据从AWS和Azure商业区域中安装的Cloud Volumes ONTAP 系统备份到Amazon S3或Azure Blob。这要求您在商业区域的Linux主机上安装连接器、并在该主机上部署Cloud Volumes ONTAP 系统。请参见 link:task-backup-to-s3.html["将 Cloud Volumes ONTAP 数据备份到 Amazon S3"] 和 link:task-backup-to-azure.html["将Cloud Volumes ONTAP 数据备份到Azure Blob"]。
+
+
+
+=== 作业监控器提供了高级筛选功能、可用于查找特定的备份或还原作业
+
+作业监控页面添加了高级筛选功能、因此您可以按时间、工作负载(卷、应用程序、虚拟机或Kubernetes)搜索备份和还原作业。 作业类型、状态、工作环境和Storage VM。您还可以输入自由文本来搜索任何资源、例如"application_3"。  https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#searching-and-filtering-the-list-of-jobs["请参见如何使用高级筛选器"]。
+
+
+
 == 2023年2月6日
 
 

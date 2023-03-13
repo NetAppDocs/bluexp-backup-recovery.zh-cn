@@ -27,7 +27,12 @@ summary: 完成几个步骤，开始将数据从 Cloud Volumes ONTAP 备份到 A
 * 您正在AWS中运行Cloud Volumes ONTAP 9.7P5或更高版本(建议使用ONTAP 9.8P13及更高版本)。
 * 您已为备份所在的存储空间订阅了有效的云提供商。
 * 您已订阅 https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["BlueXP Marketplace备份服务"]，和 https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS 年度合同"]或您已购买 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["并激活"] NetApp 提供的 Cloud Backup BYOL 许可证。
-* 为BlueXP Connector提供权限的IAM角色包括最新版本的S3权限 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions.html["BlueXP策略"^]。
+* 您已在AWS中安装Connector。
++
+** 无论是否可访问 Internet ，均可将 Connector 安装在站点中。
+** 为BlueXP Connector提供权限的IAM角色包括最新版本的S3权限 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions.html["BlueXP策略"^]。
+
+
 
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"] 在新系统或现有系统上启用 Cloud Backup
@@ -83,13 +88,29 @@ VPC网关端点必须已存在于VPC中。 https://docs.aws.amazon.com/vpc/lates
 
 对于能够捆绑 Cloud Volumes ONTAP 和云备份的年度合同，您必须在创建 Cloud Volumes ONTAP 工作环境时设置年度合同。此选项不允许您备份内部数据。
 
-对于 Cloud Backup BYOL 许可，您需要 NetApp 提供的序列号，以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["了解如何管理 BYOL 许可证"]。
+对于 Cloud Backup BYOL 许可，您需要 NetApp 提供的序列号，以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["了解如何管理 BYOL 许可证"]。如果连接器和Cloud Volumes ONTAP 系统部署在非公开站点中、则必须使用BYOL许可证。
 
 您需要为备份所在的存储空间创建一个 AWS 帐户。
 
 --
 支持的 AWS 区域:: 所有 AWS 地区均支持 Cloud Backup https://cloud.netapp.com/cloud-volumes-global-regions["支持 Cloud Volumes ONTAP 的位置"^]；包括 AWS GovCloud 地区。
 使用客户管理的密钥进行数据加密所需的信息:: 您可以在激活向导中选择自己的客户管理的数据加密密钥，而不是使用默认的 Amazon S3 加密密钥。在这种情况下，您需要已设置加密受管密钥。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html["了解如何使用您自己的密钥"^]。
+连接器要求:: 无论是否可访问Internet、均可将Connector安装在AWS区域中。目前、不能访问Internet的站点仅支持AWS商业站点。
++
+--
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["了解连接器"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html["在AWS中部署连接器"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html["在无法访问Internet的AWS区域的Linux主机上安装Connector"^]
+
+
+--
+
+
+
+NOTE: Cloud Backup功能内置在BlueXP Connector中。如果安装在无法连接 Internet 的站点上，则需要定期更新 Connector 软件才能访问新功能。检查 link:whats-new.html["Cloud Backup 新增功能"] 要查看每个 Cloud Backup 版本中的新功能，然后您可以按照步骤执行操作 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrade-the-connector-on-prem-without-internet-access["升级 Connector 软件"^] 希望使用新功能时。
+
+强烈建议在没有Internet连接的站点上安装Connector时、定期为Cloud Backup配置数据创建本地备份。 link:reference-backup-cbs-db-in-dark-site.html["了解如何在非公开站点中备份Cloud Backup数据"^]。
+
 所需的AWS Connector权限:: 为BlueXP提供权限的IAM角色必须包括最新版本的S3权限 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html["BlueXP策略"^]。
 +
 --
@@ -243,7 +264,7 @@ image:screenshot_backup_provider_settings_aws.png["显示将卷从 Cloud Volumes
 .. 输入默认策略的名称。您无需更改名称。
 .. 定义备份计划并选择要保留的备份数。 link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings["请参见您可以选择的现有策略列表"^]。
 .. 或者、在使用ONTAP 9.11.1及更高版本时、您也可以选择通过配置_DataLock和勒索软件保护_设置之一来保护备份免受删除和勒索软件攻击。_DataLock_可防止您的备份文件被修改或删除、_勒索 软件保护_会扫描您的备份文件、以在备份文件中查找勒索软件攻击的证据。 link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["详细了解可用的DataLock设置"^]。
-.. 或者、在使用ONTAP 9.10.1及更高版本时、您也可以选择在一定天数后将备份分层到S3 Glacier或S3 Glacier深度归档存储、以进一步优化成本。 link:reference-aws-backup-tiers.html["了解有关使用归档层的更多信息"]。
+.. 或者、在使用ONTAP 9.10.1及更高版本时、您也可以选择在一定天数后将备份分层到S3 Glacier或S3 Glacier深度归档存储、以进一步优化成本。在非公开站点中部署时、此功能不可用。 link:reference-aws-backup-tiers.html["了解有关使用归档层的更多信息"]。
 +
 image:screenshot_backup_policy_aws.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中选择计划和备份保留。"]
 

@@ -22,16 +22,16 @@ https://bluexp.netapp.com/cloud-backup["了解有关 Cloud Backup 的更多信�
 
 备份和还原可用于：
 
-* 从 Cloud Volumes ONTAP 和内部 ONTAP 系统备份和还原 ONTAP 卷。 link:concept-ontap-backup-to-cloud.html["请参见此处的详细功能"]。
-* 备份和还原 Kubernetes 永久性卷。 link:concept-kubernetes-backup-to-cloud.html["请参见此处的详细功能"]。
-* 使用适用于应用程序的 Cloud Backup 将应用程序一致的快照从内部 ONTAP 备份到云。 link:concept-protect-app-data-to-cloud.html["请参见此处的详细功能"]。
+* 从Cloud Volumes ONTAP 和内部ONTAP 系统备份和还原ONTAP 卷数据。 link:concept-ontap-backup-to-cloud.html["请参见此处的详细功能"]。
+* 备份和还原Kubernetes永久性卷。 link:concept-kubernetes-backup-to-cloud.html["请参见此处的详细功能"]。
+* 使用适用于应用程序的Cloud Backup从内部ONTAP 系统备份应用程序一致的Snapshot。 link:concept-protect-app-data-to-cloud.html["请参见此处的详细功能"]。
 * 使用适用于VMware的Cloud Backup将数据存储库备份到云、并将虚拟机还原回内部vCenter。 link:concept-protect-vm-data.html["请参见此处的详细功能"]。
 
 
 https://www.youtube.com/watch?v=DF0knrH2a80["观看快速演示"^]
 
 
-TIP: 当BlueXP Connector部署在云中的政府区域或无法访问Internet的站点(非公开站点)中时、Cloud Backup仅支持从ONTAP 系统执行备份和还原操作。使用这些备用部署方法时、Cloud Backup不支持从Kubernetes集群、应用程序或虚拟机执行备份和还原操作。
+TIP: 当BlueXP Connector部署在云中的政府区域或无法访问Internet的站点(非公开站点)中时、Cloud Backup仅支持从ONTAP 系统执行备份和还原操作。使用这些类型的部署方法时、Cloud Backup不支持从Kubernetes集群、应用程序或虚拟机执行备份和还原操作。
 
 
 
