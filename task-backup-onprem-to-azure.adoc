@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-backup-onprem-to-azure.html 
 keywords: backing up, back up, backup, backup on-prem ontap, on-premises, back up volumes, cloud backup, azure, azure blob, government 
-summary: 完成几个步骤，开始将数据从内部 ONTAP 系统备份到 Azure Blob 存储。 
+summary: 完成几个步骤、开始将卷数据从内部ONTAP 系统备份到Azure Blob存储。 
 ---
 = 将内部 ONTAP 数据备份到 Azure Blob 存储
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 完成几个步骤，开始将数据从内部 ONTAP 系统备份到 Azu
 
 
 [role="lead"]
-完成几个步骤，开始将数据从内部 ONTAP 系统备份到 Azure Blob 存储。
+完成几个步骤、开始将卷数据从内部ONTAP 系统备份到Azure Blob存储。
 
 请注意， " 内部 ONTAP 系统 " 包括 FAS ， AFF 和 ONTAP Select 系统。
 

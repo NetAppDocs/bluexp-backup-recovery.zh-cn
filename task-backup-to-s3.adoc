@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-backup-to-s3.html 
 keywords: backing up, back up, backup, backup cloud volumes ontap, back up cloud volumes ontap, cloud volumes ontap, aws, aws s3, amazon s3, s3 bucket, back up volumes, cloud backup 
-summary: 完成几个步骤，开始将数据从 Cloud Volumes ONTAP 备份到 Amazon S3 。 
+summary: 完成以下几个步骤、开始将卷数据从Cloud Volumes ONTAP 系统备份到Amazon S3。 
 ---
 = 将 Cloud Volumes ONTAP 数据备份到 Amazon S3
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 完成几个步骤，开始将数据从 Cloud Volumes ONTAP 备份到 A
 
 
 [role="lead"]
-完成几个步骤，开始将数据从 Cloud Volumes ONTAP 备份到 Amazon S3 。
+完成以下几个步骤、开始将卷数据从Cloud Volumes ONTAP 系统备份到Amazon S3。
 
 
 
@@ -27,9 +27,9 @@ summary: 完成几个步骤，开始将数据从 Cloud Volumes ONTAP 备份到 A
 * 您正在AWS中运行Cloud Volumes ONTAP 9.7P5或更高版本(建议使用ONTAP 9.8P13及更高版本)。
 * 您已为备份所在的存储空间订阅了有效的云提供商。
 * 您已订阅 https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["BlueXP Marketplace备份服务"]，和 https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS 年度合同"]或您已购买 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["并激活"] NetApp 提供的 Cloud Backup BYOL 许可证。
-* 您已在AWS中安装Connector。
+* 您已在AWS中安装Connector：
 +
-** 无论是否可访问 Internet ，均可将 Connector 安装在站点中。
+** 此连接器可以安装在完全Internet访问("标准模式")或有限Internet连接("受限模式")的站点上。
 ** 为BlueXP Connector提供权限的IAM角色包括最新版本的S3权限 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions.html["BlueXP策略"^]。
 
 
@@ -93,23 +93,17 @@ VPC网关端点必须已存在于VPC中。 https://docs.aws.amazon.com/vpc/lates
 您需要为备份所在的存储空间创建一个 AWS 帐户。
 
 --
-支持的 AWS 区域:: 所有 AWS 地区均支持 Cloud Backup https://cloud.netapp.com/cloud-volumes-global-regions["支持 Cloud Volumes ONTAP 的位置"^]；包括 AWS GovCloud 地区。
 使用客户管理的密钥进行数据加密所需的信息:: 您可以在激活向导中选择自己的客户管理的数据加密密钥，而不是使用默认的 Amazon S3 加密密钥。在这种情况下，您需要已设置加密受管密钥。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html["了解如何使用您自己的密钥"^]。
-连接器要求:: 无论是否可访问Internet、均可将Connector安装在AWS区域中。目前、不能访问Internet的站点仅支持AWS商业站点。
+连接器要求:: 可以将Connector安装在可完全或有限访问Internet的AWS区域("标准"或"受限"模式)。
 +
 --
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["了解连接器"^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html["在AWS中部署连接器"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html["在无法访问Internet的AWS区域的Linux主机上安装Connector"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html["在AWS区域的Linux主机上手动安装Connector"^]
 
 
 --
 
-
-
-NOTE: Cloud Backup功能内置在BlueXP Connector中。如果安装在无法连接 Internet 的站点上，则需要定期更新 Connector 软件才能访问新功能。检查 link:whats-new.html["Cloud Backup 新增功能"] 要查看每个 Cloud Backup 版本中的新功能，然后您可以按照步骤执行操作 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrade-the-connector-on-prem-without-internet-access["升级 Connector 软件"^] 希望使用新功能时。
-
-强烈建议在没有Internet连接的站点上安装Connector时、定期为Cloud Backup配置数据创建本地备份。 link:reference-backup-cbs-db-in-dark-site.html["了解如何在非公开站点中备份Cloud Backup数据"^]。
 
 所需的AWS Connector权限:: 为BlueXP提供权限的IAM角色必须包括最新版本的S3权限 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html["BlueXP策略"^]。
 +
@@ -186,6 +180,7 @@ NOTE: Cloud Backup功能内置在BlueXP Connector中。如果安装在无法连�
 如果您使用BlueXP 3.9.23或更高版本创建了Cloud Volumes ONTAP 工作环境、则这些权限应已属于IAM角色。否则，您需要添加缺少的权限。
 
 --
+支持的 AWS 区域:: 所有 AWS 地区均支持 Cloud Backup https://cloud.netapp.com/cloud-volumes-global-regions["支持 Cloud Volumes ONTAP 的位置"^]；包括 AWS GovCloud 地区。
 在其他 AWS 帐户中创建备份所需的设置:: 默认情况下，备份是使用与 Cloud Volumes ONTAP 系统相同的帐户创建的。如果要使用其他AWS帐户进行备份、则必须：
 +
 --

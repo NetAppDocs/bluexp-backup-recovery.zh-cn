@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-backup-to-azure.html 
 keywords: backing up, back up, backup, backup cloud volumes ontap, back up cloud volumes ontap, cloud volumes ontap, azure, azure blob, back up volumes, cloud backup 
-summary: 完成几个步骤，开始将数据从 Cloud Volumes ONTAP 备份到 Azure Blob 存储。 
+summary: 完成几个步骤、开始将卷数据从Cloud Volumes ONTAP 系统备份到Azure Blob存储。 
 ---
 = 将 Cloud Volumes ONTAP 数据备份到 Azure Blob 存储
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 完成几个步骤，开始将数据从 Cloud Volumes ONTAP 备份到 A
 
 
 [role="lead"]
-完成几个步骤，开始将数据从 Cloud Volumes ONTAP 备份到 Azure Blob 存储。
+完成几个步骤、开始将卷数据从Cloud Volumes ONTAP 系统备份到Azure Blob存储。
 
 
 
@@ -27,10 +27,9 @@ summary: 完成几个步骤，开始将数据从 Cloud Volumes ONTAP 备份到 A
 * 您正在Azure中运行Cloud Volumes ONTAP 9.7P5或更高版本(建议使用ONTAP 9.8P13及更高版本)。
 * 您已为备份所在的存储空间订阅了有效的云提供商。
 * 您已订阅 https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["BlueXP Marketplace备份服务"^]或您已购买 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["并激活"^] NetApp 提供的 Cloud Backup BYOL 许可证。
-* 您已在Azure中安装Connector。无论是否可访问 Internet ，均可将 Connector 安装在站点中。
+* 您已在Azure中安装Connector。此连接器可以安装在完全Internet访问("标准模式")或有限Internet连接("受限模式")的站点上。。image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"] 在新系统或现有系统上启用 Cloud Backup
 
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"] 在新系统或现有系统上启用 Cloud Backup
 [role="quick-margin-list"]
 * 新系统：在工作环境向导中， Cloud Backup 默认处于启用状态。请务必保持此选项处于启用状态。
 * 现有系统：选择工作环境、然后单击右侧面板中备份和恢复服务旁边的*启用*、然后按照设置向导进行操作。
@@ -82,21 +81,16 @@ image:diagram_cloud_backup_cvo_azure.png["显示 Cloud Backup 如何与备份文
 您需要为备份所在的存储空间订阅 Microsoft Azure 。
 
 --
-连接器要求:: 无论是否可访问Internet、均可将Connector安装在Azure区域中。目前、不能访问Internet的站点仅支持Azure商业站点。
+连接器要求:: 连接器可以安装在完全或有限的Internet访问("标准"或"受限"模式)下的Azure区域。
 +
 --
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["了解连接器"^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html["在Azure中部署Connector"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html["在无法访问Internet的Azure区域的Linux主机上安装Connector"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html["在Azure区域的Linux主机上手动安装Connector"^]
 
 
 --
 
-
-
-NOTE: Cloud Backup功能内置在BlueXP Connector中。如果安装在无法连接 Internet 的站点上，则需要定期更新 Connector 软件才能访问新功能。检查 link:whats-new.html["Cloud Backup 新增功能"] 要查看每个 Cloud Backup 版本中的新功能，然后您可以按照步骤执行操作 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrade-the-connector-on-prem-without-internet-access["升级 Connector 软件"^] 希望使用新功能时。
-
-强烈建议在没有Internet连接的站点上安装Connector时、定期为Cloud Backup配置数据创建本地备份。 link:reference-backup-cbs-db-in-dark-site.html["了解如何在非公开站点中备份Cloud Backup数据"^]。
 
 验证并向Connector添加权限:: 要使用Cloud Backup搜索和还原功能、您需要对Connector的角色拥有特定权限、以便它可以访问Azure Synapse Workspace和Data Lake存储帐户。请参见以下权限、如果需要修改策略、请按照以下步骤进行操作。
 +
@@ -239,7 +233,11 @@ image:screenshot_backup_select_volumes.png["选择要备份的卷的屏幕截图
 
 
 .结果
-系统会在您输入的资源组中自动创建Blob存储容器、并且备份文件会存储在该资源组中。此时将显示卷备份信息板，以便您可以监控备份的状态。您还可以使用监控备份和还原作业的状态 link:task-monitor-backup-jobs.html["作业监控面板"^]。
+系统会在您输入的资源组中自动创建Blob存储容器、并且备份文件会存储在该资源组中。
+
+此时将显示卷备份信息板，以便您可以监控备份的状态。您还可以使用监控备份和还原作业的状态 link:task-monitor-backup-jobs.html["作业监控面板"^]。
+
+默认情况下、Cloud Backup会为Blob容器配置本地冗余(LRS)以优化成本。如果要确保在不同分区之间复制数据、可以将此设置更改为区域冗余(ZRS)。请参见的Microsoft说明 https://learn.microsoft.com/en-us/azure/storage/common/redundancy-migration?tabs=portal["更改存储帐户的复制方式"^]。
 
 
 

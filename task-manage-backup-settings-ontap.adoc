@@ -157,6 +157,6 @@ image:screenshot_backup_edit_export_snapshots.png["\"高级设置\"页面中的�
 
 为任何卷的备份策略选择"每年"备份标签时、创建的Snapshot副本非常大。默认情况下、这些年度快照会在传输到对象存储后自动从源系统中删除。您可以从"年度Snapshot删除"部分更改此默认行为。
 
-image:screenshot_backup_edit_yearly_snap_delete.png["高级设置页面中IP空间条目的屏幕截图。"]
+image:screenshot_backup_edit_yearly_snap_delete.png["\"高级设置\"页面中的\"年度快照\"条目的屏幕截图。"]
 
 如果要在源系统上保留年度快照、请选择*已禁用*并单击*应用*。
