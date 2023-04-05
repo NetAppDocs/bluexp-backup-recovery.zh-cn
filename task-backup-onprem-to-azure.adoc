@@ -149,10 +149,9 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 如果您已在Azure vNet或内部部署了Connector、则可以完全完成。如果没有、则需要在其中任一位置创建一个连接器、以便将ONTAP 数据备份到Azure Blob存储。您不能使用部署在其他云提供商中的Connector。
 
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["了解连接器"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html["连接器入门"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html["在Azure中安装Connector"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html["在内部安装Connector"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-launching-azure-mktp.html["在Azure政府区域中安装Connector"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-azure.html["在Azure中安装Connector"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-on-prem.html["在内部安装Connector"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-restricted-mode.html["在Azure政府区域中安装Connector"^]
 +
 如果连接器部署在云中、则Azure政府区域支持Cloud Backup、而不是安装在您的内部环境中。此外、您还必须从Azure Marketplace部署Connector。您不能从BlueXP SaaS网站在政府区域部署Connector。
 
