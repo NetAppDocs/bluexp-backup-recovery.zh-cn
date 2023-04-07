@@ -119,20 +119,45 @@ image:diagram_cloud_backup_cvo_azure.png["显示 Cloud Backup 如何与备份文
 +
 [source, json]
 ----
-"Microsoft.Storage/checknameavailability/read",
-"Microsoft.Storage/operations/read",
+"Microsoft.Compute/virtualMachines/read",
+"Microsoft.Compute/virtualMachines/start/action",
+"Microsoft.Compute/virtualMachines/deallocate/action",
 "Microsoft.Storage/storageAccounts/listkeys/action",
 "Microsoft.Storage/storageAccounts/read",
 "Microsoft.Storage/storageAccounts/write",
 "Microsoft.Storage/storageAccounts/blobServices/containers/read",
 "Microsoft.Storage/storageAccounts/listAccountSas/action",
+"Microsoft.KeyVault/vaults/read",
+"Microsoft.KeyVault/vaults/accessPolicies/write",
+"Microsoft.Network/networkInterfaces/read",
+"Microsoft.Resources/subscriptions/locations/read",
+"Microsoft.Network/virtualNetworks/read",
+"Microsoft.Network/virtualNetworks/subnets/read",
+"Microsoft.Resources/subscriptions/resourceGroups/read",
+"Microsoft.Resources/subscriptions/resourcegroups/resources/read",
+"Microsoft.Resources/subscriptions/resourceGroups/write",
+"Microsoft.Authorization/locks/*",
+"Microsoft.Network/privateEndpoints/write",
+"Microsoft.Network/privateEndpoints/read",
+"Microsoft.Network/privateDnsZones/virtualNetworkLinks/write",
+"Microsoft.Network/virtualNetworks/join/action",
+"Microsoft.Network/privateDnsZones/A/write",
+"Microsoft.Network/privateDnsZones/read",
+"Microsoft.Network/privateDnsZones/virtualNetworkLinks/read",
+"Microsoft.Compute/virtualMachines/extensions/delete",
+"Microsoft.Compute/virtualMachines/delete",
+"Microsoft.Network/networkInterfaces/delete",
+"Microsoft.Network/networkSecurityGroups/delete",
+"Microsoft.Resources/deployments/delete",
+"Microsoft.Network/publicIPAddresses/delete",
+"Microsoft.Storage/storageAccounts/blobServices/containers/write",
+"Microsoft.ManagedIdentity/userAssignedIdentities/assign/action",
 "Microsoft.Synapse/workspaces/write",
 "Microsoft.Synapse/workspaces/read",
 "Microsoft.Synapse/workspaces/delete",
 "Microsoft.Synapse/register/action",
 "Microsoft.Synapse/checkNameAvailability/action",
 "Microsoft.Synapse/workspaces/operationStatuses/read",
-"Microsoft.Synapse/workspaces/firewallRules/write",
 "Microsoft.Synapse/workspaces/firewallRules/read",
 "Microsoft.Synapse/workspaces/replaceAllIpFirewallRules/action",
 "Microsoft.Synapse/workspaces/operationResults/read",
@@ -150,6 +175,10 @@ https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-az
 
 --
 支持的 Azure 区域:: 所有 Azure 地区均支持 Cloud Backup https://cloud.netapp.com/cloud-volumes-global-regions["支持 Cloud Volumes ONTAP 的位置"^]；包括 Azure 政府区域。
+
+
+默认情况下、Cloud Backup会为Blob容器配置本地冗余(LRS)以优化成本。如果要确保在不同分区之间复制数据、您可以在激活Cloud Backup后将此设置更改为区域冗余(ZRS)。请参见的Microsoft说明 https://learn.microsoft.com/en-us/azure/storage/common/redundancy-migration?tabs=portal["更改存储帐户的复制方式"^]。
+
 在其他 Azure 订阅中创建备份所需的设置:: 默认情况下，备份是使用与 Cloud Volumes ONTAP 系统相同的订阅创建的。如果要对备份使用其他 Azure 订阅，则必须使用 link:reference-backup-multi-account-azure.html["登录到 Azure 门户并链接这两个订阅"]。
 使用客户管理的密钥进行数据加密所需的信息:: 您可以在激活向导中使用自己的客户管理密钥进行数据加密，而不是使用默认的 Microsoft 管理的加密密钥。在这种情况下，您需要拥有 Azure 订阅，密钥存储名称和密钥。 https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["了解如何使用您自己的密钥"^]。
 

@@ -38,7 +38,7 @@ sidebar:
       url: "/task-monitor-backup-jobs.html"
   - title: 备份和还原 ONTAP 数据
     entries:
-    - title: 保护 ONTAP 数据
+    - title: 保护ONTAP 卷数据
       url: "/concept-ontap-backup-to-cloud.html"
     - title: 将 Cloud Volumes ONTAP 备份到 Amazon S3
       flavor: aws
@@ -315,8 +315,8 @@ homepage:
     links:
     - title: NetApp 社区
       url: https://community.netapp.com/t5/Public-Cloud-Services/ct-p/CDS
-    - title: BlueXP博客
-      url: https://bluexp.netapp.com/blog
+    - title: Cloud Backup博客
+      url: https://bluexp.netapp.com/blog/topic/cloud-backup
     - title: Cloud Backup用例
       url: https://bluexp.netapp.com/cloud-backup
     - title: 云网络研讨会
