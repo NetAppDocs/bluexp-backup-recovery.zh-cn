@@ -30,7 +30,7 @@ summary: 创建适用于ONTAP 的FSX工作环境和Connector
 
 客户管理员需要在AWS中部署一个连接器、使BlueXP能够管理公有 云环境中的资源和流程。
 
-有关信息、请参见 link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html["通过BlueXP在AWS中创建连接器"]。
+有关信息、请参见 link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-aws.html["通过BlueXP在AWS中创建连接器"]。
 
 * 您应使用相同的连接器来管理FSX工作环境和Oracle数据库。
 * 如果您的FSX工作环境和Oracle数据库位于同一个VPC中、则可以在同一个VPC中部署此连接器。
@@ -46,7 +46,7 @@ NOTE: 要使用NAS (NFS)工作负载、您应在Oracle数据库VPC和FSX VPC之�
 
 
 
-创建连接器后、单击*存储*>*画布*>*我的工作环境*>*添加工作环境*、然后按照提示添加工作环境。确保已从连接器连接到Oracle数据库主机和FSX工作环境。此连接器应能够连接到FSX工作环境的集群管理IP地址。
+创建连接器后、单击*存储*>*画布*>*我的工作环境*>*添加工作环境*、然后按照提示添加工作环境。确保从Connector连接到Oracle数据库主机和FSX工作环境。此连接器应能够连接到FSX工作环境的集群管理IP地址。
 
 
 IMPORTANT: 创建连接器后、单击*连接器>管理连接器*；选择连接器名称并复制连接器ID。

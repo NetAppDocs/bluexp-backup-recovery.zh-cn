@@ -147,7 +147,7 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-ontap-backup-
 
 如果您要将数据从内部ONTAP 集群备份到无法访问Internet的站点(也称为非公开站点或脱机站点)中的StorageGRID 、则现在可以根据需要使用搜索和还原选项还原数据。此功能要求在脱机站点中部署BlueXP Connector (3.9.25或更高版本)。
 
-https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#restoring-ontap-data-using-search-restore["请参见如何使用搜索和放大器还原ONTAP 数据"]。https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html["请参见如何在脱机站点中安装Connector"]。
+https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#restoring-ontap-data-using-search-restore["请参见如何使用搜索和放大器还原ONTAP 数据"]。https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-private-mode.html["请参见如何在脱机站点中安装Connector"]。
 
 
 
@@ -216,7 +216,7 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-
 
 | https://*.cloudmanager.cloud.netapp.com | https://*.api.bluexp.netapp.com 
 |===
-请查看的完整端点列表 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html#outbound-internet-access["AWS"^]， https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html#outbound-internet-access["Google Cloud"^]或 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html#outbound-internet-access["Azure 酒店"^] 云环境。
+请查看的完整端点列表 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-set-up-networking-aws.html#outbound-internet-access["AWS"^]， https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-set-up-networking-google.html#outbound-internet-access["Google Cloud"^]或 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-set-up-networking-azure.html#outbound-internet-access["Azure 酒店"^] 云环境。
 
 
 
@@ -449,7 +449,7 @@ Amazon S3存储分段已具有此功能。
 
 如果您的内部ONTAP 集群位于无法访问Internet的站点中、也称为非公开站点或脱机站点、则现在您可以使用Cloud Backup将卷数据备份到同一站点中的NetApp StorageGRID 系统。此功能还要求在脱机站点中部署BlueXP Connector (3.9.19或更高版本)。
 
-https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html["请参见如何在脱机站点中安装Connector"]。https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html["了解如何将ONTAP 数据备份到脱机站点中的StorageGRID"]。
+https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-private-mode.html["请参见如何在脱机站点中安装Connector"]。https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html["了解如何将ONTAP 数据备份到脱机站点中的StorageGRID"]。
 
 
 
@@ -558,27 +558,3 @@ link:concept-protect-app-data-to-cloud.html["了解有关保护内部应用程�
 
 
 === 此版本已停止使用 Cloud Data sense 扫描 Cloud Backup 文件的测试版功能
-
-
-
-== 2022 年 2 月 14 日
-
-
-
-=== 现在，您可以将备份策略分配给单个集群中的各个卷
-
-过去，您只能为集群中的所有卷分配一个备份策略。现在，您可以为一个集群创建多个备份策略，并将不同的策略应用于不同的卷。 link:task-manage-backups-ontap#changing-the-policy-assigned-to-existing-volumes["请参见如何为集群创建新的备份策略并将其分配给选定卷"]。
-
-
-
-=== 通过一个新选项，您可以自动将默认备份策略应用于新创建的卷
-
-过去，激活 Cloud Backup 后在工作环境中创建的新卷要求您手动应用备份策略。现在、无论卷是在BlueXP、System Manager、CLI中创建的、还是使用API创建的、Cloud Backup都将发现卷并应用您选择作为默认策略的备份策略。
-
-如果在新的工作环境中启用备份，或者从 _Manage Volumes_ 页面为现有工作环境启用备份，则可以使用此选项。
-
-
-
-=== 新的作业监控器可用于查看所有备份和还原作业的正在处理状态
-
-如果您对多个卷启动了操作，例如更改备份策略或删除备份，则作业监控器会非常有用，这样您可以查看操作何时在所有卷上完成。 link:task-monitor-backup-jobs.html["请参见如何使用作业监控器"]。

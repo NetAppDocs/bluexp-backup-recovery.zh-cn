@@ -95,8 +95,6 @@
   <block id="7b16b8b258668ab05a1e5d83e084b477" category="paragraph">确保此连接器具有所需的网络连接。</block>
   <block id="f3a29486bed19a90f2da6d007818b427" category="list-title">步骤</block>
   <block id="aadbd6cd1f8b4e9deafea8f1d6c8333c" category="list-text">确保安装 Connector 的网络启用以下连接：</block>
-  <block id="98ec81693c17601be27be39c9336f3b4" category="list-text">通过端口 443 （ HTTPS ）与 Cloud Backup Service 的出站 Internet 连接</block>
-  <block id="ed5be7df16713ed4a1d631dedaea1f5e" category="list-text">通过端口 443 与 Blob 对象存储建立 HTTPS 连接</block>
   <block id="699a71169310a3553bddb7e36ecb8a5c" category="list-text">通过端口 443 与 ONTAP 集群管理 LIF 建立 HTTPS 连接</block>
   <block id="8c4b25218155a1fdb972f4169855d04f" category="section-title">支持的区域</block>
   <block id="93aa1523e92b241e9be754ad452f4026" category="inline-link">支持 Cloud Volumes ONTAP 的位置</block>
@@ -247,7 +245,6 @@
   <block id="0ee205b9a66364b8bd529d4a5a68568a" category="list-text">ONTAP 集群通过端口 443 从集群间 LIF 启动 HTTPS 连接到 Google Cloud 存储，以执行备份和还原操作。</block>
   <block id="a45a0d78412f96d4e0612c2263af5042" category="list-text">ONTAP 需要从连接器到集群管理 LIF 的入站连接。连接器可以位于 Google Cloud Platform VPC 中。</block>
   <block id="8bdfdad72ee7298056198e1b5d8fb704" category="list-text">节点的集群间 LIF 能够访问对象存储。</block>
-  <block id="c359c4549d4c72aed13558f2e3ef33a0" category="list-text">通过端口 443 与 Google Cloud 存储建立 HTTPS 连接</block>
   <block id="b092138563f7b68473c3bf2a6a23a434" category="inline-link">私有 Google 访问</block>
   <block id="8b36e9207c24c76e6719268e49201d94" category="inline-link">Google</block>
   <block id="a6dcd23c3ac238175abaf161ac1ebec0" category="paragraph">您需要为备份所在的对象存储空间订阅 Google 。</block>
@@ -534,10 +531,6 @@
   <block id="2b0d303ec45a6f12beec71d59abfee40" category="doc">Cloud Backup 的新增功能</block>
   <block id="abad9ff4f9967065f50634a2a3606dd0" category="inline-link-macro">了解如何使用搜索和放大；还原</block>
   <block id="6aa300e24ddf3ee5a99bbb1cf5bb4a72" category="inline-link-macro">有关详细信息，请访问此处</block>
-  <block id="f49fe4c56999dcc895c26b71ec63e34f" category="section-title">2022 年 2 月 14 日</block>
-  <block id="963d2836c97952a191ac974f0e9b5e67" category="inline-link-macro">请参见如何为集群创建新的备份策略并将其分配给选定卷</block>
-  <block id="b702b8a648700d54afccce0b8de7766a" category="paragraph">如果在新的工作环境中启用备份，或者从 _Manage Volumes_ 页面为现有工作环境启用备份，则可以使用此选项。</block>
-  <block id="7a99d9487fc9540fa7bee7c2eb717413" category="inline-link-macro">请参见如何使用作业监控器</block>
   <block id="6c92285fa6d3e827b198d120ea3ac674" category="inline-link">此处</block>
   <block id="30ae8fff8898dc197acd49d9c0797d20" category="list-text">成功</block>
   <block id="c9413dd7682a45da9ecc9efa8cea47d7" category="list-text">正在进行中</block>
@@ -1040,9 +1033,6 @@
   <block id="0749ae9ea79ee87dd8c530f67a9065fe" category="section-title">新的搜索和还原功能可在所有 ONTAP 备份文件中搜索卷或文件</block>
   <block id="afffc0d082245313c31dfcac23d2d8e0" category="section-title">能够将永久性卷从 GKEKubernetes 集群备份到 Google Cloud 存储</block>
   <block id="536f48524e36a16593703c5d8d108b79" category="section-title">此版本已停止使用 Cloud Data sense 扫描 Cloud Backup 文件的测试版功能</block>
-  <block id="57ccb73ee63efac047dc0eeebb63f5a1" category="section-title">现在，您可以将备份策略分配给单个集群中的各个卷</block>
-  <block id="81bbbb41117b46d39dbcf4b7db2f1e38" category="section-title">通过一个新选项，您可以自动将默认备份策略应用于新创建的卷</block>
-  <block id="739f8a5ac1453fdcd33ce781cd333914" category="section-title">新的作业监控器可用于查看所有备份和还原作业的正在处理状态</block>
   <block id="cd1b53810620b8c77681a96dd010c21c" category="list-text">对于 Cloud Backup BYOL 许可，您需要 NetApp 提供的序列号，以便在许可证有效期和容量内使用此服务。 <block ref="47744e5312ce42ad8130a5365d7fb0d0" category="inline-link-macro-rx"></block>。</block>
   <block id="cbc540ff279c66e1f0e285002a107926" category="list-text">对于 Cloud Backup PAYGO 许可，可通过订阅<block ref="92655de6fae7d07ed3897ce19d51b88d" category="inline-link-rx"></block> 在启用 Cloud Backup 之前为必填项。Cloud Backup 的计费通过此订阅完成。<block ref="2dcb14e4aff486ad01ca943b2718d3a3" category="inline-link-rx"></block>。</block>
   <block id="c1d703bdf53bad5718c774b5ba1504f9" category="paragraph">StorageGRID 必须满足以下要求。请参见<block ref="a9591d68f190d64ce21caf15a77d51e9" category="inline-link-rx"></block> 有关详细信息 ...</block>
@@ -1165,8 +1155,6 @@
   <block id="013bf9b0d5295922582e97a69409b714" category="list-text">免费试用从Marketplace订阅开始的那一天开始。例如、如果在对Cloud Volumes ONTAP 系统使用Marketplace订阅30天之后激活免费试用、则Cloud Backup试用将不可用。</block>
   <block id="caf9c5028f987d64131bfc8e9f4bd0ed" category="inline-link">详细了解可用的许可模式</block>
   <block id="ecd035ede918d91432ba5203669d96bd" category="paragraph"><block ref="7226e404226609d8e6a7fa892651e74a" category="inline-link-rx"></block>。</block>
-  <block id="15949a792d77a6efb31116510902270f" category="paragraph">过去，您只能为集群中的所有卷分配一个备份策略。现在，您可以为一个集群创建多个备份策略，并将不同的策略应用于不同的卷。 <block ref="d267d345a84c274cd28fdecc1282029a" category="inline-link-macro-rx"></block>。</block>
-  <block id="9d20a5735dc25af92271eea8fa797bf7" category="paragraph">如果您对多个卷启动了操作，例如更改备份策略或删除备份，则作业监控器会非常有用，这样您可以查看操作何时在所有卷上完成。 <block ref="41d368101275ff882313a6db3fc29812" category="inline-link-macro-rx"></block>。</block>
   <block id="06f4f0c37c85d486f9483a22638942f5" category="inline-link-macro">详细了解与使用Cloud Backup相关的成本。</block>
   <block id="786b925e8c87b89de1141cc6a2423443" category="paragraph"><block ref="786b925e8c87b89de1141cc6a2423443" category="inline-link-macro-rx"></block></block>
   <block id="5ef05167488611c5bd4ff0f410595ce4" category="section-title">30 天免费试用</block>
@@ -1377,7 +1365,6 @@
   <block id="dd16b8804cbc8afa6e2f6deb9acf5bcf" category="section-title">增加了对在无法访问Internet的站点中备份内部ONTAP 集群数据的支持</block>
   <block id="6f44a1bf2246f054fd573ae9473909b6" category="inline-link">请参见如何在脱机站点中安装Connector</block>
   <block id="826610554423c9dc8481da631ccae8be" category="inline-link">了解如何将ONTAP 数据备份到脱机站点中的StorageGRID</block>
-  <block id="824ce1955c2b2d5f91cb80c86545d639" category="paragraph"><block ref="eb618b89294e80d594faecbc4641afee" category="inline-link-rx"></block>。<block ref="f39d73248b535226c2e16237e43ff2d0" category="inline-link-rx"></block>。</block>
   <block id="0a0c24e7fef8cd9bcb19d6db19987b93" category="paragraph">请注意、如果您先前使用了Cloud Restore实例/VM、则该实例/VM将自动删除。Cloud Backup进程将每天运行一次、以删除所有旧的Cloud Restore实例。此更改是完全透明的—不会对数据产生任何影响、您也不会注意到备份或还原作业发生了任何更改。</block>
   <block id="f213760e51bc9d7895aab74f2fba377c" category="paragraph">默认策略每天备份卷，并保留每个卷的最新 30 个备份副本。更改为每小时、每天、每周、每月或每年备份、 或者、选择一个系统定义的策略以提供更多选项。您还可以更改要保留的备份副本数。</block>
   <block id="e48ce03e2bde71049d742a96c5698f33" category="inline-image-macro">显示Cloud Backup如何通过公有 连接与集群上的卷以及备份文件所在的Google Cloud存储进行通信的图表。</block>
@@ -1429,7 +1416,6 @@
   <block id="244b0622880fcbe1c4432e64d81bc038" category="paragraph">如果您已在AWS VPC或内部部署了Connector、则可以随时完成所有操作。如果没有、则需要在其中任一位置创建一个连接器、以便将ONTAP 数据备份到AWS S3存储。您不能使用部署在其他云提供商中的Connector。</block>
   <block id="cd10ae990b1a676dcb9da574833197dc" category="inline-link">在AWS中安装连接器</block>
   <block id="2e379f93711508ab69eec06837dd271c" category="inline-link">请参见端点列表</block>
-  <block id="3014a55cd7ec25590c6b5406eec324b1" category="list-text">通过端口443与Cloud Backup Service 和S3对象存储建立HTTPS连接 <block ref="2b717f51e9f0e108fc936d861142f7b4" category="inline-link-rx"></block>）</block>
   <block id="b81793c592727efa905fe3e8a74bbb9d" category="list-text">如果从ONTAP 集群到VPC具有直接连接或VPN连接、并且您希望连接器和S3之间的通信保持在AWS内部网络中(*专用*连接)、则需要启用连接到S3的VPC端点接口。 <block ref="038eee040120b4244a9c2b9d19ca5787" category="inline-xref-macro-rx"></block></block>
   <block id="580798374daad69e27cac9cf6be8efde" category="paragraph">如果您使用端口80 (HTTP)与专用端点进行通信、则已设置完毕。您现在可以在集群上启用 Cloud Backup 。</block>
   <block id="670b9aef2512ae3b40b985a5adc5b434" category="cell">每个帐户需要额外的存储分段和公有 云提供商资源</block>
@@ -2221,7 +2207,6 @@
   <block id="21465eddb0676f3918f9041ef059c735" category="paragraph">您可以使用BlueXP或AWS创建NetApp FSX。如果您已使用AWS创建、则应在BlueXP中发现适用于ONTAP 系统的FSX。</block>
   <block id="91381cdaf1cff61a625d6355a34abc10" category="paragraph">客户管理员需要在AWS中部署一个连接器、使BlueXP能够管理公有 云环境中的资源和流程。</block>
   <block id="71e064246e91e058534eb9c47cbeadcf" category="inline-link-macro">通过BlueXP在AWS中创建连接器</block>
-  <block id="d15bab64d8286860a0c772cefded5f73" category="paragraph">有关信息、请参见 <block ref="3fdf2a62e687b222e52b805dde381364" category="inline-link-macro-rx"></block>。</block>
   <block id="c50c64e55455dd7f429be9192a7ad6a2" category="list-text">Cloud Backup for Applications是一组数据保护服务、由NetApp作为SaaS服务托管、基于BlueXP SaaS平台。</block>
   <block id="033f9aa227c492833c2f1af28d01f134" category="list-text">您必须使用BlueXP 3.9.21或更高版本</block>
   <block id="a8db6f5de8da7da9d3f1b9e9e4dfc251" category="list-text">获取包含BlueXP Connector ID的x-agent-id。</block>
@@ -2249,7 +2234,6 @@
   <block id="3f3ac5f6857788bfe6b27f406afcffa5" category="paragraph">Cloud Backup for Applications是一种基于SaaS的服务、可为在NetApp Cloud Storage上运行的应用程序提供数据保护功能。在BlueXP中启用的适用于应用程序的云备份可为驻留在Amazon FSX for NetApp ONTAP 上的Oracle数据库提供高效、一致且基于策略的备份和还原。<block ref="5774010e75c0af5301ef0cfe74198590" category="inline-link-rx"></block>。</block>
   <block id="314d64b29803a4017e18c95e19a18a09" category="paragraph">如果您的内部ONTAP 集群位于无法访问Internet的站点中、也称为非公开站点或脱机站点、则现在您可以使用Cloud Backup将卷数据备份到同一站点中的NetApp StorageGRID 系统。此功能还要求在脱机站点中部署BlueXP Connector (3.9.19或更高版本)。</block>
   <block id="a1bf67f5d2f66348eff06c9dbdb7636d" category="paragraph">您可以通过将适用于VMware vSphere的SnapCenter 插件与BlueXP集成来保护虚拟机上的数据。您可以将数据存储库备份到云、并将虚拟机轻松还原回适用于VMware vSphere的内部部署SnapCenter 插件。</block>
-  <block id="f464a9820cae6a24053ca10aad54bbb6" category="paragraph">过去，激活 Cloud Backup 后在工作环境中创建的新卷要求您手动应用备份策略。现在、无论卷是在BlueXP、System Manager、CLI中创建的、还是使用API创建的、Cloud Backup都将发现卷并应用您选择作为默认策略的备份策略。</block>
   <block id="c95623cd0395d5a6bb6105b9d32f197b" category="inline-link">BlueXP通知</block>
   <block id="e8a6d0f19a957eac14b9917a6c92899b" category="list-text"><block ref="e8a6d0f19a957eac14b9917a6c92899b" category="inline-link-rx"></block></block>
   <block id="7a45e6298bb69116e2c6db653fb88884" category="sidebar">所有BlueXP文档</block>
@@ -2651,7 +2635,6 @@
   <block id="06c42f4f82e29b4e90570ef70b538ed4" category="paragraph">由于Cloud Backup发生了更改、您需要更改以下连接器端点才能成功执行Cloud Backup操作：</block>
   <block id="eb75f7332becd8b3fbb2a59ea0bd0536" category="cell">旧端点</block>
   <block id="afcce2fe2d959c0f4554e7815a50e8e4" category="cell">新端点</block>
-  <block id="0e40b9cba041560c9517bc49757da3c7" category="paragraph">请查看的完整端点列表<block ref="4c9e3e17ba20f553394e5bc78e402946" category="inline-link-rx"></block>，<block ref="cd3c6f623ccf3e34f9d46b28c47f2a3d" category="inline-link-rx"></block>或<block ref="80755100f97c37f8aa8e3d999b0a43d9" category="inline-link-rx"></block> 云环境。</block>
   <block id="e3a84cf85e2ede3f349ff73485707901" category="section-title">支持在UI中选择Google Archival存储类</block>
   <block id="862c6bfd630667f5b535d9741b4f08fc" category="paragraph">备份文件最初是在Google标准存储类中创建的。现在、您可以使用Cloud Backup UI在一定天数后将旧备份分层到Google Archive存储、以便进一步优化成本。</block>
   <block id="115781a0043a85f8707c5c99fd02dc75" category="cell">https://cloudmanager.cloud.netapp.com</block>
@@ -2664,7 +2647,6 @@
   <block id="08c4a2a6be7b139c5a5d2a6cad19ac2b" category="summary">创建适用于ONTAP 的FSX工作环境和Connector</block>
   <block id="0288e4d3c832d3a63fc406f64d777726" category="doc">为ONTAP 配置FSX</block>
   <block id="42b641e435d9781c95ad795db19333cf" category="paragraph">您应创建适用于ONTAP 的FSX工作环境和Connector。</block>
-  <block id="839bd9c4189b78503bd77127fcecbb39" category="paragraph">创建连接器后、单击*存储*&gt;*画布*&gt;*我的工作环境*&gt;*添加工作环境*、然后按照提示添加工作环境。确保已从连接器连接到Oracle数据库主机和FSX工作环境。此连接器应能够连接到FSX工作环境的集群管理IP地址。</block>
   <block id="1f32eed19bf38ccd50dd00a18fd2d95c" category="summary">创建Cloud Volumes ONTAP 工作环境和连接器</block>
   <block id="ef1b9121ab9ea469ad904cedd07f94d3" category="doc">配置Cloud Volumes ONTAP</block>
   <block id="949d1a8fb61abab43d418c2faa10e87a" category="paragraph">您应创建Cloud Volumes ONTAP 工作环境和连接器。</block>
@@ -3008,7 +2990,6 @@
   <block id="4bee6fec011c2f7ac751849f160f0a3f" category="paragraph">如果数据库驻留在ASM上、则还应配置ASM设置。</block>
   <block id="83fcc800acbb114328da04dc6ed73b8f" category="summary">访问BlueXP。</block>
   <block id="035e6d59b1caedb3017d4559881471b2" category="inline-link-macro">注册到NetApp BlueXP网站</block>
-  <block id="ab26432294c471f0aa2bb50434ef5822" category="paragraph">您应该 <block ref="f8ff5153376f519ebb8fe9e2c5ab9cd8" category="inline-link-macro-rx"></block>， <block ref="9f5c210a6685dd250338a699e76589de" category="inline-link-macro-rx"></block>，然后设置 <block ref="8a2a59f9ec508dc199624b6dfabe5c9f" category="inline-link-macro-rx"></block>。</block>
   <block id="013e38cfdb2c6d0bb3f17b59760240ff" category="summary">BlueXP可为驻留在Amazon FSX for NetApp ONTAP 或Cloud Volumes ONTAP 上的Oracle®数据库提供高效、应用程序一致且基于策略的备份和还原。</block>
   <block id="7105ab20f187c4c6345342e06cd1748d" category="paragraph">Cloud Backup for Applications是一种基于SaaS的服务、可为在NetApp Cloud Storage上运行的应用程序提供数据保护功能。在BlueXP (以前称为Cloud Manager)中启用的Cloud Backup for Applications可为以下应用程序提供高效、应用程序一致且基于策略的保护：</block>
   <block id="9b029537d0b8df0bfe13af02e2f4b676" category="list-text">位于Amazon FSX for NetApp ONTAP 和Cloud Volumes ONTAP 上的Oracle数据库</block>
@@ -3182,7 +3163,6 @@
   <block id="65432ae2b80d2de48c0eff9f34726b87" category="inline-link">还原备份数据库后、将Connector软件升级到最新版本</block>
   <block id="2e7f569a13a8775ddbc8714475ad7db7" category="paragraph">安装新的BlueXP Connector时、请确保下载的软件版本与原始Connector上安装的软件版本相同。定期更改Cloud Backup数据库结构可能会使较新的软件版本与原始数据库备份不兼容。您可以<block ref="d77ae51b7aa47031957bd13dfa8d8fa8" category="inline-link-rx"></block>。</block>
   <block id="fb91cab4ff80a23255e3962dd363d180" category="inline-link">在新的内部Linux主机上安装BlueXP Connector</block>
-  <block id="147eee6c59a90af6498494b9e5153835" category="list-text"><block ref="147eee6c59a90af6498494b9e5153835" category="inline-link-rx"></block></block>
   <block id="ecbcbb16fdbff1b3b59d0639b270e056" category="list-text">使用刚刚创建的管理员用户凭据登录到BlueXP。</block>
   <block id="5fb01033092428057d91703462850bb8" category="list-text">将MySQL备份从安全位置复制到新的Connector主机。</block>
   <block id="47088be6cbcb439bd7241ec72edf3a91" category="section-title">发现ONTAP 集群和StorageGRID 系统</block>
@@ -3226,7 +3206,6 @@
   <block id="cd1cceb157b5982d899b66d18217af64" category="list-text">如果在非公开站点中使用Connector、则索引目录信息将存储在Connector上(需要连接器3.9.25或更高版本)。</block>
   <block id="e083799711dc9b588bbb440525564506" category="section-title">增加了对在无法访问Internet的站点中使用搜索和还原还原还原数据的支持</block>
   <block id="c9ec78264dce9938676b736265201e28" category="inline-link">请参见如何使用搜索和放大器还原ONTAP 数据</block>
-  <block id="74aacc002c6d6d85e9786012bf71af08" category="paragraph"><block ref="fbe0ce057e5d8013a227c4cb944242a5" category="inline-link-rx"></block>。<block ref="eb618b89294e80d594faecbc4641afee" category="inline-link-rx"></block>。</block>
   <block id="4f60787e5fe87ac0aa425be67237edec" category="list-text">FlexGroup 卷备份无法移动到归档存储、也无法使用DataLock和勒索软件保护。</block>
   <block id="0c1029565d47087d49e25dbc4e2a20e9" category="list-text">Restore—用于执行卷、文件和文件夹级别的还原操作</block>
   <block id="b7027e7163ab44680c3c69296db41564" category="paragraph">如果您的内部集群使用的是ONTAP 9.12.1或更高版本、而StorageGRID 系统使用的是11.3或更高版本、则可以使用此功能。<block ref="ba1010a667c53f122912d421bb932c28" category="inline-link-rx"></block>。</block>
@@ -3656,4 +3635,14 @@
   <block id="0149a79f6ea8841a807875892d5a71fd" category="paragraph">默认情况下、Cloud Backup会为Blob容器配置本地冗余(LRS)以优化成本。如果要确保在不同分区之间复制数据、您可以在激活Cloud Backup后将此设置更改为区域冗余(ZRS)。请参见的Microsoft说明<block ref="c549763665cfbb93dbccfdbf667aa0f2" category="inline-link-rx"></block>。</block>
   <block id="7126662a353f79c46a7ccefe46dc4c0a" category="sidebar">保护ONTAP 卷数据</block>
   <block id="d5dea9a3cf9da6b76394dba2198011a1" category="sidebar">Cloud Backup博客</block>
+  <block id="1e209655f824e5d0966174caef1584c2" category="list-text">通过端口443与Cloud Backup Service 和Google Cloud存储建立HTTPS连接 <block ref="d9defc1077847b67f008853c06990134" category="inline-link-rx"></block>）</block>
+  <block id="a08b19468c2c1ca9e62c072d8f0b1897" category="paragraph">有关信息、请参见 <block ref="f2f2cc81b566c493fa151c100741f24d" category="inline-link-macro-rx"></block>。</block>
+  <block id="18a49ef13ab2949d420634845599ca86" category="paragraph">创建连接器后、单击*存储*&gt;*画布*&gt;*我的工作环境*&gt;*添加工作环境*、然后按照提示添加工作环境。确保从Connector连接到Oracle数据库主机和FSX工作环境。此连接器应能够连接到FSX工作环境的集群管理IP地址。</block>
+  <block id="39ad50c1d2eeb8e8a5ce297ee25b98dc" category="list-text">通过端口443与Cloud Backup Service 和Blob对象存储建立HTTPS连接 <block ref="5bf1914e1013b2901a1aed42fbd7a1ac" category="inline-link-rx"></block>）</block>
+  <block id="7a83a72c3d1bcda0f295b3ad0313c6dd" category="paragraph">您应该 <block ref="f8ff5153376f519ebb8fe9e2c5ab9cd8" category="inline-link-macro-rx"></block>， <block ref="9f5c210a6685dd250338a699e76589de" category="inline-link-macro-rx"></block>，然后设置 <block ref="ee143af1c2cac202dd1b0077361e68fb" category="inline-link-macro-rx"></block>。</block>
+  <block id="9c2fdb3ded170db997a9fcf800fcf26c" category="paragraph"><block ref="fbe0ce057e5d8013a227c4cb944242a5" category="inline-link-rx"></block>。<block ref="14f29cbb042037b28f496533bcac017b" category="inline-link-rx"></block>。</block>
+  <block id="c395006d6063b66336be768382280c9e" category="paragraph">请查看的完整端点列表<block ref="684a3f4234dd7d8f8b7d90e00da95138" category="inline-link-rx"></block>，<block ref="fd66fc554da543d0f7f94dcde36b2a2f" category="inline-link-rx"></block>或<block ref="2484264a704a749bc992bec76f43f13d" category="inline-link-rx"></block> 云环境。</block>
+  <block id="da51e9451a525419419d8c9da2b6fd19" category="paragraph"><block ref="14f29cbb042037b28f496533bcac017b" category="inline-link-rx"></block>。<block ref="f39d73248b535226c2e16237e43ff2d0" category="inline-link-rx"></block>。</block>
+  <block id="22af84c027176379749ae95a3dcf8328" category="list-text">通过端口443与Cloud Backup Service 和S3对象存储建立HTTPS连接 <block ref="e55fc914b3d027a7a2463283008a8fbf" category="inline-link-rx"></block>）</block>
+  <block id="1733b24a3114e19949a64706ed91c2af" category="list-text"><block ref="1733b24a3114e19949a64706ed91c2af" category="inline-link-rx"></block></block>
 </blocks>
