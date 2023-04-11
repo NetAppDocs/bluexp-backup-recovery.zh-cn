@@ -91,23 +91,21 @@ Cloud Backup 提供备份和还原功能，用于保护和长期归档 ONTAP 集
 
 
 
-=== 支持无 Internet 连接的站点
-
-Cloud Backup可在没有Internet连接的站点(也称为"私有模式"或"暗"站点)中使用、以备份卷数据。此配置还支持卷和文件还原。在这种情况下、您需要在非公开站点中部署BlueXP Connector。
-
-* 您可以将本地内部ONTAP 系统中的数据备份到本地NetApp StorageGRID 系统。请参见 link:task-backup-onprem-private-cloud.html["将内部 ONTAP 数据备份到 StorageGRID"] 了解详细信息。
-* 您可以将安装在AWS商业区域和AWS C2S/SC2S安全区域的Cloud Volumes ONTAP 系统中的数据备份到Amazon S3。请参见 link:task-backup-to-s3.html["将 Cloud Volumes ONTAP 数据备份到 Amazon S3"]。
-* 您可以将安装在Azure商业区域和Azure IL6安全区域中的Cloud Volumes ONTAP 系统中的数据备份到Azure Blob。请参见 link:task-backup-to-azure.html["将Cloud Volumes ONTAP 数据备份到Azure Blob"]。
-
-
-
-
 === 支持连接有限的站点
 
-Cloud Backup可在互联网连接有限的站点(也称为"受限模式")中使用、以备份卷数据。此配置还支持卷和文件还原。在这种情况下、您需要在受限区域部署BlueXP Connector。
+Cloud Backup可在互联网连接有限的站点(也称为"受限模式")中使用、以备份和还原卷数据。在这种情况下、您需要在受限区域部署BlueXP Connector。
 
 * 您可以将数据从AWS商业区域中安装的Cloud Volumes ONTAP 系统备份到Amazon S3。请参见 link:task-backup-to-s3.html["将 Cloud Volumes ONTAP 数据备份到 Amazon S3"]。
 * 您可以将数据从安装在Azure商业区域的Cloud Volumes ONTAP 系统备份到Azure Blob。请参见 link:task-backup-to-azure.html["将Cloud Volumes ONTAP 数据备份到Azure Blob"]。
+
+
+
+
+=== 支持无 Internet 连接的站点
+
+Cloud Backup可在没有Internet连接的站点(也称为"私有模式"或"暗"站点)中使用、以备份卷数据。在这种情况下、您需要在非公开站点中部署BlueXP Connector。
+
+* 您可以将本地内部ONTAP 系统中的数据备份到本地NetApp StorageGRID 系统。请参见 link:task-backup-onprem-private-cloud.html["将内部 ONTAP 数据备份到 StorageGRID"] 了解详细信息。
 
 
 
@@ -304,7 +302,7 @@ endif::gcp[]
 
 在为工作环境启用 Cloud Backup 时，您最初选择的所有卷都会使用您定义的默认备份策略进行备份。如果要为具有不同恢复点目标(RPO)的某些卷分配不同的备份策略、则可以为该集群创建其他策略、并在激活Cloud Backup后将这些策略分配给其他卷。
 
-您可以选择对所有卷进行每小时、每天、每周、每月和每年备份的组合。应用于卷的Snapshot策略必须是Cloud Backup可识别的策略之一。您还可以选择系统定义的策略之一，这些策略可提供 3 个月， 1 年和 7 年的备份和保留期限。这些策略包括：
+您可以选择对所有卷进行每小时、每天、每周、每月和每年备份的组合。应用于卷的Snapshot策略必须是Cloud Backup可识别的策略之一、否则不会创建备份文件。您还可以选择系统定义的策略之一，这些策略可提供 3 个月， 1 年和 7 年的备份和保留期限。这些策略包括：
 
 [cols="35,16,16,16,26"]
 |===

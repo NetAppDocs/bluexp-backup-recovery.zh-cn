@@ -544,17 +544,3 @@ link:concept-protect-app-data-to-cloud.html["了解有关保护内部应用程�
 === 新的搜索和还原功能可在所有 ONTAP 备份文件中搜索卷或文件
 
 现在，您可以按部分或完整卷名称，部分或完整文件名称，大小范围以及其他搜索筛选器在 * 所有 ONTAP 备份文件 * 中搜索卷或文件。如果您不确定哪个集群或卷是数据源，这是一种很好的新方法来查找要还原的数据。 link:task-restore-backups-ontap.html#restoring-ontap-data-using-search-restore["了解如何使用搜索和放大；还原"]。
-
-
-
-== 2022 年 3 月 3 日
-
-
-
-=== 能够将永久性卷从 GKEKubernetes 集群备份到 Google Cloud 存储
-
-如果您的 GKE 集群安装了 NetApp Astra Trident ，并且使用适用于 GCP 的 Cloud Volumes ONTAP 作为集群的后端存储，则可以将永久性卷备份到 Google Cloud 存储或从 Google Cloud 存储还原。 link:task-backup-kubernetes-to-gcp.html["有关详细信息，请访问此处"]。
-
-
-
-=== 此版本已停止使用 Cloud Data sense 扫描 Cloud Backup 文件的测试版功能
