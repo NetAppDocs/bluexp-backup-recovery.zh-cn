@@ -365,7 +365,6 @@
   <block id="e386c51e8b46e9dad6f19dc36fbfc831" category="doc">了解 Cloud Backup</block>
   <block id="1619bac39deaef2fc2adb60633af222f" category="paragraph">如有必要，您可以将整个 _volume" 从备份还原到相同或不同的工作环境。备份 ONTAP 数据时，您还可以选择将备份中的一个或多个 _files_ 还原到相同或不同的工作环境。</block>
   <block id="b8d82fc8540bcb0b292930e59ebdd4dd" category="inline-link-macro">了解有关 Cloud Backup 的更多信息</block>
-  <block id="44eb910aad595ba9500cebcb52445bcf" category="paragraph">备份和还原可用于：</block>
   <block id="02fe91ecafd3cfc37675f0776294605f" category="inline-link-macro">请参见此处的详细功能</block>
   <block id="b5f2f8ae72382a141b81a0a0040bdad2" category="section-title">备份在午夜进行</block>
   <block id="9d4d346f8d68a04c07546d05864bce31" category="list-text">每小时备份从每小时 5 分钟开始。</block>
@@ -374,8 +373,6 @@
   <block id="e029f5798c244f87b310df92d9b4527f" category="list-text">每月备份从每个月第一天午夜后开始。</block>
   <block id="fab27e4b9f13b45f921fe1c7f42ffac1" category="section-title">备份副本与您的 NetApp 帐户关联</block>
   <block id="ac252743de820aac9183d9f76d4bed67" category="inline-link">NetApp 帐户</block>
-  <block id="3ce3233955186ca42fd073f31c7b98aa" category="paragraph">备份副本与关联<block ref="5c84ace7b3e4263476ddf0c264272cee" category="inline-link-rx"></block> 连接器所在位置。</block>
-  <block id="20c092d8421a998d3ac6aa33a55628ba" category="paragraph">如果在同一个 NetApp 帐户中有多个连接器，则每个连接器将显示相同的备份列表。其中包括与其他连接器中的 Cloud Volumes ONTAP 和内部 ONTAP 实例关联的备份。</block>
   <block id="18a6c204240510c87aba39d6d8b5d26b" category="doc">保护内部应用程序数据</block>
   <block id="bc2c0309ab805c8d369345a992e020bd" category="paragraph">在开始将应用程序数据备份到云服务之前，请阅读以下要求，以确保您的配置受支持。</block>
   <block id="c3ce6809be6bdc67ae978395484d0585" category="list-text">ONTAP 9.8 或更高版本</block>
@@ -2102,7 +2099,6 @@
   <block id="328a2c1e7778e9edaf79d90c51409ac4" category="list-text">如果您拥有客户级别的帐户、则可以添加一个或多个NSS帐户。</block>
   <block id="d0a875b745f9b38ce0c00471ccf26254" category="list-text">专用连接—使用VPN或Google Cloud Interconnect、并通过使用专用IP地址的专用Google访问接口路由流量。</block>
   <block id="ac66cfcf395ec1521c28c0c64a6aac63" category="paragraph">在大多数情况下、您将使用BlueXP UI执行所有备份操作。但是，从 ONTAP 9.9.1 开始，您可以使用 ONTAP System Manager 对内部 ONTAP 集群启动卷备份操作。<block ref="b4b04e1b4b3140ad1e0e3c0a94c9c848" category="inline-link-rx"></block></block>
-  <block id="bf2b1bf7aed8d75654bb42a8a53d6a96" category="paragraph">备份副本存储在BlueXP在云帐户中创建的对象存储中。每个集群/工作环境有一个对象存储、BlueXP将该对象存储命名为："netapp-backup-clusteruuid"。请确保不要删除此对象存储。</block>
   <block id="e33931549f252451d72b5664ade6ecf0" category="list-text">在AWS中、BlueXP会启用<block ref="b38667957fcdf9b9da65b213e7fb2492" category="inline-link-rx"></block> 在 S3 存储分段上。</block>
   <block id="4dee49a9c46b2664e49d7142dc11104d" category="list-text">在Azure中、BlueXP使用新的或现有的资源组以及Blob容器的存储帐户。BlueXP<block ref="a7068b8d2b60241ce77a1051f3a66ed5" category="inline-link-rx"></block> 默认情况下。</block>
   <block id="59cbb06daac31886728833270d8bf9a2" category="list-text">在GCP中、BlueXP使用新项目或现有项目、并为Google Cloud Storage存储分段使用存储帐户。</block>
@@ -3439,8 +3435,6 @@
   <block id="b14d512a3c64fb5df16f6721b0603c63" category="paragraph">使用此选项将提示您重新登录。请注意、这些帐户的令牌将在90天后过期。系统将发布通知、提醒您注意这一点。</block>
   <block id="aa581d4a856d4e4b679f430d75b6675b" category="list-text">从Cloud Volumes ONTAP 和内部ONTAP 系统备份和还原ONTAP 卷数据。 <block ref="3033f928f79d30b4398dcd6d1b71f659" category="inline-link-macro-rx"></block>。</block>
   <block id="0ddf34ad5270eddf503a40460693fa5f" category="list-text">备份和还原Kubernetes永久性卷。 <block ref="03139d1d874301f535e307718cfea817" category="inline-link-macro-rx"></block>。</block>
-  <block id="630b6fb489bd2a5285488f531d84037b" category="list-text">使用适用于应用程序的Cloud Backup从内部ONTAP 系统备份应用程序一致的Snapshot。 <block ref="0cae341dd31c4bfca67f66dd24fe06e1" category="inline-link-macro-rx"></block>。</block>
-  <block id="8c9003b0bb11b5538760df9871279172" category="admonition">当BlueXP Connector部署在云中的政府区域或无法访问Internet的站点(非公开站点)中时、Cloud Backup仅支持从ONTAP 系统执行备份和还原操作。使用这些类型的部署方法时、Cloud Backup不支持从Kubernetes集群、应用程序或虚拟机执行备份和还原操作。</block>
   <block id="01e76ab0dacc58799dc14adbdc705ac7" category="section-title">2023年3月9日</block>
   <block id="35203f05692d5cc102a5525bf4de9733" category="section-title">文件夹级别的还原操作现在包括所有子文件夹和文件</block>
   <block id="5463242c7cc34f92b5dbbf1ab6d87188" category="paragraph">过去、在还原文件夹时、只会还原该文件夹中的文件、而不会还原子文件夹或子文件夹中的文件。现在、如果您使用的是ONTAP 9.13.0或更高版本、则会还原选定文件夹中的所有子文件夹和文件。如果顶级文件夹中有多个嵌套文件夹、则可以节省大量时间和资金。</block>
@@ -3549,8 +3543,6 @@
   <block id="b8507c62b8182b29a382ffefc9fab5f2" category="list-text">您可以将数据从安装在Azure商业区域的Cloud Volumes ONTAP 系统备份到Azure Blob。请参见 <block ref="ab5c78f08c8780b598ee1d4de19230ab" category="inline-link-macro-rx"></block>。</block>
   <block id="a6a4730c10b1358f1c9def7ffe4b5b3e" category="summary">BlueXP备份和恢复(Cloud Backup)可为内部和云端的NetApp ONTAP 数据、数据库和虚拟机提供高效、安全且经济高效的数据保护。</block>
   <block id="7eb9cafcf06d2b2e35409b3b19eebaa6" category="summary">BlueXP备份和恢复为内部和云端的NetApp ONTAP 数据、数据库和虚拟机提供高效、安全且经济高效的数据保护。备份会自动生成并存储在公有 或私有云帐户的对象存储中。</block>
-  <block id="4e16c93a7a40b92bf4ddc82057092a1f" category="paragraph">BlueXP备份和恢复(Cloud Backup)可为内部和云端的NetApp ONTAP 数据、数据库和虚拟机提供高效、安全且经济高效的数据保护。备份会自动生成并存储在公有 或私有云帐户的对象存储中。</block>
-  <block id="d875f19aed16817841128703d062f580" category="paragraph">该服务可执行块级永久增量复制、并保留所有存储效率、从而显著减少复制和存储的数据量。此外、您只需为受保护的内容付费、并使用可用的最低成本存储层、这使得Cloud Backup非常经济高效。</block>
   <block id="042a30f816a9f3db4f832c68a750cbd0" category="paragraph">开始时间取决于每个源 ONTAP 系统上设置的时区。您不能从用户界面计划在用户指定的时间执行备份操作。有关详细信息，请联系您的系统工程师。</block>
   <block id="f6c25edb13a1fb5bd6c5a94f498065a2" category="summary">完成几个步骤、开始将卷数据从内部ONTAP 系统备份到Amazon S3存储。</block>
   <block id="1034847477ed5a052dde5a113bf49af2" category="paragraph">如果连接器部署在云中、则GovCloud地区支持Cloud Backup、而不是安装在您的内部环境中。此外、您还必须从AWS Marketplace部署Connector。您不能从BlueXP SaaS网站在政府区域部署Connector。</block>
@@ -3639,4 +3631,13 @@
   <block id="b2b373cdd55c0c4cdd45eaaa104c1c58" category="paragraph">您可以选择对所有卷进行每小时、每天、每周、每月和每年备份的组合。应用于卷的Snapshot策略必须是Cloud Backup可识别的策略之一、否则不会创建备份文件。您还可以选择系统定义的策略之一，这些策略可提供 3 个月， 1 年和 7 年的备份和保留期限。这些策略包括：</block>
   <block id="11222d6b8c3052f6f5e7aaaa5b23b929" category="list-text">您可以将本地内部ONTAP 系统中的数据备份到本地NetApp StorageGRID 系统。请参见 <block ref="14e7f2dcf692810422b10a89547f7ac5" category="inline-link-macro-rx"></block> 了解详细信息。ifdef：：AWS。</block>
   <block id="3835d8f8839ebb8c540019c7da03ff7a" category="list-text">在创建或编辑备份策略时，如果没有为该策略分配任何卷，则保留的备份数最多可以为 1018 。为策略分配卷后、您可以编辑此策略以创建多达4000个备份。</block>
+  <block id="bb280534703ad71e61cfe80a5fe858c8" category="paragraph">BlueXP备份和恢复(Cloud Backup)可为内部和云端的NetApp ONTAP 数据、Kubernetes永久性卷、数据库和虚拟机提供高效、安全且经济高效的数据保护。备份会自动生成并存储在公有 或私有云帐户的对象存储中。</block>
+  <block id="c046907d1d72e6426051e85493e0af8e" category="paragraph">该服务可执行块级永久增量复制、并保留所有存储效率、从而显著减少复制和存储的数据量。此外、您只需为受保护的内容付费、并使用可用的最低成本存储层、这使得Cloud Backup非常经济高效。</block>
+  <block id="56387194e2baefbedf3b4e19ea5780fe" category="paragraph">备份和恢复可用于：</block>
+  <block id="48bcb85cafc1f72efb03d9b2b5ed82c5" category="list-text">使用适用于应用程序的Cloud Backup从内部ONTAP 系统备份应用程序一致的Snapshot。 <block ref="0cae341dd31c4bfca67f66dd24fe06e1" category="inline-link-macro-rx"></block>。</block>
+  <block id="df405fcd52dd910b780660dd568c32f0" category="admonition">当BlueXP Connector部署在云中的政府区域或无法访问Internet的站点(非公开站点)中时、Cloud Backup仅支持从ONTAP 系统执行备份和还原操作。使用这些类型的部署方法时、Cloud Backup不支持从Kubernetes集群、应用程序或虚拟机执行备份和还原操作。</block>
+  <block id="06548d8c3dd532a955281943d00e4ae0" category="paragraph">下图显示了组件之间的关系：</block>
+  <block id="27af9a77d19fed3cc5992a809811dc11" category="paragraph">备份副本存储在BlueXP在云帐户中创建的对象存储中。每个集群/工作环境有一个对象存储、BlueXP将该对象存储命名如下：<block ref="395f30b009fd80d4c1cba9bc07db445d" prefix=" " category="inline-code"></block>。请确保不要删除此对象存储。</block>
+  <block id="6433bf341a35460ce346cdf0fc05e1b8" category="paragraph">备份副本与关联<block ref="5c84ace7b3e4263476ddf0c264272cee" category="inline-link-rx"></block> BlueXP Connector所在位置。</block>
+  <block id="610778054da9c0e7c61921555da9ddc9" category="paragraph">如果在同一个NetApp帐户中有多个连接器、则每个连接器会显示相同的备份列表。其中包括与其他连接器中的 Cloud Volumes ONTAP 和内部 ONTAP 实例关联的备份。</block>
 </blocks>

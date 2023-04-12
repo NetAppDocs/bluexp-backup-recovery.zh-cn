@@ -14,7 +14,7 @@ summary: BlueXP备份和恢复为内部和云端的NetApp ONTAP 数据、数据�
 
 
 [role="lead"]
-BlueXP备份和恢复(Cloud Backup)可为内部和云端的NetApp ONTAP 数据、数据库和虚拟机提供高效、安全且经济高效的数据保护。备份会自动生成并存储在公有 或私有云帐户的对象存储中。
+BlueXP备份和恢复(Cloud Backup)可为内部和云端的NetApp ONTAP 数据、Kubernetes永久性卷、数据库和虚拟机提供高效、安全且经济高效的数据保护。备份会自动生成并存储在公有 或私有云帐户的对象存储中。
 
 该服务可执行块级永久增量复制、并保留所有存储效率、从而显著减少复制和存储的数据量。此外、您只需为受保护的内容付费、并使用可用的最低成本存储层、这使得Cloud Backup非常经济高效。
 
@@ -22,7 +22,7 @@ BlueXP备份和恢复(Cloud Backup)可为内部和云端的NetApp ONTAP 数据�
 
 https://bluexp.netapp.com/cloud-backup["了解有关 Cloud Backup 的更多信息"^]。
 
-备份和还原可用于：
+备份和恢复可用于：
 
 * 从Cloud Volumes ONTAP 和内部ONTAP 系统备份和还原ONTAP 卷数据。 link:concept-ontap-backup-to-cloud.html["请参见此处的详细功能"]。
 * 备份和还原Kubernetes永久性卷。 link:concept-kubernetes-backup-to-cloud.html["请参见此处的详细功能"]。
@@ -43,7 +43,7 @@ TIP: 当BlueXP Connector部署在云中的政府区域或无法访问Internet的
 
 在大多数情况下、您将使用BlueXP UI执行所有备份操作。但是，从 ONTAP 9.9.1 开始，您可以使用 ONTAP System Manager 对内部 ONTAP 集群启动卷备份操作。 https://docs.netapp.com/us-en/ontap/task_cloud_backup_data_using_cbs.html["了解如何使用 System Manager 使用 Cloud Backup 将卷备份到云。"^]
 
-下图显示了每个组件之间的关系：
+下图显示了组件之间的关系：
 
 image:diagram_cloud_backup_general.png["显示 Cloud Backup 如何与备份文件所在的源系统和目标对象存储上的卷进行通信的示意图。"]
 
@@ -51,7 +51,7 @@ image:diagram_cloud_backup_general.png["显示 Cloud Backup 如何与备份文�
 
 === 备份所在位置
 
-备份副本存储在BlueXP在云帐户中创建的对象存储中。每个集群/工作环境有一个对象存储、BlueXP将该对象存储命名为："netapp-backup-clusteruuid"。请确保不要删除此对象存储。
+备份副本存储在BlueXP在云帐户中创建的对象存储中。每个集群/工作环境有一个对象存储、BlueXP将该对象存储命名如下： `netapp-backup-clusteruuid`。请确保不要删除此对象存储。
 
 ifdef::aws[]
 
@@ -94,6 +94,6 @@ endif::gcp[]
 
 === 备份副本与您的 NetApp 帐户关联
 
-备份副本与关联 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-netapp-accounts.html["NetApp 帐户"^] 连接器所在位置。
+备份副本与关联 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-netapp-accounts.html["NetApp 帐户"^] BlueXP Connector所在位置。
 
-如果在同一个 NetApp 帐户中有多个连接器，则每个连接器将显示相同的备份列表。其中包括与其他连接器中的 Cloud Volumes ONTAP 和内部 ONTAP 实例关联的备份。
+如果在同一个NetApp帐户中有多个连接器、则每个连接器会显示相同的备份列表。其中包括与其他连接器中的 Cloud Volumes ONTAP 和内部 ONTAP 实例关联的备份。
