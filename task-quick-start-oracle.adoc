@@ -1,0 +1,58 @@
+---
+sidebar: sidebar 
+permalink: task-quick-start-oracle.html 
+keywords: Cloud Manager, BlueXP, configuration, support, Oracle 
+summary: 完成几个步骤、开始备份Oracle数据库。 
+---
+= 快速入门
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+按照以下步骤快速入门。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"] 验证是否支持您的配置
+[role="quick-margin-list"]
+* 操作系统
++
+** RHEL 7.5或更高版本以及8.x
+** OL 7.5或更高版本以及8.x
+
+
+* NetApp云存储：
++
+** 适用于 ONTAP 的 Amazon FSX
+** Cloud Volumes ONTAP
+** Azure NetApp Files
+
+
+* 存储布局：
++
+** NFS v3和v4.1 (包括DNFS)
+** 采用ASM的iSCSI (ASMFD、ASMLib和ASMUdev)
++
+
+NOTE: Azure NetApp Files 不支持SAN环境。
+
+
+
+* 数据库布局：Oracle Standard和Oracle Enterprise Standalone (原有和多租户CDB和PDB)
+* 数据库版本：12cR2、18c、19c和21c
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"] 注册到BlueXP
+[role="quick-margin-list"]
+您可以从基于Web的控制台访问BlueXP。开始使用BlueXP时、第一步是使用现有NetApp 支持站点 凭据或创建NetApp云登录来注册。有关信息、请参见 link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-sign-up-saas.html["注册到BlueXP"]。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三个"] 登录到BlueXP
+[role="quick-margin-list"]
+注册到BlueXP后、您可以从基于Web的控制台登录。有关信息、请参见 link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-logging-in.html["登录到BlueXP"]。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"] 管理您的BlueXP帐户
+[role="quick-margin-list"]
+您可以通过管理用户、服务帐户、工作空间和连接器来管理您的帐户。有关信息、请参见 link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-netapp-accounts.html["管理您的BlueXP帐户"]。

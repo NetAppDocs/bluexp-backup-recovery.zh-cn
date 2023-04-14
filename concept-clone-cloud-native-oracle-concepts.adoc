@@ -25,10 +25,17 @@ summary: 在克隆数据库之前了解克隆概念。
 克隆 Oracle 数据库之前，您应确保满足前提条件。
 
 * 您应已创建数据库的备份。要成功执行克隆操作、您应已成功创建联机数据和日志备份。
-* 在asm_diskstring参数中、如果使用的是ASMFD、则应配置AFD：*；如果使用的是ASMLIB、则应配置ORCL：*。
+* 在asm_diskstring参数中、您应配置：
++
+** AFD：*(如果使用的是ASMFD)
+** ORCL：*如果您使用的是ASMLIB
+** /dev/ASMUDEV (如果使用的是<exact_device_location>)
+
+
 * 如果要在备用主机上创建克隆，则备用主机应满足以下要求：
 +
 ** 此插件应安装在备用主机上。
+** Oracle软件应安装在备用主机上。
 ** 如果要克隆iSCSI SAN存储上的数据库、则克隆主机应能够从存储中发现LUN。如果要克隆到备用主机、请确保在存储和备用主机之间建立iSCSI会话。
 ** 如果源数据库是 ASM 数据库：
 +
@@ -44,12 +51,9 @@ summary: 在克隆数据库之前了解克隆概念。
 
 
 
-== 克隆限制
+== 限制
 
-* 不支持计划克隆(克隆生命周期管理)。
-* 不支持克隆克隆的数据库。
 * 不支持克隆qtree上的数据库。
-* 不支持克隆归档日志备份。
 * 不支持备份克隆的数据库。
 
 
@@ -343,7 +347,7 @@ NOTE: 如果克隆磁盘组中的字符数大于25、则该磁盘组将具有_SC
 * sc_original_SID指定源数据库的SID。将为应用程序卷填充此参数。示例： NFS32
 * sc_original_host指定源主机的名称。将为应用程序卷填充此参数。示例： asmrac1.gdl.englab.netapp.com
 * sc_oracle_home指定目标数据库的Oracle主目录的路径。示例： /ora01/app/oracle/product/181.0/db_1
-* sc_backup_name"指定备份的名称。将为应用程序卷填充此参数。示例
+* sc_backup_name指定备份的名称。将为应用程序卷填充此参数。示例
 +
 ** 如果数据库未在ARCHIVELOG模式下运行：data@Rg2_scspr2417819002_07-2021_12.16.48.9267_0_LOG@RG2_scspr2417819002_07-20-2021_12.16.48.9267
 ** 如果数据库在ARCHIVELOG模式下运行：data@Rg2_scspr2417819002_07-2021_12.16.48.9267_0| log@Rg2_scspr2417819002_07-2021_12.16.9267_1、Rg2_scspr2417819002_07-2021_2021_12.16.267_12.267_SC267_12.202_R202_R4202_12.202_R202_R202_12.202_R48.202_12.202_R202_R202_R202_12.
@@ -351,7 +355,7 @@ NOTE: 如果克隆磁盘组中的字符数大于25、则该磁盘组将具有_SC
 
 * sc_original_os_user指定源数据库的操作系统所有者。示例： Oracle
 * sc_original_os_Group指定源数据库的操作系统组。示例： oinstall
-* sc_target_SID "指定克隆数据库的SID。对于 PDB 克隆工作流，不会预定义此参数的值。将为应用程序卷填充此参数。示例： clonedb
+* sc_target_SID指定克隆数据库的SID。对于 PDB 克隆工作流，不会预定义此参数的值。将为应用程序卷填充此参数。示例： clonedb
 * sc_target_host指定要克隆数据库的主机的名称。将为应用程序卷填充此参数。示例： asmrac1.gdl.englab.netapp.com
 * sc_target_os_user指定克隆数据库的操作系统所有者。对于 PDB 克隆工作流，不会预定义此参数的值。示例： Oracle
 * sc_target_os_Group指定克隆数据库的操作系统组。对于 PDB 克隆工作流，不会预定义此参数的值。示例： oinstall

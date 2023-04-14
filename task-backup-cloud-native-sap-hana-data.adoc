@@ -14,11 +14,11 @@ summary: 创建SAP HANA数据库的计划备份或按需备份。
 
 
 [role="lead"]
-在创建SAP HANA数据库的备份之前、您应添加SAP HANA数据库主机并分配预制策略或您创建的策略。
+您可以通过分配预制策略或创建的策略来创建备份。
 
 
 
-== 创建用于保护SAP HANA数据库的策略
+== 创建策略以保护SAP HANA数据库
 
 如果您不想使用或编辑预制策略、可以创建策略。
 
@@ -28,7 +28,7 @@ summary: 创建SAP HANA数据库的计划备份或按需备份。
 . (可选)编辑Snapshot副本名称的格式。
 . 选择策略类型。
 . 指定计划和保留详细信息。
-. (可选)指定脚本。 link:task-backup-cloud-native-sap-hana-data.html#prescripts-and-postscripts["了解更多信息。"]
+. (可选)指定脚本。 link:task-backup-cloud-native-sap-hana-data.html#prescripts-and-postscripts["预处理脚本和后处理脚本。"]
 . 单击 * 创建 * 。
 
 
@@ -105,17 +105,21 @@ schedule_type
 
 您可以分配预制策略、也可以创建策略、然后将其分配给数据库。分配策略后、将按照策略中定义的计划创建备份。
 
+* 开始之前 *
+
+您应已添加SAP HANA数据库主机。link:task-deploy-snapcenter-plugin-for-sap-hana.html#add-sap-hana-database-hosts["添加SAP HANA数据库主机"]
+
 * 关于此任务 *
 
-对于HANA系统复制(HSR)、计划的备份作业将仅针对主HANA系统触发、如果系统故障转移到二级HANA系统、现有计划将在当前主HANA系统上触发备份。如果未将此策略同时分配给这两个HANA系统、则在故障转移后、计划将失败。
+对于HANA系统复制(HSR)、计划的备份作业仅会对主HANA系统触发、如果系统故障转移到二级HANA系统、则现有计划会在当前主HANA系统上触发备份。如果未将此策略同时分配给主HANA系统和二级HANA系统、则在故障转移后、计划将失败。
 
-如果为HSR系统分配了不同的策略、则会同时为两个系统触发计划的备份、而二级HANA系统的备份将失败。
+如果为HSR系统分配了不同的策略、则主HANA系统和二级HANA系统的计划备份将触发器、而二级HANA系统的备份将失败。
 
 * 步骤 *
 
 . 在应用程序页面中、如果数据库未使用任何策略进行保护、请单击*分配策略*。
 +
-如果使用一个或多个策略保护数据库、则可以通过单击来分配更多策略 image:icon-action.png["图标以选择操作"] >*分配策略*。
+尽管数据库使用一个或多个策略进行保护、但如果需要、您可以通过单击继续分配更多策略 image:icon-action.png["图标以选择操作"] >*分配策略*。
 
 . 选择策略并单击*分配*。
 +
@@ -123,7 +127,7 @@ schedule_type
 
 +
 
-NOTE: 服务帐户(_SnapCenter-account-<account_id>_)用于运行计划的备份操作。
+NOTE: 服务帐户(_SnapCenter-account-snapback__<account_id>)用于运行计划的备份操作。
 
 
 

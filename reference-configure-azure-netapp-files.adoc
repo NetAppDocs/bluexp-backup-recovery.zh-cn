@@ -14,21 +14,35 @@ summary: 创建Azure NetApp Files 工作环境和连接器
 
 
 [role="lead"]
-您应创建Azure NetApp Files 工作环境和连接器。
+使用BlueXP、您应创建Azure NetApp Files 工作环境以添加和管理卷和其他数据服务。您还应在Azure中创建一个Connector、使BlueXP能够管理公共云环境中的资源和流程。
 
 
 
 == 创建Azure NetApp Files 工作环境
 
-您应创建托管数据库的Azure NetApp Files 工作环境。有关信息、请参见 link:https://docs.netapp.com/us-en/cloud-manager-azure-netapp-files/concept-azure-netapp-files.html["了解 Azure NetApp Files"] 和 link:https://docs.netapp.com/us-en/cloud-manager-azure-netapp-files/task-create-working-env.html["创建 Azure NetApp Files 工作环境"]。
+您应创建托管数据库的Azure NetApp Files 工作环境。有关详细信息，请参见 link:https://docs.netapp.com/us-en/cloud-manager-azure-netapp-files/concept-azure-netapp-files.html["了解 Azure NetApp Files"] 和 link:https://docs.netapp.com/us-en/cloud-manager-azure-netapp-files/task-create-working-env.html["创建 Azure NetApp Files 工作环境"]。
 
 
 
 == 创建连接器
 
-客户管理员需要在Azure NetApp Files 中部署一个连接器、使BlueXP能够管理公共云环境中的资源和流程。
+BlueXP帐户管理员应在Azure中部署一个Connector、使BlueXP能够管理公共云环境中的资源和流程。
 
 
 NOTE: 您不能从UI更新新的connector_id。
 
 有关信息、请参见 link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html["从BlueXP在Azure中创建连接器"]。
+
+* 您应使用相同的连接器来管理Azure NetApp Files 工作环境和数据库。
+* 如果您的Azure NetApp Files 工作环境和数据库位于同一虚拟私有云(Virtual Private Cloud、VPC)中、则可以将此连接器部署在同一个VPC中。
+* 如果您的Azure NetApp Files 工作环境和数据库位于不同的VPC中、并且在Azure NetApp Files 上配置了NAS (NFS)工作负载、则可以在任一VPC上创建连接器。
+
+
+创建连接器后、请执行以下操作：
+
+* 通过单击*存储*>*画布*>*我的工作环境*>*添加工作环境*来添加工作环境。
++
+确保已从连接器连接到数据库主机和Azure NetApp Files 工作环境。此连接器应连接到Azure NetApp Files 工作环境。
+
+* 单击*连接器>管理连接器*并选择连接器名称、以复制连接器ID。
+

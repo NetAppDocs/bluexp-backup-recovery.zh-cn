@@ -16,21 +16,19 @@ summary: 还原数据文件、然后恢复数据库。
 [role="lead"]
 如果发生数据丢失、您可以还原数据和非数据文件、然后恢复数据库。
 
+* 开始之前 *
 
+SAP HANA系统必须处于已停止状态。如果SAP HANA系统已启动且正在运行、您可以提供一个预处理程序来停止系统。
 
-== 还原云原生SAP HANA数据库
+* 关于此任务 *
 
-*您需要的内容*
-
-. SAP HANA系统必须处于已停止状态。
-. 您可以提供一个预处理程序来停止SAP HANA系统。
-
+如果在卷上启用备份、则会执行单个文件SnapRestore 操作。
 
 * 步骤 *
 
 . 单击 image:icon-action.png["图标以选择操作"] 对应于要还原的数据库、然后单击*查看详细信息*。
-. 单击 image:icon-action.png["图标以选择操作"] 对应于要用于还原的数据备份、然后单击*还原*。
-. 在*还原系统*页面中、输入脚本。 link:task-backup-cloud-native-sap-hana-data.html#prescripts-and-postscripts["了解更多信息。"]
+. 单击 image:icon-action.png["图标以选择操作"] 对应于要还原的数据备份、然后单击*还原*。
+. 在*还原系统*页面中、输入脚本。 link:task-backup-cloud-native-sap-hana-data.html#prescripts-and-postscripts["预处理脚本和后处理脚本。"]
 +
 对于还原工作流、以下环境变量可作为prestpt和postScript的一部分提供。
 
@@ -69,10 +67,9 @@ OSDBUser
 . 单击 * 还原 * 。
 
 
-* 完成后 *
+*下一步行动*
 
-* 还原后、手动恢复SAP HANA系统或提供一个用于执行SAP HANA系统恢复的脚本。
-
+还原后、手动恢复SAP HANA系统或提供一个用于执行SAP HANA系统恢复的脚本。
 
 
 

@@ -14,7 +14,7 @@ summary: 创建Oracle数据库的计划备份或按需备份。
 
 
 [role="lead"]
-您应分配一个预制策略或您创建的策略、然后进行备份。
+您可以通过分配预制策略或创建的策略来创建备份。
 
 
 
@@ -29,6 +29,62 @@ summary: 创建Oracle数据库的计划备份或按需备份。
 . 指定策略名称。
 . (可选)编辑备份名称的格式。
 . 指定计划和保留详细信息。
+. (可选)输入成功备份后要执行的脚本后路径和超时值、以便将快照复制到二级存储。
++
+您也可以选择指定参数。
+
++
+您应将后处理脚本保留在路径_/var/opt/snapcenter/spl/scripts_中。
+
++
+支持的环境变量包括：
+
++
+|===
+| 环境变量 | Description 
+
+
+ a| 
+SC_ORACLE_SID
+ a| 
+指定Oracle数据库的SID。
+
+
+
+ a| 
+sc_host
+ a| 
+指定数据库的主机名
+
+
+
+ a| 
+sc_backup_name
+ a| 
+指定备份的名称。数据备份名称和日志备份名称使用分隔符串联。
+
+
+
+ a| 
+sc_backup_policy_name
+ a| 
+指定用于创建备份的策略的名称。
+
+
+
+ a| 
+sc_primary_data_volume_full_path
+ a| 
+指定使用"、"作为分隔符串联的数据卷路径。对于ANF卷、此信息将使用"/"_/｛anfaccount｝/｛subscription_id｝/｛resource_group｝/｛capacity_pool｝/｛VolumeName｝_进行串联
+
+
+
+ a| 
+sc_primary_ARCHIVELOG_volume_full_path
+ a| 
+指定使用"、"作为分隔符串联的归档日志卷路径。对于ANF卷、使用"/"_/｛anfaccount｝/｛subscription_id｝/｛resource_group｝/｛capacity_pool｝/｛VolumeName｝_串联在一起的信息
+
+|===
 . 单击 * 创建 * 。
 
 
@@ -36,10 +92,10 @@ summary: 创建Oracle数据库的计划备份或按需备份。
 
 == 创建Oracle数据库的备份
 
-您可以分配预制策略、也可以创建策略、然后将其分配给数据库。分配策略后、将按照策略中定义的计划创建备份。
+您可以分配预制策略或创建策略、然后将其分配给数据库。分配策略后、将按照策略中定义的计划创建备份。
 
 
-NOTE: 对于Oracle、在创建ASM磁盘组时、请确保磁盘组之间没有通用卷。每个磁盘组都需要具有专用卷。
+NOTE: 对于Oracle、在创建ASM磁盘组时、请确保磁盘组之间没有通用卷。每个磁盘组都应具有专用卷。
 
 * 步骤 *
 
@@ -53,7 +109,7 @@ NOTE: 对于Oracle、在创建ASM磁盘组时、请确保磁盘组之间没有�
 
 +
 
-NOTE: 服务帐户(_SnapCenter-account-<account_id>_)用于运行计划的备份操作。
+NOTE: 服务帐户(_SnapCenter-account-snapback__<account_id>)用于运行计划的备份操作。
 
 
 
@@ -69,21 +125,15 @@ NOTE: 服务帐户(_SnapCenter-account-<account_id>_)用于运行计划的备份
 . 如果为应用程序分配了多个策略、请选择策略和保留值、然后单击*创建备份*。
 
 
-* 查找更多信息 *
-
-还原大型数据库(250 GB或更大)后、如果在同一数据库上执行完整备份、则操作可能会失败、并显示以下错误：
-
-`失败、状态代码为500、错误｛\"错误\"：｛\"代码\"：\"app_internal_error\"、\"消息\"：\"无法创建快照。原因：由于由快照备份的克隆、不允许执行快照操作。请稍后重试。`
-
-有关如何修复此问题描述 的信息、请参见： https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/Snapshot_operation_not_allowed_due_to_clones_backed_by_snapshots["由于由快照备份的克隆、不允许执行快照操作"]。
-
 
 
 == 限制
 
-* 不支持联机数据或仅记录备份
-* 不支持脱机备份
-* 不支持备份驻留在递归挂载点上的Oracle数据库
 * 对于位于多个与FSX卷重叠的ASM磁盘组上的Oracle数据库、不支持一致性组快照
 * 如果Oracle数据库是在ASM上配置的、请确保SVM名称在整个FSX系统中是唯一的。如果您在FSX系统中使用相同的SVM名称、则不支持备份位于这些SVM上的Oracle数据库。
+* 还原大型数据库(250 GB或更大)后、如果在同一数据库上执行完整备份、则操作可能会失败、并显示以下错误：
+`failed with status code 500, error {\"error\":{\"code\":\"app_internal_error\",\"message\":\"Failed to create snapshot. Reason: Snapshot operation not allowed due to clones backed by snapshots. Try again after sometime.`
++
+有关如何修复此问题描述 的信息、请参见： https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/Snapshot_operation_not_allowed_due_to_clones_backed_by_snapshots["由于由快照备份的克隆、不允许执行快照操作"]。
+
 

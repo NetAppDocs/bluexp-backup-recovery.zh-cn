@@ -19,37 +19,15 @@ summary: 查看备份详细信息并监控所有作业的状态。
 
 您可以监控在工作环境中启动的作业的状态。这样，您可以查看已成功完成的作业，当前正在进行的作业以及失败的作业，以便您可以诊断和修复任何问题。
 
-您可以查看所有操作及其状态的列表。每个操作或作业都有一个唯一的 ID 和一个状态。状态可以是：
-
-* 成功
-* 正在进行中
-* 已排队
-* 警告
-* 失败
-
-
-* 步骤 *
-
-. 单击*备份和恢复*。
-. 单击*作业监控*
-+
-您可以单击作业名称以查看与该操作对应的详细信息。如果您要查找特定作业，则可以：
-
-+
-** 使用页面顶部的时间选择器查看特定时间范围的作业
-** 在搜索字段中输入部分作业名称
-** 在每个列标题中使用筛选器对结果进行排序
-
-
-
+有关详细信息，请参见 link:https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html["监控作业状态"]。
 
 
 
 == 审核数据
 
-直接运行API或使用UI对Cloud Backup for Applications的任何外部公开API进行API调用时、请求详细信息、例如标题、角色、请求正文、API信息将记录在BlueXP时间线中、审核条目将永久保留在时间线中。API调用的状态和错误响应也会在操作完成后进行审核。如果异步API响应类似于作业、则作业ID也会在响应过程中记录下来。
+直接运行API或使用UI对应用程序的BlueXP备份和恢复的任何外部公开API调用API时、请求详细信息、例如标题、角色、请求正文、 API信息将记录在BlueXP时间线中、审核条目将永久保留在时间线中。API调用的状态和错误响应也会在操作完成后进行审核。如果异步API响应类似于作业、则作业ID也会在响应过程中记录下来。
 
-Cloud Backup for Applications会记录主机IP、请求正文、操作名称、触发者、某些标头、和API的运行状态。
+应用程序的BlueXP备份和恢复会记录主机IP、请求正文、操作名称、触发者、某些标头、 和API的运行状态。
 
 
 
@@ -62,7 +40,7 @@ Cloud Backup for Applications会记录主机IP、请求正文、操作名称、�
 
 
 
-IMPORTANT: 代理ID与连接器关联。如果在注册SAP HANA主机期间使用的Connector不再存在、则该应用程序的后续备份将失败、因为新Connector的代理ID不同。您应修改主机中的连接器ID。
+IMPORTANT: 代理ID与连接器关联。如果在注册SAP HANA主机期间使用的Connector不再存在、则该应用程序的后续备份将失败、因为新Connector的代理ID不同。您应修改主机中的连接器ID。有关信息，请参见 <<更新连接器详细信息>>。
 
 
 
@@ -79,9 +57,31 @@ IMPORTANT: 代理ID与连接器关联。如果在注册SAP HANA主机期间使�
 
 
 
-== 更新SAP HANA数据库主机的连接器详细信息
+== 更新连接器详细信息
 
-如果注册应用程序主机期间使用的Connector不再存在或已损坏、则应部署新的连接器。部署新连接器后、您应运行*连接器更新* API来更新使用旧连接器注册的所有主机的连接器详细信息。
+如果注册应用程序主机期间使用的Connector不再存在或已损坏、则应部署新的Connector。部署新连接器后、您应运行*连接器更新* API来更新使用旧连接器注册的所有主机的连接器详细信息。
+
+|===
+| 如果您使用的是... | 执行此操作 ... 
+
+
+ a| 
+Oracle数据库主机
+ a| 
+. 确保所有 link:task-add-host-discover-oracle-databases.html#prerequisites["前提条件"] 已满足。
+. 单击*备份和恢复*>*应用程序*
+. 单击 image:icon-action.png["图标以选择操作"] 对应于应用程序，然后单击 * 查看详细信息 * 。
+. 修改*连接器ID*。
+
+
+
+
+ a| 
+SAP HANA数据库主机
+ a| 
+. 确保所有 link:task-deploy-snapcenter-plugin-for-sap-hana.html#prerequisites["前提条件"] 已满足。
+. 运行以下命令：
+
 
 [listing]
 ----
@@ -97,6 +97,25 @@ curl --location --request PATCH
 ----
 如果所有主机均已安装并运行适用于SAP HANA的SnapCenter 插件服务、并且所有主机均可从新连接器访问、则连接器详细信息将成功更新。
 
+|===
+更新Oracle或SAP HANA主机的Connector详细信息后、请执行以下操作以确保已成功更新Connector详细信息。
+
+. 登录到BlueXP Connector虚拟机并执行以下步骤：
++
+.. 通过从Connector运行以下命令、验证此插件是否可从Connector访问。
+`docker exec -it cloudmanager_scs_cloud curl -ik \https://<FQDN or IP of the plug-in host>:<plug-in port>/getVersion --cert/config/client/certificate/certificate.pem --key/config/client/certificate/key.pem`
+.. 获取基本挂载路径。`sUdo Docker volume ls | grep SCS_cloud _volume _查｛'print $2'｝_ xargs sudo Docker volume inspect _ grep mountpoint`
+.. 将certificate_p12从<base_mount_path> VM的_Connector/client/certificate__路径复制到插件主机上的_/var/opt/snapcenter/spl/etc/。
+
+
+. 登录到此插件主机并执行以下步骤：
++
+.. 导航到_/var/opt/snapcenter/spl/etc_并运行keytool命令导入certificate.p12文件。`keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass SnapCenter -deststorepass SnapCenter -srccalibras agentcert -destalias agentcert -noprop`
+.. 重新启动SPL：`systemctl restart spl`
+
+
+
+
 
 
 == 配置CA签名证书
@@ -105,61 +124,85 @@ curl --location --request PATCH
 
 
 
-=== 配置CA签名证书以进行客户端证书身份验证
+=== 为BlueXP Connector配置CA签名证书
 
 此连接器使用自签名证书与插件进行通信。安装脚本会将自签名证书导入到密钥库中。您可以执行以下步骤将自签名证书替换为CA签名证书。
 
-* 您需要的内容 *
+* 开始之前 *
 
 您可以运行以下命令来获取_<base_mount_path>_：`sUdo Docker volume ls | grep SCS_cloud _volume _查｛'print $2'｝_ xargs sudo Docker volume inspect _ grep mountpoint`
 
 * 步骤 *
 
-. 登录到Connector。
-. 删除Connector虚拟机中位于_<base_mount_path>/client/certificate_的所有现有文件。
-. 将CA签名的证书和密钥文件复制到Connector虚拟机中的_<base_mount_path>/client/certificate_。
+. 在Connector上执行以下步骤、以便在Connector与插件连接时使用CA证书作为客户端证书。
++
+.. 登录到Connector。
+.. 删除<base_mount_path> 连接器中_Connector/client/certificate"中的所有现有文件。
+.. 将CA签名的证书和密钥文件复制到<base_mount_path> 中的_Connector/client/certificate"。
 +
 文件名应为certification.pem和key.pem。certificate.pem应包含中间CA和根CA等整个证书链。
 
-. 使用名称certificate.p12创建证书的PKCS12格式、并保留在_<base_mount_path>/client/certificate_。
-. 将所有中间ca和root ca的certificate.p12和证书复制到位于/var/opt/snapcenter/spl/etc/的插件主机。
-. 登录到此插件主机。
-. 导航到_/var/opt/snapcenter/spl/etc_并运行keytool命令导入certificate.p12文件。`keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass SnapCenter -deststorepass SnapCenter -srccalibras agentcert -destalias agentcert -noprop`
-. 导入根CA和中间证书。`keytool -import -trustcacerks -keystore keystore.jks -storepass SnapCenter -alias trustedca -file <certificate.crT>`
+.. 使用名称certificate.p12创建证书的PKCS12格式、并保留在_<base_mount_path>/client/certificate_。
++
+示例：OpenSSL PKCS12 -inkey key.pem -in certification.pem -export -out certification.p12
+
+.. 将所有中间CA和根CA的certificate.p12和证书复制到位于/var/opt/snapcenter/spl/etc/的插件主机。
 +
 
-NOTE: certfile.crt是指根CA以及中间CA的证书。
-
-. 重新启动SPL：`systemctl restart spl`
+NOTE: 中间CA和根CA证书的格式应为.crt格式。
 
 
 
+. 在插件主机上执行以下步骤、以验证Connector发送的证书。
++
+.. 登录到此插件主机。
+.. 导航到_/var/opt/snapcenter/spl/etc_并运行keytool命令导入certificate.p12文件。`keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass SnapCenter -deststorepass SnapCenter -srccalibras agentcert -destalias agentcert -noprop`
+.. 导入根CA和中间证书。`keytool -import -trustcacerks -keystore keystore.jks -storepass SnapCenter -alias trustedca -file <certificate.crT>`
++
 
-=== 为插件的服务器证书配置CA签名证书
+NOTE: certificate.crt是指根CA以及中间CA的证书。
 
-CA证书应具有Connector虚拟机与之通信的插件主机的确切名称。
+.. 重新启动SPL：`systemctl restart spl`
 
-* 您需要的内容 *
+
+
+
+
+
+=== 为插件配置CA签名证书
+
+CA证书应与在Cloud Backup中为此插件主机注册的证书具有相同的名称。
+
+* 开始之前 *
 
 您可以运行以下命令来获取_<base_mount_path>_：`sUdo Docker volume ls | grep SCS_cloud _volume _查｛'print $2'｝_ xargs sudo Docker volume inspect _ grep mountpoint`
 
 * 步骤 *
 
-. 在插件主机上执行以下步骤：
+. 在插件主机上执行以下步骤、以使用CA证书托管此插件。
 +
-.. 导航到包含SPL密钥库的文件夹/var/opt/snapcenter/spl/etc_。
+.. 导航到包含SPL密钥库的文件夹_/var/opt/snapcenter/spl/etc_。
 .. 创建证书的PKCS12格式、此证书同时具有别名_splkeystorey的证书和密钥。
-.. 添加CA证书。`keytool -importkeystore -srckeystore <CertificatePathToImport>-srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcalibras splkeystore -destalias splkeystore -splkeystore -nodestalias splkeystore -noprop`
++
+certificate.pem应包含中间CA和根CA等整个证书链。
+
++
+示例：OpenSSL PKCS12 -inkey key.pem -in certifict.pem -export -out certification.p12 -name splkeystore
+
+.. 添加在上述步骤中创建的CA证书。
+`keytool -importkeystore -srckeystore certificate.p12 -srcstoretype pkcs12 -destkeystore keystore.jks -deststoretype JKS -srcalias splkeystore -destalias splkeystore -noprompt`
 .. 验证证书。`keytool -list -v -keystore keystore.jks`
 .. 重新启动SPL：`systemctl restart spl`
 
 
-. 在连接器上执行以下步骤：
+. 在Connector上执行以下步骤、以便Connector可以验证插件的证书。
 +
 .. 以非root用户身份登录到Connector。
-.. 将整个CA证书链复制到位于_<base_mount_path>/server_的永久性卷。
+.. 将根CA和中间CA文件复制到服务器目录下。
+`cd <base_mount_path>`
+`mkdir server`
 +
-如果服务器文件夹不存在、请创建该文件夹。
+CA文件应采用pem格式。
 
 .. 连接到cloudmanager_SCS_cloud、并将_config.yml_中的* enableCACert_*修改为* true *。`sUdo Docker exec -t cloudmanager_SCS_cloud sed -i 's/enableCACert：false/enableCACert：true/g'/opt/netapp/cloudmanager-SCS-cloud/config/config.yml`
 .. 重新启动cloudmanager_SCS_cloud容器。`s使用Docker重新启动cloudmanager_SCS_cloud`

@@ -1,0 +1,49 @@
+---
+sidebar: sidebar 
+permalink: task-quick-start-hana.html 
+keywords: Cloud Manager, BlueXP, configuration, support, SAP HANA 
+summary: 完成几个步骤、开始备份SAP HANA数据库。 
+---
+= 快速入门
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+按照以下步骤快速入门。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"] 验证是否支持您的配置
+[role="quick-margin-list"]
+* 操作系统
++
+** 经SAP HANA认证的RHEL 7.5或更高版本8.x平台
+** 通过SAP HANA认证的SLES 12 SP5或更高版本以及15个spx平台
+
+
+* NetApp云存储：Azure NetApp Files
+* 存储布局：对于数据和日志文件、Azure仅支持NFSv4.1。
+* 数据库布局：
++
+** 单个容器版本1.0SPS12
+** SAP HANA多租户数据库容器(MDC) 2.0SPS4、2.0SPS5、2.0SPS6以及单租户或多租户
+** SAP HANA单主机系统、SAP HANA多主机系统(无备用主机)、HANA系统复制
+
+
+* 数据库主机上的SAP HANA插件
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"] 注册到BlueXP
+[role="quick-margin-list"]
+您可以从基于Web的控制台访问BlueXP。开始使用BlueXP时、第一步是使用现有NetApp 支持站点 凭据或创建NetApp云登录来注册。有关信息、请参见 link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-sign-up-saas.html["注册到BlueXP"]。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三个"] 登录到BlueXP
+[role="quick-margin-list"]
+注册到BlueXP后、您可以从基于Web的控制台登录。有关信息、请参见 link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-logging-in.html["登录到BlueXP"]。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"] 管理您的BlueXP帐户
+[role="quick-margin-list"]
+您可以通过管理用户、服务帐户、工作空间和连接器来管理您的帐户。有关信息、请参见 link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-netapp-accounts.html["管理您的BlueXP帐户"]。

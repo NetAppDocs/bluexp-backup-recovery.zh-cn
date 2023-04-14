@@ -14,7 +14,7 @@ summary: 创建Cloud Volumes ONTAP 工作环境和连接器
 
 
 [role="lead"]
-您应创建Cloud Volumes ONTAP 工作环境和连接器。
+使用BlueXP、您应创建Cloud Volumes ONTAP 工作环境以添加和管理卷和其他数据服务。您还应为云环境创建一个Connector、使BlueXP能够管理公共云环境中的资源和流程。
 
 
 
@@ -26,15 +26,15 @@ summary: 创建Cloud Volumes ONTAP 工作环境和连接器
 
 == 创建连接器
 
-您可以通过几个步骤开始为您的云环境使用Cloud Volumes ONTAP。有关信息、请参见以下内容之一：
+您可以通过几个步骤开始为您的云环境使用Cloud Volumes ONTAP。有关详细信息、请参见以下内容之一：
 
 * link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-aws.html["在 AWS 中快速启动 Cloud Volumes ONTAP"]
 * link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-azure.html["在 Azure 中快速启动 Cloud Volumes ONTAP"]
 * link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-gcp.html["在 Google Cloud 中快速启动 Cloud Volumes ONTAP"]
 
 
-您应使用相同的连接器来管理CVO工作环境和Oracle数据库。
+您应使用相同的连接器来管理Cloud Volumes ONTAP 工作环境和数据库。
 
-* 如果CVO工作环境和Oracle数据库位于同一个VPC或vNet中、则可以将连接器部署在同一个VPC或vNet中。
-* 如果您的CVO工作环境和Oracle数据库位于不同的vPC或vNet中、请确保vPC或vNets已建立对等关系。
+* 如果您的Cloud Volumes ONTAP 工作环境和数据库位于同一个虚拟私有云(Virtual Private Cloud、VPC)或vNet中、则可以将此连接器部署在同一个VPC或vNet中。
+* 如果您的Cloud Volumes ONTAP 工作环境和数据库位于不同的VPC或VNet中、请确保这些VPC或VNets已建立对等关系。
 

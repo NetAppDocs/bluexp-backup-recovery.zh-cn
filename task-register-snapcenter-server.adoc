@@ -14,7 +14,7 @@ summary: 完成几个步骤以注册SnapCenter 服务器。
 
 
 [role="lead"]
-只有具有SnapCenterAdmin角色的用户才能注册运行SnapCenter 服务器4.6或更高版本的主机。您可以注册多个SnapCenter 服务器主机。
+只有具有SnapCenterAdmin角色的用户才能注册运行SnapCenter 服务器4.6或更高版本的主机。您可以在BlueXP中注册多个SnapCenter 服务器主机。
 
 * 步骤 *
 
@@ -24,9 +24,9 @@ summary: 完成几个步骤以注册SnapCenter 服务器。
 . 指定以下详细信息：
 +
 .. 在 SnapCenter 服务器字段中，指定 SnapCenter 服务器主机的 FQDN 或 IP 地址。
-.. 在端口字段中，指定运行 SnapCenter 服务器的端口号。
+.. 在端口字段中、指定运行SnapCenter 服务器主机的端口号。
 +
-您应确保此端口已打开，以便在 SnapCenter 服务器与适用于应用程序的云备份之间进行通信。
+您应确保此端口已打开、以便在SnapCenter 服务器和BlueXP之间进行通信。
 
 .. 在标记字段中，指定要标记 SnapCenter 服务器的站点名称，城市名称或任何自定义名称。
 +
@@ -35,17 +35,16 @@ summary: 完成几个步骤以注册SnapCenter 服务器。
 .. 在用户名和密码字段中，指定具有 SnapCenterAdmin 角色的用户的凭据。
 
 
+. 从*连接器*下拉列表中选择连接器。
 . 单击 * 注册 * 。
 
 
 * 完成后 *
 
-单击 * 备份和还原 * > * 应用程序 * 可查看使用注册的 SnapCenter 服务器主机保护的所有应用程序。
-
-默认情况下、系统会在每天午夜自动发现这些应用程序。您可以配置计划以发现应用程序。
+单击 * 备份和还原 * > * 应用程序 * 可查看使用注册的 SnapCenter 服务器主机保护的所有应用程序。默认情况下、系统会在每天午夜自动发现这些应用程序。
 
 
-NOTE: 对于SQL Server数据库、应用程序名称列会以_application_name (实例名称)_格式显示名称。
+IMPORTANT: 如果使用FQDN或IP地址将SVM添加到SnapCenter 、则无法保护这些SVM上运行的应用程序。应用程序的BlueXP备份和恢复功能仅可识别按名称添加的SVM或SnapCenter 发现的作为ONTAP 集群一部分添加的SVM。
 
 支持的应用程序及其配置包括：
 

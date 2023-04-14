@@ -14,33 +14,33 @@ summary: 创建适用于ONTAP 的FSX工作环境和Connector
 
 
 [role="lead"]
-您应创建适用于ONTAP 的FSX工作环境和Connector。
+使用BlueXP、您应创建适用于ONTAP 的FSX工作环境、以添加和管理卷和其他数据服务。此外、您还应在AWS中创建一个连接器、使BlueXP能够管理公共云环境中的资源和流程。
 
 
 
 == 为ONTAP 工作环境创建FSX
 
-您应创建托管数据库的Amazon FSX for ONTAP 工作环境。有关信息、请参见 link:https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/start/task-getting-started-fsx.html["开始使用适用于 ONTAP 的 Amazon FSX"] 和 link:https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/use/task-creating-fsx-working-environment.html["创建和管理适用于 ONTAP 的 Amazon FSX 工作环境"]。
+您应在托管数据库的位置创建适用于ONTAP 工作环境的FSX。有关信息、请参见 link:https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/start/task-getting-started-fsx.html["开始使用适用于 ONTAP 的 Amazon FSX"] 和 link:https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/use/task-creating-fsx-working-environment.html["创建和管理适用于 ONTAP 的 Amazon FSX 工作环境"]。
 
-您可以使用BlueXP或AWS创建NetApp FSX。如果您已使用AWS创建、则应在BlueXP中发现适用于ONTAP 系统的FSX。
+您可以使用BlueXP或AWS创建适用于ONTAP 的FSX工作环境。如果您已使用AWS创建、则应在BlueXP中发现适用于ONTAP 系统的FSX。
 
 
 
 == 创建连接器
 
-客户管理员需要在AWS中部署一个连接器、使BlueXP能够管理公有 云环境中的资源和流程。
+客户管理员需要在AWS中创建一个连接器、使BlueXP能够管理公共云环境中的资源和流程。
 
 有关信息、请参见 link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-aws.html["通过BlueXP在AWS中创建连接器"]。
 
-* 您应使用相同的连接器来管理FSX工作环境和Oracle数据库。
-* 如果您的FSX工作环境和Oracle数据库位于同一个VPC中、则可以在同一个VPC中部署此连接器。
-* 如果您的FSX工作环境和Oracle数据库位于不同的vPC中：
+* 您应使用相同的连接器来管理适用于ONTAP 的FSX工作环境和数据库。
+* 如果您的FSX for ONTAP 工作环境和数据库位于同一个虚拟私有云(Virtual Private Cloud、VPC)中、则可以在同一个VPC中部署此连接器。
+* 如果您的FSX for ONTAP 工作环境和数据库位于不同的VPC中：
 +
-** 如果在FSX上配置了NAS (NFS)工作负载、则可以在任一VPC上创建连接器。
-** 如果您仅配置了SAN工作负载、并且不打算使用任何NAS (NFS)工作负载、则应在创建FSX系统的VPC中创建连接器。
+** 如果在适用于ONTAP 的FSX上配置了NAS (NFS)工作负载、则可以在任一VPC上创建连接器。
+** 如果您仅配置了SAN工作负载、并且不打算使用任何NAS (NFS)工作负载、则应在创建FSX for ONTAP 系统的VPC中创建连接器。
 +
 
-NOTE: 要使用NAS (NFS)工作负载、您应在Oracle数据库VPC和FSX VPC之间设置传输网关。作为浮动IP地址的NFS IP地址只能通过传输网关从另一个VPC访问。我们无法通过对等VPC来访问浮动IP地址。
+NOTE: 要使用NAS (NFS)工作负载、您应在数据库VPC和Amazon VPC之间设置传输网关。作为浮动IP地址的NFS IP地址只能通过传输网关从另一个VPC访问。我们无法通过对等VPC来访问浮动IP地址。
 
 
 
@@ -48,5 +48,9 @@ NOTE: 要使用NAS (NFS)工作负载、您应在Oracle数据库VPC和FSX VPC之�
 
 创建连接器后、单击*存储*>*画布*>*我的工作环境*>*添加工作环境*、然后按照提示添加工作环境。确保从Connector连接到Oracle数据库主机和FSX工作环境。此连接器应能够连接到FSX工作环境的集群管理IP地址。
 
+* 通过单击*存储*>*画布*>*我的工作环境*>*添加工作环境*来添加工作环境。
++
+确保从连接器连接到数据库主机以及适用于ONTAP 的FSX工作环境。此连接器应连接到适用于ONTAP 工作环境的FSX的集群管理IP地址。
 
-IMPORTANT: 创建连接器后、单击*连接器>管理连接器*；选择连接器名称并复制连接器ID。
+* 单击*连接器>管理连接器*并选择连接器名称、以复制连接器ID。
+
