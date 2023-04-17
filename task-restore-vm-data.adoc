@@ -20,7 +20,7 @@ summary: 您可以将虚拟机从云还原到内部SnapCenter。
 NOTE: 您无法还原跨数据存储库的虚拟机。
 
 .开始之前
-确保您已满足所有要求 link:concept-protect-vm-data.html#Requirements["要求"] 从云还原虚拟机之前。
+确保您已满足所有要求 link:concept-protect-vm-data.html["要求"] 从云还原虚拟机之前。
 
 .步骤
 . 在BlueXP UI中、单击*保护*>*备份和恢复*>*虚拟机*>*适用于VMware vSphere的SnapCenter 插件*、然后选择适用于VMware vSphere的SnapCenter 插件主机。

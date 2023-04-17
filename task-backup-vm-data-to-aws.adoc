@@ -19,7 +19,7 @@ summary: 将数据存储库从内部ONTAP 备份到AWS。
 如果数据存储库与归档策略关联、您可以选择归档层。支持的归档层为Glacier和Glacier Deep。
 
 .开始之前
-确保您已满足所有要求 link:concept-protect-vm-data.html#Requirements["要求"] 将数据存储库备份到云之前。
+确保您已满足所有要求 link:concept-protect-vm-data.html["要求"] 将数据存储库备份到云之前。
 
 .步骤
 . 在BlueXP UI中、单击*保护*>*备份和恢复*>*虚拟机*。
