@@ -10,6 +10,7 @@ summary: 在向NetApp技术支持部门创建支持案例之前、您需要向Bl
 :imagesdir: ../media/
 
 
+[role="lead"]
 在向NetApp技术支持部门创建支持案例之前、您需要向BlueXP添加NetApp 支持站点 (NSS)帐户、然后注册获取支持。
 
 

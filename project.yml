@@ -270,9 +270,10 @@ homepage:
     - title: 将内部应用程序数据备份到StorageGRID
       url: "/task-backup-app-data-to-storagegrid.html"
     - title: 备份云本机Oracle数据库
-      url: task-backup-cloud-native-oracle-data.html
+      url: "/task-backup-cloud-native-oracle-data.html"
     - title: 备份云原生SAP HANA数据库
-      url: task-backup-cloud-native-sap-hana-data.html
+      flavor: azure
+      url: "/task-backup-cloud-native-sap-hana-data.html"
   - title: 备份和还原虚拟机数据
     links:
     - title: 将数据存储库备份到Amazon Web Services
@@ -287,7 +288,7 @@ homepage:
     - title: 将数据存储库备份到StorageGRID
       url: "/task-backup-vm-data-to-storagegrid.html"
     - title: 从云还原虚拟机
-      url: task-restore-vm-data.html
+      url: "/task-restore-vm-data.html"
   - title: 从ONTAP 备份文件还原数据
     links:
     - title: 还原 ONTAP 卷
