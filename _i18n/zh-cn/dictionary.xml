@@ -829,8 +829,6 @@
   <block id="5afde787e060c3a96f34f757eb507404" category="sidebar">Kubernetes 集群到 Amazon S3</block>
   <block id="3ef08bbbf058b2bc6a87e3ff1ceecd81" category="sidebar">Kubernetes 集群到 Azure Blob</block>
   <block id="d5513ddfa26c41caaba3c021a29dbe45" category="sidebar">Kubernetes 集群到 Google Cloud</block>
-  <block id="e2f83fe82d1e819ed299851d4da320ce" category="sidebar">还原 ONTAP 卷</block>
-  <block id="09653b9c7955d4792895fbf1fcaa6ad6" category="sidebar">还原 Kubernetes 卷</block>
   <block id="4c371e6c984a858ae1f9d8d607a2cfd4" category="sidebar">管理 ONTAP 备份文件</block>
   <block id="c88c557dd4e62b29bc87fc433d1738c6" category="sidebar">启用和禁用卷备份</block>
   <block id="56b3614ad370987e8f2f3583eb78c757" category="sidebar">编辑现有备份策略</block>
@@ -1045,7 +1043,6 @@
   <block id="4cfbdcb9aba741b123b3c46a8341bf59" category="sidebar">保护虚拟机数据</block>
   <block id="b2736084b30c35472d74c3c29a818a95" category="sidebar">管理虚拟机的保护</block>
   <block id="c2c86860cad5cd95ae9ef9c003e01d57" category="sidebar">还原虚拟机数据</block>
-  <block id="3eb97a71011fe0dae37080fd785e4db5" category="sidebar">备份和还原虚拟机数据</block>
   <block id="b418e05c847b656e4a8ac26f2f0cc045" category="inline-link">了解有关保护虚拟机到云的更多信息</block>
   <block id="3a5ea6bb0616fe3f66bd74e5e18fd1b3" category="paragraph"><block ref="95fa49d8f0b9a0affedd5e0d4a52c2d2" category="inline-link-rx"></block>。</block>
   <block id="7c8db0bef9b3c6a1335fe8f0a09bfdef" category="sidebar">备份和还原虚拟机数据</block>
@@ -1735,8 +1732,6 @@
   <block id="2d96aa84884717fd77e4906d82c73ddc" category="section-title">2022年9月28日</block>
   <block id="d45e0847841b73f9b8082d6a7bc89f24" category="paragraph">必要时、您可以将整个_volume"、"_folder"或一个或多个_files"从备份还原到相同或不同的工作环境。</block>
   <block id="262efb8db11032d91af39217fa610e82" category="paragraph">您可以将卷、文件夹或单个文件从ONTAP 备份文件还原到以下工作环境：</block>
-  <block id="5a885bd71d1142c7d1b89fcfcf197a41" category="sidebar">从ONTAP 备份文件还原数据</block>
-  <block id="ba9a6951ecf97e593c2140f66a8574bf" category="sidebar">从ONTAP 卷还原文件和文件夹</block>
   <block id="855a635321caeb08d8525de5eea56651" category="list-text">要使用"搜索和还原"还原数据、某些资源由云提供商配置、搜索请求扫描的数据量会产生每TiB成本。(浏览和还原不需要这些资源。)</block>
   <block id="3b190b83ddc2ee9e610caa6dc209fbaf" category="list-text">*标签*用于定义从卷创建(或更新)备份文件的频率。您可以选择以下类型的标签：</block>
   <block id="42f0dfacb9775e138cb12f277162bec2" category="list-text">您可以选择系统定义的策略之一、这些策略可提供3个月、1年或7年的备份和保留。</block>
@@ -3740,4 +3735,13 @@
   <block id="2e5d6ff9bc4d6b4194df020bde3f3dca" category="sidebar">在非公开站点中备份BlueXP备份和恢复数据库</block>
   <block id="54153028a776309bcfbdd3b7b8285463" category="sidebar">BlueXP备份和恢复博客</block>
   <block id="960dd4200d015a0a12dfd299c1348c9c" category="sidebar">BlueXP备份和恢复用例</block>
+  <block id="ceffaf94354645ad26052bbc53604f5d" category="sidebar">将虚拟机数据备份到云</block>
+  <block id="a1c18d7af73fa7e0ef0013130f15b257" category="sidebar">从云中还原数据</block>
+  <block id="6edd76ff9d03a833a8a254cc8af745d0" category="sidebar">还原ONTAP 卷数据</block>
+  <block id="10b8a325c32b95729e9b37864d6a110a" category="sidebar">还原内部Oracle应用程序数据</block>
+  <block id="6002846df6663ea571e55d74bd085335" category="sidebar">还原内部SQL Server应用程序数据</block>
+  <block id="4bc9a14a4fac8328e801409fa8234e7e" category="sidebar">还原云原生Oracle应用程序数据</block>
+  <block id="5fd9bba0b0a00c42d3baab299425c076" category="sidebar">还原云原生SAP HANA应用程序数据</block>
+  <block id="18de97333e5776e0c135dd87c10b965c" category="sidebar">还原虚拟机数据</block>
+  <block id="16cc11572a7582fe5007212d56145dc8" category="sidebar">还原Kubernetes卷数据</block>
 </blocks>

@@ -118,6 +118,8 @@ image:screenshot_datalock_ransomware_settings.png["创建备份策略时AWS、Az
 
 [role="tabbed-block"]
 ====
+ifdef::aws[]
+
 .AWS
 --
 * *无*(默认)
@@ -135,6 +137,10 @@ DataLock设置为_Compliance"模式、在此保留期间、任何用户都无法
 
 
 --
+endif::aws[]
+
+ifdef::azure[]
+
 .Azure 酒店
 --
 * *无*(默认)
@@ -152,6 +158,8 @@ DataLock设置为_Compliance"模式、在此保留期间、任何用户都无法
 
 
 --
+endif::azure[]
+
 .StorageGRID
 --
 * *无*(默认)
