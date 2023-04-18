@@ -37,7 +37,7 @@ summary: 完成几个步骤、开始将卷数据从内部ONTAP 系统备份到Az
 * 您已为备份所在的对象存储空间订阅有效的 Azure 。
 
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"] 在系统上启用 Cloud Backup
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"] 在系统上启用BlueXP备份和恢复
 [role="quick-margin-para"]
 选择工作环境、然后单击右侧面板中备份和恢复服务旁边的*启用>备份卷*、然后按照设置向导进行操作。
 
@@ -63,13 +63,13 @@ image:screenshot_backup_onprem_azure_networking.png["屏幕截图显示了将卷
 默认策略每天备份卷，并保留每个卷的最新 30 个备份副本。更改为每小时、每天、每周、每月或每年备份、 或者、选择一个系统定义的策略以提供更多选项。您还可以更改要保留的备份副本数。
 
 [role="quick-margin-para"]
-或者、在使用ONTAP 9.12.1及更高版本时、您也可以选择通过配置_DataLock和勒索软件保护_设置之一来保护备份免受删除和勒索软件攻击。 link:concept-cloud-backup-policies.html["详细了解可用的Cloud Backup策略配置设置"^]。
+或者、在使用ONTAP 9.12.1及更高版本时、您也可以选择通过配置_DataLock和勒索软件保护_设置之一来保护备份免受删除和勒索软件攻击。 link:concept-cloud-backup-policies.html["详细了解可用的BlueXP备份和恢复策略配置设置"^]。
 
 [role="quick-margin-para"]
-默认情况下，备份存储在冷访问层中。如果集群使用的是 ONTAP 9.10.1 或更高版本，则可以选择在一定天数后将备份分层到 Azure 归档存储，以便进一步优化成本。 link:concept-cloud-backup-policies.html["详细了解可用的Cloud Backup策略配置设置"^]。
+默认情况下，备份存储在冷访问层中。如果集群使用的是 ONTAP 9.10.1 或更高版本，则可以选择在一定天数后将备份分层到 Azure 归档存储，以便进一步优化成本。 link:concept-cloud-backup-policies.html["详细了解可用的BlueXP备份和恢复策略配置设置"^]。
 
 [role="quick-margin-para"]
-image:screenshot_backup_policy_azure.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中选择备份计划和保留期限。"]
+image:screenshot_backup_policy_azure.png["屏幕截图显示了BlueXP备份和恢复设置、您可以在其中选择备份计划和保留期限。"]
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["六个"] 选择要备份的卷
 [role="quick-margin-para"]
@@ -89,11 +89,11 @@ image:screenshot_backup_policy_azure.png["显示 Cloud Backup 设置的屏幕截
 
 下图显示了*公有 connection*方法以及组件之间需要准备的连接。您可以使用内部安装的Connector或Azure vNet中部署的Connector。
 
-image:diagram_cloud_backup_onprem_azure_public.png["显示Cloud Backup如何通过公有 连接与集群上的卷以及备份文件所在的Azure Blob存储进行通信的示意图。"]
+image:diagram_cloud_backup_onprem_azure_public.png["一个示意图、显示了BlueXP备份和恢复如何通过公共连接与集群上的卷以及备份文件所在的Azure Blob存储进行通信。"]
 
 下图显示了*专用连接*方法以及组件之间需要准备的连接。您可以使用内部安装的Connector或Azure vNet中部署的Connector。
 
-image:diagram_cloud_backup_onprem_azure_private.png["显示Cloud Backup如何通过专用连接与集群上的卷以及备份文件所在的Azure Blob存储进行通信的图表。"]
+image:diagram_cloud_backup_onprem_azure_private.png["一个示意图、显示了BlueXP备份和恢复如何通过专用连接与集群上的卷以及备份文件所在的Azure Blob存储进行通信。"]
 
 
 
@@ -109,7 +109,7 @@ ONTAP 要求::
 * 建议至少使用ONTAP 9.7P5；ONTAP 9.8P13及更高版本。
 * SnapMirror 许可证（作为超值包或数据保护包的一部分提供）。
 +
-* 注意： * 使用 Cloud Backup 时不需要 " 混合云捆绑包 " 。
+*注意：*使用BlueXP备份和恢复时、不需要"混合云捆绑包"。
 
 +
 请参见操作说明 https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["管理集群许可证"^]。
@@ -131,12 +131,12 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 * ONTAP 需要从连接器到集群管理 LIF 的入站连接。此连接器可以驻留在 Azure vNet 中。
 * 托管要备份的卷的每个 ONTAP 节点都需要一个集群间 LIF 。LIF 必须与 _IP 空间 _ 关联， ONTAP 应使用此 _IP 空间 _ 连接到对象存储。 https://docs.netapp.com/us-en/ontap/networking/standard_properties_of_ipspaces.html["了解有关 IP 空间的更多信息"^]。
 +
-设置 Cloud Backup 时，系统会提示您使用 IP 空间。您应选择与每个 LIF 关联的 IP 空间。这可能是您创建的 " 默认 "IP 空间或自定义 IP 空间。
+设置BlueXP备份和恢复时、系统会提示您使用IP空间。您应选择与每个 LIF 关联的 IP 空间。这可能是您创建的 " 默认 "IP 空间或自定义 IP 空间。
 
 * 节点和集群间 LIF 能够访问对象存储。
 * 已为卷所在的 Storage VM 配置 DNS 服务器。请参见操作说明 https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html["为 SVM 配置 DNS 服务"^]。
 * 请注意，如果您使用的 IP 空间与默认 IP 空间不同，则可能需要创建静态路由才能访问对象存储。
-* 如有必要，请更新防火墙规则，以允许通过端口 443 从 ONTAP 到对象存储的 Cloud Backup Service 连接，以及通过端口 53 （ TCP/UDP ）从 Storage VM 到 DNS 服务器的名称解析流量。
+* 如有必要、请更新防火墙规则、以允许通过端口443从ONTAP 到对象存储的BlueXP备份和恢复服务连接、以及通过端口53 (TCP/UDP)从Storage VM到DNS服务器的名称解析流量。
 
 
 --
@@ -153,7 +153,7 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-on-prem.html["在内部安装Connector"^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-restricted-mode.html["在Azure政府区域中安装Connector"^]
 +
-如果连接器部署在云中、则Azure政府区域支持Cloud Backup、而不是安装在您的内部环境中。此外、您还必须从Azure Marketplace部署Connector。您不能从BlueXP SaaS网站在政府区域部署Connector。
+如果连接器部署在云中、则Azure政府区域支持BlueXP备份和恢复、而不是安装在您的内部环境中。此外、您还必须从Azure Marketplace部署Connector。您不能从BlueXP SaaS网站在政府区域部署Connector。
 
 
 
@@ -166,9 +166,9 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 .步骤
 . 确保安装 Connector 的网络启用以下连接：
 +
-** 通过端口443与Cloud Backup Service 和Blob对象存储建立HTTPS连接 (https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-set-up-networking-azure.html#endpoints-contacted-for-day-to-day-operations["请参见端点列表"^]）
+** 通过端口443与BlueXP备份和恢复服务以及Blob对象存储建立HTTPS连接 (https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-set-up-networking-azure.html#endpoints-contacted-for-day-to-day-operations["请参见端点列表"^]）
 ** 通过端口 443 与 ONTAP 集群管理 LIF 建立 HTTPS 连接
-** 要使Cloud Backup搜索和还原功能正常工作、必须打开端口1433、以便在Connector和Azure Synapse SQL服务之间进行通信。
+** 要使BlueXP备份和恢复搜索和还原功能正常工作、必须打开端口1433、以便在Connector和Azure Synapse SQL服务之间进行通信。
 ** Azure和Azure政府部署还需要其他入站安全组规则。请参见 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-ports-azure.html["Azure 中连接器的规则"^] 了解详细信息。
 
 
@@ -179,7 +179,7 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 
 === 验证并向Connector添加权限
 
-要使用Cloud Backup搜索和还原功能、您需要对Connector的角色拥有特定权限、以便它可以访问Azure Synapse Workspace和Data Lake存储帐户。请参见以下权限、如果需要修改策略、请按照以下步骤进行操作。
+要使用BlueXP备份和恢复搜索和还原功能、您需要对Connector的角色拥有特定权限、以便它可以访问Azure Synapse Workspace和Data Lake存储帐户。请参见以下权限、如果需要修改策略、请按照以下步骤进行操作。
 
 .开始之前
 您必须在订阅中注册Azure Synapse分析资源提供程序(称为"microsoft.Synape")。 https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider["了解如何为您的订阅注册此资源提供商"^]。您必须是订阅*所有者*或*贡献者*才能注册资源提供程序。
@@ -265,10 +265,10 @@ https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-az
 
 === 验证许可证要求
 
-* 在为集群激活Cloud Backup之前、您需要从Azure订阅按需购买(PAYGO) BlueXP Marketplace产品、或者从NetApp购买并激活Cloud Backup BYOL许可证。这些许可证适用于您的帐户，可在多个系统中使用。
+* 在为集群激活BlueXP备份和恢复之前、您需要从Azure订阅按需购买(PAYGO) BlueXP Marketplace产品、或者从NetApp购买并激活BlueXP备份和恢复BYOL许可证。这些许可证适用于您的帐户，可在多个系统中使用。
 +
-** 对于 Cloud Backup PAYGO 许可，您需要订阅 https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["Azure 酒店"^] 使用Cloud Backup的BlueXP Marketplace产品。Cloud Backup 的计费通过此订阅完成。
-** 对于 Cloud Backup BYOL 许可，您需要 NetApp 提供的序列号，以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["了解如何管理 BYOL 许可证"]。
+** 对于BlueXP备份和恢复PAYGO许可、您需要订阅 https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["Azure 酒店"^] 使用BlueXP备份和恢复的BlueXP Marketplace产品。BlueXP备份和恢复的计费通过此订阅完成。
+** 对于BlueXP备份和恢复BYOL许可、您需要NetApp提供的序列号、以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["了解如何管理 BYOL 许可证"]。
 
 
 * 您需要为备份所在的对象存储空间订阅 Azure 。
@@ -287,9 +287,9 @@ https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-az
 
 
 
-== 启用 Cloud Backup
+== 启用BlueXP备份和恢复
 
-可随时直接从内部工作环境启用 Cloud Backup 。
+随时直接从内部工作环境启用BlueXP备份和恢复。
 
 .步骤
 . 在Canvas中、选择工作环境、然后单击右侧面板中备份和恢复服务旁边的*启用>备份卷*。
@@ -310,7 +310,7 @@ image:screenshot_backup_onprem_to_azure.png["显示将卷从内部集群备份�
 
 
 
-. 如果您的帐户没有Cloud Backup许可证、此时将提示您选择要使用的充电方法类型。您可以订阅Azure提供的按需购买(PAYGO) BlueXP Marketplace产品(如果您有多个订阅、则需要选择一个)、或者从NetApp购买并激活Cloud Backup BYOL许可证。 link:task-licensing-cloud-backup.html["了解如何设置Cloud Backup许可。"]
+. 如果您的帐户没有现有的BlueXP备份和恢复许可证、此时将提示您选择要使用的充电方法类型。您可以订阅Azure提供的按需购买(PAYGO) BlueXP Marketplace产品(如果您有多个订阅、则需要选择一个)、或者从NetApp购买并激活BlueXP备份和恢复BYOL许可证。 link:task-licensing-cloud-backup.html["了解如何设置BlueXP备份和恢复许可。"]
 . 输入网络连接详细信息并单击 * 下一步 * 。
 +
 .. 要备份的卷所在的 ONTAP 集群中的 IP 空间。此 IP 空间的集群间 LIF 必须具有出站 Internet 访问权限。
@@ -327,7 +327,7 @@ image:screenshot_backup_onprem_azure_networking.png["屏幕截图显示了将卷
 .. 或者、在使用ONTAP 9.12.1及更高版本时、您也可以选择通过配置_DataLock和勒索软件保护_设置之一来保护备份免受删除和勒索软件攻击。_DataLock_可防止您的备份文件被修改或删除、_勒索 软件保护_会扫描您的备份文件、以在备份文件中查找勒索软件攻击的证据。 link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["详细了解可用的DataLock设置"^]。
 .. 使用 ONTAP 9.10.1 及更高版本时，您可以选择在一定天数后将备份分层到 Azure 归档存储，以进一步优化成本。 link:reference-azure-backup-tiers.html["了解有关使用归档层的更多信息"]。
 +
-image:screenshot_backup_policy_azure.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中选择计划和备份保留。"]
+image:screenshot_backup_policy_azure.png["屏幕截图显示了BlueXP备份和恢复设置、您可以在其中选择计划和备份保留。"]
 
 
 
@@ -342,7 +342,7 @@ image:screenshot_backup_select_volumes.png["选择要备份的卷的屏幕截图
 ** 如果此工作环境中的读/写卷有任何本地Snapshot副本与您刚刚为此工作环境选择的备份计划标签(例如、每日、每周等)匹配、则会显示一条额外的提示"将现有Snapshot副本作为备份副本导出到对象存储"。如果要将所有历史快照作为备份文件复制到对象存储、请选中此框、以确保为卷提供最全面的保护。
 
 
-. 单击 * 激活备份 * ， Cloud Backup 将开始对卷进行初始备份。
+. 单击*激活备份*、BlueXP备份和恢复将开始对卷进行初始备份。
 
 
 .结果

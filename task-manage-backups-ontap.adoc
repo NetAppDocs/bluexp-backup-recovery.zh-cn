@@ -67,8 +67,8 @@ image:screenshot_backup_manage_volumes_page.png["管理卷页面，您可以在�
 
 [NOTE]
 ====
-* 如果在为此集群激活Cloud Backup时在初始策略中启用了_DataLock和勒索软件保护_、则必须使用相同的DataLock设置(监管或合规)配置您编辑的任何策略。如果在激活Cloud Backup时未启用_DataLock和勒索软件保护_、则无法立即启用DataLock。
-* 在AWS上创建备份时、如果在激活Cloud Backup时在第一个备份策略中选择_S3 Glacer_或_S3 Glacier Deep Archive_、则在编辑备份策略时、该层将是唯一可用的归档层。如果您在第一个备份策略中未选择任何归档层、则在编辑策略时、_S3 Glacer_将是您的唯一归档选项。
+* 如果在为此集群激活BlueXP备份和恢复时在初始策略中启用了_DataLock和勒索软件保护_、则您编辑的任何策略都必须使用相同的DataLock设置(监管或合规)进行配置。如果在激活BlueXP备份和恢复时未启用_DataLock和勒索软件保护_、则无法立即启用DataLock。
+* 在AWS上创建备份时、如果在激活BlueXP备份和恢复时在第一个备份策略中选择了_S3 Glacer_或_S3 Glacier Deep Archive_、则在编辑备份策略时、该层将是唯一可用的归档层。如果您在第一个备份策略中未选择任何归档层、则在编辑策略时、_S3 Glacer_将是您的唯一归档选项。
 
 
 ====
@@ -116,7 +116,7 @@ link:reference-google-backup-tiers.html["了解有关使用Google归档存储的
 
 endif::gcp[]
 
-+image:screenshot_backup_modify_policy_page2.png["屏幕截图显示了 Cloud Backup 的归档存储设置分层。"]
++image:screenshot_backup_modify_policy_page2.png["屏幕截图显示了BlueXP备份和恢复的归档存储设置分层。"]
 
 +请注意、如果您停止将备份分层到归档存储、则已分层到归档存储的所有备份文件都会保留在该层中、而不会自动将这些备份移回标准层。只有新的卷备份才会驻留在标准层中。
 
@@ -124,14 +124,14 @@ endif::gcp[]
 
 == 正在添加新备份策略
 
-在为工作环境启用 Cloud Backup 时，您最初选择的所有卷都会使用您定义的默认备份策略进行备份。如果要为具有不同恢复点目标（ RPO ）的某些卷分配不同的备份策略，您可以为该集群创建其他策略并将这些策略分配给其他卷。
+在为工作环境启用BlueXP备份和恢复时、您最初选择的所有卷都会使用您定义的默认备份策略进行备份。如果要为具有不同恢复点目标（ RPO ）的某些卷分配不同的备份策略，您可以为该集群创建其他策略并将这些策略分配给其他卷。
 
 如果要对工作环境中的某些卷应用新的备份策略，则首先需要将备份策略添加到工作环境中。然后，您可以 <<更改分配给现有卷的策略,将此策略应用于该工作环境中的卷>>。
 
 [NOTE]
 ====
-* 如果在为此集群激活Cloud Backup时在初始策略中启用了_DataLock和勒索软件保护_、则您创建的任何其他策略都必须使用相同的DataLock设置(监管或合规)进行配置。如果在激活Cloud Backup时未启用_DataLock和勒索软件保护_、则无法使用DataLock创建新策略。
-* 在AWS上创建备份时、如果在激活Cloud Backup时在第一个备份策略中选择了_S3 Glacer_或_S3 Glacier Deep Archive_、则该层将是该集群未来备份策略中唯一可用的归档层。如果您在第一个备份策略中未选择任何归档层、则_S3 Glacier_将成为未来策略的唯一归档选项。
+* 如果在为此集群激活BlueXP备份和恢复时在初始策略中启用了_DataLock和勒索软件保护_、则您创建的任何其他策略都必须使用相同的DataLock设置(监管或合规)进行配置。如果在激活BlueXP备份和恢复时未启用_DataLock和勒索软件保护_、则无法使用DataLock创建新策略。
+* 在AWS上创建备份时、如果在激活BlueXP备份和恢复时在第一个备份策略中选择了_S3 Glacer_或_S3 Glacier Deep Archive_、则该层将成为该集群未来备份策略可用的唯一归档层。如果您在第一个备份策略中未选择任何归档层、则_S3 Glacier_将成为未来策略的唯一归档选项。
 
 
 ====
@@ -176,7 +176,7 @@ link:reference-google-backup-tiers.html["了解有关使用Google归档存储的
 
 endif::gcp[]
 
-+image:screenshot_backup_modify_policy_page2.png["屏幕截图显示了 Cloud Backup 的归档存储设置分层。"]
++image:screenshot_backup_modify_policy_page2.png["屏幕截图显示了BlueXP备份和恢复的归档存储设置分层。"]
 
 
 
@@ -205,7 +205,7 @@ image:screenshot_backup_change_policy.png["显示如何选择要应用于选定�
 
 +
 
-NOTE: 如果在为此集群激活Cloud Backup时在初始策略中启用了_DataLock和勒索软件保护_、则只会看到已配置DataLock的其他策略。如果在激活Cloud Backup时未启用_DataLock和勒索软件保护_、则只会看到未配置DataLock的其他策略。
+NOTE: 如果在为此集群激活BlueXP备份和恢复时在初始策略中启用了_DataLock和勒索软件保护_、则只会看到已配置DataLock的其他策略。如果在激活BlueXP备份和恢复时未启用_DataLock和勒索软件保护_、则只会看到未配置DataLock的其他策略。
 
 . 单击 * 保存 * 以提交更改。
 
@@ -218,7 +218,7 @@ NOTE: 如果在为此集群激活Cloud Backup时在初始策略中启用了_Data
 
 备份名称包含时间戳，以便您可以从其他计划的备份中确定按需备份。
 
-如果在为此集群激活Cloud Backup时启用了_DataLock和勒索软件保护_、则按需备份也会配置DataLock、保留期限为30天。临时备份不支持勒索软件扫描。 link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["了解有关DataLock和勒索软件保护的更多信息"^]。
+如果在为此集群激活BlueXP备份和恢复时启用了_DataLock和勒索软件保护_、则按需备份也会配置DataLock、保留期限为30天。临时备份不支持勒索软件扫描。 link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["了解有关DataLock和勒索软件保护的更多信息"^]。
 
 请注意、在创建临时备份时、系统会在源卷上创建Snapshot。由于此Snapshot不属于正常的Snapshot计划、因此不会关闭它。备份完成后、您可能需要从源卷中手动删除此Snapshot。这样可以释放与此Snapshot相关的块。Snapshot的名称将以`CBS-snapshot-adoc-`开头。 https://docs.netapp.com/us-en/ontap/san-admin/delete-all-existing-snapshot-copies-volume-task.html["请参见如何使用ONTAP 命令行界面删除快照"^]。
 
@@ -282,18 +282,18 @@ image:screenshot_scan_one_backup.png["显示如何对单个备份文件运行勒
 
 == 删除备份
 
-您可以通过 Cloud Backup 删除单个备份文件，删除卷的所有备份或删除工作环境中所有卷的所有备份。如果您不再需要备份、或者您删除了源卷并希望删除所有备份、则可能需要删除所有备份。
+通过BlueXP备份和恢复、您可以删除单个备份文件、删除卷的所有备份或删除工作环境中所有卷的所有备份。如果您不再需要备份、或者您删除了源卷并希望删除所有备份、则可能需要删除所有备份。
 
 请注意、您无法删除已使用DataLock和勒索软件保护锁定的备份文件。如果您选择了一个或多个锁定的备份文件、则用户界面中的"删除"选项将不可用。
 
 
-CAUTION: 如果您计划删除具有备份的工作环境或集群，则必须删除备份 * 在删除系统之前 * 。删除系统时， Cloud Backup 不会自动删除备份，并且用户界面当前不支持在删除系统后删除这些备份。对于任何剩余备份，您仍需支付对象存储成本费用。
+CAUTION: 如果您计划删除具有备份的工作环境或集群，则必须删除备份 * 在删除系统之前 * 。删除系统时、BlueXP备份和恢复功能不会自动删除备份、并且当前用户界面不支持在删除系统后删除这些备份。对于任何剩余备份，您仍需支付对象存储成本费用。
 
 
 
 === 删除工作环境中的所有备份文件
 
-删除工作环境中的所有备份不会禁用此工作环境中的卷将来备份。如果要停止在工作环境中创建所有卷的备份，可以停用备份 <<为工作环境停用Cloud Backup,如此处所述>>。
+删除工作环境中的所有备份不会禁用此工作环境中的卷将来备份。如果要停止在工作环境中创建所有卷的备份，可以停用备份 <<为工作环境停用BlueXP备份和恢复,如此处所述>>。
 
 .步骤
 . 从 * 卷 * 选项卡中，选择 * 备份设置 * 。
@@ -367,7 +367,7 @@ image:screenshot_delete_one_backup.png["显示如何删除单个备份文件的�
 
 只有在系统运行ONTAP 9.12.1或更高版本时、此功能才可用。
 
-您不能从Cloud Backup用户界面删除源卷。但是、您可以在"画布"、和上打开"卷详细信息"页面 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes["从该位置删除卷"]。
+您不能从BlueXP备份和恢复用户界面中删除源卷。但是、您可以在"画布"、和上打开"卷详细信息"页面 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes["从该位置删除卷"]。
 
 
 NOTE: 删除关系后、您无法删除单个卷备份文件。但是、您可以 link:task-manage-backups-ontap.html#deleting-all-backup-files-for-a-volume["删除卷的所有备份"] 如果要删除所有备份文件。
@@ -398,9 +398,9 @@ image:screenshot_backup_view_no_relationship.png["显示删除卷备份关系后
 
 
 
-== 为工作环境停用Cloud Backup
+== 为工作环境停用BlueXP备份和恢复
 
-在工作环境中停用Cloud Backup会禁用系统上每个卷的备份、同时也会禁用还原卷的功能。不会删除任何现有备份。这样不会从此工作环境中取消注册备份服务—它基本上允许您将所有备份和还原活动暂停一段时间。
+停用工作环境的BlueXP备份和恢复会禁用系统上每个卷的备份、同时也会禁用卷还原功能。不会删除任何现有备份。这样不会从此工作环境中取消注册备份服务—它基本上允许您将所有备份和还原活动暂停一段时间。
 
 请注意，除非您的备份使用的容量，否则云提供商会继续向您收取对象存储成本 <<删除工作环境中的所有备份文件,删除备份>>。
 
@@ -421,15 +421,15 @@ NOTE: 在禁用备份的情况下，系统将为此工作环境显示一个 * �
 
 
 
-== 为工作环境取消注册 Cloud Backup
+== 为工作环境取消注册BlueXP备份和恢复
 
-如果您不想再使用备份功能，而希望在工作环境中不再需要为备份付费，则可以取消注册适用于此工作环境的 Cloud Backup 。通常，如果您计划删除工作环境并要取消备份服务，则会使用此功能。
+如果您不想再使用备份功能、而希望在该工作环境中不再需要为备份付费、则可以取消注册适用于该工作环境的BlueXP备份和恢复。通常，如果您计划删除工作环境并要取消备份服务，则会使用此功能。
 
-如果要更改存储集群备份的目标对象存储，也可以使用此功能。在为工作环境取消注册 Cloud Backup 后，您可以使用新的云提供商信息为此集群启用 Cloud Backup 。
+如果要更改存储集群备份的目标对象存储，也可以使用此功能。在为工作环境取消注册BlueXP备份和恢复后、您可以使用新的云提供商信息为此集群启用BlueXP备份和恢复。
 
-在注销 Cloud Backup 之前，必须按以下顺序执行以下步骤：
+在取消注册BlueXP备份和恢复之前、必须按以下顺序执行以下步骤：
 
-* 为工作环境停用 Cloud Backup
+* 为工作环境停用BlueXP备份和恢复
 * 删除该工作环境的所有备份
 
 

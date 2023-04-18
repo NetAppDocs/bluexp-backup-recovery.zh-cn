@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: api-backup-restore.html 
 keywords: api, apis, rest, restful, authorization, getting started, body, header, token, reference, expired token, expires, expired, token expired, list apis 
-summary: 通过Web UI提供的Cloud Backup功能也可通过RESTful API获得。 
+summary: 通过Web UI提供的BlueXP备份和恢复功能也可通过RESTful API来实现。 
 ---
-= Cloud Backup API
+= BlueXP备份和恢复API
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,9 +14,9 @@ summary: 通过Web UI提供的Cloud Backup功能也可通过RESTful API获得。
 
 
 [role="lead"]
-通过Web UI提供的Cloud Backup功能也可通过RESTful API获得。
+通过Web UI提供的BlueXP备份和恢复功能也可通过RESTful API获得。
 
-Cloud Backup中定义了九类端点：
+在BlueXP备份和恢复中定义了九类端点：
 
 * 备份—管理云和内部资源的备份操作、并检索备份数据的详细信息
 * 目录-根据查询管理文件的索引目录搜索(搜索和还原)
@@ -34,7 +34,7 @@ Cloud Backup中定义了九类端点：
 
 == 入门
 
-要开始使用Cloud Backup API、您需要获取用户令牌、您的BlueXP帐户ID和BlueXP Connector ID。
+要开始使用BlueXP备份和恢复API、您需要获取用户令牌、您的BlueXP帐户ID和BlueXP Connector ID。
 
 进行API调用时、您需要在Authorization标头中添加用户令牌、并在x-agent-id标头中添加BlueXP Connector ID。您应在API中使用BlueXP帐户ID。
 
@@ -95,7 +95,7 @@ Header:
 
 == 使用API的示例
 
-以下示例显示了一个API调用、用于在Azure云中的East-US-2区域使用新策略在工作环境中激活Cloud Backup、此策略设置了每日、每小时和每周标签、并在天后将其归档为180天。请注意、此操作仅在工作环境中启用备份、但不会备份任何卷。
+以下示例显示了一个API调用、用于在Azure云的East-US-2区域中的工作环境中激活BlueXP备份和恢复、该策略设置了每日、每小时和每周标签、天数设置为180天后进行归档。请注意、此操作仅在工作环境中启用备份、但不会备份任何卷。
 
 如果选择"auto-backup-enabled"："true"、则系统中已存在的任何卷都将进行备份、并且将来的任何卷也将进行备份。
 
@@ -186,4 +186,4 @@ curl --location --request GET 'https://api.bluexp.netapp.com/account/account-DpT
 
 == API 参考
 
-有关每个Cloud Backup API的文档、请参见 https://docs.netapp.com/us-en/cloud-manager-automation/cbs/overview.html[]。
+有关每个BlueXP备份和恢复API的文档、请参见 https://docs.netapp.com/us-en/cloud-manager-automation/cbs/overview.html[]。

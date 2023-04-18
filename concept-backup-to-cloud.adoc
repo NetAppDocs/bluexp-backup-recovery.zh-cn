@@ -4,7 +4,7 @@ permalink: concept-backup-to-cloud.html
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, kubernetes, applications, virtual machines, backup and recovery 
 summary: BlueXP备份和恢复为内部和云端的NetApp ONTAP 数据、数据库和虚拟机提供高效、安全且经济高效的数据保护。备份会自动生成并存储在公有 或私有云帐户的对象存储中。 
 ---
-= 了解 Cloud Backup
+= 了解有关BlueXP备份和恢复的信息
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,38 +14,36 @@ summary: BlueXP备份和恢复为内部和云端的NetApp ONTAP 数据、数据�
 
 
 [role="lead"]
-BlueXP备份和恢复(Cloud Backup)可为内部和云端的NetApp ONTAP 数据、Kubernetes永久性卷、数据库和虚拟机提供高效、安全且经济高效的数据保护。备份会自动生成并存储在公有 或私有云帐户的对象存储中。
+BlueXP备份和恢复为内部和云端的NetApp ONTAP 数据、Kubernetes永久性卷、数据库和虚拟机提供高效、安全且经济高效的数据保护。备份会自动生成并存储在公有 或私有云帐户的对象存储中。
 
-该服务可执行块级永久增量复制、并保留所有存储效率、从而显著减少复制和存储的数据量。此外、您只需为受保护的内容付费、并使用可用的最低成本存储层、这使得Cloud Backup非常经济高效。
+该服务可执行块级永久增量复制、并保留所有存储效率、从而显著减少复制和存储的数据量。此外、您只需为受保护的内容付费、并使用可用的最低成本存储层、这使得BlueXP备份和恢复非常经济高效。
 
 如有必要，您可以将整个 _volume" 从备份还原到相同或不同的工作环境。备份 ONTAP 数据时，您还可以选择将备份中的一个或多个 _files_ 还原到相同或不同的工作环境。
 
-https://bluexp.netapp.com/cloud-backup["了解有关 Cloud Backup 的更多信息"^]。
+https://bluexp.netapp.com/cloud-backup["了解有关BlueXP备份和恢复的更多信息"^]。
 
 备份和恢复可用于：
 
 * 从Cloud Volumes ONTAP 和内部ONTAP 系统备份和还原ONTAP 卷数据。 link:concept-ontap-backup-to-cloud.html["请参见此处的详细功能"]。
 * 备份和还原Kubernetes永久性卷。 link:concept-kubernetes-backup-to-cloud.html["请参见此处的详细功能"]。
-* 使用适用于应用程序的Cloud Backup从内部ONTAP 系统备份应用程序一致的Snapshot。 link:concept-protect-app-data-to-cloud.html["请参见此处的详细功能"]。
-* 使用适用于VMware的Cloud Backup将数据存储库备份到云、并将虚拟机还原回内部vCenter。 link:concept-protect-vm-data.html["请参见此处的详细功能"]。
+* 使用适用于应用程序的BlueXP备份和恢复功能从内部部署ONTAP 系统备份应用程序一致的Snapshot。 link:concept-protect-app-data-to-cloud.html["请参见此处的详细功能"]。
+* 使用适用于VMware的BlueXP备份和恢复功能将数据存储库备份到云、并将虚拟机还原回内部vCenter。 link:concept-protect-vm-data.html["请参见此处的详细功能"]。
 
 
 https://www.youtube.com/watch?v=DF0knrH2a80["观看快速演示"^]
 
 
-TIP: 当BlueXP Connector部署在云中的政府区域或无法访问Internet的站点(非公开站点)中时、Cloud Backup仅支持从ONTAP 系统执行备份和还原操作。使用这些类型的部署方法时、Cloud Backup不支持从Kubernetes集群、应用程序或虚拟机执行备份和还原操作。
+TIP: 如果将BlueXP Connector部署在云中的政府区域或无法访问Internet的站点(非公开站点)中、则BlueXP备份和恢复仅支持从ONTAP 系统执行备份和还原操作。使用这些类型的部署方法时、BlueXP备份和恢复不支持从Kubernetes集群、应用程序或虚拟机执行备份和还原操作。
 
 
 
-== Cloud Backup 的工作原理
+== BlueXP备份和恢复的工作原理
 
-在 Cloud Volumes ONTAP 或内部 ONTAP 系统上启用 Cloud Backup 时，此服务会对您的数据执行完整备份。备份映像中不包含卷快照。初始备份之后，所有额外备份都是增量备份，这意味着只会备份更改的块和新块。这样可以将网络流量降至最低。
-
-在大多数情况下、您将使用BlueXP UI执行所有备份操作。但是，从 ONTAP 9.9.1 开始，您可以使用 ONTAP System Manager 对内部 ONTAP 集群启动卷备份操作。 https://docs.netapp.com/us-en/ontap/task_cloud_backup_data_using_cbs.html["了解如何使用 System Manager 使用 Cloud Backup 将卷备份到云。"^]
+在Cloud Volumes ONTAP 或内部部署ONTAP 系统上启用BlueXP备份和恢复时、此服务将对您的数据执行完整备份。备份映像中不包含卷快照。初始备份之后，所有额外备份都是增量备份，这意味着只会备份更改的块和新块。这样可以将网络流量降至最低。
 
 下图显示了组件之间的关系：
 
-image:diagram_cloud_backup_general.png["显示 Cloud Backup 如何与备份文件所在的源系统和目标对象存储上的卷进行通信的示意图。"]
+image:diagram_cloud_backup_general.png["一个示意图、显示了BlueXP备份和恢复如何与备份文件所在的源系统和目标对象存储上的卷进行通信。"]
 
 
 

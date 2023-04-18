@@ -34,22 +34,22 @@ summary: 完成几个步骤，开始将数据从 GKEKubernetes 集群上的永�
 
 * 您已为备份所在的存储空间订阅了有效的 GCP 。
 * 您的 Google Cloud Project 中有一个服务帐户，该帐户具有预定义的存储管理员角色。
-* 您已订阅 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["BlueXP Marketplace备份服务"^]或您已购买 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["并激活"^] NetApp 提供的 Cloud Backup BYOL 许可证。
+* 您已订阅 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["BlueXP Marketplace备份服务"^]或您已购买 link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["并激活"^] NetApp提供的BlueXP备份和恢复BYOL许可证。
 
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"] 在现有Kubernetes集群上启用Cloud Backup
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"] 在现有Kubernetes集群上启用BlueXP备份和恢复
 [role="quick-margin-para"]
 选择工作环境、然后单击右侧面板中备份和恢复服务旁边的*启用*、然后按照设置向导进行操作。
 
 [role="quick-margin-para"]
-image:screenshot_backup_cvo_enable.png["屏幕截图显示了 Cloud Backup Enable 按钮，该按钮可在您选择工作环境后使用。"]
+image:screenshot_backup_cvo_enable.png["屏幕截图显示了BlueXP备份和恢复启用按钮、该按钮可在您选择工作环境后使用。"]
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三个"] 定义备份策略
 [role="quick-margin-para"]
 默认策略每天备份卷，并保留每个卷的最新 30 个备份副本。更改为每小时，每天，每周或每月备份，或者选择一个提供更多选项的系统定义策略。您还可以更改要保留的备份副本数。
 
 [role="quick-margin-para"]
-image:screenshot_backup_policy_k8s_azure.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中选择备份计划和保留期限。"]
+image:screenshot_backup_policy_k8s_azure.png["屏幕截图显示了BlueXP备份和恢复设置、您可以在其中选择备份计划和保留期限。"]
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"] 选择要备份的卷
 [role="quick-margin-para"]
@@ -63,7 +63,7 @@ image:screenshot_backup_policy_k8s_azure.png["显示 Cloud Backup 设置的屏�
 
 下图显示了每个组件以及需要在它们之间准备的连接：
 
-image:diagram_cloud_backup_k8s_cvo_gcp.png["显示 Cloud Backup 如何与备份文件所在的源系统和目标存储上的卷进行通信的示意图。"]
+image:diagram_cloud_backup_k8s_cvo_gcp.png["一个示意图、显示了BlueXP备份和恢复如何与备份文件所在的源系统和目标存储上的卷进行通信。"]
 
 请注意，私有端点是可选的。
 
@@ -130,11 +130,11 @@ spec:
 
 
 --
-支持的 GCP 区域:: 所有 GCP 地区均支持 Cloud Backup https://cloud.netapp.com/cloud-volumes-global-regions["支持 Cloud Volumes ONTAP 的位置"^]。
-许可证要求:: 对于 Cloud Backup PAYGO 许可，可通过订阅 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["GCP 市场"^] 在启用 Cloud Backup 之前为必填项。Cloud Backup 的计费通过此订阅完成。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-gcp.html["您可以从工作环境向导的详细信息和 amp ；凭据页面订阅"^]。
+支持的 GCP 区域:: 所有GCP地区均支持BlueXP备份和恢复 https://cloud.netapp.com/cloud-volumes-global-regions["支持 Cloud Volumes ONTAP 的位置"^]。
+许可证要求:: 对于BlueXP备份和恢复PAYGO许可、可通过订阅 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["GCP 市场"^] 在启用BlueXP备份和恢复之前为必填项。BlueXP备份和恢复的计费通过此订阅完成。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-gcp.html["您可以从工作环境向导的详细信息和 amp ；凭据页面订阅"^]。
 +
 --
-对于 Cloud Backup BYOL 许可，您需要 NetApp 提供的序列号，以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["了解如何管理 BYOL 许可证"]。
+对于BlueXP备份和恢复BYOL许可、您需要NetApp提供的序列号、以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["了解如何管理 BYOL 许可证"]。
 
 您需要为备份所在的存储空间订阅 Google 。
 
@@ -144,21 +144,21 @@ GCP 服务帐户:: 您需要在 Google Cloud Project 中拥有一个具有预定
 
 
 
-== 启用 Cloud Backup
+== 启用BlueXP备份和恢复
 
-可以随时直接从Kubernetes工作环境启用Cloud Backup。
+随时直接从Kubernetes工作环境启用BlueXP备份和恢复。
 
 .步骤
 . 选择工作环境、然后单击右面板中备份和恢复服务旁边的*启用*。
 +
-image:screenshot_backup_cvo_enable.png["屏幕截图显示了 Cloud Backup Settings 按钮，您可以在选择工作环境后使用该按钮。"]
+image:screenshot_backup_cvo_enable.png["屏幕截图显示了BlueXP备份和恢复设置按钮、该按钮可在您选择工作环境后使用。"]
 
 . 输入备份策略详细信息并单击 * 下一步 * 。
 +
 您可以定义备份计划并选择要保留的备份数。
 
 +
-image:screenshot_backup_policy_k8s_azure.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中选择计划和备份保留。"]
+image:screenshot_backup_policy_k8s_azure.png["屏幕截图显示了BlueXP备份和恢复设置、您可以在其中选择计划和备份保留。"]
 
 . 选择要备份的永久性卷。
 +
@@ -170,7 +170,7 @@ image:screenshot_backup_select_volumes_k8s.png["选择要备份的永久性卷�
 
 
 . 如果您希望所有当前卷和未来卷都启用备份、只需选中"自动备份未来卷…​"复选框即可。如果禁用此设置、则需要手动为未来的卷启用备份。
-. 单击 * 激活备份 * ， Cloud Backup 将开始对每个选定卷进行初始备份。
+. 单击*激活备份*、BlueXP备份和恢复将开始对每个选定卷进行初始备份。
 
 
 .结果

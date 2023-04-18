@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: concept-kubernetes-backup-to-cloud.html 
 keywords: backing up, restoring, back up, backup, restore, aws, azure, s3, blob, google cloud, back up volumes, cloud backup, restore volumes, billing, cost, kubernetes 
-summary: Cloud Backup 提供备份和还原功能，用于保护和长期归档 Kubernetes 集群数据。备份会自动生成并存储在公有 或私有云帐户的对象存储中。 
+summary: BlueXP备份和恢复可提供备份和还原功能、用于保护和长期归档Kubernetes集群数据。备份会自动生成并存储在公有 或私有云帐户的对象存储中。 
 ---
-= 使用 Cloud Backup 保护 Kubernetes 集群数据
+= 使用BlueXP备份和恢复功能保护Kubernetes集群数据
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Cloud Backup 提供备份和还原功能，用于保护和长期归档 
 
 
 [role="lead"]
-Cloud Backup 提供备份和还原功能，用于保护和长期归档 Kubernetes 集群数据。备份会自动生成并存储在公有 或私有云帐户的对象存储中。
+BlueXP备份和恢复可提供备份和还原功能、用于保护和长期归档Kubernetes集群数据。备份会自动生成并存储在公有 或私有云帐户的对象存储中。
 
 如有必要，您可以将整个 _volume" 从备份还原到相同或不同的工作环境。
 
@@ -41,7 +41,7 @@ Cloud Backup 提供备份和还原功能，用于保护和长期归档 Kubernete
 
 == 支持的 Kubernetes 工作环境和对象存储提供程序
 
-通过 Cloud Backup ，您可以将 Kubernetes 卷从以下工作环境备份到以下公有 和私有云提供商中的对象存储：
+通过BlueXP备份和恢复功能、您可以将Kubernetes卷从以下工作环境备份到以下公共云和私有云提供商中的对象存储：
 
 [cols="45,40"]
 |===
@@ -75,11 +75,11 @@ Cloud Backup 提供备份和还原功能，用于保护和长期归档 Kubernete
 
 == 成本
 
-使用 Cloud Backup 会产生两种成本：资源费用和服务费用。
+与使用BlueXP备份和恢复相关的成本有两种：资源费用和服务费用。
 
 * 资源费用 *
 
-资源费用将支付给云提供商，用于支付云中的对象存储容量。由于云备份会保留源卷的存储效率，因此您需要为云提供商的对象存储成本支付 data_after_ ONTAP 效率（适用于应用重复数据删除和数据压缩后少量的数据）。
+资源费用将支付给云提供商，用于支付云中的对象存储容量。由于BlueXP备份和恢复功能可保留源卷的存储效率、因此您需要为data_after_ ONTAP 效率(对于应用重复数据删除和数据压缩后少量的数据)支付云提供商对象存储成本。
 
 * 服务费用 *
 
@@ -91,7 +91,7 @@ Cloud Backup 提供备份和还原功能，用于保护和长期归档 Kubernete
 
 == 许可
 
-Cloud Backup 有两种许可选项：按需购买（ PAYGO ）和自带许可证（ BYOL ）。如果您没有许可证，可以免费试用 30 天。
+BlueXP备份和恢复有两种许可选项：按需购买(PAYGO)和自带许可证(BYOL)。如果您没有许可证，可以免费试用 30 天。
 
 
 
@@ -105,7 +105,7 @@ Cloud Backup 有两种许可选项：按需购买（ PAYGO ）和自带许可证
 
 === 按需购买订阅
 
-Cloud Backup 以按需购买模式提供基于消费的许可。通过云提供商的市场订阅后，您需要为备份的数据按 GB 付费— ​there 无需预先付费。您的云提供商会通过每月账单向您开具账单。
+BlueXP备份和恢复以按需购买模式提供基于消费的许可。通过云提供商的市场订阅后，您需要为备份的数据按 GB 付费— ​there 无需预先付费。您的云提供商会通过每月账单向您开具账单。
 
 即使您拥有免费试用版或自带许可证（ BYOL ），也应订阅：
 
@@ -121,7 +121,7 @@ Cloud Backup 以按需购买模式提供基于消费的许可。通过云提供�
 
 在免费试用期间，或者如果您未超过 BYOL 许可证，则不会从按需购买订阅中收取费用。
 
-link:task-licensing-cloud-backup.html#use-a-cloud-backup-paygo-subscription["了解如何设置按需购买订阅"]。
+link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-paygo-subscription["了解如何设置按需购买订阅"]。
 
 
 
@@ -131,20 +131,20 @@ BYOL 基于期限（ 12 ， 24 或 36 个月）和容量，以 1 TB 为增量递
 
 您将收到一个序列号、您可以在BlueXP数字电子邮件页面中输入此序列号来启用此服务。达到任一限制后，您需要续订许可证。备份 BYOL 许可证适用场景 与关联的所有源系统 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-netapp-accounts.html["BlueXP帐户"^]。
 
-link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["了解如何管理 BYOL 许可证"]。
+link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["了解如何管理 BYOL 许可证"]。
 
 
 
-== Cloud Backup 的工作原理
+== BlueXP备份和恢复的工作原理
 
-在 Kubernetes 系统上启用 Cloud Backup 后，此服务将对您的数据执行完整备份。初始备份之后，所有额外备份都是增量备份，这意味着只会备份更改的块和新块。这样可以将网络流量降至最低。
+在Kubernetes系统上启用BlueXP备份和恢复时、该服务将对您的数据执行完整备份。初始备份之后，所有额外备份都是增量备份，这意味着只会备份更改的块和新块。这样可以将网络流量降至最低。
 
 
 CAUTION: 直接从云提供商环境中执行的任何备份文件管理或更改操作可能会损坏这些文件，并导致配置不受支持。
 
 下图显示了每个组件之间的关系：
 
-image:diagram_cloud_backup_general_k8s.png["显示 Cloud Backup 如何与备份文件所在的源系统和目标对象存储上的卷进行通信的示意图。"]
+image:diagram_cloud_backup_general_k8s.png["一个示意图、显示了BlueXP备份和恢复如何与备份文件所在的源系统和目标对象存储上的卷进行通信。"]
 
 
 
@@ -175,7 +175,7 @@ endif::gcp[]
 
 === 每个集群可自定义的备份计划和保留设置
 
-在为工作环境启用 Cloud Backup 时，您最初选择的所有卷都会使用您定义的默认备份策略进行备份。如果要为具有不同恢复点目标（ RPO ）的某些卷分配不同的备份策略，您可以为该集群创建其他策略并将这些策略分配给其他卷。
+在为工作环境启用BlueXP备份和恢复时、您最初选择的所有卷都会使用您定义的默认备份策略进行备份。如果要为具有不同恢复点目标（ RPO ）的某些卷分配不同的备份策略，您可以为该集群创建其他策略并将这些策略分配给其他卷。
 
 您可以选择对所有卷进行每小时，每天，每周和每月备份的组合。
 
@@ -185,7 +185,7 @@ endif::gcp[]
 
 == 支持的卷
 
-Cloud Backup 支持永久性卷（ PV ）。
+BlueXP备份和恢复支持永久性卷(PV)。
 
 
 

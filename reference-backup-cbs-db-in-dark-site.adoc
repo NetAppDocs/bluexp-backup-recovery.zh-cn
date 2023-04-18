@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: reference-backup-cbs-db-in-dark-site.html 
 keywords: backup database, recover database 
-summary: 在无法访问Internet的站点中使用云备份时、如果您使用的是问题描述 和BlueXP Connector主机系统、则需要定期备份关键云备份文件。这样、您就可以部署新的Connector并还原关键Cloud Backup数据。 
+summary: 如果在无法访问Internet的站点上使用BlueXP备份和恢复、则如果您的问题描述 使用的是BlueXP连接器主机系统、则需要定期备份关键的BlueXP备份和恢复文件。这样、您就可以部署新的Connector并还原关键的BlueXP备份和恢复数据。 
 ---
-= 在非公开站点中备份和还原Cloud Backup数据
+= 在非公开站点中备份和还原BlueXP备份和恢复数据
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,32 +14,32 @@ summary: 在无法访问Internet的站点中使用云备份时、如果您使用
 
 
 [role="lead"]
-在无法访问Internet的站点中使用云备份时、如果您使用的是问题描述 和BlueXP Connector主机系统、则需要定期备份关键云备份文件。这样、您就可以部署新的Connector并还原关键Cloud Backup数据。
+如果在无法访问Internet的站点上使用BlueXP备份和恢复、则如果您的问题描述 使用的是BlueXP连接器主机系统、则需要定期备份关键的BlueXP备份和恢复文件。这样、您就可以部署新的Connector并还原关键的BlueXP备份和恢复数据。
 
-如果在云提供商部署了BlueXP Connector的SaaS环境中使用Cloud Backup、或者在可访问Internet的您自己的主机系统上使用Cloud Backup、则所有重要的Cloud Backup配置数据都会备份并存储在云中。如果您在无法访问Internet的站点(也称为"非公开站点")中使用Cloud Backup、则此Cloud Backup信息仅存储在本地连接器系统上。
+如果您在部署了BlueXP Connector的SaaS环境中或您自己具有Internet访问权限的主机系统中使用BlueXP备份和恢复、则所有重要的BlueXP备份和恢复配置数据都会备份并存储在云中。如果您在无法访问Internet的站点(也称为"非公开站点")中使用BlueXP备份和恢复、则此BlueXP备份和恢复信息仅存储在本地连接器系统上。
 
-本主题介绍如何将关键云备份数据备份到已连接的StorageGRID 系统。此外、还介绍了在必要时如何将数据还原到新的Connector上。
+本主题介绍如何将关键的BlueXP备份和恢复数据备份到已连接的StorageGRID 系统。此外、还介绍了在必要时如何将数据还原到新的Connector上。
 
 
 
-== 备份关键Cloud Backup数据
+== 备份关键的BlueXP备份和恢复数据
 
 您需要备份两种类型的数据：
 
-* Cloud Backup数据库
+* BlueXP备份和恢复数据库
 * 索引目录文件(用于搜索和还原功能)
 
 
 
-NOTE: 您应计划定期备份此Cloud Backup数据、以便始终能够访问最新数据。
+NOTE: 您应计划定期备份此BlueXP备份和恢复数据、以便始终能够访问最新数据。
 
-请注意、Cloud Backup数据库或索引目录文件中从未包含任何卷数据。
+请注意、BlueXP备份和恢复数据库或索引目录文件中从未包含任何卷数据。
 
 
 
-=== 备份Cloud Backup数据库
+=== 备份BlueXP备份和恢复数据库
 
-Cloud Backup数据库包含所有卷、备份文件、备份策略和配置信息的列表。
+BlueXP备份和恢复数据库包含所有卷、备份文件、备份策略和配置信息的列表。
 
 .步骤
 . 使用适当的凭据登录到Connector主机系统。
@@ -51,7 +51,7 @@ docker exec -it ds_mysql_1 sh
 ----
 . 在容器Shell中、部署"env"。
 . 您需要MySQL数据库密码、因此请复制密钥"mysql_root_password"的值。
-. 输入以下命令、备份Cloud Backup MySQL数据库：
+. 输入以下命令、备份BlueXP备份和恢复MySQL数据库：
 +
 [source, cli]
 ----
@@ -85,14 +85,14 @@ zip -r catalogxxxxxx.zip catalogxxxxxx
 
 
 
-== 将Cloud Backup数据还原到新的Connector
+== 将BlueXP备份和恢复数据还原到新的Connector
 
-如果您的内部连接器发生灾难性故障、则需要安装新的Connector、然后将Cloud Backup数据还原到新的Connector。
+如果您的内部连接器发生灾难性故障、则需要安装新的Connector、然后将BlueXP备份和恢复数据还原到新的Connector。
 
-要将Cloud Backup系统恢复到工作状态、需要执行4项任务：
+要将您的BlueXP备份和恢复系统恢复为工作状态、您需要执行4项任务：
 
 * 安装新的BlueXP Connector
-* 还原Cloud Backup数据库
+* 还原BlueXP备份和恢复数据库
 * 还原索引目录文件
 * 在BlueXP UI中重新发现所有内部ONTAP 系统和StorageGRID 系统
 
@@ -103,7 +103,7 @@ zip -r catalogxxxxxx.zip catalogxxxxxx
 
 === 在新的内部Linux主机上安装新的Connector
 
-安装新的BlueXP Connector时、请确保下载的软件版本与原始Connector上安装的软件版本相同。定期更改Cloud Backup数据库结构可能会使较新的软件版本与原始数据库备份不兼容。您可以 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrade-the-connector-on-prem-without-internet-access["还原备份数据库后、将Connector软件升级到最新版本"^]。
+安装新的BlueXP Connector时、请确保下载的软件版本与原始Connector上安装的软件版本相同。定期更改BlueXP备份和恢复数据库结构可能会使较新的软件版本与原始数据库备份不兼容。您可以 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrade-the-connector-on-prem-without-internet-access["还原备份数据库后、将Connector软件升级到最新版本"^]。
 
 . https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-private-mode.html["在新的内部Linux主机上安装BlueXP Connector"^]
 . 使用刚刚创建的管理员用户凭据登录到BlueXP。
@@ -111,7 +111,7 @@ zip -r catalogxxxxxx.zip catalogxxxxxx
 
 
 
-=== 还原Cloud Backup数据库
+=== 还原BlueXP备份和恢复数据库
 
 . 将MySQL备份从安全位置复制到新的Connector主机。
 . 使用以下命令将备份复制到MySQL Docker容器：
@@ -128,13 +128,13 @@ docker exec -it ds_mysql_1 sh
 ----
 . 在容器Shell中、部署"env"。
 . 您需要MySQL数据库密码、因此请复制密钥"mysql_root_password"的值。
-. 使用以下命令还原Cloud Backup MySQL数据库：
+. 使用以下命令还原BlueXP备份和恢复MySQL数据库：
 +
 [source, cli]
 ----
 mysql -u root -p cloud_backup < mysql.dump.cloud_backup.sql
 ----
-. 使用以下SQL命令验证Cloud Backup MySQL数据库是否已正确还原：
+. 使用以下SQL命令验证是否已正确还原BlueXP备份和恢复MySQL数据库：
 +
 [source, cli]
 ----
@@ -208,7 +208,7 @@ curl -X GET http://10.193.192.202/tenancy/external/resource?account=account-DARK
 +
 此API将返回如下响应。"resourcesIdentifier"下的值表示_WorkingEnvironment ID_、"agentId"下的值表示_x-agent-id_。
 
-. 使用与工作环境关联的StorageGRID 系统的详细信息更新Cloud Backup数据库。请务必输入StorageGRID 的完全限定域名以及访问密钥和存储密钥、如下所示：
+. 使用与工作环境关联的StorageGRID 系统的详细信息更新BlueXP备份和恢复数据库。请务必输入StorageGRID 的完全限定域名以及访问密钥和存储密钥、如下所示：
 +
 [source, http]
 ----
@@ -222,7 +222,7 @@ curl -X POST 'http://10.193.192.202/account/account-DARKSITE1/providers/cloudman
 
 
 
-=== 验证Cloud Backup设置
+=== 验证BlueXP备份和恢复设置
 
 . 选择每个ONTAP 工作环境、然后单击右侧面板中备份和恢复服务旁边的*查看备份*。
 +

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: reference-azure-backup-tiers.html 
 keywords: microsoft azure, azure, cool, access tier, archive 
-summary: Cloud Backup 支持一个 Azure 归档访问层以及大多数地区。 
+summary: BlueXP备份和恢复支持一个Azure归档访问层以及大多数地区。 
 ---
 = Azure 归档层和还原检索时间
 :hardbreaks:
@@ -14,17 +14,17 @@ summary: Cloud Backup 支持一个 Azure 归档访问层以及大多数地区。
 
 
 [role="lead"]
-Cloud Backup 支持一个 Azure 归档访问层以及大多数地区。
+BlueXP备份和恢复支持一个Azure归档访问层以及大多数地区。
 
 
 
-== 支持 Cloud Backup 的 Azure Blob 访问层
+== 支持使用Azure Blob访问层进行BlueXP备份和恢复
 
 首次创建备份文件时，这些备份文件将存储在 _cool_ 访问层中。此层经过优化，可用于存储不常访问的数据；但在需要时，可以立即访问。
 
 如果源集群运行的是 ONTAP 9.10.1 或更高版本，您可以选择在一定天数（通常超过 30 天）后将备份从 _cool_ 分层到 _Azure Archive_ 存储，以便进一步优化成本。此层中的数据无法在需要时立即访问，因此需要较高的检索成本，因此您需要考虑从这些归档备份文件还原数据的频率。请参见下一节 <<从归档存储还原数据,从归档存储还原数据>>。
 
-请注意，使用此类型的生命周期规则配置 Cloud Backup 时，在 Azure 帐户中设置容器时，不能配置任何生命周期规则。
+请注意、使用此类生命周期规则配置BlueXP备份和恢复时、在Azure帐户中设置容器时、不能配置任何生命周期规则。
 
 https://docs.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview["了解 Azure Blob 访问层"^]。
 

@@ -26,7 +26,7 @@ summary: 完成以下几个步骤、开始将卷数据从Cloud Volumes ONTAP 系
 [role="quick-margin-list"]
 * 您正在AWS中运行Cloud Volumes ONTAP 9.7P5或更高版本(建议使用ONTAP 9.8P13及更高版本)。
 * 您已为备份所在的存储空间订阅了有效的云提供商。
-* 您已订阅 https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["BlueXP Marketplace备份服务"]，和 https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS 年度合同"]或您已购买 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["并激活"] NetApp 提供的 Cloud Backup BYOL 许可证。
+* 您已订阅 https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["BlueXP Marketplace备份服务"]，和 https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS 年度合同"]或您已购买 link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["并激活"] NetApp提供的BlueXP备份和恢复BYOL许可证。
 * 您已在AWS中安装Connector：
 +
 ** 此连接器可以安装在完全Internet访问("标准模式")或有限Internet连接("受限模式")的站点上。
@@ -35,9 +35,9 @@ summary: 完成以下几个步骤、开始将卷数据从Cloud Volumes ONTAP 系
 
 
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"] 在新系统或现有系统上启用 Cloud Backup
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"] 在新系统或现有系统上启用BlueXP备份和恢复
 [role="quick-margin-list"]
-* 新系统：在工作环境向导中， Cloud Backup 默认处于启用状态。请务必保持此选项处于启用状态。
+* 新系统：默认情况下、在工作环境向导中启用BlueXP备份和恢复。请务必保持此选项处于启用状态。
 * 现有系统：选择工作环境、然后单击右侧面板中备份和恢复服务旁边的*启用*、然后按照设置向导进行操作。
 +
 image:screenshot_backup_cvo_enable.png["屏幕截图显示了\"启用备份和恢复\"按钮、该按钮可在您选择工作环境后使用。"]
@@ -59,10 +59,10 @@ image:screenshot_backup_provider_settings_aws.png["显示将卷从 Cloud Volumes
 默认情况下，备份存储在 S3 标准存储中。如果集群使用的是 ONTAP 9.10.1 或更高版本，则可以选择在一定天数后将备份分层到 S3 Glacier 或 S3 Glacier 深度归档存储，以进一步优化成本。
 
 [role="quick-margin-para"]
-或者、在使用ONTAP 9.11.1及更高版本时、您也可以选择通过配置_DataLock和勒索软件保护_设置之一来保护备份免受删除和勒索软件攻击。 link:concept-cloud-backup-policies.html["详细了解可用的Cloud Backup策略配置设置"^]。
+或者、在使用ONTAP 9.11.1及更高版本时、您也可以选择通过配置_DataLock和勒索软件保护_设置之一来保护备份免受删除和勒索软件攻击。 link:concept-cloud-backup-policies.html["详细了解可用的BlueXP备份和恢复策略配置设置"^]。
 
 [role="quick-margin-para"]
-image:screenshot_backup_policy_aws.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中选择备份计划和保留期限。"]
+image:screenshot_backup_policy_aws.png["屏幕截图显示了BlueXP备份和恢复设置、您可以在其中选择备份计划和保留期限。"]
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["五个"] 选择要备份的卷
 [role="quick-margin-para"]
@@ -76,19 +76,19 @@ image:screenshot_backup_policy_aws.png["显示 Cloud Backup 设置的屏幕截�
 
 下图显示了每个组件以及需要在它们之间准备的连接：
 
-image:diagram_cloud_backup_cvo_aws.png["显示 Cloud Backup 如何与备份文件所在的源系统和目标存储上的卷进行通信的示意图。"]
+image:diagram_cloud_backup_cvo_aws.png["一个示意图、显示了BlueXP备份和恢复如何与备份文件所在的源系统和目标存储上的卷进行通信。"]
 
 VPC网关端点必须已存在于VPC中。 https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-s3.html["详细了解网关端点"^]。
 
 支持的 ONTAP 版本:: 建议至少使用ONTAP 9.7P5；ONTAP 9.8P13及更高版本。
-许可证要求:: 对于云备份PAYGO许可、AWS Marketplace中提供了一个BlueXP订阅、用于部署Cloud Volumes ONTAP 和云备份。您需要 https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["订阅此BlueXP订阅"^] 启用 Cloud Backup 之前。Cloud Backup 的计费通过此订阅完成。
+许可证要求:: 对于BlueXP备份和恢复PAYGO许可、AWS Marketplace中提供了一个BlueXP订阅、用于部署Cloud Volumes ONTAP 和BlueXP备份和恢复。您需要 https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["订阅此BlueXP订阅"^] 在启用BlueXP备份和恢复之前。BlueXP备份和恢复的计费通过此订阅完成。
 +
 --
 对于能够同时备份 Cloud Volumes ONTAP 数据和内部 ONTAP 数据的年度合同，您需要从订阅 https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS Marketplace 页面"^] 然后 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html["将订阅与您的 AWS 凭据关联"^]。
 
-对于能够捆绑 Cloud Volumes ONTAP 和云备份的年度合同，您必须在创建 Cloud Volumes ONTAP 工作环境时设置年度合同。此选项不允许您备份内部数据。
+对于能够捆绑Cloud Volumes ONTAP 和BlueXP备份和恢复的年度合同、您必须在创建Cloud Volumes ONTAP 工作环境时设置年度合同。此选项不允许您备份内部数据。
 
-对于 Cloud Backup BYOL 许可，您需要 NetApp 提供的序列号，以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["了解如何管理 BYOL 许可证"]。如果连接器和Cloud Volumes ONTAP 系统部署在非公开站点中、则必须使用BYOL许可证。
+对于BlueXP备份和恢复BYOL许可、您需要NetApp提供的序列号、以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["了解如何管理 BYOL 许可证"]。如果连接器和Cloud Volumes ONTAP 系统部署在非公开站点中、则必须使用BYOL许可证。
 
 您需要为备份所在的存储空间创建一个 AWS 帐户。
 
@@ -174,13 +174,13 @@ VPC网关端点必须已存在于VPC中。 https://docs.aws.amazon.com/vpc/lates
 
 如果您使用3.9.21或更高版本部署了Connector、则这些权限应已属于IAM角色。否则，您需要添加缺少的权限。具体来说就是 "Athena" 和 "glue" 权限，因为它们是搜索和还原所必需的。
 
-所需的AWS Cloud Volumes ONTAP 权限:: 如果您的Cloud Volumes ONTAP 系统运行的是ONTAP 9.12.1或更高版本的软件、则为该工作环境提供权限的IAM角色必须包括一组新的S3权限、此权限是专为Cloud Backup提供的 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html["Cloud Volumes ONTAP 策略"^]。
+所需的AWS Cloud Volumes ONTAP 权限:: 如果您的Cloud Volumes ONTAP 系统运行的是ONTAP 9.12.1或更高版本的软件、则为该工作环境提供权限的IAM角色必须包括一组新的S3权限、专门用于从最新版本进行的BlueXP备份和恢复 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html["Cloud Volumes ONTAP 策略"^]。
 +
 --
 如果您使用BlueXP 3.9.23或更高版本创建了Cloud Volumes ONTAP 工作环境、则这些权限应已属于IAM角色。否则，您需要添加缺少的权限。
 
 --
-支持的 AWS 区域:: 所有 AWS 地区均支持 Cloud Backup https://cloud.netapp.com/cloud-volumes-global-regions["支持 Cloud Volumes ONTAP 的位置"^]；包括 AWS GovCloud 地区。
+支持的 AWS 区域:: 所有AWS地区均支持BlueXP备份和恢复 https://cloud.netapp.com/cloud-volumes-global-regions["支持 Cloud Volumes ONTAP 的位置"^]；包括 AWS GovCloud 地区。
 在其他 AWS 帐户中创建备份所需的设置:: 默认情况下，备份是使用与 Cloud Volumes ONTAP 系统相同的帐户创建的。如果要使用其他AWS帐户进行备份、则必须：
 +
 --
@@ -207,9 +207,9 @@ VPC网关端点必须已存在于VPC中。 https://docs.aws.amazon.com/vpc/lates
 
 
 
-== 在新系统上启用 Cloud Backup
+== 在新系统上启用BlueXP备份和恢复
 
-Cloud Backup 在工作环境向导中默认处于启用状态。请务必保持此选项处于启用状态。
+默认情况下、在工作环境向导中会启用BlueXP备份和恢复。请务必保持此选项处于启用状态。
 
 请参见 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-aws.html["在 AWS 中启动 Cloud Volumes ONTAP"^] 有关创建 Cloud Volumes ONTAP 系统的要求和详细信息，请参见。
 
@@ -219,19 +219,19 @@ Cloud Backup 在工作环境向导中默认处于启用状态。请务必保持�
 . 填写详细信息和凭据页面。
 . 在服务页面上，保持服务处于启用状态，然后单击 * 继续 * 。
 +
-image:screenshot_backup_to_gcp.png["显示了工作环境向导中的 Cloud Backup 选项。"]
+image:screenshot_backup_to_gcp.png["显示了工作环境向导中的BlueXP备份和恢复选项。"]
 
 . 完成向导中的页面以部署系统。
 
 
 .结果
-Cloud Backup 在系统上启用，每天备份卷，并保留最近 30 个备份副本。
+在系统上启用了BlueXP备份和恢复功能、每天备份卷并保留最近30个备份副本。
 
 
 
-== 在现有系统上启用 Cloud Backup
+== 在现有系统上启用BlueXP备份和恢复
 
-可随时直接从工作环境启用 Cloud Backup 。
+随时直接从工作环境启用BlueXP备份和恢复。
 
 .步骤
 . 选择工作环境、然后单击右面板中备份和恢复服务旁边的*启用*。
@@ -261,10 +261,10 @@ image:screenshot_backup_provider_settings_aws.png["显示将卷从 Cloud Volumes
 .. 或者、在使用ONTAP 9.11.1及更高版本时、您也可以选择通过配置_DataLock和勒索软件保护_设置之一来保护备份免受删除和勒索软件攻击。_DataLock_可防止您的备份文件被修改或删除、_勒索 软件保护_会扫描您的备份文件、以在备份文件中查找勒索软件攻击的证据。 link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["详细了解可用的DataLock设置"^]。
 .. 或者、在使用ONTAP 9.10.1及更高版本时、您也可以选择在一定天数后将备份分层到S3 Glacier或S3 Glacier深度归档存储、以进一步优化成本。在非公开站点中部署时、此功能不可用。 link:reference-aws-backup-tiers.html["了解有关使用归档层的更多信息"]。
 +
-image:screenshot_backup_policy_aws.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中选择计划和备份保留。"]
+image:screenshot_backup_policy_aws.png["屏幕截图显示了BlueXP备份和恢复设置、您可以在其中选择计划和备份保留。"]
 
 +
-*重要信息：*如果您计划使用DataLock、则必须在激活Cloud Backup时在第一个策略中启用它。
+*重要信息：*如果您计划使用DataLock、则必须在激活BlueXP备份和恢复时在第一个策略中启用它。
 
 
 
@@ -279,7 +279,7 @@ image:screenshot_backup_select_volumes.png["选择要备份的卷的屏幕截图
 ** 如果此工作环境中的读/写卷有任何本地Snapshot副本与您刚刚为此工作环境选择的备份计划标签(例如、每日、每周等)匹配、则会显示一条额外的提示"将现有Snapshot副本作为备份副本导出到对象存储"。如果要将所有历史快照作为备份文件复制到对象存储、请选中此框、以确保为卷提供最全面的保护。
 
 
-. 单击 * 激活备份 * ， Cloud Backup 将开始对每个选定卷进行初始备份。
+. 单击*激活备份*、BlueXP备份和恢复将开始对每个选定卷进行初始备份。
 
 
 .结果

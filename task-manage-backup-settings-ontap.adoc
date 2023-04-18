@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-manage-backup-settings-ontap.html 
 keywords: cloud backup, cloud backup service, storage keys, network bandwidth, auto backup, delete yearly snapshot, export snapshots 
-summary: '您可以更改在为每个ONTAP 系统激活云备份时设置的多个集群级别备份设置。您还可以修改应用为"默认"备份设置的某些设置。其中包括更改存储密钥、备份到对象存储的传输速率、是否将历史Snapshot副本导出为备份文件等。' 
+summary: '您可以更改在为每个ONTAP 系统激活BlueXP备份和恢复时设置的多个集群级别备份设置。您还可以修改应用为"默认"备份设置的某些设置。其中包括更改存储密钥、备份到对象存储的传输速率、是否将历史Snapshot副本导出为备份文件等。' 
 ---
 = 管理集群级别的备份设置
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: '您可以更改在为每个ONTAP 系统激活云备份时设置的多�
 
 
 [role="lead"]
-您可以更改在为每个ONTAP 系统激活云备份时设置的多个集群级别备份设置。您还可以修改应用为"默认"备份设置的某些设置。其中包括更改存储密钥、备份到对象存储的传输速率、是否将历史Snapshot副本导出为备份文件等。
+您可以更改在为每个ONTAP 系统激活BlueXP备份和恢复时设置的多个集群级别备份设置。您还可以修改应用为"默认"备份设置的某些设置。其中包括更改存储密钥、备份到对象存储的传输速率、是否将历史Snapshot副本导出为备份文件等。
 
 集群级别的备份设置可在_Advanced Settings_页面中找到。
 
@@ -101,7 +101,7 @@ image:screenshot_backup_edit_ipspace.png["高级设置页面中IP空间条目的
 
 == 更改可用于将备份上传到对象存储的网络带宽
 
-默认情况下、在为工作环境激活Cloud Backup时、ONTAP 可以使用无限的带宽将备份数据从工作环境中的卷传输到对象存储。如果您发现备份流量正在影响正常用户工作负载、则可以限制传输期间使用的网络带宽量。您可以选择一个介于1到1、000 Mbps之间的值作为最大传输速率。
+默认情况下、在为工作环境激活BlueXP备份和恢复时、ONTAP 可以使用无限的带宽将备份数据从工作环境中的卷传输到对象存储。如果您发现备份流量正在影响正常用户工作负载、则可以限制传输期间使用的网络带宽量。您可以选择一个介于1到1、000 Mbps之间的值作为最大传输速率。
 
 image:screenshot_backup_edit_transfer_rate.png["Advanced Settings页面中最大传输速率条目的屏幕截图。"]
 
@@ -129,9 +129,9 @@ endif::aws[]
 
 == 更改未来卷的自动备份设置
 
-如果在激活Cloud Backup时未启用未来卷的自动备份、则可以在自动备份部分中开始自动备份新卷。您还可以选择要应用于这些新卷的备份策略。为新创建的卷分配备份策略可确保所有数据都受到保护。
+如果在激活BlueXP备份和恢复时未启用未来卷的自动备份、则可以在自动备份部分中开始自动备份新卷。您还可以选择要应用于这些新卷的备份策略。为新创建的卷分配备份策略可确保所有数据都受到保护。
 
-如果您在激活Cloud Backup时启用了未来卷的自动备份、则可以在自动备份部分更改将用于新创建的卷的备份策略。
+如果您在激活BlueXP备份和恢复时启用了未来卷的自动备份、则可以在自动备份部分更改将用于新创建的卷的备份策略。
 
 请注意、要应用于新卷的策略必须已存在。 link:task-manage-backups-ontap.html#adding-a-new-backup-policy["请参见如何为工作环境创建新的备份策略"]。
 

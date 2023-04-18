@@ -33,23 +33,23 @@ summary: 完成以下几个步骤，开始将 EKS Kubernetes 集群上的永久�
 
 
 * 您已为备份所在的存储空间订阅了有效的云提供商。
-* 您已订阅 https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["BlueXP Marketplace备份服务"]，和 https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS 年度合同"]或您已购买 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["并激活"] NetApp 提供的 Cloud Backup BYOL 许可证。
+* 您已订阅 https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["BlueXP Marketplace备份服务"]，和 https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS 年度合同"]或您已购买 link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["并激活"] NetApp提供的BlueXP备份和恢复BYOL许可证。
 * 为BlueXP Connector提供权限的IAM角色包括最新版本的S3权限 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html["BlueXP策略"^]。
 
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"] 在现有Kubernetes集群上启用Cloud Backup
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"] 在现有Kubernetes集群上启用BlueXP备份和恢复
 [role="quick-margin-para"]
 选择工作环境、然后单击右侧面板中备份和恢复服务旁边的*启用*、然后按照设置向导进行操作。
 
 [role="quick-margin-para"]
-image:screenshot_backup_cvo_enable.png["屏幕截图显示了 Cloud Backup Enable 按钮，该按钮可在您选择工作环境后使用。"]
+image:screenshot_backup_cvo_enable.png["屏幕截图显示了BlueXP备份和恢复启用按钮、该按钮可在您选择工作环境后使用。"]
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三个"] 定义备份策略
 [role="quick-margin-para"]
 默认策略每天备份卷，并保留每个卷的最新 30 个备份副本。更改为每小时，每天，每周或每月备份，或者选择一个提供更多选项的系统定义策略。您还可以更改要保留的备份副本数。
 
 [role="quick-margin-para"]
-image:screenshot_backup_policy_k8s_aws.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中选择备份计划和保留期限。"]
+image:screenshot_backup_policy_k8s_aws.png["屏幕截图显示了BlueXP备份和恢复设置、您可以在其中选择备份计划和保留期限。"]
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"] 选择要备份的卷
 [role="quick-margin-para"]
@@ -63,7 +63,7 @@ image:screenshot_backup_policy_k8s_aws.png["显示 Cloud Backup 设置的屏幕�
 
 下图显示了每个组件以及需要在它们之间准备的连接：
 
-image:diagram_cloud_backup_k8s_cvo_aws.png["显示 Cloud Backup 如何与备份文件所在的源系统和目标存储上的卷进行通信的示意图。"]
+image:diagram_cloud_backup_k8s_cvo_aws.png["一个示意图、显示了BlueXP备份和恢复如何与备份文件所在的源系统和目标存储上的卷进行通信。"]
 
 请注意， VPC 端点是可选的。
 
@@ -130,19 +130,19 @@ spec:
 
 
 --
-许可证要求:: 对于云备份PAYGO许可、AWS Marketplace中提供了一个订阅、用于部署Cloud Volumes ONTAP 和云备份。您需要 https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["订阅此BlueXP订阅"^] 启用 Cloud Backup 之前。Cloud Backup 的计费通过此订阅完成。
+许可证要求:: 对于BlueXP备份和恢复PAYGO许可、AWS Marketplace中提供了一个订阅、用于部署Cloud Volumes ONTAP 和BlueXP备份和恢复。您需要 https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["订阅此BlueXP订阅"^] 在启用BlueXP备份和恢复之前。BlueXP备份和恢复的计费通过此订阅完成。
 +
 --
 对于能够同时备份 Cloud Volumes ONTAP 数据和内部 ONTAP 数据的年度合同，您需要从订阅 https://aws.amazon.com/marketplace/pp/B086PDWSS8["AWS Marketplace 页面"^] 然后 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html["将订阅与您的 AWS 凭据关联"^]。
 
-对于能够捆绑 Cloud Volumes ONTAP 和云备份的年度合同，您必须在创建 Cloud Volumes ONTAP 工作环境时设置年度合同。此选项不允许您备份内部数据。
+对于能够捆绑Cloud Volumes ONTAP 和BlueXP备份和恢复的年度合同、您必须在创建Cloud Volumes ONTAP 工作环境时设置年度合同。此选项不允许您备份内部数据。
 
-对于 Cloud Backup BYOL 许可，您需要 NetApp 提供的序列号，以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["了解如何管理 BYOL 许可证"]。
+对于BlueXP备份和恢复BYOL许可、您需要NetApp提供的序列号、以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["了解如何管理 BYOL 许可证"]。
 
 您需要为备份所在的存储空间创建一个 AWS 帐户。
 
 --
-支持的 AWS 区域:: 所有 AWS 地区均支持 Cloud Backup https://cloud.netapp.com/cloud-volumes-global-regions["支持 Cloud Volumes ONTAP 的位置"^]。
+支持的 AWS 区域:: 所有AWS地区均支持BlueXP备份和恢复 https://cloud.netapp.com/cloud-volumes-global-regions["支持 Cloud Volumes ONTAP 的位置"^]。
 需要 AWS 备份权限:: 为BlueXP提供权限的IAM角色必须包括最新版本的S3权限 https://mysupport.netapp.com/site/info/cloud-manager-policies["BlueXP策略"^]。
 +
 --
@@ -181,9 +181,9 @@ spec:
 
 
 
-== 启用 Cloud Backup
+== 启用BlueXP备份和恢复
 
-可以随时直接从Kubernetes工作环境启用Cloud Backup。
+随时直接从Kubernetes工作环境启用BlueXP备份和恢复。
 
 .步骤
 . 选择工作环境、然后单击右面板中备份和恢复服务旁边的*启用*。
@@ -191,14 +191,14 @@ spec:
 如果您的备份的Amazon S3目标作为工作环境存在于Canvas上、您可以将Kubernetes集群拖动到Amazon S3工作环境中以启动设置向导。
 
 +
-image:screenshot_backup_cvo_enable.png["屏幕截图显示了 Cloud Backup Settings 按钮，您可以在选择工作环境后使用该按钮。"]
+image:screenshot_backup_cvo_enable.png["屏幕截图显示了BlueXP备份和恢复设置按钮、该按钮可在您选择工作环境后使用。"]
 
 . 输入备份策略详细信息并单击 * 下一步 * 。
 +
 您可以定义备份计划并选择要保留的备份数。
 
 +
-image:screenshot_backup_policy_k8s_aws.png["显示 Cloud Backup 设置的屏幕截图，您可以在其中选择计划和备份保留。"]
+image:screenshot_backup_policy_k8s_aws.png["屏幕截图显示了BlueXP备份和恢复设置、您可以在其中选择计划和备份保留。"]
 
 . 选择要备份的永久性卷。
 +
@@ -210,7 +210,7 @@ image:screenshot_backup_select_volumes_k8s.png["选择要备份的永久性卷�
 
 
 . 如果您希望所有当前卷和未来卷都启用备份、只需选中"自动备份未来卷…​"复选框即可。如果禁用此设置、则需要手动为未来的卷启用备份。
-. 单击 * 激活备份 * ， Cloud Backup 将开始对每个选定卷进行初始备份。
+. 单击*激活备份*、BlueXP备份和恢复将开始对每个选定卷进行初始备份。
 
 
 .结果

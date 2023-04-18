@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: concept-cloud-backup-policies.html 
 keywords: backing up, back up, backup, back up volumes, cloud backup, backup policies, policies, schedules 
-summary: 本文档介绍Cloud Backup的备份策略配置设置。 
+summary: 通过BlueXP备份和恢复、您可以为内部ONTAP 和Cloud Volumes ONTAP 系统创建具有各种配置设置的备份策略。 
 ---
-= Cloud Backup策略配置设置
+= BlueXP备份和恢复策略配置设置
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,13 +14,13 @@ summary: 本文档介绍Cloud Backup的备份策略配置设置。
 
 
 [role="lead"]
-本文档介绍使用Cloud Backup Service 时内部ONTAP 系统和Cloud Volumes ONTAP 系统的备份策略配置设置。
+通过BlueXP备份和恢复、您可以为内部ONTAP 和Cloud Volumes ONTAP 系统创建具有各种配置设置的备份策略。
 
 
 
 == 备份计划
 
-您可以通过Cloud Backup为每个工作环境(集群)创建多个备份策略、并使用唯一的计划。您可以为具有不同恢复点目标(RPO)的卷分配不同的备份策略。
+通过BlueXP备份和恢复功能、您可以为每个工作环境(集群)创建多个备份策略、并为其创建唯一的计划。您可以为具有不同恢复点目标(RPO)的卷分配不同的备份策略。
 
 每个备份策略都为_Labels & Retenation_s提供了一个部分、您可以将其应用于备份文件。
 
@@ -51,9 +51,9 @@ image:screenshot_backup_schedule_settings.png["创建备份策略时的备份计
 
 == DataLock和勒索软件保护
 
-Cloud Backup为卷备份提供DataLock和勒索软件保护支持。通过这些功能、您可以锁定备份文件并对其进行扫描、以检测备份文件上可能存在的勒索软件。这是一个可选设置、当您希望为集群的卷备份提供额外保护时、可以在备份策略中定义此设置。
+BlueXP备份和恢复支持为卷备份提供DataLock和勒索软件保护。通过这些功能、您可以锁定备份文件并对其进行扫描、以检测备份文件上可能存在的勒索软件。这是一个可选设置、当您希望为集群的卷备份提供额外保护时、可以在备份策略中定义此设置。
 
-这两项功能均可保护您的备份文件、以便您始终拥有一个有效的备份文件、以便在源数据遭受勒索软件攻击时从恢复数据。如果备份需要锁定并保留一段时间、则满足某些法规要求也会很有帮助。启用DataLock和勒索软件保护后、在Cloud Backup激活过程中配置的云分段将启用对象锁定和对象版本控制。
+这两项功能均可保护您的备份文件、以便您始终拥有一个有效的备份文件、以便在源数据遭受勒索软件攻击时从恢复数据。如果备份需要锁定并保留一段时间、则满足某些法规要求也会很有帮助。启用DataLock和勒索软件保护后、作为BlueXP备份和恢复激活一部分配置的云分段将启用对象锁定和对象版本控制。
 
 https://bluexp.netapp.com/blog/cbs-blg-the-bluexp-feature-that-protects-backups-from-ransomware["有关详细信息、请参见DataLock和勒索软件保护博客"^]。
 
@@ -61,7 +61,7 @@ https://bluexp.netapp.com/blog/cbs-blg-the-bluexp-feature-that-protects-backups-
 
 [CAUTION]
 ====
-* 如果您计划使用DataLock和勒索软件保护、则必须在为该集群创建第一个备份策略并激活Cloud Backup时启用它。
+* 如果您计划使用DataLock和勒索软件保护、则必须在创建第一个备份策略并为该集群激活BlueXP备份和恢复时启用它。
 * 配置集群后、无法为其禁用DataLock和勒索软件保护。请勿在集群上启用此功能以试用。
 
 
@@ -80,7 +80,7 @@ DataLock可防止备份文件在一段时间内被修改或删除。此功能使
 * 如果您创建的备份策略创建30个每日备份、7个每周备份、12个每月备份、则会有三个锁定的保留期限。"30个每日"备份将保留44天(30天加上14天缓冲)、"7个每周"备份将保留9周(7周加14天)、"12个每月"备份将保留12个月(加上14天)。
 * 如果您创建一个保留24个保留项的每小时备份计划、则可能会认为备份会锁定24小时。但是、由于此时间少于最短30天、因此每个备份将被锁定并保留44天(30天加上14天缓冲区)。
 +
-在最后一个案例中、您可以看到、如果每个备份文件锁定44天、则最终备份文件的数量将比使用每小时/24小时保留策略通常保留的备份文件数量多。通常、在Cloud Backup创建第25个备份文件时、它会删除最旧的备份、以使最大保留值保持在24 (根据策略)。在这种情况下、DataLock保留设置会覆盖备份策略中的策略保留设置。这可能会影响存储成本、因为备份文件将保存在对象存储中较长时间。
+在最后一个案例中、您可以看到、如果每个备份文件锁定44天、则最终备份文件的数量将比使用每小时/24小时保留策略通常保留的备份文件数量多。通常、在BlueXP备份和恢复创建第25个备份文件时、它会删除最旧的备份、以使最大保留值保持为24 (根据策略)。在这种情况下、DataLock保留设置会覆盖备份策略中的策略保留设置。这可能会影响存储成本、因为备份文件将保存在对象存储中较长时间。
 
 
 
@@ -292,10 +292,10 @@ endif::azure[]
 === 限制
 
 * 如果您已在备份策略中配置归档存储、则无法使用DataLock和勒索软件保护。
-* 激活Cloud Backup时选择的DataLock选项必须用于该集群的所有备份策略。
+* 激活BlueXP备份和恢复时选择的DataLock选项必须用于该集群的所有备份策略。
 * 不能在一个集群上同时使用这两种DataLock模式。
 * 如果启用DataLock、则所有卷备份都将被锁定。不能在一个集群中混用锁定卷备份和非锁定卷备份。
-* DataLock和勒索软件保护适用于使用启用了DataLock和勒索软件保护的备份策略的新卷备份。激活Cloud Backup后、您无法启用此功能。
+* DataLock和勒索软件保护适用于使用启用了DataLock和勒索软件保护的备份策略的新卷备份。激活BlueXP备份和恢复后、您无法启用此功能。
 
 
 
@@ -317,7 +317,7 @@ ifdef::aws[]
 如果集群使用的是ONTAP 9.10.1或更高版本、则可以将较早的备份分层到_S3 Glacer_或_S3 Glacier Deep Archive_存储。 link:reference-aws-backup-tiers.html["了解有关 AWS 归档存储的更多信息"^]。
 
 +
-请注意、如果在激活Cloud Backup时在第一个备份策略中选择_S3 Glacier_或_S3 Glacier Deep Archive_、则该层将是该集群未来备份策略可用的唯一归档层。如果您在第一个备份策略中不选择任何归档层、则_S3 Glacier_将成为未来策略的唯一归档选项。
+请注意、如果在激活BlueXP备份和恢复时在第一个备份策略中选择_S3 Glacier或_S3 Glacier Deep Archive_、则该层将是该集群未来备份策略中唯一可用的归档层。如果您在第一个备份策略中不选择任何归档层、则_S3 Glacier_将成为未来策略的唯一归档选项。
 
 
 
@@ -337,7 +337,7 @@ ifdef::gcp[]
 
 * 在 GCP 中，备份与 _Standard_ 存储类关联。
 +
-如果您的内部集群使用的是ONTAP 9.12.1或更高版本、您可以选择在一定天数后将旧备份分层到云备份UI中的_Archive_存储、以进一步优化成本。 link:reference-google-backup-tiers.html["了解有关Google归档存储的更多信息"^]。
+如果您的内部集群使用的是ONTAP 9.12.1或更高版本、您可以选择在一定天数后将旧备份分层到BlueXP备份和恢复UI中的_Archive_存储、以便进一步优化成本。 link:reference-google-backup-tiers.html["了解有关Google归档存储的更多信息"^]。
 
 
 
