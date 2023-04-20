@@ -4,7 +4,7 @@ permalink: task-manage-vm-data-in-cloud.html
 keywords: manage backups, virtual machines, view datastores, view virtual machines, edit 
 summary: 您可以查看数据存储库和虚拟机、并编辑适用于VMware vSphere的SnapCenter 插件实例。 
 ---
-= 管理虚拟机的保护
+= 管理数据存储库和虚拟机数据的保护
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

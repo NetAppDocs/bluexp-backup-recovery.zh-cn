@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: task-create-policies-vms.html 
 keywords: create policy, protection policies, predefined policies, custom policies 
-summary: 创建用于备份虚拟机的策略 
+summary: 创建一个策略以备份数据存储库 
 ---
-= 创建用于备份虚拟机的策略
+= 创建一个策略以备份数据存储库
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -18,7 +18,7 @@ summary: 创建用于备份虚拟机的策略
 
 .开始之前
 * 如果不想编辑预定义策略、应创建策略。
-* 要将备份从对象存储移动到归档存储、您应运行ONTAP 9.10.1或更高版本、而Amazon Web Services或Azure应是云提供商。
+* 要将备份从对象存储移至归档存储、您应运行ONTAP 9.10.1或更高版本、并且Amazon Web Services或Microsoft Azure应作为云提供商。
 * 您应为每个云提供商配置归档访问层。
 
 
@@ -74,6 +74,6 @@ BlueXP中提供了以下预定义策略：
 . 单击 * 创建 * 。
 +
 
-NOTE: 您不能编辑或删除与虚拟机关联的策略。
+NOTE: 您不能编辑或删除与数据存储库关联的策略。
 
 

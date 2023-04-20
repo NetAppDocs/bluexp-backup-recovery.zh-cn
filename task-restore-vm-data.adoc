@@ -4,7 +4,7 @@ permalink: task-restore-vm-data.html
 keywords: restore virtual machines 
 summary: 您可以将虚拟机从云还原到内部SnapCenter。 
 ---
-= 从云还原虚拟机
+= 从云中还原虚拟机数据
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 您可以将虚拟机从云还原到内部SnapCenter。
 
 
 [role="lead"]
-您可以将虚拟机从云还原到内部vCenter。备份将还原到创建备份的完全相同的位置。如果虚拟机是使用归档策略备份的、则可以设置归档还原优先级。
+您可以将虚拟机数据从云还原回内部vCenter。备份将还原到创建备份的完全相同的位置。如果虚拟机是使用归档策略备份的、则可以设置归档还原优先级。
 
 
 NOTE: 您无法还原跨数据存储库的虚拟机。
@@ -29,7 +29,7 @@ NOTE: 您无法还原跨数据存储库的虚拟机。
 
 NOTE: 如果将源虚拟机移动到另一位置(vMotion)、并且用户从BlueXP触发该虚拟机的还原、则该虚拟机将还原到创建备份的源位置。
 
-. 您可以从数据存储库或虚拟机还原：
+. 您可以从数据存储库或虚拟机进行还原：
 
 
 |===

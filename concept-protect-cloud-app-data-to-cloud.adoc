@@ -51,7 +51,7 @@ IMPORTANT: Cloud Backup SaaS基础架构可在区域内对可用性区域故障�
 
 
 
-== 保护Oracle数据库
+== 保护 Oracle 数据库
 
 
 
@@ -107,7 +107,7 @@ IMPORTANT: Cloud Backup SaaS基础架构可在区域内对可用性区域故障�
 
 
 
-== 保护SAP HANA数据库
+== 保护 SAP HANA 数据库
 
 
 

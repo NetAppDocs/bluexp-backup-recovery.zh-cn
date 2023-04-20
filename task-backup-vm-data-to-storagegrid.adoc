@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: task-backup-vm-data-to-storagegrid.html 
-keywords: back up, backup, backup virtual machine data, storagegrid, cloud backup, backup datastores 
+keywords: back up, backup, backup datastore, storagegrid, cloud backup, backup datastores 
 summary: 将数据存储库从内部ONTAP 备份到StorageGRID。 
 ---
 = 将数据存储库备份到StorageGRID

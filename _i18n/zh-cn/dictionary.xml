@@ -1006,7 +1006,6 @@
   <block id="35902f649443d8dd6c5f04595fff3035" category="paragraph">如果您在激活Cloud Backup后向Kubernetes集群添加了新的永久性卷、则在过去、您需要记住为这些卷配置备份。现在、您可以选择将自动应用于新创建的卷的策略。在为新Kubernetes集群激活Cloud Backup时、此选项可在设置向导中使用。</block>
   <block id="afd87a86d8a5973d91f3fcc4e85c719f" category="section-title">适用于虚拟机的Cloud Backup 1.1.0现已正式上市</block>
   <block id="db46ba2f888d41e44da25c2d8c1f406d" category="summary">您可以查看数据存储库和虚拟机、并编辑适用于VMware vSphere的SnapCenter 插件实例。</block>
-  <block id="880521c077c3d9130e51f737ddd86b15" category="doc">管理虚拟机的保护</block>
   <block id="78166ce4ccceeedfbf6aeb8682851072" category="paragraph">* 关于此任务 *</block>
   <block id="b4aa547260f4fe266f03ec3a845576a5" category="section-title">编辑适用于VMware vSphere的SnapCenter 插件实例</block>
   <block id="4cc186df234138a57b2e8c5d8e5f7f8d" category="list-text">单击 * 保存 * 。</block>
@@ -1016,13 +1015,11 @@
   <block id="048b394365a250ed3a53a1b28e83733e" category="paragraph">此时将发现新的更改。</block>
   <block id="3e99ccad833881d9a8aeec4e2665baae" category="list-text">单击 <block ref="1d94ccc08c31bc8efbc06bfabc6854b6" category="inline-image-macro-rx" type="image"></block> 对应于数据存储库、然后单击*刷新保护*为所做的更改启用云保护。</block>
   <block id="529795f55723488071425500df0ff5d6" category="summary">您可以将虚拟机从云还原到内部SnapCenter。</block>
-  <block id="70861b61c8a43f84ddd14a22316ee5af" category="doc">从云还原虚拟机</block>
   <block id="b4851e92b19af0c5c82447fc0937709d" category="inline-link-macro">要求</block>
   <block id="ceb4a235a226f19c172c9cf7c46d00dc" category="list-text">单击 <block ref="1d94ccc08c31bc8efbc06bfabc6854b6" category="inline-image-macro-rx" type="image"></block> 对应于要还原的数据存储库、然后单击*查看详细信息*。</block>
   <block id="a03a09176193c264d8dcbdcb8f2f9043" category="list-text">单击要还原的备份对应的*还原*。</block>
   <block id="0291e73f7c30c841795ff165a80bdc0e" category="list-text">单击 <block ref="1d94ccc08c31bc8efbc06bfabc6854b6" category="inline-image-macro-rx" type="image"></block> 对应于要还原的虚拟机、然后单击*还原*。</block>
   <block id="42387e1cb260fd1fb8624acde3767841" category="paragraph">虚拟机将还原到创建备份的同一位置。</block>
-  <block id="8f2653c5938080ffdd57904f850bc430" category="section-title">注册适用于VMware vSphere的SnapCenter 插件</block>
   <block id="4e5b953e1349e67f48dba9317bba75d3" category="list-text">单击*注册适用于VMware vSphere的SnapCenter 插件*。</block>
   <block id="4eb88f79049bc78204f8659b66b7b655" category="list-text">在用户名和密码字段中、指定具有管理员角色的用户的凭据。</block>
   <block id="1d419e3005bf4974f6070bbb53e5816f" category="list-text">单击 <block ref="1d94ccc08c31bc8efbc06bfabc6854b6" category="inline-image-macro-rx" type="image"></block> 对应于要备份的数据存储库、然后单击*激活备份*。</block>
@@ -1040,12 +1037,8 @@
   <block id="f8038513f93eb5ca7b2505674255b67b" category="list-text">在所需资源组上禁用"*近期*"。如果为资源组启用了"*近期*"、则这些资源组的备份不能用于云数据保护、因此无法用于还原操作。</block>
   <block id="391eb750d98c55b72607ff6ec6311db2" category="list-text">确保要还原虚拟机的目标数据存储库具有足够的空间来容纳所有虚拟机文件的副本、例如VMDK、VMx、VMSD等。</block>
   <block id="6ee2c41b7a9bfae5bb618327d9499834" category="list-text">确保目标数据存储库不包含先前还原操作失败时格式为restore_xxx.xxxxxx_filename的陈旧虚拟机文件。在触发还原操作之前、您应删除陈旧的文件。</block>
-  <block id="4cfbdcb9aba741b123b3c46a8341bf59" category="sidebar">保护虚拟机数据</block>
-  <block id="b2736084b30c35472d74c3c29a818a95" category="sidebar">管理虚拟机的保护</block>
-  <block id="c2c86860cad5cd95ae9ef9c003e01d57" category="sidebar">还原虚拟机数据</block>
   <block id="b418e05c847b656e4a8ac26f2f0cc045" category="inline-link">了解有关保护虚拟机到云的更多信息</block>
   <block id="3a5ea6bb0616fe3f66bd74e5e18fd1b3" category="paragraph"><block ref="95fa49d8f0b9a0affedd5e0d4a52c2d2" category="inline-link-rx"></block>。</block>
-  <block id="7c8db0bef9b3c6a1335fe8f0a09bfdef" category="sidebar">备份和还原虚拟机数据</block>
   <block id="338b73eb5ee02b02ceb307b68866c9f2" category="section-title">ONTAP 浏览和还原功能不需要云还原实例</block>
   <block id="c2f301bf47b0e51a835909a868e786b5" category="paragraph">以前从S3和Blob存储执行文件级浏览和还原操作需要一个单独的Cloud Restore实例/虚拟机。此实例在不使用时关闭、但在还原文件时仍会增加一些时间和成本。此功能已被一个免费容器所取代、此容器可在需要时部署在Connector上。它具有以下优势：</block>
   <block id="b7a41babdf28bb4d456f0725ccfbc402" category="list-text">文件级还原操作不会增加成本</block>
@@ -1693,7 +1686,6 @@
   <block id="ba7b66b996d8928df996e4fd4fffa4a4" category="doc">将数据存储库备份到StorageGRID</block>
   <block id="cf4e6e70123f43cdec5ffd93f792c083" category="list-text">指定存储服务器IP。</block>
   <block id="10303a499a9e21a77e6dad69618c622b" category="list-text">选择访问密钥和机密密钥。</block>
-  <block id="fe8f95b60b7c4092ce03adfbb31e89b4" category="doc">创建用于备份虚拟机的策略</block>
   <block id="43852dc1e0c3229284688eb4c01dfef0" category="paragraph">如果不想编辑预定义策略、应创建策略。</block>
   <block id="0ef51421739da7017b4d3decc1813f4a" category="list-text">在虚拟机页面的设置下拉列表中、选择*策略*。</block>
   <block id="0b0e252af8897fbe981ec6682d2aa33b" category="section-title">支持注册概述</block>
@@ -2143,7 +2135,6 @@
   <block id="244bf1b38515bb301b6d835e3906b9a1" category="paragraph">无法在需要时立即访问归档层中的数据、因此需要较高的检索成本、因此您需要考虑从归档备份文件还原数据的频率。</block>
   <block id="373e31603b5a78ab3bc84cbe57c892b5" category="paragraph">每个备份策略都为_Archival Policy_提供了一个部分、您可以将其应用于备份文件。</block>
   <block id="0776412162b9ad0d387bbf818146d659" category="sidebar">支持的Google归档存储层</block>
-  <block id="91770f038cd944a1d3b9b347edeb2b10" category="sidebar">新增功能</block>
   <block id="b2ff0fb046b03e40e599f1561ed5ebd3" category="list-text">不支持从FlexGroup 卷还原到FlexVol 卷、或将FlexVol 卷还原到FlexGroup 卷。</block>
   <block id="30bc6b6cbbb254a1299f2544d8a09731" category="paragraph">进行API调用时、您需要在Authorization标头中添加用户令牌、并在x-agent-id标头中添加BlueXP Connector ID。您应在API中使用BlueXP帐户ID。</block>
   <block id="710f97f519c3a0c08777096972387f3c" category="list-text">从NetApp BlueXP网站获取用户令牌。</block>
@@ -2196,7 +2187,6 @@
   <block id="c816d65f45a034b0842bc039567fcb6b" category="inline-link-macro">在 Google Cloud 中快速启动 Cloud Volumes ONTAP</block>
   <block id="d6758ec75f0ff2bab6d8a4d6b6f79cf1" category="list-text"><block ref="d6758ec75f0ff2bab6d8a4d6b6f79cf1" category="inline-link-macro-rx"></block></block>
   <block id="2a60e5494e07cff54330378780f8e2a4" category="list-text">(可选)如果要在经过一定天数后将备份从对象存储移动到归档存储以实现成本优化、请选中*将备份分层到归档*复选框、然后输入应在多少天后将备份归档。</block>
-  <block id="2918bd1eb41f17cc6bbd51b50460f7dc" category="admonition">您不能编辑或删除与虚拟机关联的策略。</block>
   <block id="d5b842bb75f6d0fd358e7a35f06b5354" category="summary">创建Oracle数据库的计划备份或按需备份。</block>
   <block id="b83d0a6a6920d792bf1e5421f574e4d8" category="doc">备份云本机Oracle数据库</block>
   <block id="436faef9b95757e54b257ab16a914324" category="section-title">创建Oracle数据库的备份</block>
@@ -2381,7 +2371,6 @@
   <block id="9bc04b83e994e96133d24116c5a25bf5" category="list-text">@用于将数据与其数据库名称分隔开、并将值与其密钥分隔开。示例：data@RG2_scspr2417819002_07-2021_12.16.48.9267_0_LOG@RG2_scspr2417819002_07-20-2021_12.16.48.9267</block>
   <block id="08d3131fcf6d963372785be681e343e9" category="list-text">用于在SC_backup_name参数的两个不同实体之间分隔数据。示例：DATA@RG2_scspr2417819002_07-20-2021_12.16.48.9267 0_LOG@RG2_scspr2417819002_07-20-2021_12.16.48.9267</block>
   <block id="1dc2b43d41c36670d82fe3076115def6" category="list-text">用于分隔同一个键的一组变量。示例：data@RG2_scspr2417819002_07-20-2021_12.16.48.9267_0_log@RG2_scspr2417819002_07-2021_12.16.48.9267_1、RG2_scspr2417819002_07-21 - 2021_12.16.48.9267_202_2021_SC202_202_202_202_2021_202_12.1648.9267_SC202_202_202_2021_2021_2021_SC202</block>
-  <block id="9506c95f9ad8061d2b32d45700688c83" category="paragraph">您可以将虚拟机从云还原到内部vCenter。备份将还原到创建备份的完全相同的位置。如果虚拟机是使用归档策略备份的、则可以设置归档还原优先级。</block>
   <block id="5183d16b45269aeda8f220ef35e5327c" category="list-text">选择要从备份中还原的虚拟机。</block>
   <block id="0b204b102ed08f6af904a33d81026023" category="list-text">选择*归档还原优先级*、然后单击*下一步*。</block>
   <block id="071df86763e0e93af80e50596aa0710c" category="list-text">选择要用于还原虚拟机的备份。</block>
@@ -2471,7 +2460,6 @@
   <block id="e3b72f702a3b0c42e864fe0ad9eb9453" category="paragraph"><block ref="e3b72f702a3b0c42e864fe0ad9eb9453" category="inline-image-macro-rx" type="image"></block></block>
   <block id="2c9139d12cc7ddacb93c941d4bf412a2" category="paragraph">连接器可以部署在与应用程序相同的VPC或vNet中、也可以部署在不同的VPC或vNet中。如果Connector和应用程序位于不同的网络上、则应在它们之间建立网络连接。</block>
   <block id="e3a2981d750d1d4a623860068a07cc70" category="admonition">一个BlueXP Connector可以与多个存储系统和多个应用程序插件进行通信。只要连接器与应用程序主机之间存在连接、您就需要一个连接器来管理应用程序。</block>
-  <block id="11db7b880ef2ebba3ee0a02b685e8da0" category="section-title">保护Oracle数据库</block>
   <block id="18cf072964a583150dd247485ba75b92" category="list-text">适用于 ONTAP 的 Amazon FSX</block>
   <block id="117bdbda976fe8b3212bc3b6327a0a1b" category="list-text">Cloud Volumes ONTAP</block>
   <block id="09417dd7907c94abc22203ab06dade6c" category="list-text">存储布局：</block>
@@ -2488,7 +2476,6 @@
   <block id="5669d4dde41a20620530fdebbd1d9492" category="list-text">监控备份、还原、克隆和其他作业</block>
   <block id="9518d577aae2b3d43b6dd0f41fb999e1" category="list-text">不支持Oracle 11g</block>
   <block id="d67615cd9765a283fd8a9d06cd5d44a1" category="list-text">不支持对备份执行挂载、目录和验证操作</block>
-  <block id="9317a56cfedd80231a539c42f44d9c8d" category="section-title">保护SAP HANA数据库</block>
   <block id="494c3084e3990387ac3b46cb5749bb65" category="list-text">经SAP HANA认证的RHEL 7.5或更高版本8.x平台</block>
   <block id="504d22b0e020e0b365851eef08a1e4ca" category="list-text">通过SAP HANA认证的SLES 12 SP5或更高版本以及15个spx平台</block>
   <block id="c7325743e6b1be5853672e4ed19d279b" category="list-text">数据库布局：</block>
@@ -2533,7 +2520,6 @@
   <block id="0939e02b7faf70738951c4d3dac49c2d" category="list-text">单击 <block ref="2231c326e067595aca2fb0545475acf4" category="inline-image-macro-rx" type="image"></block> 对应于要删除的克隆、然后单击*删除*。</block>
   <block id="6c2d45f01ff62f51f26b2e2555360189" category="list-text">(可选)选中*强制删除*复选框。</block>
   <block id="d13044a4ef6b89541aeb5868baab390c" category="paragraph">如果所有主机均已安装并运行适用于SAP HANA的SnapCenter 插件服务、并且所有主机均可从新连接器访问、则连接器详细信息将成功更新。</block>
-  <block id="0fbf3afea399595219e31836afabacc9" category="list-text">您应使用适用于VMware vSphere 4.7P1或更高版本的SnapCenter 插件从内部二级存储备份虚拟机。</block>
   <block id="9a3ae5d8e3738351dd9a586e8215632a" category="list-text">适用于VMware vSphere的SnapCenter 插件中至少有一个每日、每周或每月策略、没有与BlueXP中虚拟机策略相同的标签。</block>
   <block id="add26d38486fad5ca461f986832fa6c3" category="inline-image-macro">架构图</block>
   <block id="955c6f1851b4039bd20ae31d5f14d338" category="paragraph"><block ref="955c6f1851b4039bd20ae31d5f14d338" category="inline-image-macro-rx" type="image"></block></block>
@@ -2924,8 +2910,6 @@
   <block id="51c1a6c1e7497769792664cc458e4b3b" category="list-text"><block ref="51c1a6c1e7497769792664cc458e4b3b" category="inline-link-rx"></block></block>
   <block id="3b3fe44fb52240d2bf1cecd954ba8f31" category="list-text"><block ref="3b3fe44fb52240d2bf1cecd954ba8f31" category="inline-link-rx"></block></block>
   <block id="b08b0a6b8389d8eb21b696d8750a42c7" category="list-text"><block ref="b08b0a6b8389d8eb21b696d8750a42c7" category="inline-link-rx"></block></block>
-  <block id="ceb0e703e6fc4ff33d792e51790261e4" category="paragraph">您可以通过将数据存储库从内部主存储和二级存储备份到云来保护虚拟机上的数据。如果需要、您可以将虚拟机还原回适用于VMware vSphere的内部部署SnapCenter 插件主机。</block>
-  <block id="21d7ed1a0ed596af2b79f06576c84ca9" category="paragraph">您可以将数据存储库备份到Amazon Web Services S3、Microsoft Azure Blob、Google Cloud Platform和StorageGRID。</block>
   <block id="135b308ed83c53f1516b7c754566d1c4" category="paragraph-title">开始之前</block>
   <block id="949ad3136d64be33cc1a6a67e3add3d1" category="paragraph">在开始将数据存储库和虚拟机备份到云提供商之前、请阅读以下要求、以确保您的配置受支持。</block>
   <block id="9b9477e579c3b44dd623d5a6e1ea8d78" category="list-text">BlueXP</block>
@@ -2939,12 +2923,10 @@
   <block id="b9f7c26581cad3cbd789c6d293692814" category="admonition">您无法还原跨数据存储库的虚拟机。</block>
   <block id="76edd5381919de6c1c9b123a884984f8" category="list-text">在BlueXP UI中、单击*保护*&gt;*备份和恢复*&gt;*虚拟机*&gt;*适用于VMware vSphere的SnapCenter 插件*、然后选择适用于VMware vSphere的SnapCenter 插件主机。</block>
   <block id="873069930fc1357e9cd4216822243f14" category="admonition">如果将源虚拟机移动到另一位置(vMotion)、并且用户从BlueXP触发该虚拟机的还原、则该虚拟机将还原到创建备份的源位置。</block>
-  <block id="73bc14a460209f6fd497aa9bd91fbaa6" category="list-text">您可以从数据存储库或虚拟机还原：</block>
   <block id="5d920b501536441ea32ecc24679c72a2" category="cell">如果您要 ...</block>
   <block id="df2d87dc916178a7076837c06010ded0" category="paragraph">从数据存储库还原</block>
   <block id="4569e5f9f0309302f499c21fc4cb8ee6" category="paragraph">只有在使用配置了归档设置的策略保护虚拟机时、此选项才可用。Amazon Web Services支持的归档还原优先级为高、标准和低、Microsoft Azure支持的归档还原优先级为高和标准。</block>
   <block id="2a8a756e65415cefaa2a8f2d963e01be" category="paragraph">从虚拟机还原</block>
-  <block id="4eb58c4143c6b0e5561211f7a2425377" category="list-text">要将备份从对象存储移动到归档存储、您应运行ONTAP 9.10.1或更高版本、而Amazon Web Services或Azure应是云提供商。</block>
   <block id="5d0ad01dbdb8717fbebf1cb44a3c10cd" category="list-text">您应为每个云提供商配置归档访问层。</block>
   <block id="bbe48fb854ea022537208eeeff822f91" category="paragraph-title">关于此任务</block>
   <block id="ca69b8ee34e44ac66b7f0dfd3b786e9c" category="paragraph">BlueXP中提供了以下预定义策略：</block>
@@ -2956,7 +2938,6 @@
   <block id="f352f7544724f99ab1b27e3e40291b49" category="admonition">您可以在BlueXP中注册多个适用于VMware vSphere的SnapCenter 插件主机。但是、注册后、您将无法删除适用于VMware vSphere的SnapCenter 插件主机。</block>
   <block id="ebeea6bd6cc46b0c9f463f2b01659606" category="list-text">在适用于VMware vSphere的SnapCenter 插件字段中、指定适用于VMware vSphere的SnapCenter 插件主机的FQDN或IP地址。</block>
   <block id="463d350eb6c9887e5addb9a6561a47ad" category="list-text">在端口字段中、指定运行适用于VMware vSphere的SnapCenter 插件主机的端口号。</block>
-  <block id="a3640e12809bb0c58c14ed0dc2515991" category="paragraph">您应确保此端口已打开、以便适用于VMware vSphere的SnapCenter 插件主机和BlueXP之间能够进行通信。</block>
   <block id="1e88a362bd23950ee5a102f645348ac8" category="paragraph">单击*备份和恢复*&gt;*虚拟机*可查看使用适用于VMware vSphere的已注册SnapCenter 插件主机保护的所有数据存储库和虚拟机。</block>
   <block id="942c9249796cf6b78c981ebf15195809" category="list-text"><block ref="942c9249796cf6b78c981ebf15195809" category="inline-link-rx"></block></block>
   <block id="26000c50c37289d13041f03c670085a3" category="paragraph">通过将适用于VMware vSphere的SnapCenter 插件主机与BlueXP集成、您可以将一个或多个数据存储库备份到Microsoft Azure。这将有助于VM管理员轻松快速地备份和归档数据以提高存储效率、并加快云过渡速度。</block>
@@ -3490,7 +3471,6 @@
   <block id="5c92c4685a32fe7d41d3f537c7f5116b" category="paragraph">*重要信息：*如果您计划使用DataLock、则必须在激活BlueXP备份和恢复时在第一个策略中启用它。</block>
   <block id="0331809832826b1a244aca026a9b2d64" category="list-text">单击*激活备份*、BlueXP备份和恢复将开始对每个选定卷进行初始备份。</block>
   <block id="ba48140a3394818b661e6fd497e203a7" category="doc">了解有关BlueXP备份和恢复的信息</block>
-  <block id="fa3178fc47dcb8e792e863ce59dac949" category="paragraph">BlueXP备份和恢复为内部和云端的NetApp ONTAP 数据、Kubernetes永久性卷、数据库和虚拟机提供高效、安全且经济高效的数据保护。备份会自动生成并存储在公有 或私有云帐户的对象存储中。</block>
   <block id="af4d8d7b56820e969dfbdcfe2654b5b3" category="paragraph">该服务可执行块级永久增量复制、并保留所有存储效率、从而显著减少复制和存储的数据量。此外、您只需为受保护的内容付费、并使用可用的最低成本存储层、这使得BlueXP备份和恢复非常经济高效。</block>
   <block id="723a81a7ee0b42134a46c1aaa0d99371" category="inline-link">了解有关BlueXP备份和恢复的更多信息</block>
   <block id="9eb420abad7616344371178eb6cfb9a7" category="paragraph"><block ref="63f4276e2fdf1ca315cba1b1fcff7250" category="inline-link-rx"></block>。</block>
@@ -3735,7 +3715,6 @@
   <block id="2e5d6ff9bc4d6b4194df020bde3f3dca" category="sidebar">在非公开站点中备份BlueXP备份和恢复数据库</block>
   <block id="54153028a776309bcfbdd3b7b8285463" category="sidebar">BlueXP备份和恢复博客</block>
   <block id="960dd4200d015a0a12dfd299c1348c9c" category="sidebar">BlueXP备份和恢复用例</block>
-  <block id="ceffaf94354645ad26052bbc53604f5d" category="sidebar">将虚拟机数据备份到云</block>
   <block id="a1c18d7af73fa7e0ef0013130f15b257" category="sidebar">从云中还原数据</block>
   <block id="6edd76ff9d03a833a8a254cc8af745d0" category="sidebar">还原ONTAP 卷数据</block>
   <block id="10b8a325c32b95729e9b37864d6a110a" category="sidebar">还原内部Oracle应用程序数据</block>
@@ -3744,4 +3723,21 @@
   <block id="5fd9bba0b0a00c42d3baab299425c076" category="sidebar">还原云原生SAP HANA应用程序数据</block>
   <block id="18de97333e5776e0c135dd87c10b965c" category="sidebar">还原虚拟机数据</block>
   <block id="16cc11572a7582fe5007212d56145dc8" category="sidebar">还原Kubernetes卷数据</block>
+  <block id="70dfad9357f3b3b710b73d8eb3666851" category="paragraph">BlueXP备份和恢复服务可为内部和云端的NetApp ONTAP 数据、Kubelnetes永久性卷、数据库和虚拟机提供高效、安全且经济高效的数据保护。备份会自动生成并存储在公有 或私有云帐户的对象存储中。</block>
+  <block id="9a3f2e7eb30992bb084418711e5093f2" category="doc">管理数据存储库和虚拟机数据的保护</block>
+  <block id="2131f85f2f51908e5c573c231b274f4c" category="paragraph">您应确保在默认8144端口上运行的适用于VMware vSphere的内部SnapCenter 插件主机与在任何云提供商(Amazon Web Services、Microsoft Azure、Google云平台)或内部运行的BlueXP连接器实例之间的通信是开放的。</block>
+  <block id="de437d1f424b507f3d7be645ac0952c2" category="paragraph">适用于虚拟机的BlueXP备份和恢复通过备份数据存储库来还原虚拟机、从而提供数据保护功能。</block>
+  <block id="40c5998ccd6f421d1eaa29ece0c36b59" category="paragraph">您可以将数据存储库备份到Amazon Web Services S3、Microsoft Azure Blb、Google Cloud Platform和StorageGRID 、并将虚拟机还原回适用于VMware vSphere的内部SnapCenter 插件主机。</block>
+  <block id="2a18af02b6c0b7e92a17df9509574f26" category="list-text">您应使用适用于VMware vSphere 4.7P1或更高版本的SnapCenter 插件从内部二级存储备份数据存储库。</block>
+  <block id="9fe2f95002b4b4815d52173b68bf9862" category="summary">创建一个策略以备份数据存储库</block>
+  <block id="38fb3153d6139974d24ba11e28a0718d" category="list-text">要将备份从对象存储移至归档存储、您应运行ONTAP 9.10.1或更高版本、并且Amazon Web Services或Microsoft Azure应作为云提供商。</block>
+  <block id="44dae527927c9be3aabaf37ba09b9068" category="admonition">您不能编辑或删除与数据存储库关联的策略。</block>
+  <block id="ffa1e37a2c6478ff157a0a7d25a607e9" category="doc">从云中还原虚拟机数据</block>
+  <block id="95513dac8a621e64dcee2a0f311b0e66" category="paragraph">您可以将虚拟机数据从云还原回内部vCenter。备份将还原到创建备份的完全相同的位置。如果虚拟机是使用归档策略备份的、则可以设置归档还原优先级。</block>
+  <block id="6c0dd80335ed3d649017aa79a23eddae" category="list-text">您可以从数据存储库或虚拟机进行还原：</block>
+  <block id="54a98d3cca3d552c2562869bfcebf735" category="section-title">保护 Oracle 数据库</block>
+  <block id="b45eb079efd4b3748b1efc669c02c01c" category="section-title">保护 SAP HANA 数据库</block>
+  <block id="3eb97a71011fe0dae37080fd785e4db5" category="sidebar">备份和还原虚拟机数据</block>
+  <block id="33871b6190a8d5adbe8b15282054766c" category="sidebar">新增功能</block>
+  <block id="7048662b75c8f210e59f898d992521cc" category="sidebar">将数据存储库备份到云</block>
 </blocks>
