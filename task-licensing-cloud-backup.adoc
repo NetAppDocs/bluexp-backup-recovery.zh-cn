@@ -50,7 +50,7 @@ link:concept-ontap-backup-to-cloud.html#cost["详细了解与使用BlueXP备份�
 
 * 一个"云备份"软件包、可用于备份Cloud Volumes ONTAP 数据和内部ONTAP 数据。
 * 一个"CVO专业版"软件包、可用于捆绑Cloud Volumes ONTAP 和BlueXP备份和恢复。这包括使用许可证为Cloud Volumes ONTAP 系统备份的数量不限(备份容量不计入许可容量)。此选项不允许您备份内部 ONTAP 数据。
-* "CVO Edge Cache"软件包的功能与"CVO专业版"软件包相同、但也支持 https://docs.netapp.com/us-en/cloud-manager-file-cache/concept-gfc.html["全局文件缓存"^]。您有权为Cloud Volumes ONTAP 系统上配置的每个3 TiB容量部署一个全局文件缓存边缘系统。此选项可通过Azure和Google MarketPlaces使用、但不支持备份内部ONTAP 数据。
+* "CVO Edge Cache"软件包具有与"CVO专业版"软件包相同的功能、但也支持 https://docs.netapp.com/us-en/cloud-manager-file-cache/concept-gfc.html["BlueXP边缘缓存"^] 服务您有权为Cloud Volumes ONTAP 系统上配置的每个3 TiB容量部署一个全局文件缓存边缘系统。此选项可通过Azure和Google MarketPlaces使用、但不支持备份内部ONTAP 数据。
 
 
 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html#capacity-based-licensing["详细了解这些基于容量的许可证包"]。
@@ -127,7 +127,7 @@ BYOL BlueXP备份和恢复许可证是一种浮动许可证、总容量在与您
 
 或者、如果您有一个不会使用的未分配的基于节点的Cloud Volumes ONTAP 许可证、则可以将其转换为具有相同美元等价性和相同到期日期的BlueXP备份和恢复许可证。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-node-licenses.html#exchange-unassigned-node-based-licenses["有关详细信息，请访问此处"^]。
 
-您可以使用BlueXP中的数字电子钱包页面管理BYOL许可证。您可以从Digital Wallet添加新许可证、更新现有许可证以及查看许可证状态。
+您可以使用BlueXP电子钱包管理BYOL许可证。您可以通过BlueXP电子钱包添加新许可证、更新现有许可证以及查看许可证状态。
 
 
 
@@ -183,21 +183,21 @@ BlueXP添加了许可证、以便BlueXP备份和恢复处于活动状态。
 
 === 更新BlueXP备份和恢复BYOL许可证
 
-如果您的许可期限即将到期，或者您的许可容量即将达到限制，您将在备份 UI 中收到通知。此状态也会显示在 " 数字电子钱包 " 页面和中 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-monitor-cm-operations.html#monitoring-operations-status-using-the-notification-center["通知"]。
+如果您的许可期限即将到期，或者您的许可容量即将达到限制，您将在备份 UI 中收到通知。此状态也会显示在BlueXP数字钱包页面和中 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-monitor-cm-operations.html#monitoring-operations-status-using-the-notification-center["通知"]。
 
-image:screenshot_services_license_expire.png["在 \" 数字电子钱包 \" 页面中显示即将到期许可证的屏幕截图。"]
+image:screenshot_services_license_expire.png["在BlueXP数字钱包页面中显示即将到期的许可证的屏幕截图。"]
 
 您可以在BlueXP备份和恢复许可证到期之前对其进行更新、以便备份和还原数据的能力不会中断。
 
 .步骤
 . 单击BlueXP右下角的聊天图标或联系支持部门、请求延长您的期限或为特定序列号的BlueXP备份和恢复许可证增加容量。
 +
-在您为许可证付费并将其注册到NetApp 支持站点 后、BlueXP会自动在数字电子钱包中更新许可证、并且数据服务许可证页面将在5到10分钟内反映此更改。
+在您为许可证付费并将其注册到NetApp 支持站点 之后、BlueXP会自动更新BlueXP电子钱包中的许可证、并且数据服务许可证页面将在5到10分钟内反映此更改。
 
 . 如果BlueXP无法自动更新许可证(例如安装在非公开站点时)、则需要手动上传许可证文件。
 +
 .. 您可以 <<获取您的BlueXP备份和恢复许可证文件,从 NetApp 支持站点获取许可证文件>>。
-.. 在数字电子邮件页面 _Data Services Licenses_ 选项卡上，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于要更新的服务序列号，请单击 * 更新许可证 * 。
+.. 在BlueXP数字钱包页面_Data Services Licenss_选项卡上、单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于要更新的服务序列号，请单击 * 更新许可证 * 。
 +
 image:screenshot_services_license_update1.png["选择特定服务的更新许可证按钮的屏幕截图。"]
 

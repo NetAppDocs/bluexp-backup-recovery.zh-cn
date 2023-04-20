@@ -758,11 +758,7 @@
   <block id="c1b2dc0798d3960e25b8a12c751f53ec" category="list-text">在 _Add License_ 对话框中，输入许可证信息并单击 * 添加许可证 * ：</block>
   <block id="cb365723ea49a8e0727d9887fcd819ad" category="list-text">如果您有备份许可证序列号并且知道您的 NSS 帐户，请选择 * 输入序列号 * 选项并输入该信息。</block>
   <block id="a274f4d4670213a9045ce258c6c56b80" category="inline-link">通知</block>
-  <block id="07cbe2ff704ff30b6f3ca7e91297e4fd" category="paragraph">如果您的许可期限即将到期，或者您的许可容量即将达到限制，您将在备份 UI 中收到通知。此状态也会显示在 " 数字电子钱包 " 页面和中<block ref="2011e54262643b9060a004b0df801155" category="inline-link-rx"></block>。</block>
-  <block id="89ec6475bcd2a52ce9ca1c8fa843339e" category="inline-image-macro">在 " 数字电子钱包 " 页面中显示即将到期许可证的屏幕截图。</block>
-  <block id="b16535eaa5694c59eb7ff71777c5cd59" category="paragraph"><block ref="b16535eaa5694c59eb7ff71777c5cd59" category="inline-image-macro-rx" type="image"></block></block>
   <block id="b2b168bd64a341a85c749cb61bba40cb" category="inline-xref">从 NetApp 支持站点获取许可证文件</block>
-  <block id="f0542d3d118535e2d706a4502f615735" category="list-text">在数字电子邮件页面 _Data Services Licenses_ 选项卡上，单击 <block ref="50acd719b1954eb4890c002b3b5e71a6" category="inline-image-macro-rx" type="image"></block> 对于要更新的服务序列号，请单击 * 更新许可证 * 。</block>
   <block id="3ce750f001c2369e23b68f3210d9f100" category="inline-image-macro">选择特定服务的更新许可证按钮的屏幕截图。</block>
   <block id="9d37072f5a1b76b16e647a14826ade70" category="paragraph"><block ref="9d37072f5a1b76b16e647a14826ade70" category="inline-image-macro-rx" type="image"></block></block>
   <block id="41e921305ae1b027e5d364af4a2a9df2" category="list-text">在 _Update License_ 页面中，上传许可证文件并单击 * 更新许可证 * 。</block>
@@ -1235,7 +1231,6 @@
   <block id="37c606e486cf867317024daab096d5c7" category="sidebar">在 Azure 中配置备份以实现多帐户访问</block>
   <block id="9aa87cabc3c16ccfd72ed13e9e2a189c" category="list-text">ONTAP 集群通过用户指定的端口从集群间LIF启动HTTPS连接到StorageGRID 网关节点、以执行备份和还原操作。此端口可在备份设置期间进行配置。</block>
   <block id="92a508a0037c85cca367ecb3e92a0fde" category="list-text">通过端口443与StorageGRID 网关节点建立HTTPS连接</block>
-  <block id="24e6e2f6171b43a847fe194a9a9b5cd0" category="inline-link">全局文件缓存</block>
   <block id="92b61176075059ecdabd92837adf7da4" category="paragraph">如果用于备份的StorageGRID 目标作为工作环境存在于Canvas上、则可以将集群拖动到StorageGRID 工作环境中以启动设置向导。</block>
   <block id="ebea53a8d7bf996062062169f43ef628" category="list-text">定义备份计划并选择要保留的备份数。 <block ref="67a34cd7549e2904a063387c005adbcb" category="inline-link-macro-rx"></block>。</block>
   <block id="5a378b18f7bf0c4cabc6c655cd2f535e" category="list-text">单击 * 下一步 * 。</block>
@@ -1742,17 +1737,14 @@
   <block id="59cbb06daac31886728833270d8bf9a2" category="list-text">在GCP中、BlueXP使用新项目或现有项目、并为Google Cloud Storage存储分段使用存储帐户。</block>
   <block id="800de79585a9dadbf8cf5d2e105d09bb" category="list-text">在StorageGRID 中、BlueXP会将现有存储帐户用于对象存储分段。</block>
   <block id="065c13346a6a1b4ec88ebda80e48a910" category="inline-link">BlueXP帐户</block>
-  <block id="0dd9786a3d42804eeebb54b2f3e11edd" category="paragraph">您将收到一个序列号、您可以在BlueXP数字电子邮件页面中输入此序列号来启用此服务。达到任一限制后，您需要续订许可证。备份 BYOL 许可证适用场景 与关联的所有源系统<block ref="52a8d8c521fd6d51982efde4bc1bb1fd" category="inline-link-rx"></block>。</block>
   <block id="ea8bcfb1baf19f84e4a5e1f8a744b022" category="list-text">从BlueXP菜单中、选择*保护&gt;备份和恢复*。</block>
   <block id="58916e7720d1539d3ab208d053e7dd1d" category="paragraph">如果要使用此选项，请从 Marketplace 页面设置您的订阅，然后再执行<block ref="f1f7c973fce685b876017d26d677c721" category="inline-link-rx"></block>。请注意、您还需要使用此年度合同订阅为Cloud Volumes ONTAP 系统付费、因为您只能在BlueXP中为AWS凭据分配一个有效订阅。</block>
   <block id="d24c531f67e59e16184a6f74c9a59f91" category="paragraph">如果要使用此选项、您可以在创建Cloud Volumes ONTAP 工作环境时设置年度合同、并且BlueXP会提示您订阅AWS Marketplace。</block>
-  <block id="aa64d3ab005dc0bda0aad02472aaa320" category="paragraph">您可以使用BlueXP中的数字电子钱包页面管理BYOL许可证。您可以从Digital Wallet添加新许可证、更新现有许可证以及查看许可证状态。</block>
   <block id="f68bf28051d836364652b5a91d1bcd3a" category="list-text">输入您的BlueXP帐户ID (在支持站点上称为租户ID)、然后单击*提交*下载许可证文件。</block>
   <block id="257ff1df6b80ed0bf9b3463d53be79f9" category="paragraph">您可以通过从BlueXP顶部选择*帐户*下拉列表、然后单击您的帐户旁边的*管理帐户*来查找您的BlueXP帐户ID。您的帐户 ID 位于概述选项卡中。</block>
   <block id="8d080a0104c2b8b29f5fc2be913926af" category="list-text">从BlueXP菜单中、单击*监管&gt;数字电子钱包*、然后选择*数据服务许可证*选项卡。</block>
   <block id="bae190eec3db4a0dd635ae72756acde8" category="inline-link">将NSS帐户添加到BlueXP</block>
   <block id="fc76651edf85f11e6b8f2a81226ab59d" category="paragraph">如果下拉列表中没有您的 NetApp 支持站点帐户，<block ref="6d9745cd4f1d60b55f06aef4c5cb6ec4" category="inline-link-rx"></block>。</block>
-  <block id="8061535eb5e8bab52c4a8a0fdc119d14" category="paragraph">在您为许可证付费并将其注册到NetApp 支持站点 后、BlueXP会自动在数字电子钱包中更新许可证、并且数据服务许可证页面将在5到10分钟内反映此更改。</block>
   <block id="cc51ebad1f268690053194c8639d1a75" category="list-text">如果BlueXP无法自动更新许可证(例如安装在非公开站点时)、则需要手动上传许可证文件。</block>
   <block id="379dea20c8734742bd3f9c78de134135" category="paragraph">如果您看到这些警告、请使用BlueXP界面右下角的聊天图标续订许可证。</block>
   <block id="1fdc9d2d6f254f32143c31bdb680c25a" category="paragraph">在BlueXP中发现您的ONTAP 集群、验证集群是否满足最低要求、并自定义网络设置、以便集群可以连接到AWS S3。</block>
@@ -2892,8 +2884,6 @@
   <block id="ee2081007b4b41aa21ddcbdddb722d5e" category="section-title">支持连接有限的站点</block>
   <block id="a3f02510edf67619908394e8afc73938" category="list-text">您可以将数据从AWS商业区域中安装的Cloud Volumes ONTAP 系统备份到Amazon S3。请参见 <block ref="31e49e13e812c331f506a2a8e6b7ad22" category="inline-link-macro-rx"></block>。</block>
   <block id="b8507c62b8182b29a382ffefc9fab5f2" category="list-text">您可以将数据从安装在Azure商业区域的Cloud Volumes ONTAP 系统备份到Azure Blob。请参见 <block ref="ab5c78f08c8780b598ee1d4de19230ab" category="inline-link-macro-rx"></block>。</block>
-  <block id="a6a4730c10b1358f1c9def7ffe4b5b3e" category="summary">BlueXP备份和恢复(Cloud Backup)可为内部和云端的NetApp ONTAP 数据、数据库和虚拟机提供高效、安全且经济高效的数据保护。</block>
-  <block id="7eb9cafcf06d2b2e35409b3b19eebaa6" category="summary">BlueXP备份和恢复为内部和云端的NetApp ONTAP 数据、数据库和虚拟机提供高效、安全且经济高效的数据保护。备份会自动生成并存储在公有 或私有云帐户的对象存储中。</block>
   <block id="042a30f816a9f3db4f832c68a750cbd0" category="paragraph">开始时间取决于每个源 ONTAP 系统上设置的时区。您不能从用户界面计划在用户指定的时间执行备份操作。有关详细信息，请联系您的系统工程师。</block>
   <block id="f6c25edb13a1fb5bd6c5a94f498065a2" category="summary">完成几个步骤、开始将卷数据从内部ONTAP 系统备份到Amazon S3存储。</block>
   <block id="a16acb967c4e8e9b1d495f499e535a7a" category="list-text">您已在Azure中安装Connector。此连接器可以安装在完全Internet访问("标准模式")或有限Internet连接("受限模式")的站点上。</block>
@@ -3360,7 +3350,6 @@
   <block id="d3f281db7462fac1f93bb8cd8a846973" category="paragraph">如果选择*自动生成*克隆方案、则挂载点的位置以及克隆数据库的磁盘组的名称将附加一个后缀。</block>
   <block id="b473eb967027d6cb105d361800543822" category="list-text">如果选择了基本克隆方法、则后缀为*克隆SID*。</block>
   <block id="7bee2ff1284f314015393080c5e56ecc" category="list-text">如果选择了规范文件方法、则后缀将是下载克隆规范文件时指定的*后缀*。</block>
-  <block id="add971a5b842968000d5e9b8cd3b1684" category="summary">BlueXP备份和恢复功能可为ONTAP 集群数据提供保护和长期归档功能。备份会自动生成并存储在公有或私有云帐户的对象存储中，而与用于近期恢复或克隆的卷 Snapshot 副本无关。</block>
   <block id="453e66b92e78e9c59b8192fa674cb377" category="doc">使用BlueXP备份和恢复功能保护ONTAP 集群数据</block>
   <block id="cd6de3b24ca86c25e1638a3d0c67466c" category="paragraph">借助BlueXP备份和恢复功能、您可以将ONTAP 卷从以下工作环境备份到以下公共云和私有云提供商中的对象存储：</block>
   <block id="e053cf298b007eb949b93bc1bbd6453c" category="paragraph">在互联网连接有限(也称为"受限模式")的站点中、可以使用BlueXP备份和恢复来备份和还原卷数据。在这种情况下、您需要在受限区域部署BlueXP Connector。</block>
@@ -3499,7 +3488,6 @@
   <block id="094ba72a3fdb39776632245f235f26be" category="section-title">使用BlueXP备份和恢复PAYGO订阅</block>
   <block id="c04968186bb3df4bd0331429c63f8641" category="paragraph">有几个PAYGO BlueXP备份和恢复计划：</block>
   <block id="d6d65ebf5ad097949fd6fbbf14e96347" category="list-text">一个"CVO专业版"软件包、可用于捆绑Cloud Volumes ONTAP 和BlueXP备份和恢复。这包括使用许可证为Cloud Volumes ONTAP 系统备份的数量不限(备份容量不计入许可容量)。此选项不允许您备份内部 ONTAP 数据。</block>
-  <block id="d7a158120ac71a227bc19987a9b341fb" category="list-text">"CVO Edge Cache"软件包的功能与"CVO专业版"软件包相同、但也支持<block ref="475d408daeaf0424668ce650296169bb" category="inline-link-rx"></block>。您有权为Cloud Volumes ONTAP 系统上配置的每个3 TiB容量部署一个全局文件缓存边缘系统。此选项可通过Azure和Google MarketPlaces使用、但不支持备份内部ONTAP 数据。</block>
   <block id="c02893129433d085ea6dfbc155a79562" category="paragraph">使用以下链接从云提供商市场订阅BlueXP备份和恢复：</block>
   <block id="cdf5556d637c931d7fb6a645af6fc805" category="paragraph">每年购买一份年度合同、为BlueXP备份和恢复支付费用。</block>
   <block id="46289439d4ba1052046eac9e7e72ca47" category="list-text">一种"CVO专业人员"计划、可用于捆绑Cloud Volumes ONTAP 和BlueXP备份和恢复。这包括使用许可证为Cloud Volumes ONTAP 系统备份的数量不限(备份容量不计入许可容量)。此选项不允许您备份内部 ONTAP 数据。</block>
@@ -3549,7 +3537,6 @@
   <block id="cc30b9dac3532c6eec37a8e45c7aab0b" category="summary">通过Web UI提供的BlueXP备份和恢复功能也可通过RESTful API来实现。</block>
   <block id="77d4d9afc8b5a0160c070fc2f71692a4" category="doc">BlueXP备份和恢复API</block>
   <block id="3eb635444f2c91af4f0b9c5e7eb8ce2e" category="paragraph">通过Web UI提供的BlueXP备份和恢复功能也可通过RESTful API获得。</block>
-  <block id="17e519cb3c57a9ec38afbdc326725f90" category="paragraph">在BlueXP备份和恢复中定义了九类端点：</block>
   <block id="12a2037b721e887383ad92ab04c54ed9" category="paragraph">要开始使用BlueXP备份和恢复API、您需要获取用户令牌、您的BlueXP帐户ID和BlueXP Connector ID。</block>
   <block id="364d76798fa90eb8899a1b8798fd1791" category="paragraph">以下示例显示了一个API调用、用于在Azure云的East-US-2区域中的工作环境中激活BlueXP备份和恢复、该策略设置了每日、每小时和每周标签、天数设置为180天后进行归档。请注意、此操作仅在工作环境中启用备份、但不会备份任何卷。</block>
   <block id="16f8d7fb6b488cf9914e01cad7b0556f" category="paragraph">有关每个BlueXP备份和恢复API的文档、请参见<block ref="323898002645c2363c910f7c119fd4d6" category="inline-link-rx"></block>。</block>
@@ -3740,4 +3727,17 @@
   <block id="3eb97a71011fe0dae37080fd785e4db5" category="sidebar">备份和还原虚拟机数据</block>
   <block id="33871b6190a8d5adbe8b15282054766c" category="sidebar">新增功能</block>
   <block id="7048662b75c8f210e59f898d992521cc" category="sidebar">将数据存储库备份到云</block>
+  <block id="febda1467d687047522ece2d9d4680b8" category="summary">BlueXP备份和恢复服务提供备份和还原功能、用于保护和长期归档ONTAP 集群数据。备份会自动生成并存储在公有或私有云帐户的对象存储中，而与用于近期恢复或克隆的卷 Snapshot 副本无关。</block>
+  <block id="b0633b8fc7276f8e9a7f9ba97c212551" category="paragraph">您将收到一个序列号、您可以在BlueXP数字钱包页面中输入此序列号来启用此服务。达到任一限制后，您需要续订许可证。备份 BYOL 许可证适用场景 与关联的所有源系统<block ref="52a8d8c521fd6d51982efde4bc1bb1fd" category="inline-link-rx"></block>。</block>
+  <block id="a18f9997a691db43808d1169a31c3670" category="summary">BlueXP备份和恢复服务(Cloud Backup)可为内部和云端的NetApp ONTAP 数据、数据库和虚拟机提供高效、安全且经济高效的数据保护。</block>
+  <block id="3daba77ab92b57915950a36f17f965c3" category="summary">BlueXP备份和恢复服务可为内部和云端的NetApp ONTAP 数据、数据库和虚拟机提供高效、安全且经济高效的数据保护。备份会自动生成并存储在公有 或私有云帐户的对象存储中。</block>
+  <block id="6192be65cd3fbb101c0f789fab9eae08" category="inline-link">BlueXP边缘缓存</block>
+  <block id="a803d6b73372969b4830a3a6cc9bfeef" category="list-text">"CVO Edge Cache"软件包具有与"CVO专业版"软件包相同的功能、但也支持<block ref="6a291086b9b2e2c1bf57350866f6f726" category="inline-link-rx"></block> 服务您有权为Cloud Volumes ONTAP 系统上配置的每个3 TiB容量部署一个全局文件缓存边缘系统。此选项可通过Azure和Google MarketPlaces使用、但不支持备份内部ONTAP 数据。</block>
+  <block id="0a190b7a7b571c1c4ae19e069137c2ac" category="paragraph">您可以使用BlueXP电子钱包管理BYOL许可证。您可以通过BlueXP电子钱包添加新许可证、更新现有许可证以及查看许可证状态。</block>
+  <block id="ee3c97eeb652fa9d260a05c339bc1004" category="paragraph">如果您的许可期限即将到期，或者您的许可容量即将达到限制，您将在备份 UI 中收到通知。此状态也会显示在BlueXP数字钱包页面和中<block ref="2011e54262643b9060a004b0df801155" category="inline-link-rx"></block>。</block>
+  <block id="0553876f11122be0920f9fa9c803d152" category="inline-image-macro">在BlueXP数字钱包页面中显示即将到期的许可证的屏幕截图。</block>
+  <block id="3ef315abed0cef6dcc1d41cb39b4322b" category="paragraph"><block ref="3ef315abed0cef6dcc1d41cb39b4322b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b23b97d3c26b0f7e2265329756cea9ca" category="paragraph">在您为许可证付费并将其注册到NetApp 支持站点 之后、BlueXP会自动更新BlueXP电子钱包中的许可证、并且数据服务许可证页面将在5到10分钟内反映此更改。</block>
+  <block id="858d57a70137ab2d1ecb54acde00b982" category="list-text">在BlueXP数字钱包页面_Data Services Licenss_选项卡上、单击 <block ref="50acd719b1954eb4890c002b3b5e71a6" category="inline-image-macro-rx" type="image"></block> 对于要更新的服务序列号，请单击 * 更新许可证 * 。</block>
+  <block id="59c9e6a866010a647915edad57105749" category="paragraph">BlueXP备份和恢复中定义了十类端点：</block>
 </blocks>

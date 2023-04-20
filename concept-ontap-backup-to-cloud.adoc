@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: concept-ontap-backup-to-cloud.html 
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, billing, cost, on-premises ontap, onprem 
-summary: BlueXP备份和恢复功能可为ONTAP 集群数据提供保护和长期归档功能。备份会自动生成并存储在公有或私有云帐户的对象存储中，而与用于近期恢复或克隆的卷 Snapshot 副本无关。 
+summary: BlueXP备份和恢复服务提供备份和还原功能、用于保护和长期归档ONTAP 集群数据。备份会自动生成并存储在公有或私有云帐户的对象存储中，而与用于近期恢复或克隆的卷 Snapshot 副本无关。 
 ---
 = 使用BlueXP备份和恢复功能保护ONTAP 集群数据
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: BlueXP备份和恢复功能可为ONTAP 集群数据提供保护和长�
 
 
 [role="lead"]
-BlueXP备份和恢复功能可为ONTAP 集群数据提供保护和长期归档功能。备份会自动生成并存储在公有或私有云帐户的对象存储中，而与用于近期恢复或克隆的卷 Snapshot 副本无关。
+BlueXP备份和恢复服务提供备份和还原功能、用于保护和长期归档ONTAP 集群数据。备份会自动生成并存储在公有或私有云帐户的对象存储中，而与用于近期恢复或克隆的卷 Snapshot 副本无关。
 
 必要时、您可以将整个_volume"、"_folder"或一个或多个_files"从备份还原到相同或不同的工作环境。
 
@@ -223,7 +223,7 @@ BlueXP备份和恢复可用于以下使用模式：
 
 BYOL 基于期限（ 12 ， 24 或 36 个月） _ 和 _ 容量，以 1 TiB 为增量。您需要向 NetApp 支付一段时间（如 1 年）使用此服务的费用，最大容量（如 10 TiB ）。
 
-您将收到一个序列号、您可以在BlueXP数字电子邮件页面中输入此序列号来启用此服务。达到任一限制后，您需要续订许可证。备份 BYOL 许可证适用场景 与关联的所有源系统 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-netapp-accounts.html["BlueXP帐户"^]。
+您将收到一个序列号、您可以在BlueXP数字钱包页面中输入此序列号来启用此服务。达到任一限制后，您需要续订许可证。备份 BYOL 许可证适用场景 与关联的所有源系统 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-netapp-accounts.html["BlueXP帐户"^]。
 
 link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["了解如何管理 BYOL 许可证"]。
 

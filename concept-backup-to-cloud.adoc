@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: concept-backup-to-cloud.html 
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, kubernetes, applications, virtual machines, backup and recovery 
-summary: BlueXP备份和恢复为内部和云端的NetApp ONTAP 数据、数据库和虚拟机提供高效、安全且经济高效的数据保护。备份会自动生成并存储在公有 或私有云帐户的对象存储中。 
+summary: BlueXP备份和恢复服务可为内部和云端的NetApp ONTAP 数据、数据库和虚拟机提供高效、安全且经济高效的数据保护。备份会自动生成并存储在公有 或私有云帐户的对象存储中。 
 ---
 = 了解有关BlueXP备份和恢复的信息
 :hardbreaks:

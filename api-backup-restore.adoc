@@ -16,7 +16,7 @@ summary: 通过Web UI提供的BlueXP备份和恢复功能也可通过RESTful API
 [role="lead"]
 通过Web UI提供的BlueXP备份和恢复功能也可通过RESTful API获得。
 
-在BlueXP备份和恢复中定义了九类端点：
+BlueXP备份和恢复中定义了十类端点：
 
 * 备份—管理云和内部资源的备份操作、并检索备份数据的详细信息
 * 目录-根据查询管理文件的索引目录搜索(搜索和还原)
