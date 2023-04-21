@@ -1,0 +1,49 @@
+---
+sidebar: sidebar 
+permalink: reference-restart-backup.html 
+keywords: backup restart, restart backup 
+summary: 在某些情况下、您可能需要重新启动BlueXP备份和恢复服务。 
+---
+= 重新启动BlueXP备份和恢复服务
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在某些情况下、您可能需要重新启动BlueXP备份和恢复服务。
+
+BlueXP备份和恢复功能内置在BlueXP Connector中。根据是在云中部署Connector还是在Linux系统上手动安装Connector、您需要按照不同的初始步骤重新启动服务。
+
+.步骤
+. 连接到运行Connector的Linux系统。
++
+[cols="25,50"]
+|===
+| 连接器位置 | 操作步骤 
+
+
+| 云部署 | 按照的说明进行操作 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#connect-to-the-linux-vm["正在连接到Connector Linux虚拟机"^] 取决于您使用的云提供商。 
+
+
+| 手动安装 | 登录到Linux系统。 
+|===
+. 输入命令以重新启动服务。
++
+[cols="45,45"]
+|===
+| 连接器位置 | 命令 
+
+
+| 云部署 | `docker restart cloudmanager_cbs` 
+
+
+| 通过互联网访问手动安装 | `docker restart cloudmanager_cbs` 
+
+
+| 手动安装、不能访问Internet | `docker restart ds_cloudmanager_cbs_1` 
+|===
+

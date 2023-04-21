@@ -74,6 +74,8 @@ Oracle数据库主机
 . 修改*连接器ID*。
 
 
+ifdef::azure[]
+
 
 
  a| 
@@ -95,7 +97,9 @@ curl --location --request PATCH
 "new_connector_id": "New connector Id"
 }
 ----
-如果所有主机均已安装并运行适用于SAP HANA的SnapCenter 插件服务、并且所有主机均可从新连接器访问、则连接器详细信息将成功更新。
+如果所有主机都安装并运行适用于SAP HANA的SnapCenter 插件服务、并且所有主机都可从新连接器访问、则连接器详细信息将成功更新。
+
+endif::azure[]
 
 |===
 更新Oracle或SAP HANA主机的Connector详细信息后、请执行以下操作以确保已成功更新Connector详细信息。

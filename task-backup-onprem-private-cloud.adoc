@@ -147,7 +147,7 @@ StorageGRID 必须满足以下要求。请参见 https://docs.netapp.com/us-en/s
 --
 要对备份使用DataLock &勒索软件保护、您的StorageGRID 系统必须运行11.6.0.3或更高版本。
 
-要将较早的备份分层到云归档存储、您的StorageGRID 系统必须运行11.3或更高版本。
+要将较早的备份分层到云归档存储、您的StorageGRID 系统必须运行11.3或更高版本。此外、必须在BlueXP Canvas中发现StorageGRID 系统。
 
 --
 S3 凭据:: 您必须已创建S3租户帐户来控制对StorageGRID 存储的访问。 https://docs.netapp.com/us-en/storagegrid-116/admin/creating-tenant-account.html["有关详细信息、请参见StorageGRID 文档"^]。
