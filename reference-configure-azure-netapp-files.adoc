@@ -34,8 +34,8 @@ NOTE: 您不能从UI更新新的connector_id。
 有关信息、请参见 link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html["从BlueXP在Azure中创建连接器"]。
 
 * 您应使用相同的连接器来管理Azure NetApp Files 工作环境和数据库。
-* 如果您的Azure NetApp Files 工作环境和数据库位于同一虚拟私有云(Virtual Private Cloud、VPC)中、则可以将此连接器部署在同一个VPC中。
-* 如果您的Azure NetApp Files 工作环境和数据库位于不同的VPC中、并且在Azure NetApp Files 上配置了NAS (NFS)工作负载、则可以在任一VPC上创建连接器。
+* 如果Azure NetApp Files 工作环境和数据库位于同一个虚拟网络(vNet)中、则可以在同一个vNet中部署连接器。
+* 如果您的Azure NetApp Files 工作环境和数据库位于不同的VNet中、并且在Azure NetApp Files 上配置了NAS (NFS)工作负载、则可以在任一VNet上创建此连接器。
 
 
 创建连接器后、请执行以下操作：

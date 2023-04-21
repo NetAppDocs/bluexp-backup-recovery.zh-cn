@@ -14,7 +14,7 @@ summary: 了解有关保护虚拟机上数据的更多信息、并了解不同�
 
 
 [role="lead"]
-适用于虚拟机的BlueXP备份和恢复通过备份数据存储库来还原虚拟机、从而提供数据保护功能。
+适用于虚拟机的BlueXP备份和恢复通过备份数据存储库和还原虚拟机来提供数据保护功能。
 
 您可以将数据存储库备份到Amazon Web Services S3、Microsoft Azure Blb、Google Cloud Platform和StorageGRID 、并将虚拟机还原回适用于VMware vSphere的内部SnapCenter 插件主机。
 

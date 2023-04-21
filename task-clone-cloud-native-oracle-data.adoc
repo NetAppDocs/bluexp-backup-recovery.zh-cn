@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: task-clone-cloud-native-oracle-data.html 
-keywords: cloud native, application data, restore, data files, control files, recovery, Cloud Manager, BlueXP, Oracle database, Oracle 
+keywords: cloud-native, application data, restore, data files, control files, recovery, Cloud Manager, BlueXP, Oracle database, Oracle 
 summary: 将数据库克隆到源主机或备用主机。 
 ---
-= 克隆云本机Oracle数据库
+= 克隆云原生Oracle数据库
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

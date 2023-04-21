@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: task-backup-app-data-to-storagegrid.html 
-keywords: backing up, back up, backup, backup application data, Google Cloud, GCP, Cloud Backup, cloud backup service, Oracle database, Microsoft SQL Server database, SAP HANA database 
+keywords: backing up, back up, backup, backup application data, Google Cloud, GCP, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
 summary: 完成几个步骤、将应用程序数据从ONTAP 备份到GCP。 
 ---
 = 将内部应用程序数据备份到StorageGRID

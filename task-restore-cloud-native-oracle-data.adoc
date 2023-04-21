@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: task-restore-cloud-native-oracle-data.html 
-keywords: cloud native, application data, restore, data files, control files, recovery, Cloud Manager, BlueXP, Oracle database, Oracle 
+keywords: cloud-native, application data, restore, data files, control files, recovery, Cloud Manager, BlueXP, Oracle database, Oracle 
 summary: 还原数据文件和/或控制文件、然后恢复数据库。 
 ---
-= 还原云本机Oracle数据库
+= 还原云原生Oracle数据库
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -18,7 +18,7 @@ summary: 还原数据文件和/或控制文件、然后恢复数据库。
 
 * 开始之前 *
 
-如果Oracle 21c数据库处于已启动状态、还原操作将失败。要成功还原数据库、应运行以下命令。
+如果Oracle 21c数据库处于已启动状态、还原操作将失败。要成功还原数据库、您应运行以下命令。
 `cp -f <ORACLE_HOME>/jdbc/lib/ojdbc8.jar /opt/NetApp/snapcenter/spl/plugins/sco/lib/ojdbc8-8.jar`
 
 * 步骤 *

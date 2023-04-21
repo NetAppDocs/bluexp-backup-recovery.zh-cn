@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-create-policies-apps.html 
 keywords: policy, create, pre-canned polices, custom policies, protection policies 
-summary: 使用预制策略或创建您自己的策略来保护应用程序。 
+summary: 创建您自己的策略以保护应用程序。 
 ---
 = 创建用于备份应用程序的策略
 :hardbreaks:
