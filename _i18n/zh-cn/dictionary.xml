@@ -2875,7 +2875,6 @@
   <block id="135b308ed83c53f1516b7c754566d1c4" category="paragraph-title">开始之前</block>
   <block id="949ad3136d64be33cc1a6a67e3add3d1" category="paragraph">在开始将数据存储库和虚拟机备份到云提供商之前、请阅读以下要求、以确保您的配置受支持。</block>
   <block id="9b9477e579c3b44dd623d5a6e1ea8d78" category="list-text">BlueXP</block>
-  <block id="620e81d38f76998723b0192a6d3d009a" category="list-text">对于云备份预制策略、适用于VMware vSphere的SnapCenter 插件和云中的数据存储库的计划层应相同。</block>
   <block id="75f480f92315c62b407d8ae1ad890f29" category="paragraph">您可以将一个或多个数据存储库备份和归档到Amazon Web Services中、以提高存储效率并改善云过渡。</block>
   <block id="88e6abd4ee4f112ba359e37a218778f6" category="paragraph">如果数据存储库与归档策略关联、您可以选择归档层。支持的归档层为Glacier和Glacier Deep。</block>
   <block id="899494c2cbe7f443bbc4d058b8ea51a6" category="paragraph">配置希望BlueXP发现的集群管理LIF。为其中一个数据存储库添加工作环境后、可以对同一ONTAP 集群上的所有其他数据存储库重复使用该环境。</block>
@@ -3291,12 +3290,7 @@
   <block id="6303e0e569ab48a5e97ac5729b7354b5" category="list-text">sc_backup_name指定备份的名称。将为应用程序卷填充此参数。示例</block>
   <block id="fcf3dae76ca88120872e44d0e2a8632a" category="list-text">sc_target_SID指定克隆数据库的SID。对于 PDB 克隆工作流，不会预定义此参数的值。将为应用程序卷填充此参数。示例： clonedb</block>
   <block id="77488205944ea72e9e23e95280d03937" category="list-text">驻留在Amazon FSX上的Oracle数据库、适用于NetApp ONTAP 、Cloud Volumes ONTAP 和Azure NetApp Files</block>
-  <block id="19c84e82fa4984f5df63ce4f98f092e3" category="paragraph">Cloud Backup架构包括以下组件。</block>
-  <block id="c172c6b44294844886abdf85bca67551" category="list-text">Cloud Backup是一组由NetApp作为SaaS服务托管的数据保护服务、基于BlueXP SaaS平台。</block>
-  <block id="182bd05f63635c015828e6ea29df8f87" category="list-text">Cloud Backup UI可为应用程序提供数据保护功能、并可从BlueXP UI进行访问。</block>
   <block id="ca8bb01c601877e87fd9c90bc1063d4e" category="list-text">BlueXP Connector是一个在云网络中运行的组件、可与存储系统和应用程序特定插件进行交互。</block>
-  <block id="d22e0f69ea6e44134be4670e0ae7fce7" category="paragraph">对于任何用户发起的请求、Cloud Backup UI都会与BlueXP SaaS进行通信、在验证请求后、该SaaS会处理相同的请求。如果请求运行备份、还原或克隆等工作流、SaaS服务将启动此工作流、并在需要时将此调用转发到BlueXP Connector。然后、在运行工作流任务期间、Connector会与存储系统和应用程序特定插件进行通信。</block>
-  <block id="596d8d0a85b032b70cc48497df12dfed" category="admonition">Cloud Backup SaaS基础架构可在区域内对可用性区域故障进行故障恢复。它通过故障转移到新区域来支持区域故障、而此故障转移需要停机大约2小时。</block>
   <block id="16c125a4350a830ef25b444e7c8e77ae" category="paragraph">您可以手动、使用脚本或自动部署此插件。</block>
   <block id="2883368889244856ee2153e7da94f334" category="list-text">备份驻留在适用于NetApp ONTAP 、Cloud Volumes ONTAP 和Azure NetApp Files 的Amazon FSX上的Oracle数据库</block>
   <block id="d8d6e412c9a8b94c54f1f0b85341ce79" category="paragraph">您可以在策略中指定不同的计划频率，例如每小时，每天，每周和每月。您还可以指定成功备份后要执行的后处理脚本、以便将快照复制到二级存储。</block>
@@ -3756,4 +3750,10 @@
   <block id="2f1042d0e59ea2a8ebfd0fb9bb5c169f" category="sidebar">还原云原生Oracle应用程序数据</block>
   <block id="54d6597fa185df5cd22caa81d7e9d4d9" category="sidebar">还原云原生SAP HANA应用程序数据</block>
   <block id="f93e4e0ba0745745e36a3b67b14a8a5b" category="sidebar">BlueXP网络研讨会</block>
+  <block id="a3e9bcad86b818f7875704d49bbe6240" category="list-text">对于预制策略、适用于VMware vSphere的SnapCenter 插件中的数据存储库和云中的计划层应相同。</block>
+  <block id="eb7084fa002dda093f8d4e3d744ec8c3" category="paragraph">适用于应用程序的BlueXP备份和恢复架构包括以下组件。</block>
+  <block id="94e1a3fbef097baefd6187935d2712fd" category="list-text">BlueXP备份和恢复是一组由NetApp作为SaaS服务托管的数据保护服务、基于BlueXP SaaS平台。</block>
+  <block id="9bc4ac9aec3ce95487de5999da3a7e13" category="list-text">BlueXP UI可为应用程序提供数据保护功能、并可从BlueXP UI进行访问。</block>
+  <block id="5f6363d5a5bf731c42038bd14750276a" category="paragraph">对于任何用户发起的请求、BlueXP UI都会与BlueXP SaaS进行通信、而在验证请求后、BlueXP SaaS会处理相同的请求。如果请求运行备份、还原或克隆等工作流、SaaS服务将启动此工作流、并在需要时将此调用转发到BlueXP Connector。然后、在运行工作流任务期间、Connector会与存储系统和应用程序特定插件进行通信。</block>
+  <block id="49e77e013cd6e44ddab4df1881f2dd91" category="admonition">BlueXP SaaS基础架构能够在区域内灵活应对可用性区域故障。它通过故障转移到新区域来支持区域故障、而此故障转移需要停机大约2小时。</block>
 </blocks>

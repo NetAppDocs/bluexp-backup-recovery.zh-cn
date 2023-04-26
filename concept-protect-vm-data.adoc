@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: concept-protect-vm-data.html 
-keywords: protect virtual machines, vm, policy, policies, backup back up, restore, SnapCenter Plug-in, Cloud Manager, BlueXP, Cloud backup for virtual machines 
+keywords: protect virtual machines, vm, policy, policies, backup back up, restore, SnapCenter Plug-in, Cloud Manager, BlueXP 
 summary: 了解有关保护虚拟机上数据的更多信息、并了解不同的策略。 
 ---
 = 保护虚拟机数据
@@ -31,7 +31,7 @@ summary: 了解有关保护虚拟机上数据的更多信息、并了解不同�
 * 仅支持NFS数据存储库。不支持基于iSCSI/FC/NVMe和VVol的VMFS数据存储库。
 * 适用于VMware vSphere 4.6P1的SnapCenter 插件应至少已创建一个备份。
 * 适用于VMware vSphere的SnapCenter 插件中至少有一个每日、每周或每月策略、没有与BlueXP中虚拟机策略相同的标签。
-* 对于云备份预制策略、适用于VMware vSphere的SnapCenter 插件和云中的数据存储库的计划层应相同。
+* 对于预制策略、适用于VMware vSphere的SnapCenter 插件中的数据存储库和云中的计划层应相同。
 * 确保数据存储库中没有FlexGroup 卷、因为不支持备份和还原FlexGroup 卷。
 * 请确保所有卷均未加密、因为不支持还原加密卷。
 * 在所需资源组上禁用"*近期*"。如果为资源组启用了"*近期*"、则这些资源组的备份不能用于云数据保护、因此无法用于还原操作。

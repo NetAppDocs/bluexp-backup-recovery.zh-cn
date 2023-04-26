@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: task-backup-vm-data-to-aws.html 
-keywords: back up, backup, backup datastore, aws, Amazon Web Services, cloud backup, backup datastores 
+keywords: back up, backup, backup datastore, aws, Amazon Web Services, backup datastores 
 summary: 将数据存储库从内部ONTAP 备份到AWS。 
 ---
 = 将数据存储库备份到Amazon Web Services
