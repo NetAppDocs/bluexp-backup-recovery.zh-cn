@@ -55,7 +55,7 @@ summary: 还原数据文件和/或控制文件、然后恢复数据库。
 您也可以选中*强制原位还原*复选框。
 
 +
-在SAN布局中、如果适用于Oracle的SnapCenter 插件在ASM磁盘组上发现除Oracle数据文件以外的任何外部文件、则会执行连接和复制还原方法。外部文件可以是以下一种或多种类型：
+在Amazon FSx for NetApp ONTAP 或Cloud Volumes ONTAP SAN布局中、如果适用于Oracle的SnapCenter 插件在ASM磁盘组上发现除Oracle数据文件以外的任何外部文件、则会执行连接和副本还原方法。外部文件可以是以下一种或多种类型：
 
 +
 ** 参数

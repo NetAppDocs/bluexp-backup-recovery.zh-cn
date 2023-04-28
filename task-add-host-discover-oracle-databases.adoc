@@ -32,7 +32,7 @@ summary: 在每个Oracle数据库主机上安装适用于Oracle的SnapCenter 插
 在添加主机之前、您应确保满足前提条件。
 
 * 您应已创建工作环境和Connector。
-* 确保Connector可连接到工作环境和Oracle数据库主机。
+* 确保连接器已连接到Oracle数据库主机。
 +
 有关如何解决连接问题描述 的信息、请参见 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Cloud_Backup_Application_Failed_to_validate_connectivity_from_BlueXP_connector_host_to_application_database_host["无法验证从BlueXP连接器主机到应用程序数据库主机的连接"]。
 
@@ -40,11 +40,11 @@ summary: 在每个Oracle数据库主机上安装适用于Oracle的SnapCenter 插
 如果连接器丢失或创建了新连接器、则应将此连接器与现有应用程序资源相关联。有关更新Connector的说明、请参见 link:task-manage-cloud-native-app-data.html#update-the-connector-details["更新连接器详细信息"]。
 
 * 确保BlueXP用户具有"帐户管理员"角色。
+* 确保应用程序主机上存在用于数据保护操作的非root (sudo)帐户。
 * 确保在每个Oracle数据库主机上安装了Java 11 (64位) Oracle Java或OpenJDK、并且正确设置了java_home变量。
 * 如果执行基于SSH的安装、请确保Connector已启用与SSH端口的通信(默认值：22)。
 * 确保Connector已启用与插件端口的通信(默认值为8145)、以便数据保护操作正常运行。
 * 确保已安装最新版本的插件。要升级此插件、请参见 <<升级适用于Oracle数据库的SnapCenter 插件>>。
-* 在应用程序主机上创建非root (sudo)帐户。
 
 
 
@@ -58,21 +58,16 @@ summary: 在每个Oracle数据库主机上安装适用于Oracle的SnapCenter 插
 . 单击*发现应用程序*。
 . 选择* Cloud原生 *、然后单击*下一步*。
 +
-系统会创建一个具有_Data SnapCenter System_角色的服务帐户、以便为此帐户中的所有用户执行计划的数据保护操作。
-
-+
-** 单击*帐户*>*管理帐户*>*成员*以查看服务帐户。
-+
-
-NOTE: 服务帐户(_SnapCenter-account-snapback__<accountid>)用于运行计划的备份操作。切勿删除此服务帐户。
-
-
+创建了一个<accountid> 具有_SnapCenter-account-SnapSystem_角色的服务帐户(SnapCenter System_)、以便为此帐户中的所有用户执行计划的数据保护操作。服务帐户(_SnapCenter-account-snapback__<accountid>)用于运行计划的备份操作。切勿删除此服务帐户。您可以通过单击*Account*>*Manage Account*>*成员*来查看服务帐户。
 
 . 选择Oracle作为应用程序类型。
 . 在主机详细信息页面中、执行以下操作：
 +
 .. 选择*使用SSH*。
 .. 指定要安装此插件的主机的FQDN或IP地址。
++
+确保Connector可以使用FQDN或IP地址与数据库主机进行通信。
+
 .. 指定要将插件软件包复制到主机的非root (sudo)用户。
 +
 不支持root用户。
@@ -101,8 +96,8 @@ NOTE: SSH私钥不会存储在应用程序的任何位置、也不会用于任�
 
 . 查看详细信息并单击*发现应用程序*。
 +
-** 安装此插件后、发现操作将开始。您可以从*作业监控*页面监控安装作业。
-** 显示主机上的所有数据库。如果数据库禁用了操作系统身份验证、请单击*配置*以启用数据库身份验证。有关详细信息，请参见 <<配置Oracle数据库凭据>>。
+** 安装此插件后、发现操作将开始。
+** 完成发现操作后、将显示主机上的所有数据库。如果数据库禁用了操作系统身份验证、请单击*配置*以启用数据库身份验证。有关详细信息，请参见 <<配置Oracle数据库凭据>>。
 ** 单击*设置*并选择*主机*以查看所有主机。
 +
 
@@ -129,15 +124,7 @@ NOTE: 用于查看特定主机的筛选器不起作用。在筛选器中指定�
 . 单击*发现应用程序*。
 . 选择* Cloud原生 *、然后单击*下一步*。
 +
-系统会创建一个具有_Data SnapCenter System_角色的服务帐户、以便为此帐户中的所有用户执行计划的数据保护操作。
-
-+
-** 单击*帐户*>*管理帐户*>*成员*以查看服务帐户。
-+
-
-NOTE: 服务帐户(_SnapCenter-account-snapback__<accountid>)用于运行计划的备份操作。切勿删除此服务帐户。
-
-
+创建了一个<accountid> 具有_SnapCenter-account-SnapSystem_角色的服务帐户(SnapCenter System_)、以便为此帐户中的所有用户执行计划的数据保护操作。服务帐户(_SnapCenter-account-snapback__<accountid>)用于运行计划的备份操作。切勿删除此服务帐户。您可以通过单击*Account*>*Manage Account*>*成员*来查看服务帐户。
 
 . 选择Oracle作为应用程序类型。
 . 在主机详细信息页面中、执行以下操作：
@@ -145,7 +132,7 @@ NOTE: 服务帐户(_SnapCenter-account-snapback__<accountid>)用于运行计划�
 .. 选择*手动*。
 .. 指定安装此插件的主机的FQDN或IP地址。
 +
-确保使用FQDN或IP地址时、Connector可以与数据库主机进行通信。
+确保Connector可以使用FQDN或IP地址与数据库主机进行通信。
 
 .. 指定插件端口。
 +
@@ -167,20 +154,71 @@ NOTE: 服务帐户(_SnapCenter-account-snapback__<accountid>)用于运行计划�
 . 使用Connector中提供的脚本安装此插件。
 `sudo bash  /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port>`
 +
-** plugin_host是Oracle主机的名称、此参数为必填参数。
-** host_user_name是在Oracle主机上具有SSH权限的SnapCenter 用户、这是一个必需参数。
-** host_ssh_key是SnapCenter 用户的SSH密钥、用于连接到Oracle主机。这是一个必需参数。
-** plugin_port是插件使用的端口、此参数是可选参数。默认值为8145
-** host_ssh_port是Oracle主机上的SSH端口、这是一个可选参数。默认值为22
+|===
+| Name | Description | 必填 | Default 
+
+
+ a| 
+plugin_host
+ a| 
+指定Oracle主机
+ a| 
+是的。
+ a| 
+-
+
+
+
+ a| 
+host_user_name
+ a| 
+指定在Oracle主机上具有SSH权限的SnapCenter 用户
+ a| 
+是的。
+ a| 
+-
+
+
+
+ a| 
+host_ssh_key
+ a| 
+指定SnapCenter 用户的SSH密钥、用于连接到Oracle主机
+ a| 
+是的。
+ a| 
+-
+
+
+
+ a| 
+plugin_port
+ a| 
+指定插件使用的端口
+ a| 
+否
+ a| 
+8145
+
+
+
+ a| 
+host_ssh_port
+ a| 
+指定Oracle主机上的SSH端口
+ a| 
+否
+ a| 
+22.
+
+|===
 +
 例如：
 `sudo bash  /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host 10.0.1.1 --username snapcenter --sshkey /keys/netapp-ssh.ppk`
 
-
-
 . 查看详细信息并单击*发现应用程序*。
 +
-** 显示主机上的所有数据库。如果数据库禁用了操作系统身份验证、请单击*配置*以启用数据库身份验证。有关详细信息，请参见 <<配置Oracle数据库凭据>>。
+** 完成发现操作后、将显示主机上的所有数据库。如果数据库禁用了操作系统身份验证、请单击*配置*以启用数据库身份验证。有关详细信息，请参见 <<配置Oracle数据库凭据>>。
 ** 单击*设置*并选择*主机*以查看所有主机。
 +
 
@@ -203,15 +241,7 @@ NOTE: 用于查看特定主机的筛选器不起作用。在筛选器中指定�
 . 单击*发现应用程序*。
 . 选择* Cloud原生 *、然后单击*下一步*。
 +
-系统会创建一个具有_Data SnapCenter System_角色的服务帐户、以便为此帐户中的所有用户执行计划的数据保护操作。
-
-+
-** 单击*帐户*>*管理帐户*>*成员*以查看服务帐户。
-+
-
-NOTE: 服务帐户(_SnapCenter-account-snapback__<accountid>)用于运行计划的备份操作。切勿删除此服务帐户。
-
-
+创建了一个<accountid> 具有_SnapCenter-account-SnapSystem_角色的服务帐户(SnapCenter System_)、以便为此帐户中的所有用户执行计划的数据保护操作。服务帐户(_SnapCenter-account-snapback__<accountid>)用于运行计划的备份操作。切勿删除此服务帐户。您可以通过单击*Account*>*Manage Account*>*成员*来查看服务帐户。
 
 . 选择Oracle作为应用程序类型。
 . 在*主机详细信息*页面中、执行以下操作：
@@ -255,7 +285,7 @@ NOTE: 服务帐户(_SnapCenter-account-snapback__<accountid>)用于运行计划�
 `docker exec -it cloudmanager_scs_cloud curl -ik \https://<FQDN or IP of the plug-in host>:<plug-in port>/PluginService/Version --cert /config/client/certificate/certificate.pem --key /config/client/certificate/key.pem`
 . 查看详细信息并单击*发现应用程序*。
 +
-** 显示主机上的所有数据库。如果数据库禁用了操作系统身份验证、请单击*配置*以启用数据库身份验证。有关详细信息，请参见 <<配置Oracle数据库凭据>>。
+** 完成发现操作后、将显示主机上的所有数据库。如果数据库禁用了操作系统身份验证、请单击*配置*以启用数据库身份验证。有关详细信息，请参见 <<配置Oracle数据库凭据>>。
 ** 单击*设置*并选择*主机*以查看所有主机。
 +
 

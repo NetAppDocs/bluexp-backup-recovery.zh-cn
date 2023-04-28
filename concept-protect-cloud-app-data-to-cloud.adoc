@@ -59,7 +59,7 @@ IMPORTANT: BlueXP SaaS基础架构能够在区域内灵活应对可用性区域�
 
 * 添加主机并部署插件
 +
-您可以手动、使用脚本或自动部署此插件。
+您可以使用UI、脚本或手动部署插件。
 
 * 自动发现Oracle数据库
 * 备份驻留在适用于NetApp ONTAP 、Cloud Volumes ONTAP 和Azure NetApp Files 的Amazon FSX上的Oracle数据库

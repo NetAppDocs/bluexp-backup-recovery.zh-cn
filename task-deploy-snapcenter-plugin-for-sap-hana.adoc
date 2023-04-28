@@ -170,18 +170,9 @@ host_ssh_port
 . 重新启动SPL：`systemctl restart spl`
 . 通过从Connector运行以下命令、验证此插件是否可从Connector访问。
 `docker exec -it cloudmanager_scs_cloud curl -ik \https://<FQDN or IP of the plug-in host>:<plug-in port>/PluginService/Version --cert  config/client/certificate/certificate.pem --key /config/client/certificate/key.pem`
-. 查看详细信息并单击*发现应用程序*。
-+
-** 显示主机上的所有数据库。
-** 单击*设置*并选择*主机*以查看所有主机。
-+
-
-NOTE: 用于查看特定主机的筛选器不起作用。在筛选器中指定主机名时、将显示所有主机。
-
-** 单击*设置*并选择*策略*以查看预制策略。查看预制策略、您可以根据需要对其进行编辑、也可以创建新策略。
 
 
-
+安装此插件后、您应执行此操作 <<添加SAP HANA数据库主机>>。
 
 
 
@@ -246,8 +237,6 @@ NOTE: 用于查看特定主机的筛选器不起作用。在筛选器中指定�
 
 
 NOTE: 用于查看特定主机的筛选器不起作用。在筛选器中指定主机名时、将显示所有主机。
-
-*下一步行动*
 
 您可以从用户界面以及使用REST API修改或删除SAP HANA系统。
 

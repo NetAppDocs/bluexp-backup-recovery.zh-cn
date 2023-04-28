@@ -14,7 +14,7 @@ summary: 将数据库克隆到源主机或备用主机。
 
 
 [role="lead"]
-您可以使用数据库备份将Oracle数据库克隆到源数据库主机或备用主机。
+您可以通过将驻留在Amazon FSx for NetApp ONTAP 或Cloud Volumes ONTAP 上的Oracle数据库备份到源数据库主机或备用主机来克隆该数据库。
 
 克隆数据库的原因如下：
 

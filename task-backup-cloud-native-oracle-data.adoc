@@ -37,7 +37,7 @@ summary: 创建Oracle数据库的计划备份或按需备份。
 您应将后处理脚本保留在路径_/var/opt/snapcenter/spl/scripts_中。
 
 +
-支持的环境变量包括：
+POST脚本支持一组环境变量。
 
 +
 |===
@@ -95,7 +95,7 @@ sc_primary_ARCHIVELOG_volume_full_path
 您可以分配预制策略或创建策略、然后将其分配给数据库。分配策略后、将按照策略中定义的计划创建备份。
 
 
-NOTE: 对于Oracle、在创建ASM磁盘组时、请确保磁盘组之间没有通用卷。每个磁盘组都应具有专用卷。
+NOTE: 在Amazon FSx for NetApp ONTAP 或Cloud Volumes ONTAP 上创建ASM磁盘组时、请确保各个磁盘组之间没有通用卷。每个磁盘组都应具有专用卷。
 
 * 步骤 *
 
@@ -122,7 +122,7 @@ NOTE: 服务帐户(_SnapCenter-account-snapback__<account_id>)用于运行计划
 * 步骤 *
 
 . 在应用程序页面中、单击 image:icon-action.png["图标以选择操作"] 对应于应用程序、然后单击*按需备份*。
-. 如果为应用程序分配了多个策略、请选择策略和保留值、然后单击*创建备份*。
+. 如果为应用程序分配了多个策略、请选择策略和保留层、然后单击*创建备份*。
 
 
 
@@ -130,7 +130,7 @@ NOTE: 服务帐户(_SnapCenter-account-snapback__<account_id>)用于运行计划
 == 限制
 
 * 对于位于多个与FSX卷重叠的ASM磁盘组上的Oracle数据库、不支持一致性组快照
-* 如果Oracle数据库是在ASM上配置的、请确保SVM名称在整个FSX系统中是唯一的。如果您在FSX系统中使用相同的SVM名称、则不支持备份位于这些SVM上的Oracle数据库。
+* 如果Oracle数据库位于Amazon FSx for NetApp ONTAP 或Cloud Volumes ONTAP 上、并且在ASM上配置、请确保SVM名称在FSx系统中是唯一的。如果您在FSX系统中使用相同的SVM名称、则不支持备份位于这些SVM上的Oracle数据库。
 * 还原大型数据库(250 GB或更大)后、如果在同一数据库上执行完整备份、则操作可能会失败、并显示以下错误：
 `failed with status code 500, error {\"error\":{\"code\":\"app_internal_error\",\"message\":\"Failed to create snapshot. Reason: Snapshot operation not allowed due to clones backed by snapshots. Try again after sometime.`
 +
