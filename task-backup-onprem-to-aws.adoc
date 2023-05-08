@@ -199,7 +199,7 @@ IP空间中的所有集群间LIF都必须能够访问对象存储。如果无法
 
 
 .步骤
-. 确认以下 S3 权限（从最新版本开始） https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html["BlueXP策略"^]）是为 Connector 提供权限的 IAM 角色的一部分。
+. 确认以下 S3 权限（从最新版本开始） https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html["BlueXP策略"^]）是为 Connector 提供权限的 IAM 角色的一部分。如果不是、请参见 https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html["AWS 文档：编辑 IAM 策略"]。
 +
 [source, json]
 ----
@@ -261,7 +261,8 @@ IP空间中的所有集群间LIF都必须能够访问对象存储。如果无法
       },
 ----
 +
-如果您使用3.9.21或更高版本部署了Connector、则这些权限应已属于IAM角色。否则，您需要添加缺少的权限。具体来说就是 "Athena" 和 "glue" 权限，因为它们是搜索和还原所必需的。请参见 https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html["AWS 文档：编辑 IAM 策略"]。
+
+NOTE: 在AWS中国地区创建备份时、您需要将IAM策略中所有_Resource_部分下的AWS资源名称"arn"从"aws"更改为"AAWS CN"；例如 `arn:aws-cn:s3:::netapp-backup-*`。
 
 . 激活此服务时，备份向导将提示您输入访问密钥和机密密钥。这些凭据将传递到 ONTAP 集群，以便 ONTAP 可以将数据备份和还原到 S3 存储分段。为此，您需要创建具有以下权限的 IAM 用户：
 +

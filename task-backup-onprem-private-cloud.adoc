@@ -179,6 +179,7 @@ S3 凭据:: 您必须已创建S3租户帐户来控制对StorageGRID 存储的访
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["了解连接器"^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-on-prem.html["在可访问 Internet 的 Linux 主机上安装 Connector"^]
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-private-mode.html["在无法访问 Internet 的 Linux 主机上安装 Connector"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html["在连接器之间切换"^]
 
 
 

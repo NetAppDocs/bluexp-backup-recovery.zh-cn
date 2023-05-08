@@ -27,7 +27,7 @@ summary: 完成几个步骤、开始将卷数据从Cloud Volumes ONTAP 系统备
 * 您正在Azure中运行Cloud Volumes ONTAP 9.7P5或更高版本(建议使用ONTAP 9.8P13及更高版本)。
 * 您已为备份所在的存储空间订阅了有效的云提供商。
 * 您已订阅 https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["BlueXP Marketplace备份服务"^]或您已购买 link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["并激活"^] NetApp提供的BlueXP备份和恢复BYOL许可证。
-* 您已在Azure中安装Connector。此连接器可以安装在完全Internet访问("标准模式")或有限Internet连接("受限模式")的站点上。
+* 您已在Azure中安装Connector。连接器可以安装在具有完全互联网访问("标准模式")或有限互联网连接("受限模式")的站点上。
 
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"] 在新系统或现有系统上启用BlueXP备份和恢复
@@ -77,17 +77,17 @@ image:diagram_cloud_backup_cvo_azure.png["一个示意图、显示了BlueXP备�
 许可证要求:: 对于BlueXP备份和恢复PAYGO许可、在启用BlueXP备份和恢复之前、需要通过Azure Marketplace订阅。BlueXP备份和恢复的计费通过此订阅完成。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-azure.html["您可以从工作环境向导的详细信息和 amp ；凭据页面订阅"^]。
 +
 --
-对于BlueXP备份和恢复BYOL许可、您需要NetApp提供的序列号、以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["了解如何管理 BYOL 许可证"]。如果连接器和Cloud Volumes ONTAP 系统部署在非公开站点中、则必须使用BYOL许可证。
+对于BlueXP备份和恢复BYOL许可、您需要NetApp提供的序列号、以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["了解如何管理 BYOL 许可证"]。如果Connector和Cloud Volumes ONTAP 系统部署在非公开站点("专用模式")中、则必须使用BYOL许可证。
 
 您需要为备份所在的存储空间订阅 Microsoft Azure 。
 
 --
-连接器要求:: 连接器可以安装在完全或有限的Internet访问("标准"或"受限"模式)下的Azure区域。
+连接器要求:: Connector可以安装在具有完全或有限Internet访问权限("标准"或"受限"模式)的Azure区域中。 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-modes.html["有关详细信息、请参见BlueXP部署模式"^]。
 +
 --
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["了解连接器"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-azure.html["在Azure中部署Connector"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-restricted-mode.html["在Azure区域的Linux主机上手动安装Connector"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-azure.html["在标准模式下在Azure中部署Connector (完全Internet访问)"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-restricted-mode.html["在受限模式下安装连接器(受限出站访问)"^]
 
 
 --
@@ -175,10 +175,11 @@ https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-az
 
 --
 支持的 Azure 区域:: 所有Azure地区均支持BlueXP备份和恢复 https://cloud.netapp.com/cloud-volumes-global-regions["支持 Cloud Volumes ONTAP 的位置"^]；包括 Azure 政府区域。
-
-
++
+--
 默认情况下、BlueXP备份和恢复会为Blob容器配置本地冗余(LRS)以实现成本优化。如果要确保在不同分区之间复制数据、您可以在激活BlueXP备份和恢复后将此设置更改为区域冗余(ZRS)。请参见的Microsoft说明 https://learn.microsoft.com/en-us/azure/storage/common/redundancy-migration?tabs=portal["更改存储帐户的复制方式"^]。
 
+--
 在其他 Azure 订阅中创建备份所需的设置:: 默认情况下，备份是使用与 Cloud Volumes ONTAP 系统相同的订阅创建的。如果要对备份使用其他 Azure 订阅，则必须使用 link:reference-backup-multi-account-azure.html["登录到 Azure 门户并链接这两个订阅"]。
 使用客户管理的密钥进行数据加密所需的信息:: 您可以在激活向导中使用自己的客户管理密钥进行数据加密，而不是使用默认的 Microsoft 管理的加密密钥。在这种情况下，您需要拥有 Azure 订阅，密钥存储名称和密钥。 https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["了解如何使用您自己的密钥"^]。
 

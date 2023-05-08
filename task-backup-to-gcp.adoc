@@ -116,11 +116,12 @@ bigquery.tables.create
 
 
 --
-使用客户管理的加密密钥(CMEK)所需的信息:: 您可以使用自己由客户管理的密钥进行数据加密、而不是使用默认的Google管理的加密密钥。在这种情况下、您需要具有密钥环和密钥名称、以便可以在激活向导中添加此信息。 https://cloud.google.com/kms/docs/cmek["详细了解客户管理的加密密钥"^]。
+使用客户管理的加密密钥(CMEK)所需的信息:: 您可以使用自己由客户管理的密钥进行数据加密、而不是使用默认的Google管理的加密密钥。跨区域键和跨项目键均受支持、因此您可以为与CMDK键项目不同的分段选择项目。如果您计划使用自己的客户管理密钥：
 +
 --
-您还需要在角色中添加以下必需权限、Connector for CMEE才能正常工作：
-
+* 您需要具有密钥环和密钥名称、才能在激活向导中添加此信息。 https://cloud.google.com/kms/docs/cmek["详细了解客户管理的加密密钥"^]。
+* 您需要验证连接器的角色是否包含以下所需权限：
++
 [source, json]
 ----
 cloudkms.cryptoKeys.get
@@ -132,13 +133,16 @@ cloudkms.keyRings.getIamPolicy
 cloudkms.keyRings.list
 cloudkms.keyRings.setIamPolicy
 ----
-* CMEE注意事项：*
+* 您需要验证是否已在项目中启用Google "云密钥管理服务(KMS)"API。请参见 https://cloud.google.com/apis/docs/getting-started#enabling_apis["Google Cloud文档：启用API"] 了解详细信息。
+* * CMEE注意事项：*
++
+** 支持HSM (硬件支持的)和软件生成的密钥。
+** 新创建的或导入的Cloud KMS密钥均受支持。
+** 仅支持区域密钥、不支持全局密钥。
+** 目前、仅支持"对称加密/解密"目的。
+** 与存储帐户关联的服务代理将通过BlueXP备份和恢复为"CryptoKey Encrypter/ Decrypter (roles/cloudkms.CryptoKeyEncrypterDecrypter)" IAM角色分配"CryptoKey Encrypter/Decrypter (角色/cloudkms.CryptoKeyEncrypterDecrypter)"。
 
-* 支持HSM (硬件支持)和软件生成的密钥。
-* 新创建的或导入的Cloud KMS密钥均受支持。
-* 仅支持区域密钥、不支持全局密钥。
-* 目前、仅支持"对称加密/解密"目的。
-* 与存储帐户关联的服务代理将通过BlueXP备份和恢复为"CryptoKey Encrypter/ Decrypter (roles/cloudkms.CryptoKeyEncrypterDecrypter)" IAM角色分配"CryptoKey Encrypter/Decrypter (角色/cloudkms.CryptoKeyEncrypterDecrypter)"。
+
 
 
 --

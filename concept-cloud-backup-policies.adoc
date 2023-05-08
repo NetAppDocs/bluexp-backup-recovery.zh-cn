@@ -22,7 +22,7 @@ summary: 通过BlueXP备份和恢复、您可以为内部ONTAP 和Cloud Volumes 
 
 通过BlueXP备份和恢复功能、您可以为每个工作环境(集群)创建多个备份策略、并为其创建唯一的计划。您可以为具有不同恢复点目标(RPO)的卷分配不同的备份策略。
 
-每个备份策略都为_Labels & Retenation_s提供了一个部分、您可以将其应用于备份文件。
+每个备份策略都为_Labels & Retenation_s提供了一个部分、您可以将其应用于备份文件。请注意、应用于卷的Snapshot策略必须是BlueXP备份和恢复可识别的策略之一、否则不会创建备份文件。
 
 image:screenshot_backup_schedule_settings.png["创建备份策略时的备份计划设置的屏幕截图。"]
 
@@ -53,7 +53,7 @@ image:screenshot_backup_schedule_settings.png["创建备份策略时的备份计
 
 BlueXP备份和恢复支持为卷备份提供DataLock和勒索软件保护。通过这些功能、您可以锁定备份文件并对其进行扫描、以检测备份文件上可能存在的勒索软件。这是一个可选设置、当您希望为集群的卷备份提供额外保护时、可以在备份策略中定义此设置。
 
-这两项功能均可保护您的备份文件、以便您始终拥有一个有效的备份文件、以便在源数据遭受勒索软件攻击时从恢复数据。如果备份需要锁定并保留一段时间、则满足某些法规要求也会很有帮助。启用DataLock和勒索软件保护后、作为BlueXP备份和恢复激活一部分配置的云分段将启用对象锁定和对象版本控制。
+这两项功能都可以保护您的备份文件、以便在您的备份受到勒索软件攻击时、您始终拥有一个有效的备份文件来恢复数据。如果备份需要锁定并保留一段时间、则满足某些法规要求也会很有帮助。启用DataLock和勒索软件保护后、作为BlueXP备份和恢复激活一部分配置的云分段将启用对象锁定和对象版本控制。
 
 https://bluexp.netapp.com/blog/cbs-blg-the-bluexp-feature-that-protects-backups-from-ransomware["有关详细信息、请参见DataLock和勒索软件保护博客"^]。
 
@@ -197,14 +197,11 @@ DataLock设置为_Compliance"模式、在此保留期间、任何用户都无法
 
 === 要求
 
-* 集群必须运行ONTAP 9.11.1或更高版本(对于Azure、为9.12.1)
-* 您必须使用BlueXP 3.9.21或更高版本
-
-
 ifdef::aws[]
 
 * 对于AWS：
 +
+** 集群必须运行ONTAP 9.11.1或更高版本
 ** 连接器可以部署在云中或内部环境中
 ** 以下S3权限必须属于为Connector提供权限的IAM角色。它们位于资源"arn：AWS：s3：：：：netapp-backup-*"的"backupS3Policy"部分中：
 +
@@ -250,6 +247,7 @@ ifdef::azure[]
 
 * 对于Azure：
 +
+** 集群必须运行ONTAP 9.12.1或更高版本
 ** 连接器可以部署在云中或内部环境中
 
 
@@ -259,7 +257,8 @@ endif::azure[]
 
 * 对于StorageGRID ：
 +
-** 要完全支持DataLock功能、需要使用StorageGRID 11.6.0.3及更高版本
+** 集群必须运行ONTAP 9.11.1或更高版本
+** StorageGRID 系统必须运行11.6.0.3或更高版本
 ** 连接器必须部署在您的内部环境中(可以安装在可访问Internet或不可访问Internet的站点中)
 ** 以下S3权限必须属于为Connector提供权限的IAM角色：
 +

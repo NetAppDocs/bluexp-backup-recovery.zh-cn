@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-licensing-cloud-backup.html 
 keywords: license, licensing, install, updating license, paygo license, byol license, nlf, license generator, backup license, add backup license, update backup license, annual 
-summary: '您可以通过从云提供商购买按需购买(PAYGO)或年度市场订阅、或者从NetApp购买自带许可证(BYOL)来获得BlueXP备份和恢复的许可。要在工作环境中激活BlueXP备份和恢复、为生产数据创建备份以及将备份数据还原到生产系统、需要有效的许可证。' 
+summary: 您可以通过从云提供商处购买按需购买或年度市场订阅或从NetApp购买自带许可证来许可BlueXP备份和恢复。要在工作环境中激活BlueXP备份和恢复、为生产数据创建备份以及将备份数据还原到生产系统、需要有效的许可证。 
 ---
 = 为BlueXP备份和恢复设置许可
 :hardbreaks:
@@ -50,7 +50,7 @@ link:concept-ontap-backup-to-cloud.html#cost["详细了解与使用BlueXP备份�
 
 * 一个"云备份"软件包、可用于备份Cloud Volumes ONTAP 数据和内部ONTAP 数据。
 * 一个"CVO专业版"软件包、可用于捆绑Cloud Volumes ONTAP 和BlueXP备份和恢复。这包括使用许可证为Cloud Volumes ONTAP 系统备份的数量不限(备份容量不计入许可容量)。此选项不支持备份内部ONTAP 数据。
-* "CVO Edge Cache"软件包具有与"CVO专业版"软件包相同的功能、但也支持 https://docs.netapp.com/us-en/cloud-manager-file-cache/concept-gfc.html["BlueXP边缘缓存"^] 服务您有权为Cloud Volumes ONTAP 系统上配置的每个3 TiB容量部署一个全局文件缓存边缘系统。此选项可通过Azure和Google Marketplaces使用、但不支持备份内部ONTAP 数据。
+* "CVO Edge Cache"软件包具有与"CVO专业版"软件包相同的功能、但也支持 https://docs.netapp.com/us-en/cloud-manager-file-cache/concept-gfc.html["BlueXP边缘缓存"^] 服务您有权为Cloud Volumes ONTAP 系统上每配置3 TiB的容量部署一个BlueXP边缘缓存边缘系统。此选项可通过Azure和Google Marketplaces使用、但不支持备份内部ONTAP 数据。
 
 
 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html#capacity-based-licensing["详细了解这些基于容量的许可证包"]。

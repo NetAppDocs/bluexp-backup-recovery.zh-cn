@@ -443,7 +443,6 @@
   <block id="39f91bde3bf148c0b27accc0c3b738c0" category="inline-image-macro">适用于工作环境的取消注册备份按钮的屏幕截图。</block>
   <block id="6b8f75608c780411342a488cc1ed6a77" category="paragraph"><block ref="6b8f75608c780411342a488cc1ed6a77" category="inline-image-macro-rx" type="image"></block></block>
   <block id="16d050cc0c345f23a8c1f9d1557ac107" category="list-text">在确认对话框中，单击 * 取消注册 * 。</block>
-  <block id="abad9ff4f9967065f50634a2a3606dd0" category="inline-link-macro">了解如何使用搜索和放大；还原</block>
   <block id="6aa300e24ddf3ee5a99bbb1cf5bb4a72" category="inline-link-macro">有关详细信息，请访问此处</block>
   <block id="c9413dd7682a45da9ecc9efa8cea47d7" category="list-text">正在进行中</block>
   <block id="7b2f31b90fe1c2cc33a52233c1925df3" category="list-text">已排队</block>
@@ -843,10 +842,6 @@
   <block id="13f4833f14110af4cb2943f6ee04ec0c" category="inline-link">Amazon Athena</block>
   <block id="d27c79824b42388962acf60cbd3cac6a" category="inline-link">AWS 胶水</block>
   <block id="d2ad1da6ad2f6901b037159165028912" category="paragraph">您可以 <block ref="14977a695b05dfa7b0cad6887e2a74bd" category="inline-xref-macro-rx"></block> 可随时从管理备份页面访问。</block>
-  <block id="ad806d4b803a5aa7358400786d14dec0" category="section-title">2022 年 4 月 4 日</block>
-  <block id="223fdeee6256cb135700ded14acc7574" category="section-title">适用于应用程序的 Cloud Backup 1.1.0 （由 SnapCenter 提供支持）现已正式上市</block>
-  <block id="1959411b4282df2234896496da39c42f" category="paragraph">如果需要，您可以将此数据从云还原到内部环境。</block>
-  <block id="0749ae9ea79ee87dd8c530f67a9065fe" category="section-title">新的搜索和还原功能可在所有 ONTAP 备份文件中搜索卷或文件</block>
   <block id="c1d703bdf53bad5718c774b5ba1504f9" category="paragraph">StorageGRID 必须满足以下要求。请参见<block ref="a9591d68f190d64ce21caf15a77d51e9" category="inline-link-rx"></block> 有关详细信息 ...</block>
   <block id="5559993f6f3050a853326203c63f7ed0" category="cell">浏览公有 云和本地 Snapshot 副本的结果</block>
   <block id="a7aea8698166f2ca86f6eca652031639" category="list-text">集群上必须安装 Trident ，并且 Trident 版本必须至少为 21.1 。请参见<block ref="efafd7c7be663b6b746c03d24d88023f" category="inline-link-rx"></block> 或<block ref="23a633d2f31911781b4c35e0d8f7c8b9" category="inline-link-rx"></block>。</block>
@@ -1044,8 +1039,6 @@
   <block id="52e2c3fc6fb58a0ca1eb816ca6e270ed" category="section-title">Cloud Backup API现在可用于管理备份和还原操作</block>
   <block id="8334797b9b3383d4f48d98178b8845ea" category="inline-link-macro">此页面</block>
   <block id="b83e2caeb95bea361704be4e9e795cd1" category="paragraph">这些API可从获取<block ref="323898002645c2363c910f7c119fd4d6" category="inline-link-rx"></block>。请参见 <block ref="cf7847f4c926eb96d69d319dfdc23654" category="inline-link-macro-rx"></block> 有关API的概述。</block>
-  <block id="45ee97ced966affff074d2bc1efe2686" category="paragraph">通过全新的Cloud Backup for Applications功能、您可以将适用于Oracle和Microsoft SQL的现有应用程序一致性快照(备份)从内部主存储卸载到Amazon S3或Azure Blob中的云对象存储。</block>
-  <block id="8a0841a62164343a6bb78ffd4349420f" category="inline-link">了解有关保护内部应用程序数据到云的更多信息</block>
   <block id="49930e1d4376887999c072bd91775525" category="cell">备份文件目标ifdef：：AWS]]</block>
   <block id="8889077573d45691231050324d93b6a9" category="cell">Amazon S3 endif：：AWS]] ifdef：：azure[]</block>
   <block id="0959a2f5eff65303771c49363a01d789" category="cell">Azure Blob endf：：azure[] ifdef：：GCP[]</block>
@@ -1155,8 +1148,6 @@
   <block id="f42fcdabb7c9a7075b26292ed8cb7a23" category="section-title">在为ONTAP 系统创建备份策略时、还可以使用其他功能</block>
   <block id="cd359ec6a578adbdedd6582f88b84401" category="list-text">现在可以按年计划进行备份。对于年度备份、默认保留值为1、但如果要访问前几年的许多备份文件、您可以更改此值。</block>
   <block id="42a0fcc08cab0bf2248dfca3aecd8ec9" category="list-text">您可以为备份策略命名、以便使用更具描述性的文本来标识策略。</block>
-  <block id="81631218cb28b1a163189c4aebeb5b6e" category="paragraph"><block ref="10a22265366b4a7cf695c35ca14547db" category="inline-link-macro-rx"></block>。</block>
-  <block id="41cb49a16b097520a48e2141982170fe" category="paragraph">现在，您可以按部分或完整卷名称，部分或完整文件名称，大小范围以及其他搜索筛选器在 * 所有 ONTAP 备份文件 * 中搜索卷或文件。如果您不确定哪个集群或卷是数据源，这是一种很好的新方法来查找要还原的数据。 <block ref="3e575c236f27ae49c244d24621c1b57f" category="inline-link-macro-rx"></block>。</block>
   <block id="de76148f38881d048b0371c5472a1c65" category="list-text">每年的备份从一年中第一天午夜之后开始。</block>
   <block id="c04e9a5a6565b2a7f08b4191d93602f6" category="inline-link">详细了解这些基于容量的许可证包</block>
   <block id="15117a805dc21b83a72d3b993a76f167" category="paragraph"><block ref="0b3d0999528dc9bb1b2a5ebd17f87563" category="inline-link-rx"></block>。</block>
@@ -1239,7 +1230,6 @@
   <block id="49ed93361b6144f58f401017aa6361d0" category="paragraph">某些备份策略页面经过重新设计、可以更轻松地查看每个ONTAP 集群中的卷可用的所有备份策略。这样可以更轻松地查看可用策略的详细信息、以便您可以在卷上应用最佳策略。</block>
   <block id="c386ae49c48be8bcc2fbd19ab4807c0a" category="section-title">拖放以启用Cloud Backup to Azure Blob和Google Cloud Storage</block>
   <block id="b6f2e1a880ce20ab3d1039056746fa33" category="paragraph">Amazon S3存储分段已具有此功能。</block>
-  <block id="a6b870bb5171cb2d515fffc98b581212" category="paragraph">如果您使用3.9.21或更高版本部署了Connector、则这些权限应已属于IAM角色。否则，您需要添加缺少的权限。具体来说就是 "Athena" 和 "glue" 权限，因为它们是搜索和还原所必需的。请参见<block ref="484fb6182b52563a51349e6fb7cb2cb6" category="inline-link-rx"></block>。</block>
   <block id="5434b58cc632a508fca184ec8cb34294" category="inline-link-macro">详细了解可用的DataLock设置</block>
   <block id="f9fb067e87a469d33f2c1b6dec021ae0" category="list-text">或者、在使用ONTAP 9.11.1及更高版本时、您也可以选择通过配置_DataLock和勒索软件保护_设置之一来保护备份免受删除和勒索软件攻击。_DataLock_可防止您的备份文件被修改或删除、_勒索 软件保护_会扫描您的备份文件、以在备份文件中查找勒索软件攻击的证据。 <block ref="a1590ca0a57c2e20ed40ac0f3384a5af" category="inline-link-macro-rx"></block>。</block>
   <block id="8be7c341ad4c4150ad2dd90c80959459" category="list-text">或者、在使用ONTAP 9.10.1及更高版本时、您也可以选择在一定天数后将备份分层到S3 Glacier或S3 Glacier深度归档存储、以进一步优化成本。 <block ref="2de406ab8684cf34c99f94962ed7517c" category="inline-link-macro-rx"></block>。</block>
@@ -1264,7 +1254,6 @@
   <block id="838673683be5994995929c75f646c552" category="paragraph">如果您的备份的Azure Blob目标作为工作环境存在于Canvas上、您可以将集群拖动到Azure Blob工作环境中以启动设置向导。</block>
   <block id="13c394645c5b3c9ae498be6d358a1af3" category="paragraph">如果用于备份的Google Cloud Storage目标作为工作环境存在于Canvas上、则可以将集群拖动到Google Cloud Storage工作环境中以启动设置向导。</block>
   <block id="1ac86f6dd27abfcb13588ec9dff9ba2a" category="section-title">备份计划</block>
-  <block id="4c2b90bc53de152e23fccbce641ea19e" category="paragraph">每个备份策略都为_Labels &amp; Retenation_s提供了一个部分、您可以将其应用于备份文件。</block>
   <block id="154eb228b3f63f7705fe329177ea16b6" category="inline-image-macro">创建备份策略时的备份计划设置的屏幕截图。</block>
   <block id="38175fe10c317ca778ce56abf9d3ff3f" category="paragraph"><block ref="38175fe10c317ca778ce56abf9d3ff3f" category="inline-image-macro-rx" type="image"></block></block>
   <block id="dca086ae01946b6cf950f1291d93aac6" category="paragraph">计划分为两部分：标签和保留值：</block>
@@ -1337,7 +1326,6 @@
   <block id="dd717dd6a5197fd72bf9aae1e454dd3e" category="list-text">备份数据保护(DP)卷时：</block>
   <block id="c73aeadbe74d06b3eebf4d0a5f283344" category="list-text">与SnapMirror标签`APP_consistent`和`all_source_snapshot`的关系不会备份到云。</block>
   <block id="ff65f252d2a0aa40e634cf2ad7eaa2d3" category="list-text">数据保护卷不支持使用*立即备份*按钮进行临时卷备份。</block>
-  <block id="f9f784798392e12769fac127e94ef591" category="paragraph">如果您使用3.9.21或更高版本部署了Connector、则这些权限应已属于IAM角色。否则，您需要添加缺少的权限。具体来说就是 "Athena" 和 "glue" 权限，因为它们是搜索和还原所必需的。</block>
   <block id="ad3ed17097701c874fe6d082544e8ccb" category="list-text">单击*卷*选项卡可查看Cloud Volumes ONTAP 和内部ONTAP 系统的已备份卷列表。</block>
   <block id="f50c680c14d8afac3d005a6dee0819cd" category="list-text">从 _Backup Settings_ 页面中，单击 <block ref="50acd719b1954eb4890c002b3b5e71a6" category="inline-image-macro-rx" type="image"></block> 对于要更改策略设置的工作环境、请选择*管理策略*。</block>
   <block id="9c230c0e21c24d1d4e90c857d5894cbf" category="list-text">在_Manage Policies_页面中、单击*编辑*作为要在该工作环境中更改的备份策略。</block>
@@ -1482,7 +1470,6 @@
   <block id="8996e9eaff78ab540aab279a66de20ac" category="inline-xref">使用Search &amp; amp；Restore还原卷、文件夹和文件</block>
   <block id="67e7c5cb86f955703ed9f6730af64fd6" category="list-text"><block ref="2695406f56a43b731bc71bc11df2f690" category="inline-xref-macro-rx"></block></block>
   <block id="7ff418ea3dd2acd8ae27ed509d08a48b" category="paragraph">您可以将卷、文件夹或单个文件从ONTAP 备份文件还原到以下工作环境：</block>
-  <block id="2e43b583329f5406f8eb83df6ec39874" category="admonition">如果备份文件已配置DataLock &amp;勒索软件、则无法还原文件夹或文件。在这种情况下、您可以从备份文件还原整个卷、然后访问所需的文件。</block>
   <block id="860f07d2ed109437af4b64fd8713b385" category="paragraph">请注意，从归档存储中的备份文件还原卷可能需要数分钟或数小时，具体取决于归档层和还原优先级。您可以单击*作业监控*选项卡查看还原进度。</block>
   <block id="7e9e3d210bbdc9a1da52aaf1ad227746" category="section-title">使用浏览和还原还原文件夹和文件</block>
   <block id="27816218998e04ffd3077d0806e7798b" category="paragraph">如果您只需要从ONTAP 卷备份还原几个文件、则可以选择还原文件夹或单个文件、而不是还原整个卷。您可以将文件夹和文件还原到原始工作环境中的现有卷、也可以还原到使用同一云帐户的其他工作环境。您还可以将文件夹和文件还原到内部ONTAP 系统上的卷。</block>
@@ -1499,7 +1486,6 @@
   <block id="db6e1cf4c1d9707cf6370182a43333c0" category="list-text">在_Select Source"页面中、导航到包含要还原的文件夹或文件的卷的备份文件。选择具有要从中还原文件的日期 / 时间戳的 * 工作环境 * ， * 卷 * 和 * 备份 * 。</block>
   <block id="666ed8be10916b8df1e91c68afc70837" category="inline-image-macro">为要还原的项目选择卷和备份的屏幕截图。</block>
   <block id="3241f00f6afec47c1dd4ded721e91f06" category="paragraph"><block ref="3241f00f6afec47c1dd4ded721e91f06" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="10eb46f1b53b83c16651550062cc84dd" category="paragraph">如果要从位于归档存储层(从ONTAP 9.10.1开始提供)中的备份文件还原文件夹或文件、则可以选择还原优先级。</block>
   <block id="ebbb5acf9eeef476ac9814c657f478a6" category="paragraph">+如果对备份文件启用了勒索软件保护(如果您在备份策略中启用了DataLock和勒索软件保护)、则系统会提示您在还原数据之前对备份文件运行额外的勒索软件扫描。我们建议您扫描备份文件以查找勒索软件。</block>
   <block id="7bb9fd3f9e0a378a25dd32a5202de877" category="inline-image-macro">Select Items页面的屏幕截图、用于导航到要还原的项目。</block>
   <block id="f0d4d7f2cce1062f2b862ef90b4ef0c0" category="paragraph">+<block ref="fc9c529c4f71392c736c88c8ef2b4e72" category="inline-image-macro-rx" type="image"></block></block>
@@ -1573,7 +1559,6 @@
   <block id="46651d9c49a465cb6fa5e07cd6981948" category="list-text">以下S3权限必须属于为Connector提供权限的IAM角色。它们位于资源"arn：AWS：s3：：：：netapp-backup-*"的"backupS3Policy"部分中：</block>
   <block id="a0cfa687d678b7bdaa6e05ad4367a96d" category="list-text">对于StorageGRID ：</block>
   <block id="00913a42b009e85b8960c2fdad53a54a" category="list-text">连接器必须部署在您的内部环境中(可以安装在可访问Internet或不可访问Internet的站点中)</block>
-  <block id="6d77a031f2c449f19db709bc8ae95649" category="list-text">要完全支持DataLock功能、需要使用StorageGRID 11.6.0.3及更高版本</block>
   <block id="6176afad6a7761beffa9af008f2ae633" category="inline-link">观看快速演示</block>
   <block id="a9840ddd0211114f18d80718c08ddb05" category="paragraph"><block ref="a9840ddd0211114f18d80718c08ddb05" category="inline-link-rx"></block></block>
   <block id="ca636232aaf17fe5d8fef3b105b4363c" category="list-text">将卷、文件夹或单个文件还原到源系统或其他系统。</block>
@@ -1732,7 +1717,6 @@
   <block id="44ead0e70e856f32d3afe2f909f3fbe2" category="section-title">在BlueXP中发现您的ONTAP 集群</block>
   <block id="b8d5e07bc0e2420adf3ba2b4c875d337" category="paragraph">您需要先在BlueXP中发现内部ONTAP 集群、然后才能开始备份卷数据。要添加集群，您需要知道集群管理 IP 地址和管理员用户帐户的密码。</block>
   <block id="a7c7bd193740210990d86811ef377b56" category="inline-link">BlueXP策略</block>
-  <block id="ba3bf3919e519d351085ac724a9accf7" category="list-text">确认以下 S3 权限（从最新版本开始）<block ref="7dfaeab02b2622441821b715f9d8495a" category="inline-link-rx"></block>）是为 Connector 提供权限的 IAM 角色的一部分。</block>
   <block id="f59bbb6de7b8eafb6ccb2f617135ff84" category="list-text">修改与BlueXP Connector关联的安全组配置。您必须将此策略更改为 "Custom" （自定义）（从 "Full Access" ），并且必须将其更改为 "Custom" （自定义） <block ref="52cd24ecfd99d5b16a10d03c54f9d16b" category="inline-xref-macro-rx"></block> 如前面所示。</block>
   <block id="667b744af05e085368d150edc4b8a344" category="inline-link">登录到托管BlueXP Connector的虚拟机</block>
   <block id="53580765f208bf3a21b9b94ab077bfb1" category="list-text">从 VPC S3 端点获取证书。您可以通过执行此操作<block ref="baa295d957d2e86c0ec7224e7ed425da" category="inline-link-rx"></block> 并运行以下命令。输入端点的 DNS 名称时，在开头添加 " 分段 " ，替换 "* " ：</block>
@@ -1780,10 +1764,8 @@
   <block id="97b5e4c408de2e312a0b1fc4e2535f1f" category="list-text">必须将特定的Azure Synapse Workspace和Data Lake存储帐户权限添加到为BlueXP提供权限的用户角色中。 <block ref="3f613adb79f1db61c1db3e20329cd95a" category="inline-link-macro-rx"></block>。</block>
   <block id="a6e5e96ba9eebf564c1d0ef4d770658f" category="list-text">必须将特定的Google BigQuery权限添加到为BlueXP提供权限的用户角色中。 <block ref="1401fe87dc595535076f05f545f8275e" category="inline-link-macro-rx"></block>。</block>
   <block id="71e064246e91e058534eb9c47cbeadcf" category="inline-link-macro">通过BlueXP在AWS中创建连接器</block>
-  <block id="033f9aa227c492833c2f1af28d01f134" category="list-text">您必须使用BlueXP 3.9.21或更高版本</block>
   <block id="a8db6f5de8da7da9d3f1b9e9e4dfc251" category="list-text">获取包含BlueXP Connector ID的x-agent-id。</block>
   <block id="6c5b6689ac55433faa02a7b00a324c53" category="list-text">您已将Kubernetes集群发现为一个BlueXP工作环境。<block ref="fe9c905e0ac5679eb2b5a96bea671a0a" category="inline-link-rx"></block>。</block>
-  <block id="de91611ef7d87d7277497c9a2076d470" category="list-text">为BlueXP提供权限的IAM角色必须包括最新版本的S3权限<block ref="7dfaeab02b2622441821b715f9d8495a" category="inline-link-rx"></block>。</block>
   <block id="9330e7377c5511f70bfc35493714892a" category="list-text">在BlueXP UI中、单击*保护*&gt;*备份和恢复*&gt;*虚拟机*&gt;*设置*&gt;*适用于VMware vSphere的SnapCenter 插件*。</block>
   <block id="8fc5a6acddf8678dc2c340b6dfae42a9" category="list-text">单击*备份和恢复*&gt;*虚拟机*。</block>
   <block id="2b36d2f46a4c7d47c05352e78b2ebe53" category="doc">将内部应用程序数据备份到Google Cloud Platform</block>
@@ -1942,7 +1924,6 @@
   <block id="95bdcffb51de388c8d204ebc69a73e61" category="section-title">AWS跨帐户备份增强功能</block>
   <block id="ae3795f53c6086a9639e4652dbff318b" category="paragraph">如果要对Cloud Volumes ONTAP 备份使用与源卷不同的AWS帐户、则必须在BlueXP中添加目标AWS帐户凭据、并且必须将权限"S3：PutBucketPolicy"和"S3：PutBucketOwnershipControls"添加到为BlueXP提供权限的IAM角色中。过去、您需要在AWS控制台中配置许多设置、而不再需要这样做。</block>
   <block id="ef88ffe6f484bdfc25f97445be29df28" category="sidebar">管理集群级别的备份设置</block>
-  <block id="4a4cfe5483874f73014159f5baca5462" category="list-text">临时(按需)卷备份失败</block>
   <block id="30dae49f6de63e85b78b96b2080bb0bb" category="paragraph">您不必删除源卷。您可以删除卷的备份关系并保留源卷。在这种情况下、您可以稍后在卷上"激活"备份。在这种情况下、仍会使用原始基线备份副本—不会创建新的基线备份副本并将其导出到云。请注意、如果您重新激活备份关系、则会为卷分配默认备份策略。</block>
   <block id="495f64bce7d9d754a435527baf769353" category="paragraph">只有在系统运行ONTAP 9.12.1或更高版本时、此功能才可用。</block>
   <block id="228129642e2d421577991251a19c55f5" category="list-text">更改历史Snapshot副本是否包含在未来卷的初始基线备份文件中</block>
@@ -2002,7 +1983,6 @@
   <block id="9412087e43270b75b90fb61a57336ae4" category="paragraph"><block ref="3c746f2f3db6e0c7091d37b11706df4d" category="inline-link-macro-rx"></block>。</block>
   <block id="a4601bed84cfcc515268c444afd2de52" category="paragraph"><block ref="bb0b0cd162d3c161f2efdc6c31126950" category="inline-link-macro-rx"></block>。Google Archive存储层中的备份文件几乎会立即还原、并且不需要"还原"优先级。</block>
   <block id="8eea62084ca7e541d918e823422bd82e" category="paragraph-title">结果</block>
-  <block id="b696dfa697a630f834f39ef334da1579" category="list-text">要执行_folder_还原操作、ONTAP 版本必须为9.11.1或更高版本。ifdef：：AWS。</block>
   <block id="149fb738a290d4d7e242bb7a559fed06" category="inline-link-macro">查看有关这些要求的详细信息</block>
   <block id="877b0f756f66e3e84fa762dc3c8a2b9e" category="list-text">从 Amazon S3 还原时，请选择目标卷所在 ONTAP 集群中的 IP 空间，输入您创建的用户的访问密钥和机密密钥，以便为 ONTAP 集群授予对 S3 存储分段的访问权限。 此外，还可以选择一个专用 VPC 端点来实现安全数据传输。 <block ref="59db365b1913b0034fd7f8109883ec93" category="inline-link-macro-rx"></block>。</block>
   <block id="f1bad5bccc0926b2365a948394ec0c3b" category="list-text">从Azure Blob还原时、请选择目标卷所在的ONTAP 集群中的IP空间、也可以选择vNet和子网来选择用于安全数据传输的私有端点。 <block ref="a7e5c84b094b3a8759a279cc77c2362b" category="inline-link-macro-rx"></block>。</block>
@@ -2057,7 +2037,6 @@
   <block id="bab09e9304b5c4bff1eb4287ce6071b7" category="list-text">FlexGroup 卷(需要ONTAP 9.12.1或更高版本)</block>
   <block id="181beb5ba2cd4630deb7eb4905bcf5d0" category="list-text">在 GCP 中，备份与 _Standard_ 存储类关联。</block>
   <block id="e3ef2b7eb11e46c821f75f7c65663319" category="inline-link-macro">了解有关Google归档存储的更多信息</block>
-  <block id="7675fc79dcb00b07887361a923ba9860" category="list-text">如果备份文件驻留在归档存储中、则无法还原单个文件夹。</block>
   <block id="70762168244eed6d4b30ab53961acada" category="inline-link">了解如何执行此操作</block>
   <block id="ce03951df7fb3e2e2a2d44f1f519bfc7" category="list-text">所需的AWS Connector权限</block>
   <block id="5fc7bffc6ccf29fc2aae8be1237ab6b8" category="list-text">所需的AWS Cloud Volumes ONTAP 权限</block>
@@ -2484,8 +2463,6 @@
   <block id="add26d38486fad5ca461f986832fa6c3" category="inline-image-macro">架构图</block>
   <block id="955c6f1851b4039bd20ae31d5f14d338" category="paragraph"><block ref="955c6f1851b4039bd20ae31d5f14d338" category="inline-image-macro-rx" type="image"></block></block>
   <block id="d1444f985888131065bf58d488e5a34f" category="sidebar">还原内部应用程序数据</block>
-  <block id="fd9064c3951e4ceddd0e2ae6bf2708e5" category="paragraph">*注意：*如果包含要还原的数据的备份文件位于归档存储中(从ONTAP 9.10.1开始)、则还原操作将需要较长时间并产生成本。此外、目标集群还必须运行ONTAP 9.10.1或更高版本来执行卷还原、9.11.1来执行文件还原、9.12.1来执行Google Archive和StorageGRID。</block>
-  <block id="c003f27675e7048b4dd9d00ba4f2f343" category="paragraph">如果要还原的卷的备份文件驻留在归档存储中(从ONTAP 9.10.1开始可用)、则还原操作将需要较长时间并产生额外成本。请注意、目标集群还必须运行ONTAP 9.10.1或更高版本来执行卷还原、9.11.1来执行文件还原、9.12.1来执行Google Archive和StorageGRID。</block>
   <block id="aba6991b1b269dad52e52cd4c3998779" category="list-text">必须在卷上启用NFS (支持NFS和SMB/CIFS卷)。</block>
   <block id="4870c40d3a9790a30e2c950188cce666" category="list-text">必须在 SVM 上激活 SnapDiff RPC 服务器。在工作环境中启用索引时、BlueXP会自动执行此操作。(SnapDiff是一种技术、可快速识别两个Snapshot副本之间的文件和目录差异。)</block>
   <block id="3583d22777b682d17c7d912cdbfe39ae" category="list-text">您已发现内部集群并将其添加为BlueXP中的工作环境。请参见<block ref="04e8e773ac6637419158f2743860946e" category="inline-link-rx"></block> 了解详细信息。</block>
@@ -2509,10 +2486,7 @@
   <block id="1b9cd9f1d110a19c8b1050fa1e561e7b" category="list-text">选择一个项目，然后单击 * 互操作性 * 。如果尚未启用互操作性访问，请单击 * 启用互操作性访问 * 。</block>
   <block id="cb5b8455e39199ad360babf0d764750a" category="section-title">使用客户管理的加密密钥(CMEK)</block>
   <block id="47bb831f95ab1288c32b97aba5fa20cb" category="inline-link">详细了解客户管理的加密密钥</block>
-  <block id="15384dc3b70c9b07babeb039640c6cd0" category="paragraph">您可以使用自己由客户管理的密钥进行数据加密、而不是使用默认的Google管理的加密密钥。在这种情况下、您需要具有密钥环和密钥名称、以便可以在激活向导中添加此信息。<block ref="f8e0e63bffb58004a25f7278cd43c42c" category="inline-link-rx"></block>。</block>
-  <block id="f850c5b79269cb96d63324524deffe7d" category="paragraph">您还需要在角色中添加以下必需权限、Connector for CMEE才能正常工作：</block>
   <block id="2381bd859243711ef52a6003e1f2a815" category="paragraph">* CMEE注意事项：*</block>
-  <block id="59fb95b874bcbbfbda9fa6989e37cce4" category="list-text">支持HSM (硬件支持)和软件生成的密钥。</block>
   <block id="59446873896ed16ae8f1cb30ccfe0a7a" category="list-text">新创建的或导入的Cloud KMS密钥均受支持。</block>
   <block id="2b3b83fb44538b632325042aba519ab5" category="list-text">仅支持区域密钥、不支持全局密钥。</block>
   <block id="d9c15cd950d71f46009911fed97cd7ad" category="list-text">目前、仅支持"对称加密/解密"目的。</block>
@@ -2576,7 +2550,6 @@
   <block id="cd1cceb157b5982d899b66d18217af64" category="list-text">如果在非公开站点中使用Connector、则索引目录信息将存储在Connector上(需要连接器3.9.25或更高版本)。</block>
   <block id="e083799711dc9b588bbb440525564506" category="section-title">增加了对在无法访问Internet的站点中使用搜索和还原还原还原数据的支持</block>
   <block id="c9ec78264dce9938676b736265201e28" category="inline-link">请参见如何使用搜索和放大器还原ONTAP 数据</block>
-  <block id="4f60787e5fe87ac0aa425be67237edec" category="list-text">FlexGroup 卷备份无法移动到归档存储、也无法使用DataLock和勒索软件保护。</block>
   <block id="0c1029565d47087d49e25dbc4e2a20e9" category="list-text">Restore—用于执行卷、文件和文件夹级别的还原操作</block>
   <block id="b7027e7163ab44680c3c69296db41564" category="paragraph">如果您的内部集群使用的是ONTAP 9.12.1或更高版本、而StorageGRID 系统使用的是11.3或更高版本、则可以使用此功能。<block ref="ba1010a667c53f122912d421bb932c28" category="inline-link-rx"></block>。</block>
   <block id="a282fca785a0e402e0b5cdde4c380d6d" category="paragraph">如果您要将数据从内部ONTAP 集群备份到无法访问Internet的站点(也称为非公开站点或脱机站点)中的StorageGRID 、则现在可以根据需要使用搜索和还原选项还原数据。此功能要求在脱机站点中部署BlueXP Connector (3.9.25或更高版本)。</block>
@@ -2590,8 +2563,6 @@
   <block id="80ce9d537bd04197e7c7cc4227525715" category="list-text"><block ref="9c6f56f3012c2178f15d4346495a0a67" prefix="" category="inline-code"></block></block>
   <block id="4014cba1d3679d7444ccb96338d9ee36" category="list-text"><block ref="8e0864f8129f5d2b658668b9103e83a5" prefix="" category="inline-code"></block></block>
   <block id="139e90f4554bdc4681ca70203e695cd5" category="list-text"><block ref="28e5f48e9f12d4928897b706c15e527a" prefix="" category="inline-code"></block></block>
-  <block id="66d2847cfd42bf73060fb82fb4345a9a" category="list-text">如果备份文件已配置DataLock &amp;勒索软件、则当前不支持文件夹级还原。在这种情况下、您可以从备份文件还原整个卷、然后访问所需的文件夹和文件。</block>
-  <block id="5571d67bc301ab9246278c7b368f2013" category="list-text">如果备份文件驻留在归档存储中、则当前不支持文件夹级还原。在这种情况下、您可以从尚未归档的较新备份文件还原文件夹、也可以从归档的备份还原整个卷、然后访问所需的文件夹和文件。</block>
   <block id="0375f4855be072c7d856a0233cc21de9" category="section-title">支持云提供商解决方案</block>
   <block id="be845c219bb74b14349ffa6e27e7aef3" category="paragraph">有关已集成到BlueXP中的以下云提供商解决方案的技术支持、请参阅该产品的BlueXP文档中的"获得帮助"。</block>
   <block id="5bf5309465f91318228a7f956b826348" category="list-text"><block ref="5bf5309465f91318228a7f956b826348" category="inline-link-macro-rx"></block></block>
@@ -2615,7 +2586,6 @@
   <block id="b60b433cbb018337e7d15c6d92ec2a0e" category="paragraph">备份文件会在保留期限内受到保护。保留期限可以增加、但不能缩短。满足完全合规性要求。已启用勒索软件保护。</block>
   <block id="a7333071b8d492fc2184540602ce3b9e" category="cell">Azure Blob endf：：azure[] ifdef：：gcp[] endf：：gcp[]</block>
   <block id="da3a611050815415e3372ad88f95d3e7" category="cell">ifdef：：：AWS]] Amazon S3 endf：：AWS]] ifdef：：azure[] Azure Blob endf：：azure[] ifdef：：GCP () endf：：GCP () NetApp StorageGRID</block>
-  <block id="3e07e3793cc8aeeff073f7b7004ec087" category="list-text">集群必须运行ONTAP 9.11.1或更高版本(对于Azure、为9.12.1)</block>
   <block id="b6cde9c60675582b751733112d2d9c0e" category="list-text">对于Azure：</block>
   <block id="f3012b8afd230a88ecdba872940ac2a7" category="list-text">不能在一个集群上同时使用这两种DataLock模式。</block>
   <block id="62637ce89beaec82e954d18d03579ae4" category="paragraph">如果集群使用的是ONTAP 9.10.1或更高版本、则可以将较早的备份分层到_S3 Glacer_或_S3 Glacier Deep Archive_存储。 <block ref="f7fa7b0a9e810d8c500bcf785a34f359" category="inline-link-macro-rx"></block>。</block>
@@ -2642,7 +2612,6 @@
   <block id="1c56c2d187d14cd1052a9152c839b453" category="list-text">使用ONTAP 9.12.0及更早版本时、仅支持从ONTAP 二级系统进行备份。</block>
   <block id="6413e2887d9fc1bca42a1d8fa137281d" category="list-text">目前不支持FlexGroup 卷的备份。</block>
   <block id="374f4526af8df5d7623354dc7ae40010" category="section-title">还原限制</block>
-  <block id="2906b13dc7235ea8bc16b456298915d1" category="list-text">FlexGroup 卷当前不支持目录/文件夹还原。</block>
   <block id="4378789701cd2498a252a52806a1f3a4" category="section-title">2023年2月6日</block>
   <block id="86763912a3fb720760d95338a077e264" category="section-title">能够将旧备份文件从StorageGRID 系统移动到Azure归档存储</block>
   <block id="56182657e28c8dfde64ef2386feb1cde" category="paragraph">现在、您可以将旧备份文件从StorageGRID 系统分层到Azure中的归档存储。这样、您就可以释放StorageGRID 系统上的空间、并通过对旧备份文件使用成本低廉的存储类节省资金。</block>
@@ -2704,9 +2673,7 @@
   <block id="fcdf1a1b46f3b7e8ad6ff82010438a90" category="list-text">支持基于策略备份和还原驻留在Azure NetApp Files 上的SAP HANA数据库</block>
   <block id="d2b32f39697a5b013948d2ec66933921" category="list-text">作业—管理BlueXP数据库上的作业详细信息条目</block>
   <block id="608448c2576128ccc8c2f959d59e20b4" category="list-text">连接器要求</block>
-  <block id="c9069f67c447a0a15bda0467230c3148" category="inline-link">在AWS中部署连接器</block>
   <block id="070bde10025186ce49792171c694b711" category="list-text">或者、在使用ONTAP 9.10.1及更高版本时、您也可以选择在一定天数后将备份分层到S3 Glacier或S3 Glacier深度归档存储、以进一步优化成本。在非公开站点中部署时、此功能不可用。 <block ref="58f01ad9ea7ce8fd23147681b9f27af7" category="inline-link-macro-rx"></block>。</block>
-  <block id="261ca950ce5b13f6fc57f9ad7d366d88" category="inline-link">在Azure中部署Connector</block>
   <block id="7cccee5994c911e5094d2b657aa36982" category="list-text">使用 ONTAP 9.10.1 及更高版本时，您可以选择在一定天数后将备份分层到 Azure 归档存储，以进一步优化成本。在非公开站点中部署时、此功能不可用。 <block ref="0f1866ee99580c7794186e312ffd205e" category="inline-link-macro-rx"></block>。</block>
   <block id="898e35e1a4bf4b025c3edec879439b08" category="section-title">管理支持案例(预览)</block>
   <block id="8b74b053fbeeff5c3b6f4991cb1d028d" category="paragraph">您可以直接从BlueXP查看和管理活动的和已解决的支持案例。您可以管理与您的NSS帐户和公司关联的案例。</block>
@@ -2765,14 +2732,11 @@
   <block id="dd9313799fa929f642611d4d86e9e772" category="paragraph">只有在首次选择工作环境后、才能在特定"SVM"中搜索数据。</block>
   <block id="e429a3dcdf9ca5d36834b72490aae784" category="admonition">将数据从Azure归档存储还原到StorageGRID 系统时、不支持高优先级。</block>
   <block id="5a583661a8908e9d0eb4e2adb7e14660" category="paragraph">使用ONTAP 9.13.0或更高版本时、您可以还原文件夹及其内的所有文件和子文件夹。使用9.13.0之前的ONTAP 版本时、只会还原该文件夹中的文件、而不会还原子文件夹或子文件夹中的文件。</block>
-  <block id="9dc68f929a10fb4c3bc9901cb0ad551c" category="list-text">将数据从Azure归档存储还原到StorageGRID 系统时、不支持高还原优先级。</block>
   <block id="1442489a4cf0ea56df2e53ec47c70ec8" category="section-title">对作业监控器进行了多项增强</block>
   <block id="c7f5c1a75acc58c6f004efc0ce1eba09" category="list-text">*附件(可选)*：一次最多上传五个附件。</block>
   <block id="bfa80e7aaad6da353b431bff3a0e12d6" category="paragraph">每个文件的附件数限制为25 MB。支持以下文件扩展名：txt、log、pdf、jp6/jpeu、rtf、 doc/docx、xls/xlsx和csv。</block>
   <block id="8e6b52a532a4fbbfc98dca3ebfa5f1e6" category="list-text">*更新案例注释*：提供有关您的问题的更多详细信息、或者选择*上传文件*最多附加五个文件。</block>
   <block id="99b6a376880ac28b047f54b783efb2b9" category="summary">完成几个步骤、开始将卷数据从Cloud Volumes ONTAP 系统备份到Azure Blob存储。</block>
-  <block id="6322974b2572b580e2e280f1f7473932" category="list-text">连接器可以安装在完全或有限的Internet访问("标准"或"受限"模式)下的Azure区域。</block>
-  <block id="f07703a113f9329efbb1b3b1ed7d5490" category="inline-link">在Azure区域的Linux主机上手动安装Connector</block>
   <block id="f74289356f2bc0344a65a98de529ad8d" category="paragraph">系统会在您输入的资源组中自动创建Blob存储容器、并且备份文件会存储在该资源组中。</block>
   <block id="62ce1fd293b23e542e251491d1905645" category="paragraph">此时将显示卷备份信息板，以便您可以监控备份的状态。您还可以使用监控备份和还原作业的状态 <block ref="5d9366e34fca5f2de6190abcadbc5e98" category="inline-link-macro-rx"></block>。</block>
   <block id="95fa16fe802a71eca4c0ade2049c7325" category="inline-link">更改存储帐户的复制方式</block>
@@ -2782,7 +2746,6 @@
   <block id="6e20e21fbdfeb7c2ac6f9d0235b820c4" category="section-title">在作业监控器上查看备份和还原作业状态</block>
   <block id="5b48d2885665cc3dce56d742d3ec50c4" category="paragraph">您可以在*作业监控*选项卡中查看所有备份和还原操作及其当前状态的列表。其中包括来自Cloud Volumes ONTAP 、内部ONTAP 、应用程序、虚拟机和Kubernetes系统的操作。每个操作或作业都有一个唯一的 ID 和一个状态。</block>
   <block id="6c99ceac3d4ecb03d01e55de5bf1dadf" category="paragraph">备份和还原状态可以是：</block>
-  <block id="108027a6ed451e4f7dad3e579e833100" category="admonition">在Cloud Volumes ONTAP 系统上运行早期版本的ONTAP 或对内部ONTAP 系统运行时、仅会显示用户启动的作业。</block>
   <block id="7e318049bc5ff56e12d5aaab6c31bfe3" category="list-text">选择*作业监控*选项卡。</block>
   <block id="57544dd9986f2126f88bac7c195f9bd4" category="paragraph">此屏幕截图显示了默认列标题。</block>
   <block id="165b658a40f191c52efd59498a472761" category="list-text">要显示其他四列(工作环境、SVM、用户名和工作负载)、请选择 <block ref="67e31c53d0f38fc4da85c525a5be7511" category="inline-image-macro-rx" type="image"></block>。</block>
@@ -2816,7 +2779,6 @@
   <block id="902b0d55fddef6f8d651fe1035b7d4bd" category="cell">error</block>
   <block id="278d01e5af56273bae1bb99a98b370cd" category="cell">严重</block>
   <block id="4df68e0b98ba0691ff46f48eff2a2f3f" category="paragraph">在您的系统上检测到潜在的勒索软件攻击</block>
-  <block id="c7a7a73ad2996822034895fcb8e15565" category="paragraph">还原作业完成、但出现警告</block>
   <block id="160157a33511dda5495776f0fcfc771d" category="paragraph">计划作业失败</block>
   <block id="9bcaee25e049aff6113cfeccac319ecb" category="admonition">从Cloud Volumes ONTAP 9.13.0开始、将显示所有警报。对于使用Cloud Volumes ONTAP 9.13.0和内部ONTAP 的系统、仅会显示与还原作业已完成相关的警报、并显示警告。</block>
   <block id="9d4940c64262023bfa08bec24da82dd3" category="paragraph">默认情况下、BlueXP客户管理员会收到所有"严重"和"建议"警报的电子邮件。默认情况下、所有其他用户和收件人都配置为不接收任何通知电子邮件。您可以向NetApp云帐户中的任何BlueXP用户或需要了解备份和还原活动的任何其他收件人发送电子邮件。</block>
@@ -2841,17 +2803,11 @@
   <block id="824924c3b132c056f8e7a92e2b64399e" category="paragraph"><block ref="824924c3b132c056f8e7a92e2b64399e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="4bcbb4af45b381297584462255b98bc0" category="summary">完成以下几个步骤、开始将卷数据从Cloud Volumes ONTAP 系统备份到Amazon S3。</block>
   <block id="73e3e8b801023d50693f98eda6579dda" category="list-text">您已在AWS中安装Connector：</block>
-  <block id="a9d3c4c93c315af7f13f9b365c2adcbf" category="list-text">此连接器可以安装在完全Internet访问("标准模式")或有限Internet连接("受限模式")的站点上。</block>
-  <block id="5b477e50c905f9613c5e16e571e9e5bc" category="list-text">可以将Connector安装在可完全或有限访问Internet的AWS区域("标准"或"受限"模式)。</block>
-  <block id="e7e22b4d377bdd0d9b0cb0ec1148ae55" category="inline-link">在AWS区域的Linux主机上手动安装Connector</block>
   <block id="ee2081007b4b41aa21ddcbdddb722d5e" category="section-title">支持连接有限的站点</block>
   <block id="a3f02510edf67619908394e8afc73938" category="list-text">您可以将数据从AWS商业区域中安装的Cloud Volumes ONTAP 系统备份到Amazon S3。请参见 <block ref="31e49e13e812c331f506a2a8e6b7ad22" category="inline-link-macro-rx"></block>。</block>
   <block id="b8507c62b8182b29a382ffefc9fab5f2" category="list-text">您可以将数据从安装在Azure商业区域的Cloud Volumes ONTAP 系统备份到Azure Blob。请参见 <block ref="ab5c78f08c8780b598ee1d4de19230ab" category="inline-link-macro-rx"></block>。</block>
   <block id="042a30f816a9f3db4f832c68a750cbd0" category="paragraph">开始时间取决于每个源 ONTAP 系统上设置的时区。您不能从用户界面计划在用户指定的时间执行备份操作。有关详细信息，请联系您的系统工程师。</block>
   <block id="f6c25edb13a1fb5bd6c5a94f498065a2" category="summary">完成几个步骤、开始将卷数据从内部ONTAP 系统备份到Amazon S3存储。</block>
-  <block id="a16acb967c4e8e9b1d495f499e535a7a" category="list-text">您已在Azure中安装Connector。此连接器可以安装在完全Internet访问("标准模式")或有限Internet连接("受限模式")的站点上。</block>
-  <block id="d6dafcdb12e4f86e51530ee982eab823" category="list-text"><block ref="d6dafcdb12e4f86e51530ee982eab823" category="inline-link-rx"></block></block>
-  <block id="027b143222d1d3eb38cfc1f168468c85" category="list-text"><block ref="027b143222d1d3eb38cfc1f168468c85" category="inline-link-rx"></block></block>
   <block id="42fe5b7d13b47e1a54bdeba0b60b6fe4" category="list-text"><block ref="42fe5b7d13b47e1a54bdeba0b60b6fe4" category="inline-link-rx"></block></block>
   <block id="9782e9b134ce2961f9658af915ee4113" category="list-text"><block ref="9782e9b134ce2961f9658af915ee4113" category="inline-link-rx"></block></block>
   <block id="d1830c648563b369c87ce51dd1eefe60" category="list-text"><block ref="d1830c648563b369c87ce51dd1eefe60" category="inline-link-rx"></block></block>
@@ -2859,8 +2815,6 @@
   <block id="8359638cbd1b68fd640fa0f309480550" category="list-text"><block ref="8359638cbd1b68fd640fa0f309480550" category="inline-link-rx"></block></block>
   <block id="2ea7e7f07a1904fc4427a42a7aba9533" category="list-text"><block ref="2ea7e7f07a1904fc4427a42a7aba9533" category="inline-link-rx"></block></block>
   <block id="1a9500ce2c4bdf3774a1abc05bae9ae2" category="list-text"><block ref="1a9500ce2c4bdf3774a1abc05bae9ae2" category="inline-link-rx"></block></block>
-  <block id="bf561a7142f1f05d376a8d4b4beaad24" category="list-text"><block ref="bf561a7142f1f05d376a8d4b4beaad24" category="inline-link-rx"></block></block>
-  <block id="51c1a6c1e7497769792664cc458e4b3b" category="list-text"><block ref="51c1a6c1e7497769792664cc458e4b3b" category="inline-link-rx"></block></block>
   <block id="3b3fe44fb52240d2bf1cecd954ba8f31" category="list-text"><block ref="3b3fe44fb52240d2bf1cecd954ba8f31" category="inline-link-rx"></block></block>
   <block id="b08b0a6b8389d8eb21b696d8750a42c7" category="list-text"><block ref="b08b0a6b8389d8eb21b696d8750a42c7" category="inline-link-rx"></block></block>
   <block id="135b308ed83c53f1516b7c754566d1c4" category="paragraph-title">开始之前</block>
@@ -2906,7 +2860,6 @@
   <block id="b08753885f48b8d718edd5f9d9cd7ab7" category="list-text">单击 <block ref="1d94ccc08c31bc8efbc06bfabc6854b6" category="inline-image-macro-rx" type="image"></block> 对应于适用于VMware vSphere的SnapCenter 插件主机、然后单击*刷新*。</block>
   <block id="9f7b95641e24cb882e149de39743a97c" category="paragraph">您可以通过将适用于VMware vSphere的SnapCenter 插件主机与BlueXP集成来将一个或多个数据存储库备份到StorageGRID。这将有助于VM管理员轻松快速地备份和归档数据以提高存储效率、并加快云过渡速度。</block>
   <block id="42d7d856cc8f6a2f82ed10cd8356e7d2" category="inline-link">详细了解BlueXP部署模式</block>
-  <block id="ed84e3ec0d45db682853810ea96888fd" category="paragraph">现在、您可以在"受限"模式下备份AWS、Azure和GCP商业区域中安装的Cloud Volumes ONTAP 系统中的数据。这要求您首先在"受限"商业区域安装Connector。<block ref="18611796b9b4332697b6f9bb72b16e0b" category="inline-link-rx"></block>。请参见<block ref="0607f60a93455f62c98c67f333a631e0" category="inline-link-rx"></block> 和<block ref="d878e312b2f9cdcef2f8eccaa51619ee" category="inline-link-rx"></block>。</block>
   <block id="d7cfe6967f3004ef3386a27fe99a4610" category="inline-link">与ONTAP S3集成作为目标</block>
   <block id="7126662a353f79c46a7ccefe46dc4c0a" category="sidebar">保护ONTAP 卷数据</block>
   <block id="a08b19468c2c1ca9e62c072d8f0b1897" category="paragraph">有关信息、请参见 <block ref="f2f2cc81b566c493fa151c100741f24d" category="inline-link-macro-rx"></block>。</block>
@@ -3125,7 +3078,6 @@
   <block id="ab5eec0b36e1c0d7a8538ce2f367515c" category="list-text">支持对Azure NetApp Files 上的Oracle数据库进行自动发现和策略驱动型保护</block>
   <block id="d21798a5d9e370e5fbb0150023dfaa38" category="list-text">支持通过粒度恢复将Oracle数据库还原到原始位置</block>
   <block id="a1501619265b99c9d02aefcdb1128d6d" category="section-title">针对应用程序的BlueXP备份和恢复增强功能(混合)</block>
-  <block id="61d664f90cea3bf652d380cd39162905" category="list-text">应用程序的BlueXP备份和恢复(混合)由SaaS控制平台驱动。</block>
   <block id="91dd9ae8b3342cf7e40f497897ce70d7" category="list-text">支持电子邮件通知</block>
   <block id="b1ff80e0381bc83ddd14f54747d1f9ab" category="summary">在每个SAP HANA数据库主机上安装适用于SAP HANA的SnapCenter 插件。</block>
   <block id="71a4cab5aa6b73aefb296b68bc2acb46" category="doc">安装适用于SAP HANA的SnapCenter 插件并添加数据库主机</block>
@@ -3285,7 +3237,6 @@
   <block id="453e66b92e78e9c59b8192fa674cb377" category="doc">使用BlueXP备份和恢复功能保护ONTAP 集群数据</block>
   <block id="cd6de3b24ca86c25e1638a3d0c67466c" category="paragraph">借助BlueXP备份和恢复功能、您可以将ONTAP 卷从以下工作环境备份到以下公共云和私有云提供商中的对象存储：</block>
   <block id="e053cf298b007eb949b93bc1bbd6453c" category="paragraph">在互联网连接有限(也称为"受限模式")的站点中、可以使用BlueXP备份和恢复来备份和还原卷数据。在这种情况下、您需要在受限区域部署BlueXP Connector。</block>
-  <block id="6b97fc4e639df982efaa6aee833c7df7" category="paragraph">在没有Internet连接的站点(也称为"专用模式"或"非公开"站点)中、可以使用BlueXP备份和恢复来备份卷数据。在这种情况下、您需要在非公开站点中部署BlueXP Connector。</block>
   <block id="47272b8f62f9deed1c51c066edd27f85" category="paragraph">BlueXP备份和恢复支持以下类型的卷：</block>
   <block id="160ce292f764a2496f817d368fadc6b3" category="paragraph">将BlueXP备份和恢复与ONTAP 系统结合使用会产生两种成本：资源费用和服务费用。</block>
   <block id="1d4d7511c074d4ed31685dd0c5456c77" category="paragraph">由于BlueXP备份和恢复功能可保留源卷的存储效率、因此您需要为data_after_ ONTAP 效率(对于应用重复数据删除和数据压缩后少量的数据)支付云提供商对象存储成本。</block>
@@ -3294,7 +3245,6 @@
   <block id="1f23a1287c99cea5c2f4f1d45746f1e0" category="paragraph"><block ref="685a1f13858a68e0a232160884c81603" category="inline-link-macro-rx"></block>。</block>
   <block id="37e76b4487b7832f9128b16818135e42" category="paragraph">BlueXP备份和恢复以按需购买模式提供基于消费的许可。通过云提供商的市场订阅后、您可以按GiB为备份的数据付费、无需预先支付费用。您的云提供商会通过每月账单向您开具账单。</block>
   <block id="4fea63f3003bca68c0d871a18bd18f49" category="paragraph"><block ref="da925d164976c4809988045a567b800b" category="inline-link-macro-rx"></block>。</block>
-  <block id="b7b69d0a47c8688f2e1c923968fd3fb9" category="list-text">一种" BlueXP备份和恢复"计划、可用于备份Cloud Volumes ONTAP 数据和内部ONTAP 数据。</block>
   <block id="e9318a32b2a89c8bc9343f1169144931" category="list-text">一种"CVO专业人员"计划、可用于捆绑Cloud Volumes ONTAP 和BlueXP备份和恢复。这包括对此许可证付费的 Cloud Volumes ONTAP 卷的无限备份（备份容量不计入此许可证）。</block>
   <block id="2b1667b4af67db4fa2bb15919e8aa0c9" category="list-text">使用Azure时、您可以向NetApp申请一项私人优惠、然后在激活BlueXP备份和恢复期间从Azure Marketplace订阅时选择计划。</block>
   <block id="1f4752c64c2bf1f4ec37455cfd1541c6" category="list-text">使用GCP时、您可以向NetApp申请一个私人优惠、然后在激活BlueXP备份和恢复期间从Google Cloud Marketplace订阅时选择计划。</block>
@@ -3313,7 +3263,6 @@
   <block id="7f00ad9360e35841a91539efda24e309" category="list-text">如果在SnapMirror目标卷上创建Snapshot的本地副本(无论使用的SnapMirror标签如何)、则这些Snapshot不会作为备份移动到云中。此时、您需要为源DP卷创建一个包含所需标签的Snapshot策略、以便BlueXP备份和恢复功能对其进行备份。</block>
   <block id="42c4866cef7d3ab35cf187604b343e35" category="list-text">应用于卷的Snapshot策略必须是BlueXP备份和恢复所识别的策略之一、包括每日、每周、每月等 无法识别默认的"sm_created"策略(用于*镜像所有快照*)、并且DP卷不会显示在可备份的卷列表中。</block>
   <block id="3ab778f2f6bfcbbcefe754327d0aca54" category="list-text">ONTAP 不支持扇出从一个卷到多个对象存储的SnapMirror关系；因此、BlueXP备份和恢复不支持此配置。</block>
-  <block id="7d934ef369f0016da1c7756f348b4acd" category="list-text">目前、Amazon S3、Azure和StorageGRID 支持对象存储上的WORM/Compliance模式。这称为DataLock功能、必须使用BlueXP备份和恢复设置进行管理、而不是使用云提供商界面。</block>
   <block id="d10fdbe3a16a86150dbdcca3c0c334e2" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> 在系统上启用BlueXP备份和恢复</block>
   <block id="677aa79f774e3bf7fa954cda172fbc47" category="inline-link-macro">详细了解可用的BlueXP备份和恢复策略配置设置</block>
   <block id="7fe6fb0516efca090749561b04673368" category="paragraph">默认情况下、备份存储在标准存储中。如果集群使用的是ONTAP 9.12.1或更高版本、则可以选择在一定天数后将备份分层到Google Archive存储、以便进一步优化成本。 <block ref="a3f758c0c52c085dc4fdd9d4dd9e83d8" category="inline-link-macro-rx"></block>。</block>
@@ -3399,11 +3348,7 @@
   <block id="9a35f280a97314e38ce32e5edca1e284" category="list-text">使用适用于VMware的BlueXP备份和恢复功能将数据存储库备份到云、并将虚拟机还原回内部vCenter。 <block ref="7d3aa28b08d11afec4b666dd6503d425" category="inline-link-macro-rx"></block>。</block>
   <block id="1e14638586b04b893f971a1bfe703c2c" category="admonition">如果将BlueXP Connector部署在云中的政府区域或无法访问Internet的站点(非公开站点)中、则BlueXP备份和恢复仅支持从ONTAP 系统执行备份和还原操作。使用这些类型的部署方法时、BlueXP备份和恢复不支持从Kubernetes集群、应用程序或虚拟机执行备份和还原操作。</block>
   <block id="2c01915166cf9b144d2e31c6d6a7a336" category="paragraph">在Cloud Volumes ONTAP 或内部部署ONTAP 系统上启用BlueXP备份和恢复时、此服务将对您的数据执行完整备份。备份映像中不包含卷快照。初始备份之后，所有额外备份都是增量备份，这意味着只会备份更改的块和新块。这样可以将网络流量降至最低。</block>
-  <block id="7befd42d9af74357848588ae46c6a322" category="paragraph">对于运行ONTAP 9.13.0或更高版本的Cloud Volumes ONTAP 系统、用户启动的备份和还原操作以及系统启动的作业(例如正在进行的计划内备份操作)均可从*作业监控*选项卡中获得。</block>
   <block id="cf2b06c49bc5d08b1963bae2a675297b" category="paragraph">您可以在对作业监控主页面进行优化后将其内容下载为报告。BlueXP备份和恢复功能会生成并下载.CSV文件、您可以根据需要查看该文件并将其发送给其他组。CSV文件最多包含10、000行数据。</block>
-  <block id="ea85cc7e826fb29a1260808016ac3c43" category="paragraph">在工作环境中激活BlueXP备份和恢复失败</block>
-  <block id="1ece1ccab5daf3732aab9015e26555e8" category="paragraph">BlueXP备份和恢复还原操作失败</block>
-  <block id="d36af86daab0fab6d9857b4d4918f2bc" category="paragraph">要接收BlueXP备份和恢复电子邮件警报、您需要选择通知严重性类型"严重"和"错误"。</block>
   <block id="4061ec52da23891b0496adb9ffaad83d" category="summary">BlueXP备份和恢复支持两个S3归档存储类以及大多数地区。</block>
   <block id="8ba1ec37eb572aa700e5b902d0837eaa" category="section-title">支持用于BlueXP备份和恢复的S3归档存储类</block>
   <block id="c5b238c6b077eb6ade377863534f251d" category="paragraph">如果在激活BlueXP备份和恢复时在第一个备份策略中选择_S3 Glacier或_S3 Glacier Deep Archive_、则该层将是该集群未来备份策略可用的唯一归档层。如果您在第一个备份策略中不选择任何归档层、则_S3 Glacier_将成为未来策略的唯一归档选项。</block>
@@ -3540,7 +3485,6 @@
   <block id="fd3d1ba9a2328492349b6ebea92fe728" category="doc">BlueXP备份和恢复的新增功能</block>
   <block id="ef08fc33d8b9b410529dc05986b2e248" category="paragraph">通过API中的新功能、您可以使用BlueXP备份和恢复功能将卷快照备份到ONTAP S3。此功能目前仅适用于内部部署的ONTAP 系统。有关详细说明、请参见博客<block ref="8bfab3c14784f20047e4459b814ebfe4" category="inline-link-rx"></block>。</block>
   <block id="bcd4bdef20ff7dec0587f35facdeb7be" category="paragraph">默认情况下、在从Cloud Volumes ONTAP 系统创建到Azure存储的备份时、BlueXP备份和恢复会为Blob容器配置本地冗余(LRS)以实现成本优化。如果要在不同分区之间复制数据、可以将此设置更改为区域冗余(ZRS)。请参见的Microsoft说明<block ref="c549763665cfbb93dbccfdbf667aa0f2" category="inline-link-rx"></block>。</block>
-  <block id="3e5afb80ef2b2c6b108c664e6550be33" category="list-text">对于运行ONTAP 9.13.1或更高版本的内部ONTAP 系统、用户启动的备份和还原操作以及系统启动的作业(如正在进行的备份操作)现在均可在*作业监控*选项卡中找到。早期的ONTAP 版本将仅显示用户启动的作业。</block>
   <block id="4788963de19a5204a352f3308b0395d8" category="inline-link">查看BlueXP备份和恢复可以发送的所有警报</block>
   <block id="960c0ab25a72da6f7d7346baac33e363" category="list-text">添加了两个新的备份作业警报："Scheduled job failure"和"Restore job completes but with warnings"。<block ref="3e116d9df9448a73fe644888b390168f" category="inline-link-rx"></block>。</block>
   <block id="81ddb60f2f70b21c8b419a542095feca" category="list-text">对于运行ONTAP 9.13.0或更高版本的Cloud Volumes ONTAP 系统、用户启动的备份和还原操作以及系统启动的作业(如正在进行的备份操作)现在均可在*作业监控*选项卡中找到。早期版本的Cloud Volumes ONTAP 系统和内部ONTAP 系统此时将仅显示用户启动的作业。</block>
@@ -3596,8 +3540,6 @@
   <block id="f3d3616df99b7525a49fa9d5c9b2660d" category="list-text">如果您的帐户没有现有的BlueXP备份和恢复许可证、此时将提示您选择要使用的充电方法类型。您可以订阅AWS提供的按需购买(PAYGO) BlueXP Marketplace产品(如果您有多个订阅、则需要选择一个)、或者从NetApp购买并激活BlueXP备份和恢复BYOL许可证。 <block ref="bce0911f49e923e839a36aaf0ede034d" category="inline-link-macro-rx"></block></block>
   <block id="081c5ee4ba0521a5313b250cf5798eef" category="summary">如果在无法访问Internet的站点上使用BlueXP备份和恢复、则如果您的问题描述 使用的是BlueXP连接器主机系统、则需要定期备份关键的BlueXP备份和恢复文件。这样、您就可以部署新的Connector并还原关键的BlueXP备份和恢复数据。</block>
   <block id="b77289a5dae5ddc53ad511eccbb89bf6" category="doc">在非公开站点中备份和还原BlueXP备份和恢复数据</block>
-  <block id="715ecbcba5580faa7f30b7e6cbe17916" category="paragraph">如果您在部署了BlueXP Connector的SaaS环境中或您自己具有Internet访问权限的主机系统中使用BlueXP备份和恢复、则所有重要的BlueXP备份和恢复配置数据都会备份并存储在云中。如果您在无法访问Internet的站点(也称为"非公开站点")中使用BlueXP备份和恢复、则此BlueXP备份和恢复信息仅存储在本地连接器系统上。</block>
-  <block id="5f9a31cea4d45a2d0d31f269ae8bd09a" category="paragraph">本主题介绍如何将关键的BlueXP备份和恢复数据备份到已连接的StorageGRID 系统。此外、还介绍了在必要时如何将数据还原到新的Connector上。</block>
   <block id="93041685fa852bcfa4707487f2dbf4be" category="section-title">备份关键的BlueXP备份和恢复数据</block>
   <block id="3fb300f30af57af68c2e25e2cdf828b3" category="list-text">BlueXP备份和恢复数据库</block>
   <block id="064bb6dc88d576a46925a6d27518b507" category="admonition">您应计划定期备份此BlueXP备份和恢复数据、以便始终能够访问最新数据。</block>
@@ -3618,7 +3560,6 @@
   <block id="a7f3a8a116f57057caa3603805e5cc6b" category="doc">BlueXP备份和恢复策略配置设置</block>
   <block id="9eea85cb75720c2962892ce404724c85" category="paragraph">通过BlueXP备份和恢复功能、您可以为每个工作环境(集群)创建多个备份策略、并为其创建唯一的计划。您可以为具有不同恢复点目标(RPO)的卷分配不同的备份策略。</block>
   <block id="2565631610247b4b3c1e22a4efb7394f" category="paragraph">BlueXP备份和恢复支持为卷备份提供DataLock和勒索软件保护。通过这些功能、您可以锁定备份文件并对其进行扫描、以检测备份文件上可能存在的勒索软件。这是一个可选设置、当您希望为集群的卷备份提供额外保护时、可以在备份策略中定义此设置。</block>
-  <block id="f62bce644c9ed71c30ea844eb9cbaf17" category="paragraph">这两项功能均可保护您的备份文件、以便您始终拥有一个有效的备份文件、以便在源数据遭受勒索软件攻击时从恢复数据。如果备份需要锁定并保留一段时间、则满足某些法规要求也会很有帮助。启用DataLock和勒索软件保护后、作为BlueXP备份和恢复激活一部分配置的云分段将启用对象锁定和对象版本控制。</block>
   <block id="731e175a1dd928553e8b385c536f18e6" category="list-text">如果您计划使用DataLock和勒索软件保护、则必须在创建第一个备份策略并为该集群激活BlueXP备份和恢复时启用它。</block>
   <block id="c88e14329d462b276ba5448f60ca13e0" category="paragraph">在最后一个案例中、您可以看到、如果每个备份文件锁定44天、则最终备份文件的数量将比使用每小时/24小时保留策略通常保留的备份文件数量多。通常、在BlueXP备份和恢复创建第25个备份文件时、它会删除最旧的备份、以使最大保留值保持为24 (根据策略)。在这种情况下、DataLock保留设置会覆盖备份策略中的策略保留设置。这可能会影响存储成本、因为备份文件将保存在对象存储中较长时间。</block>
   <block id="fabcd9ebb5b6eb0b33f162417010c768" category="list-text">激活BlueXP备份和恢复时选择的DataLock选项必须用于该集群的所有备份策略。</block>
@@ -3626,7 +3567,6 @@
   <block id="2ad205e5d53ae88417e90a2fa15aa48d" category="paragraph">请注意、如果在激活BlueXP备份和恢复时在第一个备份策略中选择_S3 Glacier或_S3 Glacier Deep Archive_、则该层将是该集群未来备份策略中唯一可用的归档层。如果您在第一个备份策略中不选择任何归档层、则_S3 Glacier_将成为未来策略的唯一归档选项。</block>
   <block id="683fc015ec20f6233b25343bf3daea19" category="paragraph">如果您的内部集群使用的是ONTAP 9.12.1或更高版本、您可以选择在一定天数后将旧备份分层到BlueXP备份和恢复UI中的_Archive_存储、以便进一步优化成本。 <block ref="60cdd04e7131e97598ce1c583d8c9a5e" category="inline-link-macro-rx"></block>。</block>
   <block id="01492017a2321f7b3f8484fd1f8aa8d7" category="sidebar">BlueXP备份和恢复文档</block>
-  <block id="d2260338be0e7b927d041ea567aabb08" category="sidebar">BlueXP备份和恢复策略设置</block>
   <block id="2e5d6ff9bc4d6b4194df020bde3f3dca" category="sidebar">在非公开站点中备份BlueXP备份和恢复数据库</block>
   <block id="54153028a776309bcfbdd3b7b8285463" category="sidebar">BlueXP备份和恢复博客</block>
   <block id="960dd4200d015a0a12dfd299c1348c9c" category="sidebar">BlueXP备份和恢复用例</block>
@@ -3654,7 +3594,6 @@
   <block id="7048662b75c8f210e59f898d992521cc" category="sidebar">将数据存储库备份到云</block>
   <block id="febda1467d687047522ece2d9d4680b8" category="summary">BlueXP备份和恢复服务提供备份和还原功能、用于保护和长期归档ONTAP 集群数据。备份会自动生成并存储在公有或私有云帐户的对象存储中，而与用于近期恢复或克隆的卷 Snapshot 副本无关。</block>
   <block id="b0633b8fc7276f8e9a7f9ba97c212551" category="paragraph">您将收到一个序列号、您可以在BlueXP数字钱包页面中输入此序列号来启用此服务。达到任一限制后，您需要续订许可证。备份 BYOL 许可证适用场景 与关联的所有源系统<block ref="52a8d8c521fd6d51982efde4bc1bb1fd" category="inline-link-rx"></block>。</block>
-  <block id="a18f9997a691db43808d1169a31c3670" category="summary">BlueXP备份和恢复服务(Cloud Backup)可为内部和云端的NetApp ONTAP 数据、数据库和虚拟机提供高效、安全且经济高效的数据保护。</block>
   <block id="3daba77ab92b57915950a36f17f965c3" category="summary">BlueXP备份和恢复服务可为内部和云端的NetApp ONTAP 数据、数据库和虚拟机提供高效、安全且经济高效的数据保护。备份会自动生成并存储在公有 或私有云帐户的对象存储中。</block>
   <block id="6192be65cd3fbb101c0f789fab9eae08" category="inline-link">BlueXP边缘缓存</block>
   <block id="0a190b7a7b571c1c4ae19e069137c2ac" category="paragraph">您可以使用BlueXP电子钱包管理BYOL许可证。您可以通过BlueXP电子钱包添加新许可证、更新现有许可证以及查看许可证状态。</block>
@@ -3707,11 +3646,9 @@
   <block id="7bbc18e8c81866c16ae2fa4ae7b4faa7" category="cell"><block ref="04dcde0112f87c65139657970e95733e" prefix="" category="inline-code"></block></block>
   <block id="ea8d6265c6680f6755ec985a9768588e" category="paragraph">要将较早的备份分层到云归档存储、您的StorageGRID 系统必须运行11.3或更高版本。此外、必须在BlueXP Canvas中发现StorageGRID 系统。</block>
   <block id="69a28359d3f06d7b3a188d67fc7a9a53" category="inline-link-macro">了解如何重新启动BlueXP备份和恢复</block>
-  <block id="c4f3a19a3593db2ced924daf34b54549" category="list-text">如果您已将Cloud Volumes ONTAP 系统升级到9.13.x、但在作业监控器中看不到正在进行的计划备份操作、则需要重新启动BlueXP备份和恢复服务。 <block ref="d165754676244f505c382efc637eb838" category="inline-link-macro-rx"></block>。</block>
   <block id="dcb73ed45cf0756ddb50a72607921a55" category="list-text">订阅可确保在免费试用结束后不会中断服务。试用结束后、系统将根据您备份的数据量按小时向您收费。</block>
   <block id="e54de5915bdbe139637cbbcc25f87fb6" category="paragraph">在免费试用期间、或者如果您未超过BYOL许可证、则不会从按需购买订阅中向您收费。</block>
   <block id="e0dc422915e1979552ba5565e14ce286" category="list-text">一个"CVO专业版"软件包、可用于捆绑Cloud Volumes ONTAP 和BlueXP备份和恢复。这包括使用许可证为Cloud Volumes ONTAP 系统备份的数量不限(备份容量不计入许可容量)。此选项不支持备份内部ONTAP 数据。</block>
-  <block id="a77db6f39e3b494ea3cb168cb24ffc4b" category="list-text">"CVO Edge Cache"软件包具有与"CVO专业版"软件包相同的功能、但也支持<block ref="6a291086b9b2e2c1bf57350866f6f726" category="inline-link-rx"></block> 服务您有权为Cloud Volumes ONTAP 系统上配置的每个3 TiB容量部署一个全局文件缓存边缘系统。此选项可通过Azure和Google Marketplaces使用、但不支持备份内部ONTAP 数据。</block>
   <block id="9bf18ccfa9bc25aeb3a63e6e237b9363" category="paragraph">如果要使用此选项，请从 Marketplace 页面设置您的订阅，然后再执行<block ref="f1f7c973fce685b876017d26d677c721" category="inline-link-rx"></block>。请注意、您还需要使用此年度合同订阅为Cloud Volumes ONTAP 系统付费、因为在BlueXP中、您只能为AWS凭据分配一个有效订阅。</block>
   <block id="d22f1915c8293b6f49d0b06129807ca5" category="list-text">一种"CVO专业人员"计划、可用于捆绑Cloud Volumes ONTAP 和BlueXP备份和恢复。这包括使用许可证为Cloud Volumes ONTAP 系统备份的数量不限(备份容量不计入许可容量)。此选项不支持备份内部ONTAP 数据。</block>
   <block id="6e61fbc9ca4c7e1fac15fae1b823c181" category="paragraph">如果您没有BlueXP备份和恢复BYOL许可证、请单击BlueXP右下角的聊天图标购买一个。</block>
@@ -3752,4 +3689,74 @@
   <block id="716be8b0e2c921f95612011ecc633df8" category="list-text">如果Oracle数据库位于Amazon FSx for NetApp ONTAP 或Cloud Volumes ONTAP 上、并且在ASM上配置、请确保SVM名称在FSx系统中是唯一的。如果您在FSX系统中使用相同的SVM名称、则不支持备份位于这些SVM上的Oracle数据库。</block>
   <block id="10db664972ef4288920326f44f4f3a44" category="paragraph">在Amazon FSx for NetApp ONTAP 或Cloud Volumes ONTAP SAN布局中、如果适用于Oracle的SnapCenter 插件在ASM磁盘组上发现除Oracle数据文件以外的任何外部文件、则会执行连接和副本还原方法。外部文件可以是以下一种或多种类型：</block>
   <block id="fa1ec4e51afd35e28a50d8d0539c45d1" category="paragraph">您可以使用UI、脚本或手动部署插件。</block>
+  <block id="c870531773e82c374eb4125c8029e25e" category="inline-link">在连接器之间切换</block>
+  <block id="74d39f4b6fe0e32c5cfa2ed86891bf44" category="list-text"><block ref="74d39f4b6fe0e32c5cfa2ed86891bf44" category="inline-link-rx"></block></block>
+  <block id="f7ee644dab1f17ea82c6cfcd19e39fae" category="paragraph">每个备份策略都为_Labels &amp; Retenation_s提供了一个部分、您可以将其应用于备份文件。请注意、应用于卷的Snapshot策略必须是BlueXP备份和恢复可识别的策略之一、否则不会创建备份文件。</block>
+  <block id="1152b46be2b09f9273e95c2cb3ead800" category="paragraph">这两项功能都可以保护您的备份文件、以便在您的备份受到勒索软件攻击时、您始终拥有一个有效的备份文件来恢复数据。如果备份需要锁定并保留一段时间、则满足某些法规要求也会很有帮助。启用DataLock和勒索软件保护后、作为BlueXP备份和恢复激活一部分配置的云分段将启用对象锁定和对象版本控制。</block>
+  <block id="f3ec603ab9c35660f371c0fc057b7fd1" category="list-text">集群必须运行ONTAP 9.11.1或更高版本</block>
+  <block id="4f411ed71b5f872404c482a3c45285e2" category="list-text">集群必须运行ONTAP 9.12.1或更高版本</block>
+  <block id="43757ece62940efe206ed418c8c8f76b" category="list-text">StorageGRID 系统必须运行11.6.0.3或更高版本</block>
+  <block id="ea42cbd645e47130e67a7cbb87fe5de8" category="section-title">2023年5月8日</block>
+  <block id="93c8b08c928ba95dab5c066b4611e000" category="section-title">现在、可以从归档存储和锁定的备份执行文件夹级还原操作</block>
+  <block id="2f57132a5aa255f3e276ff3b62b985c8" category="paragraph">如果已为备份文件配置DataLock和防软件保护、或者备份文件驻留在归档存储中、则现在、如果集群运行的是ONTAP 9.13.1或更高版本、则支持文件夹级还原操作。</block>
+  <block id="8cb8abb20ae0b2e7c64136ae92b2250d" category="section-title">将卷备份到Google Cloud时、支持跨区域和跨项目客户管理的密钥</block>
+  <block id="562c459140eec7ec934af0554f42baab" category="paragraph">现在、您可以选择与客户管理的加密密钥(CMDK)项目不同的项目中的存储分段。</block>
+  <block id="679a2d98f8c7c05c4944b0d161a6d567" category="section-title">现在、备份文件支持AWS中国地区</block>
+  <block id="aad236ec8e2b61a79fb4bb3a416a2e06" category="paragraph">现在、如果集群运行的是ONTAP 9.12.1或更高版本、则支持将AWS中国北京(CN-north-1)和宁夏(CN-north-1)区域作为备份文件的目标。</block>
+  <block id="c93bfe725726f47fe3bfcc0e95f8ec7d" category="inline-link">将本地ONTAP 数据备份到Amazon S3</block>
+  <block id="afe182ec329d300711f89a81223f8fe1" category="paragraph">请注意、分配给BlueXP Connector的IAM策略需要将All _Resource_部分下的AWS资源名称"arn"从"aws"更改为"AAWS CN"；例如"arn：aws-cn：s3：：：NetApp-backup-*"。请参见<block ref="0607f60a93455f62c98c67f333a631e0" category="inline-link-rx"></block> 和<block ref="98f7c8e7ee596af91f0142606f0617c9" category="inline-link-rx"></block> 了解详细信息。</block>
+  <block id="5db93da6e314f6aa0349c5e8f35f4b9a" category="paragraph">对于运行ONTAP 9.13.1或更高版本的内部ONTAP 系统，系统启动的作业(例如正在进行的备份操作)现在可在*作业监控*选项卡中找到。早期的ONTAP 版本将仅显示用户启动的作业。</block>
+  <block id="4d5789e8f025b3895d94f1b6a7225e4a" category="list-text">适用于应用程序(混合)的BlueXP备份和恢复由SaaS控制平台驱动</block>
+  <block id="53eb0fdde70aa10525b581e17b5d6f86" category="paragraph">现在、您可以在"受限模式"下从AWS、Azure和GCP商业区域中安装的Cloud Volumes ONTAP 系统备份数据。这要求您首先在"受限"商业区域安装Connector。<block ref="18611796b9b4332697b6f9bb72b16e0b" category="inline-link-rx"></block>。请参见<block ref="0607f60a93455f62c98c67f333a631e0" category="inline-link-rx"></block> 和<block ref="d878e312b2f9cdcef2f8eccaa51619ee" category="inline-link-rx"></block>。</block>
+  <block id="f1a109ae8d953da8e05cf5534df6b22b" category="list-text">对于运行ONTAP 9.13.0或更高版本的Cloud Volumes ONTAP 系统、用户启动的备份和还原操作以及系统启动的作业(如正在进行的备份操作)现在均可在*作业监控*选项卡中找到。早期的ONTAP 版本将仅显示用户启动的作业。</block>
+  <block id="c37f218ac8b5f7e0cde5a786f9719774" category="list-text">您可以使用自己由客户管理的密钥进行数据加密、而不是使用默认的Google管理的加密密钥。跨区域键和跨项目键均受支持、因此您可以为与CMDK键项目不同的分段选择项目。如果您计划使用自己的客户管理密钥：</block>
+  <block id="4820dd32c48fc26474e2ba8062d9714c" category="list-text">您需要具有密钥环和密钥名称、才能在激活向导中添加此信息。<block ref="f8e0e63bffb58004a25f7278cd43c42c" category="inline-link-rx"></block>。</block>
+  <block id="da656c40a6b524cf42f5c9ad7d171f05" category="list-text">您需要验证连接器的角色是否包含以下所需权限：</block>
+  <block id="8626ee05ff51b6a467bb5d1ee81047b8" category="inline-link">Google Cloud文档：启用API</block>
+  <block id="9af84f05d8931a3676e35cb449e96606" category="list-text">您需要验证是否已在项目中启用Google "云密钥管理服务(KMS)"API。请参见<block ref="5b19b983398533c382bb79968f58dbf1" category="inline-link-rx"></block> 了解详细信息。</block>
+  <block id="db058563d6eb243b453d48635769d049" category="list-text">支持HSM (硬件支持的)和软件生成的密钥。</block>
+  <block id="90a4c64194204c56808168a2ae360226" category="summary">您可以通过从云提供商处购买按需购买或年度市场订阅或从NetApp购买自带许可证来许可BlueXP备份和恢复。要在工作环境中激活BlueXP备份和恢复、为生产数据创建备份以及将备份数据还原到生产系统、需要有效的许可证。</block>
+  <block id="a1b95a0752037fb03aeac1bffa4cae06" category="list-text">"CVO Edge Cache"软件包具有与"CVO专业版"软件包相同的功能、但也支持<block ref="6a291086b9b2e2c1bf57350866f6f726" category="inline-link-rx"></block> 服务您有权为Cloud Volumes ONTAP 系统上每配置3 TiB的容量部署一个BlueXP边缘缓存边缘系统。此选项可通过Azure和Google Marketplaces使用、但不支持备份内部ONTAP 数据。</block>
+  <block id="b765ae890c1f39770cf3cb7111f9e4e9" category="list-text">确认以下 S3 权限（从最新版本开始）<block ref="7dfaeab02b2622441821b715f9d8495a" category="inline-link-rx"></block>）是为 Connector 提供权限的 IAM 角色的一部分。如果不是、请参见<block ref="484fb6182b52563a51349e6fb7cb2cb6" category="inline-link-rx"></block>。</block>
+  <block id="6b238043e3f0cbcb294416f3238efea2" category="admonition">在AWS中国地区创建备份时、您需要将IAM策略中所有_Resource_部分下的AWS资源名称"arn"从"aws"更改为"AAWS CN"；例如<block ref="e50d17688e67620204df0dd1b12e2baf" prefix=" " category="inline-code"></block>。</block>
+  <block id="5a0e26d771129c9b2e2c18c2a55a2693" category="paragraph">"作业监控"选项卡中提供了用户从Cloud Backup UI和API启动的备份和还原操作以及系统启动的作业(如正在进行的计划备份操作)。但是、只有运行ONTAP 9.13.0或更高版本的Cloud Volumes ONTAP 系统以及运行ONTAP 9.13.1或更高版本的内部ONTAP 系统才是如此。运行早期版本的ONTAP 时、仅显示用户启动的作业。</block>
+  <block id="72c7fe989ff4840809134384de3dd80c" category="admonition">如果您已将ONTAP 系统升级到9.13.x、但在作业监控器中看不到正在进行的计划备份操作、则需要重新启动BlueXP备份和恢复服务。 <block ref="bdf197dfe0363b0f0f92ecc4a997870a" category="inline-link-macro-rx"></block>。</block>
+  <block id="f4ceecec904030bc411eb94dfb80f45a" category="paragraph">临时卷备份失败</block>
+  <block id="3765aea02f52c67dc2bb0f95b961f55e" category="paragraph">在工作环境中激活备份失败</block>
+  <block id="ad1af39d6a05af92453a5f105d9be2d5" category="paragraph">还原操作失败</block>
+  <block id="6c2ab8f6e9c680a48d0978c6b61e4711" category="paragraph">还原作业已完成、但出现警告</block>
+  <block id="55e34458f6eb518283fce49ac1fb328f" category="paragraph">要接收BlueXP备份和恢复电子邮件警报、您需要选择通知严重性类型"严重"、"警告"和"错误"。</block>
+  <block id="53775c897cfb7fba4b875a6f0ce56341" category="admonition">如果您计划删除具有备份的工作环境或集群，则必须删除备份 * 在删除系统之前 * 。在删除系统时、BlueXP备份和恢复不会自动删除备份、并且UI中当前不支持在删除系统后删除备份。对于任何剩余备份，您仍需支付对象存储成本费用。</block>
+  <block id="a6ec5120288fff40c2745ac6a464099f" category="paragraph">在没有Internet连接的站点(也称为"专用模式"或"非公开"站点)中、可以使用BlueXP备份和恢复来备份卷数据。在这种情况下、您需要在专用模式下部署BlueXP Connector。</block>
+  <block id="7063b7db80bf8574d1141e84ae0a1c85" category="list-text">无法将FlexGroup 卷备份移至归档存储。</block>
+  <block id="0e9c6bfd90b7d8c40adbe605efba03b2" category="list-text">FlexGroup 卷备份不能使用DataLock和防软件保护。</block>
+  <block id="e6637eb830a542083d44cb29a234bdf3" category="list-text">目前、Amazon S3、Azure和StorageGRID 支持对象存储上的WORM/Compliance模式。这称为DataLock功能、必须使用BlueXP备份和恢复设置进行管理、而不是使用云提供商界面进行管理。</block>
+  <block id="caac6b6b759dd099323676db10be1564" category="list-text">只有当集群运行的是ONTAP 9.13.1及更高版本时、归档存储中的数据才支持目录/文件夹还原。</block>
+  <block id="e8573f3934d023dbb0b6cea67803d326" category="list-text">只有当集群运行的是ONTAP 9.13.1及更高版本时、使用DataLock保护的数据才支持目录/文件夹还原。</block>
+  <block id="5f9380f87c543d975a408258d44bd534" category="list-text">FlexGroup 卷备份当前不支持目录/文件夹还原。</block>
+  <block id="d71a9f98c71cbdae83167ae47b9abd46" category="list-text">您已在Azure中安装Connector。连接器可以安装在具有完全互联网访问("标准模式")或有限互联网连接("受限模式")的站点上。</block>
+  <block id="f96d0e888e1613a76bd4fa2299a7ad28" category="paragraph">对于BlueXP备份和恢复BYOL许可、您需要NetApp提供的序列号、以便在许可证有效期和容量内使用此服务。 <block ref="685a1f13858a68e0a232160884c81603" category="inline-link-macro-rx"></block>。如果Connector和Cloud Volumes ONTAP 系统部署在非公开站点("专用模式")中、则必须使用BYOL许可证。</block>
+  <block id="40d2dc321bf0d1e8c62d93ca99421fb6" category="inline-link">有关详细信息、请参见BlueXP部署模式</block>
+  <block id="9bdb9115093e8aa84dec92faff760639" category="list-text">Connector可以安装在具有完全或有限Internet访问权限("标准"或"受限"模式)的Azure区域中。<block ref="f89ca42e30b46213947b09b3e423225b" category="inline-link-rx"></block>。</block>
+  <block id="98eef7e95983b72b4d417c12eaef0df7" category="inline-link">在标准模式下在Azure中部署Connector (完全Internet访问)</block>
+  <block id="c5261a70ab43b0f7ff9e379c3dd22250" category="list-text"><block ref="c5261a70ab43b0f7ff9e379c3dd22250" category="inline-link-rx"></block></block>
+  <block id="25ea6f476e6d2e28d6075e5526758673" category="inline-link">在受限模式下安装连接器(受限出站访问)</block>
+  <block id="495de462669f046d0acd7f65804a3be8" category="list-text"><block ref="495de462669f046d0acd7f65804a3be8" category="inline-link-rx"></block></block>
+  <block id="f59ba9544b91f15bf21dc9731d8101ed" category="paragraph">如果您在部署了BlueXP Connector的SaaS环境中或您自己具有Internet访问权限的主机系统中使用BlueXP备份和恢复、则所有重要的BlueXP备份和恢复配置数据都会备份并存储在云中。如果在无法访问Internet的站点(称为"受限模式"或"非公开站点")中使用BlueXP备份和恢复、则此BlueXP备份和恢复信息仅存储在本地连接器系统上。</block>
+  <block id="01f6b31ae6611c8f5e0bcc21952f1327" category="paragraph">我们将介绍如何将关键的BlueXP备份和恢复数据备份到已连接的StorageGRID 系统、以及如何在必要时将数据恢复到新连接器上。</block>
+  <block id="b5e4425a80571820c3fc81b638ce52be" category="summary">BlueXP备份和恢复服务(Cloud Backup)可为内部和云端的NetApp ONTAP 数据、Kubernetes永久性卷、数据库和虚拟机提供高效、安全且经济高效的数据保护。</block>
+  <block id="d1ce73c34fafec004ce6d188a1769e33" category="list-text">连接器可以安装在具有完全互联网访问("标准模式")或有限互联网连接("受限模式")的站点上。</block>
+  <block id="87e1e8ba74e4d22e27c54e05c219e4d7" category="list-text">Connector可以安装在具有完全或有限Internet访问权限("标准"或"受限"模式)的AWS地区。<block ref="f89ca42e30b46213947b09b3e423225b" category="inline-link-rx"></block>。</block>
+  <block id="0e58108645de369af6e83522b7945f2b" category="inline-link">在标准模式下在AWS中部署Connector (完全Internet访问)</block>
+  <block id="9724d186565542eee6893c676a229d57" category="list-text"><block ref="9724d186565542eee6893c676a229d57" category="inline-link-rx"></block></block>
+  <block id="87b9a328b6b45ae7a3e9970b19b56dc3" category="list-text">为BlueXP提供权限的IAM角色必须包括最新版本的S3权限<block ref="7dfaeab02b2622441821b715f9d8495a" category="inline-link-rx"></block>。如果此策略不包含所有这些权限、请参见<block ref="484fb6182b52563a51349e6fb7cb2cb6" category="inline-link-rx"></block>。</block>
+  <block id="d79a952c269a34bdcb05a2155867602b" category="paragraph">*注意：*如果包含要还原的数据的备份文件位于归档存储中(从ONTAP 9.10.1开始)、则还原操作将需要较长时间并产生成本。此外、目标集群还必须运行ONTAP 9.10.1或更高版本来还原卷、运行9.11.1来还原文件、运行9.12.1来还原Google Archive和StorageGRID 、运行9.13.1来还原文件夹。</block>
+  <block id="5d8a63e586bb4dfbba4ae7d992161e1c" category="admonition">如果系统上的ONTAP 版本低于9.13.1、则如果备份文件已配置DataLock和防软件、则无法还原文件夹或文件。在这种情况下、您可以从备份文件还原整个卷、然后访问所需的文件。</block>
+  <block id="c2d4eb2ee4a0b78ea11dd0bb39d93ab0" category="list-text">如果备份文件已配置DataLock和防兰软件保护、则只有当ONTAP 版本为9.13.1或更高版本时、才支持文件夹级还原。如果您使用的是早期版本的ONTAP 、则可以从备份文件还原整个卷、然后访问所需的文件夹和文件。</block>
+  <block id="df253d89e3119a8555e39eb63655c32c" category="list-text">如果备份文件驻留在归档存储中、则只有当ONTAP 版本为9.13.1或更高版本时、才支持文件夹级还原。如果您使用的是早期版本的ONTAP 、则可以从尚未归档的较新备份文件还原文件夹、也可以从归档备份还原整个卷、然后访问所需的文件夹和文件。</block>
+  <block id="06e9f92e3090a798bd44efa87250ce22" category="list-text">要执行_folder_还原操作、ONTAP 版本必须为9.11.1或更高版本。如果数据位于归档存储中、或者备份文件正在使用DataLock和防兰软件保护、则需要ONTAP 9.13.1版。</block>
+  <block id="cbb08f72335795850ccfc691c171d12b" category="paragraph">如果要从归档存储层中的备份文件还原文件夹或文件、则可以选择还原优先级。</block>
+  <block id="20f2d0bb5e696b331efc736ffadbb3f3" category="paragraph">如果要还原的卷的备份文件驻留在归档存储中(从ONTAP 9.10.1开始可用)、则还原操作将需要较长时间并产生额外成本。请注意、目标集群还必须运行ONTAP 9.10.1或更高版本来还原卷、运行9.11.1来还原文件、运行9.12.1来还原Google Archive和StorageGRID 、运行9.13.1来还原文件夹。</block>
+  <block id="3ddfa13cbce20cc68cd19aca6f181eb0" category="list-text">将数据从Azure归档存储还原到StorageGRID 系统时、不支持"高"还原优先级。</block>
+  <block id="ffe805c4c11acb4a1a49af6779cd50aa" category="sidebar">备份策略设置</block>
 </blocks>

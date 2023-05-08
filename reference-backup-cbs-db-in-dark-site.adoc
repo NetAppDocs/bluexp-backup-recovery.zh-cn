@@ -16,9 +16,9 @@ summary: 如果在无法访问Internet的站点上使用BlueXP备份和恢复、
 [role="lead"]
 如果在无法访问Internet的站点上使用BlueXP备份和恢复、则如果您的问题描述 使用的是BlueXP连接器主机系统、则需要定期备份关键的BlueXP备份和恢复文件。这样、您就可以部署新的Connector并还原关键的BlueXP备份和恢复数据。
 
-如果您在部署了BlueXP Connector的SaaS环境中或您自己具有Internet访问权限的主机系统中使用BlueXP备份和恢复、则所有重要的BlueXP备份和恢复配置数据都会备份并存储在云中。如果您在无法访问Internet的站点(也称为"非公开站点")中使用BlueXP备份和恢复、则此BlueXP备份和恢复信息仅存储在本地连接器系统上。
+如果您在部署了BlueXP Connector的SaaS环境中或您自己具有Internet访问权限的主机系统中使用BlueXP备份和恢复、则所有重要的BlueXP备份和恢复配置数据都会备份并存储在云中。如果在无法访问Internet的站点(称为"受限模式"或"非公开站点")中使用BlueXP备份和恢复、则此BlueXP备份和恢复信息仅存储在本地连接器系统上。
 
-本主题介绍如何将关键的BlueXP备份和恢复数据备份到已连接的StorageGRID 系统。此外、还介绍了在必要时如何将数据还原到新的Connector上。
+我们将介绍如何将关键的BlueXP备份和恢复数据备份到已连接的StorageGRID 系统、以及如何在必要时将数据恢复到新连接器上。
 
 
 

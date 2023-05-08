@@ -113,7 +113,7 @@ endif::azure[]
 
 === 支持无 Internet 连接的站点
 
-在没有Internet连接的站点(也称为"专用模式"或"非公开"站点)中、可以使用BlueXP备份和恢复来备份卷数据。在这种情况下、您需要在非公开站点中部署BlueXP Connector。
+在没有Internet连接的站点(也称为"专用模式"或"非公开"站点)中、可以使用BlueXP备份和恢复来备份卷数据。在这种情况下、您需要在专用模式下部署BlueXP Connector。
 
 * 您可以将本地内部ONTAP 系统中的数据备份到本地NetApp StorageGRID 系统。请参见 link:task-backup-onprem-private-cloud.html["将内部 ONTAP 数据备份到 StorageGRID"] 了解详细信息。ifdef：：AWS。
 
@@ -245,7 +245,7 @@ ifdef::aws[]
 
 使用AWS时、可以获得两份年期合同、合同期限分别为12、24或36个月：
 
-* 一种" BlueXP备份和恢复"计划、可用于备份Cloud Volumes ONTAP 数据和内部ONTAP 数据。
+* 一种 " 云备份 " 计划，可用于备份 Cloud Volumes ONTAP 数据和内部 ONTAP 数据。
 * 一种"CVO专业人员"计划、可用于捆绑Cloud Volumes ONTAP 和BlueXP备份和恢复。这包括对此许可证付费的 Cloud Volumes ONTAP 卷的无限备份（备份容量不计入此许可证）。
 
 
@@ -439,7 +439,8 @@ endif::gcp[]
 ** 如果在SnapMirror目标卷上创建Snapshot的本地副本(无论使用的SnapMirror标签如何)、则这些Snapshot不会作为备份移动到云中。此时、您需要为源DP卷创建一个包含所需标签的Snapshot策略、以便BlueXP备份和恢复功能对其进行备份。
 
 
-* FlexGroup 卷备份无法移动到归档存储、也无法使用DataLock和勒索软件保护。
+* 无法将FlexGroup 卷备份移至归档存储。
+* FlexGroup 卷备份不能使用DataLock和防软件保护。
 * 支持 SVM-DR 卷备份，但有以下限制：
 +
 ** 仅支持从 ONTAP 二级系统进行备份。
@@ -458,7 +459,7 @@ endif::gcp[]
 * 数据保护卷不支持使用*立即备份*按钮进行临时卷备份。
 * 不支持 SM-BC 配置。
 * ONTAP 不支持扇出从一个卷到多个对象存储的SnapMirror关系；因此、BlueXP备份和恢复不支持此配置。
-* 目前、Amazon S3、Azure和StorageGRID 支持对象存储上的WORM/Compliance模式。这称为DataLock功能、必须使用BlueXP备份和恢复设置进行管理、而不是使用云提供商界面。
+* 目前、Amazon S3、Azure和StorageGRID 支持对象存储上的WORM/Compliance模式。这称为DataLock功能、必须使用BlueXP备份和恢复设置进行管理、而不是使用云提供商界面进行管理。
 
 
 
@@ -476,8 +477,9 @@ endif::gcp[]
 +
 如果使用的ONTAP 版本早于9.11.1、则不支持文件夹还原。
 
-* FlexGroup 卷当前不支持目录/文件夹还原。
-* 如果备份文件驻留在归档存储中、则无法还原单个文件夹。
+* 只有当集群运行的是ONTAP 9.13.1及更高版本时、归档存储中的数据才支持目录/文件夹还原。
+* 只有当集群运行的是ONTAP 9.13.1及更高版本时、使用DataLock保护的数据才支持目录/文件夹还原。
+* FlexGroup 卷备份当前不支持目录/文件夹还原。
 * 不支持从FlexGroup 卷还原到FlexVol 卷、或将FlexVol 卷还原到FlexGroup 卷。
 * 要还原的文件必须使用与目标卷上的语言相同的语言。如果语言不同，您将收到一条错误消息。
 * 将数据从Azure归档存储还原到StorageGRID 系统时、不支持_High_还原优先级。

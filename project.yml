@@ -188,7 +188,7 @@ sidebar:
     url: "/api-backup-restore.html"
   - title: 参考
     entries:
-    - title: BlueXP备份和恢复策略设置
+    - title: 备份策略设置
       url: "/concept-cloud-backup-policies.html"
     - title: 支持的 AWS 归档存储层
       url: "/reference-aws-backup-tiers.html"
