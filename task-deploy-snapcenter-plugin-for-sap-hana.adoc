@@ -46,7 +46,7 @@ summary: 在每个SAP HANA数据库主机上安装适用于SAP HANA的SnapCenter
 
 
 
-NOTE: 如果从BlueXP Connector主机到应用程序主机的连接失败、请参见 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Cloud_Backup_Application_Failed_to_validate_connectivity_from_BlueXP_connector_host_to_application_database_host["知识库文章"^] 以了解相关信息。
+NOTE: 如果从BlueXP Connector主机到应用程序主机的连接失败、请参见 https://["知识库文章"^] 以了解相关信息。
 
 
 
@@ -155,7 +155,7 @@ host_ssh_port
 * 步骤 *
 
 . 登录到Connector VM。
-. 下载SnapCenter Linux主机插件二进制文件。`sUdo Docker exec -it cloudmanager_SCS_cloud curl -X get 'http://127.0.0.1/deploy/downloadLinuxPlugin'`[]
+. 下载SnapCenter Linux主机插件二进制文件。`sUdo Docker exec -it cloudmanager_SCS_cloud curl -X get 'http://[]
 +
 此插件二进制文件位于：_cd /var/lib/docker/volumes/service-manager-2_cloudmanager_SCS_cloud_volume/_data/$(sudo docker ps|grep -po"cloudmanager_SCS_cloud：.*？"|sed -e 's/*$//'|cut -f2 -d"：""/sc-linux-host-plugin_
 

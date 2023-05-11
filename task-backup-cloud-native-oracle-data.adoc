@@ -134,6 +134,6 @@ NOTE: 服务帐户(_SnapCenter-account-snapback__<account_id>)用于运行计划
 * 还原大型数据库(250 GB或更大)后、如果在同一数据库上执行完整备份、则操作可能会失败、并显示以下错误：
 `failed with status code 500, error {\"error\":{\"code\":\"app_internal_error\",\"message\":\"Failed to create snapshot. Reason: Snapshot operation not allowed due to clones backed by snapshots. Try again after sometime.`
 +
-有关如何修复此问题描述 的信息、请参见： https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/Snapshot_operation_not_allowed_due_to_clones_backed_by_snapshots["由于由快照备份的克隆、不允许执行快照操作"]。
+有关如何修复此问题描述 的信息、请参见： https://["由于由快照备份的克隆、不允许执行快照操作"]。
 
 

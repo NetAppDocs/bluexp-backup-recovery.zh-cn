@@ -20,7 +20,7 @@ BlueXP备份和恢复服务可为内部和云端的NetApp ONTAP 数据、Kubelne
 
 如有必要，您可以将整个 _volume" 从备份还原到相同或不同的工作环境。备份 ONTAP 数据时，您还可以选择将备份中的一个或多个 _files_ 还原到相同或不同的工作环境。
 
-https://bluexp.netapp.com/cloud-backup["了解有关BlueXP备份和恢复的更多信息"^]。
+https://["了解有关BlueXP备份和恢复的更多信息"^]。
 
 备份和恢复可用于：
 
@@ -30,7 +30,7 @@ https://bluexp.netapp.com/cloud-backup["了解有关BlueXP备份和恢复的更�
 * 使用适用于VMware的BlueXP备份和恢复功能将数据存储库备份到云、并将虚拟机还原回内部vCenter。 link:concept-protect-vm-data.html["请参见此处的详细功能"]。
 
 
-https://www.youtube.com/watch?v=DF0knrH2a80["观看快速演示"^]
+https://["观看快速演示"^]
 
 
 TIP: 如果将BlueXP Connector部署在云中的政府区域或无法访问Internet的站点(非公开站点)中、则BlueXP备份和恢复仅支持从ONTAP 系统执行备份和还原操作。使用这些类型的部署方法时、BlueXP备份和恢复不支持从Kubernetes集群、应用程序或虚拟机执行备份和还原操作。
@@ -53,14 +53,14 @@ image:diagram_cloud_backup_general.png["一个示意图、显示了BlueXP备份�
 
 ifdef::aws[]
 
-* 在AWS中、BlueXP会启用 https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html["Amazon S3 块公有访问功能"^] 在 S3 存储分段上。
+* 在AWS中、BlueXP会启用 https://["Amazon S3 块公有访问功能"^] 在 S3 存储分段上。
 
 
 endif::aws[]
 
 ifdef::azure[]
 
-* 在Azure中、BlueXP使用新的或现有的资源组以及Blob容器的存储帐户。BlueXP https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent["阻止对 Blob 数据的公有访问"] 默认情况下。
+* 在Azure中、BlueXP使用新的或现有的资源组以及Blob容器的存储帐户。BlueXP https://["阻止对 Blob 数据的公有访问"] 默认情况下。
 
 
 endif::azure[]
@@ -92,6 +92,6 @@ endif::gcp[]
 
 === 备份副本与您的 NetApp 帐户关联
 
-备份副本与关联 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-netapp-accounts.html["NetApp 帐户"^] BlueXP Connector所在位置。
+备份副本与关联 https://["NetApp 帐户"^] BlueXP Connector所在位置。
 
 如果在同一个NetApp帐户中有多个连接器、则每个连接器会显示相同的备份列表。其中包括与其他连接器中的 Cloud Volumes ONTAP 和内部 ONTAP 实例关联的备份。

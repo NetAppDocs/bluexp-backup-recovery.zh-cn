@@ -26,7 +26,7 @@ summary: 完成几个步骤、开始将卷数据从内部ONTAP 系统备份到Az
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"] 验证是否支持您的配置
 [role="quick-margin-list"]
-* 您已发现内部集群并将其添加到BlueXP中的工作环境中。请参见 https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["发现 ONTAP 集群"^] 了解详细信息。
+* 您已发现内部集群并将其添加到BlueXP中的工作环境中。请参见 https://["发现 ONTAP 集群"^] 了解详细信息。
 +
 ** 集群运行的是ONTAP 9.7P5或更高版本(建议使用ONTAP 9.8P13及更高版本)。
 ** 集群具有 SnapMirror 许可证—它作为超值包或数据保护包的一部分提供。
@@ -101,7 +101,7 @@ image:diagram_cloud_backup_onprem_azure_private.png["一个示意图、显示了
 
 您需要先在BlueXP中发现内部ONTAP 集群、然后才能开始备份卷数据。
 
-https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["了解如何发现集群"^]。
+https://["了解如何发现集群"^]。
 
 ONTAP 要求::
 +
@@ -112,11 +112,11 @@ ONTAP 要求::
 *注意：*使用BlueXP备份和恢复时、不需要"混合云捆绑包"。
 
 +
-请参见操作说明 https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["管理集群许可证"^]。
+请参见操作说明 https://["管理集群许可证"^]。
 
 * 已正确设置时间和时区。
 +
-请参见操作说明 https://docs.netapp.com/us-en/ontap/system-admin/manage-cluster-time-concept.html["配置集群时间"^]。
+请参见操作说明 https://["配置集群时间"^]。
 
 
 
@@ -129,12 +129,12 @@ ONTAP 要求::
 ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会启动，而只是响应。
 
 * ONTAP 需要从连接器到集群管理 LIF 的入站连接。此连接器可以驻留在 Azure vNet 中。
-* 托管要备份的卷的每个 ONTAP 节点都需要一个集群间 LIF 。LIF 必须与 _IP 空间 _ 关联， ONTAP 应使用此 _IP 空间 _ 连接到对象存储。 https://docs.netapp.com/us-en/ontap/networking/standard_properties_of_ipspaces.html["了解有关 IP 空间的更多信息"^]。
+* 托管要备份的卷的每个 ONTAP 节点都需要一个集群间 LIF 。LIF 必须与 _IP 空间 _ 关联， ONTAP 应使用此 _IP 空间 _ 连接到对象存储。 https://["了解有关 IP 空间的更多信息"^]。
 +
 设置BlueXP备份和恢复时、系统会提示您使用IP空间。您应选择与每个 LIF 关联的 IP 空间。这可能是您创建的 " 默认 "IP 空间或自定义 IP 空间。
 
 * 节点和集群间 LIF 能够访问对象存储。
-* 已为卷所在的 Storage VM 配置 DNS 服务器。请参见操作说明 https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html["为 SVM 配置 DNS 服务"^]。
+* 已为卷所在的 Storage VM 配置 DNS 服务器。请参见操作说明 https://["为 SVM 配置 DNS 服务"^]。
 * 请注意，如果您使用的 IP 空间与默认 IP 空间不同，则可能需要创建静态路由才能访问对象存储。
 * 如有必要、请更新防火墙规则、以允许通过端口443从ONTAP 到对象存储的BlueXP备份和恢复服务连接、以及通过端口53 (TCP/UDP)从Storage VM到DNS服务器的名称解析流量。
 
@@ -148,10 +148,10 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 
 如果您已在Azure vNet或内部部署了Connector、则可以完全完成。如果没有、则需要在其中任一位置创建一个连接器、以便将ONTAP 数据备份到Azure Blob存储。您不能使用部署在其他云提供商中的Connector。
 
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["了解连接器"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-azure.html["在Azure中安装Connector"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-on-prem.html["在内部安装Connector"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-restricted-mode.html["在Azure政府区域中安装Connector"^]
+* https://["了解连接器"^]
+* https://["在Azure中安装Connector"^]
+* https://["在内部安装Connector"^]
+* https://["在Azure政府区域中安装Connector"^]
 +
 如果连接器部署在云中、则Azure政府区域支持BlueXP备份和恢复、而不是安装在您的内部环境中。此外、您还必须从Azure Marketplace部署Connector。您不能从BlueXP SaaS网站在政府区域部署Connector。
 
@@ -166,10 +166,10 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 .步骤
 . 确保安装 Connector 的网络启用以下连接：
 +
-** 通过端口443与BlueXP备份和恢复服务以及Blob对象存储建立HTTPS连接 (https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-set-up-networking-azure.html#endpoints-contacted-for-day-to-day-operations["请参见端点列表"^]）
+** 通过端口443与BlueXP备份和恢复服务以及Blob对象存储建立HTTPS连接 (https://["请参见端点列表"^]）
 ** 通过端口 443 与 ONTAP 集群管理 LIF 建立 HTTPS 连接
 ** 要使BlueXP备份和恢复搜索和还原功能正常工作、必须打开端口1433、以便在Connector和Azure Synapse SQL服务之间进行通信。
-** Azure和Azure政府部署还需要其他入站安全组规则。请参见 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-ports-azure.html["Azure 中连接器的规则"^] 了解详细信息。
+** Azure和Azure政府部署还需要其他入站安全组规则。请参见 https://["Azure 中连接器的规则"^] 了解详细信息。
 
 
 . 为 Azure 存储启用 vNet 私有端点。如果您从ONTAP 集群到vNet具有ExpressRoute或VPN连接、并且希望Connector和Blob存储之间的通信保持在虚拟专用网络中(*专用*连接)、则需要此功能。
@@ -182,7 +182,7 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 要使用BlueXP备份和恢复搜索和还原功能、您需要对Connector的角色拥有特定权限、以便它可以访问Azure Synapse Workspace和Data Lake存储帐户。请参见以下权限、如果需要修改策略、请按照以下步骤进行操作。
 
 .开始之前
-您必须在订阅中注册Azure Synapse分析资源提供程序(称为"microsoft.Synape")。 https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider["了解如何为您的订阅注册此资源提供商"^]。您必须是订阅*所有者*或*贡献者*才能注册资源提供程序。
+您必须在订阅中注册Azure Synapse分析资源提供程序(称为"microsoft.Synape")。 https://["了解如何为您的订阅注册此资源提供商"^]。您必须是订阅*所有者*或*贡献者*才能注册资源提供程序。
 
 .步骤
 . 确定分配给 Connector 虚拟机的角色：
@@ -233,8 +233,6 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 "Microsoft.Network/networkInterfaces/delete",
 "Microsoft.Network/networkSecurityGroups/delete",
 "Microsoft.Resources/deployments/delete",
-"Microsoft.Network/publicIPAddresses/delete",
-"Microsoft.Storage/storageAccounts/blobServices/containers/write",
 "Microsoft.ManagedIdentity/userAssignedIdentities/assign/action",
 "Microsoft.Synapse/workspaces/write",
 "Microsoft.Synapse/workspaces/read",
@@ -248,7 +246,7 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 "Microsoft.Synapse/workspaces/privateEndpointConnectionsApproval/action"
 ----
 +
-https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-azure.html["查看策略的完整 JSON 格式"^]
+https://["查看策略的完整 JSON 格式"^]
 
 .. 单击 * 查看 + 更新 * ，然后单击 * 更新 * 。
 
@@ -259,7 +257,7 @@ https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-az
 
 === 支持的区域
 
-您可以在所有区域创建从内部系统到 Azure Blob 的备份 https://cloud.netapp.com/cloud-volumes-global-regions["支持 Cloud Volumes ONTAP 的位置"^]；包括 Azure 政府区域。您可以在设置服务时指定要存储备份的区域。
+您可以在所有区域创建从内部系统到 Azure Blob 的备份 https://["支持 Cloud Volumes ONTAP 的位置"^]；包括 Azure 政府区域。您可以在设置服务时指定要存储备份的区域。
 
 
 
@@ -267,13 +265,13 @@ https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-az
 
 * 在为集群激活BlueXP备份和恢复之前、您需要从Azure订阅按需购买(PAYGO) BlueXP Marketplace产品、或者从NetApp购买并激活BlueXP备份和恢复BYOL许可证。这些许可证适用于您的帐户，可在多个系统中使用。
 +
-** 对于BlueXP备份和恢复PAYGO许可、您需要订阅 https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["Azure 酒店"^] 使用BlueXP备份和恢复的BlueXP Marketplace产品。BlueXP备份和恢复的计费通过此订阅完成。
+** 对于BlueXP备份和恢复PAYGO许可、您需要订阅 https://["Azure Marketplace中的NetApp BlueXP产品"^]。BlueXP备份和恢复的计费通过此订阅完成。
 ** 对于BlueXP备份和恢复BYOL许可、您需要NetApp提供的序列号、以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["了解如何管理 BYOL 许可证"]。
 
 
 * 您需要为备份所在的对象存储空间订阅 Azure 。
 +
-您可以在所有区域创建从内部系统到 Azure Blob 的备份 https://cloud.netapp.com/cloud-volumes-global-regions["支持 Cloud Volumes ONTAP 的位置"^]；包括 Azure 政府区域。您可以在设置服务时指定要存储备份的区域。
+您可以在所有区域创建从内部系统到 Azure Blob 的备份 https://["支持 Cloud Volumes ONTAP 的位置"^]；包括 Azure 政府区域。您可以在设置服务时指定要存储备份的区域。
 
 
 
@@ -281,8 +279,8 @@ https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-az
 
 === 为备份准备 Azure Blob 存储
 
-. 您可以在激活向导中使用自己的自定义管理密钥进行数据加密、而不是使用默认的Microsoft管理的加密密钥。在这种情况下，您需要拥有 Azure 订阅，密钥存储名称和密钥。 https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["了解如何使用您自己的密钥"^]。
-. 如果您希望通过公有 Internet 从内部数据中心更安全地连接到 vNet ，可以在激活向导中选择配置 Azure 私有端点。在这种情况下，您需要了解此连接的 vNet 和子网。 https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview["请参见有关使用私有端点的详细信息"^]。
+. 您可以在激活向导中使用自己的自定义管理密钥进行数据加密、而不是使用默认的Microsoft管理的加密密钥。在这种情况下，您需要拥有 Azure 订阅，密钥存储名称和密钥。 https://["了解如何使用您自己的密钥"^]。
+. 如果您希望通过公有 Internet 从内部数据中心更安全地连接到 vNet ，可以在激活向导中选择配置 Azure 私有端点。在这种情况下，您需要了解此连接的 vNet 和子网。 https://["请参见有关使用私有端点的详细信息"^]。
 
 
 
@@ -304,7 +302,7 @@ image:screenshot_backup_onprem_enable.png["屏幕截图显示了\"启用备份�
 +
 .. 用于备份的 Azure 订阅以及要存储备份的 Azure 区域。
 .. 用于管理 Blob 容器的资源组—您可以创建新资源组或选择现有资源组。
-.. 是使用默认的 Microsoft 管理的加密密钥，还是选择您自己的客户管理的密钥来管理数据加密。 (https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["了解如何使用您自己的密钥"^]）。
+.. 是使用默认的 Microsoft 管理的加密密钥，还是选择您自己的客户管理的密钥来管理数据加密。 (https://["了解如何使用您自己的密钥"^]）。
 +
 image:screenshot_backup_onprem_to_azure.png["显示将卷从内部集群备份到 Azure Blob 存储时云提供商详细信息的屏幕截图。"]
 
@@ -314,7 +312,7 @@ image:screenshot_backup_onprem_to_azure.png["显示将卷从内部集群备份�
 . 输入网络连接详细信息并单击 * 下一步 * 。
 +
 .. 要备份的卷所在的 ONTAP 集群中的 IP 空间。此 IP 空间的集群间 LIF 必须具有出站 Internet 访问权限。
-.. （可选）选择是否要配置 Azure 私有端点。 https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview["请参见有关使用私有端点的详细信息"^]。
+.. （可选）选择是否要配置 Azure 私有端点。 https://["请参见有关使用私有端点的详细信息"^]。
 +
 image:screenshot_backup_onprem_azure_networking.png["屏幕截图显示了将卷从 ONTAP 系统备份到 Azure Blob 存储时的网络连接详细信息。"]
 

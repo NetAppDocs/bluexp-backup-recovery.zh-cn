@@ -30,7 +30,7 @@ summary: 了解BlueXP备份和恢复的新增功能。
 
 === 将卷备份到Google Cloud时、支持跨区域和跨项目客户管理的密钥
 
-现在、您可以选择与客户管理的加密密钥(CMDK)项目不同的项目中的存储分段。
+现在、您可以选择与客户管理的加密密钥(CMDK)项目不同的项目中的存储分段。 https://["详细了解如何设置您自己的客户管理加密密钥"]。
 
 
 
@@ -38,7 +38,7 @@ summary: 了解BlueXP备份和恢复的新增功能。
 
 现在、如果集群运行的是ONTAP 9.12.1或更高版本、则支持将AWS中国北京(CN-north-1)和宁夏(CN-north-1)区域作为备份文件的目标。
 
-请注意、分配给BlueXP Connector的IAM策略需要将All _Resource_部分下的AWS资源名称"arn"从"aws"更改为"AAWS CN"；例如"arn：aws-cn：s3：：：NetApp-backup-*"。请参见 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-s3.html["将 Cloud Volumes ONTAP 数据备份到 Amazon S3"] 和 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-aws.html["将本地ONTAP 数据备份到Amazon S3"] 了解详细信息。
+请注意、分配给BlueXP Connector的IAM策略需要将All _Resource_部分下的AWS资源名称"arn"从"aws"更改为"AAWS CN"；例如"arn：aws-cn：s3：：：NetApp-backup-*"。请参见 https://["将 Cloud Volumes ONTAP 数据备份到 Amazon S3"] 和 https://["将本地ONTAP 数据备份到Amazon S3"] 了解详细信息。
 
 
 
@@ -88,27 +88,27 @@ summary: 了解BlueXP备份和恢复的新增功能。
 
 === 能够在"受限"模式下将数据从Cloud Volumes ONTAP 系统备份到云
 
-现在、您可以在"受限模式"下从AWS、Azure和GCP商业区域中安装的Cloud Volumes ONTAP 系统备份数据。这要求您首先在"受限"商业区域安装Connector。 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-modes.html["详细了解BlueXP部署模式"^]。请参见 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-s3.html["将 Cloud Volumes ONTAP 数据备份到 Amazon S3"] 和 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-azure.html["将Cloud Volumes ONTAP 数据备份到Azure Blob"]。
+现在、您可以在"受限模式"下从AWS、Azure和GCP商业区域中安装的Cloud Volumes ONTAP 系统备份数据。这要求您首先在"受限"商业区域安装Connector。 https://["详细了解BlueXP部署模式"^]。请参见 https://["将 Cloud Volumes ONTAP 数据备份到 Amazon S3"] 和 https://["将Cloud Volumes ONTAP 数据备份到Azure Blob"]。
 
 
 
 === 可以使用API将内部ONTAP 卷备份到ONTAP S3
 
-通过API中的新功能、您可以使用BlueXP备份和恢复功能将卷快照备份到ONTAP S3。此功能目前仅适用于内部部署的ONTAP 系统。有关详细说明、请参见博客 https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-Feature-Blog-April-23-Updates/ba-p/443075#toc-hId--846533830["与ONTAP S3集成作为目标"^]。
+通过API中的新功能、您可以使用BlueXP备份和恢复功能将卷快照备份到ONTAP S3。此功能目前仅适用于内部部署的ONTAP 系统。有关详细说明、请参见博客 https://["与ONTAP S3集成作为目标"^]。
 
 
 
 === 可以将Azure存储帐户的分区冗余方面从LRS更改为ZRS
 
-默认情况下、在从Cloud Volumes ONTAP 系统创建到Azure存储的备份时、BlueXP备份和恢复会为Blob容器配置本地冗余(LRS)以实现成本优化。如果要在不同分区之间复制数据、可以将此设置更改为区域冗余(ZRS)。请参见的Microsoft说明 https://learn.microsoft.com/en-us/azure/storage/common/redundancy-migration?tabs=portal["更改存储帐户的复制方式"^]。
+默认情况下、在从Cloud Volumes ONTAP 系统创建到Azure存储的备份时、BlueXP备份和恢复会为Blob容器配置本地冗余(LRS)以实现成本优化。如果要在不同分区之间复制数据、可以将此设置更改为区域冗余(ZRS)。请参见的Microsoft说明 https://["更改存储帐户的复制方式"^]。
 
 
 
 === 作业监控的增强功能
 
 * 对于运行ONTAP 9.13.0或更高版本的Cloud Volumes ONTAP 系统、用户启动的备份和还原操作以及系统启动的作业(如正在进行的备份操作)现在均可在*作业监控*选项卡中找到。早期的ONTAP 版本将仅显示用户启动的作业。
-* 除了可以下载CSV文件以报告所有作业之外、现在您还可以下载单个作业的JSON文件并查看其详细信息。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#download-job-monitoring-results-as-a-report["了解更多信息。"]。
-* 添加了两个新的备份作业警报："Scheduled job failure"和"Restore job completes but with warnings"。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#review-backup-and-restore-alerts-in-the-bluexp-notification-center["查看BlueXP备份和恢复可以发送的所有警报"]。
+* 除了可以下载CSV文件以报告所有作业之外、现在您还可以下载单个作业的JSON文件并查看其详细信息。 https://["了解更多信息。"]。
+* 添加了两个新的备份作业警报："Scheduled job failure"和"Restore job completes but with warnings"。 https://["查看BlueXP备份和恢复可以发送的所有警报"]。
 
 
 
@@ -125,13 +125,13 @@ summary: 了解BlueXP备份和恢复的新增功能。
 
 === 能够在非公开站点中备份Cloud Volumes ONTAP 系统中的数据
 
-现在、您可以将数据从AWS和Azure商业区域中安装的Cloud Volumes ONTAP 系统备份到Amazon S3或Azure Blob。这要求您在商业区域的Linux主机上安装连接器、并在该主机上部署Cloud Volumes ONTAP 系统。请参见 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-s3.html["将 Cloud Volumes ONTAP 数据备份到 Amazon S3"] 和 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-azure.html["将Cloud Volumes ONTAP 数据备份到Azure Blob"]。
+现在、您可以将数据从AWS和Azure商业区域中安装的Cloud Volumes ONTAP 系统备份到Amazon S3或Azure Blob。这要求您在商业区域的Linux主机上安装连接器、并在该主机上部署Cloud Volumes ONTAP 系统。请参见 https://["将 Cloud Volumes ONTAP 数据备份到 Amazon S3"] 和 https://["将Cloud Volumes ONTAP 数据备份到Azure Blob"]。
 
 
 
 === 对作业监控器进行了多项增强
 
-* 作业监控页面添加了高级筛选功能、因此您可以按时间、工作负载(卷、应用程序、虚拟机或Kubernetes)搜索备份和还原作业。 作业类型、状态、工作环境和Storage VM。您还可以输入自由文本来搜索任何资源、例如"application_3"。  https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#searching-and-filtering-the-list-of-jobs["请参见如何使用高级筛选器"]。
+* 作业监控页面添加了高级筛选功能、因此您可以按时间、工作负载(卷、应用程序、虚拟机或Kubernetes)搜索备份和还原作业。 作业类型、状态、工作环境和Storage VM。您还可以输入自由文本来搜索任何资源、例如"application_3"。  https://["请参见如何使用高级筛选器"]。
 * 对于运行ONTAP 9.13.0或更高版本的Cloud Volumes ONTAP 系统、用户启动的备份和还原操作以及系统启动的作业(如正在进行的备份操作)现在均可在*作业监控*选项卡中找到。早期版本的Cloud Volumes ONTAP 系统和内部ONTAP 系统此时将仅显示用户启动的作业。
 
 
@@ -145,13 +145,13 @@ summary: 了解BlueXP备份和恢复的新增功能。
 
 现在、您可以将旧备份文件从StorageGRID 系统分层到Azure中的归档存储。这样、您就可以释放StorageGRID 系统上的空间、并通过对旧备份文件使用成本低廉的存储类节省资金。
 
-如果您的内部集群使用的是ONTAP 9.12.1或更高版本、而StorageGRID 系统使用的是11.4或更高版本、则可以使用此功能。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage["单击此处了解更多信息"^]。
+如果您的内部集群使用的是ONTAP 9.12.1或更高版本、而StorageGRID 系统使用的是11.4或更高版本、则可以使用此功能。 https://["单击此处了解更多信息"^]。
 
 
 
 === 可以为Azure Blob中的备份文件配置DataLock和勒索软件保护
 
-现在、存储在Azure Blob中的备份文件支持DataLock和勒索软件保护。如果您的Cloud Volumes ONTAP 或内部ONTAP 系统运行的是ONTAP 9.12.1或更高版本、现在您可以锁定备份文件并对其进行扫描、以检测可能的勒索软件。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-cloud-backup-policies.html#datalock-and-ransomware-protection["详细了解如何使用DataLock和勒索软件保护来保护备份"^]。
+现在、存储在Azure Blob中的备份文件支持DataLock和勒索软件保护。如果您的Cloud Volumes ONTAP 或内部ONTAP 系统运行的是ONTAP 9.12.1或更高版本、现在您可以锁定备份文件并对其进行扫描、以检测可能的勒索软件。 https://["详细了解如何使用DataLock和勒索软件保护来保护备份"^]。
 
 
 
@@ -179,7 +179,7 @@ summary: 了解BlueXP备份和恢复的新增功能。
 
 现在、如果使用的是ONTAP 9.12.1 GA或更高版本、则在MetroCluster 配置中连接到主系统时、支持备份。整个备份配置将传输到二级系统、以便在切换后自动继续备份到云。
 
-https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html#backup-limitations["有关详细信息、请参见备份限制"]。
+https://["有关详细信息、请参见备份限制"]。
 
 
 
@@ -191,7 +191,7 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-ontap-backup-
 
 现在、您可以将旧备份文件从StorageGRID 系统分层到AWS S3中的归档存储。这样、您就可以释放StorageGRID 系统上的空间、并通过对旧备份文件使用成本低廉的存储类节省资金。您可以选择将备份分层到AWS S3 Glacier或S3 Glacier深度归档存储。
 
-如果您的内部集群使用的是ONTAP 9.12.1或更高版本、而StorageGRID 系统使用的是11.3或更高版本、则可以使用此功能。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage["单击此处了解更多信息"]。
+如果您的内部集群使用的是ONTAP 9.12.1或更高版本、而StorageGRID 系统使用的是11.3或更高版本、则可以使用此功能。 https://["单击此处了解更多信息"]。
 
 
 
@@ -203,7 +203,7 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-ontap-backup-
 
 === 服务帐户不再需要"存储管理员"角色来在Google Cloud Storage中创建备份
 
-在早期版本中、支持BlueXP备份和恢复访问Google Cloud存储分段的服务帐户需要"存储管理员"角色。现在、您可以创建一个自定义角色、并为该服务帐户分配一组经过精简的权限。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-gcp.html#preparing-google-cloud-storage-for-backups["请参见如何准备用于备份的Google Cloud存储"]。
+在早期版本中、支持BlueXP备份和恢复访问Google Cloud存储分段的服务帐户需要"存储管理员"角色。现在、您可以创建一个自定义角色、并为该服务帐户分配一组经过精简的权限。 https://["请参见如何准备用于备份的Google Cloud存储"]。
 
 
 
@@ -211,13 +211,13 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-ontap-backup-
 
 如果您要将数据从内部ONTAP 集群备份到无法访问Internet的站点(也称为非公开站点或脱机站点)中的StorageGRID 、则现在可以根据需要使用搜索和还原选项还原数据。此功能要求在脱机站点中部署BlueXP Connector (3.9.25或更高版本)。
 
-https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#restoring-ontap-data-using-search-restore["请参见如何使用搜索和放大器还原ONTAP 数据"]。https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-private-mode.html["请参见如何在脱机站点中安装Connector"]。
+https://["请参见如何使用搜索和放大器还原ONTAP 数据"]。https://["请参见如何在脱机站点中安装Connector"]。
 
 
 
 === 能够以.csv报告的形式下载作业监控结果页面
 
-筛选"作业监控"页面以显示您感兴趣的作业和操作后、现在可以生成并下载该数据的.csv文件。然后、您可以分析这些信息、或者将报告发送给组织中的其他人员。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#download-job-monitoring-results-as-a-report["请参见如何生成作业监控报告"]。
+筛选"作业监控"页面以显示您感兴趣的作业和操作后、现在可以生成并下载该数据的.csv文件。然后、您可以分析这些信息、或者将报告发送给组织中的其他人员。 https://["请参见如何生成作业监控报告"]。
 
 
 
@@ -280,7 +280,7 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-
 
 | https://*.cloudmanager.cloud.netapp.com | https://*.api.bluexp.netapp.com 
 |===
-请查看的完整端点列表 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-set-up-networking-aws.html#outbound-internet-access["AWS"^]， https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-set-up-networking-google.html#outbound-internet-access["Google Cloud"^]或 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-set-up-networking-azure.html#outbound-internet-access["Azure 酒店"^] 云环境。
+请查看的完整端点列表 https://["AWS"^]， https://["Google Cloud"^]或 https://["Azure 酒店"^] 云环境。
 
 
 
@@ -296,7 +296,7 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-
 
 Cloud Backup现在支持备份和还原FlexGroup 卷。使用ONTAP 9.12.1或更高版本时、您可以将FlexGroup 卷备份到公有 和私有云存储。如果您的工作环境包含FlexVol 和FlexGroup 卷、则在更新ONTAP 软件后、您可以备份这些系统上的任何FlexGroup 卷。
 
-https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html#supported-volumes["请参见支持的卷类型的完整列表"]。
+https://["请参见支持的卷类型的完整列表"]。
 
 
 
@@ -314,19 +314,19 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-ontap-backup-
 
 如果工作环境中的卷具有与备份计划标签匹配的任何本地Snapshot副本(例如、每日、每周等)、则可以将这些历史快照作为备份文件导出到对象存储。这样、您可以通过将旧的Snapshot副本移动到基线备份副本中来初始化云中的备份。
 
-在为您的工作环境激活Cloud Backup时、此选项可用。您也可以稍后在中更改此设置 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backup-settings-ontap.html["高级设置页面"]。
+在为您的工作环境激活Cloud Backup时、此选项可用。您也可以稍后在中更改此设置 https://["高级设置页面"]。
 
 
 
 === Cloud Backup现在可用于归档源系统上不再需要的卷
 
-现在、您可以删除卷的备份关系。如果您希望停止创建新备份文件并删除源卷、但保留所有现有备份文件、则可以使用此功能提供归档机制。这样、您就可以在将来根据需要从备份文件还原卷、同时从源存储系统中清除空间。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backups-ontap.html#deleting-volume-backup-relationships["了解如何操作"]。
+现在、您可以删除卷的备份关系。如果您希望停止创建新备份文件并删除源卷、但保留所有现有备份文件、则可以使用此功能提供归档机制。这样、您就可以在将来根据需要从备份文件还原卷、同时从源存储系统中清除空间。 https://["了解如何操作"]。
 
 
 
 === 添加了通过电子邮件和通知中心接收Cloud Backup警报的支持
 
-Cloud Backup已集成到BlueXP通知服务中。您可以通过单击BlueXP菜单栏中的通知铃来显示Cloud Backup通知。此外、您还可以将BlueXP配置为通过电子邮件发送警报通知、以便即使未登录到系统、您也可以了解重要的系统活动。可以将此电子邮件发送给需要了解备份和还原活动的任何收件人。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#use-the-job-monitor-to-view-backup-and-restore-job-status["了解如何操作"]。
+Cloud Backup已集成到BlueXP通知服务中。您可以通过单击BlueXP菜单栏中的通知铃来显示Cloud Backup通知。此外、您还可以将BlueXP配置为通过电子邮件发送警报通知、以便即使未登录到系统、您也可以了解重要的系统活动。可以将此电子邮件发送给需要了解备份和还原活动的任何收件人。 https://["了解如何操作"]。
 
 
 
@@ -343,7 +343,7 @@ Cloud Backup已集成到BlueXP通知服务中。您可以通过单击BlueXP菜�
 * 连接到对象存储的ONTAP IP空间(如果激活期间选择不正确)
 
 
-https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backup-settings-ontap.html["了解有关管理集群级别备份设置的更多信息"]。
+https://["了解有关管理集群级别备份设置的更多信息"]。
 
 
 
@@ -357,7 +357,7 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backup-se
 
 === 已更新作业监控页面
 
-已对进行了以下更新 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html["作业监控页面"]：
+已对进行了以下更新 https://["作业监控页面"]：
 
 * 您可以使用"workload"列筛选页面以查看以下备份服务的作业：卷、应用程序、虚拟机和Kubernetes。
 * 如果要查看特定备份作业的这些详细信息、可以为"用户名"和"作业类型"添加新列。
@@ -405,7 +405,7 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backup-se
 
 === 可以为StorageGRID 系统中的备份文件配置DataLock和勒索软件保护
 
-上一版本针对存储在Amazon S3存储分段中的备份引入了_DataLock和勒索软件保护_。此版本扩展了对StorageGRID 系统中存储的备份文件的支持。如果集群使用的是ONTAP 9.11.1或更高版本、而StorageGRID 系统运行的是11.6.0.3或更高版本、则可以使用此新的备份策略选项。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-cloud-backup-policies.html#datalock-and-ransomware-protection["详细了解如何使用DataLock和勒索软件保护来保护备份"^]。
+上一版本针对存储在Amazon S3存储分段中的备份引入了_DataLock和勒索软件保护_。此版本扩展了对StorageGRID 系统中存储的备份文件的支持。如果集群使用的是ONTAP 9.11.1或更高版本、而StorageGRID 系统运行的是11.6.0.3或更高版本、则可以使用此新的备份策略选项。 https://["详细了解如何使用DataLock和勒索软件保护来保护备份"^]。
 
 请注意、您需要运行的Connector软件版本为3.9.22或更高版本。连接器必须安装在您的内部环境中、并且可以安装在可访问Internet或不可访问Internet的站点中。
 
@@ -431,7 +431,7 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backup-se
 
 === 拖放以启用云备份到StorageGRID 系统
 
-如果 https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-storagegrid.html["StorageGRID"^] 备份目标作为工作环境存在于Canvas上、您可以将内部ONTAP 工作环境拖动到目标上以启动Cloud Backup设置向导。
+如果 https://["StorageGRID"^] 备份目标作为工作环境存在于Canvas上、您可以将内部ONTAP 工作环境拖动到目标上以启动Cloud Backup设置向导。
 
 
 
@@ -441,23 +441,23 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backup-se
 
 === 增加了对云原生应用程序数据的保护支持
 
-Cloud Backup for Applications是一种基于SaaS的服务、可为在NetApp Cloud Storage上运行的应用程序提供数据保护功能。在BlueXP中启用的适用于应用程序的云备份可为驻留在Amazon FSX for NetApp ONTAP 上的Oracle数据库提供高效、一致且基于策略的备份和还原。https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-cloud-app-data-to-cloud.html["了解更多信息。"^]。
+Cloud Backup for Applications是一种基于SaaS的服务、可为在NetApp Cloud Storage上运行的应用程序提供数据保护功能。在BlueXP中启用的适用于应用程序的云备份可为驻留在Amazon FSX for NetApp ONTAP 上的Oracle数据库提供高效、一致且基于策略的备份和还原。https://["了解更多信息。"^]。
 
 
 
 === 现在、Azure Blob中的备份文件支持搜索和还原
 
-现在、将备份文件存储在Azure Blob存储中的用户可以使用"搜索和还原"方法还原卷和文件。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#prerequisites-2["请参见如何使用搜索和放大器还原卷和文件"^]。
+现在、将备份文件存储在Azure Blob存储中的用户可以使用"搜索和还原"方法还原卷和文件。 https://["请参见如何使用搜索和放大器还原卷和文件"^]。
 
-请注意、要使用此功能、需要在Connector角色中添加其他权限。使用3.9.21版软件(2022年8月)部署的Connector包含这些权限。如果您使用早期版本部署了Connector、则需要手动添加权限。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-azure.html#verify-or-add-permissions-to-the-connector["如有必要、请参见如何添加这些权限"^]。
+请注意、要使用此功能、需要在Connector角色中添加其他权限。使用3.9.21版软件(2022年8月)部署的Connector包含这些权限。如果您使用早期版本部署了Connector、则需要手动添加权限。 https://["如有必要、请参见如何添加这些权限"^]。
 
 
 
 === 我们增加了保护备份文件免遭删除和勒索软件攻击的功能
 
-Cloud Backup现在支持对象锁定、用于进行勒索软件安全备份。如果您的集群使用的是ONTAP 9.11.1或更高版本、而您的备份目标是Amazon S3、则现在可以使用一个名为_DataLock和勒索软件保护_的新备份策略选项。DataLock可防止您的备份文件被修改或删除、勒索软件保护功能会扫描您的备份文件、以查找您的备份文件遭到勒索软件攻击的证据。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-cloud-backup-policies.html#datalock-and-ransomware-protection["详细了解如何使用DataLock和勒索软件保护来保护备份"^]。
+Cloud Backup现在支持对象锁定、用于进行勒索软件安全备份。如果您的集群使用的是ONTAP 9.11.1或更高版本、而您的备份目标是Amazon S3、则现在可以使用一个名为_DataLock和勒索软件保护_的新备份策略选项。DataLock可防止您的备份文件被修改或删除、勒索软件保护功能会扫描您的备份文件、以查找您的备份文件遭到勒索软件攻击的证据。 https://["详细了解如何使用DataLock和勒索软件保护来保护备份"^]。
 
-请注意、要使用此功能、需要在Connector角色中添加其他权限。使用3.9.21版软件部署的Connector包含这些权限。如果您使用早期版本部署了Connector、则需要手动添加权限。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-aws.html#set-up-s3-permissions["如有必要、请参见如何添加这些权限"^]。
+请注意、要使用此功能、需要在Connector角色中添加其他权限。使用3.9.21版软件部署的Connector包含这些权限。如果您使用早期版本部署了Connector、则需要手动添加权限。 https://["如有必要、请参见如何添加这些权限"^]。
 
 
 
@@ -475,7 +475,7 @@ Cloud Backup现在支持对象锁定、用于进行勒索软件安全备份。�
 
 === 拖放以启用Cloud Backup to Azure Blob和Google Cloud Storage
 
-如果 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-viewing-azure-blob.html["Azure Blob"^] 或 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-viewing-gcp-storage.html["Google Cloud 存储"^] 备份目标作为工作环境存在于Canvas上、您可以将本地ONTAP 或Cloud Volumes ONTAP 工作环境(安装在Azure或GCP中)拖动到目标上以启动备份设置向导。
+如果 https://["Azure Blob"^] 或 https://["Google Cloud 存储"^] 备份目标作为工作环境存在于Canvas上、您可以将本地ONTAP 或Cloud Volumes ONTAP 工作环境(安装在Azure或GCP中)拖动到目标上以启动备份设置向导。
 
 Amazon S3存储分段已具有此功能。
 
@@ -513,7 +513,7 @@ Amazon S3存储分段已具有此功能。
 
 如果您的内部ONTAP 集群位于无法访问Internet的站点中、也称为非公开站点或脱机站点、则现在您可以使用Cloud Backup将卷数据备份到同一站点中的NetApp StorageGRID 系统。此功能还要求在脱机站点中部署BlueXP Connector (3.9.19或更高版本)。
 
-https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-private-mode.html["请参见如何在脱机站点中安装Connector"]。https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html["了解如何将ONTAP 数据备份到脱机站点中的StorageGRID"]。
+https://["请参见如何在脱机站点中安装Connector"]。https://["了解如何将ONTAP 数据备份到脱机站点中的StorageGRID"]。
 
 
 
@@ -521,7 +521,7 @@ https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-private
 
 您可以通过将适用于VMware vSphere的SnapCenter 插件与BlueXP集成来保护虚拟机上的数据。您可以将数据存储库备份到云、并将虚拟机轻松还原回适用于VMware vSphere的内部部署SnapCenter 插件。
 
-https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-vm-data.html["了解有关保护虚拟机到云的更多信息"]。
+https://["了解有关保护虚拟机到云的更多信息"]。
 
 
 
@@ -540,7 +540,7 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-vm-da
 
 === 浏览并还原对Google Cloud和StorageGRID 存储中文件的支持
 
-现在、通过添加用于浏览和还原操作的容器(如上所述)、可以从存储在Google Cloud和StorageGRID 系统中的备份文件执行文件还原操作。现在、浏览和还原可用于在所有公有 云提供商之间以及从StorageGRID 还原文件。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#restoring-ontap-data-using-browse-restore["请参见如何使用浏览和放大功能；还原ONTAP 备份中的卷和文件"]。
+现在、通过添加用于浏览和还原操作的容器(如上所述)、可以从存储在Google Cloud和StorageGRID 系统中的备份文件执行文件还原操作。现在、浏览和还原可用于在所有公有 云提供商之间以及从StorageGRID 还原文件。 https://["请参见如何使用浏览和放大功能；还原ONTAP 备份中的卷和文件"]。
 
 
 
@@ -552,13 +552,13 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-vm-da
 
 === 自动将备份策略应用于Kubernetes集群中新创建的卷
 
-如果您在激活Cloud Backup后向Kubernetes集群添加了新的永久性卷、则在过去、您需要记住为这些卷配置备份。现在、您可以选择将自动应用于新创建的卷的策略 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backups-kubernetes.html#setting-a-backup-policy-to-be-assigned-to-new-volumes["从_Backup Settings_页面"] 适用于已激活Cloud Backup的集群。
+如果您在激活Cloud Backup后向Kubernetes集群添加了新的永久性卷、则在过去、您需要记住为这些卷配置备份。现在、您可以选择将自动应用于新创建的卷的策略 https://["从_Backup Settings_页面"] 适用于已激活Cloud Backup的集群。
 
 
 
 === Cloud Backup API现在可用于管理备份和还原操作
 
-这些API可从获取 https://docs.netapp.com/us-en/cloud-manager-automation/cbs/overview.html[]。请参见 link:api-backup-restore.html["此页面"] 有关API的概述。
+这些API可从获取 https://[]。请参见 link:api-backup-restore.html["此页面"] 有关API的概述。
 
 
 
@@ -568,7 +568,7 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-vm-da
 
 === 现在、Google Cloud Storage中的备份文件支持搜索和还原
 
-4月份、在AWS中存储备份文件的用户开始使用"搜索和还原"方法来还原卷和文件。现在、将备份文件存储在Google Cloud Storage中的用户可以使用此功能。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#prerequisites-2["请参见如何使用搜索和放大器还原卷和文件"]。
+4月份、在AWS中存储备份文件的用户开始使用"搜索和还原"方法来还原卷和文件。现在、将备份文件存储在Google Cloud Storage中的用户可以使用此功能。 https://["请参见如何使用搜索和放大器还原卷和文件"]。
 
 
 
@@ -587,4 +587,4 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-vm-da
 * 免费试用从Marketplace订阅开始的那一天开始。例如、如果在对Cloud Volumes ONTAP 系统使用Marketplace订阅30天之后激活免费试用、则Cloud Backup试用将不可用。
 
 
-https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-licensing-cloud-backup.html["详细了解可用的许可模式"]。
+https://["详细了解可用的许可模式"]。

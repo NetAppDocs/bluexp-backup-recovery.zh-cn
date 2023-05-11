@@ -55,9 +55,9 @@ BlueXP备份和恢复支持为卷备份提供DataLock和勒索软件保护。通
 
 这两项功能都可以保护您的备份文件、以便在您的备份受到勒索软件攻击时、您始终拥有一个有效的备份文件来恢复数据。如果备份需要锁定并保留一段时间、则满足某些法规要求也会很有帮助。启用DataLock和勒索软件保护后、作为BlueXP备份和恢复激活一部分配置的云分段将启用对象锁定和对象版本控制。
 
-https://bluexp.netapp.com/blog/cbs-blg-the-bluexp-feature-that-protects-backups-from-ransomware["有关详细信息、请参见DataLock和勒索软件保护博客"^]。
+https://["有关详细信息、请参见DataLock和勒索软件保护博客"^]。
 
-此功能不会为源卷提供保护；仅适用于这些源卷的备份。使用NetApp https://cloud.netapp.com/ci-sde-plp-cloud-secure-info-trial?hsCtaTracking=fefadff4-c195-4b6a-95e3-265d8ce7c0cd%7Cb696fdde-c026-4007-a39e-5e986c4d27c6["Cloud Insights 和Cloud Secure"^]或部分 https://docs.netapp.com/us-en/ontap/anti-ransomware/index.html["ONTAP 提供的反勒索软件保护"^] 以保护源卷。
+此功能不会为源卷提供保护；仅适用于这些源卷的备份。使用NetApp https://["Cloud Insights 和Cloud Secure"^]或部分 https://["ONTAP 提供的反勒索软件保护"^] 以保护源卷。
 
 [CAUTION]
 ====
@@ -233,7 +233,7 @@ ifdef::aws[]
 *** S3 ： GetBucketLocation
 *** S3 ： GetObjectVersion
 +
-https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html["查看策略的完整JSON格式、在此可以复制和粘贴所需权限"^]。
+https://["查看策略的完整JSON格式、在此可以复制和粘贴所需权限"^]。
 
 
 

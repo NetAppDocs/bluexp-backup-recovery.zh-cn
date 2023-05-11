@@ -268,7 +268,7 @@ NOTE: 用于查看特定主机的筛选器不起作用。在筛选器中指定�
 
 
 . 登录到Connector VM。
-. 下载SnapCenter Linux主机插件二进制文件。`sUdo Docker exec -it cloudmanager_SCS_cloud curl -X get 'http://127.0.0.1/deploy/downloadLinuxPlugin'`[]
+. 下载SnapCenter Linux主机插件二进制文件。`sUdo Docker exec -it cloudmanager_SCS_cloud curl -X get 'http://[]
 +
 此插件二进制文件位于：_cd /var/lib/docker/volumes/service-manager-2_cloudmanager_SCS_cloud_volume/_data/$(sudo docker ps|grep -po"cloudmanager_SCS_cloud：.*？"|sed -e 's/*$//'|cut -f2 -d"：""/sc-linux-host-plugin_
 

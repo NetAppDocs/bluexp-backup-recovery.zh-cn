@@ -16,7 +16,7 @@ summary: 通过BlueXP备份和恢复、您可以在Azure帐户中创建备份文
 [role="lead"]
 通过BlueXP备份和恢复、您可以在与源Cloud Volumes ONTAP 卷所在位置不同的Azure帐户中创建备份文件。这两个帐户都可以与BlueXP Connector所在的帐户不同。
 
-只有在您使用时，才需要执行这些步骤 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-azure.html["将 Cloud Volumes ONTAP 数据备份到 Azure Blob 存储"^]。
+只有在您使用时，才需要执行这些步骤 https://["将 Cloud Volumes ONTAP 数据备份到 Azure Blob 存储"^]。
 
 只需按照以下步骤以这种方式设置您的配置即可。
 

@@ -28,7 +28,7 @@ BlueXP备份和恢复支持两个S3归档存储类以及大多数地区。
 
 请注意、使用此类生命周期规则配置BlueXP备份和恢复时、在AWS帐户中设置存储分段时、不能配置任何生命周期规则。
 
-https://aws.amazon.com/s3/storage-classes/["了解 S3 存储课程"^]。
+https://["了解 S3 存储课程"^]。
 
 
 
@@ -52,7 +52,7 @@ https://aws.amazon.com/s3/storage-classes/["了解 S3 存储课程"^]。
 
 | * S3 Glacier 深度归档 * |  | 检索速度更快，成本更高 | 检索速度较慢，成本最低 
 |===
-每种方法的每 GB 检索费用和每次请求费用不同。有关按 AWS 地区列出的 S3 Glacier 详细定价，请访问 https://aws.amazon.com/s3/pricing/["Amazon S3 定价页面"^]。
+每种方法的每 GB 检索费用和每次请求费用不同。有关按 AWS 地区列出的 S3 Glacier 详细定价，请访问 https://["Amazon S3 定价页面"^]。
 
 --
 还原在 Amazon S3 Glacier 中归档的对象需要多长时间？:: 总还原时间由两部分组成：
@@ -76,7 +76,7 @@ https://aws.amazon.com/s3/storage-classes/["了解 S3 存储课程"^]。
 * * 还原时间 * ：从标准存储中的备份文件还原数据的时间。此时间与直接从标准存储执行的典型还原操作并无不同，因为此时不使用归档层。
 
 
-有关 Amazon S3 Glacier 和 S3 Glacier 深度归档检索选项的详细信息，请参见 https://aws.amazon.com/s3/faqs/#Amazon_S3_Glacier["有关这些存储类的 Amazon 常见问题解答"^]。
+有关 Amazon S3 Glacier 和 S3 Glacier 深度归档检索选项的详细信息，请参见 https://["有关这些存储类的 Amazon 常见问题解答"^]。
 
 --
 

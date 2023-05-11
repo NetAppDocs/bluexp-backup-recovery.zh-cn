@@ -423,7 +423,7 @@ image:screenshot_restore_select_dest.png["为要还原的文件选择卷和文�
 
 您可以使用搜索和还原从ONTAP 备份文件还原卷、文件夹或文件。通过搜索和还原、您可以从存储在云存储上的特定提供商的所有备份中搜索特定卷、文件夹或文件、然后执行还原。您无需知道确切的工作环境名称或卷名称 - 搜索将查看所有卷备份文件。
 
-搜索操作还会查找 ONTAP 卷中存在的所有本地 Snapshot 副本。与从备份文件还原数据相比，从本地 Snapshot 副本还原数据的速度更快，成本更低，因此您可能需要从 Snapshot 还原数据。您可以将Snapshot还原为新卷 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes["在"画布"上的"卷详细信息"页面中"^] (不来自BlueXP备份和恢复)。
+搜索操作还会查找 ONTAP 卷中存在的所有本地 Snapshot 副本。与从备份文件还原数据相比，从本地 Snapshot 副本还原数据的速度更快，成本更低，因此您可能需要从 Snapshot 还原数据。您可以将Snapshot还原为新卷 https://["在"画布"上的"卷详细信息"页面中"^] (不来自BlueXP备份和恢复)。
 
 从备份文件还原卷时、BlueXP备份和恢复会使用备份中的数据创建一个_new_卷。您可以将数据还原为原始工作环境中的卷，也可以还原到与源工作环境位于同一云帐户中的其他工作环境。您还可以将卷还原到内部 ONTAP 系统。
 
@@ -546,7 +546,7 @@ ifdef::azure[]
 
 * Azure要求：
 +
-** 您必须在订阅中注册Azure Synapse分析资源提供程序(称为"microsoft.Synape")。 https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider["了解如何为您的订阅注册此资源提供商"^]。您必须是订阅*所有者*或*贡献者*才能注册资源提供程序。
+** 您必须在订阅中注册Azure Synapse分析资源提供程序(称为"microsoft.Synape")。 https://["了解如何为您的订阅注册此资源提供商"^]。您必须是订阅*所有者*或*贡献者*才能注册资源提供程序。
 ** 必须将特定的Azure Synapse Workspace和Data Lake存储帐户权限添加到为BlueXP提供权限的用户角色中。 link:task-backup-onprem-to-azure.html#verify-or-add-permissions-to-the-connector["确保已正确配置所有权限"]。
 +
 请注意、如果您已经使用了在过去配置的连接器来使用BlueXP备份和恢复、则现在需要将Azure Synapse Workspace和Data Lake存储帐户权限添加到BlueXP用户角色中。这些是新的，搜索和还原需要它们。
@@ -579,7 +579,7 @@ endif::gcp[]
 +
 ** 如果您的帐户中没有云提供商凭据、则索引目录信息将存储在Connector上。
 ** 如果在非公开站点中使用Connector、则索引目录信息将存储在Connector上(需要连接器3.9.25或更高版本)。
-** 如果您有 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-aws.html["AWS 凭据"^] 或 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-azure.html["Azure credentials"^] 在帐户中、索引目录存储在云提供商处、就像部署在云中的Connector一样。(如果您同时拥有这两个凭据、则默认情况下会选择AWS。)
+** 如果您有 https://["AWS 凭据"^] 或 https://["Azure credentials"^] 在帐户中、索引目录存储在云提供商处、就像部署在云中的Connector一样。(如果您同时拥有这两个凭据、则默认情况下会选择AWS。)
 +
 即使您使用的是内部部署Connector、也必须同时满足云提供商对Connector权限和云提供商资源的要求。使用此实施时、请参见上述AWS和Azure要求。
 
@@ -618,7 +618,7 @@ image:diagram_search_restore_vol_file.png["一个示意图、用于显示使用S
 
 ifdef::aws[]
 
-* 对于存储在AWS中的备份、它会配置一个新的S3存储分段和 https://aws.amazon.com/athena/faqs/["Amazon Athena 交互式查询服务"^] 和 https://aws.amazon.com/glue/faqs/["AWS 无服务器数据集成服务"^]。
+* 对于存储在AWS中的备份、它会配置一个新的S3存储分段和 https://["Amazon Athena 交互式查询服务"^] 和 https://["AWS 无服务器数据集成服务"^]。
 
 
 endif::aws[]
@@ -632,7 +632,7 @@ endif::azure[]
 
 ifdef::gcp[]
 
-* 对于存储在Google Cloud中的备份、它会配置一个新存储分段和 https://cloud.google.com/bigquery["Google Cloud BigQuery服务"^] 在帐户/项目级别配置。
+* 对于存储在Google Cloud中的备份、它会配置一个新存储分段和 https://["Google Cloud BigQuery服务"^] 在帐户/项目级别配置。
 
 
 endif::gcp[]

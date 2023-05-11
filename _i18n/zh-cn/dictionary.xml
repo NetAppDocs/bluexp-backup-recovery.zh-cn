@@ -205,7 +205,6 @@
   <block id="a45a0d78412f96d4e0612c2263af5042" category="list-text">ONTAP 需要从连接器到集群管理 LIF 的入站连接。连接器可以位于 Google Cloud Platform VPC 中。</block>
   <block id="8bdfdad72ee7298056198e1b5d8fb704" category="list-text">节点的集群间 LIF 能够访问对象存储。</block>
   <block id="b092138563f7b68473c3bf2a6a23a434" category="inline-link">私有 Google 访问</block>
-  <block id="8b36e9207c24c76e6719268e49201d94" category="inline-link">Google</block>
   <block id="a6dcd23c3ac238175abaf161ac1ebec0" category="paragraph">您需要为备份所在的对象存储空间订阅 Google 。</block>
   <block id="22d599494fb27c8f85e36d489a5fe77d" category="section-title">准备用于备份的 Google Cloud Storage</block>
   <block id="037f057bec36e168c4cbef4fb3d7baef" category="inline-link">GCP 存储设置</block>
@@ -1933,7 +1932,6 @@
   <block id="e43ad9b040def21d45a51d9708f62291" category="list-text">AWS<block ref="51e50f75a76548a6f8d655afc8a2e3ab" category="inline-link-rx"></block>。</block>
   <block id="0b781a3ed3b0bf571ebc9b36f9d4056e" category="list-text">Azure 酒店<block ref="477b4f8f0e4ff2940c9440f2ccae1310" category="inline-link-rx"></block>。</block>
   <block id="c5239741c1af7be2743703f3c8355874" category="list-text">GCP ：<block ref="f4b12042f5e9960850cb7df978f53391" category="inline-link-rx"></block>。</block>
-  <block id="9c0918074300363e5dd8a59083d0832b" category="inline-link">AWS BlueXP Marketplace产品</block>
   <block id="4322c3f27520935653ca079f29ce7835" category="inline-link">BlueXP Marketplace备份服务</block>
   <block id="687ea0908739e5e54201ce20b273affd" category="paragraph">您可以 <block ref="547d123be3159c364b1c9ac7f7ffe3ae" category="inline-link-macro-rx"></block>。您也可以 <block ref="091cc4395662354f7a5868ee2318ef97" category="inline-link-macro-rx"></block> 作为 GCP 中相同或不同 Kubernetes 集群上的新卷（位于同一区域）。</block>
   <block id="c97292ed2a85b61c46eda83c997f6a9a" category="cell">卷和文件还原适用于存储在Amazon S3、Azure Blob、Google Cloud和NetApp StorageGRID 中的备份文件</block>
@@ -3281,7 +3279,6 @@
   <block id="f20f604abbd5f4c6fa3dce28e510083d" category="paragraph">稍后在配置备份服务时、您需要在BlueXP备份和恢复中输入密钥。</block>
   <block id="aa7686a1bb9a5c6e028ddc3bb91488c6" category="list-text">与存储帐户关联的服务代理将通过BlueXP备份和恢复为"CryptoKey Encrypter/ Decrypter (roles/cloudkms.CryptoKeyEncrypterDecrypter)" IAM角色分配"CryptoKey Encrypter/Decrypter (角色/cloudkms.CryptoKeyEncrypterDecrypter)"。</block>
   <block id="f978572d4b7f3863b262587adb3dab80" category="list-text">在为集群激活BlueXP备份和恢复之前、您需要从Google订阅按需购买(PAYGO) BlueXP Marketplace产品、或者从NetApp购买并激活BlueXP备份和恢复BYOL许可证。这些许可证适用于您的帐户，可在多个系统中使用。</block>
-  <block id="2b0c0841740e5977bef21095c9693a00" category="list-text">对于BlueXP备份和恢复PAYGO许可、您需要订阅<block ref="a0a9170cc6528463a8f251e1db25dd88" category="inline-link-rx"></block> 使用BlueXP备份和恢复的BlueXP Marketplace产品。BlueXP备份和恢复的计费通过此订阅完成。</block>
   <block id="ae255c932e32a6c376f50fc830a4ce81" category="list-text">对于BlueXP备份和恢复BYOL许可、您需要NetApp提供的序列号、以便在许可证有效期和容量内使用此服务。 <block ref="685a1f13858a68e0a232160884c81603" category="inline-link-macro-rx"></block>。</block>
   <block id="6915f674cf40aa424300174329d7645b" category="section-title">启用BlueXP备份和恢复</block>
   <block id="5a538898bb5879a7f85d116837503ccc" category="paragraph">随时直接从内部工作环境启用BlueXP备份和恢复。</block>
@@ -3315,7 +3312,6 @@
   <block id="94ca0ea412cad9f041e0df7a8d667032" category="list-text">要使BlueXP备份和恢复搜索和还原功能正常工作、必须打开端口1433、以便在Connector和Azure Synapse SQL服务之间进行通信。</block>
   <block id="d7dfe92566ef01cc606946052bc069db" category="paragraph">要使用BlueXP备份和恢复搜索和还原功能、您需要对Connector的角色拥有特定权限、以便它可以访问Azure Synapse Workspace和Data Lake存储帐户。请参见以下权限、如果需要修改策略、请按照以下步骤进行操作。</block>
   <block id="833e066c6a0d7a5bb4b5347a5a0cd500" category="list-text">在为集群激活BlueXP备份和恢复之前、您需要从Azure订阅按需购买(PAYGO) BlueXP Marketplace产品、或者从NetApp购买并激活BlueXP备份和恢复BYOL许可证。这些许可证适用于您的帐户，可在多个系统中使用。</block>
-  <block id="ebe2a27eaee298980383d3af64b9d19d" category="list-text">对于BlueXP备份和恢复PAYGO许可、您需要订阅<block ref="ed2bd103cf11c0e7ce10fc7d6ceb1849" category="inline-link-rx"></block> 使用BlueXP备份和恢复的BlueXP Marketplace产品。BlueXP备份和恢复的计费通过此订阅完成。</block>
   <block id="9a5fda44a56d91b114b1032204fa971d" category="list-text">如果您的帐户没有现有的BlueXP备份和恢复许可证、此时将提示您选择要使用的充电方法类型。您可以订阅Azure提供的按需购买(PAYGO) BlueXP Marketplace产品(如果您有多个订阅、则需要选择一个)、或者从NetApp购买并激活BlueXP备份和恢复BYOL许可证。 <block ref="bce0911f49e923e839a36aaf0ede034d" category="inline-link-macro-rx"></block></block>
   <block id="bdcfb39d9698b9bf1953d5efe44d1d43" category="inline-image-macro">屏幕截图显示了BlueXP备份和恢复设置、您可以在其中选择计划和备份保留。</block>
   <block id="55fde93264e1cbe8860972b79f748b18" category="paragraph"><block ref="55fde93264e1cbe8860972b79f748b18" category="inline-image-macro-rx" type="image"></block></block>
@@ -3456,7 +3452,6 @@
   <block id="d2b6557b150c39e0831a0142bc82aeb4" category="paragraph"><block ref="d2b6557b150c39e0831a0142bc82aeb4" category="inline-image-macro-rx" type="image"></block></block>
   <block id="805ec627e54267e3f12d2e51de9e2a1a" category="inline-image-macro">一个示意图、显示了BlueXP备份和恢复如何与备份文件所在的源系统和目标存储上的卷进行通信。</block>
   <block id="0466afdcc96844324ad464c4a732e684" category="paragraph"><block ref="0466afdcc96844324ad464c4a732e684" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="d5a53c5393f06029477367560ab24b64" category="list-text">对于BlueXP备份和恢复PAYGO许可、可通过订阅BlueXP<block ref="92655de6fae7d07ed3897ce19d51b88d" category="inline-link-rx"></block> 在启用BlueXP备份和恢复之前为必填项。BlueXP备份和恢复的计费通过此订阅完成。<block ref="2dcb14e4aff486ad01ca943b2718d3a3" category="inline-link-rx"></block>。</block>
   <block id="eff86eb019454391cfc891cdd043177d" category="paragraph">对于BlueXP备份和恢复BYOL许可、您需要NetApp提供的序列号、以便在许可证有效期和容量内使用此服务。 <block ref="62ce7cf96b97e2e1aa800b0e35162d2f" category="inline-link-macro-rx"></block>。</block>
   <block id="fa0e57d14b046871ace0930dbea76b89" category="list-text">所有GCP地区均支持BlueXP备份和恢复<block ref="6bd619c4d649497ad0b6da421785c6ae" category="inline-link-rx"></block>。</block>
   <block id="dc4f8221be32abe6384f04708c927134" category="section-title">在新系统上启用BlueXP备份和恢复</block>
@@ -3533,7 +3528,6 @@
   <block id="f03cf0e2cb39ed9263cca4159230f282" category="paragraph">设置BlueXP备份和恢复时、系统会提示您使用IP空间。您应选择与这些 LIF 关联的 IP 空间。这可能是您创建的 " 默认 "IP 空间或自定义 IP 空间。</block>
   <block id="132598d89b5e84bc5af9cc03e23a4175" category="list-text">如有必要、请更新防火墙规则、以允许通过端口443从ONTAP 到对象存储的BlueXP备份和恢复连接、以及通过端口53 (TCP/UDP)从Storage VM到DNS服务器的名称解析流量。</block>
   <block id="0767994029638623b0279d117f71bcc7" category="list-text">在为集群激活BlueXP备份和恢复之前、您需要从AWS订阅按需购买(PAYGO) BlueXP Marketplace产品、或者从NetApp购买并激活BlueXP备份和恢复BYOL许可证。这些许可证适用于您的帐户，可在多个系统中使用。</block>
-  <block id="cd265ad69c90a204fc72ad92394205ba" category="list-text">对于BlueXP备份和恢复PAYGO许可、您需要订阅<block ref="fbedf13343b11a69e211b852aeaac8c6" category="inline-link-rx"></block> 使用BlueXP备份和恢复。BlueXP备份和恢复的计费通过此订阅完成。</block>
   <block id="245af4eb42c00ad6c748e59fb4b83b1d" category="paragraph">如果您要使用自己的客户管理密钥进行数据加密、而不是使用默认密钥、则在启动BlueXP备份和恢复向导之前、您需要先设置加密管理密钥。<block ref="cec2a2aa7c177fd504439377209f1e4a" category="inline-link-rx"></block>。</block>
   <block id="f98bd8688162885c52860bed1262784f" category="paragraph">如果您使用端口80 (HTTP)与专用端点进行通信、则已设置完毕。您现在可以在集群上启用BlueXP备份和恢复。</block>
   <block id="4addbe3fd43e1a48fd8eb999d5f3b487" category="section-title">启用BlueXP备份和恢复</block>
@@ -3700,7 +3694,6 @@
   <block id="93c8b08c928ba95dab5c066b4611e000" category="section-title">现在、可以从归档存储和锁定的备份执行文件夹级还原操作</block>
   <block id="2f57132a5aa255f3e276ff3b62b985c8" category="paragraph">如果已为备份文件配置DataLock和防软件保护、或者备份文件驻留在归档存储中、则现在、如果集群运行的是ONTAP 9.13.1或更高版本、则支持文件夹级还原操作。</block>
   <block id="8cb8abb20ae0b2e7c64136ae92b2250d" category="section-title">将卷备份到Google Cloud时、支持跨区域和跨项目客户管理的密钥</block>
-  <block id="562c459140eec7ec934af0554f42baab" category="paragraph">现在、您可以选择与客户管理的加密密钥(CMDK)项目不同的项目中的存储分段。</block>
   <block id="679a2d98f8c7c05c4944b0d161a6d567" category="section-title">现在、备份文件支持AWS中国地区</block>
   <block id="aad236ec8e2b61a79fb4bb3a416a2e06" category="paragraph">现在、如果集群运行的是ONTAP 9.12.1或更高版本、则支持将AWS中国北京(CN-north-1)和宁夏(CN-north-1)区域作为备份文件的目标。</block>
   <block id="c93bfe725726f47fe3bfcc0e95f8ec7d" category="inline-link">将本地ONTAP 数据备份到Amazon S3</block>
@@ -3759,4 +3752,14 @@
   <block id="20f2d0bb5e696b331efc736ffadbb3f3" category="paragraph">如果要还原的卷的备份文件驻留在归档存储中(从ONTAP 9.10.1开始可用)、则还原操作将需要较长时间并产生额外成本。请注意、目标集群还必须运行ONTAP 9.10.1或更高版本来还原卷、运行9.11.1来还原文件、运行9.12.1来还原Google Archive和StorageGRID 、运行9.13.1来还原文件夹。</block>
   <block id="3ddfa13cbce20cc68cd19aca6f181eb0" category="list-text">将数据从Azure归档存储还原到StorageGRID 系统时、不支持"高"还原优先级。</block>
   <block id="ffe805c4c11acb4a1a49af6779cd50aa" category="sidebar">备份策略设置</block>
+  <block id="fe107c08b013bc42a913f733a5dd6173" category="paragraph">对于能够同时备份 Cloud Volumes ONTAP 数据和内部 ONTAP 数据的年度合同，您需要从订阅<block ref="85c21eb306ec4bcbda7252ca6117fc5c" category="inline-link-rx"></block> 然后<block ref="5b8e6a3cc3aa95595ccde9be22e093ee" category="inline-link-rx"></block>。</block>
+  <block id="6625a3a4daaa21e2cd890698ab4c568a" category="list-text">对于BlueXP备份和恢复PAYGO许可、Google Marketplace中提供了BlueXP订阅、可用于部署Cloud Volumes ONTAP 和BlueXP备份和恢复。您需要<block ref="1a9048fea9c114882abdde44d164e6a2" category="inline-link-rx"></block> 在启用BlueXP备份和恢复之前。BlueXP备份和恢复的计费通过此订阅完成。<block ref="2dcb14e4aff486ad01ca943b2718d3a3" category="inline-link-rx"></block>。</block>
+  <block id="3e538c61c4cc98a57d724177580fb8f2" category="inline-link">Google Marketplace上的NetApp BlueXP产品</block>
+  <block id="21b58e8c34c8a77c9e8eb04d515a7066" category="list-text">对于BlueXP备份和恢复PAYGO许可、您需要订阅<block ref="2f77b898579aea53ee2a78f06369878a" category="inline-link-rx"></block>。BlueXP备份和恢复的计费通过此订阅完成。</block>
+  <block id="5afb323d4a36e6ab79cd9d765c5934f7" category="inline-link">详细了解如何设置您自己的客户管理加密密钥</block>
+  <block id="82e4d7bffd878c91fac874e48e729020" category="paragraph">现在、您可以选择与客户管理的加密密钥(CMDK)项目不同的项目中的存储分段。<block ref="c27debe559c9dc72a10bc811f768bbff" category="inline-link-rx"></block>。</block>
+  <block id="f02fabcd80f3df012a3b734db72a8a04" category="inline-link">AWS Marketplace上的NetApp BlueXP产品</block>
+  <block id="7eb75a0482cc00856d6f59785ed2196a" category="list-text">对于BlueXP备份和恢复PAYGO许可、您需要订阅<block ref="72b5d28b0fc68220ca561b42693848df" category="inline-link-rx"></block>。BlueXP备份和恢复的计费通过此订阅完成。</block>
+  <block id="e59cc93e05cd1a09fee0d3400cb6594b" category="inline-link">Azure Marketplace中的NetApp BlueXP产品</block>
+  <block id="1ec47f8d2867e62133816fe5c965e4ea" category="list-text">对于BlueXP备份和恢复PAYGO许可、您需要订阅<block ref="2fad159ac15feeefc5347d9f8b6dbeab" category="inline-link-rx"></block>。BlueXP备份和恢复的计费通过此订阅完成。</block>
 </blocks>

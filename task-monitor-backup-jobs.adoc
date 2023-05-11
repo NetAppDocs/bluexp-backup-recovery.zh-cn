@@ -127,7 +127,7 @@ image:screenshot_backup_job_monitor_details2.png["显示备份作业详细信息
 
 BlueXP通知中心会跟踪您已启动的备份和还原作业的进度、以便您可以验证操作是否成功。
 
-除了查看BlueXP通知列表中的警报之外、您还可以将BlueXP配置为通过电子邮件发送通知作为警报、以便即使您未登录到系统、您也可以了解重要的系统活动。 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-monitor-cm-operations.html["了解有关通知中心以及如何为备份和还原作业发送警报电子邮件的更多信息"^]。
+除了查看BlueXP通知列表中的警报之外、您还可以将BlueXP配置为通过电子邮件发送通知作为警报、以便即使您未登录到系统、您也可以了解重要的系统活动。 https://["了解有关通知中心以及如何为备份和还原作业发送警报电子邮件的更多信息"^]。
 
 以下事件将触发电子邮件警报：
 
@@ -172,7 +172,7 @@ NOTE: 从Cloud Volumes ONTAP 9.13.0开始、将显示所有警报。对于使用
 
 要接收BlueXP备份和恢复电子邮件警报、您需要选择通知严重性类型"严重"、"警告"和"错误"。
 
-https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-monitor-cm-operations.html["了解有关通知中心以及如何为备份和还原作业发送警报电子邮件的更多信息"^]。
+https://["了解有关通知中心以及如何为备份和还原作业发送警报电子邮件的更多信息"^]。
 
 .步骤
 . 选择*作业监控*选项卡。
