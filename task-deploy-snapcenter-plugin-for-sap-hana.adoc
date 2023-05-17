@@ -244,6 +244,40 @@ NOTE: 用于查看特定主机的筛选器不起作用。在筛选器中指定�
 
 
 
+=== 删除SAP HANA数据库主机
+
+您只能使用REST API删除SAP HANA数据库主机。
+
+* 步骤 *
+
+. 使用用户界面或以下REST API删除与SAP HANA数据库主机关联的所有系统。
+`DELETE /saphana/and/systems/(id)`
+. 执行以下步骤以删除SAP HANA数据库主机。
++
+.. 使用GET REST API获取必须删除的SAP HANA数据库主机的ID。
+`GET /saphana/hosts`
+   `{`
+    `"num_records": 1,`
+    `"records": [`
+        `{`
+            `"id": "c9a6849f-29ea-45c5-a17f-a1e78ad2a30e",`
+            `"host_name": "galaxy-vm134.netapp.com",`
+            `"port": 443,`
+            `"agent_id": "n3TrgkGvnTOFTJJNBxeh3oPxG8AcrcHeclients"`
+       
+`}`
+    `]`
+`}`
+.. 通过传递以下REST API中的ID来删除SAP HANA数据库主机。
+`DELETE /saphana/hosts/(id)`
+.. 使用以下命令卸载数据库主机上的SAP HANA Linux插件。
+`/opt/NetApp/snapcenter/spl/installation/plugins/uninstall`
+
+
+
+
+
+
 === 添加非数据卷
 
 添加多租户数据库容器或单个容器类型SAP HANA系统后、您可以添加HANA系统的非数据卷。
@@ -283,4 +317,29 @@ NOTE: 用于查看特定主机的筛选器不起作用。在筛选器中指定�
 .. 查看所有详细信息、然后单击*添加系统*。
 
 
+
+
+
+
+=== 修改SAP HANA数据库主机
+
+添加SAP HANA数据库主机后、您可以使用REST API修改主机名或插件端口。
+
+* 步骤 *
+
+. 使用GET REST API获取必须删除的SAP HANA数据库主机的ID。 `GET /saphana/hosts`
+   `{`
+    `"num_records": 1,`
+    `"records": [`
+        `{`
+            `"id": "c9a6849f-29ea-45c5-a17f-a1e78ad2a30e",`
+            `"host_name": "galaxy-vm134.netapp.com",`
+            `"port": 443,`
+            `"agent_id": "n3TrgkGvnTOFTJJNBxeh3oPxG8AcrcHeclients"`
+       
+`}`
+    `]`
+`}`
+. 使用以下修补程序API修改主机名或插件端口。
+`PATCH /saphana/hosts/(id)``
 
