@@ -2011,7 +2011,6 @@
   <block id="fb4d2049eb8a30a41f47794ab189550a" category="list-text">您需要MySQL数据库密码、因此请复制密钥"mysql_root_password"的值。</block>
   <block id="7db6ebf161f7a9da5769ee912be2da41" category="list-text">输入以下命令、从MySQL Docker容器复制MySQL数据库备份：</block>
   <block id="155dea4952585272f1c0844ef81cfd9a" category="section-title">备份索引目录文件</block>
-  <block id="ef634fffc66ae93838b8ca070447f663" category="list-text">在Connector主机系统上、将目录更改为"/tmp"。</block>
   <block id="7cb88c443fc924903c835b571b479a4e" category="list-text">找到索引目录文件夹。它以字符串*目录*开头。</block>
   <block id="8569fa5b25edd3388fba8c4d5fbbdf9d" category="list-text">输入以下命令以压缩"catalog &lt;_xxxxxx_&gt;"文件夹：</block>
   <block id="a343bcd32b68b96334fcf073958cc3da" category="list-text">将压缩后的备份复制到网络中的安全位置。</block>
@@ -2022,7 +2021,6 @@
   <block id="bb319ca7a8d748d2ce5adf7548a5803c" category="list-text">使用以下命令输入MySQL容器Shell：</block>
   <block id="1a411806f1f54597b7259137d2e753db" category="paragraph">输入密码。</block>
   <block id="3ec8f556a760c1ea438f0c8012517d09" category="paragraph">检查显示的卷是否与原始环境中的卷相同。</block>
-  <block id="f9083b6cbd32e754624254bf8a15bbd5" category="list-text">将索引目录备份zip文件从安全位置复制到"/tmp"文件夹中的新Connector主机。</block>
   <block id="4137b6be705d5f9d9f9bcc8018e1f70a" category="list-text">使用以下命令解压缩"catalogxxxxxx.zip文件：</block>
   <block id="82ed93b77a5223377d1a45ab463f6fb3" category="list-text">运行* ls*命令以确保已创建"catalogxxxxxx"文件夹、并且子文件夹"changes"和"snapshots"位于下方。</block>
   <block id="202fec1254d856dde5dee6e53f5eb9e9" category="inline-link">了解所有内部ONTAP 工作环境</block>
@@ -3698,7 +3696,6 @@
   <block id="aad236ec8e2b61a79fb4bb3a416a2e06" category="paragraph">现在、如果集群运行的是ONTAP 9.12.1或更高版本、则支持将AWS中国北京(CN-north-1)和宁夏(CN-north-1)区域作为备份文件的目标。</block>
   <block id="c93bfe725726f47fe3bfcc0e95f8ec7d" category="inline-link">将本地ONTAP 数据备份到Amazon S3</block>
   <block id="afe182ec329d300711f89a81223f8fe1" category="paragraph">请注意、分配给BlueXP Connector的IAM策略需要将All _Resource_部分下的AWS资源名称"arn"从"aws"更改为"AAWS CN"；例如"arn：aws-cn：s3：：：NetApp-backup-*"。请参见<block ref="0607f60a93455f62c98c67f333a631e0" category="inline-link-rx"></block> 和<block ref="98f7c8e7ee596af91f0142606f0617c9" category="inline-link-rx"></block> 了解详细信息。</block>
-  <block id="5db93da6e314f6aa0349c5e8f35f4b9a" category="paragraph">对于运行ONTAP 9.13.1或更高版本的内部ONTAP 系统，系统启动的作业(例如正在进行的备份操作)现在可在*作业监控*选项卡中找到。早期的ONTAP 版本将仅显示用户启动的作业。</block>
   <block id="4d5789e8f025b3895d94f1b6a7225e4a" category="list-text">适用于应用程序(混合)的BlueXP备份和恢复由SaaS控制平台驱动</block>
   <block id="53eb0fdde70aa10525b581e17b5d6f86" category="paragraph">现在、您可以在"受限模式"下从AWS、Azure和GCP商业区域中安装的Cloud Volumes ONTAP 系统备份数据。这要求您首先在"受限"商业区域安装Connector。<block ref="18611796b9b4332697b6f9bb72b16e0b" category="inline-link-rx"></block>。请参见<block ref="0607f60a93455f62c98c67f333a631e0" category="inline-link-rx"></block> 和<block ref="d878e312b2f9cdcef2f8eccaa51619ee" category="inline-link-rx"></block>。</block>
   <block id="f1a109ae8d953da8e05cf5534df6b22b" category="list-text">对于运行ONTAP 9.13.0或更高版本的Cloud Volumes ONTAP 系统、用户启动的备份和还原操作以及系统启动的作业(如正在进行的备份操作)现在均可在*作业监控*选项卡中找到。早期的ONTAP 版本将仅显示用户启动的作业。</block>
@@ -3793,4 +3790,7 @@
        <block ref="cbb184dd8e05c9709e5dcaedaa0495cf" prefix=" " category="inline-code"></block>
    <block ref="0fbd1776e1ad22c59a7080d35c7fd4db" prefix=" " category="inline-code"></block><block ref="cbb184dd8e05c9709e5dcaedaa0495cf" prefix=" " category="inline-code"></block></block>
   <block id="cab82189f2bc3aa6ebb43c8830e47693" category="list-text">使用以下修补程序API修改主机名或插件端口。<block ref="1fcec45b91ad39b0aa8d1cf2b8d5e031" prefix=" " category="inline-code"></block></block>
+  <block id="c325ed37b6a44d9e765cfd2dd7779cfb" category="paragraph">对于运行ONTAP 9.13.1或更高版本的内部ONTAP 系统，系统启动的作业(例如正在进行的备份操作)现在可在*作业监控*选项卡中找到。早期的ONTAP 版本将仅显示用户启动的作业。</block>
+  <block id="62bcc3625fd0e0ab73db7f861ea43e38" category="list-text">在Connector主机系统上、将目录更改为"/opt应用程序/NetApp/CBS "。</block>
+  <block id="471862806e2663ce1f62d2a75294c7f4" category="list-text">将索引目录备份zip文件从安全位置复制到"/op/application/NetApp/CBS "文件夹中的新连接器主机。</block>
 </blocks>

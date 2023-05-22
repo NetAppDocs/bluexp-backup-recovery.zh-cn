@@ -72,7 +72,7 @@ docker cp ds_mysql_1:/mysql.dump.cloud_backup.sql .
 
 索引目录用于搜索和还原功能。它包含有关每个卷和每个备份文件的信息、可使您在查找要还原的卷数据时快速高效地进行搜索。
 
-. 在Connector主机系统上、将目录更改为"/tmp"。
+. 在Connector主机系统上、将目录更改为"/opt应用程序/NetApp/CBS "。
 . 找到索引目录文件夹。它以字符串*目录*开头。
 . 输入以下命令以压缩"catalog <_xxxxxx_>"文件夹：
 +
@@ -158,7 +158,7 @@ mysql> select * from volume;
 
 === 还原索引目录文件
 
-. 将索引目录备份zip文件从安全位置复制到"/tmp"文件夹中的新Connector主机。
+. 将索引目录备份zip文件从安全位置复制到"/op/application/NetApp/CBS "文件夹中的新连接器主机。
 . 使用以下命令解压缩"catalogxxxxxx.zip文件：
 +
 [source, cli]
