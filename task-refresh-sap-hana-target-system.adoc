@@ -23,7 +23,7 @@ summary: '执行从源SAP HANA系统(即生产数据库)到目标系统的刷新
 * 确保源系统和目标系统上的SAP HANA数据库版本相同。
 * 您应已确定要使用的刷新脚本。解决方案 技术报告提供了刷新脚本。
 +
-https://["自动化示例脚本"]
+https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-automation-example-scripts.html#script-sc-system-refresh-sh["自动化示例脚本"]
 
 +
 您可以自定义刷新脚本。

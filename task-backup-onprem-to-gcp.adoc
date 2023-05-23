@@ -26,7 +26,7 @@ summary: 完成几个步骤、开始将卷数据从内部ONTAP 系统备份到Go
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"] 验证是否支持您的配置
 [role="quick-margin-list"]
-* 您已发现内部集群并将其添加为BlueXP中的工作环境。请参见 https://["发现 ONTAP 集群"^] 了解详细信息。
+* 您已发现内部集群并将其添加为BlueXP中的工作环境。请参见 https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["发现 ONTAP 集群"^] 了解详细信息。
 +
 ** 集群运行的是ONTAP 9.7P5或更高版本(建议使用ONTAP 9.8P13及更高版本)。
 ** 集群具有 SnapMirror 许可证—它作为超值包或数据保护包的一部分提供。
@@ -92,7 +92,7 @@ image:diagram_cloud_backup_onprem_gcp_private.png["一个示意图、显示了Bl
 
 您需要先在BlueXP中发现内部ONTAP 集群、然后才能开始备份卷数据。
 
-https://["了解如何发现集群"^]。
+https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["了解如何发现集群"^]。
 
 ONTAP 要求::
 +
@@ -103,11 +103,11 @@ ONTAP 要求::
 *注意：*使用BlueXP备份和恢复时、不需要"混合云捆绑包"。
 
 +
-请参见操作说明 https://["管理集群许可证"^]。
+请参见操作说明 https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["管理集群许可证"^]。
 
 * 已正确设置时间和时区。
 +
-请参见操作说明 https://["配置集群时间"^]。
+请参见操作说明 https://docs.netapp.com/us-en/ontap/system-admin/manage-cluster-time-concept.html["配置集群时间"^]。
 
 
 
@@ -120,12 +120,12 @@ ONTAP 要求::
 ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会启动，而只是响应。
 
 * ONTAP 需要从连接器到集群管理 LIF 的入站连接。连接器可以位于 Google Cloud Platform VPC 中。
-* 托管要备份的卷的每个 ONTAP 节点都需要一个集群间 LIF 。LIF 必须与 _IP 空间 _ 关联， ONTAP 应使用此 _IP 空间 _ 连接到对象存储。 https://["了解有关 IP 空间的更多信息"^]。
+* 托管要备份的卷的每个 ONTAP 节点都需要一个集群间 LIF 。LIF 必须与 _IP 空间 _ 关联， ONTAP 应使用此 _IP 空间 _ 连接到对象存储。 https://docs.netapp.com/us-en/ontap/networking/standard_properties_of_ipspaces.html["了解有关 IP 空间的更多信息"^]。
 +
 设置BlueXP备份和恢复时、系统会提示您使用IP空间。您应选择与每个 LIF 关联的 IP 空间。这可能是您创建的 " 默认 "IP 空间或自定义 IP 空间。
 
 * 节点的集群间 LIF 能够访问对象存储。
-* 已为卷所在的 Storage VM 配置 DNS 服务器。请参见操作说明 https://["为 SVM 配置 DNS 服务"^]。
+* 已为卷所在的 Storage VM 配置 DNS 服务器。请参见操作说明 https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html["为 SVM 配置 DNS 服务"^]。
 +
 如果您使用的是专用Google访问或专用服务连接、请确保已将DNS服务器配置为指向 `storage.googleapis.com` 正确的内部(专用) IP地址。
 
@@ -142,8 +142,8 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 
 如果您已在Google Cloud Platform VPC中部署了Connector、则可以随时完成所有操作。如果没有、则需要在该位置创建一个连接器、将ONTAP 数据备份到Google Cloud存储。您不能使用部署在其他云提供商或内部环境中的Connector。
 
-* https://["了解连接器"^]
-* https://["在GCP中安装连接器"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["了解连接器"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-google.html["在GCP中安装连接器"^]
 
 
 
@@ -155,11 +155,11 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 .步骤
 . 确保安装 Connector 的网络启用以下连接：
 +
-** 通过端口443与BlueXP备份和恢复服务以及Google Cloud存储建立HTTPS连接 (https://["请参见端点列表"^]）
+** 通过端口443与BlueXP备份和恢复服务以及Google Cloud存储建立HTTPS连接 (https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-set-up-networking-google.html#endpoints-contacted-for-day-to-day-operations["请参见端点列表"^]）
 ** 通过端口 443 与 ONTAP 集群管理 LIF 建立 HTTPS 连接
 
 
-. 在计划部署Connector的子网上启用专用Google访问(或专用服务连接)。 https://["私有 Google 访问"^] 或 https://["专用服务连接"^] 如果您从ONTAP 集群直接连接到VPC、并且希望连接器和Google Cloud Storage之间的通信保持在虚拟专用网络中(*专用*连接)、则需要此连接。
+. 在计划部署Connector的子网上启用专用Google访问(或专用服务连接)。 https://cloud.google.com/vpc/docs/configure-private-google-access["私有 Google 访问"^] 或 https://cloud.google.com/vpc/docs/configure-private-service-connect-apis#on-premises["专用服务连接"^] 如果您从ONTAP 集群直接连接到VPC、并且希望连接器和Google Cloud Storage之间的通信保持在虚拟专用网络中(*专用*连接)、则需要此连接。
 +
 按照Google说明设置这些私有访问选项。确保已将DNS服务器配置为指向 `www.googleapis.com` 和 `storage.googleapis.com` 正确的内部(专用) IP地址。
 
@@ -172,7 +172,7 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 要使用BlueXP备份和恢复"搜索和还原"功能、您需要对Connector的角色拥有特定权限、以便它可以访问Google Cloud BigQuery服务。请参见以下权限、如果需要修改策略、请按照以下步骤进行操作。
 
 .步骤
-. 在中 https://["Google Cloud Console"^]下，转到 * 角色 * 页面。
+. 在中 https://console.cloud.google.com["Google Cloud Console"^]下，转到 * 角色 * 页面。
 . 使用页面顶部的下拉列表，选择包含要编辑的角色的项目或组织。
 . 单击一个自定义角色。
 . 单击 * 编辑角色 * 以更新角色的权限。
@@ -201,8 +201,8 @@ bigquery.tables.create
 设置备份时、您需要为具有特定权限的服务帐户提供存储访问密钥。通过服务帐户、BlueXP备份和恢复功能可以对用于存储备份的云存储分段进行身份验证和访问。需要提供密钥，以便 Google Cloud Storage 知道谁在发出请求。
 
 .步骤
-. 在中 https://["Google Cloud Console"^]下，转到 * 角色 * 页面。
-. https://["创建新角色"^] 具有以下权限：
+. 在中 https://console.cloud.google.com["Google Cloud Console"^]下，转到 * 角色 * 页面。
+. https://cloud.google.com/iam/docs/creating-custom-roles#creating_a_custom_role["创建新角色"^] 具有以下权限：
 +
 [source, json]
 ----
@@ -219,7 +219,7 @@ storage.objects.get
 storage.objects.list
 storage.objects.update
 ----
-. 在 Google Cloud 控制台中， https://["转到服务帐户页面"^]。
+. 在 Google Cloud 控制台中， https://console.cloud.google.com/iam-admin/serviceaccounts["转到服务帐户页面"^]。
 . 选择您的云项目。
 . 单击*创建服务帐户*并提供所需信息：
 +
@@ -228,7 +228,7 @@ storage.objects.update
 .. 单击 * 完成 * 。
 
 
-. 转至 https://["GCP 存储设置"^] 并为服务帐户创建访问密钥：
+. 转至 https://console.cloud.google.com/storage/settings["GCP 存储设置"^] 并为服务帐户创建访问密钥：
 +
 .. 选择一个项目，然后单击 * 互操作性 * 。如果尚未启用互操作性访问，请单击 * 启用互操作性访问 * 。
 .. 在 * 服务帐户的访问密钥 * 下，单击 * 为服务帐户创建密钥 * ，选择刚刚创建的服务帐户，然后单击 * 创建密钥 * 。
@@ -245,7 +245,7 @@ storage.objects.update
 
 您可以使用自己由客户管理的密钥进行数据加密、而不是使用默认的Google管理的加密密钥。跨区域键和跨项目键均受支持、因此您可以为与CMDK键项目不同的分段选择项目。如果您计划使用自己的客户管理密钥：
 
-* 您需要具有密钥环和密钥名称、才能在激活向导中添加此信息。 https://["详细了解客户管理的加密密钥"^]。
+* 您需要具有密钥环和密钥名称、才能在激活向导中添加此信息。 https://cloud.google.com/kms/docs/cmek["详细了解客户管理的加密密钥"^]。
 * 您需要验证连接器的角色是否包含以下所需权限：
 +
 [source, json]
@@ -259,7 +259,7 @@ cloudkms.keyRings.getIamPolicy
 cloudkms.keyRings.list
 cloudkms.keyRings.setIamPolicy
 ----
-* 您需要验证是否已在项目中启用Google "云密钥管理服务(KMS)"API。请参见 https://["Google Cloud文档：启用API"] 了解详细信息。
+* 您需要验证是否已在项目中启用Google "云密钥管理服务(KMS)"API。请参见 https://cloud.google.com/apis/docs/getting-started#enabling_apis["Google Cloud文档：启用API"] 了解详细信息。
 
 
 * CMEE注意事项：*
@@ -277,13 +277,13 @@ cloudkms.keyRings.setIamPolicy
 
 * 在为集群激活BlueXP备份和恢复之前、您需要从Google订阅按需购买(PAYGO) BlueXP Marketplace产品、或者从NetApp购买并激活BlueXP备份和恢复BYOL许可证。这些许可证适用于您的帐户，可在多个系统中使用。
 +
-** 对于BlueXP备份和恢复PAYGO许可、您需要订阅 https://["Google Marketplace上的NetApp BlueXP产品"^]。BlueXP备份和恢复的计费通过此订阅完成。
+** 对于BlueXP备份和恢复PAYGO许可、您需要订阅 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project["Google Marketplace上的NetApp BlueXP产品"^]。BlueXP备份和恢复的计费通过此订阅完成。
 ** 对于BlueXP备份和恢复BYOL许可、您需要NetApp提供的序列号、以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["了解如何管理 BYOL 许可证"]。
 
 
 * 您需要为备份所在的对象存储空间订阅 Google 。
 +
-您可以在所有区域创建从内部系统到Google Cloud Storage的备份 https://["支持 Cloud Volumes ONTAP 的位置"^]。您可以在设置服务时指定要存储备份的区域。
+您可以在所有区域创建从内部系统到Google Cloud Storage的备份 https://cloud.netapp.com/cloud-volumes-global-regions["支持 Cloud Volumes ONTAP 的位置"^]。您可以在设置服务时指定要存储备份的区域。
 
 
 
@@ -308,7 +308,7 @@ image:screenshot_backup_onprem_enable.png["屏幕截图显示了\"启用备份�
 .. 用于存储备份的 Google 访问密钥和机密密钥。
 .. 要存储备份的 Google 区域。
 .. 要备份的卷所在的 ONTAP 集群中的 IP 空间。此 IP 空间的集群间 LIF 必须具有出站 Internet 访问权限。
-.. 无论您是使用默认的Google管理的加密密钥、还是选择您自己的客户管理的密钥来管理数据加密。要使用CMEE、您需要具有密钥环和密钥名称。 https://["详细了解客户管理的加密密钥"^]。
+.. 无论您是使用默认的Google管理的加密密钥、还是选择您自己的客户管理的密钥来管理数据加密。要使用CMEE、您需要具有密钥环和密钥名称。 https://cloud.google.com/kms/docs/cmek["详细了解客户管理的加密密钥"^]。
 +
 image:screenshot_backup_onprem_to_google.png["显示将卷从内部集群备份到 Google Cloud Storage 时云提供商详细信息的屏幕截图。"]
 

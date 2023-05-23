@@ -20,8 +20,8 @@ summary: 将适用于应用程序的BlueXP备份和恢复与BlueXP和内部SnapC
 
 有关应用程序的BlueXP备份和恢复的详细信息、请参见：
 
-* https://["使用BlueXP备份和恢复以及SnapCenter 进行应用程序感知型备份"^]
-* https://[""适用于应用程序的BlueXP备份和恢复"播客"^]
+* https://cloud.netapp.com/blog/cbs-cloud-backup-and-snapcenter-integration["使用BlueXP备份和恢复以及SnapCenter 进行应用程序感知型备份"^]
+* https://soundcloud.com/techontap_podcast/episode-322-cloud-backup-for-applications[""适用于应用程序的BlueXP备份和恢复"播客"^]
 
 
 

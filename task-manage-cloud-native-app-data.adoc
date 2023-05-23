@@ -218,6 +218,6 @@ CA文件应采用pem格式。
 
 == 访问REST API
 
-可从以下位置获取用于保护应用程序到云的REST API： https://[]。
+可从以下位置获取用于保护应用程序到云的REST API： https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/[]。
 
-要访问REST API、您应获取具有联合身份验证的用户令牌。有关获取用户令牌的信息、请参见 https://["创建具有联合身份验证的用户令牌"]。
+要访问REST API、您应获取具有联合身份验证的用户令牌。有关获取用户令牌的信息、请参见 https://docs.netapp.com/us-en/cloud-manager-automation/platform/create_user_token.html#create-a-user-token-with-federated-authentication["创建具有联合身份验证的用户令牌"]。

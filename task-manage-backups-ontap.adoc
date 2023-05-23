@@ -220,7 +220,7 @@ NOTE: 如果在为此集群激活BlueXP备份和恢复时在初始策略中启�
 
 如果在为此集群激活BlueXP备份和恢复时启用了_DataLock和勒索软件保护_、则按需备份也会配置DataLock、保留期限为30天。临时备份不支持勒索软件扫描。 link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["了解有关DataLock和勒索软件保护的更多信息"^]。
 
-请注意、在创建临时备份时、系统会在源卷上创建Snapshot。由于此Snapshot不属于正常的Snapshot计划、因此不会关闭它。备份完成后、您可能需要从源卷中手动删除此Snapshot。这样可以释放与此Snapshot相关的块。Snapshot的名称将以`CBS-snapshot-adoc-`开头。 https://["请参见如何使用ONTAP 命令行界面删除快照"^]。
+请注意、在创建临时备份时、系统会在源卷上创建Snapshot。由于此Snapshot不属于正常的Snapshot计划、因此不会关闭它。备份完成后、您可能需要从源卷中手动删除此Snapshot。这样可以释放与此Snapshot相关的块。Snapshot的名称将以`CBS-snapshot-adoc-`开头。 https://docs.netapp.com/us-en/ontap/san-admin/delete-all-existing-snapshot-copies-volume-task.html["请参见如何使用ONTAP 命令行界面删除快照"^]。
 
 
 NOTE: 数据保护卷不支持按需卷备份。
@@ -367,7 +367,7 @@ image:screenshot_delete_one_backup.png["显示如何删除单个备份文件的�
 
 只有在系统运行ONTAP 9.12.1或更高版本时、此功能才可用。
 
-您不能从BlueXP备份和恢复用户界面中删除源卷。但是、您可以在"画布"、和上打开"卷详细信息"页面 https://["从该位置删除卷"]。
+您不能从BlueXP备份和恢复用户界面中删除源卷。但是、您可以在"画布"、和上打开"卷详细信息"页面 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes["从该位置删除卷"]。
 
 
 NOTE: 删除关系后、您无法删除单个卷备份文件。但是、您可以 link:task-manage-backups-ontap.html#deleting-all-backup-files-for-a-volume["删除卷的所有备份"] 如果要删除所有备份文件。

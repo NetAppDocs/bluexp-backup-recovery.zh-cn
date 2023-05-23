@@ -40,6 +40,6 @@ SnapCenter 不支持将Oracle和HANA备份还原到备用主机。因此、您�
 
 此操作仅会将存储挂载到给定主机上。您应手动挂载文件系统并启动数据库。使用此卷后、存储管理员可以从ONTAP 集群中删除此卷。
 
-* 有关如何启动Oracle数据库的信息、请参见、 https://["知识库文章"]。
-* 有关如何启动SAP HANA数据库的信息、请参见、 https://["TR-4667：SnapCenter 的SAP系统复制工作流概述"^] 和 https://["TR-4667：SnapCenter 的SAP系统克隆工作流概述"^]。
+* 有关如何启动Oracle数据库的信息、请参见、 https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Cloud_Manager/How_to_bring_up_Oracle_Database_in_another_NFS_host_after_mounting_storage_from_backup_in_Cloud_Backup_for_Applications["知识库文章"]。
+* 有关如何启动SAP HANA数据库的信息、请参见、 https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-overview-of-sap-system-copy-workflow-with-snapcenter.html["TR-4667：SnapCenter 的SAP系统复制工作流概述"^] 和 https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-overview-of-sap-system-clone-workflow-with-snapcenter.html["TR-4667：SnapCenter 的SAP系统克隆工作流概述"^]。
 
