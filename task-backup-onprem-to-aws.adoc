@@ -89,10 +89,10 @@ BlueXP Connector是BlueXP功能的主要软件。需要使用连接器来备份�
 
 如果您已在AWS VPC或内部部署了Connector、则可以随时完成所有操作。如果没有、则需要在其中任一位置创建一个连接器、以便将ONTAP 数据备份到AWS S3存储。您不能使用部署在其他云提供商中的Connector。
 
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["了解连接器"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-aws.html["在AWS中安装连接器"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-on-prem.html["在内部安装Connector"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-restricted-mode.html["在AWS GovCloud区域中安装Connector"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["了解连接器"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-aws.html["在AWS中安装连接器"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-on-prem.html["在内部安装Connector"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-restricted-mode.html["在AWS GovCloud区域中安装Connector"^]
 +
 如果连接器部署在云中、则GovCloud地区支持BlueXP备份和恢复、而不是安装在您的内部环境中。此外、您还必须从AWS Marketplace部署Connector。您不能从BlueXP SaaS网站在政府区域部署Connector。
 
@@ -104,9 +104,9 @@ BlueXP Connector是BlueXP功能的主要软件。需要使用连接器来备份�
 
 * 确保安装 Connector 的网络启用以下连接：
 +
-** 通过端口443与BlueXP备份和恢复服务以及S3对象存储建立HTTPS连接 (https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-set-up-networking-aws.html#endpoints-contacted-for-day-to-day-operations["请参见端点列表"^]）
+** 通过端口443与BlueXP备份和恢复服务以及S3对象存储建立HTTPS连接 (https://docs.netapp.com/us-en/bluexp-setup-admin/task-set-up-networking-aws.html#endpoints-contacted-for-day-to-day-operations["请参见端点列表"^]）
 ** 通过端口 443 与 ONTAP 集群管理 LIF 建立 HTTPS 连接
-** AWS和AWS GovCloud部署需要其他入站和出站安全组规则。请参见 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-ports-aws.html["AWS 中连接器的规则"^] 了解详细信息。
+** AWS和AWS GovCloud部署需要其他入站和出站安全组规则。请参见 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-ports-aws.html["AWS 中连接器的规则"^] 了解详细信息。
 
 
 * link:task-backup-onprem-to-aws.html#set-up-s3-permissions["确保Connector具有管理S3存储分段的权限"]。
@@ -123,7 +123,7 @@ BlueXP Connector是BlueXP功能的主要软件。需要使用连接器来备份�
 
 您需要先在BlueXP中发现内部ONTAP 集群、然后才能开始备份卷数据。要添加集群，您需要知道集群管理 IP 地址和管理员用户帐户的密码。
 
-https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["了解如何发现集群"^]。
+https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["了解如何发现集群"^]。
 
 
 
@@ -199,7 +199,7 @@ IP空间中的所有集群间LIF都必须能够访问对象存储。如果无法
 
 
 .步骤
-. 确认以下 S3 权限（从最新版本开始） https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html["BlueXP策略"^]）是为 Connector 提供权限的 IAM 角色的一部分。如果不是、请参见 https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html["AWS 文档：编辑 IAM 策略"]。
+. 确认以下 S3 权限（从最新版本开始） https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-aws.html["BlueXP策略"^]）是为 Connector 提供权限的 IAM 角色的一部分。如果不是、请参见 https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html["AWS 文档：编辑 IAM 策略"]。
 +
 [source, json]
 ----
@@ -329,7 +329,7 @@ NOTE: 在AWS中国地区创建备份时、您需要将IAM策略中所有_Resourc
 
 如果您要使用默认Amazon S3加密密钥对内部集群和S3存储分段之间传递的数据进行加密、则会进行全部设置、因为默认安装会使用此类型的加密。
 
-如果您要使用自己的客户管理密钥进行数据加密、而不是使用默认密钥、则在启动BlueXP备份和恢复向导之前、您需要先设置加密管理密钥。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html["了解如何使用您自己的密钥"^]。
+如果您要使用自己的客户管理密钥进行数据加密、而不是使用默认密钥、则在启动BlueXP备份和恢复向导之前、您需要先设置加密管理密钥。 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-setting-up-kms.html["了解如何使用您自己的密钥"^]。
 
 
 
@@ -354,7 +354,7 @@ image:screenshot_backup_aws_sec_group.png["与 Connector 关联的 AWS 安全组
 +
 image:screenshot_endpoint_dns_aws_console.png["AWS 控制台中 VPC 端点的 DNS 名称的屏幕截图。"]
 
-. 从 VPC S3 端点获取证书。您可以通过执行此操作 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#connect-to-the-linux-vm["登录到托管BlueXP Connector的虚拟机"^] 并运行以下命令。输入端点的 DNS 名称时，在开头添加 " 分段 " ，替换 "* " ：
+. 从 VPC S3 端点获取证书。您可以通过执行此操作 https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html#connect-to-the-linux-vm["登录到托管BlueXP Connector的虚拟机"^] 并运行以下命令。输入端点的 DNS 名称时，在开头添加 " 分段 " ，替换 "* " ：
 +
 [source, text]
 ----
@@ -405,7 +405,7 @@ image:screenshot_backup_onprem_enable.png["屏幕截图显示了\"启用备份�
 访问密钥和机密密钥适用于您创建的 IAM 用户，用于为 ONTAP 集群授予对 S3 存储分段的访问权限。
 
 .. 要存储备份的 AWS 区域。
-.. 您是使用默认 Amazon S3 加密密钥，还是从 AWS 帐户中选择您自己的客户管理密钥来管理数据加密。 (https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html["了解如何使用您自己的密钥"]）。
+.. 您是使用默认 Amazon S3 加密密钥，还是从 AWS 帐户中选择您自己的客户管理密钥来管理数据加密。 (https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-setting-up-kms.html["了解如何使用您自己的密钥"]）。
 +
 image:screenshot_backup_provider_settings_aws.png["显示将卷从 ONTAP 系统备份到 AWS S3 时云提供商详细信息的屏幕截图。"]
 

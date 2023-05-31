@@ -103,9 +103,9 @@ zip -r catalogxxxxxx.zip catalogxxxxxx
 
 === 在新的内部Linux主机上安装新的Connector
 
-安装新的BlueXP Connector时、请确保下载的软件版本与原始Connector上安装的软件版本相同。定期更改BlueXP备份和恢复数据库结构可能会使较新的软件版本与原始数据库备份不兼容。您可以 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrade-the-connector-on-prem-without-internet-access["还原备份数据库后、将Connector软件升级到最新版本"^]。
+安装新的BlueXP Connector时、请确保下载的软件版本与原始Connector上安装的软件版本相同。定期更改BlueXP备份和恢复数据库结构可能会使较新的软件版本与原始数据库备份不兼容。您可以 https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html#upgrade-the-connector-on-prem-without-internet-access["还原备份数据库后、将Connector软件升级到最新版本"^]。
 
-. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-private-mode.html["在新的内部Linux主机上安装BlueXP Connector"^]
+. https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html["在新的内部Linux主机上安装BlueXP Connector"^]
 . 使用刚刚创建的管理员用户凭据登录到BlueXP。
 
 
@@ -172,15 +172,15 @@ unzip catalogxxxxxx.zip
 
 === 发现ONTAP 集群和StorageGRID 系统
 
-. https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html#discover-clusters-using-a-connector["了解所有内部ONTAP 工作环境"^] 您先前环境中提供的。
-. https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-storagegrid.html["发现您的StorageGRID 系统"^]。
+. https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html#discover-clusters-using-a-connector["了解所有内部ONTAP 工作环境"^] 您先前环境中提供的。
+. https://docs.netapp.com/us-en/bluexp-storagegrid/task-discover-storagegrid.html["发现您的StorageGRID 系统"^]。
 
 
 
 
 === 设置StorageGRID 环境详细信息
 
-添加与您的ONTAP 工作环境关联的StorageGRID 系统的详细信息、这些详细信息是在使用的原始连接器设置中设置的 https://docs.netapp.com/us-en/cloud-manager-automation/index.html["BlueXP API"^]。
+添加与您的ONTAP 工作环境关联的StorageGRID 系统的详细信息、这些详细信息是在使用的原始连接器设置中设置的 https://docs.netapp.com/us-en/bluexp-automation/index.html["BlueXP API"^]。
 
 您需要对要将数据备份到StorageGRID 的每个ONTAP 系统执行这些步骤。
 

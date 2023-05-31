@@ -38,12 +38,12 @@ summary: 完成几个步骤、开始备份SAP HANA数据库。
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"] 注册到BlueXP
 [role="quick-margin-list"]
-您可以从基于Web的控制台访问BlueXP。开始使用BlueXP时、第一步是使用现有NetApp 支持站点 凭据或创建NetApp云登录来注册。有关信息、请参见 link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-sign-up-saas.html["注册到BlueXP"]。
+您可以从基于Web的控制台访问BlueXP。开始使用BlueXP时、第一步是使用现有NetApp 支持站点 凭据或创建NetApp云登录来注册。有关信息、请参见 link:https://docs.netapp.com/us-en/bluexp-setup-admin/task-sign-up-saas.html["注册到BlueXP"]。
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三个"] 登录到BlueXP
 [role="quick-margin-list"]
-注册到BlueXP后、您可以从基于Web的控制台登录。有关信息、请参见 link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-logging-in.html["登录到BlueXP"]。
+注册到BlueXP后、您可以从基于Web的控制台登录。有关信息、请参见 link:https://docs.netapp.com/us-en/bluexp-setup-admin/task-logging-in.html["登录到BlueXP"]。
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"] 管理您的BlueXP帐户
 [role="quick-margin-list"]
-您可以通过管理用户、服务帐户、工作空间和连接器来管理您的帐户。有关信息、请参见 link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-netapp-accounts.html["管理您的BlueXP帐户"]。
+您可以通过管理用户、服务帐户、工作空间和连接器来管理您的帐户。有关信息、请参见 link:https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-netapp-accounts.html["管理您的BlueXP帐户"]。

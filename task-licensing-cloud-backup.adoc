@@ -50,10 +50,10 @@ link:concept-ontap-backup-to-cloud.html#cost["详细了解与使用BlueXP备份�
 
 * 一个"云备份"软件包、可用于备份Cloud Volumes ONTAP 数据和内部ONTAP 数据。
 * 一个"CVO专业版"软件包、可用于捆绑Cloud Volumes ONTAP 和BlueXP备份和恢复。这包括使用许可证为Cloud Volumes ONTAP 系统备份的数量不限(备份容量不计入许可容量)。此选项不支持备份内部ONTAP 数据。
-* "CVO Edge Cache"软件包具有与"CVO专业版"软件包相同的功能、但也支持 https://docs.netapp.com/us-en/cloud-manager-file-cache/concept-gfc.html["BlueXP边缘缓存"^] 服务您有权为Cloud Volumes ONTAP 系统上每配置3 TiB的容量部署一个BlueXP边缘缓存边缘系统。此选项可通过Azure和Google Marketplaces使用、但不支持备份内部ONTAP 数据。
+* "CVO Edge Cache"软件包具有与"CVO专业版"软件包相同的功能、但也支持 https://docs.netapp.com/us-en/bluexp-edge-caching/concept-gfc.html["BlueXP边缘缓存"^] 服务您有权为Cloud Volumes ONTAP 系统上每配置3 TiB的容量部署一个BlueXP边缘缓存边缘系统。此选项可通过Azure和Google Marketplaces使用、但不支持备份内部ONTAP 数据。
 
 
-https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html#capacity-based-licensing["详细了解这些基于容量的许可证包"]。
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html#capacity-based-licensing["详细了解这些基于容量的许可证包"]。
 
 使用以下链接从云提供商市场订阅BlueXP备份和恢复：
 
@@ -90,11 +90,11 @@ ifdef::aws[]
 
 * 一种 " 云备份 " 计划，可用于备份 Cloud Volumes ONTAP 数据和内部 ONTAP 数据。
 +
-如果要使用此选项，请从 Marketplace 页面设置您的订阅，然后再执行 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html#associate-an-aws-subscription["将订阅与您的 AWS 凭据关联"^]。请注意、您还需要使用此年度合同订阅为Cloud Volumes ONTAP 系统付费、因为在BlueXP中、您只能为AWS凭据分配一个有效订阅。
+如果要使用此选项，请从 Marketplace 页面设置您的订阅，然后再执行 https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-aws-accounts.html#associate-an-aws-subscription["将订阅与您的 AWS 凭据关联"^]。请注意、您还需要使用此年度合同订阅为Cloud Volumes ONTAP 系统付费、因为在BlueXP中、您只能为AWS凭据分配一个有效订阅。
 
 * 一种"CVO专业人员"计划、可用于捆绑Cloud Volumes ONTAP 和BlueXP备份和恢复。这包括使用许可证为Cloud Volumes ONTAP 系统备份的数量不限(备份容量不计入许可容量)。此选项不支持备份内部ONTAP 数据。
 +
-请参见 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html["Cloud Volumes ONTAP 许可主题"^] 了解有关此许可选项的更多信息。
+请参见 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html["Cloud Volumes ONTAP 许可主题"^] 了解有关此许可选项的更多信息。
 
 +
 如果要使用此选项、您可以在创建Cloud Volumes ONTAP 工作环境时设置年度合同、并且BlueXP会提示您订阅AWS Marketplace。
@@ -125,7 +125,7 @@ BYOL BlueXP备份和恢复许可证是一种浮动许可证、总容量在与您
 
 如果您没有BlueXP备份和恢复BYOL许可证、请单击BlueXP右下角的聊天图标购买一个。
 
-或者、如果您有一个不会使用的未分配的基于节点的Cloud Volumes ONTAP 许可证、则可以将其转换为具有相同美元等价性和相同到期日期的BlueXP备份和恢复许可证。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-node-licenses.html#exchange-unassigned-node-based-licenses["有关详细信息，请访问此处"^]。
+或者、如果您有一个不会使用的未分配的基于节点的Cloud Volumes ONTAP 许可证、则可以将其转换为具有相同美元等价性和相同到期日期的BlueXP备份和恢复许可证。 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-node-licenses.html#exchange-unassigned-node-based-licenses["有关详细信息，请访问此处"^]。
 
 您可以使用BlueXP电子钱包管理BYOL许可证。您可以通过BlueXP电子钱包添加新许可证、更新现有许可证以及查看许可证状态。
 
@@ -166,7 +166,7 @@ image:screenshot_cloud_backup_license_step2.gif["屏幕截图显示了获取许�
 +
 ** 如果您有备份许可证序列号并且知道您的 NSS 帐户，请选择 * 输入序列号 * 选项并输入该信息。
 +
-如果下拉列表中没有您的 NetApp 支持站点帐户， https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-nss-accounts.html["将NSS帐户添加到BlueXP"^]。
+如果下拉列表中没有您的 NetApp 支持站点帐户， https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-nss-accounts.html["将NSS帐户添加到BlueXP"^]。
 
 ** 如果您有备份许可证文件（安装在非公开站点时需要），请选择 * 上传许可证文件 * 选项，然后按照提示附加该文件。
 +
@@ -183,7 +183,7 @@ BlueXP添加了许可证、以便BlueXP备份和恢复处于活动状态。
 
 === 更新BlueXP备份和恢复BYOL许可证
 
-如果您的许可期限即将到期，或者您的许可容量即将达到限制，您将在备份 UI 中收到通知。此状态也会显示在BlueXP数字钱包页面和中 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-monitor-cm-operations.html#monitoring-operations-status-using-the-notification-center["通知"]。
+如果您的许可期限即将到期，或者您的许可容量即将达到限制，您将在备份 UI 中收到通知。此状态也会显示在BlueXP数字钱包页面和中 https://docs.netapp.com/us-en/bluexp-setup-admin/task-monitor-cm-operations.html#monitoring-operations-status-using-the-notification-center["通知"]。
 
 image:screenshot_services_license_expire.png["在BlueXP数字钱包页面中显示即将到期的许可证的屏幕截图。"]
 

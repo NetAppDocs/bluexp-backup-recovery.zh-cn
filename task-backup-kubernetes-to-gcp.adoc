@@ -70,8 +70,8 @@ image:diagram_cloud_backup_k8s_cvo_gcp.png["一个示意图、显示了BlueXP备
 Kubernetes 集群要求::
 +
 --
-* 您已将Kubernetes集群发现为一个BlueXP工作环境。 https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-kubernetes-discover-gke.html["了解如何发现 Kubernetes 集群"^]。
-* 集群上必须安装 Trident ，并且 Trident 版本必须至少为 21.1 。请参见 https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-k8s-manage-trident.html["如何安装 Trident"^] 或 https://docs.netapp.com/us-en/trident/trident-managing-k8s/upgrade-trident.html["如何升级 Trident 版本"^]。
+* 您已将Kubernetes集群发现为一个BlueXP工作环境。 https://docs.netapp.com/us-en/bluexp-kubernetes/task/task-kubernetes-discover-gke.html["了解如何发现 Kubernetes 集群"^]。
+* 集群上必须安装 Trident ，并且 Trident 版本必须至少为 21.1 。请参见 https://docs.netapp.com/us-en/bluexp-kubernetes/task/task-k8s-manage-trident.html["如何安装 Trident"^] 或 https://docs.netapp.com/us-en/trident/trident-managing-k8s/upgrade-trident.html["如何升级 Trident 版本"^]。
 * 集群的后端存储必须使用 GCP 上的 Cloud Volumes ONTAP 。
 * Cloud Volumes ONTAP 系统必须与Kubernetes集群位于同一GCP区域、并且必须运行ONTAP 9.7P5或更高版本(建议使用ONTAP 9.8P11及更高版本)。
 +
@@ -131,7 +131,7 @@ spec:
 
 --
 支持的 GCP 区域:: 所有GCP地区均支持BlueXP备份和恢复 https://cloud.netapp.com/cloud-volumes-global-regions["支持 Cloud Volumes ONTAP 的位置"^]。
-许可证要求:: 对于BlueXP备份和恢复PAYGO许可、可通过订阅 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["GCP 市场"^] 在启用BlueXP备份和恢复之前为必填项。BlueXP备份和恢复的计费通过此订阅完成。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-gcp.html["您可以从工作环境向导的详细信息和 amp ；凭据页面订阅"^]。
+许可证要求:: 对于BlueXP备份和恢复PAYGO许可、可通过订阅 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["GCP 市场"^] 在启用BlueXP备份和恢复之前为必填项。BlueXP备份和恢复的计费通过此订阅完成。 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-deploying-gcp.html["您可以从工作环境向导的详细信息和 amp ；凭据页面订阅"^]。
 +
 --
 对于BlueXP备份和恢复BYOL许可、您需要NetApp提供的序列号、以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["了解如何管理 BYOL 许可证"]。
@@ -139,7 +139,7 @@ spec:
 您需要为备份所在的存储空间订阅 Google 。
 
 --
-GCP 服务帐户:: 您需要在 Google Cloud Project 中拥有一个具有预定义的存储管理员角色的服务帐户。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-creating-gcp-service-account.html["了解如何创建服务帐户"^]。
+GCP 服务帐户:: 您需要在 Google Cloud Project 中拥有一个具有预定义的存储管理员角色的服务帐户。 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-creating-gcp-service-account.html["了解如何创建服务帐户"^]。
 
 
 

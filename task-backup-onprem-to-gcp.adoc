@@ -26,7 +26,7 @@ summary: 完成几个步骤、开始将卷数据从内部ONTAP 系统备份到Go
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"] 验证是否支持您的配置
 [role="quick-margin-list"]
-* 您已发现内部集群并将其添加为BlueXP中的工作环境。请参见 https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["发现 ONTAP 集群"^] 了解详细信息。
+* 您已发现内部集群并将其添加为BlueXP中的工作环境。请参见 https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["发现 ONTAP 集群"^] 了解详细信息。
 +
 ** 集群运行的是ONTAP 9.7P5或更高版本(建议使用ONTAP 9.8P13及更高版本)。
 ** 集群具有 SnapMirror 许可证—它作为超值包或数据保护包的一部分提供。
@@ -92,7 +92,7 @@ image:diagram_cloud_backup_onprem_gcp_private.png["一个示意图、显示了Bl
 
 您需要先在BlueXP中发现内部ONTAP 集群、然后才能开始备份卷数据。
 
-https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["了解如何发现集群"^]。
+https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["了解如何发现集群"^]。
 
 ONTAP 要求::
 +
@@ -142,8 +142,8 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 
 如果您已在Google Cloud Platform VPC中部署了Connector、则可以随时完成所有操作。如果没有、则需要在该位置创建一个连接器、将ONTAP 数据备份到Google Cloud存储。您不能使用部署在其他云提供商或内部环境中的Connector。
 
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["了解连接器"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-google.html["在GCP中安装连接器"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["了解连接器"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["在GCP中安装连接器"^]
 
 
 
@@ -155,7 +155,7 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 .步骤
 . 确保安装 Connector 的网络启用以下连接：
 +
-** 通过端口443与BlueXP备份和恢复服务以及Google Cloud存储建立HTTPS连接 (https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-set-up-networking-google.html#endpoints-contacted-for-day-to-day-operations["请参见端点列表"^]）
+** 通过端口443与BlueXP备份和恢复服务以及Google Cloud存储建立HTTPS连接 (https://docs.netapp.com/us-en/bluexp-setup-admin/task-set-up-networking-google.html#endpoints-contacted-for-day-to-day-operations["请参见端点列表"^]）
 ** 通过端口 443 与 ONTAP 集群管理 LIF 建立 HTTPS 连接
 
 

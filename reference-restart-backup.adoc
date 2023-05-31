@@ -26,7 +26,7 @@ BlueXP备份和恢复功能内置在BlueXP Connector中。根据是在云中部�
 | 连接器位置 | 操作步骤 
 
 
-| 云部署 | 按照的说明进行操作 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#connect-to-the-linux-vm["正在连接到Connector Linux虚拟机"^] 取决于您使用的云提供商。 
+| 云部署 | 按照的说明进行操作 https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html#connect-to-the-linux-vm["正在连接到Connector Linux虚拟机"^] 取决于您使用的云提供商。 
 
 
 | 手动安装 | 登录到Linux系统。 

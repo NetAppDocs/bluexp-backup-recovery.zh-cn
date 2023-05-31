@@ -26,7 +26,7 @@ summary: 完成几个步骤、开始将卷数据从内部ONTAP 系统备份到Ne
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"] 验证是否支持您的配置
 [role="quick-margin-list"]
-* 您已发现内部集群并将其添加到BlueXP中的工作环境中。请参见 https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["发现 ONTAP 集群"^] 了解详细信息。
+* 您已发现内部集群并将其添加到BlueXP中的工作环境中。请参见 https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["发现 ONTAP 集群"^] 了解详细信息。
 +
 ** 此集群运行的是 ONTAP 9.7P5 或更高版本。
 ** 集群具有 SnapMirror 许可证—它作为超值包或数据保护包的一部分提供。
@@ -95,7 +95,7 @@ image:diagram_cloud_backup_onprem_storagegrid.png["一个示意图、显示了Bl
 
 您需要先在BlueXP中发现内部ONTAP 集群、然后才能开始备份卷数据。
 
-https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["了解如何发现集群"^]。
+https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["了解如何发现集群"^]。
 
 ONTAP 要求::
 +
@@ -176,14 +176,14 @@ S3 凭据:: 您必须已创建S3租户帐户来控制对StorageGRID 存储的访
 
 将数据备份到 StorageGRID 时，您的内部必须具有一个连接器。您需要安装新的 Connector 或确保当前选定的 Connector 位于内部。无论是否可访问 Internet ，均可将 Connector 安装在站点中。
 
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["了解连接器"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-on-prem.html["在可访问 Internet 的 Linux 主机上安装 Connector"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-private-mode.html["在无法访问 Internet 的 Linux 主机上安装 Connector"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html["在连接器之间切换"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["了解连接器"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-on-prem.html["在可访问 Internet 的 Linux 主机上安装 Connector"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html["在无法访问 Internet 的 Linux 主机上安装 Connector"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html["在连接器之间切换"^]
 
 
 
-NOTE: BlueXP备份和恢复功能内置在BlueXP Connector中。如果安装在无法连接 Internet 的站点上，则需要定期更新 Connector 软件才能访问新功能。检查 link:whats-new.html["BlueXP备份和恢复新增功能"] 要查看每个BlueXP备份和恢复版本中的新功能、然后您可以按照中的步骤进行操作 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#upgrade-the-connector-when-using-private-mode["升级 Connector 软件"^] 希望使用新功能时。
+NOTE: BlueXP备份和恢复功能内置在BlueXP Connector中。如果安装在无法连接 Internet 的站点上，则需要定期更新 Connector 软件才能访问新功能。检查 link:whats-new.html["BlueXP备份和恢复新增功能"] 要查看每个BlueXP备份和恢复版本中的新功能、然后您可以按照中的步骤进行操作 https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html#upgrade-the-connector-when-using-private-mode["升级 Connector 软件"^] 希望使用新功能时。
 
 强烈建议您在没有Internet连接的站点上安装Connector时、定期为BlueXP备份和恢复配置数据创建本地备份。 link:reference-backup-cbs-db-in-dark-site.html["了解如何在非公开站点中备份BlueXP备份和恢复数据"^]。
 
@@ -219,7 +219,7 @@ NOTE: BlueXP备份和恢复功能内置在BlueXP Connector中。如果安装在�
 * StorageGRID 要求*
 
 * 您的StorageGRID 必须使用11.4或更高版本
-* 您的StorageGRID 必须是 https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-storagegrid.html["已在BlueXP画布中发现并提供"^]。
+* 您的StorageGRID 必须是 https://docs.netapp.com/us-en/bluexp-storagegrid/task-discover-storagegrid.html["已在BlueXP画布中发现并提供"^]。
 
 
 * Amazon S3要求*

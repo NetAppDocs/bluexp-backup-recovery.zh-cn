@@ -20,7 +20,7 @@ summary: 创建Cloud Volumes ONTAP 工作环境和连接器
 
 == 创建Cloud Volumes ONTAP 工作环境
 
-您可以发现现有Cloud Volumes ONTAP 系统并将其添加到BlueXP中。有关信息、请参见 link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-adding-systems.html["将现有Cloud Volumes ONTAP 系统添加到BlueXP"]。
+您可以发现现有Cloud Volumes ONTAP 系统并将其添加到BlueXP中。有关信息、请参见 link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-adding-systems.html["将现有Cloud Volumes ONTAP 系统添加到BlueXP"]。
 
 
 
@@ -28,9 +28,9 @@ summary: 创建Cloud Volumes ONTAP 工作环境和连接器
 
 您可以通过几个步骤开始为您的云环境使用Cloud Volumes ONTAP。有关详细信息、请参见以下内容之一：
 
-* link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-aws.html["在 AWS 中快速启动 Cloud Volumes ONTAP"]
-* link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-azure.html["在 Azure 中快速启动 Cloud Volumes ONTAP"]
-* link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-gcp.html["在 Google Cloud 中快速启动 Cloud Volumes ONTAP"]
+* link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-getting-started-aws.html["在 AWS 中快速启动 Cloud Volumes ONTAP"]
+* link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-getting-started-azure.html["在 Azure 中快速启动 Cloud Volumes ONTAP"]
+* link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-getting-started-gcp.html["在 Google Cloud 中快速启动 Cloud Volumes ONTAP"]
 
 
 您应使用相同的连接器来管理Cloud Volumes ONTAP 工作环境和数据库。

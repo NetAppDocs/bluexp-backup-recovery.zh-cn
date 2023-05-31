@@ -26,7 +26,7 @@ summary: 完成几个步骤、开始将卷数据从内部ONTAP 系统备份到Az
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"] 验证是否支持您的配置
 [role="quick-margin-list"]
-* 您已发现内部集群并将其添加到BlueXP中的工作环境中。请参见 https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["发现 ONTAP 集群"^] 了解详细信息。
+* 您已发现内部集群并将其添加到BlueXP中的工作环境中。请参见 https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["发现 ONTAP 集群"^] 了解详细信息。
 +
 ** 集群运行的是ONTAP 9.7P5或更高版本(建议使用ONTAP 9.8P13及更高版本)。
 ** 集群具有 SnapMirror 许可证—它作为超值包或数据保护包的一部分提供。
@@ -101,7 +101,7 @@ image:diagram_cloud_backup_onprem_azure_private.png["一个示意图、显示了
 
 您需要先在BlueXP中发现内部ONTAP 集群、然后才能开始备份卷数据。
 
-https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["了解如何发现集群"^]。
+https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["了解如何发现集群"^]。
 
 ONTAP 要求::
 +
@@ -148,10 +148,10 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 
 如果您已在Azure vNet或内部部署了Connector、则可以完全完成。如果没有、则需要在其中任一位置创建一个连接器、以便将ONTAP 数据备份到Azure Blob存储。您不能使用部署在其他云提供商中的Connector。
 
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["了解连接器"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-azure.html["在Azure中安装Connector"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-on-prem.html["在内部安装Connector"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-restricted-mode.html["在Azure政府区域中安装Connector"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["了解连接器"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-azure.html["在Azure中安装Connector"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-on-prem.html["在内部安装Connector"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-restricted-mode.html["在Azure政府区域中安装Connector"^]
 +
 如果连接器部署在云中、则Azure政府区域支持BlueXP备份和恢复、而不是安装在您的内部环境中。此外、您还必须从Azure Marketplace部署Connector。您不能从BlueXP SaaS网站在政府区域部署Connector。
 
@@ -166,10 +166,10 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 .步骤
 . 确保安装 Connector 的网络启用以下连接：
 +
-** 通过端口443与BlueXP备份和恢复服务以及Blob对象存储建立HTTPS连接 (https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-set-up-networking-azure.html#endpoints-contacted-for-day-to-day-operations["请参见端点列表"^]）
+** 通过端口443与BlueXP备份和恢复服务以及Blob对象存储建立HTTPS连接 (https://docs.netapp.com/us-en/bluexp-setup-admin/task-set-up-networking-azure.html#endpoints-contacted-for-day-to-day-operations["请参见端点列表"^]）
 ** 通过端口 443 与 ONTAP 集群管理 LIF 建立 HTTPS 连接
 ** 要使BlueXP备份和恢复搜索和还原功能正常工作、必须打开端口1433、以便在Connector和Azure Synapse SQL服务之间进行通信。
-** Azure和Azure政府部署还需要其他入站安全组规则。请参见 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-ports-azure.html["Azure 中连接器的规则"^] 了解详细信息。
+** Azure和Azure政府部署还需要其他入站安全组规则。请参见 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-ports-azure.html["Azure 中连接器的规则"^] 了解详细信息。
 
 
 . 为 Azure 存储启用 vNet 私有端点。如果您从ONTAP 集群到vNet具有ExpressRoute或VPN连接、并且希望Connector和Blob存储之间的通信保持在虚拟专用网络中(*专用*连接)、则需要此功能。
@@ -246,7 +246,7 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 "Microsoft.Synapse/workspaces/privateEndpointConnectionsApproval/action"
 ----
 +
-https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-azure.html["查看策略的完整 JSON 格式"^]
+https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-azure.html["查看策略的完整 JSON 格式"^]
 
 .. 单击 * 查看 + 更新 * ，然后单击 * 更新 * 。
 

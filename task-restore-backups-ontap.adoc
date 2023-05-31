@@ -423,7 +423,7 @@ image:screenshot_restore_select_dest.png["为要还原的文件选择卷和文�
 
 您可以使用搜索和还原从ONTAP 备份文件还原卷、文件夹或文件。通过搜索和还原、您可以从存储在云存储上的特定提供商的所有备份中搜索特定卷、文件夹或文件、然后执行还原。您无需知道确切的工作环境名称或卷名称 - 搜索将查看所有卷备份文件。
 
-搜索操作还会查找 ONTAP 卷中存在的所有本地 Snapshot 副本。与从备份文件还原数据相比，从本地 Snapshot 副本还原数据的速度更快，成本更低，因此您可能需要从 Snapshot 还原数据。您可以将Snapshot还原为新卷 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes["在"画布"上的"卷详细信息"页面中"^] (不来自BlueXP备份和恢复)。
+搜索操作还会查找 ONTAP 卷中存在的所有本地 Snapshot 副本。与从备份文件还原数据相比，从本地 Snapshot 副本还原数据的速度更快，成本更低，因此您可能需要从 Snapshot 还原数据。您可以将Snapshot还原为新卷 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes["在"画布"上的"卷详细信息"页面中"^] (不来自BlueXP备份和恢复)。
 
 从备份文件还原卷时、BlueXP备份和恢复会使用备份中的数据创建一个_new_卷。您可以将数据还原为原始工作环境中的卷，也可以还原到与源工作环境位于同一云帐户中的其他工作环境。您还可以将卷还原到内部 ONTAP 系统。
 
@@ -579,7 +579,7 @@ endif::gcp[]
 +
 ** 如果您的帐户中没有云提供商凭据、则索引目录信息将存储在Connector上。
 ** 如果在非公开站点中使用Connector、则索引目录信息将存储在Connector上(需要连接器3.9.25或更高版本)。
-** 如果您有 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-aws.html["AWS 凭据"^] 或 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-accounts-azure.html["Azure credentials"^] 在帐户中、索引目录存储在云提供商处、就像部署在云中的Connector一样。(如果您同时拥有这两个凭据、则默认情况下会选择AWS。)
+** 如果您有 https://docs.netapp.com/us-en/bluexp-setup-admin/concept-accounts-aws.html["AWS 凭据"^] 或 https://docs.netapp.com/us-en/bluexp-setup-admin/concept-accounts-azure.html["Azure credentials"^] 在帐户中、索引目录存储在云提供商处、就像部署在云中的Connector一样。(如果您同时拥有这两个凭据、则默认情况下会选择AWS。)
 +
 即使您使用的是内部部署Connector、也必须同时满足云提供商对Connector权限和云提供商资源的要求。使用此实施时、请参见上述AWS和Azure要求。
 

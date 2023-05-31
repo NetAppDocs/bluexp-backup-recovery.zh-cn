@@ -74,7 +74,7 @@ image:screenshot_backup_policy_azure.png["屏幕截图显示了BlueXP备份和�
 image:diagram_cloud_backup_cvo_azure.png["一个示意图、显示了BlueXP备份和恢复如何与备份文件所在的源系统和目标存储上的卷进行通信。"]
 
 支持的 ONTAP 版本:: 建议至少使用ONTAP 9.7P5；ONTAP 9.8P13及更高版本。
-许可证要求:: 对于BlueXP备份和恢复PAYGO许可、在启用BlueXP备份和恢复之前、需要通过Azure Marketplace订阅。BlueXP备份和恢复的计费通过此订阅完成。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-azure.html["您可以从工作环境向导的详细信息和 amp ；凭据页面订阅"^]。
+许可证要求:: 对于BlueXP备份和恢复PAYGO许可、在启用BlueXP备份和恢复之前、需要通过Azure Marketplace订阅。BlueXP备份和恢复的计费通过此订阅完成。 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-deploying-otc-azure.html["您可以从工作环境向导的详细信息和 amp ；凭据页面订阅"^]。
 +
 --
 对于BlueXP备份和恢复BYOL许可、您需要NetApp提供的序列号、以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["了解如何管理 BYOL 许可证"]。如果Connector和Cloud Volumes ONTAP 系统部署在非公开站点("专用模式")中、则必须使用BYOL许可证。
@@ -82,12 +82,12 @@ image:diagram_cloud_backup_cvo_azure.png["一个示意图、显示了BlueXP备�
 您需要为备份所在的存储空间订阅 Microsoft Azure 。
 
 --
-连接器要求:: Connector可以安装在具有完全或有限Internet访问权限("标准"或"受限"模式)的Azure区域中。 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-modes.html["有关详细信息、请参见BlueXP部署模式"^]。
+连接器要求:: Connector可以安装在具有完全或有限Internet访问权限("标准"或"受限"模式)的Azure区域中。 https://docs.netapp.com/us-en/bluexp-setup-admin/concept-modes.html["有关详细信息、请参见BlueXP部署模式"^]。
 +
 --
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["了解连接器"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-azure.html["在标准模式下在Azure中部署Connector (完全Internet访问)"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-restricted-mode.html["在受限模式下安装连接器(受限出站访问)"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["了解连接器"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-azure.html["在标准模式下在Azure中部署Connector (完全Internet访问)"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-restricted-mode.html["在受限模式下安装连接器(受限出站访问)"^]
 
 
 --
@@ -162,7 +162,7 @@ image:diagram_cloud_backup_cvo_azure.png["一个示意图、显示了BlueXP备�
 "Microsoft.Synapse/workspaces/privateEndpointConnectionsApproval/action"
 ----
 +
-https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-azure.html["查看策略的完整 JSON 格式"^]
+https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-azure.html["查看策略的完整 JSON 格式"^]
 
 ... 单击 * 查看 + 更新 * ，然后单击 * 更新 * 。
 
@@ -188,7 +188,7 @@ https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-az
 
 默认情况下、在工作环境向导中会启用BlueXP备份和恢复。请务必保持此选项处于启用状态。
 
-请参见 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-azure.html["在 Azure 中启动 Cloud Volumes ONTAP"^] 有关创建 Cloud Volumes ONTAP 系统的要求和详细信息，请参见。
+请参见 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-deploying-otc-azure.html["在 Azure 中启动 Cloud Volumes ONTAP"^] 有关创建 Cloud Volumes ONTAP 系统的要求和详细信息，请参见。
 
 
 NOTE: 如果要选择资源组的名称、请在部署Cloud Volumes ONTAP 时*禁用* BlueXP备份和恢复。按照的步骤进行操作 <<enabling-bluexp-backup-and-recovery-on-an-existing-system,在现有系统上启用BlueXP备份和恢复>> 要启用BlueXP备份和恢复、请选择资源组。

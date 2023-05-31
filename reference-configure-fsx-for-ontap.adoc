@@ -20,7 +20,7 @@ summary: 创建适用于ONTAP 的FSX工作环境和Connector
 
 == 为ONTAP 工作环境创建FSX
 
-您应在托管数据库的位置创建适用于ONTAP 工作环境的FSX。有关信息、请参见 link:https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/start/task-getting-started-fsx.html["开始使用适用于 ONTAP 的 Amazon FSX"] 和 link:https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/use/task-creating-fsx-working-environment.html["创建和管理适用于 ONTAP 的 Amazon FSX 工作环境"]。
+您应在托管数据库的位置创建适用于ONTAP 工作环境的FSX。有关信息、请参见 link:https://docs.netapp.com/us-en/bluexp-fsx-ontap/start/task-getting-started-fsx.html["开始使用适用于 ONTAP 的 Amazon FSX"] 和 link:https://docs.netapp.com/us-en/bluexp-fsx-ontap/use/task-creating-fsx-working-environment.html["创建和管理适用于 ONTAP 的 Amazon FSX 工作环境"]。
 
 您可以使用BlueXP或AWS创建适用于ONTAP 的FSX工作环境。如果您已使用AWS创建、则应在BlueXP中发现适用于ONTAP 系统的FSX。
 
@@ -30,7 +30,7 @@ summary: 创建适用于ONTAP 的FSX工作环境和Connector
 
 客户管理员需要在AWS中创建一个连接器、使BlueXP能够管理公共云环境中的资源和流程。
 
-有关信息、请参见 link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-quick-start-connector-aws.html["通过BlueXP在AWS中创建连接器"]。
+有关信息、请参见 link:https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-aws.html["通过BlueXP在AWS中创建连接器"]。
 
 * 您应使用相同的连接器来管理适用于ONTAP 的FSX工作环境和数据库。
 * 如果您的FSX for ONTAP 工作环境和数据库位于同一个虚拟私有云(Virtual Private Cloud、VPC)中、则可以在同一个VPC中部署此连接器。

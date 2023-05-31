@@ -19,7 +19,7 @@ summary: 查看备份详细信息并监控所有作业的状态。
 
 您可以监控在工作环境中启动的作业的状态。这样，您可以查看已成功完成的作业，当前正在进行的作业以及失败的作业，以便您可以诊断和修复任何问题。
 
-有关详细信息，请参见 link:https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html["监控作业状态"]。
+有关详细信息，请参见 link:https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html["监控作业状态"]。
 
 
 
@@ -220,4 +220,4 @@ CA文件应采用pem格式。
 
 可从以下位置获取用于保护应用程序到云的REST API： https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/[]。
 
-要访问REST API、您应获取具有联合身份验证的用户令牌。有关获取用户令牌的信息、请参见 https://docs.netapp.com/us-en/cloud-manager-automation/platform/create_user_token.html#create-a-user-token-with-federated-authentication["创建具有联合身份验证的用户令牌"]。
+要访问REST API、您应获取具有联合身份验证的用户令牌。有关获取用户令牌的信息、请参见 https://docs.netapp.com/us-en/bluexp-automation/platform/create_user_token.html#create-a-user-token-with-federated-authentication["创建具有联合身份验证的用户令牌"]。

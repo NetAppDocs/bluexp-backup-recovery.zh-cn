@@ -367,7 +367,7 @@ image:screenshot_delete_one_backup.png["显示如何删除单个备份文件的�
 
 只有在系统运行ONTAP 9.12.1或更高版本时、此功能才可用。
 
-您不能从BlueXP备份和恢复用户界面中删除源卷。但是、您可以在"画布"、和上打开"卷详细信息"页面 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes["从该位置删除卷"]。
+您不能从BlueXP备份和恢复用户界面中删除源卷。但是、您可以在"画布"、和上打开"卷详细信息"页面 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes["从该位置删除卷"]。
 
 
 NOTE: 删除关系后、您无法删除单个卷备份文件。但是、您可以 link:task-manage-backups-ontap.html#deleting-all-backup-files-for-a-volume["删除卷的所有备份"] 如果要删除所有备份文件。
