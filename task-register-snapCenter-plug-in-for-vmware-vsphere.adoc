@@ -30,7 +30,7 @@ NOTE: 您可以在BlueXP中注册多个适用于VMware vSphere的SnapCenter 插�
 +
 您应确保在默认8144端口上运行的适用于VMware vSphere的内部SnapCenter 插件主机与在任何云提供商(Amazon Web Services、Microsoft Azure、Google云平台)或内部运行的BlueXP连接器实例之间的通信是开放的。
 
-.. 在用户名和密码字段中、指定具有管理员角色的用户的凭据。
+.. 在用户名和密码字段中、指定具有管理员角色的vCenter用户的凭据。
 
 
 . 单击 * 注册 * 。

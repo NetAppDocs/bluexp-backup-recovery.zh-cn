@@ -988,7 +988,6 @@
   <block id="0291e73f7c30c841795ff165a80bdc0e" category="list-text">单击 <block ref="1d94ccc08c31bc8efbc06bfabc6854b6" category="inline-image-macro-rx" type="image"></block> 对应于要还原的虚拟机、然后单击*还原*。</block>
   <block id="42387e1cb260fd1fb8624acde3767841" category="paragraph">虚拟机将还原到创建备份的同一位置。</block>
   <block id="4e5b953e1349e67f48dba9317bba75d3" category="list-text">单击*注册适用于VMware vSphere的SnapCenter 插件*。</block>
-  <block id="4eb88f79049bc78204f8659b66b7b655" category="list-text">在用户名和密码字段中、指定具有管理员角色的用户的凭据。</block>
   <block id="1d419e3005bf4974f6070bbb53e5816f" category="list-text">单击 <block ref="1d94ccc08c31bc8efbc06bfabc6854b6" category="inline-image-macro-rx" type="image"></block> 对应于要备份的数据存储库、然后单击*激活备份*。</block>
   <block id="925e322b8ed2bad21cf3391e5e93df0a" category="list-text">单击与SVM对应的*添加工作环境*。</block>
   <block id="73f07eefb51e62cc902b672233bd4977" category="list-text">指定ONTAP 集群用户的凭据。</block>
@@ -3796,4 +3795,5 @@
   <block id="8ff7f40c0012810703dc67d79b10ff7b" category="list-text"><block ref="9b634f22874d44b1e001e536ff14de06" category="inline-link-rx"></block> 您先前环境中提供的。</block>
   <block id="9859429ce021a771d55011bbad61663d" category="list-text"><block ref="95020d92addc538671ad8a553222768a" category="inline-link-rx"></block>。</block>
   <block id="dd356e8ea63119f95e3666d6db68f47e" category="paragraph">添加与您的ONTAP 工作环境关联的StorageGRID 系统的详细信息、这些详细信息是在使用的原始连接器设置中设置的<block ref="84b7c1fcfbca071b9004578261b65308" category="inline-link-rx"></block>。</block>
+  <block id="eeba430c3c4e0795629fe640359a8730" category="list-text">在用户名和密码字段中、指定具有管理员角色的vCenter用户的凭据。</block>
 </blocks>
