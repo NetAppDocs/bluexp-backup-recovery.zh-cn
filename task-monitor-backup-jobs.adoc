@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: task-monitor-backup-jobs.html 
-keywords: cloud backup, cloud backup service, backup, restore, status, monitor, alert, notification 
+keywords: cloud backup, bluexp backup and recovery, backup, restore, status, monitor, alert, notification 
 summary: 您可以监控已计划或已启动的备份作业的状态、并还原在工作环境中启动的作业。您可以查看已成功完成的作业、当前正在进行的作业以及失败的作业、以便诊断和修复问题。您还可以将通知配置为通过电子邮件发送、以便即使未登录到系统、您也能了解重要的系统活动。 
 ---
 = 监控备份和还原作业的状态
@@ -14,7 +14,7 @@ summary: 您可以监控已计划或已启动的备份作业的状态、并还�
 
 
 [role="lead"]
-您可以监控已计划或已启动的备份作业的状态、并还原在工作环境中启动的作业。您可以查看已成功完成的作业、当前正在进行的作业以及失败的作业、以便诊断和修复问题。您还可以将通知配置为通过电子邮件发送、以便即使未登录到系统、您也能了解重要的系统活动。
+您可以监控已启动或已计划的备份作业的状态、并还原已启动的作业。您可以查看已完成、正在进行或失败的作业、以便诊断和修复问题。使用BlueXP通知中心、您可以启用通过电子邮件发送通知、以便即使您未登录系统、也可以获得重要系统活动的通知。使用BlueXP时间线、您可以查看通过UI或API启动的所有操作的详细信息。
 
 
 
@@ -45,12 +45,14 @@ image:screenshot_backup_job_monitor.png["显示作业监控信息板中备份和
 +
 此屏幕截图显示了默认列标题。
 
-. 要显示其他四列(工作环境、SVM、用户名和工作负载)、请选择 image:button_plus_sign_round.png["加号按钮"]。
+. 显示其他列(工作环境、SVM、用户名、工作负载、策略、 和Snapshot Label)、选择 image:button_plus_sign_round.png["加号按钮"]。
 
 
 
 
 === 搜索和筛选作业列表
+
+您可以使用多个筛选器(例如备份策略和Snapshot标签)筛选"作业监控"页面上的操作。
 
 默认情况下、作业监控页面会显示过去24小时的作业。
 
@@ -123,6 +125,22 @@ image:screenshot_backup_job_monitor_details2.png["显示备份作业详细信息
 
 
 
+== 查看备份生命周期作业
+
+监控备份生命周期流有助于确保审计完整性、责任和备份安全性。为了帮助您跟踪备份生命周期、您可能需要确定所有备份副本的到期日期。
+
+备份生命周期作业会跟踪所有已删除的Snapshot副本或要删除的队列中的Snapshot副本。从ONTAP 9.13开始、您可以在"作业监控"页面上查看所有称为"备份生命周期"的作业类型。
+
+"备份生命周期"作业类型会捕获在受BlueXP备份和恢复保护的卷上启动的所有快照删除作业。
+
+.步骤
+. 选择*作业监控*选项卡。
+. 选择*高级搜索和筛选*区域以打开搜索面板。
+. 选择作业类型"备份生命周期"。
+
+
+
+
 == 查看BlueXP通知中心中的备份和还原警报
 
 BlueXP通知中心会跟踪您已启动的备份和还原作业的进度、以便您可以验证操作是否成功。
@@ -143,6 +161,11 @@ BlueXP通知中心会跟踪您已启动的备份和还原作业的进度、以�
 
  a| 
 在工作环境中激活备份失败
+| 严重 
+
+
+ a| 
+未创建备份文件、因为Snapshot策略标签不匹配
 | 严重 
 
 
@@ -179,3 +202,11 @@ https://docs.netapp.com/us-en/bluexp-setup-admin/task-monitor-cm-operations.html
 . 通过选择(image:icon_bell.png["通知铃"])。
 . 查看通知。
 
+
+
+
+== 查看BlueXP时间线中的操作活动
+
+您可以在BlueXP时间线中查看备份和还原操作的详细信息、以供进一步调查。BlueXP时间线提供了每个事件的详细信息、无论是用户启动的事件还是系统启动的事件、并显示了在UI中或通过API启动的操作。
+
+https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-monitor-cm-operations.html["了解时间线与通知中心之间的区别"^]。

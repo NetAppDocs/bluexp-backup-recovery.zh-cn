@@ -440,7 +440,7 @@ endif::gcp[]
 
 
 * 无法将FlexGroup 卷备份移至归档存储。
-* FlexGroup 卷备份不能使用DataLock和防软件保护。
+* 如果集群运行的是ONTAP 9.13.1或更高版本、则FlexGroup卷备份可以使用DataLock和防软件保护。
 * 支持 SVM-DR 卷备份，但有以下限制：
 +
 ** 仅支持从 ONTAP 二级系统进行备份。

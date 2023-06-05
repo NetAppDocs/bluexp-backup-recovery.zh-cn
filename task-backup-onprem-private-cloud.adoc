@@ -174,7 +174,7 @@ S3 凭据:: 您必须已创建S3租户帐户来控制对StorageGRID 存储的访
 
 === 创建或切换连接器
 
-将数据备份到 StorageGRID 时，您的内部必须具有一个连接器。您需要安装新的 Connector 或确保当前选定的 Connector 位于内部。无论是否可访问 Internet ，均可将 Connector 安装在站点中。
+将数据备份到StorageGRID时、您的内部环境必须具有BlueXP连接器。您需要安装新的 Connector 或确保当前选定的 Connector 位于内部。无论是否可访问 Internet ，均可将 Connector 安装在站点中。
 
 * https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["了解连接器"^]
 * https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-on-prem.html["在可访问 Internet 的 Linux 主机上安装 Connector"^]
@@ -183,24 +183,22 @@ S3 凭据:: 您必须已创建S3租户帐户来控制对StorageGRID 存储的访
 
 
 
-NOTE: BlueXP备份和恢复功能内置在BlueXP Connector中。如果安装在无法连接 Internet 的站点上，则需要定期更新 Connector 软件才能访问新功能。检查 link:whats-new.html["BlueXP备份和恢复新增功能"] 要查看每个BlueXP备份和恢复版本中的新功能、然后您可以按照中的步骤进行操作 https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html#upgrade-the-connector-when-using-private-mode["升级 Connector 软件"^] 希望使用新功能时。
 
-强烈建议您在没有Internet连接的站点上安装Connector时、定期为BlueXP备份和恢复配置数据创建本地备份。 link:reference-backup-cbs-db-in-dark-site.html["了解如何在非公开站点中备份BlueXP备份和恢复数据"^]。
+==== 连接器网络连接要求
 
+确保安装 Connector 的网络启用以下连接：
 
-
-=== 为连接器准备网络连接
-
-确保此连接器具有所需的网络连接。
-
-.步骤
-. 确保安装 Connector 的网络启用以下连接：
-+
-** 通过端口443与StorageGRID 网关节点建立HTTPS连接
-** 通过端口 443 与 ONTAP 集群管理 LIF 建立 HTTPS 连接
-** 通过端口443到BlueXP备份和恢复的出站Internet连接(在"非公开"站点中安装Connector时不需要)
+* 通过端口443与StorageGRID 网关节点建立HTTPS连接
+* 通过端口 443 与 ONTAP 集群管理 LIF 建立 HTTPS 连接
+* 通过端口443到BlueXP备份和恢复的出站Internet连接(在"非公开"站点中安装Connector时不需要)
 
 
+
+
+==== 私有模式(非公开站点)注意事项
+
+* BlueXP备份和恢复功能内置在BlueXP Connector中。在私有模式下安装时、您需要定期更新Connector软件才能访问新功能。检查 link:whats-new.html["BlueXP备份和恢复新增功能"] 以查看每个BlueXP备份和恢复版本中的新功能。如果要使用这些新功能、请按照步骤执行操作 https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html#upgrade-the-connector-when-using-private-mode["升级 Connector 软件"^]。
+* 在SaaS环境中使用BlueXP备份和恢复时、BlueXP备份和恢复配置数据会备份到云。在无法访问Internet的站点中使用BlueXP备份和恢复时、BlueXP备份和恢复配置数据会备份到存储备份的StorageGRID存储分段。如果您的专用模式站点中发生连接器故障、您可以这样做 link:reference-backup-cbs-db-in-dark-site.html["将BlueXP备份和恢复数据还原到新Connector"^]。
 
 
 
@@ -265,7 +263,7 @@ TIP: 将文件备份到 StorageGRID 时不支持 PAYGO 许可。
 
 
 
-== 启用到StorageGRID 的BlueXP备份和恢复
+== 启用BlueXP备份和恢复
 
 随时直接从内部工作环境启用BlueXP备份和恢复。
 

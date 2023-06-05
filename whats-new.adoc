@@ -18,6 +18,34 @@ summary: 了解BlueXP备份和恢复的新增功能。
 
 
 
+== 2023年6月5日
+
+
+
+=== FlexGroup卷可以使用DataLock和防软件保护进行备份和保护
+
+现在、当集群运行ONTAP 9.13.1或更高版本时、FlexGroup卷的备份策略可以使用DataLock和防软件保护。
+
+
+
+=== 新增报告功能
+
+现在、您可以通过报告选项卡生成备份清单报告、其中包括特定帐户、工作环境或SVM清单的所有备份。您还可以创建数据保护作业活动报告、该报告提供有关Snapshot、备份、克隆和还原操作的信息、这些信息有助于您监控服务级别协议。请参见 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-report-inventory.html["关于数据保护覆盖范围的报告"]。
+
+
+
+=== 作业监视器增强功能
+
+现在、您可以在"作业监控"页面上将_backup生命周期_作为作业类型进行查看、以帮助您跟踪整个备份生命周期。您还可以在BlueXP时间线上查看所有操作的详细信息。请参见 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html["监控备份和还原作业的状态"]。
+
+
+
+=== 自动备份非公开站点中的关键BlueXP备份和恢复文件
+
+在无法访问Internet的站点(称为"专用模式"部署)中使用BlueXP备份和恢复时、BlueXP备份和恢复信息仅存储在本地连接器系统上。这一新功能会自动将关键的BlueXP备份和恢复数据备份到已连接StorageGRID系统上的存储分段中、以便您可以在必要时将这些数据恢复到新的连接器上。 https://docs.netapp.com/us-en/bluexp-backup-recovery/reference-backup-cbs-db-in-dark-site.html["了解更多信息。"]
+
+
+
 == 2023年5月8日
 
 
@@ -88,7 +116,7 @@ summary: 了解BlueXP备份和恢复的新增功能。
 
 === 能够在"受限"模式下将数据从Cloud Volumes ONTAP 系统备份到云
 
-现在、您可以在"受限模式"下从AWS、Azure和GCP商业区域中安装的Cloud Volumes ONTAP 系统备份数据。这要求您首先在"受限"商业区域安装Connector。 https://docs.netapp.com/us-en/bluexp-setup-admin/concept-modes.html["详细了解BlueXP部署模式"^]。请参见 https://docs.netapp.com/us-en/bluexp-backup-restore/task-backup-to-s3.html["将 Cloud Volumes ONTAP 数据备份到 Amazon S3"] 和 https://docs.netapp.com/us-en/bluexp-backup-restore/task-backup-to-azure.html["将Cloud Volumes ONTAP 数据备份到Azure Blob"]。
+现在、您可以在"受限模式"下从AWS、Azure和GCP商业区域中安装的Cloud Volumes ONTAP 系统备份数据。这要求您首先在"受限"商业区域安装Connector。 https://docs.netapp.com/us-en/bluexp-setup-admin/concept-modes.html["详细了解BlueXP部署模式"^]。请参见 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-s3.html["将 Cloud Volumes ONTAP 数据备份到 Amazon S3"] 和 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-azure.html["将Cloud Volumes ONTAP 数据备份到Azure Blob"]。
 
 
 
@@ -106,7 +134,7 @@ summary: 了解BlueXP备份和恢复的新增功能。
 
 === 作业监控的增强功能
 
-* 对于运行ONTAP 9.13.1或更高版本的内部ONTAP 系统、用户启动的备份和还原操作以及系统启动的作业(如正在进行的备份操作)现在均可在*作业监控*选项卡中找到。早期的ONTAP 版本将仅显示用户启动的作业。
+* 对于运行ONTAP 9.13.0或更高版本的Cloud Volumes ONTAP 系统、用户启动的备份和还原操作以及系统启动的作业(如正在进行的备份操作)现在均可在*作业监控*选项卡中找到。早期的ONTAP 版本将仅显示用户启动的作业。
 * 除了可以下载CSV文件以报告所有作业之外、现在您还可以下载单个作业的JSON文件并查看其详细信息。 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html#download-job-monitoring-results-as-a-report["了解更多信息。"]。
 * 添加了两个新的备份作业警报："Scheduled job failure"和"Restore job completes but with warnings"。 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html#review-backup-and-restore-alerts-in-the-bluexp-notification-center["查看BlueXP备份和恢复可以发送的所有警报"]。
 
@@ -179,7 +207,7 @@ summary: 了解BlueXP备份和恢复的新增功能。
 
 现在、如果使用的是ONTAP 9.12.1 GA或更高版本、则在MetroCluster 配置中连接到主系统时、支持备份。整个备份配置将传输到二级系统、以便在切换后自动继续备份到云。
 
-https://docs.netapp.com/us-en/bluexp-backup-restore/concept-ontap-backup-to-cloud.html#backup-limitations["有关详细信息、请参见备份限制"]。
+https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-ontap-backup-to-cloud.html#backup-limitations["有关详细信息、请参见备份限制"]。
 
 
 
@@ -562,32 +590,3 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-protect-vm-data.htm
 === Cloud Backup API现在可用于管理备份和还原操作
 
 这些API可从获取 https://docs.netapp.com/us-en/bluexp-automation/cbs/overview.html[]。请参见 link:api-backup-restore.html["此页面"] 有关API的概述。
-
-
-
-== 2022年5月2日
-
-
-
-=== 现在、Google Cloud Storage中的备份文件支持搜索和还原
-
-4月份、在AWS中存储备份文件的用户开始使用"搜索和还原"方法来还原卷和文件。现在、将备份文件存储在Google Cloud Storage中的用户可以使用此功能。 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html#prerequisites-2["请参见如何使用搜索和放大器还原卷和文件"]。
-
-
-
-=== 配置要自动应用于Kubernetes集群中新创建的卷的备份策略
-
-如果您在激活Cloud Backup后向Kubernetes集群添加了新的永久性卷、则在过去、您需要记住为这些卷配置备份。现在、您可以选择将自动应用于新创建的卷的策略。在为新Kubernetes集群激活Cloud Backup时、此选项可在设置向导中使用。
-
-
-
-=== Cloud Backup现在需要获得许可证、才能在工作环境中激活
-
-在Cloud Backup中实施许可的方式方面、有一些变化：
-
-* 您必须先从云提供商处注册PAYGO Marketplace订阅、或者从NetApp购买BYOL许可证、然后才能激活Cloud Backup。
-* 30天免费试用版仅在使用云提供商提供的PAYGO订阅时可用、而在使用BYOL许可证时不可用。
-* 免费试用从Marketplace订阅开始的那一天开始。例如、如果在对Cloud Volumes ONTAP 系统使用Marketplace订阅30天之后激活免费试用、则Cloud Backup试用将不可用。
-
-
-https://docs.netapp.com/us-en/bluexp-backup-recovery/task-licensing-cloud-backup.html["详细了解可用的许可模式"]。
