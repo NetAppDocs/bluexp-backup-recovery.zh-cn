@@ -83,12 +83,12 @@ image:screenshot_backup_modify_policy.png["屏幕截图显示了备份设置页�
 
 . 在_Manage Policies_页面中、单击*编辑*作为要在该工作环境中更改的备份策略。
 +
-注意您可以单击 image:button_down_caret.png[""] 可查看策略的完整详细信息。
+注意您可以单击 image:button_down_caret.png["下箭头按钮"] 可查看策略的完整详细信息。
 
 +
 image:screenshot_backup_manage_policy_page_edit.png["显示 \" 管理策略 \" 页面中 \" 编辑策略 \" 按钮的屏幕截图。"]
 
-. 从_Edit Policy_页面中、单击 image:button_down_caret.png[""] 要展开_Labels & Retenation_section以更改计划和/或备份保留、请单击*保存*。
+. 从_Edit Policy_页面中、单击 image:button_down_caret.png["下箭头按钮"] 要展开_Labels & Retenation_section以更改计划和/或备份保留、请单击*保存*。
 +
 image:screenshot_backup_edit_policy.png["显示备份策略设置的屏幕截图，您可以在其中修改备份计划和备份保留设置。"]
 
@@ -148,7 +148,7 @@ image:screenshot_backup_modify_policy.png["屏幕截图显示了备份设置页�
 +
 image:screenshot_backup_manage_policy_page_add.png["屏幕截图显示了 \" 管理策略 \" 页面中的 \" 添加新策略 \" 按钮。"]
 
-. 从_添加新策略_页面中、单击 image:button_down_caret.png[""] 要展开_Labels & Retenation_section以定义计划和备份保留、请单击*保存*。
+. 从_添加新策略_页面中、单击 image:button_down_caret.png["下箭头按钮"] 要展开_Labels & Retenation_section以定义计划和备份保留、请单击*保存*。
 +
 image:screenshot_backup_add_new_policy.png["显示备份策略设置的屏幕截图，您可以在其中添加备份计划和备份保留设置。"]
 

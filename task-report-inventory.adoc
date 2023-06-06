@@ -32,7 +32,7 @@ NOTE: 报告活动会在作业监控日志中进行监控、以便您可以审�
 BlueXP备份和恢复报告提供有关以下方面的信息：
 
 * *连接器位置*：内部或云端
-* *来源*：Cloud Volumes ONTAP、内部部署、应用程序或Kubernetes
+* *来源*：Cloud Volumes ONTAP卷、内部ONTAP卷、应用程序或Kubernetes永久性卷
 * *目标*：任何云提供商、NetApp StorageGRID或ONTAP S3
 * * ONTAP版本*：9.13.0
 

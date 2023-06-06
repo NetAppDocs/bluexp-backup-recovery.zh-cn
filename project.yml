@@ -227,6 +227,8 @@ homepage:
       url: task-licensing-cloud-backup.html
     - title: 监控备份和还原作业的状态
       url: task-monitor-backup-jobs.html
+    - title: 创建有关数据保护覆盖范围的报告
+      url: task-report-inventory.html
   - title: 将 ONTAP 数据备份到云
     links:
     - title: Cloud Volumes ONTAP 到 Amazon S3

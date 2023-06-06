@@ -280,6 +280,9 @@ https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-azure.htm
 === 为备份准备 Azure Blob 存储
 
 . 您可以在激活向导中使用自己的自定义管理密钥进行数据加密、而不是使用默认的Microsoft管理的加密密钥。在这种情况下，您需要拥有 Azure 订阅，密钥存储名称和密钥。 https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["了解如何使用您自己的密钥"^]。
++
+请注意、备份和恢复支持使用_Azure访问策略_作为权限模型。当前不支持_Azure基于角色的访问控制_(Azure RBAC)权限模型。
+
 . 如果您希望通过公有 Internet 从内部数据中心更安全地连接到 vNet ，可以在激活向导中选择配置 Azure 私有端点。在这种情况下，您需要了解此连接的 vNet 和子网。 https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview["请参见有关使用私有端点的详细信息"^]。
 
 

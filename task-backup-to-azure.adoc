@@ -180,6 +180,11 @@ https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-azure.htm
 --
 在其他 Azure 订阅中创建备份所需的设置:: 默认情况下，备份是使用与 Cloud Volumes ONTAP 系统相同的订阅创建的。如果要对备份使用其他 Azure 订阅，则必须使用 link:reference-backup-multi-account-azure.html["登录到 Azure 门户并链接这两个订阅"]。
 使用客户管理的密钥进行数据加密所需的信息:: 您可以在激活向导中使用自己的客户管理密钥进行数据加密，而不是使用默认的 Microsoft 管理的加密密钥。在这种情况下，您需要拥有 Azure 订阅，密钥存储名称和密钥。 https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["了解如何使用您自己的密钥"^]。
++
+--
+请注意、备份和恢复支持使用_Azure访问策略_作为权限模型。当前不支持_Azure基于角色的访问控制_(Azure RBAC)权限模型。
+
+--
 
 
 

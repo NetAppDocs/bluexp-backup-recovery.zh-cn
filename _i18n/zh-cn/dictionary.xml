@@ -1138,37 +1138,26 @@
   <block id="7effdaab63f2a455255267b1c45a602d" category="section-title">在帐户之间设置 vNet 对等关系</block>
   <block id="7be5dff9f26dd0cfb7e5896d6142d4c7" category="list-text">登录到 Azure 门户，然后从主页选择 Virtual Networks 。</block>
   <block id="24d6ea8c256f982be40d4e8e87a36c2c" category="list-text">选择要用作订阅 1 的订阅，然后单击要设置对等关系的 vNet 。</block>
-  <block id="010f020ec46dae654334c56b074681e9" category="paragraph"><block ref="010f020ec46dae654334c56b074681e9" category="inline-image-macro-rx" type="image"></block></block>
   <block id="ff903d724a3c43c1027ecc76bb702e6b" category="list-text">选择 * cbsnetwork* ，然后从左侧面板中单击 * 产品 * ，然后单击 * 添加 * 。</block>
-  <block id="48f2a3e5416499a845b82d79729c9d24" category="paragraph"><block ref="48f2a3e5416499a845b82d79729c9d24" category="inline-image-macro-rx" type="image"></block></block>
   <block id="29352d6eba72ea7dbb14542cfe329be6" category="list-text">在对等页面上输入以下信息，然后单击 * 添加 * 。</block>
   <block id="35a314f287f704bbad5bca1d051178df" category="list-text">此网络的对等链路名称：您可以提供任何名称来标识对等连接。</block>
   <block id="23a50db2830b340ce45406a69594314e" category="list-text">远程虚拟网络对等链路名称：输入一个名称以标识远程 vNet 。</block>
   <block id="23251ed1ab3cfb08802622b5c2f690d3" category="list-text">将所有选择保留为默认值。</block>
   <block id="f6158ca7f18c6d458f457bd8d96c59b3" category="list-text">在订阅下，选择订阅 2.</block>
   <block id="4949fa102af5d259068b046bbcf72842" category="list-text">虚拟网络，请在订阅 2 中选择要设置对等关系的虚拟网络。</block>
-  <block id="25e65bc02464ec916d34bab534d7035e" category="paragraph"><block ref="25e65bc02464ec916d34bab534d7035e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="1995f9fb02d5dc1ec670c575158c4755" category="list-text">在 subscription 2 vNet 中执行相同的步骤，并指定 subscription 1 的订阅和远程 vNet 详细信息。</block>
-  <block id="70ad9b34a75d793ad5ca4592ae835d9e" category="paragraph"><block ref="70ad9b34a75d793ad5ca4592ae835d9e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="51578c8638d5ef3ad9f76229b740c313" category="paragraph">此时将添加对等设置。</block>
-  <block id="daacd9916a3d67dff4ea461056675145" category="paragraph"><block ref="daacd9916a3d67dff4ea461056675145" category="inline-image-macro-rx" type="image"></block></block>
   <block id="2aa38dadb98b1cc114f5605565fc8460" category="section-title">为存储帐户创建私有端点</block>
   <block id="65f2f7b74f3cf2f1a25c4c81a6aaa2ee" category="paragraph">现在，您需要为此存储帐户创建一个专用端点。在此示例中，存储帐户在订阅 1 中创建， Cloud Volumes ONTAP 系统在订阅 2 中运行。</block>
   <block id="720247e8961069a5c025366867b8b8fb" category="admonition">要执行以下操作，您需要网络贡献者权限。</block>
-  <block id="1da2c465a0473c669ecf45690f9c77f8" category="list-text">转到存储帐户 &gt; 网络 &gt; 专用端点连接，然后单击 * + 专用端点 * 。</block>
-  <block id="ab018e3a2da472dd06615e08149c8ae2" category="paragraph"><block ref="ab018e3a2da472dd06615e08149c8ae2" category="inline-image-macro-rx" type="image"></block></block>
   <block id="2e0fccb2492335abb1bf03e7895e57b1" category="list-text">在 Private Endpoint _Basics 页面中：</block>
   <block id="dcf7853e5720d1d4006d6354680dfca5" category="list-text">输入端点名称。</block>
   <block id="8632ba911e67cd674d7aa46e9c33ca03" category="list-text">选择区域。</block>
-  <block id="8de80de63c22bf5501105fe1221042c7" category="paragraph"><block ref="8de80de63c22bf5501105fe1221042c7" category="inline-image-macro-rx" type="image"></block></block>
   <block id="86429c7405c9ff23bac7996b6cc76306" category="list-text">在 _Resources_ 页面中，选择目标子资源为 * BLOB * 。</block>
-  <block id="78ce42b66c723160afef603d60cfbd83" category="paragraph"><block ref="78ce42b66c723160afef603d60cfbd83" category="inline-image-macro-rx" type="image"></block></block>
   <block id="4f45f5d0c19691a0eac82881ce091080" category="list-text">在配置页面中：</block>
   <block id="e17a8b8467cfbf9720f1af51cc6f6419" category="list-text">选择虚拟网络和子网。</block>
   <block id="a9faeeb34299d046e7a14a5d1df3950a" category="list-text">单击 * 是 * 单选按钮以 " 与专用 DNS 区域集成 " 。</block>
-  <block id="cec5fb61420f116b9d3e7afb6183499d" category="paragraph"><block ref="cec5fb61420f116b9d3e7afb6183499d" category="inline-image-macro-rx" type="image"></block></block>
   <block id="872d4b2a2e61a2a07fc61a362e17881d" category="list-text">在专用 DNS 区域列表中，确保从正确的区域中选择了专用区域，然后单击 * 查看 + 创建 * 。</block>
-  <block id="865c712e84080e3a8a2a2e9f3ced5e13" category="paragraph"><block ref="865c712e84080e3a8a2a2e9f3ced5e13" category="inline-image-macro-rx" type="image"></block></block>
   <block id="547e2a5eac8fbdbb2c8f7a56f61c8cbe" category="paragraph">现在，存储帐户（在订阅 1 中）可以访问在订阅 2 中运行的 Cloud Volumes ONTAP 系统。</block>
   <block id="5203ff4556ed5037a1fa6c4dbbdecaa2" category="list-text">在其他 AWS 帐户中创建备份所需的设置</block>
   <block id="89a08cbf2161e1e600bebd7775c52152" category="paragraph">下图显示了*公有 connection*方法以及组件之间需要准备的连接。您可以使用内部安装的Connector或Azure vNet中部署的Connector。</block>
@@ -1291,9 +1280,6 @@
   <block id="ad3ed17097701c874fe6d082544e8ccb" category="list-text">单击*卷*选项卡可查看Cloud Volumes ONTAP 和内部ONTAP 系统的已备份卷列表。</block>
   <block id="f50c680c14d8afac3d005a6dee0819cd" category="list-text">从 _Backup Settings_ 页面中，单击 <block ref="50acd719b1954eb4890c002b3b5e71a6" category="inline-image-macro-rx" type="image"></block> 对于要更改策略设置的工作环境、请选择*管理策略*。</block>
   <block id="9c230c0e21c24d1d4e90c857d5894cbf" category="list-text">在_Manage Policies_页面中、单击*编辑*作为要在该工作环境中更改的备份策略。</block>
-  <block id="41b3017e09c02234f784bce8cad145cc" category="paragraph">注意您可以单击 <block ref="6be018d461f0945956e868c034bab91d" category="inline-image-macro-rx" type="image"></block> 可查看策略的完整详细信息。</block>
-  <block id="9f02efef52b11198bc6f5331a1f0845b" category="list-text">从_Edit Policy_页面中、单击 <block ref="6be018d461f0945956e868c034bab91d" category="inline-image-macro-rx" type="image"></block> 要展开_Labels &amp; Retenation_section以更改计划和/或备份保留、请单击*保存*。</block>
-  <block id="d664f6c85ff8f12dd3e11609510142dc" category="list-text">从_添加新策略_页面中、单击 <block ref="6be018d461f0945956e868c034bab91d" category="inline-image-macro-rx" type="image"></block> 要展开_Labels &amp; Retenation_section以定义计划和备份保留、请单击*保存*。</block>
   <block id="6ee3062ac668cf28f71bf489fd741bcd" category="inline-link-macro">了解有关DataLock和勒索软件保护的更多信息</block>
   <block id="57cb86318c67c4a35e81edad7ab08d71" category="paragraph">请注意、在创建临时备份时、系统会在源卷上创建Snapshot。由于此Snapshot不属于正常的Snapshot计划、因此不会关闭它。备份完成后、您可能需要从源卷中手动删除此Snapshot。这样可以释放与此Snapshot相关的块。Snapshot的名称将以`CBS-snapshot-adoc-`开头。<block ref="7e565776b86561f26a3208af24c76dc9" category="inline-link-rx"></block>。</block>
   <block id="66f850eb747f4dcaaf562e34ad616b77" category="section-title">对卷备份运行勒索软件扫描</block>
@@ -3260,7 +3246,6 @@
   <block id="8c77f5d3d64f827c40ceefa4640053e2" category="paragraph"><block ref="8c77f5d3d64f827c40ceefa4640053e2" category="inline-image-macro-rx" type="image"></block></block>
   <block id="7ef4f9c84de50739290a8a747d41cb8d" category="paragraph"><block ref="7ef4f9c84de50739290a8a747d41cb8d" category="inline-image-macro-rx" type="image"></block></block>
   <block id="c73a012d76ee166592a25a8ebd3e01ef" category="summary">通过BlueXP备份和恢复、您可以在Azure帐户中创建备份文件、该帐户与源Cloud Volumes ONTAP 卷所在位置不同、并且与BlueXP Connector所在的帐户不同。</block>
-  <block id="47528e7beca17f8cf55f4a42e05d76e4" category="paragraph">通过BlueXP备份和恢复、您可以在与源Cloud Volumes ONTAP 卷所在位置不同的Azure帐户中创建备份文件。这两个帐户都可以与BlueXP Connector所在的帐户不同。</block>
   <block id="4bd946b57d99bd5b3f564041e093db5c" category="list-text">在Cloud Volumes ONTAP 系统上重新尝试启用BlueXP备份和恢复、此时应成功启用。</block>
   <block id="771af8d455877d836933c4cd418d328e" category="summary">您可以更改在为每个ONTAP 系统激活BlueXP备份和恢复时设置的多个集群级别备份设置。您还可以修改应用为"默认"备份设置的某些设置。其中包括更改存储密钥、备份到对象存储的传输速率、是否将历史Snapshot副本导出为备份文件等。</block>
   <block id="bc9c577416d12a6ca412691275080bbc" category="paragraph">默认情况下、在为工作环境激活BlueXP备份和恢复时、ONTAP 可以使用无限的带宽将备份数据从工作环境中的卷传输到对象存储。如果您发现备份流量正在影响正常用户工作负载、则可以限制传输期间使用的网络带宽量。您可以选择一个介于1到1、000 Mbps之间的值作为最大传输速率。</block>
@@ -3786,7 +3771,6 @@
   <block id="b9388c240794b8c3c4269e032a040c26" category="section-title">报告范围</block>
   <block id="d4e9fdb94405dbff49a3feb26599c37d" category="paragraph">BlueXP备份和恢复报告提供有关以下方面的信息：</block>
   <block id="3836890870b8ddc941f0e578f70711aa" category="list-text">*连接器位置*：内部或云端</block>
-  <block id="6ae02a56712ac674d3b26dbbcb432186" category="list-text">*来源*：Cloud Volumes ONTAP、内部部署、应用程序或Kubernetes</block>
   <block id="dd4543716a6056c2ae27a8132114fdf7" category="list-text">*目标*：任何云提供商、NetApp StorageGRID或ONTAP S3</block>
   <block id="e692b7fe3cb28b404bc6ca3af827d329" category="list-text">* ONTAP版本*：9.13.0</block>
   <block id="cb43048793076d3b50ea5dc6ba1e276c" category="section-title">创建备份清单报告</block>
@@ -3864,4 +3848,36 @@
   <block id="e3bc6d35311568d55f1c8ea11984b964" category="paragraph">这些NSS凭据与您的特定BlueXP帐户ID关联。属于BlueXP帐户的用户可以从*支持&gt; NSS管理*访问这些凭据。</block>
   <block id="f1d083b91d676646b3b9c05e92adeceb" category="sidebar">监控数据保护</block>
   <block id="7b3531405cf0ef11d1ff0b6e4af62659" category="sidebar">在非公开站点中还原BlueXP备份和恢复数据库</block>
+  <block id="444a8054fb02fac3bf777cf53bfc46a2" category="paragraph">请注意、备份和恢复支持使用_Azure访问策略_作为权限模型。当前不支持_Azure基于角色的访问控制_(Azure RBAC)权限模型。</block>
+  <block id="f101fabb54ec4d8b174645abe2ebf725" category="paragraph">通过BlueXP备份和恢复、您可以在与源Cloud Volumes ONTAP 卷所在位置不同的Azure帐户中创建备份文件。这两个帐户可能与BlueXP Connector所在的帐户不同。</block>
+  <block id="07d34410905760bde20fdb63ed31144f" category="inline-image-macro">选择订阅1和要设置对等的VNet的屏幕截图。</block>
+  <block id="fb1dc02cd132935f4053af66afc48c60" category="paragraph"><block ref="fb1dc02cd132935f4053af66afc48c60" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="83e915c6e7e7062c9cd8608b5e3f2a01" category="inline-image-macro">为订阅1的vNet添加对等的屏幕截图。</block>
+  <block id="dc5db5eb0a0b4ec35420ffab93b73ace" category="paragraph"><block ref="dc5db5eb0a0b4ec35420ffab93b73ace" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="709eb5d0485c10464b3571c76182a410" category="inline-image-macro">选择订阅2和要设置对等的VNet的屏幕截图。</block>
+  <block id="a00f2c9eab0cd0391c31d7894688a92e" category="paragraph"><block ref="a00f2c9eab0cd0391c31d7894688a92e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="79520a9e99311190ee909e9f8d5dd60c" category="inline-image-macro">为订阅2的VNet添加对等的屏幕截图。</block>
+  <block id="17939e4b4a2986d200c88aae6366e213" category="paragraph"><block ref="17939e4b4a2986d200c88aae6366e213" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="707727b212e0d31a584b632b8cd67ff6" category="inline-image-macro">显示对等配置结果的屏幕截图。</block>
+  <block id="5a085bdfc0e83ffb98f87e8ff91cad9d" category="paragraph"><block ref="5a085bdfc0e83ffb98f87e8ff91cad9d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f5795d526ae72abf715b69fcc042d544" category="list-text">进入存储帐户&gt;网络&gt;专用端点连接、然后单击*+专用端点*。</block>
+  <block id="f254275661fff420bcb804a971000888" category="inline-image-macro">打开存储帐户的专用端点配置的屏幕截图。</block>
+  <block id="1e5251a20d1487ab70b1904135f48e64" category="paragraph"><block ref="1e5251a20d1487ab70b1904135f48e64" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ccdcc6bc4b20620f4a75b50e38f7dbd2" category="inline-image-macro">显示"专用端点基础知识"页面详细信息的屏幕截图。</block>
+  <block id="ea692baa5211d33eb5ba3eaf981083c9" category="paragraph"><block ref="ea692baa5211d33eb5ba3eaf981083c9" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="18dc15061e7476362b8ef290cd96ae03" category="inline-image-macro">显示专用端点资源页面详细信息的屏幕截图。</block>
+  <block id="6d05ebaf7d4c763d545c7818e77f7daa" category="paragraph"><block ref="6d05ebaf7d4c763d545c7818e77f7daa" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c1dfe7d36721bb06cc5b4caa70a9a99d" category="inline-image-macro">显示"专用端点配置"页面详细信息的屏幕截图。</block>
+  <block id="727ec019e03973afc5f16b2144de9e80" category="paragraph"><block ref="727ec019e03973afc5f16b2144de9e80" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="fd1f1bbf131c989b07443ab96601cbbe" category="inline-image-macro">屏幕截图、显示从"专用端点配置"页面中选择的专用区域。</block>
+  <block id="fe5eb2266351d487097e58cd93818ab8" category="paragraph"><block ref="fe5eb2266351d487097e58cd93818ab8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e5d5b752cdb14505ba3ec9b2bd2be013" category="section-title">针对不匹配的策略标签的附加通知警报</block>
+  <block id="92c58fc811dad1461929803e5f5d9205" category="paragraph">添加了一个新的备份警报："由于Snapshot策略标签不匹配、未创建备份文件"。如果备份策略中定义的_label_在Snapshot策略中没有匹配的_label_、则不会创建任何备份文件。您需要使用System Manager或ONTAP命令行界面将缺少的标签添加到卷Snapshot策略中。</block>
+  <block id="809c5429fbc9708f2c659ca056b2c098" category="paragraph"><block ref="1fa18ad5aa31d9e300f41aa2d9a59bdd" category="inline-link-rx"></block>。</block>
+  <block id="4dfad254c5822c7c53407757d42fec0e" category="list-text">*来源*：Cloud Volumes ONTAP卷、内部ONTAP卷、应用程序或Kubernetes永久性卷</block>
+  <block id="0231cb971bb3375c29d3f87768ec4489" category="inline-image-macro">下箭头按钮</block>
+  <block id="a4b9e2d363f6ae41eb2ce095cefe91de" category="paragraph">注意您可以单击 <block ref="68009ec8a10651d6de3d648624efb837" category="inline-image-macro-rx" type="image"></block> 可查看策略的完整详细信息。</block>
+  <block id="ba85eaabcb89510a63df45c18680ba9a" category="list-text">从_Edit Policy_页面中、单击 <block ref="68009ec8a10651d6de3d648624efb837" category="inline-image-macro-rx" type="image"></block> 要展开_Labels &amp; Retenation_section以更改计划和/或备份保留、请单击*保存*。</block>
+  <block id="aafc4372a2c5748961cfe050c997ca42" category="list-text">从_添加新策略_页面中、单击 <block ref="68009ec8a10651d6de3d648624efb837" category="inline-image-macro-rx" type="image"></block> 要展开_Labels &amp; Retenation_section以定义计划和备份保留、请单击*保存*。</block>
+  <block id="27b14a69b7d1dfde3096980cc202af91" category="sidebar">创建有关数据保护覆盖范围的报告</block>
 </blocks>
