@@ -16,8 +16,7 @@ summary: 完成几个步骤以注册SnapCenter 服务器。
 [role="lead"]
 只有具有SnapCenterAdmin角色的用户才能注册运行SnapCenter 服务器4.6或更高版本的主机。您可以在BlueXP中注册多个SnapCenter 服务器主机。
 
-* 步骤 *
-
+.步骤
 . 在BlueXP UI中、单击*保护*>*备份和恢复*>*应用程序*。
 . 从 * 设置 * 下拉列表中，单击 * SnapCenter Servers* 。
 . 单击 * 注册 SnapCenter Server* 。
@@ -39,12 +38,8 @@ summary: 完成几个步骤以注册SnapCenter 服务器。
 . 单击 * 注册 * 。
 
 
-* 完成后 *
-
+.完成后
 单击 * 备份和还原 * > * 应用程序 * 可查看使用注册的 SnapCenter 服务器主机保护的所有应用程序。默认情况下、系统会在每天午夜自动发现这些应用程序。
-
-
-IMPORTANT: 如果使用FQDN或IP地址将SVM添加到SnapCenter 、则无法保护这些SVM上运行的应用程序。应用程序的BlueXP备份和恢复功能仅可识别按名称添加的SVM或SnapCenter 发现的作为ONTAP 集群一部分添加的SVM。
 
 支持的应用程序及其配置包括：
 

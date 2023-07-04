@@ -16,14 +16,12 @@ summary: 完成几个步骤、将应用程序数据从ONTAP 备份到GCP。
 [role="lead"]
 完成几个步骤、将应用程序数据从ONTAP 备份到StorageGRID。
 
-* 您需要的内容 *
-
+.开始之前
 将数据备份到 StorageGRID 时，您的内部必须具有一个连接器。您需要安装新的Connector或确保当前选定的Connector位于内部。无论是否可访问 Internet ，均可将 Connector 安装在站点中。
 
 有关信息，请参见 link:task-backup-onprem-private-cloud.html#creating-or-switching-connectors["为StorageGRID 创建连接器"]。
 
-* 步骤 *
-
+.步骤
 . 在BlueXP UI中、单击*保护*>*备份和恢复*>*应用程序*。
 . 单击 image:icon-action.png["图标以选择操作"] 对应于应用程序，然后单击 * 激活备份 * 。
 . 在分配策略页面中，选择策略并单击 * 下一步 * 。
@@ -51,8 +49,8 @@ summary: 完成几个步骤、将应用程序数据从ONTAP 备份到GCP。
 +
 以FQDN：port格式输入详细信息。
 
-.. 在访问密钥字段中、指定用于数据加密的密钥。
-.. 在机密密钥字段中、指定数据加密的密码。
+.. 在访问密钥字段中、指定密钥。
+.. 在机密密钥字段中、指定密码。
 .. 指定IP空间。
 
 

@@ -55,17 +55,34 @@ summary: 您可以查看数据存储库和虚拟机、并编辑适用于VMware v
 
 
 
-== 刷新保护状态
+== 刷新资源和备份
 
-向数据库添加新卷时、或者如果策略或资源组发生更改、则应刷新保护状态。
+如果要查看已添加到应用程序中的最新数据存储库和备份、则应刷新资源和备份。此时将开始发现资源和备份、并显示最新详细信息。
 
 . 单击*备份和恢复*>*虚拟机*。
 . 从*设置*下拉列表中、单击*适用于VMware vSphere的SnapCenter 插件*。
-. 单击 image:icon-action.png["Action"] 对应于适用于VMware vSphere的SnapCenter 插件主机、然后单击*刷新*。
-+
-此时将发现新的更改。
+. 单击 image:icon-action.png["Action"] 对应于适用于VMware vSphere的SnapCenter插件主机，然后单击*刷新资源和备份*。
 
-. 单击 image:icon-action.png["Action"] 对应于数据存储库、然后单击*刷新保护*为所做的更改启用云保护。
+
+
+
+== 刷新策略或资源组
+
+如果策略或资源组发生更改、则应刷新保护关系。
+
+. 单击*备份和恢复*>*虚拟机*。
+. 单击 image:icon-action.png["Action"] 对应于数据存储库、然后单击*刷新保护*。
+
+
+
+
+== 取消注册适用于VMware vSphere的SnapCenter插件主机
+
+与适用于VMware vSphere的SnapCenter插件主机关联的所有数据存储库和虚拟机都将不受保护。
+
+. 单击*备份和恢复*>*虚拟机*。
+. 从*设置*下拉列表中、单击*适用于VMware vSphere的SnapCenter 插件*。
+. 单击 image:icon-action.png["Action"] 对应于适用于VMware vSphere的SnapCenter插件主机、然后单击*注销*。
 
 
 

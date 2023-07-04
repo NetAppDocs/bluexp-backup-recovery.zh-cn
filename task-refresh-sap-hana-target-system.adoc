@@ -14,7 +14,7 @@ summary: '执行从源SAP HANA系统(即生产数据库)到目标系统的刷新
 
 
 [role="lead"]
-您可以使用SAP HANA源系统的数据刷新SAP HANA目标系统。这可用于将当前生产数据提供到测试系统中。通过云备份、您可以从源系统中选择Snapshot副本、并根据Snapshot副本创建新的ANF卷。可以使用示例脚本、这些脚本会在数据库主机上执行所需的操作、以恢复SAP HANA数据库。
+您可以使用SAP HANA源系统的数据刷新SAP HANA目标系统。这可用于将当前生产数据提供到测试系统中。通过云备份、您可以从源系统中选择Snapshot副本、并根据此Snapshot副本创建新的Azure NetApp Files卷。可以使用示例脚本、这些脚本会在数据库主机上执行所需的操作、以恢复SAP HANA数据库。
 
 * 开始之前 *
 
@@ -56,6 +56,8 @@ https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-autom
 NOTE: 新卷将放置在与目标卷相同的容量池中。
 
 * 接合路径将与卷名称相同。
+* 新卷的"最大吞吐量数"是从具有手动服务质量(QoS)容量池的目标系统的卷中选择的。
+对于自动QoS容量池、吞吐量由源卷的容量定义。
 
 
 * 步骤 *
@@ -67,7 +69,6 @@ NOTE: 新卷将放置在与目标卷相同的容量池中。
 .. 选择源系统和Snapshot副本。
 .. 输入可用于访问新卷的导出地址。
 .. 输入prestpt、postScript和on failure脚本路径。只有在系统刷新操作失败时、才会执行on failure脚本。
-.. 选择*删除关联的SAP HANA备份*将仅删除Snapshot副本。如果目标系统存在任何现有备份、但未选择上述选项、则系统刷新操作将失败。您也可以从*拓扑*页面中删除备份。
 .. 单击 * 刷新 * 。
 
 

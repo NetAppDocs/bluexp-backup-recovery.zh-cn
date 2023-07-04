@@ -18,6 +18,46 @@ summary: 了解BlueXP备份和恢复的新增功能。
 
 
 
+== 2023年7月4日
+
+
+
+=== 增强了适用于应用程序的BlueXP备份和恢复功能(云原生)
+
+* SAP HANA系统
++
+** 支持对具有Azure NetApp Files二级保护的非数据卷和全局非数据卷进行连接和副本还原
+
+
+* Oracle数据库
++
+** 支持将Azure NetApp Files上的Oracle数据库还原到备用位置
+** 支持在Azure NetApp Files上为Oracle数据库备份编制Oracle恢复管理器(RMAN)目录
+** 用于将数据库主机置于维护模式以执行维护任务
+
+
+
+
+
+
+=== 针对应用程序的BlueXP备份和恢复增强功能(混合)
+
+* 支持还原到备用位置
+* 用于挂载Oracle数据库备份
+* 支持将备份从GCP移至归档层
+
+
+
+
+=== 虚拟机BlueXP备份和恢复增强功能(混合)
+
+* 支持保护NFS和VMFS类型的数据存储库
+* 允许您取消注册适用于VMware vSphere的SnapCenter插件主机
+* 支持刷新和发现最新数据存储库和备份
+
+
+
+
 == 2023年6月5日
 
 

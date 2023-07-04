@@ -56,6 +56,8 @@ summary: 在克隆数据库之前了解克隆概念。
 * 不支持克隆Azure NetApp Files 上的数据库。
 * 不支持克隆qtree上的数据库。
 * 不支持备份克隆的数据库。
+* 如果在Amazon FSx for NetApp ONTAP上启用了每日自动备份、则无法从BlueXP UI中删除Amazon FSx for NetApp ONTAP上的克隆卷、因为FSx会在克隆的卷上创建备份。
+在从FSx UI中删除卷的所有备份后、您应删除克隆的卷、然后使用force选项从BlueXP UI中删除这些克隆。
 
 
 

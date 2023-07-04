@@ -14,7 +14,7 @@ summary: BlueXP可为驻留在Amazon FSX for NetApp ONTAP 或Cloud Volumes ONTAP
 
 
 [role="lead"]
-适用于应用程序的BlueXP备份和恢复是一项基于SaaS的服务、可为在NetApp云存储上运行的应用程序提供应用程序一致的数据保护功能。BlueXP备份和恢复可为以下应用程序提供基于策略的高效应用程序一致保护：
+适用于应用程序的BlueXP备份和恢复功能可为在NetApp云存储上运行的应用程序提供应用程序一致的数据保护功能。BlueXP备份和恢复可为以下应用程序提供基于策略的高效应用程序一致保护：
 
 * 驻留在Amazon FSX上的Oracle数据库、适用于NetApp ONTAP 、Cloud Volumes ONTAP 和Azure NetApp Files
 * 驻留在Azure NetApp Files 上的SAP HANA系统
@@ -72,6 +72,7 @@ IMPORTANT: BlueXP SaaS基础架构能够在区域内灵活应对可用性区域�
 
 
 
+* 可以使用Oracle RMAN对Azure NetApp Files上的Oracle数据库备份进行编目
 * 根据策略保留备份
 * 还原驻留在Amazon FSX for NetApp ONTAP 、Cloud Volumes ONTAP 和Azure NetApp Files 上的Oracle数据库
 +
@@ -79,6 +80,7 @@ IMPORTANT: BlueXP SaaS基础架构能够在区域内灵活应对可用性区域�
 ** 使用直到SCN、直到时间、所有可用日志以及无恢复选项来恢复Oracle数据库
 
 
+* 将Azure NetApp Files上的Oracle数据库还原到备用位置
 * 将驻留在Amazon FSX for NetApp ONTAP 和Cloud Volumes ONTAP 上的Oracle数据库克隆到源或备用目标主机
 +
 ** 基本的一键克隆

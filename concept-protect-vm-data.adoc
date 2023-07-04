@@ -28,12 +28,12 @@ summary: 了解有关保护虚拟机上数据的更多信息、并了解不同�
 
 * ONTAP 9.8 或更高版本
 * BlueXP
-* 仅支持NFS数据存储库。不支持基于iSCSI/FC/NVMe和VVol的VMFS数据存储库。
+* 支持NFS和VMFS数据存储库。不支持此类卷。
+* 要支持VMFS、适用于VMware vSphere的SnapCenter插件主机应运行在4.9或更高版本上。如果适用于VMware vSphere的SnapCenter插件主机已从早期版本升级到4.9版、请确保对VMFS数据存储库进行备份。
 * 适用于VMware vSphere 4.6P1的SnapCenter 插件应至少已创建一个备份。
 * 适用于VMware vSphere的SnapCenter 插件中至少有一个每日、每周或每月策略、没有与BlueXP中虚拟机策略相同的标签。
 * 对于预制策略、适用于VMware vSphere的SnapCenter 插件中的数据存储库和云中的计划层应相同。
 * 确保数据存储库中没有FlexGroup 卷、因为不支持备份和还原FlexGroup 卷。
-* 请确保所有卷均未加密、因为不支持还原加密卷。
 * 在所需资源组上禁用"*近期*"。如果为资源组启用了"*近期*"、则这些资源组的备份不能用于云数据保护、因此无法用于还原操作。
 * 确保要还原虚拟机的目标数据存储库具有足够的空间来容纳所有虚拟机文件的副本、例如VMDK、VMx、VMSD等。
 * 确保目标数据存储库不包含先前还原操作失败时格式为restore_xxx.xxxxxx_filename的陈旧虚拟机文件。在触发还原操作之前、您应删除陈旧的文件。

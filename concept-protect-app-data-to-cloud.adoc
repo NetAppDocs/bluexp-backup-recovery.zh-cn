@@ -32,22 +32,29 @@ summary: 将适用于应用程序的BlueXP备份和恢复与BlueXP和内部SnapC
 
 * ONTAP 9.8 或更高版本
 * BlueXP
-* SnapCenter 服务器4.6或更高版本如果要使用以下功能、则应使用SnapCenter 服务器4.7：
+* SnapCenter服务器4.6或更高版本
 +
-** 保护备份免受内部二级存储的影响
-** 保护SAP HANA应用程序
-** 保护VMware环境中的Oracle和SQL应用程序
-** 挂载备份
-** 停用备份
-** 取消注册SnapCenter 服务器
+** 如果要使用以下功能、应使用SnapCenter服务器4.7或更高版本：
++
+*** 保护备份免受内部二级存储的影响
+*** 保护SAP HANA应用程序
+*** 保护VMware环境中的Oracle和SQL应用程序
+*** 备份的存储导出
+*** 停用备份
+*** 取消注册SnapCenter 服务器
+
+
+** 如果要使用以下功能、应使用SnapCenter服务器4.9：
++
+*** 挂载Oracle数据库备份
+*** 还原到备用存储
+
+
 
 
 * SnapCenter 服务器中应为每个应用程序至少提供一个备份
 * SnapCenter 中至少有一个每日、每周或每月策略、没有标签或与BlueXP中策略的标签相同。
 
-
-
-NOTE: 如果使用FQDN或IP地址将SVM添加到SnapCenter 、则无法保护这些SVM上运行的应用程序。应用程序的BlueXP备份和恢复功能仅可识别按名称添加的SVM或SnapCenter 发现的作为ONTAP 集群一部分添加的SVM。
 
 下图显示了备份到云时的每个组件以及需要在它们之间准备的连接：
 

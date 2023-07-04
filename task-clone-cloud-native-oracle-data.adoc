@@ -23,12 +23,10 @@ summary: 将数据库克隆到源主机或备用主机。
 * 恢复错误删除或更改的数据。
 
 
-* 开始之前 *
-
+.开始之前
 您应了解克隆概念并确保满足所有要求。 link:concept-clone-cloud-native-oracle-concepts.html["了解更多信息。"]。
 
-* 步骤 *
-
+.步骤
 . 单击 image:icon-action.png["图标以选择操作"] 对应于要克隆的数据库、然后单击*查看详细信息*。
 . 单击 image:icon-action.png["图标以选择操作"] 对应于数据备份、然后单击*克隆*。
 . 在克隆详细信息页面中、选择克隆选项之一。

@@ -1,0 +1,43 @@
+---
+sidebar: sidebar 
+permalink: task-restore-cloud-native-oracle-data-to-alternate-location.html 
+keywords: cloud-native, application data, restore, data files, control files, recovery, Cloud Manager, BlueXP, Oracle database, Oracle, alternate location 
+summary: 将Oracle数据库还原到备用位置 
+---
+= 将云原生Oracle数据库还原到备用位置
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+如果发生数据丢失、您只能将Oracle数据库还原到Azure NetApp Files上的备用位置。备用位置可以位于其他主机上、也可以位于同一主机上。
+
+.开始之前
+* 如果Oracle 21c数据库处于已启动状态、还原操作将失败。要成功还原数据库、您应运行以下命令。
+`cp -f <ORACLE_HOME>/jdbc/lib/ojdbc8.jar /opt/NetApp/snapcenter/spl/plugins/sco/lib/ojdbc8-8.jar`
+* 您应确保备用主机上的Oracle版本与原始主机相同。
+
+
+.关于此任务
+启动还原操作时、不允许修改除Oracle主目录、最大卷吞吐量、Oracle SID和数据库凭据之外的配置。
+
+默认情况下会启用完全恢复、并将_until cancel_设置为true。
+
+对于已还原的数据库、默认情况下会关闭归档日志模式。如果需要、您可以启用归档日志模式并将归档日志保留在NetApp卷上。
+
+.步骤
+. 单击 image:icon-action.png["图标以选择操作"] 对应于要还原的数据库、然后单击*还原*。
+. 选择要将数据库还原到的还原点，然后单击*Restore to Alternate location*>*Next*。
+. 在配置页面中、指定备用位置、SID、Oracle_Home、数据库凭据和存储吞吐量的详细信息。
++
+对于数据库凭据、如果禁用了操作系统用户身份验证、则应为sys用户提供一个密码、以便其连接到同一主机或目标主机上已还原的数据库。
+
+. 单击*Next*，查看详细信息，然后单击*Restore*。
++
+还原操作的进度可在"作业监控器"页面中查看。作业完成后，单击*刷新发现*以查看已恢复的数据库。但是、您无法保护还原到备用位置的数据库。
+
+

@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: task-backup-cloud-native-oracle-data.html 
-keywords: admin role, service account, pre-canned policies, cloud manager, BlueXP, scheduled backups, on-demand backups, create policy, Oracle database, backup limitations 
-summary: 创建Oracle数据库的计划备份或按需备份。 
+keywords: admin role, service account, pre-canned policies, cloud manager, BlueXP, scheduled backups, on-demand backups, create policy, Oracle database, backup limitations, RMAN, catalog, RMAN catalog 
+summary: '创建一个策略(启用或不启用RMAN)、分配该策略、然后为Oracle数据库创建计划备份或按需备份。' 
 ---
 = 备份云原生Oracle数据库
 :hardbreaks:
@@ -14,7 +14,9 @@ summary: 创建Oracle数据库的计划备份或按需备份。
 
 
 [role="lead"]
-您可以通过分配预制策略或创建的策略来创建备份。
+您可以通过分配预先定义的策略或您创建的策略来创建计划备份或按需备份。
+
+如果在创建策略时启用了编目、则还可以使用Oracle Recovery Manager (RMAN)为Oracle数据库备份编制目录。只有Azure NetApp Files上的数据库才支持(RMAN)编目。编目备份可供稍后块级还原或表空间时间点恢复操作使用。数据库必须处于挂载状态或更高状态才能进行编目。
 
 
 
@@ -29,7 +31,8 @@ summary: 创建Oracle数据库的计划备份或按需备份。
 . 指定策略名称。
 . (可选)编辑备份名称的格式。
 . 指定计划和保留详细信息。
-. (可选)输入成功备份后要执行的脚本后路径和超时值、以便将快照复制到二级存储。
+. 如果您已选择_daily_和_Weekly_作为计划、并且要启用RMAN目录编制、请选择*使用Oracle Recovery Manager (RMAN)进行目录备份*。
+. (可选)为成功备份后执行的后脚本输入后脚本路径和超时值、例如将快照复制到二级存储。
 +
 您也可以选择指定参数。
 
@@ -75,17 +78,37 @@ sc_backup_policy_name
  a| 
 sc_primary_data_volume_full_path
  a| 
-指定使用"、"作为分隔符串联的数据卷路径。对于ANF卷、此信息将使用"/"_/｛anfaccount｝/｛subscription_id｝/｛resource_group｝/｛capacity_pool｝/｛VolumeName｝_进行串联
+指定使用"、"作为分隔符串联的数据卷路径。
+对于Azure NetApp Files卷、此信息使用"/"进行串联
+_/뚩 阅/｛뚩 阅_id｝/resourceGroups/｛资源组｝/Providers /｛提供程序｝/netAppAccounts/｛anfaccount｝/apacityPoools/｛Capacity _pool｝/volumes/｛volumeName｝_
 
 
 
  a| 
 sc_primary_ARCHIVELOG_volume_full_path
  a| 
-指定使用"、"作为分隔符串联的归档日志卷路径。对于ANF卷、使用"/"_/｛anfaccount｝/｛subscription_id｝/｛resource_group｝/｛capacity_pool｝/｛VolumeName｝_串联在一起的信息
+指定使用"、"作为分隔符串联的归档日志卷路径。
+对于Azure NetApp Files卷、使用"/"连接中的信息
+_/뚩 阅/｛뚩 阅_id｝/resourceGroups/｛资源组｝/Providers /｛提供程序｝/netAppAccounts/｛anfaccount｝/apacityPoools/｛Capacity _pool｝/volumes/｛volumeName｝_
 
 |===
 . 单击 * 创建 * 。
+
+
+
+
+== 配置RMAN目录存储库
+
+您可以将恢复目录数据库配置为RMAN目录存储库。如果不配置存储库、则默认情况下、目标数据库的Control文件将成为RMAN目录存储库。
+
+.开始之前
+您应手动将目标数据库注册到RMAN目录数据库中。
+
+.步骤
+. 在应用程序页面中、单击 image:icon-action.png["图标以选择操作"] >*查看详情*。
+. 在数据库详细信息部分中、单击 image:icon-edit-pen.png["iconto编辑"] 配置RMAN目录存储库。
+. 使用RMAN和目录恢复数据库的透明网络承印物(Network Substrate、Network Substrate、ts)名称指定目录备份的凭据。
+. 单击 * 配置 * 。
 
 
 
@@ -105,7 +128,7 @@ NOTE: 在Amazon FSx for NetApp ONTAP 或Cloud Volumes ONTAP 上创建ASM磁盘�
 
 . 选择策略并单击*分配*。
 +
-备份将按照策略中定义的计划进行创建。
+备份将按照策略中定义的计划进行创建。如果已在策略中启用RMAN目录、则工作流结束时的备份将作为单独的作业启动目录操作。可从作业监控器查看编目进度。成功编制目录后，*Backup Details*将显示每个备份的目录状态。
 
 +
 
@@ -123,6 +146,9 @@ NOTE: 服务帐户(_SnapCenter-account-snapback__<account_id>)用于运行计划
 
 . 在应用程序页面中、单击 image:icon-action.png["图标以选择操作"] 对应于应用程序、然后单击*按需备份*。
 . 如果为应用程序分配了多个策略、请选择策略和保留层、然后单击*创建备份*。
++
+如果已在策略中启用RMAN目录、则工作流结束时的备份将作为单独的作业启动目录操作。可从作业监控器查看编目进度。成功编制目录后，*Backup Details*将显示每个备份的目录状态。
+
 
 
 

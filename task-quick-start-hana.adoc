@@ -20,7 +20,8 @@ summary: 完成几个步骤、开始备份SAP HANA数据库。
 [role="quick-margin-list"]
 * 操作系统
 +
-** 经SAP HANA认证的RHEL 7.5或更高版本8.x平台
+** RHEL 7.6或更高版本
+** 适用于SAP-HANA SPS07的RHEL 8.1或更高版本
 ** 通过SAP HANA认证的SLES 12 SP5或更高版本以及15个spx平台
 
 
@@ -28,9 +29,8 @@ summary: 完成几个步骤、开始备份SAP HANA数据库。
 * 存储布局：对于数据和日志文件、Azure仅支持NFSv4.1。
 * 数据库布局：
 +
-** 单个容器版本1.0SPS12
-** SAP HANA多租户数据库容器(MDC) 2.0SPS4、2.0SPS5、2.0SPS6以及单租户或多租户
-** SAP HANA单主机系统、SAP HANA多主机系统(无备用主机)、HANA系统复制
+** 具有单个或多个租户的SAP HANA多租户数据库容器(MDC) 2.0SPS5、2.0SPS6、2.0SPS7
+** SAP HANA单主机系统、SAP HANA多主机系统、HANA系统复制
 
 
 * 数据库主机上的SAP HANA插件

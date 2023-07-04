@@ -40,13 +40,14 @@ summary: 在每个SAP HANA数据库主机上安装适用于SAP HANA的SnapCenter
 * 在添加数据库主机之前、您应已安装适用于SAP HANA的SnapCenter 插件。
 * 在添加SAP HANA数据库主机时、您应添加HDB用户存储密钥。HDB安全用户存储密钥用于将SAP HANA数据库主机的连接信息安全存储在客户端上、而HDBSQL客户端使用安全用户存储密钥连接到SAP HANA数据库主机。
 * 对于HANA系统复制(HSR)、要保护HANA系统、您应手动注册主HANA系统和二级HANA系统。
++
+
+NOTE: 主机名必须与用于HSR复制的主机的主机名相同。
+
 * 如果执行基于SSH的安装、请确保Connector已启用与SSH端口的通信(默认值：22)。
 * 确保Connector已启用与插件端口的通信(默认值为8145)、以便数据保护操作正常运行。
 * 确保已安装最新版本的插件。要升级此插件、请参见 <<升级适用于SAP HANA数据库的SnapCenter 插件>>。
 
-
-
-NOTE: 如果从BlueXP Connector主机到应用程序主机的连接失败、请参见 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Cloud_Backup_Application_Failed_to_validate_connectivity_from_BlueXP_connector_host_to_application_database_host["知识库文章"^] 以了解相关信息。
 
 
 
@@ -54,11 +55,11 @@ NOTE: 如果从BlueXP Connector主机到应用程序主机的连接失败、请�
 
 创建一个非root (sudo)用户以安装此插件。
 
-* 步骤 *
-
+.步骤
 . 登录到Connector VM。
-. 复制位于_manager-2_cloudmanager_SCS_cloud_volume/_data/$(sudo docker ps|grep -po"cloudmanager_SCS_cloud：.*？"|sed -e 's/*$//'|cut -f2 -d"：""/sc-linux-host-plugin_
-. 使用root用户帐户登录到SAP HANA数据库主机。
+. 下载SnapCenter Linux主机插件二进制文件。`sUdo Docker exec -it cloudmanager_SCS_cloud curl -X get 'http://127.0.0.1/deploy/downloadLinuxPlugin'`[]
+. 复制位于以下位置的* sudoer.txt *的内容：_/var/lib/doker/volumes/service-manager[1]-2_Cloud manager_SCS云卷/_data/$(sudo Docker ps|gep -po"Cloud manager_SCS云：.*？"|sed -e 's/*$//'|Cut -f2 -d：")/SC-Linux-host-plugin_
+. 使用root用户帐户登录到SAP HANA系统主机。
 . 通过将步骤3中复制的文本复制到_/etc/sudoers.d/snapcenter_文件来为非root用户配置sudo访问权限。
 +
 在为_/etc/sudoers.d/snapcenter_文件添加的行中、将_snap_替换<LINUXUSER> 为非root用户、将_home/snapcenter_替换<USER_HOME_DIRECTORY> 为_home_sport_<non-root-user>。
@@ -71,15 +72,17 @@ NOTE: 如果从BlueXP Connector主机到应用程序主机的连接失败、请�
 
 为SAP HANA主机非root用户帐户配置基于SSH密钥的身份验证、并执行以下步骤来安装此插件。
 
-*开始之前*
-
+.开始之前
 确保已启用与连接器的SSH连接。
 
-* 步骤 *
-
+.步骤
 . 登录到Connector VM。
 . 使用Connector中提供的脚本安装此插件。
-`sudo bash  /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port>`
+`sudo bash /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port>`
++
+如果您使用的是旧版Connector、请运行以下命令以安装此插件。
+`sudo /var/lib/docker/volumes/cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port>`
+
 +
 |===
 | Name | Description | 必填 | Default 
@@ -140,7 +143,7 @@ host_ssh_port
 
 |===
 +
-例如： `sudo bash /var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host 10.0.1.1 --username snapcenter --sshkey /keys/netapp-ssh.ppk`
+例如、`sudo bash /var/lib/dDocker /volumes/service-manager-2_Cloud manager_scs_Cloud volume/_data/scripts/linux_plugin_copy_and_install.sh --host 10.0.1.1 --username SnapCenter --sshkey /keys/NetApp-ssh.ppk
 
 
 
@@ -157,7 +160,7 @@ host_ssh_port
 . 登录到Connector VM。
 . 下载SnapCenter Linux主机插件二进制文件。`sUdo Docker exec -it cloudmanager_SCS_cloud curl -X get 'http://127.0.0.1/deploy/downloadLinuxPlugin'`[]
 +
-此插件二进制文件位于：_cd /var/lib/docker/volumes/service-manager-2_cloudmanager_SCS_cloud_volume/_data/$(sudo docker ps|grep -po"cloudmanager_SCS_cloud：.*？"|sed -e 's/*$//'|cut -f2 -d"：""/sc-linux-host-plugin_
+此插件二进制文件位于：_cd /var/lib/dDocker /volumes/service-manager[1]-2_Cloud manager_SCS云卷/_data/$(sudo dDocker ps|gep -po"Cloud manager_SCS云：.*？"|sed -e 's/*$//'|Cut -f2 -d：")/SC-Linux-host-plugin_
 
 . 使用scp或其他替代方法将每个<non root user (sudo)> 数据库主机的_snapcenter_linux_host_plugin_SCS.bin_从上述路径复制到//home/SAHA/.SC_NetApp_路径。
 . 使用非root (sudo)帐户登录到SAP HANA数据库主机。
@@ -187,9 +190,13 @@ host_ssh_port
 
 * 步骤 *
 
-. 登录到Connector VM。
+. 为SnapCenter 用户配置sudo。有关信息，请参见 <<为SnapCenter 用户配置sudo>>。
 . 运行以下脚本。
 `/var/lib/docker/volumes/service-manager-2_cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port> --upgrade`
++
+如果您使用的是旧版Connector、请运行以下命令以升级此插件。
+`/var/lib/docker/volumes/cloudmanager_scs_cloud_volume/_data/scripts/linux_plugin_copy_and_install.sh --host <plugin_host> --username <host_user_name> --sshkey <host_ssh_key> --pluginport <plugin_port> --sshport <host_ssh_port> --upgrade`
+
 
 
 
@@ -210,7 +217,8 @@ host_ssh_port
 .. 输入SAP HANA系统名称。
 .. 指定 SAP HANA 系统的 SID 。
 .. (可选)修改HDBSQL操作系统用户。
-.. 选择插件主机。(可选)如果未添加主机或要添加多个主机、请单击*添加插件主机*。
+.. 选择插件主机。
+(可选)如果未添加主机，请单击*添加插件主机*。
 .. 如果HANA系统配置了HANA系统复制、请启用* HANA系统复制(HSR)系统*。
 .. 单击* HDB安全用户存储密钥*文本框以添加用户存储密钥详细信息。
 +
@@ -226,7 +234,7 @@ host_ssh_port
 +
 .. 选择工作环境并指定 NetApp 帐户。
 +
-转到*画布*页面以添加新的工作环境
+从左侧导航窗格中，选择BlueXP *Canves*以添加新的工作环境。
 
 .. 选择所需的卷。
 .. 单击 * 添加存储 * 。
@@ -235,10 +243,7 @@ host_ssh_port
 . 查看所有详细信息、然后单击*添加系统*。
 
 
-
-NOTE: 用于查看特定主机的筛选器不起作用。在筛选器中指定主机名时、将显示所有主机。
-
-您可以从用户界面以及使用REST API修改或删除SAP HANA系统。
+您可以从用户界面修改或删除SAP HANA系统。
 
 在删除SAP HANA系统之前、您应删除所有关联的备份并删除此保护。
 
@@ -251,7 +256,7 @@ NOTE: 用于查看特定主机的筛选器不起作用。在筛选器中指定�
 * 步骤 *
 
 . 使用用户界面或以下REST API删除与SAP HANA数据库主机关联的所有系统。
-`DELETE /saphana/and/systems/(id)`
+`DELETE /saphana/anf/systems/(id)`
 . 执行以下步骤以删除SAP HANA数据库主机。
 +
 .. 使用GET REST API获取必须删除的SAP HANA数据库主机的ID。
@@ -310,9 +315,6 @@ NOTE: 用于查看特定主机的筛选器不起作用。在筛选器中指定�
 .. 输入SAP HANA系统名称。
 .. 指定SAP HANA系统的关联SID。
 .. 选择插件主机
-+
-(可选)要添加多个主机、请单击*添加插件主机*并指定主机名和端口、然后单击*添加主机*。
-
 .. 单击 * 下一步 * 。
 .. 查看所有详细信息、然后单击*添加系统*。
 
@@ -341,5 +343,9 @@ NOTE: 用于查看特定主机的筛选器不起作用。在筛选器中指定�
     `]`
 `}`
 . 使用以下修补程序API修改主机名或插件端口。
-`PATCH /saphana/hosts/(id)``
+`PATCH /saphana/hosts/(id)`
+`{`
+`"host_name": "vm136.dummy.com",`
+`"port": 8145,`
+`}`
 

@@ -22,6 +22,7 @@ summary: 完成几个步骤、开始备份Oracle数据库。
 +
 ** RHEL 7.5或更高版本以及8.x
 ** OL 7.5或更高版本以及8.x
+** SLES 15 SP4
 
 
 * NetApp云存储：
@@ -42,7 +43,7 @@ NOTE: Azure NetApp Files 不支持SAN环境。
 
 
 * 数据库布局：Oracle Standard和Oracle Enterprise Standalone (原有和多租户CDB和PDB)
-* 数据库版本：12cR2、18c、19c和21c
+* 数据库版本：19C和21c
 
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"] 注册到BlueXP
