@@ -1,0 +1,22 @@
+= Cloud Volumes ONTAP网络连接要求
+:allow-uri-read: 
+
+
+在BlueXP备份和恢复中激活备份之前、请确保源系统和目标系统满足ONTAP版本和网络连接要求。
+
+
+
+==== Cloud Volumes ONTAP网络连接要求
+
+实例的安全组必须包含所需的入站和出站规则：具体来说、是ICMP以及端口11104和11105的规则。这些规则包括在预定义的安全组中。
+
+
+
+==== 内部ONTAP网络要求
+
+* 如果集群位于您的内部环境中、则您应在企业网络与云提供商中的虚拟网络之间建立连接。这通常是一个 VPN 连接。
+* ONTAP 集群必须满足其他子网、端口、防火墙和集群要求。
++
+由于您可以复制到Cloud Volumes ONTAP或内部系统、因此请查看内部ONTAP系统的对等要求。请参见 https://docs.netapp.com/us-en/ontap-sm-classic/peering/reference_prerequisites_for_cluster_peering.html["在 ONTAP 文档中查看集群对等的前提条件"^]。
+
+

@@ -1,0 +1,43 @@
+= 在BlueXP中发现ONTAP系统
+:allow-uri-read: 
+
+
+您需要准备源内部ONTAP系统和任何二级内部ONTAP或Cloud Volumes ONTAP系统。
+
+准备ONTAP集群包括以下步骤：
+
+* 在BlueXP中发现ONTAP系统
+* 验证ONTAP系统要求
+* 验证将数据备份到对象存储时的ONTAP网络要求
+* 验证复制卷的ONTAP网络要求
+
+
+
+
+=== 在BlueXP中发现ONTAP系统
+
+BlueXP Canvas上必须提供源内部ONTAP系统和任何二级内部ONTAP或Cloud Volumes ONTAP系统。
+
+要添加集群，您需要知道集群管理 IP 地址和管理员用户帐户的密码。
+https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["了解如何发现集群"^]。
+
+
+
+=== 验证ONTAP系统要求
+
+确保满足以下ONTAP要求：
+
+* 最低版本为ONTAP 9.8；建议使用ONTAP 9.8P13及更高版本。
+* SnapMirror 许可证（作为超值包或数据保护包的一部分提供）。
++
+*注意：*使用BlueXP备份和恢复时、不需要"混合云捆绑包"。
+
++
+了解操作方法 https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["管理集群许可证"^]。
+
+* 已正确设置时间和时区。了解操作方法 https://docs.netapp.com/us-en/ontap/system-admin/manage-cluster-time-concept.html["配置集群时间"^]。
+* 如果要复制数据、则应在复制数据之前验证源卷和目标卷是否运行兼容的ONTAP版本。
++
+https://docs.netapp.com/us-en/ontap/data-protection/compatible-ontap-versions-snapmirror-concept.html["查看 SnapMirror 关系的兼容 ONTAP 版本"^]。
+
+

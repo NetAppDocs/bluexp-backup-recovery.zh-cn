@@ -17,6 +17,9 @@ summary: 通过BlueXP备份和恢复、您可以为内部ONTAP 和Cloud Volumes 
 通过BlueXP备份和恢复、您可以为内部ONTAP 和Cloud Volumes ONTAP 系统创建具有各种配置设置的备份策略。
 
 
+NOTE: 这些策略设置仅与备份到对象存储相关。这些设置均不会影响您的Snapshot或复制策略。将来会为快照和复制添加类似的策略设置。
+
+
 
 == 备份计划
 
@@ -70,7 +73,7 @@ https://bluexp.netapp.com/blog/cbs-blg-the-bluexp-feature-that-protects-backups-
 
 === 什么是DataLock
 
-DataLock可防止备份文件在一段时间内被修改或删除。此功能使用对象存储提供程序提供的技术进行"对象锁定"。备份文件锁定(并保留)的时间段称为DataLock保留期限。它基于您定义的备份策略计划和保留设置、外加14天的缓冲区。任何少于30天的DataLock保留策略将取整为最短30天。
+DataLock可保护您的备份文件在一段时间内不会被修改或删除、也称为不可变存储。此功能使用对象存储提供程序提供的技术进行"对象锁定"。备份文件锁定(并保留)的时间段称为DataLock保留期限。它基于您定义的备份策略计划和保留设置、外加14天的缓冲区。任何少于30天的DataLock保留策略将取整为最短30天。
 
 请注意、旧备份会在DataLock保留期限到期后删除、而不是在备份策略保留期限到期后删除。
 
@@ -325,7 +328,10 @@ ifdef::aws[]
 如果集群使用的是ONTAP 9.10.1或更高版本、则可以将较早的备份分层到_S3 Glacer_或_S3 Glacier Deep Archive_存储。 link:reference-aws-backup-tiers.html["了解有关 AWS 归档存储的更多信息"^]。
 
 +
-请注意、如果在激活BlueXP备份和恢复时在第一个备份策略中选择_S3 Glacier或_S3 Glacier Deep Archive_、则该层将是该集群未来备份策略中唯一可用的归档层。如果您在第一个备份策略中不选择任何归档层、则_S3 Glacier_将成为未来策略的唯一归档选项。
+** 如果在激活BlueXP备份和恢复时在第一个备份策略中未选择任何归档层、则_S3 Glacier_将是未来策略的唯一归档选项。
+** 如果您在第一个备份策略中选择_S3 Glacier_、则可以更改为_S3 Glacierdeep Archive_Tier、以供该集群未来的备份策略使用。
+** 如果在第一个备份策略中选择_S3 Glacierdeep Archive_、则该层将是该集群未来备份策略唯一可用的归档层。
+
 
 
 

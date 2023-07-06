@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: task-manage-backups-ontap.html 
 keywords: cloud backup, cloud backup service, backup schedule, change schedule, change backup schedule, modify schedule, modify backup schedule, retention, backup retention, delete, delete backups, deleting, deleting backups, disable, disable backups, turn off backups, disable cloud backup, turn off cloud backup 
-summary: 您可以通过更改备份计划、创建新备份策略、启用/禁用卷备份、暂停备份、删除备份等方式来管理Cloud Volumes ONTAP 和内部ONTAP 系统的备份。 
+summary: 您可以通过更改备份计划、创建新备份策略、启用/禁用卷备份、暂停备份、删除备份等方式来管理Cloud Volumes ONTAP 和内部ONTAP 系统的备份。这包括所有类型的备份、包括Snapshot副本、复制的卷以及对象存储中的备份文件。 
 ---
-= 管理 ONTAP 系统的备份
+= 管理ONTAP系统的备份
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,54 +14,254 @@ summary: 您可以通过更改备份计划、创建新备份策略、启用/禁�
 
 
 [role="lead"]
-您可以通过更改备份计划、创建新备份策略、启用/禁用卷备份、暂停备份、删除备份等方式来管理Cloud Volumes ONTAP 和内部ONTAP 系统的备份。
+您可以通过更改备份计划、启用/禁用卷备份、暂停备份、删除备份等方式来管理Cloud Volumes ONTAP和内部ONTAP系统的备份。这包括所有类型的备份、包括Snapshot副本、复制的卷以及对象存储中的备份文件。
 
 
-CAUTION: 请勿直接从云提供商环境管理或更改备份文件。这可能会损坏文件并导致配置不受支持。
+CAUTION: 请勿直接在存储系统上或从云提供商环境管理或更改备份文件。这可能会损坏文件并导致配置不受支持。
 
 
 
-== 查看要备份的卷
+== 查看工作环境中卷的备份状态
 
-您可以在备份信息板中查看当前正在备份的所有卷的列表。
+您可以在卷备份信息板中查看当前正在备份的所有卷的列表。这包括所有类型的备份、包括Snapshot副本、复制的卷以及对象存储中的备份文件。您还可以查看当前未备份的工作环境中的卷。
 
 .步骤
 . 从BlueXP菜单中、选择*保护>备份和恢复*。
-. 单击*卷*选项卡可查看Cloud Volumes ONTAP 和内部ONTAP 系统的已备份卷列表。
+. 单击*卷*选项卡可查看Cloud Volumes ONTAP和内部ONTAP系统的已备份卷列表。
 +
-image:screenshot_backup_dashboard.png["显示所有工作环境以及包含备份文件的卷的屏幕截图。"]
+image:screenshot_backup_volumes_dashboard.png["显示所有工作环境以及包含备份文件的卷的屏幕截图。"]
+
+. 如果您要查找特定工作环境中的特定卷、可以按工作环境和卷细化此列表。您也可以使用搜索筛选器、或者根据卷模式(FlexVol或FlexGroup)、卷类型等对列进行排序。
++
+要显示其他列(聚合、安全模式(Windows或UNIX)、快照策略、复制策略和备份策略)、请选择 image:button_plus_sign_round.png["加号按钮"]。
+
+. 在"现有保护"列中查看保护选项的状态。这3个图标分别代表"本地Snapshot副本"、"复制的卷"和"对象存储中的备份"。
++
+image:screenshot_backup_protection_status.png["显示三种类型保护的状态的屏幕截图：快照、复制和备份。"]
+
++
+激活此备份类型时、每个图标均为蓝色；当备份类型处于非活动状态时、每个图标均为灰色。您可以将光标悬停在每个图标上方、以查看正在使用的备份策略以及每种备份类型的其他相关信息。
 
 
 
-如果要在某些工作环境中查找特定卷，您可以按工作环境和卷细化列表，也可以使用搜索筛选器。
 
 
+== 在工作环境中的其他卷上激活备份
 
-== 启用和禁用卷备份
-
-如果当前未备份任何新卷、您可以为其激活备份。您还可以为先前已停用的任何卷激活备份。
-
-您可以停用卷的备份、以便不生成其他备份。这也会禁用从备份文件还原卷数据的功能。这样、您就可以将所有备份和还原活动暂停一段时间。任何现有备份都不会被删除、因此、除非您这样做、否则云提供商会继续向您收取备份所用容量的对象存储成本 <<删除卷的所有备份文件,删除备份>>。
+如果您在首次启用BlueXP备份和恢复时仅在工作环境中的某些卷上激活了备份、则可以稍后在其他卷上激活备份。
 
 .步骤
-. 从 * 卷 * 选项卡中，选择 * 备份设置 * 。
+. 从*卷*选项卡中，确定要激活备份的卷，然后选择操作菜单 image:icon-action.png["操作图标"] 在行尾，然后选择*Activate backup*。
 +
-image:screenshot_backup_settings_button.png["屏幕截图显示了备份设置按钮，您可以在选择工作环境后使用该按钮。"]
+image:screenshot_backup_additional_volume.png["显示如何在工作环境中的其他卷上激活备份的屏幕截图。"]
 
-. 在 _Backup Settings page_ 中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于工作环境，请选择 * 管理卷 * 。
+. 在_define backup stricies_页面中、选择备份架构、然后为本地Snapshot副本、复制的卷和备份文件定义策略和其他详细信息。请查看在此工作环境中激活的初始卷的备份选项的详细信息。然后单击 * 下一步 * 。
+. 查看此卷的备份设置，然后单击*Activate Backup*。
+
+
+如果要使用相同的备份设置同时在多个卷上激活备份、请参见 <<编辑多个卷上的备份设置,编辑多个卷上的备份设置>> 了解详细信息。
+
+
+
+== 更改分配给现有卷的备份设置
+
+您可以更改分配给已分配策略的现有卷的备份策略。您可以更改本地Snapshot副本、复制的卷和备份文件的策略。要应用于卷的任何新Snapshot、复制或备份策略必须已存在。
+
+
+
+=== 编辑单个卷上的备份设置
+
+.步骤
+. 在*卷*选项卡中，确定要更改策略的卷，然后选择操作菜单 image:icon-action.png["操作图标"] 并选择*编辑备份策略*。
 +
-image:screenshot_backup_manage_volumes.png["屏幕截图显示了备份设置页面中的管理卷按钮。"]
+image:screenshot_edit_backup_strategy.png["屏幕截图、其中显示了选择卷后可用的编辑备份策略按钮。"]
 
-. 选中要更改的一个或多个卷对应的复选框，然后根据要启动还是停止卷的备份，单击 * 激活 * 或 * 停用 * 。
+. 在_Edit backup stricies_页面中、更改本地Snapshot副本、复制的卷和备份文件的现有备份策略、然后单击*下一步*。
 +
-image:screenshot_backup_manage_volumes_page.png["管理卷页面，您可以在其中选择或取消选择卷。"]
+如果在为此集群激活BlueXP备份和恢复时、您在初始备份策略中为云备份启用了_DataLock和防兰软件保护_、则只会看到已配置DataLock的其他策略。如果在激活BlueXP备份和恢复时未启用_DataLock和防兰软件保护_、则只会看到未配置DataLock的其他云备份策略。
 
-. 单击 * 保存 * 以提交更改。
-
-
+. 查看此卷的备份设置，然后单击*Activate Backup*。
 
 
-== 编辑现有备份策略
+
+
+=== 编辑多个卷上的备份设置
+
+如果要在多个卷上使用相同的备份设置、可以同时激活或编辑多个卷上的备份设置。您可以选择没有备份设置、只有Snapshot设置、只有备份到云设置等的卷、并对具有不同备份设置的所有这些卷进行批量更改。
+
+使用多个卷时、所有卷都必须具有以下共同特征：
+
+* 相同的工作环境
+* 相同模式(FlexVol或FlexGroup卷)
+* 相同类型(读写卷或数据保护卷)
+
+
+.步骤
+. 在*Volumes*选项卡中，按卷所在的工作环境进行筛选。
+. 选择要管理备份设置的所有卷。
+. 根据要配置的备份操作类型、单击"批量操作"菜单中的按钮：
++
+image:screenshot_manage_backup_settings.png["屏幕截图、其中显示了在选择多个卷后可用的管理备份策略按钮。"]
+
++
+[cols="50,30"]
+|===
+| 备份操作... | 单击此按钮 ... 
+
+
+| 管理Snapshot备份设置 | *管理本地快照* 
+
+
+| 管理复制备份设置 | *管理复制* 
+
+
+| 管理备份到云备份设置 | *管理备份* 
+
+
+| 管理多种类型的备份设置。使用此选项、您还可以更改备份架构。 | *管理备份和恢复* 
+|===
+. 在显示的备份页面中，更改本地Snapshot副本、复制的卷或备份文件的现有备份策略，然后单击*Save*。
++
+如果在为此集群激活BlueXP备份和恢复时、您在初始备份策略中为云备份启用了_DataLock和防兰软件保护_、则只会看到已配置DataLock的其他策略。如果在激活BlueXP备份和恢复时未启用_DataLock和防兰软件保护_、则只会看到未配置DataLock的其他云备份策略。
+
+
+
+
+
+== 随时创建手动卷备份
+
+您可以随时创建按需备份，以捕获卷的当前状态。如果对卷进行了非常重要的更改、而您不想等待下次计划备份来保护该数据、则这将非常有用。您还可以使用此功能为当前未备份的卷创建备份、并捕获其当前状态。
+
+您可以为卷的对象创建临时Snapshot副本或备份。您不能创建临时复制的卷。
+
+备份名称包含时间戳，以便您可以从其他计划的备份中确定按需备份。
+
+如果在为此集群激活BlueXP备份和恢复时启用了_DataLock和勒索软件保护_、则按需备份也会配置DataLock、保留期限为30天。临时备份不支持勒索软件扫描。 link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["了解有关DataLock和勒索软件保护的更多信息"^]。
+
+请注意、在创建临时备份时、系统会在源卷上创建Snapshot。由于此Snapshot不属于正常的Snapshot计划、因此不会关闭它。备份完成后、您可能需要从源卷中手动删除此Snapshot。这样可以释放与此Snapshot相关的块。Snapshot的名称将以`CBS-snapshot-adoc-`开头。 https://docs.netapp.com/us-en/ontap/san-admin/delete-all-existing-snapshot-copies-volume-task.html["请参见如何使用ONTAP 命令行界面删除快照"^]。
+
+
+NOTE: 数据保护卷不支持按需卷备份。
+
+.步骤
+. 从 * 卷 * 选项卡中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 并选择*备份*>*创建临时备份*。
++
+image:screenshot_backup_now_button.png["屏幕截图显示了立即备份按钮，您可以在选择卷后使用该按钮。"]
+
+
+
+在创建备份之前，该卷的备份状态列会显示 " 正在进行 " 。
+
+
+
+== 查看每个卷的备份列表
+
+您可以查看每个卷的所有备份文件的列表。此页面显示有关源卷，目标位置和备份详细信息，例如上次执行的备份，当前备份策略，备份文件大小等。
+
+.步骤
+. 从 * 卷 * 选项卡中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 并选择*查看卷详细信息*。
++
+image:screenshot_backup_view_backups_button.png["显示查看卷详细信息按钮的屏幕截图、此按钮可用于单个卷。"]
+
++
+默认情况下、系统会显示卷的详细信息和Snapshot副本列表。
+
++
+image:screenshot_backup_snapshot_list.png["显示单个卷的所有备份文件列表的屏幕截图。"]
+
+. 选择*快照*、*复制*或*备份*可查看每种备份类型的所有备份文件列表。
++
+image:screenshot_backup_select_backups_type.png["屏幕截图、显示单个卷的所有备份文件列表；Snapshot副本、复制的卷或对象存储中的备份。"]
+
+
+
+
+
+== 对对象存储中的卷备份运行勒索软件扫描
+
+在为对象文件创建备份以及还原备份文件中的数据时、NetApp勒索软件保护软件会扫描您的备份文件、以查找勒索软件攻击的证据。您还可以随时运行按需勒索软件保护扫描、以验证对象存储中特定备份文件的可用性。如果您在特定卷上安装了勒索软件问题描述 、并且您希望验证该卷的备份是否不受影响、则此功能非常有用。
+
+只有当卷备份是从使用ONTAP 9.11.1或更高版本的系统创建的、并且您在备份到对象策略中启用了_DataLock和防软件保护_时、此功能才可用。
+
+.步骤
+. 从 * 卷 * 选项卡中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 并选择*查看卷详细信息*。
++
+image:screenshot_backup_view_backups_button.png["显示查看卷详细信息按钮的屏幕截图、此按钮可用于单个卷。"]
+
++
+此时将显示卷的详细信息。
+
++
+image:screenshot_backup_snapshot_list.png["显示单个卷的所有备份文件列表的屏幕截图。"]
+
+. 选择*Backup*以查看对象存储中的备份文件列表。
++
+image:screenshot_backup_select_object_backups.png["显示单个卷的对象存储中所有备份文件列表的屏幕截图。"]
+
+. 单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于要扫描勒索软件的卷备份文件，请单击*扫描勒索软件*。
++
+image:screenshot_scan_one_backup.png["显示如何对单个备份文件运行勒索软件扫描的屏幕截图。"]
+
++
+"防兰森保护"列将显示扫描正在进行中。
+
+
+
+
+
+== 管理与源卷的复制关系
+
+在两个系统之间设置数据复制后、您可以管理数据复制关系。
+
+.步骤
+. 从 * 卷 * 选项卡中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 并选择*复制*选项。您可以看到所有可用选项。
+. 选择要执行的复制操作。
++
+image:screenshot_replication_managing.png["屏幕截图、显示复制操作菜单中可用的操作列表。"]
+
++
+下表介绍了可用的操作：
+
++
+[cols="15,85"]
+|===
+| Action | Description 
+
+
+| 查看复制 | 显示有关卷关系的详细信息：传输信息，上次传输信息，有关卷的详细信息以及有关分配给此关系的保护策略的信息。 
+
+
+| 更新复制 | 启动增量传输以更新要与源卷同步的目标卷。 
+
+
+| 暂停复制 | 暂停Snapshot副本的增量传输以更新目标卷。如果要重新启动增量更新、您可以稍后恢复。 
+
+
+| 中断复制 | 中断源卷和目标卷之间的关系、并激活目标卷以进行数据访问-使其变为读写卷。
+
+当源卷由于数据损坏、意外删除或脱机状态等事件而无法提供数据时，通常会使用此选项。
+
+https://docs.netapp.com/us-en/ontap-sm-classic/volume-disaster-recovery/index.html["了解如何在 ONTAP 文档中配置用于数据访问的目标卷以及如何重新激活源卷"^] 
+
+
+| 中止复制 | 禁用此卷到目标系统的备份、同时也会禁用还原卷的功能。不会删除任何现有备份。此操作不会删除源卷和目标卷之间的数据保护关系。 
+
+
+| 反向重新同步 | 反转源卷和目标卷的角色。原始源卷中的内容将被目标卷的内容覆盖。当您要重新激活脱机的源卷时，这非常有用。
+
+在上次数据复制和源卷禁用之间写入到原始源卷的任何数据都不会保留。 
+
+
+| 删除关系 | 删除源卷和目标卷之间的数据保护关系，这意味着数据复制不再发生在卷之间。此操作不会激活用于数据访问的目标卷、这意味着它不会使其成为读写卷。如果系统之间没有其他数据保护关系，此操作还会删除集群对等关系和 Storage VM （ SVM ）对等关系。 
+|===
+
+
+.结果
+选择操作后、BlueXP将更新此关系。
+
+
+
+== 编辑现有的云备份策略
 
 您可以更改当前应用于工作环境中卷的备份策略的属性。更改备份策略会影响正在使用此策略的所有现有卷。
 
@@ -82,9 +282,6 @@ image:screenshot_backup_settings_button.png["屏幕截图显示了卷选项卡�
 image:screenshot_backup_modify_policy.png["屏幕截图显示了备份设置页面中的管理策略选项。"]
 
 . 在_Manage Policies_页面中、单击*编辑*作为要在该工作环境中更改的备份策略。
-+
-注意您可以单击 image:button_down_caret.png["下箭头按钮"] 可查看策略的完整详细信息。
-
 +
 image:screenshot_backup_manage_policy_page_edit.png["显示 \" 管理策略 \" 页面中 \" 编辑策略 \" 按钮的屏幕截图。"]
 
@@ -122,11 +319,11 @@ endif::gcp[]
 
 
 
-== 正在添加新备份策略
+== 向云策略添加新备份
 
 在为工作环境启用BlueXP备份和恢复时、您最初选择的所有卷都会使用您定义的默认备份策略进行备份。如果要为具有不同恢复点目标（ RPO ）的某些卷分配不同的备份策略，您可以为该集群创建其他策略并将这些策略分配给其他卷。
 
-如果要对工作环境中的某些卷应用新的备份策略，则首先需要将备份策略添加到工作环境中。然后，您可以 <<更改分配给现有卷的策略,将此策略应用于该工作环境中的卷>>。
+如果要对工作环境中的某些卷应用新的备份策略，则首先需要将备份策略添加到工作环境中。然后，您可以 <<Changing the policy assigned to existing volumes,将此策略应用于该工作环境中的卷>>。
 
 [NOTE]
 ====
@@ -180,106 +377,6 @@ endif::gcp[]
 
 
 
-== 更改分配给现有卷的策略
-
-如果要更改备份频率或更改保留值，则可以更改分配给现有卷的备份策略。
-
-请注意，要应用于卷的策略必须已存在。 <<正在添加新备份策略,请参见如何为工作环境添加新的备份策略>>。
-
-.步骤
-. 从 * 卷 * 选项卡中，选择 * 备份设置 * 。
-+
-image:screenshot_backup_settings_button.png["屏幕截图显示了备份设置按钮，您可以在选择工作环境后使用该按钮。"]
-
-. 在 _Backup Settings page_ 中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于存在卷的工作环境，请选择 * 管理卷 * 。
-+
-image:screenshot_backup_manage_volumes.png["屏幕截图显示了备份设置页面中的管理卷按钮。"]
-
-. 选中要更改策略的一个或多个卷对应的复选框，然后单击 * 更改策略 * 。
-+
-image:screenshot_backup_manage_volumes_page_change.png["管理卷页面，您可以在其中选择或取消选择卷。"]
-
-. 在 _Change Policy_ 页面中，选择要应用于卷的策略，然后单击 * 更改策略 * 。
-+
-image:screenshot_backup_change_policy.png["显示如何选择要应用于选定卷的新策略的屏幕截图。"]
-
-+
-
-NOTE: 如果在为此集群激活BlueXP备份和恢复时在初始策略中启用了_DataLock和勒索软件保护_、则只会看到已配置DataLock的其他策略。如果在激活BlueXP备份和恢复时未启用_DataLock和勒索软件保护_、则只会看到未配置DataLock的其他策略。
-
-. 单击 * 保存 * 以提交更改。
-
-
-
-
-== 随时创建手动卷备份
-
-您可以随时创建按需备份，以捕获卷的当前状态。如果对卷进行了非常重要的更改，而您不希望等待下一次计划备份来保护该数据，或者如果卷当前未进行备份，而您希望捕获其当前状态，则此功能将非常有用。
-
-备份名称包含时间戳，以便您可以从其他计划的备份中确定按需备份。
-
-如果在为此集群激活BlueXP备份和恢复时启用了_DataLock和勒索软件保护_、则按需备份也会配置DataLock、保留期限为30天。临时备份不支持勒索软件扫描。 link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["了解有关DataLock和勒索软件保护的更多信息"^]。
-
-请注意、在创建临时备份时、系统会在源卷上创建Snapshot。由于此Snapshot不属于正常的Snapshot计划、因此不会关闭它。备份完成后、您可能需要从源卷中手动删除此Snapshot。这样可以释放与此Snapshot相关的块。Snapshot的名称将以`CBS-snapshot-adoc-`开头。 https://docs.netapp.com/us-en/ontap/san-admin/delete-all-existing-snapshot-copies-volume-task.html["请参见如何使用ONTAP 命令行界面删除快照"^]。
-
-
-NOTE: 数据保护卷不支持按需卷备份。
-
-.步骤
-. 从 * 卷 * 选项卡中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 并选择 * 立即备份 * 。
-+
-image:screenshot_backup_now_button.png["屏幕截图显示了立即备份按钮，您可以在选择卷后使用该按钮。"]
-
-
-
-在创建备份之前，该卷的备份状态列会显示 " 正在进行 " 。
-
-
-
-== 查看每个卷的备份列表
-
-您可以查看每个卷的所有备份文件的列表。此页面显示有关源卷，目标位置和备份详细信息，例如上次执行的备份，当前备份策略，备份文件大小等。
-
-.步骤
-. 从 * 卷 * 选项卡中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于源卷，然后选择 * 详细信息和备份列表 * 。
-+
-image:screenshot_backup_view_backups_button.png["屏幕截图显示了可用于单个卷的详细信息和标记；备份列表按钮。"]
-
-+
-此时将显示所有备份文件的列表以及有关源卷，目标位置和备份详细信息。
-
-+
-image:screenshot_backup_view_backups.png["显示单个卷的所有备份文件列表的屏幕截图。"]
-
-
-
-
-
-== 对卷备份运行勒索软件扫描
-
-NetApp勒索软件保护软件会扫描您的备份文件、以便在创建备份文件以及还原备份文件中的数据时查找勒索软件攻击的证据。您还可以随时运行按需勒索软件保护扫描、以验证特定备份文件的可用性。如果您在特定卷上安装了勒索软件问题描述 、并且您希望验证该卷的备份是否不受影响、则此功能非常有用。
-
-只有在卷备份是从使用ONTAP 9.11.1或更高版本的系统创建的、并且您在备份策略中启用了_DataLock和勒索软件保护_时、此功能才可用。
-
-.步骤
-. 从 * 卷 * 选项卡中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于源卷，然后选择 * 详细信息和备份列表 * 。
-+
-image:screenshot_backup_view_backups_button.png["屏幕截图显示了可用于单个卷的详细信息和标记；备份列表按钮。"]
-
-+
-此时将显示所有备份文件的列表。
-
-. 单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于要扫描的卷备份文件、请单击*勒索软件扫描*。
-+
-image:screenshot_scan_one_backup.png["显示如何对单个备份文件运行勒索软件扫描的屏幕截图。"]
-
-+
-勒索软件扫描列将显示扫描正在进行中。
-
-
-
-
-
 == 删除备份
 
 通过BlueXP备份和恢复、您可以删除单个备份文件、删除卷的所有备份或删除工作环境中所有卷的所有备份。如果您不再需要备份、或者您删除了源卷并希望删除所有备份、则可能需要删除所有备份。
@@ -293,7 +390,9 @@ CAUTION: 如果您计划删除具有备份的工作环境或集群，则必须�
 
 === 删除工作环境中的所有备份文件
 
-删除工作环境中的所有备份不会禁用此工作环境中的卷将来备份。如果要停止在工作环境中创建所有卷的备份，可以停用备份 <<为工作环境停用BlueXP备份和恢复,如此处所述>>。
+删除工作环境中对象存储上的所有备份不会禁用此工作环境中未来的卷备份。如果要停止在工作环境中创建所有卷的备份，可以停用备份 <<Deactivating BlueXP backup and recovery for a working environment,如此处所述>>。
+
+请注意、此操作不会影响Snapshot副本或复制的卷—这些类型的备份文件不会被删除。
 
 .步骤
 . 从 * 卷 * 选项卡中，选择 * 备份设置 * 。
@@ -309,48 +408,28 @@ image:screenshot_delete_all_backups.png["选择删除所有备份按钮删除工
 
 
 
-=== 删除卷的所有备份文件
-
-删除卷的所有备份也会禁用该卷的未来备份。
-
-您可以 <<启用和禁用卷备份,重新开始为卷创建备份>> 可随时从管理备份页面访问。
-
-.步骤
-. 从 * 卷 * 选项卡中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于源卷，然后选择 * 详细信息和备份列表 * 。
-+
-image:screenshot_backup_view_backups_button.png["屏幕截图显示了可用于单个卷的详细信息和标记；备份列表按钮。"]
-
-+
-此时将显示所有备份文件的列表。
-
-+
-image:screenshot_backup_view_backups.png["显示单个卷的所有备份文件列表的屏幕截图。"]
-
-. 单击 * 操作 * > * 删除所有备份 * 。
-+
-image:screenshot_delete_we_backups.png["显示如何删除卷的所有备份文件的屏幕截图。"]
-
-. 在确认对话框中，输入卷名称并单击 * 删除 * 。
-
-
-
-
 === 删除卷的单个备份文件
 
-您可以删除单个备份文件。只有在使用 ONTAP 9.8 或更高版本的系统创建卷备份时，此功能才可用。
+如果您不再需要某个备份文件、则可以将其删除。这包括删除卷Snapshot副本或对象存储中备份的单个备份。
+
+您不能删除复制的卷(数据保护卷)。
 
 .步骤
-. 从 * 卷 * 选项卡中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于源卷，然后选择 * 详细信息和备份列表 * 。
+. 从 * 卷 * 选项卡中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 并选择*查看卷详细信息*。
 +
-image:screenshot_backup_view_backups_button.png["屏幕截图显示了可用于单个卷的详细信息和标记；备份列表按钮。"]
+image:screenshot_backup_view_backups_button.png["显示查看卷详细信息按钮的屏幕截图、此按钮可用于单个卷。"]
 
 +
-此时将显示所有备份文件的列表。
+此时将显示卷的详细信息，您可以选择*Snap照*、*复制*或*Backup*来查看卷的所有备份文件列表。默认情况下、将显示可用的Snapshot副本。
 
 +
-image:screenshot_backup_view_backups.png["显示单个卷的所有备份文件列表的屏幕截图。"]
+image:screenshot_backup_snapshot_list.png["显示单个卷的所有备份文件列表的屏幕截图。"]
 
-. 单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于要删除的卷备份文件，然后单击 * 删除 * 。
+. 选择*Snap照*或*Backup*以查看要删除的备份文件类型。
++
+image:screenshot_backup_select_object_backups.png["屏幕截图、显示单个卷的所有备份文件列表；Snapshot副本、复制的卷或对象存储中的备份。"]
+
+. 单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于要删除的卷备份文件，然后单击 * 删除 * 。以下屏幕截图来自对象存储中的备份文件。
 +
 image:screenshot_delete_one_backup.png["显示如何删除单个备份文件的屏幕截图。"]
 
@@ -373,28 +452,11 @@ image:screenshot_delete_one_backup.png["显示如何删除单个备份文件的�
 NOTE: 删除关系后、您无法删除单个卷备份文件。但是、您可以 link:task-manage-backups-ontap.html#deleting-all-backup-files-for-a-volume["删除卷的所有备份"] 如果要删除所有备份文件。
 
 .步骤
-. 从 * 卷 * 选项卡中，选择 * 备份设置 * 。
+. 从 * 卷 * 选项卡中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 并选择*备份*>*删除关系*。
 +
-image:screenshot_backup_settings_button.png["屏幕截图显示了备份设置按钮，您可以在选择工作环境后使用该按钮。"]
-
-. 在 _Backup Settings page_ 中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于工作环境，请选择 * 管理卷 * 。
-+
-image:screenshot_backup_manage_volumes.png["屏幕截图显示了备份设置页面中的管理卷按钮。"]
-
-. 选中要删除备份关系的一个或多个卷对应的复选框、然后单击*删除关系*。
-+
-image:screenshot_delete_relationship.png["显示如何删除多个卷的备份关系的屏幕截图。"]
-
-. 单击 * 保存 * 以提交更改。
-
-
-请注意、您也可以从卷页面中删除单个卷的备份关系。
-
 image:screenshot_delete_relationship_single.png["显示如何删除单个卷的备份关系的屏幕截图。"]
 
-查看每个卷的备份列表时、您会看到"关系状态"列为*已删除关系*。
 
-image:screenshot_backup_view_no_relationship.png["显示删除卷备份关系后关系已删除状态的屏幕截图。"]
 
 
 
