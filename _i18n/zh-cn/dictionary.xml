@@ -647,7 +647,6 @@
   <block id="13f4833f14110af4cb2943f6ee04ec0c" category="inline-link">Amazon Athena</block>
   <block id="d27c79824b42388962acf60cbd3cac6a" category="inline-link">AWS 胶水</block>
   <block id="d2ad1da6ad2f6901b037159165028912" category="paragraph">您可以 <block ref="14977a695b05dfa7b0cad6887e2a74bd" category="inline-xref-macro-rx"></block> 可随时从管理备份页面访问。</block>
-  <block id="c1d703bdf53bad5718c774b5ba1504f9" category="paragraph">StorageGRID 必须满足以下要求。请参见<block ref="a9591d68f190d64ce21caf15a77d51e9" category="inline-link-rx"></block> 有关详细信息 ...</block>
   <block id="31f730de563a8876975a231ee55bc4d7" category="list-text">将内部 ONTAP 数据备份到 StorageGRID 时，您需要 BYOL 许可证，但云提供商存储空间不需要任何成本。</block>
   <block id="c776759ca58ab152a9abc5e0b4f7ae66" category="list-text">一种 " 云备份 " 计划，可用于备份 Cloud Volumes ONTAP 数据和内部 ONTAP 数据。</block>
   <block id="5f0364e373bcb99c02ad1b8359683908" category="inline-link">Cloud Volumes ONTAP 许可主题</block>
@@ -1133,7 +1132,6 @@
   <block id="9644265a314e497bc18814e1694c3d27" category="paragraph">请确保从以下链接生成刷新令牌：https://services.cloud.netapp.com/refresh-token/。刷新令牌是一个字母数字字符串、用于生成用户令牌。</block>
   <block id="22c37949858e0a6877e1770be16db62b" category="paragraph">要对备份使用DataLock &amp;勒索软件保护、您的StorageGRID 系统必须运行11.6.0.3或更高版本。</block>
   <block id="5a7e671d36e7ddbd948f2001988ffe33" category="inline-link">有关详细信息、请参见StorageGRID 文档</block>
-  <block id="8891c4e57a35fdfe946dfc0b3b7397a7" category="list-text">您必须已创建S3租户帐户来控制对StorageGRID 存储的访问。<block ref="6204e1ab37c5b3d32abd50f4f1f64c36" category="inline-link-rx"></block>。</block>
   <block id="168036087bcdae960471ab9c23a03efa" category="list-text">不能在对象存储分段上手动启用StorageGRID 对象版本控制。</block>
   <block id="7ada527d1dd84b409531cc41597f383e" category="paragraph">您可以将*文件夹*还原到原始工作环境中的卷、使用相同云帐户的其他工作环境中的卷或内部ONTAP 系统上的卷。</block>
   <block id="d04e8ed2daf2cfbac4df96c77bda4638" category="cell">浏览文件夹样式的结构以查找单个备份文件中的卷、文件夹或文件</block>
@@ -2147,7 +2145,6 @@
   <block id="1cdf820a77c583c660d65df7b1ca03b8" category="inline-link">请参见如何使用高级筛选器</block>
   <block id="1625899745083f00e310fe6a84e9582c" category="list-text">以下S3权限必须属于为Connector提供权限的IAM角色：</block>
   <block id="30c580a99dd8f8145066f47bf26ac29f" category="paragraph">此屏幕截图显示了如何在"过去一周"中搜索名为"Volume_1"的卷的所有"卷"备份"作业。</block>
-  <block id="51b623efdc27fe6f448c8ac3c9969630" category="paragraph">大多数筛选器都不言自明。通过"工作负载"筛选器、您可以查看以下类别中的作业：</block>
   <block id="dd9313799fa929f642611d4d86e9e772" category="paragraph">只有在首次选择工作环境后、才能在特定"SVM"中搜索数据。</block>
   <block id="e429a3dcdf9ca5d36834b72490aae784" category="admonition">将数据从Azure归档存储还原到StorageGRID 系统时、不支持高优先级。</block>
   <block id="5a583661a8908e9d0eb4e2adb7e14660" category="paragraph">使用ONTAP 9.13.0或更高版本时、您可以还原文件夹及其内的所有文件和子文件夹。使用9.13.0之前的ONTAP 版本时、只会还原该文件夹中的文件、而不会还原子文件夹或子文件夹中的文件。</block>
@@ -2159,7 +2156,6 @@
   <block id="95fa16fe802a71eca4c0ade2049c7325" category="inline-link">更改存储帐户的复制方式</block>
   <block id="fd32f35db4beea68175faf51895e4286" category="list-text">StorageGRID —检索有关StorageGRID 服务器的详细信息、并可用于发现StorageGRID 服务器</block>
   <block id="49f2fa5360686148867b942e73c164ea" category="summary">完成几个步骤、开始将卷数据从内部ONTAP 系统备份到Azure Blob存储。</block>
-  <block id="58d10a6e5e45d1a8458204e47220c68c" category="summary">您可以监控已计划或已启动的备份作业的状态、并还原在工作环境中启动的作业。您可以查看已成功完成的作业、当前正在进行的作业以及失败的作业、以便诊断和修复问题。您还可以将通知配置为通过电子邮件发送、以便即使未登录到系统、您也能了解重要的系统活动。</block>
   <block id="6e20e21fbdfeb7c2ac6f9d0235b820c4" category="section-title">在作业监控器上查看备份和还原作业状态</block>
   <block id="5b48d2885665cc3dce56d742d3ec50c4" category="paragraph">您可以在*作业监控*选项卡中查看所有备份和还原操作及其当前状态的列表。其中包括来自Cloud Volumes ONTAP 、内部ONTAP 、应用程序、虚拟机和Kubernetes系统的操作。每个操作或作业都有一个唯一的 ID 和一个状态。</block>
   <block id="6c99ceac3d4ecb03d01e55de5bf1dadf" category="paragraph">备份和还原状态可以是：</block>
@@ -2193,8 +2189,6 @@
   <block id="278d01e5af56273bae1bb99a98b370cd" category="cell">严重</block>
   <block id="4df68e0b98ba0691ff46f48eff2a2f3f" category="paragraph">在您的系统上检测到潜在的勒索软件攻击</block>
   <block id="160157a33511dda5495776f0fcfc771d" category="paragraph">计划作业失败</block>
-  <block id="9b5f00722faa27f8d92c452deb45e908" category="list-text">通过选择(<block ref="df7c8a71ca3da4359e40e121f18f87b9" category="inline-image-macro-rx" type="image"></block>)。</block>
-  <block id="43a7ffdce907a49598d2965f30856cee" category="list-text">查看通知。</block>
   <block id="fb902a35540ad53bda044609815ee278" category="summary">完成几个步骤、开始将卷数据从内部ONTAP 系统备份到NetApp StorageGRID 系统中的对象存储。</block>
   <block id="4ab7d99363507ea7d2dfa59860eae018" category="summary">完成几个步骤、开始将卷数据从Cloud Volumes ONTAP 系统备份到Google Cloud存储。</block>
   <block id="2ec8fbded5e88799ebd7fdba2189b818" category="paragraph">完成几个步骤、开始将卷数据从Cloud Volumes ONTAP 系统备份到Google云存储。</block>
@@ -2938,7 +2932,6 @@
   <block id="db058563d6eb243b453d48635769d049" category="list-text">支持HSM (硬件支持的)和软件生成的密钥。</block>
   <block id="90a4c64194204c56808168a2ae360226" category="summary">您可以通过从云提供商处购买按需购买或年度市场订阅或从NetApp购买自带许可证来许可BlueXP备份和恢复。要在工作环境中激活BlueXP备份和恢复、为生产数据创建备份以及将备份数据还原到生产系统、需要有效的许可证。</block>
   <block id="6b238043e3f0cbcb294416f3238efea2" category="admonition">在AWS中国地区创建备份时、您需要将IAM策略中所有_Resource_部分下的AWS资源名称"arn"从"aws"更改为"AAWS CN"；例如<block ref="e50d17688e67620204df0dd1b12e2baf" prefix=" " category="inline-code"></block>。</block>
-  <block id="5a0e26d771129c9b2e2c18c2a55a2693" category="paragraph">"作业监控"选项卡中提供了用户从Cloud Backup UI和API启动的备份和还原操作以及系统启动的作业(如正在进行的计划备份操作)。但是、只有运行ONTAP 9.13.0或更高版本的Cloud Volumes ONTAP 系统以及运行ONTAP 9.13.1或更高版本的内部ONTAP 系统才是如此。运行早期版本的ONTAP 时、仅显示用户启动的作业。</block>
   <block id="72c7fe989ff4840809134384de3dd80c" category="admonition">如果您已将ONTAP 系统升级到9.13.x、但在作业监控器中看不到正在进行的计划备份操作、则需要重新启动BlueXP备份和恢复服务。 <block ref="bdf197dfe0363b0f0f92ecc4a997870a" category="inline-link-macro-rx"></block>。</block>
   <block id="f4ceecec904030bc411eb94dfb80f45a" category="paragraph">临时卷备份失败</block>
   <block id="3765aea02f52c67dc2bb0f95b961f55e" category="paragraph">在工作环境中激活备份失败</block>
@@ -3134,8 +3127,6 @@
   <block id="cd979c7356414580d564b463e3fe798a" category="list-text">不能在一个集群上使用多个DataLock模式。</block>
   <block id="e7d60457cf8d5955e88e40aa083c07fa" category="list-text">只有在使用ONTAP 9.13.1或更高版本时、FlexGroup卷才能使用DataLock和防抱死软件保护。</block>
   <block id="5e5c52eb046d9534a5304cfb91b3736a" category="list-text">如果集群运行的是ONTAP 9.13.1或更高版本、则FlexGroup卷备份可以使用DataLock和防软件保护。</block>
-  <block id="062059692404411848a017472898ba37" category="paragraph">您可以监控已启动或已计划的备份作业的状态、并还原已启动的作业。您可以查看已完成、正在进行或失败的作业、以便诊断和修复问题。使用BlueXP通知中心、您可以启用通过电子邮件发送通知、以便即使您未登录系统、也可以获得重要系统活动的通知。使用BlueXP时间线、您可以查看通过UI或API启动的所有操作的详细信息。</block>
-  <block id="747ab4e57729ad952df86b61ce8fa363" category="list-text">显示其他列(工作环境、SVM、用户名、工作负载、策略、 和Snapshot Label)、选择 <block ref="67e31c53d0f38fc4da85c525a5be7511" category="inline-image-macro-rx" type="image"></block>。</block>
   <block id="ef01d887513738e3083dc9422947bd11" category="paragraph">您可以使用多个筛选器(例如备份策略和Snapshot标签)筛选"作业监控"页面上的操作。</block>
   <block id="d119f82d01fe8b24b109c5ce80991809" category="section-title">查看备份生命周期作业</block>
   <block id="93d7343c1b7b9d802947b5e6175b94db" category="paragraph">监控备份生命周期流有助于确保审计完整性、责任和备份安全性。为了帮助您跟踪备份生命周期、您可能需要确定所有备份副本的到期日期。</block>
@@ -3961,7 +3952,6 @@ ifdef：：AWS。</block>
   <block id="861cb48bf82afb2d1addc6ef6c8ff905" category="doc">将内部 ONTAP 数据备份到 StorageGRID</block>
   <block id="1c217460a8591d40515e5ac52003a8a3" category="paragraph">完成几个步骤即可开始将卷数据从内部主ONTAP系统备份到二级存储系统以及NetApp StorageGRID系统中的对象存储。</block>
   <block id="78cd41832e44ff3412f34a5c7037262b" category="paragraph">查看如何通过公共Internet将内部ONTAP集群直接连接到StorageGRID、或者是否使用VPN并通过专用VPC端点接口将流量路由到StorageGRID。</block>
-  <block id="fbd75c16bafd2c07d83915ddf5e96776" category="paragraph">如果您已经在StorageGRID或内部部署了连接器、则一切都准备就绪。如果没有、则需要创建BlueXP连接器、将ONTAP数据备份到StorageGRID。您还需要自定义连接器的网络设置、以便它可以连接到StorageGRID。</block>
   <block id="d311cb365e159296336d1969d8b3eaa1" category="paragraph">您需要检查StorageGRID和BlueXP的许可证要求。</block>
   <block id="eb0c38f90fc27e7262d8f96bbee133fa" category="paragraph">在BlueXP中发现ONTAP集群、验证这些集群是否满足最低要求、并自定义网络设置、以便这些集群可以连接到StorageGRID。</block>
   <block id="343d4384d85ca06cf7070e8b9ce58985" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block> 准备StorageGRID作为备份目标</block>
@@ -3974,8 +3964,6 @@ ifdef：：AWS。</block>
   <block id="dd61dca07c56e04220c21764b917992f" category="section-title">准备连接器网络连接要求</block>
   <block id="420f74958ffaef4d8f08ce850e97c52e" category="list-text">BlueXP备份和恢复功能内置在BlueXP Connector中。在私有模式下安装时、您需要定期更新Connector软件才能访问新功能。检查 <block ref="f2b1fe06debcbb7b96badbcb85471310" category="inline-link-macro-rx"></block> 以查看每个BlueXP备份和恢复版本中的新功能。如果要使用这些新功能、请按照步骤执行操作<block ref="164e4794420610da956934de57a9da8a" category="inline-link-rx"></block>。</block>
   <block id="2c4e4b23bf49a867077416ba2dd23a7d" category="list-text">在SaaS环境中使用BlueXP备份和恢复时、BlueXP备份和恢复配置数据会备份到云中。在无法访问Internet的站点中使用BlueXP备份和恢复时、BlueXP备份和恢复配置数据将备份到存储备份的StorageGRID存储分段。如果您的专用模式站点中发生连接器故障、您可以这样做 <block ref="21b30d1009822b1f508f80c6007a3164" category="inline-link-macro-rx"></block>。</block>
-  <block id="86a426afb07ffa9282c6529687b1ddd0" category="list-text">使用扇出备份架构时、必须在主存储系统上配置以下设置。</block>
-  <block id="6e3d72c990b9259f1262b3a7a3403e5d" category="list-text">使用级联备份架构时、必须在二级存储系统上配置以下设置。</block>
   <block id="113b5e7186c305ad07d9c9c046e30198" category="list-text">如果您使用的IP空间与默认IP空间不同、则可能需要创建静态路由才能访问对象存储。</block>
   <block id="08cdeb7ce64fda06111111c8fea66510" category="section-title">准备StorageGRID作为备份目标</block>
   <block id="ed7694068a182dc8a1f5bc691be01032" category="section-title">准备将旧备份文件归档到公共云存储</block>
@@ -3986,7 +3974,6 @@ ifdef：：AWS。</block>
   <block id="337633c8e91ca2d8e0a8de99f528f661" category="list-text">如果现有ILM策略处于"建议"状态、则无法创建和激活新的ILM策略。<block ref="8f705117b479c6c746fcadf50adb4986" category="inline-link-rx"></block>。</block>
   <block id="c47ef8c4ea84fc2692a07f1f13a4dc0a" category="paragraph">如果备份目标在Canvas上以工作环境的形式存在、则可以将ONTAP集群拖动到对象存储上。</block>
   <block id="f6403db43da3baca399962b8fdf07d76" category="list-text">*级联*：信息从主存储流向二级存储、从二级存储流向对象存储。</block>
-  <block id="637991aaf3d0bbf10fb193c93774551a" category="list-text">*扇出*：信息从主存储流向二级存储、从源存储流向对象存储。</block>
   <block id="749ef9bfd50fd41baeffea89c1ed7056" category="list-text">*Provider*：选择*Provider* StorageGRID。</block>
   <block id="d1928cac8c40b2b3b7b9d626779aa44b" category="list-text">*提供商设置*：输入提供商网关节点FQDN详细信息、端口、访问密钥和机密密钥。</block>
   <block id="a77d2d2e75b6e2609083f1568a865982" category="paragraph">访问密钥和机密密钥供您创建的IAM用户使用、以便为ONTAP集群授予对存储分段的访问权限。</block>
@@ -4054,7 +4041,6 @@ ifdef：：AWS。</block>
   <block id="fd8e00004c8fa188a1fbd959a0eb17ba" category="paragraph">此时将在您输入的资源组中创建Blb存储容器、并在该资源组中存储备份文件。</block>
   <block id="e1ea8c5cdcdb91c8a11dbc07eb9caa42" category="admonition">此时将显示ONTAP备份作业(临时和计划作业、计划作业仅在ONTAP 9.13.0或更高版本中显示)以及所有还原作业的作业详细信息。此时将显示正在进行的作业和已完成作业的作业详细信息。</block>
   <block id="a43bcfae03cdf5644c6276826ab45140" category="paragraph">除了在通知中心中查看警报之外、您还可以将BlueXP配置为通过电子邮件以警报形式发送某些类型的通知、以便即使您未登录到系统、也可以获得重要系统活动的通知。<block ref="f55b5f666e66870081886e35a4868f02" category="inline-link-rx"></block>。</block>
-  <block id="c116d91220698401a0a999c9099f35b2" category="paragraph">通知中心会显示大量事件、但只有以下备份和还原事件才会触发电子邮件警报：</block>
   <block id="910e8697aa5e0e59e920af3a4cf26b12" category="admonition">从ONTAP 9.13.0开始、将显示Cloud Volumes ONTAP和内部ONTAP系统的所有警报。对于使用Cloud Volumes ONTAP 9.13.0和内部ONTAP的系统、仅会显示与"还原作业已完成、但出现警告"相关的警报。</block>
   <block id="309311e3de2537adb09a82ea24c863ec" category="paragraph">默认情况下、BlueXP客户管理员会收到所有"严重"和"建议"警报的电子邮件。默认情况下、所有其他用户和收件人均设置为不接收任何通知电子邮件。您可以向NetApp云帐户中的任何BlueXP用户或需要了解备份和还原活动的任何其他收件人发送电子邮件。</block>
   <block id="62b4689602c4298e3a38df54594adea1" category="paragraph">要接收BlueXP备份和恢复电子邮件警报、您需要在警报和通知设置页面中选择通知严重性类型"严重"、"警告"和"错误"。</block>
@@ -4316,4 +4302,22 @@ ifdef：：AWS。</block>
   <block id="f717a77f4fa4c437e114a568e845c80e" category="sidebar">管理集群级别的对象备份设置</block>
   <block id="a7b1a9069e674c0aac2afe848aefc5a0" category="sidebar">在其他卷上启用卷备份</block>
   <block id="90f7372e4d5f7acc9a7ad384567a8fb1" category="sidebar">管理复制关系</block>
+  <block id="4e94aca278bbfbf09c063f578946bd47" category="paragraph">如果您已经在内部部署了Connector、则一切都准备就绪。如果没有、则需要创建BlueXP连接器、将ONTAP数据备份到StorageGRID。您还需要自定义连接器的网络设置、以便它可以连接到StorageGRID。</block>
+  <block id="54c50d39294a1455c6b25fe6e2d434fb" category="paragraph">您也可以连接到同一内部位置的二级ONTAP系统以复制卷。</block>
+  <block id="cde30b836a89432bbe569f5477e106cb" category="paragraph">新版BlueXP备份和恢复功能不仅可以为对象存储创建备份、还可以计划和创建Snapshot副本和复制的卷、它要求您使用的是BlueXP Connector 3.9.31或更高版本。因此、建议您获取此最新版本来管理所有备份。</block>
+  <block id="40d44bba5c6a2c9aca170a8b84c19f0c" category="list-text">使用扇出备份架构时、必须在_primary_storage系统上配置以下设置。</block>
+  <block id="e3bd260295f830fcbec8503fe0a5aef8" category="list-text">使用级联备份架构时、必须在_Secondary _存储系统上配置以下设置。</block>
+  <block id="ef58a6d55100435043d388bfdf72c624" category="paragraph">StorageGRID 必须满足以下要求。请参见<block ref="babf3072d9403ab5e1ffb9e4bb9a27cb" category="inline-link-rx"></block> 有关详细信息 ...</block>
+  <block id="c794a55c739e453d58e6bcd42293fda2" category="list-text">您必须已创建S3租户帐户来控制对StorageGRID 存储的访问。<block ref="71eb6cc3bcb687d271a4ec87759d7b9d" category="inline-link-rx"></block>。</block>
+  <block id="c3ca0f055412e6bfd28263e582bd783d" category="list-text">您选择的卷也必须具有相同的SnapLock设置。所有卷都必须启用SnapLock Enterprise或禁用SnapLock。(当前不支持采用SnapLock合规性模式的卷。) 您不能选择锁定卷和未锁定卷的组合。</block>
+  <block id="757ddf3a67f3bb933e1f0daa98d655c1" category="list-text">*体系结构*：如果选择了复制和备份，请选择以下信息流之一：</block>
+  <block id="6265c5dd2df1738680598ec60ee975a7" category="list-text">*级联*：信息从主存储流向二级存储、然后从二级存储流向对象存储。</block>
+  <block id="6330eaebaad367e2965b4ee081f23be3" category="summary">您可以监控所有备份和还原作业的状态。您可以查看已完成、正在进行或失败的作业、以便诊断和修复问题。使用BlueXP通知中心、您可以启用通过电子邮件发送通知、以便即使您未登录系统、也可以获得重要系统活动的通知。使用BlueXP时间线、您可以查看通过UI或API启动的所有操作的详细信息。</block>
+  <block id="de7564b6e4d771be6301318ae3cf3193" category="paragraph">您可以监控已启动或已计划的备份作业的状态、并还原已启动的作业。您可以查看已完成、正在进行或失败的作业、以便诊断和修复问题。使用BlueXP通知中心、您可以启用通过电子邮件发送通知、以便即使您未登录系统、也可以获得重要系统活动的通知。使用BlueXP时间线、您可以查看通过UI或API启动的所有操作的详细信息。</block>
+  <block id="8d44a80823662750411d0c8c0de286df" category="paragraph">您从BlueXP备份和恢复UI和API启动的备份和还原操作以及系统启动的作业(例如正在进行的计划备份操作)均可在作业监控选项卡中找到。但是、只有运行ONTAP 9.13.0或更高版本的Cloud Volumes ONTAP 系统以及运行ONTAP 9.13.1或更高版本的内部ONTAP 系统才是如此。运行早期版本的ONTAP 时、仅显示用户启动的作业。</block>
+  <block id="11f3249974d1af28e5974c48a4560eeb" category="list-text">显示其他列(工作环境、SVM、用户名、工作负载、策略名称、 和Snapshot Label)、选择 <block ref="67e31c53d0f38fc4da85c525a5be7511" category="inline-image-macro-rx" type="image"></block>。</block>
+  <block id="327b66d091add79b859ef84933343b9b" category="paragraph">大多数筛选器都不言自明。通过"工作负载"筛选器、您可以查看以下类别中的作业：</block>
+  <block id="e0db2fdf8995a741b4ad4157a88c1cae" category="paragraph">通知中心会显示大量备份和还原事件、但只有以下事件触发电子邮件警报：</block>
+  <block id="45b54b60106a7f59e33240f6ddaac7e1" category="list-text">从BlueXP菜单栏中、选择(<block ref="df7c8a71ca3da4359e40e121f18f87b9" category="inline-image-macro-rx" type="image"></block>）。</block>
+  <block id="5beb7331041291762b098f18521055a9" category="list-text">查看通知。</block>
 </blocks>

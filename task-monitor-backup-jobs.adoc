@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-monitor-backup-jobs.html 
 keywords: cloud backup, bluexp backup and recovery, backup, restore, status, monitor, alert, notification 
-summary: 您可以监控已计划或已启动的备份作业的状态、并还原在工作环境中启动的作业。您可以查看已成功完成的作业、当前正在进行的作业以及失败的作业、以便诊断和修复问题。您还可以将通知配置为通过电子邮件发送、以便即使未登录到系统、您也能了解重要的系统活动。 
+summary: 您可以监控所有备份和还原作业的状态。您可以查看已完成、正在进行或失败的作业、以便诊断和修复问题。使用BlueXP通知中心、您可以启用通过电子邮件发送通知、以便即使您未登录系统、也可以获得重要系统活动的通知。使用BlueXP时间线、您可以查看通过UI或API启动的所有操作的详细信息。 
 ---
 = 监控备份和还原作业的状态
 :hardbreaks:
@@ -31,7 +31,7 @@ summary: 您可以监控已计划或已启动的备份作业的状态、并还�
 * 失败
 
 
-"作业监控"选项卡中提供了用户从Cloud Backup UI和API启动的备份和还原操作以及系统启动的作业(如正在进行的计划备份操作)。但是、只有运行ONTAP 9.13.0或更高版本的Cloud Volumes ONTAP 系统以及运行ONTAP 9.13.1或更高版本的内部ONTAP 系统才是如此。运行早期版本的ONTAP 时、仅显示用户启动的作业。
+您从BlueXP备份和恢复UI和API启动的备份和还原操作以及系统启动的作业(例如正在进行的计划备份操作)均可在作业监控选项卡中找到。但是、只有运行ONTAP 9.13.0或更高版本的Cloud Volumes ONTAP 系统以及运行ONTAP 9.13.1或更高版本的内部ONTAP 系统才是如此。运行早期版本的ONTAP 时、仅显示用户启动的作业。
 
 
 NOTE: 如果您已将ONTAP 系统升级到9.13.x、但在作业监控器中看不到正在进行的计划备份操作、则需要重新启动BlueXP备份和恢复服务。 link:reference-restart-backup.html["了解如何重新启动BlueXP备份和恢复"]。
@@ -45,7 +45,7 @@ image:screenshot_backup_job_monitor.png["显示作业监控信息板中备份和
 +
 此屏幕截图显示了默认列标题。
 
-. 显示其他列(工作环境、SVM、用户名、工作负载、策略、 和Snapshot Label)、选择 image:button_plus_sign_round.png["加号按钮"]。
+. 显示其他列(工作环境、SVM、用户名、工作负载、策略名称、 和Snapshot Label)、选择 image:button_plus_sign_round.png["加号按钮"]。
 
 
 
@@ -147,7 +147,7 @@ BlueXP通知中心会跟踪您已启动的备份和还原作业的进度、以�
 
 除了在通知中心中查看警报之外、您还可以将BlueXP配置为通过电子邮件以警报形式发送某些类型的通知、以便即使您未登录到系统、也可以获得重要系统活动的通知。 https://docs.netapp.com/us-en/bluexp-setup-admin/task-monitor-cm-operations.html["了解有关通知中心以及如何为备份和还原作业发送警报电子邮件的更多信息"^]。
 
-通知中心会显示大量事件、但只有以下备份和还原事件才会触发电子邮件警报：
+通知中心会显示大量备份和还原事件、但只有以下事件触发电子邮件警报：
 
 [cols="3a,1d"]
 |===
@@ -198,8 +198,7 @@ NOTE: 从ONTAP 9.13.0开始、将显示Cloud Volumes ONTAP和内部ONTAP系统�
 https://docs.netapp.com/us-en/bluexp-setup-admin/task-monitor-cm-operations.html["了解如何为备份和还原作业发送警报电子邮件"^]。
 
 .步骤
-. 选择*作业监控*选项卡。
-. 通过选择(image:icon_bell.png["通知铃"])。
+. 从BlueXP菜单栏中、选择(image:icon_bell.png["通知铃"]）。
 . 查看通知。
 
 
