@@ -309,7 +309,7 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 
 ==== Cloud Volumes ONTAP网络连接要求
 
-实例的安全组必须包含所需的入站和出站规则：具体来说、是ICMP以及端口11104和11105的规则。这些规则包括在预定义的安全组中。
+实例的安全组必须包含所需的入站和出站规则：具体来说，是 ICMP 以及端口 11104 和 11105 的规则。这些规则包括在预定义的安全组中。
 
 
 
@@ -318,7 +318,7 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 * 如果集群位于您的内部环境中、则您应在企业网络与云提供商中的虚拟网络之间建立连接。这通常是一个 VPN 连接。
 * ONTAP 集群必须满足其他子网、端口、防火墙和集群要求。
 +
-由于您可以复制到Cloud Volumes ONTAP或内部系统、因此请查看内部ONTAP系统的对等要求。请参见 https://docs.netapp.com/us-en/ontap-sm-classic/peering/reference_prerequisites_for_cluster_peering.html["在 ONTAP 文档中查看集群对等的前提条件"^]。
+由于您可以复制到Cloud Volumes ONTAP或内部系统、因此请查看内部ONTAP系统的对等要求。 https://docs.netapp.com/us-en/ontap-sm-classic/peering/reference_prerequisites_for_cluster_peering.html["在 ONTAP 文档中查看集群对等的前提条件"^]。
 
 
 
@@ -335,9 +335,11 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 
 
 
-=== 创建您自己的存储分段
+=== 创建您的Azure Blb存储帐户
 
-默认情况下、该服务会为您创建存储分段。或者、如果要使用自己的存储分段、您可以在启动备份激活向导之前创建这些存储分段、然后在向导中选择这些存储分段。
+默认情况下、该服务会为您创建存储帐户。如果要使用自己的存储帐户、您可以在启动备份激活向导之前创建这些帐户、然后在向导中选择这些存储帐户。
+
+如果您创建自己的存储帐户、则应使用存储帐户名称"NetApp-backup"。
 
 
 

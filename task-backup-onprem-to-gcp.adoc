@@ -55,10 +55,10 @@ NOTE: "内部ONTAP系统"包括FAS、AFF和ONTAP Select系统。
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["五个"] 准备Google Cloud作为备份目标
 [role="quick-margin-para"]
-为Connector设置创建和管理Azure存储分段的权限。您还需要为内部ONTAP集群设置权限、以便它可以向Azure存储分段读取和写入数据。
+为Connector设置创建和管理Google Cloud分段的权限。您还需要为内部ONTAP集群设置权限、以便它可以读取数据并将数据写入Google Cloud存储分段。
 
 [role="quick-margin-para"]
-或者、您也可以设置自己的自定义托管密钥来进行数据加密、而不是使用默认的Azure加密密钥。 <<准备Azure Blb作为备份目标,了解如何让您的Azure环境做好接收ONTAP备份的准备。>>
+您也可以选择设置自己的自定义托管密钥来进行数据加密、而不是使用默认的Google Cloud加密密钥。 <<Prepare Google Cloud as your backup target,了解如何让您的Google Cloud环境做好接收ONTAP备份的准备。>>
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["六个"] 激活ONTAP卷上的备份
 [role="quick-margin-para"]
@@ -254,7 +254,7 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 
 ==== Cloud Volumes ONTAP网络连接要求
 
-实例的安全组必须包含所需的入站和出站规则：具体来说、是ICMP以及端口11104和11105的规则。这些规则包括在预定义的安全组中。
+实例的安全组必须包含所需的入站和出站规则：具体来说，是 ICMP 以及端口 11104 和 11105 的规则。这些规则包括在预定义的安全组中。
 
 
 
@@ -263,7 +263,7 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 * 如果集群位于您的内部环境中、则您应在企业网络与云提供商中的虚拟网络之间建立连接。这通常是一个 VPN 连接。
 * ONTAP 集群必须满足其他子网、端口、防火墙和集群要求。
 +
-由于您可以复制到Cloud Volumes ONTAP或内部系统、因此请查看内部ONTAP系统的对等要求。请参见 https://docs.netapp.com/us-en/ontap-sm-classic/peering/reference_prerequisites_for_cluster_peering.html["在 ONTAP 文档中查看集群对等的前提条件"^]。
+由于您可以复制到Cloud Volumes ONTAP或内部系统、因此请查看内部ONTAP系统的对等要求。 https://docs.netapp.com/us-en/ontap-sm-classic/peering/reference_prerequisites_for_cluster_peering.html["在 ONTAP 文档中查看集群对等的前提条件"^]。
 
 
 

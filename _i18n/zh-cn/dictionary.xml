@@ -2761,7 +2761,6 @@
   <block id="404ad1bc321be3b042156261e6ba2b4f" category="paragraph">默认情况下、在工作环境向导中会启用BlueXP备份和恢复。请务必保持此选项处于启用状态。</block>
   <block id="4f2a0931f8313551f535951dc36ca589" category="inline-xref">在现有系统上启用BlueXP备份和恢复</block>
   <block id="c53a7ec6ddfd9f1e05e3e3cfcd2c964c" category="admonition">如果要选择资源组的名称、请在部署Cloud Volumes ONTAP 时*禁用* BlueXP备份和恢复。按照的步骤进行操作 <block ref="a16f34e9e42db7156a23b1a727a1a752" category="inline-xref-macro-rx"></block> 要启用BlueXP备份和恢复、请选择资源组。</block>
-  <block id="3c109ca3c8fa9a28c55f534f9e003b51" category="paragraph">在系统上启用了BlueXP备份和恢复功能、每天备份卷并保留最近30个备份副本。</block>
   <block id="b8a6a9c5fa81a9fc0842c6df5d41e302" category="paragraph">随时直接从工作环境启用BlueXP备份和恢复。</block>
   <block id="95c42891a35fe848a9c33b8c9e21abd6" category="paragraph">默认情况下、BlueXP备份和恢复会为Blob容器配置本地冗余(LRS)以实现成本优化。如果要确保在不同分区之间复制数据、可以将此设置更改为区域冗余(ZRS)。请参见的Microsoft说明<block ref="c549763665cfbb93dbccfdbf667aa0f2" category="inline-link-rx"></block>。</block>
   <block id="a6824c9b13690f6bdd92d0879a455c1d" category="inline-link-macro">有关BlueXP备份和恢复的通知</block>
@@ -3663,23 +3662,19 @@ _/뚩 阅/｛뚩 阅_id｝/resourceGroups/｛资源组｝/Providers /｛提供�
   <block id="ae8eba8963c30867457e97dd99e8fff7" category="list-text">仅支持区域密钥；不支持全局密钥。</block>
   <block id="fdbd81a7d2b282a658a8b0e7b92cdebc" category="section-title">创建您自己的存储分段</block>
   <block id="74d8456ec74a0cc3a517057feb10fb90" category="paragraph">默认情况下、该服务会为您创建存储分段。或者、如果要使用自己的存储分段、您可以在启动备份激活向导之前创建这些存储分段、然后在向导中选择这些存储分段。</block>
-  <block id="50af2238e1149fc4e9c6d4a91ec928b7" category="paragraph">如果您创建自己的存储分段、则应使用存储分段名称"NetApp-backup"。</block>
   <block id="d4ab2296bb945d417a8addf4512bf51b" category="section-title">验证复制卷的ONTAP网络要求</block>
   <block id="ea6fd0bb1b39590b996d07b96d466780" category="paragraph">在BlueXP备份和恢复中激活备份之前、请确保源系统和目标系统满足ONTAP版本和网络连接要求。</block>
   <block id="d4bf25559c8ed55928a387cd23720e35" category="section-title">Cloud Volumes ONTAP网络连接要求</block>
-  <block id="f8ddaef2a077514c95bf1ab920675fc9" category="paragraph">实例的安全组必须包含所需的入站和出站规则：具体来说、是ICMP以及端口11104和11105的规则。这些规则包括在预定义的安全组中。</block>
   <block id="0736192094f1dc9a582442df0a017527" category="section-title">内部ONTAP网络要求</block>
   <block id="ab255acccc17b6b850a499063aaf4ef1" category="list-text">如果集群位于您的内部环境中、则您应在企业网络与云提供商中的虚拟网络之间建立连接。这通常是一个 VPN 连接。</block>
   <block id="1fbce003d68708feb24931b9e6366f50" category="list-text">ONTAP 集群必须满足其他子网、端口、防火墙和集群要求。</block>
   <block id="d7bb556723e915c43fe4fd9b0f90d545" category="inline-link">在 ONTAP 文档中查看集群对等的前提条件</block>
-  <block id="3bab5731acdafc9aee7c0eb1d8b0217d" category="paragraph">由于您可以复制到Cloud Volumes ONTAP或内部系统、因此请查看内部ONTAP系统的对等要求。请参见<block ref="f62b93c20d5bac3c11ab8a3b52ce12c9" category="inline-link-rx"></block>。</block>
   <block id="c08b01fe5c09939cdbabcb370734dad8" category="list-text">要在不同子网的两个 Cloud Volumes ONTAP 系统之间复制数据、必须将子网路由在一起（这是默认设置）。</block>
   <block id="a8597301498b7ba277bd04c5d9cec26a" category="section-title">在Cloud Volumes ONTAP上启用BlueXP备份和恢复</block>
   <block id="3a3585e7353e26db7ebd817873594905" category="paragraph">启用BluXP备份和恢复非常简单。根据您是拥有现有Cloud Volumes ONTAP系统还是新系统、步骤略有不同。</block>
   <block id="8a8476fd6836ec12c30dec20bc5004af" category="paragraph">*在新系统上启用BlueXP备份和恢复*</block>
   <block id="901ae31ede407d1b2f9642db905682f2" category="list-text">从BlueXP Canvas中、选择*添加工作环境*、选择云提供程序、然后选择*添加新*。选择*创建Cloud Volumes ONTAP。</block>
   <block id="2804562bc1e662a5b5b8ecf3b0be67c6" category="admonition">要修改备份设置或添加复制、请参见 <block ref="5cd1a7d7fa9fd41e0b8e095748eb7b5f" category="inline-link-macro-rx"></block>。</block>
-  <block id="8f68c2bda59a58c30828aa9f67c7f46d" category="paragraph">BlueXP备份和恢复在系统上启用、备份您每天创建的卷、并保留最新的30个备份副本。</block>
   <block id="fc90b8f1413f3c199581e8299d3f470a" category="paragraph">*在现有系统上启用BlueXP备份和恢复*</block>
   <block id="f44b20d5d9a676a009838194fcecc749" category="list-text">从BlueXP Canvas中、选择工作环境、然后选择右侧面板中备份和恢复服务旁边的*启用*。</block>
   <block id="4ade5af203d6e65a0d4f2dfba9bb43b8" category="section-title">激活ONTAP卷上的备份</block>
@@ -3761,7 +3756,6 @@ _/뚩 阅/｛뚩 阅_id｝/resourceGroups/｛资源组｝/Providers /｛提供�
   <block id="0565cf043978c615b1f8f7cad9c764d4" category="paragraph">完成几个步骤即可开始将卷数据从内部主ONTAP系统备份到二级存储系统和Google云存储。</block>
   <block id="0c0bf2caafe0a0bcf95f58c110265658" category="admonition">"内部ONTAP系统"包括FAS、AFF和ONTAP Select系统。</block>
   <block id="8679d305959a742634fdc19258f41c4e" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block> 确定要使用的连接方法</block>
-  <block id="6cf819bd9293aa813cfa27132d7de812" category="paragraph">选择是通过公共互联网将内部ONTAP集群直接连接到Google云存储、还是使用VPN或Google云互连并通过使用专用IP地址的专用Google访问接口路由流量。</block>
   <block id="8ec119f44cc76251903e9141fc7c49c4" category="paragraph"><block ref="d61bfca6e72207060fa33f0ff3f8d293" category="inline-xref-macro-rx"></block>。</block>
   <block id="b59dc58d729f5c77a50756af1a9eb983" category="paragraph">如果您已经在Google Cloud或内部部署了Connector、则一切都准备就绪。如果没有、则需要创建BlueXP连接器将ONTAP数据备份到Google Cloud存储。您还需要自定义Connector的网络设置、以便它可以连接到Google Cloud。</block>
   <block id="1e4b37a7966ae0a6eb7927e68e223924" category="inline-xref">了解如何创建Connector以及如何定义所需的网络设置。</block>
@@ -3983,7 +3977,6 @@ ifdef：：AWS。</block>
   <block id="9bdfbf10688e2b38e82b1ddeb1a0af32" category="paragraph">BlueXP备份和恢复开始对卷进行初始备份。复制的卷和备份文件的基线传输包括源数据的完整副本。后续传输会包含Snapshot副本中所含主存储数据的差异副本。</block>
   <block id="c6f935fce64d135ae3250df1beb9c2aa" category="doc">将内部ONTAP数据备份到Azure Blb存储</block>
   <block id="b26f7b31288fff69c8d3c7065e19c5d4" category="paragraph">完成几个步骤即可开始将卷数据从内部ONTAP系统备份到二级存储系统和Azure Blb存储。</block>
-  <block id="facdda46f755c89c58831dda3b15ddef" category="paragraph">选择是通过公共Internet将内部ONTAP集群直接连接到Azure、还是使用VPN或Azure ExpressRoute并通过专用VPC端点接口将流量路由到Azure。</block>
   <block id="57baa3c287eb66f99ca7a7281024c30a" category="paragraph">如果您已在Azure vNet或内部部署了Connector、则可以完全完成。如果没有、则需要创建BlueXP连接器、将ONTAP数据备份到Azure Blb存储。您还需要自定义Connector的网络设置、以便它可以连接到Azure。</block>
   <block id="9175d0745db62701ca4f4b1f795bc78e" category="paragraph">在BlueXP中发现ONTAP集群、验证这些集群是否满足最低要求、以及自定义网络设置、以便这些集群可以连接到Azure。</block>
   <block id="45b0dc574541901afc9c84c2a03ebe28" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block> 准备Azure Blb作为备份目标</block>
@@ -4004,7 +3997,6 @@ ifdef：：AWS。</block>
   <block id="5e1b8f741e88cd7d205e1784bab10a4d" category="list-text">选择自定义角色的省略号(*...*)，然后选择*Edit*。</block>
   <block id="148cf82a167a4c42f015c88ac109090a" category="list-text">选择*JSX*并添加以下权限：</block>
   <block id="6df6e5e28f7a16afde6dc4915de4a5ca" category="list-text">选择*查看+更新*，然后选择*更新*。</block>
-  <block id="0deda7204e72e002187e85560cc2206f" category="paragraph">您需要验证Azure和BlueXP的许可证要求：</block>
   <block id="dc6287483bb6663eb24a6b4a97292566" category="section-title">准备Azure Blb作为备份目标</block>
   <block id="e6a4bcd05aae8d20923024df759b8204" category="inline-link">了解如何使用您自己的密钥</block>
   <block id="7c6c6d3f55cf70ec4e78761174989411" category="list-text">您可以在激活向导中使用自己的自定义管理密钥进行数据加密、而不是使用默认的Microsoft管理的加密密钥。在这种情况下，您需要拥有 Azure 订阅，密钥存储名称和密钥。<block ref="5499082d3ade4f2b56fcc95816a14476" category="inline-link-rx"></block>。</block>
@@ -4130,7 +4122,6 @@ ifdef：：AWS。</block>
   <block id="33f10a7c625758670c871505fd040a03" category="cell">创建数据备份到云中、以实现保护和长期归档目的。如有必要、您可以将备份中的卷、文件夹或单个文件还原到相同或不同的工作环境。</block>
   <block id="84d2eb5ebd4a59c9d3a33c1ddc7bf406" category="paragraph">快照是所有备份方法的基础、需要使用备份和恢复服务。Snapshot 副本是卷的只读时间点映像。此映像占用的存储空间极少，并且性能开销极低，因为它仅记录自上次创建 Snapshot 副本以来对文件所做的更改。在卷上创建的Snapshot副本用于使复制的卷和备份文件与对源卷所做的更改保持同步、如图所示。</block>
   <block id="112d5b2e7f70a350b739f08063ce85af" category="paragraph">您可以选择在另一个ONTAP存储系统上同时创建复制的卷、并在云中创建备份文件。或者、您也可以选择仅创建复制的卷或备份文件、这是您的选择。</block>
-  <block id="f76d5fec0b4dd48f5a1f783d14d860b5" category="paragraph">概括地说、以下是您可以为ONTAP工作环境中的一个或所有卷创建的有效保护流：</block>
   <block id="f46d552561904382654668028ef332b7" category="list-text">源卷-&gt; Snapshot副本-&gt;复制的卷-&gt;备份文件</block>
   <block id="6e0f3f7af71dbdcd66969d229d562636" category="list-text">源卷-&gt; Snapshot副本-&gt;备份文件</block>
   <block id="416d6dba97115e0823c4346a7315efbf" category="list-text">源卷-&gt; Snapshot副本-&gt;复制的卷</block>
@@ -4156,10 +4147,8 @@ ifdef：：AWS。</block>
   <block id="2b769a9268eb2aee4276cba6c57ef0e9" category="cell">高(提供商费用)</block>
   <block id="f20b3ca4032bc39e75089941e59da9ae" category="section-title">您将使用哪种备份架构</block>
   <block id="df2734a3248ea58d4bd1131a234481c4" category="paragraph">在创建复制的卷和备份文件时、您可以选择扇出或级联架构来备份卷。</block>
-  <block id="8601698382afe44631c1bb72709c3331" category="paragraph">扇出架构会将Snapshot副本独立传输到云中的目标存储系统和备份对象。</block>
   <block id="fca2f290b176dda18963912f7b942907" category="inline-image-macro">显示如何使用卷的Snapshot副本创建和更新复制的卷和备份文件的示意图。</block>
   <block id="ffd891a8050a93a047c73180f9384213" category="paragraph"><block ref="ffd891a8050a93a047c73180f9384213" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="f7be3b6161c8430044f21d47653acb13" category="paragraph">级联架构会先将Snapshot副本传输到目标存储系统、然后再将该副本传输到云中的备份对象。</block>
   <block id="47439f17d6378e02c6cc8d869a82c912" category="paragraph"><block ref="47439f17d6378e02c6cc8d869a82c912" category="inline-image-macro-rx" type="image"></block></block>
   <block id="500ecf85d81873182f0cadf3300f909e" category="section-title">不同架构选项的比较</block>
   <block id="688c41a4a08a3e0f4011a51649a5a459" category="paragraph">下表对扇出架构和级联架构进行了比较。</block>
@@ -4176,16 +4165,8 @@ ifdef：：AWS。</block>
   <block id="a67640f7cdcc52eaa3b856d6e91a1c2b" category="list-text">默认备份策略会复制每日和每周Snapshot副本、并保留7个每日Snapshot副本和52个每周Snapshot副本。</block>
   <block id="1711f5c46c237530499df8bd10af41fc" category="paragraph">如果您为复制或备份创建自定义策略、则策略标签(例如"每日"或"每周")必须与Snapshot策略中的标签匹配、否则不会创建复制的卷和备份文件。您可以使用System Manager或ONTAP命令行界面(CLI)创建自定义策略。</block>
   <block id="d4c627b86ea7fcc97aab9ca0d343fcbe" category="inline-link">使用ONTAP命令行界面创建快照策略</block>
-  <block id="a697a4067d71d212d6d90b5a40b65f6c" category="inline-link">使用ONTAP命令行界面创建复制策略</block>
-  <block id="4852ced598798ace63321af55f321cf8" category="inline-link">使用System Manager创建备份策略</block>
   <block id="350061f867dc1c5e72f04f985e74baee" category="inline-link">使用ONTAP命令行界面创建备份策略</block>
-  <block id="a9ae4c6a697b11fdfda0bb4e732b5ea6" category="paragraph"><block ref="d8ea6acc45a89d2ab361031769419dd5" category="inline-link-rx"></block>
-<block ref="f13ee848e87c0aa36c394e684eee24d7" category="inline-link-rx"></block>
-<block ref="ec7e1f50f366316f4481f1b489263d62" category="inline-link-rx"></block>
-<block ref="d73f218743fa1184e2a040cf646f920f" category="inline-link-rx"></block></block>
-  <block id="d5221819c45343b141dfebcdd736932f" category="admonition">如果您计划在使用级联架构时创建自定义策略、则需要在要创建复制卷的二级系统上创建备份到对象策略。如果您使用的是默认策略、则已全部设置完毕。</block>
   <block id="8cb2e913decbf9b532c186901104e076" category="inline-link-macro">正在添加新备份策略</block>
-  <block id="6b411d4748b120033618a859a297c783" category="paragraph">您可以在出血XP备份和恢复UI中创建备份到对象存储策略。请参见一节中的 <block ref="535e99780197daca673e274e7a26ba94" category="inline-link-macro-rx"></block> 了解详细信息。您需要使用System Manager或ONTAP命令行界面创建Snapshot和复制策略。</block>
   <block id="61dc4b0620e6a61c45bae3557cb28951" category="paragraph">下面列出了几个示例ONTAP命令行界面命令、这些命令可能会在您创建自定义策略时很有用。请注意、您必须使用_admin_ SVM (Storage VM)作为<block ref="f536bcc8fda7ee8ba21dea42b5b1c44d" prefix=" " category="inline-code"></block> 在这些命令中。</block>
   <block id="dbb3987abbdf9be78435bfb97c6a1e83" category="cell">策略问题描述</block>
   <block id="357b8b980947b6d9681d42119e03c9ad" category="cell">轻松备份到云</block>
@@ -4217,17 +4198,10 @@ ifdef：：AWS。</block>
   <block id="0f8751300c4a6857f8a492b7f39fba12" category="inline-link-macro">查看受支持备份目标的完整列表</block>
   <block id="df28403f823a8cccd6d3aa652ebe7892" category="paragraph">在具有完全Internet连接(也称为"标准模式"或"SaaS模式")的站点中使用BlueXP备份和恢复时、您可以在由BlueXP管理的任何内部ONTAP或Cloud Volumes ONTAP系统上创建复制的卷、 您可以在任何受支持的云提供商的对象存储上创建备份文件。 <block ref="53011d10cc707465ef24eb421fc1dc04" category="inline-link-macro-rx"></block>。</block>
   <block id="cd6458cee7347b844e32d364eccbaa5c" category="paragraph">有关有效连接器位置的列表、请参见计划在其中创建备份文件的云提供程序的备份主题。必须在Linux计算机上手动安装连接器或将连接器部署在特定云提供商中、这方面存在一些限制。</block>
-  <block id="0b1927d444be0de7978184d22b87a396" category="list-text"><block ref="b4a611717e08ba4c0f2fa5390556e4e1" category="inline-link-macro-rx"></block>。</block>
-  <block id="73787881c6954ed3921a1d5b06187a75" category="list-text"><block ref="7f5adf3b5d9ef637dacd0fcd7017c33f" category="inline-link-macro-rx"></block>。</block>
   <block id="2e87d4ef1e0516d893da73de140af706" category="inline-link-macro">将 Cloud Volumes ONTAP 数据备份到 Azure Blob</block>
-  <block id="a2c543723fe6f91d3006330134ace7bf" category="list-text"><block ref="d0f49153a0d69289bf4d240d8900efdd" category="inline-link-macro-rx"></block>。</block>
   <block id="32f34f4c2eca6b21bfa54bfe2cf7ad10" category="inline-link-macro">将内部 ONTAP 数据备份到 Azure Blob</block>
-  <block id="44f7f5461565516d1ed5aad1af7bb2fb" category="list-text"><block ref="9e6e068583778aa95480a42c46f57b8a" category="inline-link-macro-rx"></block>。</block>
   <block id="a6102a3b147e0d099222dfd5f8fa1b0b" category="inline-link-macro">将 Cloud Volumes ONTAP 数据备份到 Google Cloud</block>
-  <block id="4ea849b0335489aba8b4800f940ce2c9" category="list-text"><block ref="0746a14ab26f1c77013b1b74f69b0e83" category="inline-link-macro-rx"></block>。</block>
   <block id="ee45da3db51b4bd67f3174dd7bdd4bc3" category="inline-link-macro">将内部 ONTAP 数据备份到 Google Cloud</block>
-  <block id="a1b5afc48ce1f15676f11eb72385bfbe" category="list-text"><block ref="7f2906feb9bed8771e4967ea2ed8b648" category="inline-link-macro-rx"></block>。</block>
-  <block id="116403f07f9b0bd589c333bd72de20e9" category="list-text"><block ref="80288d2da91f9794088785363d31b6b5" category="inline-link-macro-rx"></block>。</block>
   <block id="2714d7e7e24c727c2c54bb6ba96c4617" category="section-title">支持Internet连接有限的站点</block>
   <block id="e5f27584b8554a76c0aba2da480263ad" category="paragraph">BlueXP备份和恢复可在Internet连接受限(也称为"受限模式")的站点中用于备份卷数据。在这种情况下、您需要在受限区域部署BlueXP Connector。</block>
   <block id="8f573a29259b458aa4c98898b8a3c1ab" category="list-text">您可以将数据从AWS商业区域中安装的Cloud Volumes ONTAP 系统备份到Amazon S3。请参见操作说明 <block ref="b4a611717e08ba4c0f2fa5390556e4e1" category="inline-link-macro-rx"></block>。</block>
@@ -4320,4 +4294,61 @@ ifdef：：AWS。</block>
   <block id="e0db2fdf8995a741b4ad4157a88c1cae" category="paragraph">通知中心会显示大量备份和还原事件、但只有以下事件触发电子邮件警报：</block>
   <block id="45b54b60106a7f59e33240f6ddaac7e1" category="list-text">从BlueXP菜单栏中、选择(<block ref="df7c8a71ca3da4359e40e121f18f87b9" category="inline-image-macro-rx" type="image"></block>）。</block>
   <block id="5beb7331041291762b098f18521055a9" category="list-text">查看通知。</block>
+  <block id="07412ae70c8f432b19c5d424dc630dcf" category="paragraph">默认情况下、该服务会为您创建存储分段。如果要使用自己的分段、可以在启动备份激活向导之前创建这些分段、然后在向导中选择这些分段。</block>
+  <block id="5ea0826986e3031f8bd8e643d1b37ce9" category="paragraph">如果您创建自己的存储分段、则应使用存储分段名称"NetApp-backup"。</block>
+  <block id="b79f5207c4b1f2d320c8d5fe3eb33f63" category="paragraph">实例的安全组必须包含所需的入站和出站规则：具体来说，是 ICMP 以及端口 11104 和 11105 的规则。这些规则包括在预定义的安全组中。</block>
+  <block id="e9926e61defd3a286477d3a785a7fd6a" category="paragraph">由于您可以复制到Cloud Volumes ONTAP或内部系统、因此请查看内部ONTAP系统的对等要求。<block ref="f62b93c20d5bac3c11ab8a3b52ce12c9" category="inline-link-rx"></block>。</block>
+  <block id="d39d5fd7cc5ced3c60a045dedddc0e68" category="inline-link-macro">在要保护的每个卷上激活备份</block>
+  <block id="a7ab7e41ab0b37b5c56042c5e14df4ff" category="paragraph">已在系统上启用BlueXP备份和恢复。在这些Cloud Volumes ONTAP系统上创建卷后、启动BlueXP备份和恢复以及 <block ref="70d7256195ed88e78bc7994f2215f899" category="inline-link-macro-rx"></block>。</block>
+  <block id="b7d972f6553934b1eea5e57436b58de2" category="paragraph">选择是通过公共互联网将内部ONTAP集群直接连接到Google云存储、还是使用VPN或Google云互连并通过使用专用IP地址的专用Google访问接口路由流量。</block>
+  <block id="061189bcae2d45b758f44b801f0cafa0" category="paragraph">为Connector设置创建和管理Google Cloud分段的权限。您还需要为内部ONTAP集群设置权限、以便它可以读取数据并将数据写入Google Cloud存储分段。</block>
+  <block id="965fc2d93c14a05bf6aa6d11dccdf7f3" category="inline-xref">了解如何让您的Google Cloud环境做好接收ONTAP备份的准备。</block>
+  <block id="3142575a0ab456d6fc41027f31a44400" category="paragraph">您也可以选择设置自己的自定义托管密钥来进行数据加密、而不是使用默认的Google Cloud加密密钥。 <block ref="24a7679356370a79eec97a5aa8f7e0f4" category="inline-xref-macro-rx"></block></block>
+  <block id="9ad048774cfb757660014ae8b3a5e963" category="paragraph">启用BlueXP备份和恢复非常简单。根据您是拥有现有Cloud Volumes ONTAP系统还是新系统、步骤略有不同。</block>
+  <block id="50ecfa827055391d1f79881e9faaa9d5" category="paragraph">随时直接从工作环境在现有系统上启用BlueXP备份和恢复。</block>
+  <block id="4dd14adc068a21e0671c3acde608dda6" category="paragraph"><block ref="4dd14adc068a21e0671c3acde608dda6" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e357379ef349802fe3a5b7a0ea16b622" category="paragraph">选择是通过公共Internet将内部ONTAP集群直接连接到Azure、还是使用VPN或Azure ExpressRoute并通过专用VPC端点接口将流量路由到Azure。</block>
+  <block id="bda2bf5fb0b6ef0e110cf67c341d2f58" category="paragraph">您需要验证Azure和BlueXP的许可证要求：</block>
+  <block id="219920185164037444cf297ee6db557a" category="section-title">创建您的Azure Blb存储帐户</block>
+  <block id="f7fd8d98e8242ad43571b2edbb91b9fc" category="paragraph">默认情况下、该服务会为您创建存储帐户。如果要使用自己的存储帐户、您可以在启动备份激活向导之前创建这些帐户、然后在向导中选择这些存储帐户。</block>
+  <block id="83da16eb347a649074af6b8a1c3d92ae" category="paragraph">如果您创建自己的存储帐户、则应使用存储帐户名称"NetApp-backup"。</block>
+  <block id="1de16ec5bb8b26ffbf7189e724790630" category="paragraph">概括地说、以下是您可以为ONTAP工作环境中的卷创建的有效保护流：</block>
+  <block id="62fab0bd5cf92ab36f27224d46c5f233" category="paragraph">扇出*架构将Snapshot副本独立传输到目标存储系统和云中的备份对象。</block>
+  <block id="f47293eaa2dd8607290525b210ac8d72" category="paragraph">级联*架构首先将Snapshot副本传输到目标存储系统、然后该系统将副本传输到云中的备份对象。</block>
+  <block id="3477dac7879a3f44096cb4f68455f180" category="inline-link">使用System Manager创建快照策略</block>
+  <block id="c614d93309389f7373130aa7f9186f5d" category="inline-link">使用System Manager创建复制策略</block>
+  <block id="8a95d969b59555a0a73e2a674b580a6e" category="inline-link">使用ONTAP命令行界面创建复制策略</block>
+  <block id="096dfb23f9de3e352342395b7762f0ba" category="inline-link">使用System Manager创建备份策略</block>
+  <block id="b7ad321010459984fa60de2cd7631626" category="paragraph"><block ref="244560fcf5d380e290ecd4b178a412c9" category="inline-link-rx"></block>
+<block ref="d8ea6acc45a89d2ab361031769419dd5" category="inline-link-rx"></block>
+<block ref="6a671fae687ae09ed6ec2eb759a70329" category="inline-link-rx"></block>
+<block ref="76f9b86225921137bc166f71caebf3f1" category="inline-link-rx"></block>
+<block ref="21814359fa3d01fa463924248dc4810b" category="inline-link-rx"></block>
+<block ref="d73f218743fa1184e2a040cf646f920f" category="inline-link-rx"></block></block>
+  <block id="bf322ff91252b9377a00e3301a9fb8de" category="paragraph">*注意：*使用System Manager时，选择*异步*作为复制策略的策略类型，然后选择*异步*和*备份到云*作为备份到对象策略。</block>
+  <block id="8c84db8980c0dedab8ce56db7fdbd716" category="paragraph">您可以在BlueXP备份和恢复UI中创建备份到对象存储策略。请参见一节中的 <block ref="535e99780197daca673e274e7a26ba94" category="inline-link-macro-rx"></block> 了解详细信息。您需要使用System Manager或ONTAP命令行界面创建Snapshot和复制策略。</block>
+  <block id="434e82511bf6b4566a7be6239e737769" category="cell">Simple Snapshot策略</block>
+  <block id="c404f3312a8eec0338ecbc78bdc024ec" category="cell"><block ref="cfcc1000298a724899b278b1bbdc36d0" prefix="" category="inline-code"></block></block>
+  <block id="cc5c8f317eab661af83024bda7eef553" category="section-title">我的策略位于何处？</block>
+  <block id="9c58074fed28efa853a138fdba79e26e" category="paragraph">根据您计划使用的备份架构、备份策略位于不同的位置：扇出或级联。复制策略和备份策略的设计方式不同、因为对两个ONTAP存储系统进行复制并将备份到对象使用存储提供程序作为目标。</block>
+  <block id="7a1f25bd1db088139566bfc0df899cb7" category="paragraph">Snapshot策略始终驻留在主存储系统上。</block>
+  <block id="631c0944218c78537d6a82498f43a669" category="paragraph">复制策略始终驻留在二级存储系统上。</block>
+  <block id="fc33e7c5f1bd8227aeae99689d9aafed" category="paragraph">在源卷所在的系统上创建对象备份策略—这是扇出配置的主集群、而级联配置的二级集群。</block>
+  <block id="724e50bbeb42e94a045cb1c6c16bd50e" category="paragraph">下表显示了这些差异。</block>
+  <block id="4c0abf2d4c54820b8d33061abaf30759" category="cell">快照策略</block>
+  <block id="afce532bad172bcef50d75935d2ed43b" category="cell">复制策略</block>
+  <block id="7759a4720271a1ab3b4e6b1c36a67058" category="cell">备份策略</block>
+  <block id="98f03716d5ab40042e83bb54bfdb8ae3" category="cell">*扇出*</block>
+  <block id="074de7e7c226d5c60f8af14c20725352" category="cell">主卷</block>
+  <block id="0c7d6cf19426e01dcfa32434828ed266" category="cell">二级</block>
+  <block id="d3e1c79e680fc97c2e4901838347539e" category="cell">*级联*</block>
+  <block id="4f3e03eb9457fe07aacd5615dc75a081" category="paragraph">因此、如果您计划在使用级联架构时创建自定义策略、则需要在要创建复制卷的二级系统上创建复制和备份到对象策略。如果您计划在使用扇出架构时创建自定义策略、则需要在要创建复制卷的二级系统上创建复制策略、并在主系统上创建备份到对象策略。</block>
+  <block id="c9edc6898a1228f4b0c190dac5f6dd15" category="paragraph">如果您使用的是所有ONTAP系统上的默认策略、则一切都已设置完毕。</block>
+  <block id="b4a611717e08ba4c0f2fa5390556e4e1" category="list-text"><block ref="b4a611717e08ba4c0f2fa5390556e4e1" category="inline-link-macro-rx"></block></block>
+  <block id="7f5adf3b5d9ef637dacd0fcd7017c33f" category="list-text"><block ref="7f5adf3b5d9ef637dacd0fcd7017c33f" category="inline-link-macro-rx"></block></block>
+  <block id="d0f49153a0d69289bf4d240d8900efdd" category="list-text"><block ref="d0f49153a0d69289bf4d240d8900efdd" category="inline-link-macro-rx"></block></block>
+  <block id="9e6e068583778aa95480a42c46f57b8a" category="list-text"><block ref="9e6e068583778aa95480a42c46f57b8a" category="inline-link-macro-rx"></block></block>
+  <block id="0746a14ab26f1c77013b1b74f69b0e83" category="list-text"><block ref="0746a14ab26f1c77013b1b74f69b0e83" category="inline-link-macro-rx"></block></block>
+  <block id="7f2906feb9bed8771e4967ea2ed8b648" category="list-text"><block ref="7f2906feb9bed8771e4967ea2ed8b648" category="inline-link-macro-rx"></block></block>
+  <block id="80288d2da91f9794088785363d31b6b5" category="list-text"><block ref="80288d2da91f9794088785363d31b6b5" category="inline-link-macro-rx"></block></block>
 </blocks>
