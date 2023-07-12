@@ -204,7 +204,7 @@ BlueXP备份和恢复支持使用_Azure访问策略_作为权限模型。当前�
 
 默认情况下、该服务会为您创建存储帐户。如果要使用自己的存储帐户、您可以在启动备份激活向导之前创建这些帐户、然后在向导中选择这些存储帐户。
 
-如果您创建自己的存储帐户、则应使用存储帐户名称"NetApp-backup"。
+link:concept-protection-journey.html#do-you-want-to-create-your-own-object-storage-container["了解有关创建自己的存储帐户的更多信息"^]。
 
 
 

@@ -193,18 +193,42 @@ Snapshot策略始终驻留在主存储系统上。
 
 
 
-== 您是否希望服务为您创建云分段
+== 是否要创建自己的对象存储容器
 
-在云存储中创建备份文件时、默认情况下、备份和恢复服务将创建备份文件所在的分段。如果要使用特定名称或分配特殊属性、您可以自行创建分段。如果要创建自己的存储分段、必须在启动激活向导之前创建它。
+在工作环境的对象存储中创建备份文件时、默认情况下、备份和恢复服务会在您配置的对象存储帐户中为备份文件创建容器(存储分段或存储帐户)。默认情况下、AWS或GCP存储分段名为<uuid>"。Azure Blb存储帐户名为<uuid> 301"。
 
-您可以从BlueXP或云提供商创建容器。
+如果要使用特定前缀或分配特殊属性、您可以在对象提供程序帐户中自行创建容器。如果要创建自己的容器、必须在启动激活向导之前创建它。此容器必须专用于存储ONTAP卷备份文件、不能用于任何其他用途。备份激活向导将自动发现选定帐户和凭据的已配置容器、以便您可以选择要使用的容器。
+
+您可以从BlueXP或云提供商创建存储分段。
 
 * https://docs.netapp.com/us-en/bluexp-s3-storage/task-add-s3-bucket.html["从BlueXP创建S3存储分段"]
 * https://docs.netapp.com/us-en/bluexp-blob-storage/task-add-blob-storage.html["从BlueXP创建Azure Blb存储帐户"]
 * https://docs.netapp.com/us-en/bluexp-google-cloud-storage/task-add-gcp-bucket.html["从BlueXP创建Google Cloud Storage分段"]
 
 
-请注意、在StorageGRID系统中创建备份时、不能创建自己的S3存储分段。
+*注意：*目前、在StorageGRID系统中创建备份时、不能使用自己的S3存储分段。
+
+如果您计划使用与"NetApp-backup-xxxxxx"不同的存储分段前缀、则需要修改连接器IAM角色的S3权限。有关详细信息、请参见有关创建备份到AWS S3的主题。
+
+
+
+=== 高级存储分段设置
+
+如果您计划将较早的备份文件移至归档存储、或者计划启用DataLock和勒索软件保护以锁定备份文件并扫描其是否存在可能的勒索软件、则需要使用特定配置设置创建容器：
+
+* 如果在集群上使用ONTAP 9.10.1或更高版本的软件、则AWS S3存储目前支持您自己存储分段上的归档存储。默认情况下、备份从S3 _Standard"存储类开始。确保使用适当的生命周期规则创建存储分段：
++
+** 30天后、将整个分段范围内的对象移动到S3 _Standard" iA_。
+** 将标记为"smm_push tO_archive：true "的对象移动到_Glacier"灵活的Retriiver_(原S3 Glacier）
+
+
+* 如果在集群上使用ONTAP 9.11.1或更高版本的软件、则AWS存储支持DataLock和防抱死软件保护；如果使用ONTAP 9.12.1或更高版本的软件、则Azure存储支持DataLock和防抱死软件保护。
++
+** 对于AWS、您必须在保留期限为30天的存储分段上启用对象锁定。
+** 对于Azure、您需要创建具有版本级不可变形支持的存储类。
+
+
+
 
 
 

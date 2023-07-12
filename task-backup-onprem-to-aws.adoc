@@ -405,7 +405,9 @@ NOTE: 在AWS中国地区创建备份时、您需要将IAM策略中所有_Resourc
 
 默认情况下、该服务会为您创建存储分段。或者、如果要使用自己的存储分段、您可以在启动备份激活向导之前创建这些存储分段、然后在向导中选择这些存储分段。
 
-如果您创建自己的存储分段、则应使用存储分段名称"NetApp-backup"。  如果需要使用自定义名称、请编辑 `ontapcloud-instance-policy-netapp-backup` IAMRole、并将以下列表添加到S3权限中。您需要包括 `“Resource”: “arn:aws:s3:::*”` 并分配需要与存储分段关联的所有必要权限。
+link:concept-protection-journey.html#do-you-want-to-create-your-own-object-storage-container["详细了解如何创建您自己的存储分段"^]。
+
+如果您创建自己的存储分段、则应使用存储分段名称"NetApp-backup"。如果需要使用自定义名称、请编辑 `ontapcloud-instance-policy-netapp-backup` IAMRole、并将以下列表添加到S3权限中。您需要包括 `“Resource”: “arn:aws:s3:::*”` 并分配需要与存储分段关联的所有必要权限。
 
 [%collapsible]
 ====

@@ -4068,7 +4068,6 @@ ifdef：：AWS。</block>
   <block id="12486a40437a6b66be9b1d2eaf68dacb" category="list-text">(可选)使用VPC端点接口为系统配置专用连接。</block>
   <block id="27481ab02cd2907ee58a87a01de37de2" category="list-text">激活此服务后、备份向导将提示您输入访问密钥和机密密钥。这些凭据将传递到 ONTAP 集群，以便 ONTAP 可以将数据备份和还原到 S3 存储分段。为此，您需要创建具有以下权限的 IAM 用户。</block>
   <block id="b4bc25d0b351437deb290fa50a36f062" category="paragraph">请参见<block ref="eb8d2636cc0b0f2875b50c1561ec0060" category="inline-link-rx"></block>。</block>
-  <block id="c181b492b4cbf6c3d96c1bf33c267105" category="paragraph">如果您创建自己的存储分段、则应使用存储分段名称"NetApp-backup"。  如果需要使用自定义名称、请编辑<block ref="36f2cf0d90ddea374df0d9a8b6aa6300" prefix=" " category="inline-code"></block> IAMRole、并将以下列表添加到S3权限中。您需要包括<block ref="a99022ed92fce54cbefc53cc3a7bb0a9" prefix=" " category="inline-code"></block> 并分配需要与存储分段关联的所有必要权限。</block>
   <block id="50b086f5a622de5e2ad8e86ada10bc12" category="paragraph">"操作"：[
     "S3：ListBucket"
     "S3：GetBucketLocation"
@@ -4178,16 +4177,12 @@ ifdef：：AWS。</block>
   <block id="db270565c8d27ceb4c560fb612e8c79b" category="cell">轻松复制到另一个存储系统</block>
   <block id="0031f3e3980ee36e7bce67e4ab330050" category="cell"><block ref="d729ae243e35ecc21969b4027e0429a7" prefix="" category="inline-code"></block><block ref="f6518963bbee054e787a4ec64472f9d7" prefix=" " category="inline-code"></block></block>
   <block id="898eebeb49b344efac276efd814f5bab" category="admonition">只有存储策略才能用于备份到云关系。</block>
-  <block id="b525581d2726f992cf12f5fa0b914e9a" category="section-title">您是否希望服务为您创建云分段</block>
-  <block id="c33f69aaef2c584909007df275ae924e" category="paragraph">在云存储中创建备份文件时、默认情况下、备份和恢复服务将创建备份文件所在的分段。如果要使用特定名称或分配特殊属性、您可以自行创建分段。如果要创建自己的存储分段、必须在启动激活向导之前创建它。</block>
-  <block id="1f93482e7ce1539102ce8afbda0eec16" category="paragraph">您可以从BlueXP或云提供商创建容器。</block>
   <block id="7f9581f916c410bb9712768248a5f8a2" category="inline-link">从BlueXP创建S3存储分段</block>
   <block id="bb967ee5957dc55c35085365e29e2925" category="list-text"><block ref="bb967ee5957dc55c35085365e29e2925" category="inline-link-rx"></block></block>
   <block id="5053e38dd4555ef7b16b9071608bc37f" category="inline-link">从BlueXP创建Azure Blb存储帐户</block>
   <block id="87e23f726d6daf4192ff45e6d5c8318e" category="list-text"><block ref="87e23f726d6daf4192ff45e6d5c8318e" category="inline-link-rx"></block></block>
   <block id="60983b9ebaa7c40f57184dcb60af2fc0" category="inline-link">从BlueXP创建Google Cloud Storage分段</block>
   <block id="5e91843f25a40c882d43652a02c8f50e" category="list-text"><block ref="5e91843f25a40c882d43652a02c8f50e" category="inline-link-rx"></block></block>
-  <block id="d8d588d7dcaf874629ffb1141c68dfad" category="paragraph">请注意、在StorageGRID系统中创建备份时、不能创建自己的S3存储分段。</block>
   <block id="bd83bdfad11f4eb2160cecbaafa5771f" category="section-title">您使用的是哪种BlueXP Connector部署模式</block>
   <block id="4b758548b6a16028d0d7c1e443c285bd" category="paragraph">如果您已经在使用BlueXP管理存储、则表示已安装BlueXP Connector。如果您计划将同一个Connector与BlueXP备份和恢复结合使用、则一切都准备就绪。如果您需要使用其他Connector、则需要在开始备份和恢复实施之前安装它。</block>
   <block id="40f7e0f171ae7f38e670d73e8a4c284b" category="paragraph">BlueXP提供了多种部署模式、使您能够以满足业务和安全要求的方式使用BlueXP。_Standard mode"利用BlueXP SaaS层提供完整功能、而_restricted mode"和_private mode"则可供具有连接限制的组织使用。</block>
@@ -4270,8 +4265,6 @@ ifdef：：AWS。</block>
   <block id="6d50e6cd9c195849ff4bcb523527fb42" category="paragraph">请注意、只有运行ONTAP 9.8或更高版本的集群才支持此新功能和用户界面。如果集群使用的是早期版本的软件、则可以继续使用先前版本的BlueXP备份和恢复。但是、我们建议您升级到受支持的ONTAP版本、以获得最新特性和功能。要继续使用旧版软件、请执行以下步骤：</block>
   <block id="cbce457a0f1d693a7ec8fdef080284e8" category="list-text">在_Backup Settings_页面中，单击*显示先前BlueXP备份和恢复版本*的单选按钮。</block>
   <block id="6ad80584a8fba3d1fc876fd412e2b184" category="paragraph">然后、您可以使用先前版本的软件管理旧集群。</block>
-  <block id="098acc7a6e2aef2e0ffd66cabdde369e" category="section-title">能够创建存储分段以备份到对象存储</block>
-  <block id="7882c4532e24f1cac41cc043cde436b7" category="paragraph">在对象存储中创建备份文件时、默认情况下、备份和恢复服务会在对象存储中为您创建分段。如果要使用特定名称或分配特殊属性、您可以自行创建分段。如果要创建自己的存储分段、必须在启动激活向导之前创建它。</block>
   <block id="ea600ff03360da539b9cf2f109798fac" category="paragraph">在将备份文件创建备份到StorageGRID系统时、当前不支持此功能。</block>
   <block id="f717a77f4fa4c437e114a568e845c80e" category="sidebar">管理集群级别的对象备份设置</block>
   <block id="a7b1a9069e674c0aac2afe848aefc5a0" category="sidebar">在其他卷上启用卷备份</block>
@@ -4295,7 +4288,6 @@ ifdef：：AWS。</block>
   <block id="45b54b60106a7f59e33240f6ddaac7e1" category="list-text">从BlueXP菜单栏中、选择(<block ref="df7c8a71ca3da4359e40e121f18f87b9" category="inline-image-macro-rx" type="image"></block>）。</block>
   <block id="5beb7331041291762b098f18521055a9" category="list-text">查看通知。</block>
   <block id="07412ae70c8f432b19c5d424dc630dcf" category="paragraph">默认情况下、该服务会为您创建存储分段。如果要使用自己的分段、可以在启动备份激活向导之前创建这些分段、然后在向导中选择这些分段。</block>
-  <block id="5ea0826986e3031f8bd8e643d1b37ce9" category="paragraph">如果您创建自己的存储分段、则应使用存储分段名称"NetApp-backup"。</block>
   <block id="b79f5207c4b1f2d320c8d5fe3eb33f63" category="paragraph">实例的安全组必须包含所需的入站和出站规则：具体来说，是 ICMP 以及端口 11104 和 11105 的规则。这些规则包括在预定义的安全组中。</block>
   <block id="e9926e61defd3a286477d3a785a7fd6a" category="paragraph">由于您可以复制到Cloud Volumes ONTAP或内部系统、因此请查看内部ONTAP系统的对等要求。<block ref="f62b93c20d5bac3c11ab8a3b52ce12c9" category="inline-link-rx"></block>。</block>
   <block id="d39d5fd7cc5ced3c60a045dedddc0e68" category="inline-link-macro">在要保护的每个卷上激活备份</block>
@@ -4311,7 +4303,6 @@ ifdef：：AWS。</block>
   <block id="bda2bf5fb0b6ef0e110cf67c341d2f58" category="paragraph">您需要验证Azure和BlueXP的许可证要求：</block>
   <block id="219920185164037444cf297ee6db557a" category="section-title">创建您的Azure Blb存储帐户</block>
   <block id="f7fd8d98e8242ad43571b2edbb91b9fc" category="paragraph">默认情况下、该服务会为您创建存储帐户。如果要使用自己的存储帐户、您可以在启动备份激活向导之前创建这些帐户、然后在向导中选择这些存储帐户。</block>
-  <block id="83da16eb347a649074af6b8a1c3d92ae" category="paragraph">如果您创建自己的存储帐户、则应使用存储帐户名称"NetApp-backup"。</block>
   <block id="1de16ec5bb8b26ffbf7189e724790630" category="paragraph">概括地说、以下是您可以为ONTAP工作环境中的卷创建的有效保护流：</block>
   <block id="62fab0bd5cf92ab36f27224d46c5f233" category="paragraph">扇出*架构将Snapshot副本独立传输到目标存储系统和云中的备份对象。</block>
   <block id="f47293eaa2dd8607290525b210ac8d72" category="paragraph">级联*架构首先将Snapshot副本传输到目标存储系统、然后该系统将副本传输到云中的备份对象。</block>
@@ -4351,4 +4342,26 @@ ifdef：：AWS。</block>
   <block id="0746a14ab26f1c77013b1b74f69b0e83" category="list-text"><block ref="0746a14ab26f1c77013b1b74f69b0e83" category="inline-link-macro-rx"></block></block>
   <block id="7f2906feb9bed8771e4967ea2ed8b648" category="list-text"><block ref="7f2906feb9bed8771e4967ea2ed8b648" category="inline-link-macro-rx"></block></block>
   <block id="80288d2da91f9794088785363d31b6b5" category="list-text"><block ref="80288d2da91f9794088785363d31b6b5" category="inline-link-macro-rx"></block></block>
+  <block id="7b3832e95a7a86d887ed057a6b56114c" category="inline-link-macro">详细了解如何创建您自己的存储分段</block>
+  <block id="594ef985d417f60832e167b7a55944ba" category="paragraph"><block ref="90242aed4d9e662a807d0696ac4bc7d5" category="inline-link-macro-rx"></block>。</block>
+  <block id="11a8a2e103fceba512eb133362ab467a" category="inline-link-macro">了解有关创建自己的存储帐户的更多信息</block>
+  <block id="b1864ef3e1c982ea79e143744ce2e778" category="paragraph"><block ref="5168b6a061fd7575c70ed688cdecff09" category="inline-link-macro-rx"></block>。</block>
+  <block id="24c3f29f7b3c09228614448507eb27eb" category="paragraph">如果您创建自己的存储分段、则应使用存储分段名称"NetApp-backup"。如果需要使用自定义名称、请编辑<block ref="36f2cf0d90ddea374df0d9a8b6aa6300" prefix=" " category="inline-code"></block> IAMRole、并将以下列表添加到S3权限中。您需要包括<block ref="a99022ed92fce54cbefc53cc3a7bb0a9" prefix=" " category="inline-code"></block> 并分配需要与存储分段关联的所有必要权限。</block>
+  <block id="28543445b2c93df38084996ffc019a63" category="section-title">是否要创建自己的对象存储容器</block>
+  <block id="44f63148cdcdb30b0f9a4cc99944e0cb" category="paragraph">在工作环境的对象存储中创建备份文件时、默认情况下、备份和恢复服务会在您配置的对象存储帐户中为备份文件创建容器(存储分段或存储帐户)。默认情况下、AWS或GCP存储分段名为&lt;uuid&gt;"。Azure Blb存储帐户名为&lt;uuid&gt; 301"。</block>
+  <block id="f108f3b7f4cf5d3e79e581222e60586a" category="paragraph">如果要使用特定前缀或分配特殊属性、您可以在对象提供程序帐户中自行创建容器。如果要创建自己的容器、必须在启动激活向导之前创建它。此容器必须专用于存储ONTAP卷备份文件、不能用于任何其他用途。备份激活向导将自动发现选定帐户和凭据的已配置容器、以便您可以选择要使用的容器。</block>
+  <block id="e7be09e6760b058dbc55a8f59678d720" category="paragraph">您可以从BlueXP或云提供商创建存储分段。</block>
+  <block id="fa607f821bebd63b2cbc202d7f3eabec" category="paragraph">*注意：*目前、在StorageGRID系统中创建备份时、不能使用自己的S3存储分段。</block>
+  <block id="2c76e45b50bb40cc15881a2f246e3c52" category="paragraph">如果您计划使用与"NetApp-backup-xxxxxx"不同的存储分段前缀、则需要修改连接器IAM角色的S3权限。有关详细信息、请参见有关创建备份到AWS S3的主题。</block>
+  <block id="85786e7ce9ad7b76a9107e6fc8914215" category="section-title">高级存储分段设置</block>
+  <block id="0cacb53d99c416f2596b0157ce4f280d" category="paragraph">如果您计划将较早的备份文件移至归档存储、或者计划启用DataLock和勒索软件保护以锁定备份文件并扫描其是否存在可能的勒索软件、则需要使用特定配置设置创建容器：</block>
+  <block id="82ca9ca8a32b3a5b525d7ba630040a08" category="list-text">如果在集群上使用ONTAP 9.10.1或更高版本的软件、则AWS S3存储目前支持您自己存储分段上的归档存储。默认情况下、备份从S3 _Standard"存储类开始。确保使用适当的生命周期规则创建存储分段：</block>
+  <block id="3d7057c39307e6a609e1b9cdaa358d36" category="list-text">30天后、将整个分段范围内的对象移动到S3 _Standard" iA_。</block>
+  <block id="2941442c0abac11ede27eaf951f43a66" category="list-text">将标记为"smm_push tO_archive：true "的对象移动到_Glacier"灵活的Retriiver_(原S3 Glacier）</block>
+  <block id="5659d14ca79ef74b1e0df2b8ec78dfc0" category="list-text">如果在集群上使用ONTAP 9.11.1或更高版本的软件、则AWS存储支持DataLock和防抱死软件保护；如果使用ONTAP 9.12.1或更高版本的软件、则Azure存储支持DataLock和防抱死软件保护。</block>
+  <block id="d1e78885195470cf33cb8f9291c0bba6" category="list-text">对于AWS、您必须在保留期限为30天的存储分段上启用对象锁定。</block>
+  <block id="bc8f2392396da79157f4c431c6896bbc" category="list-text">对于Azure、您需要创建具有版本级不可变形支持的存储类。</block>
+  <block id="e2f760131280f3fd361a50b428c7b92d" category="section-title">能够创建用于备份到对象存储的存储容器</block>
+  <block id="414c40dd827c6738286ee0b333e39456" category="inline-link">了解如何创建对象存储分段</block>
+  <block id="debda728f2e9b255111b127aed9dc8fd" category="paragraph">在对象存储中创建备份文件时、默认情况下、备份和恢复服务会在对象存储中为您创建分段。如果要使用特定名称或分配特殊属性、您可以自行创建分段。如果要创建自己的存储分段、必须在启动激活向导之前创建它。<block ref="2d2a00fa0eeaa888f8c689ec67e16ffe" category="inline-link-rx"></block>。</block>
 </blocks>
