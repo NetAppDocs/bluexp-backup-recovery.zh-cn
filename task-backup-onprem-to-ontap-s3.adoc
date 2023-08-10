@@ -1,0 +1,440 @@
+---
+sidebar: sidebar 
+permalink: task-backup-onprem-to-ontap-s3.html 
+keywords: backing up, back up, backup, backup on-prem ontap, on-prem, on-premises, back up volumes, cloud backup, ontap s3 
+summary: '完成几个步骤即可开始从内部ONTAP主系统备份卷数据。您可以将备份发送到二级ONTAP存储系统(复制的卷)或配置为S3服务器的ONTAP系统上的存储分段(备份文件)、也可以同时发送到这两者。' 
+---
+= 将内部ONTAP数据备份到ONTAP S3
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+完成几个步骤即可开始从内部ONTAP主系统备份卷数据。您可以将备份发送到二级ONTAP存储系统(复制的卷)或配置为S3服务器的ONTAP系统上的存储分段(备份文件)、也可以同时发送到这两者。
+
+主内部ONTAP系统可以是FAS、AFF或ONTAP Select系统。二级ONTAP系统可以是内部ONTAP或Cloud Volumes ONTAP系统。对象存储可以位于已启用简单存储服务(S3)对象存储服务器的内部ONTAP系统或Cloud Volumes ONTAP系统上。
+
+
+
+== 快速入门
+
+按照以下步骤快速入门。本主题的以下各节提供了每个步骤的详细信息。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"] 确定要使用的连接方法
+[role="quick-margin-para"]
+查看如何将内部主ONTAP集群连接到二级ONTAP集群进行复制、以及连接到配置为S3服务器的ONTAP集群以备份到对象存储。
+
+[role="quick-margin-para"]
+<<确定连接方法,确定连接方法。>>
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"] 准备您的BlueXP Connector
+[role="quick-margin-para"]
+如果您已经部署BlueXP Connector、则一切都准备就绪。如果没有、则需要创建BlueXP连接器将ONTAP数据备份到ONTAP S3。您还需要自定义连接器的网络设置、以便它可以连接到ONTAP S3。
+
+[role="quick-margin-para"]
+<<准备您的BlueXP Connector,了解如何创建Connector以及如何定义所需的网络设置。>>
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三个"] 验证许可证要求
+[role="quick-margin-para"]
+您需要检查ONTAP系统以及BlueXP备份和恢复的许可证要求。
+
+[role="quick-margin-para"]
+<<验证许可证要求,验证许可证要求。>>
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"] 准备ONTAP集群
+[role="quick-margin-para"]
+在BlueXP中发现主集群和二级ONTAP集群、验证这些集群是否满足最低要求、并自定义网络设置、以便这些集群可以连接到ONTAP S3对象存储。
+
+[role="quick-margin-para"]
+<<准备ONTAP集群,了解如何让ONTAP集群做好准备。>>
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["五个"] 准备ONTAP S3作为备份目标
+[role="quick-margin-para"]
+设置连接器的权限、使其可以管理ONTAP S3存储分段。您还需要为源内部ONTAP集群设置权限、以便它可以向ONTAP S3存储分段读写数据。
+
+[role="quick-margin-para"]
+<<准备ONTAP S3作为备份目标,了解如何让您的ONTAP S3环境做好接收ONTAP备份的准备。>>
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["六个"] 激活ONTAP卷上的备份
+[role="quick-margin-para"]
+选择主工作环境，然后单击右面板中备份和恢复服务旁边的*启用>备份卷*。然后、按照设置向导选择要备份的卷、以及要使用的Snapshot、复制和备份到对象策略。
+
+[role="quick-margin-para"]
+<<激活ONTAP卷上的备份,激活ONTAP卷上的备份。>>
+
+
+
+== 确定连接方法
+
+在许多配置中、您可以创建备份到ONTAP系统上的S3存储分段。下面显示了两种情形。
+
+下图显示了将主内部ONTAP系统备份到针对S3配置的内部ONTAP系统时的每个组件、以及在这些组件之间需要准备的连接。它还显示了与同一内部位置的二级ONTAP系统的连接、用于复制卷。
+
+image:diagram_cloud_backup_onprem_ontap_s3.png["一个示意图、显示了BlueXP备份和恢复如何与备份文件所在的源系统和目标存储上的卷进行通信。"]
+
+如果连接器和主内部部署ONTAP系统安装在无法访问Internet的内部位置("专用"模式部署)、则ONTAP S3系统必须位于同一内部部署数据中心。
+
+下图显示了将内部主ONTAP系统备份到针对S3配置的Cloud Volumes ONTAP系统时的每个组件、以及在这些组件之间需要准备的连接。此外、它还会显示与同一云提供商环境中的二级Cloud Volumes ONTAP系统的连接、以便复制卷。
+
+image:diagram_cloud_backup_onprem_ontap_s3_cloud.png["一个示意图、显示了BlueXP备份和恢复如何与备份文件所在的源系统和目标存储上的卷进行通信。"]
+
+在这种情况下、连接器应部署在部署Cloud Volumes ONTAP系统的同一云提供商环境中。
+
+
+
+== 准备您的BlueXP Connector
+
+BlueXP Connector是BlueXP功能的主要软件。需要使用连接器来备份和还原 ONTAP 数据。
+
+
+
+=== 创建或切换连接器
+
+将数据备份到ONTAP S3时、BlueXP连接器必须位于内部环境或云中。您需要安装一个新的连接器、或者确保当前选定的连接器驻留在这些位置之一。内部连接器可以安装在可以访问Internet或不访问Internet的站点中。
+
+* https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["了解连接器"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html#how-to-create-a-connector["在云环境中安装Connector"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-on-prem.html["在可访问 Internet 的 Linux 主机上安装 Connector"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html["在无法访问 Internet 的 Linux 主机上安装 Connector"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html["在连接器之间切换"^]
+
+
+
+
+=== 准备连接器网络连接要求
+
+确保安装 Connector 的网络启用以下连接：
+
+* 通过端口443与ONTAP S3服务器建立HTTPS连接
+* 通过端口443与源ONTAP集群管理LIF建立HTTPS连接
+* 通过端口443到BlueXP备份和恢复的出站Internet连接(在"非公开"站点中安装Connector时不需要)
+
+
+
+
+==== 私有模式(非公开站点)注意事项
+
+BlueXP备份和恢复功能内置在BlueXP Connector中。在私有模式下安装时、您需要定期更新Connector软件才能访问新功能。检查 link:whats-new.html["BlueXP备份和恢复新增功能"] 以查看每个BlueXP备份和恢复版本中的新功能。如果要使用这些新功能、请按照步骤执行操作 https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html#upgrade-the-connector-when-using-private-mode["升级 Connector 软件"^]。
+
+在标准SaaS环境中使用BlueXP备份和恢复时、BlueXP备份和恢复配置数据会备份到云中。在无法访问Internet的站点中使用BlueXP备份和恢复时、BlueXP备份和恢复配置数据会备份到存储备份的ONTAP S3存储分段。如果您的专用模式站点中发生连接器故障、您可以这样做 link:reference-backup-cbs-db-in-dark-site.html["将BlueXP备份和恢复数据还原到新Connector"^]。
+
+
+
+== 验证许可证要求
+
+在为集群激活BlueXP备份和恢复之前、您需要从NetApp购买并激活BlueXP备份和恢复BYOL许可证。此许可证用于备份和还原到对象存储—创建Snapshot副本或复制的卷不需要许可证。此许可证适用于帐户，可在多个系统中使用。
+
+您需要 NetApp 提供的序列号，以便在许可证有效期和容量内使用此服务。 link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["了解如何管理 BYOL 许可证"]。
+
+
+TIP: 将文件备份到ONTAP S3时、不支持PAYGO许可。
+
+
+
+== 准备ONTAP集群
+
+您需要准备源内部ONTAP系统和任何二级内部ONTAP或Cloud Volumes ONTAP系统。
+
+准备ONTAP集群包括以下步骤：
+
+* 在BlueXP中发现ONTAP系统
+* 验证ONTAP系统要求
+* 验证将数据备份到对象存储时的ONTAP网络要求
+* 验证复制卷的ONTAP网络要求
+
+
+
+
+=== 在BlueXP中发现ONTAP系统
+
+BlueXP Canvas上必须提供源内部ONTAP系统和任何二级内部ONTAP或Cloud Volumes ONTAP系统。
+
+要添加集群，您需要知道集群管理 IP 地址和管理员用户帐户的密码。
+https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["了解如何发现集群"^]。
+
+
+
+=== 验证ONTAP系统要求
+
+确保满足以下ONTAP要求：
+
+* 最低版本为ONTAP 9.8；建议使用ONTAP 9.8P13及更高版本。
+* SnapMirror 许可证（作为超值包或数据保护包的一部分提供）。
++
+*注意：*使用BlueXP备份和恢复时、不需要"混合云捆绑包"。
+
++
+了解操作方法 https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["管理集群许可证"^]。
+
+* 已正确设置时间和时区。了解操作方法 https://docs.netapp.com/us-en/ontap/system-admin/manage-cluster-time-concept.html["配置集群时间"^]。
+* 如果要复制数据、则应在复制数据之前验证源系统和目标系统是否运行兼容的ONTAP版本。
++
+https://docs.netapp.com/us-en/ontap/data-protection/compatible-ontap-versions-snapmirror-concept.html["查看 SnapMirror 关系的兼容 ONTAP 版本"^]。
+
+
+
+
+
+=== 验证将数据备份到对象存储时的ONTAP网络要求
+
+您必须确保连接到对象存储的系统满足以下要求。
+
+[NOTE]
+====
+* 使用扇出备份架构时、必须在_primary_storage系统上配置这些设置。
+* 使用级联备份架构时、必须在_Secondary _存储系统上配置这些设置。
++
+link:concept-protection-journey.html#which-backup-architecture-will-you-use["详细了解备份架构的类型"^]。
+
+
+
+====
+需要满足以下ONTAP集群网络连接要求：
+
+* ONTAP集群会通过用户指定的端口启动从集群间LIF到ONTAP S3服务器的HTTPS连接、以执行备份和还原操作。此端口可在备份设置期间进行配置。
++
+ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会启动，而只是响应。
+
+* ONTAP 需要从连接器到集群管理 LIF 的入站连接。
+* 托管要备份的卷的每个 ONTAP 节点都需要一个集群间 LIF 。LIF 必须与 _IP 空间 _ 关联， ONTAP 应使用此 _IP 空间 _ 连接到对象存储。 https://docs.netapp.com/us-en/ontap/networking/standard_properties_of_ipspaces.html["了解有关 IP 空间的更多信息"^]。
++
+设置BlueXP备份和恢复时、系统会提示您使用IP空间。您应选择与每个 LIF 关联的 IP 空间。这可能是您创建的 " 默认 "IP 空间或自定义 IP 空间。
+
+* 节点的集群间 LIF 可以访问对象存储（如果在 " 非公开 " 站点中安装了 Connector ，则不需要）。
+* 已为卷所在的 Storage VM 配置 DNS 服务器。请参见操作说明 https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html["为 SVM 配置 DNS 服务"^]。
+* 如果您使用的IP空间与默认IP空间不同、则可能需要创建静态路由才能访问对象存储。
+* 如有必要、请更新防火墙规则、以允许通过您指定的端口(通常为端口443)从ONTAP 到对象存储的BlueXP备份和恢复服务连接、并允许通过端口53 (TCP/UDP)从Storage VM到DNS服务器的名称解析流量。
+
+
+
+
+=== 验证复制卷的ONTAP网络要求
+
+在BlueXP备份和恢复中激活备份之前、请确保源系统和目标系统满足以下网络连接要求。
+
+
+
+==== Cloud Volumes ONTAP网络连接要求
+
+实例的安全组必须包含所需的入站和出站规则：具体来说，是 ICMP 以及端口 11104 和 11105 的规则。这些规则包括在预定义的安全组中。
+
+
+
+==== 内部ONTAP网络要求
+
+* 如果集群位于您的内部环境中、则您应在企业网络与云提供商中的虚拟网络之间建立连接。这通常是一个 VPN 连接。
+* ONTAP 集群必须满足其他子网、端口、防火墙和集群要求。
++
+由于您可以复制到Cloud Volumes ONTAP或内部系统、因此请查看内部ONTAP系统的对等要求。 https://docs.netapp.com/us-en/ontap-sm-classic/peering/reference_prerequisites_for_cluster_peering.html["在 ONTAP 文档中查看集群对等的前提条件"^]。
+
+
+
+
+
+== 准备ONTAP S3作为备份目标
+
+您必须在计划用于对象存储备份的ONTAP集群中启用简单存储服务(S3)对象存储服务器。请参见 https://docs.netapp.com/us-en/ontap/s3-config/index.html["ONTAP S3文档"^] 了解详细信息。
+
+*注意：*您可以在BlueXP Canvas中发现此集群、但它未标识为S3对象存储服务器、并且您无法将源工作环境拖放到此S3工作环境中来启动备份激活。
+
+此ONTAP系统必须满足以下要求。
+
+支持的 ONTAP 版本:: 内部ONTAP系统需要使用ONTAP 9.8及更高版本。
+Cloud Volumes ONTAP系统需要使用ONTAP 9.9.1及更高版本。
+S3 凭据:: 您必须已创建S3用户才能控制对ONTAP S3存储的访问。 https://docs.netapp.com/us-en/ontap/s3-config/create-s3-user-task.html["有关详细信息、请参见ONTAP S3文档"^]。
++
+--
+在设置到ONTAP S3的备份时、备份向导会提示您为用户帐户输入S3访问密钥和机密密钥。通过用户帐户、BlueXP备份和恢复功能可以对用于存储备份的ONTAP S3存储分段进行身份验证和访问。这些密钥是必需的、以便ONTAP S3知道发出请求的人员。
+
+这些访问密钥必须与具有以下权限的用户相关联：
+
+[source, json]
+----
+"s3:ListAllMyBuckets",
+"s3:ListBucket",
+"s3:GetObject",
+"s3:PutObject",
+"s3:DeleteObject",
+"s3:CreateBucket"
+----
+--
+
+
+
+
+== 激活ONTAP卷上的备份
+
+随时直接从内部工作环境激活备份。
+
+向导将引导您完成以下主要步骤：
+
+* 选择要备份的卷
+* 定义备份策略和策略
+* 查看您的选择
+
+
+您也可以 <<显示API命令>> 在审核步骤中、这样您就可以复制代码、以便为未来的工作环境自动激活备份。
+
+
+
+=== 启动向导
+
+.步骤
+. 使用以下方式之一访问激活备份和恢复向导：
++
+** 从BlueXP画布中、选择工作环境、然后在右侧面板中的备份和恢复服务旁边选择*启用>备份卷*。
+** 在备份和恢复栏中选择*卷*。从卷选项卡中，选择*操作(...)*选项，然后为单个卷(尚未启用复制或备份到对象存储)选择*激活备份*。
+
+
++
+向导的简介页面显示了保护选项、包括本地Snapshot、复制和备份。如果您执行了此步骤中的第二个选项、则会显示Define Backup Strategy"页面、并选择一个卷。
+
+. 继续执行以下选项：
++
+** 如果您已经拥有BlueXP Connector、则一切都已准备就绪。只需选择*下一步*。
+** 如果您没有BlueXP Connector，将显示*Add a Connecter*选项。请参见 <<准备您的BlueXP Connector>>。
+
+
+
+
+
+
+=== 选择要备份的卷
+
+选择要保护的卷。受保护卷是指具有以下一项或多项内容的卷：Snapshot策略、复制策略、备份到对象策略。
+
+您可以选择保护FlexVol或FlexGroup卷；但是、在为工作环境激活备份时、不能混合选择这些卷。请参见操作说明 link:task-manage-backups-ontap.html#activate-backup-on-additional-volumes-in-a-working-environment["为工作环境中的其他卷激活备份"] (FlexVol或FlexGroup)。
+
+[NOTE]
+====
+* 一次只能在一个FlexGroup卷上激活备份。
+* 您选择的卷必须具有相同的SnapLock设置。所有卷都必须启用SnapLock Enterprise或禁用SnapLock。(当前不支持采用SnapLock合规性模式的卷。)
+
+
+====
+.步骤
+请注意、如果您选择的卷已应用Snapshot或复制策略、则您稍后选择的策略将覆盖这些现有策略。
+
+. 在选择卷页面中、选择要保护的一个或多个卷。
++
+** (可选)筛选行以仅显示具有特定卷类型、样式等的卷、以便于选择。
+** 选择第一个卷后、您可以选择所有FlexVol卷(一次只能选择一个FlexGroup卷)。要备份所有现有FlexVol卷、请先选中一个卷、然后选中标题行中的框。（image:button_backup_all_volumes.png[""]）。
+** 要备份单个卷，请选中每个卷对应的框（image:button_backup_1_volume.png[""]）。
+
+
+. 选择 * 下一步 * 。
+
+
+
+
+=== 定义备份策略
+
+定义备份策略涉及配置以下选项：
+
+* 保护选项：是要实施一个还是所有备份选项：本地快照、复制和备份到对象存储
+* 架构：是要使用扇出还是级联备份架构
+* 本地Snapshot策略
+* 复制目标和策略
+* 备份到对象存储信息(提供程序、加密、网络连接、备份策略和导出选项)。
+
+
+.步骤
+. 在"Define Backup Strategy"页面中、选择以下一项或全部。默认情况下、所有这三个选项均处于选中状态：
++
+** *本地Snapshot *：创建本地Snapshot副本。
+** *复制*：在另一个ONTAP存储系统上创建复制的卷。
+** *Backup*：将卷备份到为S3配置的ONTAP系统上的存储分段。
+
+
+. *体系结构*：如果选择了复制和备份，请选择以下信息流之一：
++
+** *级联*：备份数据从主系统流向二级系统、然后从二级系统流向对象存储。
+** *扇出*：备份数据从主存储流向二级系统_and_从主存储流向对象存储。
++
+有关这些架构的详细信息、请参见 link:concept-protection-journey.html#which-backup-architecture-will-you-use["规划您的保护之旅"]。
+
+
+
+. *本地Snap照*：选择现有Snapshot策略。
++
+
+TIP: 如果要创建自定义策略、可以使用System Manager或ONTAP命令行界面 `snapmirror policy create` 命令：请参见。
+
+. *复制*：如果选择了*复制*，请设置以下选项：
++
+** *复制目标*：选择目标工作环境和SVM。(可选)选择目标聚合(或FlexGroup卷的聚合)以及要添加到复制的卷名称中的前缀或后缀。
+** *复制策略*：选择现有复制策略。
+
+
+. *备份到对象*：如果选择了*Backup*，请设置以下选项：
++
+** *Provider*：选择ONTAP S3*。
+** *提供程序设置*：输入S3服务器FQDN详细信息、端口以及用户的访问密钥和机密密钥。
++
+访问密钥和机密密钥是为 ONTAP 集群授予对 S3 存储分段访问权限而创建的用户提供的。
+
+** *网络连接*：在源ONTAP集群中选择要备份的卷所在的IP空间。此 IP 空间的集群间 LIF 必须具有出站 Internet 访问权限（在 " 非公开 " 站点中安装 Connector 时不需要）。
++
+
+TIP: 选择正确的IP空间可确保BlueXP备份和恢复可以设置从ONTAP到ONTAP S3对象存储的连接。
+
+** *备份策略*：选择现有备份策略。
++
+
+TIP: 如果要创建自定义策略、可以使用System Manager或ONTAP命令行界面 `snapmirror policy create` 命令：请参见。
+
+
+
++
+** *将现有Snapshot副本作为备份文件导出到对象存储*：如果此工作环境中的卷具有与您刚刚选择的备份计划标签(例如每日、每周等)匹配的任何本地Snapshot副本、则会显示此附加提示。选中此框可将所有历史Snapshot作为备份文件复制到对象存储、以确保对卷进行最全面的保护。
+
+
+. 选择 * 下一步 * 。
+
+
+
+
+=== 查看您的选择
+
+您可以借此机会查看所做的选择、并在必要时进行调整。
+
+.步骤
+. 在Review页面中、查看所做的选择。
+. (可选)选中*自动将Snapshot策略标签与复制和备份策略标签同步*复选框。此操作将创建具有与复制和备份策略中的标签匹配的标签的Snapshot。如果策略不匹配、则不会创建备份。
+. 选择*激活备份*。
+
+
+.结果
+BlueXP备份和恢复开始对卷进行初始备份。复制的卷和备份文件的基线传输包括源数据的完整副本。后续传输会包含Snapshot副本中所含主存储数据的差异副本。
+
+此时将在目标集群中创建一个复制的卷、该卷将与主存储卷同步。
+
+系统会在您输入的S3访问密钥和机密密钥所指示的服务帐户中创建S3存储分段、并将备份文件存储在该帐户中。
+
+此时将显示卷备份信息板，以便您可以监控备份的状态。
+
+您还可以使用监控备份和还原作业的状态 link:task-monitor-backup-jobs.html["作业监控面板"^]。
+
+
+
+=== 显示API命令
+
+您可能希望显示并(可选)复制激活备份和恢复向导中使用的API命令。您可能希望执行此操作、以便在未来工作环境中自动激活备份。
+
+.步骤
+. 从激活备份和恢复向导中，选择*View API Request*。
+. 要将命令复制到剪贴板，请选择*复制*图标。
+
+
+
+
+== 下一步是什么？
+
+* 您可以 link:task-manage-backups-ontap.html["管理备份文件和备份策略"^]。其中包括启动和停止备份、删除备份、添加和更改备份计划等。
+* 您可以 link:task-manage-backup-settings-ontap.html["管理集群级别的备份设置"^]。其中包括更改可用于将备份上传到对象存储的网络带宽、更改未来卷的自动备份设置等。
+* 您也可以 link:task-restore-backups-ontap.html["从备份文件还原卷、文件夹或单个文件"^] 内部部署的ONTAP 系统。
+

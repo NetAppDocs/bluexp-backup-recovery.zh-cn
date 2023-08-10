@@ -97,8 +97,6 @@ Header:
 
 以下示例显示了一个API调用、用于在Azure云的East-US-2区域中的工作环境中激活BlueXP备份和恢复、该策略设置了每日、每小时和每周标签、天数设置为180天后进行归档。请注意、此操作仅在工作环境中启用备份、但不会备份任何卷。
 
-如果选择"auto-backup-enabled"："true"、则系统中已存在的任何卷都将进行备份、并且将来的任何卷也将进行备份。
-
 .API请求
 您将看到我们使用的是BlueXP帐户ID `account-DpTFcxN3`、BlueXP Connector ID `iZwFFeVCZjWnzGlw8RgD0QQNANZvpP7Iclients`和用户令牌 `Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5rSXlPVFUzUWpZek1E…y6nyhBjwkeMwHc4ValobjUmju2x0xUH48g` 在此命令中。
 

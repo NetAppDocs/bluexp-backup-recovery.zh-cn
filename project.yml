@@ -66,6 +66,8 @@ sidebar:
       url: "/task-backup-onprem-to-gcp.html"
     - title: 将内部 ONTAP 备份到 StorageGRID
       url: "/task-backup-onprem-private-cloud.html"
+    - title: 将内部ONTAP备份到ONTAP S3
+      url: "/task-backup-onprem-to-ontap-s3.html"
     - title: 管理 ONTAP 备份
       url: "/task-manage-backups-ontap.html"
     - title: 从 ONTAP 备份还原
@@ -257,6 +259,8 @@ homepage:
       flavor: gcp
     - title: 内部部署 ONTAP 到 StorageGRID
       url: task-backup-onprem-private-cloud.html
+    - title: 内部ONTAP到ONTAP S3
+      url: task-backup-onprem-to-ontap-s3.html
   - title: 管理 ONTAP 备份文件
     links:
     - title: 在其他卷上启用卷备份
@@ -342,6 +346,8 @@ homepage:
       url: https://bluexp.netapp.com/blog/topic/cloud-backup
     - title: BlueXP备份和恢复用例
       url: https://bluexp.netapp.com/cloud-backup
+    - title: BlueXP备份和恢复视频
+      url: https://youtube.com/playlist?list=PLdXI3bZJEw7modoLQEVUHoQ8DJyVk_1wU
     - title: BlueXP网络研讨会
       url: https://bluexp.netapp.com/events
 product-family:

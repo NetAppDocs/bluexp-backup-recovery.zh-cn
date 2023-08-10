@@ -36,7 +36,7 @@ https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["�
 了解操作方法 https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["管理集群许可证"^]。
 
 * 已正确设置时间和时区。了解操作方法 https://docs.netapp.com/us-en/ontap/system-admin/manage-cluster-time-concept.html["配置集群时间"^]。
-* 如果要复制数据、则应在复制数据之前验证源卷和目标卷是否运行兼容的ONTAP版本。
+* 如果要复制数据、则应在复制数据之前验证源系统和目标系统是否运行兼容的ONTAP版本。
 +
 https://docs.netapp.com/us-en/ontap/data-protection/compatible-ontap-versions-snapmirror-concept.html["查看 SnapMirror 关系的兼容 ONTAP 版本"^]。
 

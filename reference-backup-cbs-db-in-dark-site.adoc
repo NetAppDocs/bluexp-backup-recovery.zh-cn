@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: reference-backup-cbs-db-in-dark-site.html 
 keywords: backup database, recover database 
-summary: '在无法访问Internet的站点中使用BlueXP备份和恢复时(称为"专用模式")、BlueXP备份和恢复配置数据将备份到存储备份的StorageGRID存储分段。如果将来您的问题描述与BlueXP Connector主机系统结合使用、则可以部署新的Connector并还原关键的BlueXP备份和恢复数据。' 
+summary: '在无法访问Internet的站点中使用BlueXP备份和恢复时(称为"专用模式")、BlueXP备份和恢复配置数据将备份到存储备份的StorageGRID或ONTAP S3存储分段。如果将来您的问题描述与BlueXP Connector主机系统结合使用、则可以部署新的Connector并还原关键的BlueXP备份和恢复数据。' 
 ---
 = 在非公开站点中还原BlueXP备份和恢复数据
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: '在无法访问Internet的站点中使用BlueXP备份和恢复时(称�
 
 
 [role="lead"]
-在无法访问Internet的站点(称为"专用模式"或"非公开站点")中使用BlueXP备份和恢复时、BlueXP备份和恢复配置数据会备份到存储备份的StorageGRID存储分段。如果将来您的问题描述与BlueXP Connector主机系统结合使用、则可以部署新的Connector并还原关键的BlueXP备份和恢复数据。
+在无法访问Internet的站点中使用BlueXP备份和恢复时(称为"专用模式")、BlueXP备份和恢复配置数据将备份到存储备份的StorageGRID或ONTAP S3存储分段。如果将来您的问题描述与BlueXP Connector主机系统结合使用、则可以部署新的Connector并还原关键的BlueXP备份和恢复数据。
 
 请注意、如果在云提供商处部署了BlueXP Connector的SaaS环境中使用BlueXP备份和恢复、或者在可访问Internet的您自己的主机系统上使用BlueXP备份和恢复、则所有重要的BlueXP备份和恢复配置数据都会在云中进行备份和保护。如果您的问题描述具有连接器、只需创建一个新连接器并添加您的工作环境、备份详细信息就会自动还原。
 
@@ -46,7 +46,7 @@ TIP: BlueXP备份和恢复数据库或索引目录文件中从未包含任何卷
 确认系统恢复正常运行后、建议您创建新的备份文件。
 
 .您需要的内容
-您需要从存储备份文件的StorageGRID存储分段访问最新的数据库和索引备份：
+您需要从存储备份文件的StorageGRID或ONTAP S3存储分段访问最新的数据库和索引备份：
 
 * BlueXP备份和恢复MySQL数据库文件
 +
@@ -131,7 +131,7 @@ unzip Indexed_Catalog_DB_Backup_catalogdb1_23_05_2023.zip -d catalogdb1
 
 === 发现ONTAP 集群和StorageGRID 系统
 
-. https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html#discover-clusters-using-a-connector["了解所有内部ONTAP 工作环境"^] 您先前环境中提供的。
+. https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html#discover-clusters-using-a-connector["了解所有内部ONTAP 工作环境"^] 您先前环境中提供的。这包括您用作S3服务器的ONTAP系统。
 . https://docs.netapp.com/us-en/bluexp-storagegrid/task-discover-storagegrid.html["发现您的StorageGRID 系统"^]。
 
 
