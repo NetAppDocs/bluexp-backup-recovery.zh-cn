@@ -1305,7 +1305,6 @@
   <block id="ea8bcfb1baf19f84e4a5e1f8a744b022" category="list-text">从BlueXP菜单中、选择*保护&gt;备份和恢复*。</block>
   <block id="d24c531f67e59e16184a6f74c9a59f91" category="paragraph">如果要使用此选项、您可以在创建Cloud Volumes ONTAP 工作环境时设置年度合同、并且BlueXP会提示您订阅AWS Marketplace。</block>
   <block id="f68bf28051d836364652b5a91d1bcd3a" category="list-text">输入您的BlueXP帐户ID (在支持站点上称为租户ID)、然后单击*提交*下载许可证文件。</block>
-  <block id="257ff1df6b80ed0bf9b3463d53be79f9" category="paragraph">您可以通过从BlueXP顶部选择*帐户*下拉列表、然后单击您的帐户旁边的*管理帐户*来查找您的BlueXP帐户ID。您的帐户 ID 位于概述选项卡中。</block>
   <block id="8d080a0104c2b8b29f5fc2be913926af" category="list-text">从BlueXP菜单中、单击*监管&gt;数字电子钱包*、然后选择*数据服务许可证*选项卡。</block>
   <block id="bae190eec3db4a0dd635ae72756acde8" category="inline-link">将NSS帐户添加到BlueXP</block>
   <block id="379dea20c8734742bd3f9c78de134135" category="paragraph">如果您看到这些警告、请使用BlueXP界面右下角的聊天图标续订许可证。</block>
@@ -4456,7 +4455,6 @@ ONTAP S3</block>
   <block id="e4cf85fe9c170bcb24ec06be023db892" category="paragraph">您需要从存储备份文件的StorageGRID或ONTAP S3存储分段访问最新的数据库和索引备份：</block>
   <block id="b805aeaea109186b2d372f733c8143b0" category="list-text"><block ref="9b634f22874d44b1e001e536ff14de06" category="inline-link-rx"></block> 您先前环境中提供的。这包括您用作S3服务器的ONTAP系统。</block>
   <block id="ca8395d0f02816c74d48e7e263466096" category="section-title">2023年8月1日</block>
-  <block id="a94cc1f58758ef957ce137579b41fcfe" category="paragraph">由于增强了重要的安全功能、您的Connector现在需要对另外两个端点进行出站Internet访问、以便在公有云环境中管理备份和恢复资源。如果这些端点尚未列入防火墙白名单、您将在UI中看到有关"服务不可用"或"无法确定服务状态"的错误：</block>
   <block id="0d087a4d2e8c88a4f4a80cf0360fd410" category="paragraph">\https://api.cloud.netapp.com
 \https://netapp-cloud-account.auth0.com/userinfo</block>
   <block id="e752fa0925615f823987d88e457d59fd" category="section-title">添加了将卷备份到S3配置的ONTAP系统上的分段的支持</block>
@@ -4474,4 +4472,6 @@ ONTAP S3</block>
   <block id="bf6c8f020a512a9accf77240c1333a16" category="paragraph"><block ref="f412c2e0203811d72b16f88cf9eb5d19" category="inline-link-rx"></block>。</block>
   <block id="f0de192c113fd89f1d8027714c573105" category="sidebar">内部ONTAP到ONTAP S3</block>
   <block id="d09fe30f62c514ce3f7fb2767974cf23" category="sidebar">BlueXP备份和恢复视频</block>
+  <block id="b2263890e0533b772d021294e4d3aa41" category="paragraph">您可以通过从BlueXP顶部选择*帐户*下拉列表、然后单击您的帐户旁边的*管理帐户*来查找您的BlueXP帐户ID。您的帐户 ID 位于概述选项卡中。对于无法访问Internet的专用模式站点，请使用*ACCOUNT-HARKSITE1*。</block>
+  <block id="c098886cae0a337e7ab216f45f15ced7" category="paragraph">由于增强了重要的安全功能、您的Connector现在需要对另外两个端点进行出站Internet访问、以便在公有云环境中管理备份和恢复资源。如果尚未将这些端点添加到防火墙的"允许"列表中、您将在UI中看到有关"服务不可用"或"无法确定服务状态"的错误：</block>
 </blocks>

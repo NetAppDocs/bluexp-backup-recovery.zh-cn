@@ -64,6 +64,8 @@ sidebar:
     - title: 将内部 ONTAP 备份到 Google Cloud
       flavor: gcp
       url: "/task-backup-onprem-to-gcp.html"
+    - title: 将内部ONTAP备份到ONTAP S3
+      url: "/task-backup-onprem-to-ontap-s3.html"
     - title: 将内部 ONTAP 备份到 StorageGRID
       url: "/task-backup-onprem-private-cloud.html"
     - title: 将内部ONTAP备份到ONTAP S3
@@ -257,6 +259,8 @@ homepage:
     - title: 内部部署 ONTAP 到 Google Cloud
       url: task-backup-onprem-to-gcp.html
       flavor: gcp
+    - title: 内部ONTAP到ONTAP S3
+      url: task-backup-onprem-to-ontap-s3.html
     - title: 内部部署 ONTAP 到 StorageGRID
       url: task-backup-onprem-private-cloud.html
     - title: 内部ONTAP到ONTAP S3
