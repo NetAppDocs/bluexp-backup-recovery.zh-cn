@@ -34,7 +34,7 @@ NOTE: "内部ONTAP系统"包括FAS、AFF和ONTAP Select系统。
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"] 准备您的BlueXP Connector
 [role="quick-margin-para"]
-如果您已经在Google Cloud或内部部署了Connector、则一切都准备就绪。如果没有、则需要创建BlueXP连接器将ONTAP数据备份到Google Cloud存储。您还需要自定义Connector的网络设置、以便它可以连接到Google Cloud。
+如果您已在Google Cloud Platform VPC中部署了Connector、则可以随时完成所有操作。如果没有、则需要创建BlueXP连接器将ONTAP数据备份到Google Cloud存储。您还需要自定义Connector的网络设置、以便它可以连接到Google Cloud。
 
 [role="quick-margin-para"]
 <<准备您的BlueXP Connector,了解如何创建Connector以及如何定义所需的网络设置。>>
