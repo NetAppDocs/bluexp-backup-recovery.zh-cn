@@ -157,7 +157,6 @@ Connector必须安装在具有完全或有限Internet访问权限("标准"或"�
                 "s3:GetObjectRetention",
                 "s3:DeleteObjectVersionTagging",
                 "s3:PutBucketObjectLockConfiguration",
-                "s3:ListBucketByTags",
                 "s3:DeleteObjectVersion",
                 "s3:GetObjectTagging",
                 "s3:PutBucketVersioning",

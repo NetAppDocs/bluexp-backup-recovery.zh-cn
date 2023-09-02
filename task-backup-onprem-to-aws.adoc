@@ -307,7 +307,6 @@ IP空间中的所有集群间LIF都必须能够访问对象存储。如果无法
               "s3:GetObjectRetention",
               "s3:DeleteObjectVersionTagging",
               "s3:PutBucketObjectLockConfiguration",
-              "s3:ListBucketByTags",
               "s3:DeleteObjectVersion",
               "s3:GetObjectTagging",
               "s3:PutBucketVersioning",
