@@ -312,7 +312,7 @@ S3 凭据:: 您必须已创建S3用户才能控制对ONTAP S3存储的访问。 
 [NOTE]
 ====
 * 一次只能在一个FlexGroup卷上激活备份。
-* 您选择的卷必须具有相同的SnapLock设置。所有卷都必须启用SnapLock Enterprise或禁用SnapLock。(当前不支持采用SnapLock合规性模式的卷。)
+* 您选择的卷必须具有相同的SnapLock设置。所有卷都必须启用SnapLock Enterprise或禁用SnapLock。(采用SnapLock合规性模式的卷需要ONTAP 9.14或更高版本。)
 
 
 ====
@@ -386,6 +386,10 @@ TIP: 选择正确的IP空间可确保BlueXP备份和恢复可以设置从ONTAP�
 +
 
 TIP: 如果要创建自定义策略、可以使用System Manager或ONTAP命令行界面 `snapmirror policy create` 命令：请参见。
+
++
+
+TIP: 要使用用户界面创建自定义策略、请参见 link:task-create-policies-ontap.html["创建策略"]。
 
 
 

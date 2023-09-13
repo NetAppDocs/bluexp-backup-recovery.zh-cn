@@ -394,7 +394,7 @@ image:screenshot_backup_onprem_enable.png["屏幕截图、显示了在选择工�
 +
 如果用于备份的Google云存储目标在Canvas上以工作环境的形式存在、则可以将ONTAP集群拖动到Google Cloud对象存储上。
 
-** 在备份和恢复栏中选择*卷*。从卷选项卡中，选择*操作(...)*选项，然后为单个卷(尚未启用到对象存储的复制或备份)选择*激活备份*。。
+** 在备份和恢复栏中选择*卷*。从卷选项卡中，选择*操作* image:icon-action.png["操作图标"] 图标并为单个卷(尚未启用复制或备份到对象存储)选择*激活备份*。。
 
 
 +
@@ -419,7 +419,7 @@ image:screenshot_backup_onprem_enable.png["屏幕截图、显示了在选择工�
 [NOTE]
 ====
 * 一次只能在一个FlexGroup卷上激活备份。
-* 您选择的卷必须具有相同的SnapLock设置。所有卷都必须启用SnapLock Enterprise或禁用SnapLock。(当前不支持采用SnapLock合规性模式的卷。)
+* 您选择的卷必须具有相同的SnapLock设置。所有卷都必须启用SnapLock Enterprise或禁用SnapLock。(采用SnapLock合规性模式的卷需要ONTAP 9.14或更高版本。)
 
 
 ====
@@ -473,13 +473,17 @@ NOTE: 如果您选择的卷具有与此步骤中选择的策略不同的Snapshot
 . *本地Snap照*：选择现有Snapshot策略。
 +
 
-TIP: 如果要创建自定义策略、可以使用System Manager或ONTAP命令行界面 `snapmirror policy create` 命令：请参见。
+TIP: 要创建自定义策略、请参见 link:task-create-policies-ontap.html["创建策略"]。
 
 . *Replication *：设置以下选项：
 +
 ** *复制目标*：选择目标工作环境和SVM。或者、选择要添加到复制的卷名称中的一个或多个目标聚合以及前缀或后缀。
 ** *复制策略*：选择现有复制策略。
 
+
++
+
+TIP: 要创建自定义策略、请参见 link:task-create-policies-ontap.html["创建策略"]。
 
 . *备份到对象*：如果选择了*Backup*，请设置以下选项：
 +
@@ -507,11 +511,14 @@ NOTE: 如果您选择了现有的Google Cloud存储帐户、则加密信息已�
 +
 要备份的卷所在的 ONTAP 集群中的 IP 空间。此 IP 空间的集群间 LIF 必须具有出站 Internet 访问权限。
 
-** *备份策略*：选择现有备份策略。
+** *备份策略*：选择现有的备份到对象存储策略。
+
+
 +
 
-TIP: 如果要创建自定义策略、可以使用System Manager或ONTAP命令行界面。请参见<link>。
+TIP: 要创建自定义策略、请参见 link:task-create-policies-ontap.html["创建策略"]。
 
++
 ** *将现有Snapshot副本作为备份副本导出到对象存储*：如果此工作环境中的卷具有与您刚刚为此工作环境选择的备份计划标签(例如每日、每周等)匹配的任何本地Snapshot副本、则会显示此附加提示。选中此框可将所有历史Snapshot作为备份文件复制到对象存储、以确保对卷进行最全面的保护。
 
 

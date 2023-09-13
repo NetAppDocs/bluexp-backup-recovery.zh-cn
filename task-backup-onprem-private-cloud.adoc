@@ -362,7 +362,7 @@ image:screenshot_sg_archive_to_cloud.png["将备份文件从StorageGRID 归档�
 [NOTE]
 ====
 * 一次只能在一个FlexGroup卷上激活备份。
-* 您选择的卷必须具有相同的SnapLock设置。所有卷都必须启用SnapLock Enterprise或禁用SnapLock。(当前不支持采用SnapLock合规性模式的卷。)
+* 您选择的卷必须具有相同的SnapLock设置。所有卷都必须启用SnapLock Enterprise或禁用SnapLock。(采用SnapLock合规性模式的卷需要ONTAP 9.14或更高版本。)
 
 
 ====
@@ -416,13 +416,19 @@ NOTE: 如果您选择的卷具有与此步骤中选择的策略不同的Snapshot
 . *本地Snap照*：选择现有Snapshot策略。
 +
 
-TIP: 如果要创建自定义策略、可以使用System Manager或ONTAP命令行界面 `snapmirror policy create` 命令：请参见。
+TIP: 要创建自定义策略、请参见
+link:task-create-policies-ontap.html["创建策略"]。
 
 . *Replication *：设置以下选项：
 +
 ** *复制目标*：选择目标工作环境和SVM。或者、选择要添加到复制的卷名称中的一个或多个目标聚合以及前缀或后缀。
 ** *复制策略*：选择现有复制策略。
 
+
++
+
+TIP: 要创建自定义策略、请参见
+link:task-create-policies-ontap.html["创建策略"]。
 
 . *备份到对象*：如果选择了*Backup*，请设置以下选项：
 +
@@ -436,10 +442,11 @@ TIP: 如果要创建自定义策略、可以使用System Manager或ONTAP命令�
 
 TIP: 选择正确的IP空间可确保BlueXP备份和恢复可以设置从ONTAP 到StorageGRID 对象存储的连接。
 
-** *备份策略*：选择现有备份策略。
+** *备份策略*：选择现有的备份到对象存储策略。
 +
 
-TIP: 如果要创建自定义策略、可以使用System Manager或ONTAP命令行界面 `snapmirror policy create` 命令：请参见。
+TIP: 要创建自定义策略、请参见
+link:task-create-policies-ontap.html["创建策略"]。
 
 +
 如果您的集群使用的是ONTAP 9.11.1或更高版本、则可以选择通过配置_DataLock和勒索软件保护_来保护您的备份免受删除和勒索软件攻击。_DataLock_可防止您的备份文件被修改或删除、_勒索 软件保护_会扫描您的备份文件、以在备份文件中查找勒索软件攻击的证据。 link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["详细了解可用的DataLock设置"^]。

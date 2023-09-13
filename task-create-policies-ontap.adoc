@@ -1,0 +1,195 @@
+---
+sidebar: sidebar 
+permalink: task-create-policies-ontap.html 
+keywords: backing up, back up, backup, backup on-prem ontap, policy, policies, backup policies, cloud backup, aws, aws s3, amazon s3, government 
+summary: 您可以使用NetApp提供的默认备份策略创建备份、也可以创建自定义策略。策略用于控制备份类型、备份架构、存储系统和备份频率。 
+---
+= 管理ONTAP卷的备份策略
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以使用NetApp提供的默认备份策略创建备份、也可以创建自定义策略。备份频率、备份时间以及保留的备份文件数量均由策略控制。
+
+使用激活向导为卷启用备份和恢复服务时、您可以从默认策略以及工作环境(Cloud Volumes ONTAP或内部ONTAP系统)中已存在的任何其他策略中进行选择。如果要使用与现有策略不同的策略、则必须在启动激活向导之前创建此策略。
+
+要了解所提供的默认备份策略、请参见 link:concept-protection-journey.html["规划您的保护之旅"]。
+
+BlueXP备份和恢复提供了三种类型的ONTAP数据备份：快照、复制以及备份到对象存储。根据您使用的架构和备份类型、它们的策略驻留在不同的位置：
+
+[cols="25,25,25,25"]
+|===
+| 架构 | Snapshot策略存储位置 | 复制策略存储位置 | 备份到对象策略存储位置 
+
+
+| *扇出* | 主卷 | 二级 | 主卷 
+
+
+| *级联* | 主卷 | 二级 | 二级 
+|===
+根据您的环境、首选项和保护类型、使用以下工具创建备份策略：
+
+* BlueXP UI
+* System Manager用户界面
+* ONTAP 命令行界面
+
+
+
+TIP: 使用System Manager时、请选择*异步*作为复制策略的策略类型、然后选择*异步*和*备份到云*作为备份到对象策略。
+
+
+
+== 查看工作环境的策略
+
+. 在BlueXP UI中、选择*卷*>*备份设置*。
+. 从备份设置页面中，选择工作环境，然后选择*Actions* image:icon-action.png["操作图标"] 图标，然后选择*策略管理*。
++
+此时将显示策略管理页面。
+
++
+image:screenshot_policies_management.png["策略管理页面"]
+
++
+默认情况下会显示Snapshot策略。
+
+. 要查看工作环境中存在的其他策略，请选择*复制策略*或*备份策略*。如果您的备份计划可以使用现有策略、则一切都已准备就绪。如果您需要具有不同特征的策略、可以从此页面创建新策略。
+
+
+
+
+== 创建快照策略
+
+3-2-1策略的一部分涉及在*主*存储系统上创建卷的Snapshot副本。
+
+在策略创建过程中、需要确定用于表示计划和保留的Snapshot和SnapMirror标签。您可以使用预定义的标签或创建自己的标签。
+
+.步骤
+. 在策略页面中，选择*Create new policy*>*Create Snapshot policy*。
+. 指定策略名称。
+. 选择一个或多个Snapshot计划。最多可以有5个标签。或者、创建计划。
+. 如果选择创建计划：
++
+.. 选择每小时、每天、每周、每月或每年的频率。
+.. 指定表示计划和保留的Snapshot标签。
+.. 输入创建快照的时间和频率。
+.. 保留：输入要保留的快照数量。
+
+
+. 选择 * 创建 * 。
+
+
+
+
+=== 使用级联架构的Snapshot策略示例
+
+以下示例将创建一个包含两个集群的Snapshot策略：
+
+. 集群1：
++
+.. 在策略页面上选择集群1。
+.. 忽略复制和备份到对象策略部分。
+.. 创建Snapshot策略。
+
+
+. 集群2：
++
+.. 在"Policy"页面上选择"Cluster 2"。
+.. 忽略Snapshot策略部分。
+.. 配置复制和备份到对象策略。
+
+
+
+
+
+
+== 创建复制策略
+
+3-2-1策略可能包括复制其他存储系统上的卷。复制策略驻留在*二级*存储系统上。
+
+.步骤
+. 在策略页面中，选择*创建新策略*>*创建新复制策略*。
+. 在策略详细信息部分中、指定策略名称。
+. 指定SnapMirror标签(最多5个)、表示每个标签的保留期限。
+. 指定传输计划。
+. 选择 * 创建 * 。
+
+
+
+
+== 创建备份到对象存储策略
+
+3-2-1策略可能包括将卷备份到对象存储。
+
+根据备份架构的不同、此存储策略驻留在不同的存储系统位置：
+
+* 扇出：主存储系统
+* 级联：二级存储系统
+
+
+.步骤
+. 在策略管理页面中，选择*创建新策略*>*创建新备份策略*。
+. 在策略详细信息部分中、指定策略名称。
+. 指定SnapMirror标签(最多5个)、表示每个标签的保留期限。
+. 指定设置、包括传输计划和备份归档时间。
+. (可选)要在一定天数后将较早的备份文件移至成本较低的存储类或访问层、请选择*归档*选项并指示数据归档前应经过的天数。
++
+https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-cloud-backup-policies.html#archival-storage-settings["了解有关归档存储设置的更多信息"]。
+
+. (可选)要防止备份被修改或删除、请选择* DataLock & Ransamor prot备 份*选项。
++
+如果集群使用的是ONTAP 9.11.1或更高版本、则可以选择通过配置_DataLock_和_Ransamor protue_来 防止备份被删除。
+
++
+link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["详细了解可用的DataLock设置"^]。
+
+. 选择 * 创建 * 。
+
+
+
+
+== 编辑策略
+
+您可以编辑自定义Snapshot、复制或备份策略。
+
+更改备份策略会影响使用该策略的所有卷。
+
+.步骤
+. 在策略管理页面中，选择策略，然后选择*Actions* image:icon-action.png["操作图标"] 图标，然后选择*Edit policy*。
++
+
+NOTE: 复制和备份策略的过程相同。
+
+. 在编辑策略页面中、进行更改。
+. 选择 * 保存 * 。
+
+
+
+
+== 删除策略
+
+您可以删除未与任何卷关联的策略。
+
+如果某个策略与某个卷关联、而您要删除该策略、则必须先从该卷中删除该策略。
+
+.步骤
+. 在策略管理页面中，选择策略，然后选择*Actions* image:icon-action.png["操作图标"] 图标、然后选择*删除Snapshot策略*。
+. 选择 * 删除 * 。
+
+
+
+
+== 了解更多信息
+
+有关使用System Manager或ONTAP命令行界面创建策略的说明、请参见以下内容：
+
+https://docs.netapp.com/us-en/ontap/task_dp_configure_snapshot.html["使用System Manager创建Snapshot策略"^]
+https://docs.netapp.com/us-en/ontap/data-protection/create-snapshot-policy-task.html["使用ONTAP命令行界面创建Snapshot策略"^]
+https://docs.netapp.com/us-en/ontap/task_dp_create_custom_data_protection_policies.html["使用System Manager创建复制策略"^]
+https://docs.netapp.com/us-en/ontap/data-protection/create-custom-replication-policy-concept.html["使用ONTAP命令行界面创建复制策略"^]
+https://docs.netapp.com/us-en/ontap/task_dp_back_up_to_cloud.html#create-a-custom-cloud-backup-policy["使用System Manager创建备份到对象存储策略"^]
+https://docs.netapp.com/us-en/ontap-cli-9131/snapmirror-policy-create.html#description["使用ONTAP命令行界面创建备份到对象存储策略"^]
