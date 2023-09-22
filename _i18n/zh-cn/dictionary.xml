@@ -2094,7 +2094,6 @@
   <block id="01e76ab0dacc58799dc14adbdc705ac7" category="section-title">2023年3月9日</block>
   <block id="35203f05692d5cc102a5525bf4de9733" category="section-title">文件夹级别的还原操作现在包括所有子文件夹和文件</block>
   <block id="5463242c7cc34f92b5dbbf1ab6d87188" category="paragraph">过去、在还原文件夹时、只会还原该文件夹中的文件、而不会还原子文件夹或子文件夹中的文件。现在、如果您使用的是ONTAP 9.13.0或更高版本、则会还原选定文件夹中的所有子文件夹和文件。如果顶级文件夹中有多个嵌套文件夹、则可以节省大量时间和资金。</block>
-  <block id="bbe776d643f3b0568f3c2fa216a50124" category="section-title">能够在非公开站点中备份Cloud Volumes ONTAP 系统中的数据</block>
   <block id="1cdf820a77c583c660d65df7b1ca03b8" category="inline-link">请参见如何使用高级筛选器</block>
   <block id="1625899745083f00e310fe6a84e9582c" category="list-text">以下S3权限必须属于为Connector提供权限的IAM角色：</block>
   <block id="dd9313799fa929f642611d4d86e9e772" category="paragraph">只有在首次选择工作环境后、才能在特定"SVM"中搜索数据。</block>
@@ -2990,7 +2989,6 @@
   <block id="cfc826b330f7a25cc3c4e115a9fcca13" category="paragraph">请注意、分配给BlueXP Connector的IAM策略需要将All _Resource_部分下的AWS资源名称"arn"从"aws"更改为"AAWS CN"；例如"arn：aws-cn：s3：：：NetApp-backup-*"。请参见<block ref="17dde2a04d27e7ad2a9f0a451a7a0e90" category="inline-link-rx"></block> 和<block ref="bb86d78b7593b3e1252f277b7dd6e017" category="inline-link-rx"></block> 了解详细信息。</block>
   <block id="3f95b7ff004c9ea7ba2c076aa81ddbd8" category="list-text">除了可以下载CSV文件以报告所有作业之外、现在您还可以下载单个作业的JSON文件并查看其详细信息。<block ref="c5e8ac86e60de65889ee067b8ca8ac22" category="inline-link-rx"></block>。</block>
   <block id="aca6a48e798dafa8a873544468b60e06" category="list-text">添加了两个新的备份作业警报："Scheduled job failure"和"Restore job completes but with warnings"。<block ref="a4848a9ae757d04f84e693376feb04c0" category="inline-link-rx"></block>。</block>
-  <block id="cb388daef1ecf4d75abae922da7c4ccd" category="paragraph">现在、您可以将数据从AWS和Azure商业区域中安装的Cloud Volumes ONTAP 系统备份到Amazon S3或Azure Blob。这要求您在商业区域的Linux主机上安装连接器、并在该主机上部署Cloud Volumes ONTAP 系统。请参见<block ref="17dde2a04d27e7ad2a9f0a451a7a0e90" category="inline-link-rx"></block> 和<block ref="e88a100423dadabfc9781439f925633d" category="inline-link-rx"></block>。</block>
   <block id="7397c46a6bf6fde87c1217e8c8bbab15" category="list-text">作业监控页面添加了高级筛选功能、因此您可以按时间、工作负载(卷、应用程序、虚拟机或Kubernetes)搜索备份和还原作业。 作业类型、状态、工作环境和Storage VM。您还可以输入自由文本来搜索任何资源、例如"application_3"。 <block ref="3ed9d480474f89776ff0bf3cbda69d30" category="inline-link-rx"></block>。</block>
   <block id="72577c9cc3c11c1b1c16727589471767" category="paragraph">如果您的内部集群使用的是ONTAP 9.12.1或更高版本、而StorageGRID 系统使用的是11.4或更高版本、则可以使用此功能。<block ref="a928050165abd52aa438367540434489" category="inline-link-rx"></block>。</block>
   <block id="3171c3474d761b0543c2bd83d1d3f702" category="paragraph">现在、存储在Azure Blob中的备份文件支持DataLock和勒索软件保护。如果您的Cloud Volumes ONTAP 或内部ONTAP 系统运行的是ONTAP 9.12.1或更高版本、现在您可以锁定备份文件并对其进行扫描、以检测可能的勒索软件。<block ref="2045a684ba4b47f5626fcfb6a06714da" category="inline-link-rx"></block>。</block>
@@ -4581,4 +4579,6 @@ ONTAP S3</block>
   <block id="33846815732f0a61e794b0e44401b00f" category="admonition">要创建自定义策略、请参见
 <block ref="63a3f471efcfd7e4daa79f468df674ce" category="inline-link-macro-rx"></block>。</block>
   <block id="6b28ac02ff2a9de6b423b9f57d6a4d09" category="sidebar">管理ONTAP卷的策略</block>
+  <block id="49f768fa096c849abfc2310e4f864f5e" category="section-title">能够从出站连接受限的站点中的Cloud Volumes ONTAP系统备份数据</block>
+  <block id="39539808000ad0a6d6ca39474e4fb77b" category="paragraph">现在、您可以将数据从AWS和Azure商业区域中安装的Cloud Volumes ONTAP 系统备份到Amazon S3或Azure Blob。这要求您在商业区域的Linux主机上以"受限模式"安装连接器、并在该处部署Cloud Volumes ONTAP系统。请参见<block ref="17dde2a04d27e7ad2a9f0a451a7a0e90" category="inline-link-rx"></block> 和<block ref="e88a100423dadabfc9781439f925633d" category="inline-link-rx"></block>。</block>
 </blocks>

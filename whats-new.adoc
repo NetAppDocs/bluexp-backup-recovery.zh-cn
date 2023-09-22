@@ -306,9 +306,9 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.ht
 
 
 
-=== 能够在非公开站点中备份Cloud Volumes ONTAP 系统中的数据
+=== 能够从出站连接受限的站点中的Cloud Volumes ONTAP系统备份数据
 
-现在、您可以将数据从AWS和Azure商业区域中安装的Cloud Volumes ONTAP 系统备份到Amazon S3或Azure Blob。这要求您在商业区域的Linux主机上安装连接器、并在该主机上部署Cloud Volumes ONTAP 系统。请参见 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-s3.html["将 Cloud Volumes ONTAP 数据备份到 Amazon S3"] 和 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-azure.html["将Cloud Volumes ONTAP 数据备份到Azure Blob"]。
+现在、您可以将数据从AWS和Azure商业区域中安装的Cloud Volumes ONTAP 系统备份到Amazon S3或Azure Blob。这要求您在商业区域的Linux主机上以"受限模式"安装连接器、并在该处部署Cloud Volumes ONTAP系统。请参见 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-s3.html["将 Cloud Volumes ONTAP 数据备份到 Amazon S3"] 和 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-azure.html["将Cloud Volumes ONTAP 数据备份到Azure Blob"]。
 
 
 
