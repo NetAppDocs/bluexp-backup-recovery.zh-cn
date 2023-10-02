@@ -70,8 +70,6 @@ sidebar:
       url: "/task-backup-onprem-to-ontap-s3.html"
     - title: 将内部 ONTAP 备份到 StorageGRID
       url: "/task-backup-onprem-private-cloud.html"
-    - title: 将内部ONTAP备份到ONTAP S3
-      url: "/task-backup-onprem-to-ontap-s3.html"
     - title: 管理 ONTAP 备份
       url: "/task-manage-backups-ontap.html"
     - title: 从 ONTAP 备份还原
@@ -243,30 +241,28 @@ homepage:
       url: task-report-inventory.html
   - title: 将 ONTAP 数据备份到云
     links:
-    - title: Cloud Volumes ONTAP 到 Amazon S3
+    - title: 将 Cloud Volumes ONTAP 备份到 Amazon S3
       url: task-backup-to-s3.html
       flavor: aws
-    - title: Cloud Volumes ONTAP 到 Azure Blob
+    - title: 将 Cloud Volumes ONTAP 备份到 Azure Blob
       url: task-backup-to-azure.html
       flavor: azure
-    - title: Cloud Volumes ONTAP 到 Google Cloud
+    - title: 将 Cloud Volumes ONTAP 备份到 Google Cloud
       url: task-backup-to-gcp.html
       flavor: gcp
-    - title: 内部 ONTAP 到 Amazon S3
+    - title: 将内部 ONTAP 备份到 Amazon S3
       url: task-backup-onprem-to-aws.html
       flavor: aws
-    - title: 内部 ONTAP 到 Azure Blob
+    - title: 将内部 ONTAP 备份到 Azure Blob
       url: task-backup-onprem-to-azure.html
       flavor: azure
-    - title: 内部部署 ONTAP 到 Google Cloud
+    - title: 将内部 ONTAP 备份到 Google Cloud
       url: task-backup-onprem-to-gcp.html
       flavor: gcp
-    - title: 内部ONTAP到ONTAP S3
+    - title: 将内部ONTAP备份到ONTAP S3
       url: task-backup-onprem-to-ontap-s3.html
-    - title: 内部部署 ONTAP 到 StorageGRID
+    - title: 将内部 ONTAP 备份到 StorageGRID
       url: task-backup-onprem-private-cloud.html
-    - title: 内部ONTAP到ONTAP S3
-      url: task-backup-onprem-to-ontap-s3.html
   - title: 管理 ONTAP 备份文件
     links:
     - title: 在其他卷上启用卷备份
@@ -335,13 +331,13 @@ homepage:
       url: task-restore-backups-kubernetes.html
   - title: 将 Kubernetes 数据备份到云
     links:
-    - title: Kubernetes 集群到 Amazon S3
+    - title: 将Kubbernetes集群备份到Amazon S3
       url: task-backup-kubernetes-to-s3.html
       flavor: aws
-    - title: Kubernetes 集群到 Azure Blob
+    - title: 将Kubnetes集群备份到Azure Blb
       url: task-backup-kubernetes-to-azure.html
       flavor: azure
-    - title: Kubernetes 集群到 Google Cloud
+    - title: 将Kubbernetes集群备份到Google Cloud
       url: task-backup-kubernetes-to-gcp.html
       flavor: gcp
   - title: 博客社区
