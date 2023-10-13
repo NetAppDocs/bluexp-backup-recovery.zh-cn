@@ -22,6 +22,7 @@ summary: 创建您自己的策略以保护应用程序。
 ** 如果您使用的是Amazon Web Services、则应使用ONTAP 9.10.1或更高版本
 ** 如果您使用的是Microsoft Azure、则应使用ONTAP 9.10.1或更高版本
 ** 如果您使用的是Google Cloud、则应使用ONTAP 9.12.1或更高版本
+** 如果您使用的是StorageGRID、则应使用ONTAP 9.12.1或更高版本
 
 
 * 您应为每个云提供商配置归档访问层。

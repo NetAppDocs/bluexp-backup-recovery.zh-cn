@@ -19,6 +19,9 @@ summary: 您可以查看备份详细信息、监控所有作业的状态、删�
 
 您可以监控在工作环境中启动的作业的状态。这样，您可以查看已成功完成的作业，当前正在进行的作业以及失败的作业，以便您可以诊断和修复任何问题。
 
+
+NOTE: 计划的作业将在作业完成时间后5分钟(最长)后列在BlueXP作业监控页面中。
+
 有关详细信息，请参见 link:https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html["监控作业状态"]。
 
 
@@ -112,7 +115,7 @@ IMPORTANT: 代理ID与连接器关联。如果在注册SAP HANA主机期间使�
 
 . 登录到此插件主机并执行以下步骤：
 +
-.. 导航到_/var/opt/snapcenter/spl/etc_并运行keytool命令导入certificate.p12文件。
+.. 导航到_/var/opt/snapcentre/spl/ETC_并运行keytool命令以导入certificate．pems文件。
 `keytool -import -alias agentcert -file certificate.pem  -keystore keystore.jks -deststorepass snapcenter -noprompt`
 .. 重新启动SPL：`systemctl restart spl`
 .. 执行以下操作之一：

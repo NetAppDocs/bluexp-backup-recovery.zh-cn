@@ -282,8 +282,9 @@ host_ssh_port
 `chmod +x snapcenter_linux_host_plugin_scs.bin`
 . 以sudo SnapCenter 用户身份安装Oracle插件。
 `./snapcenter_linux_host_plugin_scs.bin -i silent -DSPL_USER=<non-root>`
-. 将_certificate.p12_从Connector VM的_<base_mount_path>/client/certificate/_路径复制到插件主机上的_/var/opt/snapcenter/spl/etc/。
-. 导航到_/var/opt/snapcenter/spl/etc_并执行keytool命令以导入证书。`keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass SnapCenter -deststorepass SnapCenter -srccalibras agentcert -destalias agentcert -noprop`
+. 将_certification/pepm_从<base_mount_path>连接器VM的_Connectic/client/certification/_路径复制到插件主机上的_/var/opt/snapcentre/spl/etc/_。
+. 导航到_/var/opt/snapcentre/spl/ETC_并执行keytool命令以导入certificate．pems。
+`keytool -import -alias agentcert -file certificate.pem -keystore keystore.jks -deststorepass snapcenter -noprompt`
 . 重新启动SPL：`systemctl restart spl`
 . 通过从Connector运行以下命令、验证此插件是否可从Connector访问。
 `docker exec -it cloudmanager_scs_cloud curl -ik \https://<FQDN or IP of the plug-in host>:<plug-in port>/PluginService/Version --cert /config/client/certificate/certificate.pem --key /config/client/certificate/key.pem`

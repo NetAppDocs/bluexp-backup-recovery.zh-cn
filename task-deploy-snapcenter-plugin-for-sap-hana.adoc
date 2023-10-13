@@ -58,7 +58,7 @@ NOTE: 主机名必须与用于HSR复制的主机的主机名相同。
 .步骤
 . 登录到Connector VM。
 . 下载SnapCenter Linux主机插件二进制文件。`sUdo Docker exec -it cloudmanager_SCS_cloud curl -X get 'http://127.0.0.1/deploy/downloadLinuxPlugin'`[]
-. 复制位于以下位置的* sudoer.txt *的内容：_/var/lib/doker/volumes/service-manager[1]-2_Cloud manager_SCS云卷/_data/$(sudo Docker ps|gep -po"Cloud manager_SCS云：.*？"|sed -e 's/*$//'|Cut -f2 -d：")/SC-Linux-host-plugin_
+. 复制位于以下位置的* sudoer.txt *的内容：_/var/lib/doker/volumes/service-manager-2_Cloud manager_schs_Cloud volume/_data/$(sudo doker ps|gep -po"Cloud manager_schs_Cloud：.*？"|sed -e 's/*$//'|Cut -f2 -d：")/SC-Linux-host-plugin_
 . 使用root用户帐户登录到SAP HANA系统主机。
 . 通过将步骤3中复制的文本复制到_/etc/sudoers.d/snapcenter_文件来为非root用户配置sudo访问权限。
 +
@@ -160,7 +160,7 @@ host_ssh_port
 . 登录到Connector VM。
 . 下载SnapCenter Linux主机插件二进制文件。`sUdo Docker exec -it cloudmanager_SCS_cloud curl -X get 'http://127.0.0.1/deploy/downloadLinuxPlugin'`[]
 +
-此插件二进制文件位于：_cd /var/lib/dDocker /volumes/service-manager[1]-2_Cloud manager_SCS云卷/_data/$(sudo dDocker ps|gep -po"Cloud manager_SCS云：.*？"|sed -e 's/*$//'|Cut -f2 -d：")/SC-Linux-host-plugin_
+此插件二进制文件位于：_cd /var/lib/docker/volumes/service-manager-2_cloudmanager_SCS_cloud_volume/_data/$(sudo docker ps|grep -po"cloudmanager_SCS_cloud：.*？"|sed -e 's/*$//'|Cut -f2 -d：")/SC-Linux-host-plugin_
 
 . 使用scp或其他替代方法将每个<non root user (sudo)> 数据库主机的_snapcenter_linux_host_plugin_SCS.bin_从上述路径复制到//home/SAHA/.SC_NetApp_路径。
 . 使用非root (sudo)帐户登录到SAP HANA数据库主机。
@@ -168,8 +168,9 @@ host_ssh_port
 `chmod +x snapcenter_linux_host_plugin_scs.bin`
 . 以sudo SnapCenter 用户身份安装SAP HANA插件。
 `./snapcenter_linux_host_plugin_scs.bin -i silent -DSPL_USER=<non-root>`
-. 将_certificate.p12_从Connector VM的_<base_mount_path>/client/certificate/_路径复制到插件主机上的_/var/opt/snapcenter/spl/etc/。
-. 导航到_/var/opt/snapcenter/spl/etc_并执行keytool命令以导入证书。`keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass SnapCenter -deststorepass SnapCenter -srccalibras agentcert -destalias agentcert -noprop`
+. 将_certification/pepm_从<base_mount_path>连接器VM的_Connectic/client/certification/_路径复制到插件主机上的_/var/opt/snapcentre/spl/etc/_。
+. 导航到_/var/opt/snapcenter/spl/etc_并执行keytool命令以导入证书。
+`keytool -import -alias agentcert -file certificate.pem -keystore keystore.jks -deststorepass snapcenter -noprompt`
 . 重新启动SPL：`systemctl restart spl`
 . 通过从Connector运行以下命令、验证此插件是否可从Connector访问。
 `docker exec -it cloudmanager_scs_cloud curl -ik \https://<FQDN or IP of the plug-in host>:<plug-in port>/PluginService/Version --cert  config/client/certificate/certificate.pem --key /config/client/certificate/key.pem`
@@ -207,20 +208,18 @@ host_ssh_port
 
 * 步骤 *
 
-. 在* BlueXP* UI中、单击*保护*>*备份和恢复*>*应用程序*。
-. 单击*发现应用程序*。
-. 选择*云原生*>* SAP HANA *、然后单击*下一步*。
-. 在*应用程序*页面中、单击*添加系统*。
+. 在*BlueXP* UI中，选择*保护*>*备份和恢复*>*应用程序*。
+. 选择*发现应用程序*。
+. 选择*云原生*>* SAP HAA*并选择*下一步*。
+. 在*应用程序*页中，选择*添加系统*。
 . 在*系统详细信息*页面中、执行以下操作：
 +
-.. 选择系统类型作为多租户数据库容器或单个容器。
+.. 选择系统类型作为多租户数据库容器或全局非数据卷。
 .. 输入SAP HANA系统名称。
 .. 指定 SAP HANA 系统的 SID 。
-.. (可选)修改HDBSQL操作系统用户。
-.. 选择插件主机。
-(可选)如果未添加主机，请单击*添加插件主机*。
+.. (可选)修改OSDB用户。
 .. 如果HANA系统配置了HANA系统复制、请启用* HANA系统复制(HSR)系统*。
-.. 单击* HDB安全用户存储密钥*文本框以添加用户存储密钥详细信息。
+.. 选择*HDB安全用户存储密钥*文本框以添加用户存储密钥详细信息。
 +
 指定密钥名称、系统详细信息、用户名和密码、然后单击*添加密钥*。
 
@@ -229,18 +228,36 @@ host_ssh_port
 
 
 
-. 单击 * 下一步 * 。
-. 在*存储占用空间*页面中、单击*添加存储*并执行以下操作：
+. 选择 * 下一步 * 。
+. 在*Host Details*页面中，执行以下操作：
++
+.. 选择*添加新主机*或*使用现有主机*。
+.. 选择*使用SSL*或*手动*。
++
+对于手动、输入主机FQDN或IP、连接器、用户名、SSH端口、插件端口、 并可选择添加和验证SSH专用密钥。
+
++
+对于SSH、输入主机FQDN或IP、连接器、用户名和插件端口。
+
+.. 选择 * 下一步 * 。
+
+
+. 在*Host configuration*页中，验证是否满足配置要求。
++
+选中复选框进行确认。
+
+. 选择 * 下一步 * 。
+. 在*存储占用空间*页面中，选择*添加存储*并执行以下操作：
 +
 .. 选择工作环境并指定 NetApp 帐户。
 +
 从左侧导航窗格中，选择BlueXP *Canves*以添加新的工作环境。
 
 .. 选择所需的卷。
-.. 单击 * 添加存储 * 。
+.. 选择*添加存储*。
 
 
-. 查看所有详细信息、然后单击*添加系统*。
+. 查看所有详细信息并选择*添加系统*。
 
 
 您可以从用户界面修改或删除SAP HANA系统。
@@ -249,43 +266,9 @@ host_ssh_port
 
 
 
-=== 删除SAP HANA数据库主机
-
-您只能使用REST API删除SAP HANA数据库主机。
-
-* 步骤 *
-
-. 使用用户界面或以下REST API删除与SAP HANA数据库主机关联的所有系统。
-`DELETE /saphana/anf/systems/(id)`
-. 执行以下步骤以删除SAP HANA数据库主机。
-+
-.. 使用GET REST API获取必须删除的SAP HANA数据库主机的ID。
-`GET /saphana/hosts`
-   `{`
-    `"num_records": 1,`
-    `"records": [`
-        `{`
-            `"id": "c9a6849f-29ea-45c5-a17f-a1e78ad2a30e",`
-            `"host_name": "galaxy-vm134.netapp.com",`
-            `"port": 443,`
-            `"agent_id": "n3TrgkGvnTOFTJJNBxeh3oPxG8AcrcHeclients"`
-       
-`}`
-    `]`
-`}`
-.. 通过传递以下REST API中的ID来删除SAP HANA数据库主机。
-`DELETE /saphana/hosts/(id)`
-.. 使用以下命令卸载数据库主机上的SAP HANA Linux插件。
-`/opt/NetApp/snapcenter/spl/installation/plugins/uninstall`
-
-
-
-
-
-
 === 添加非数据卷
 
-添加多租户数据库容器或单个容器类型SAP HANA系统后、您可以添加HANA系统的非数据卷。
+添加多租户数据库容器类型SAP HANA系统后、您可以添加HANA系统的非数据卷。
 
 在发现可用的 SAP HANA 数据库后，您可以将这些资源添加到资源组以执行数据保护操作。
 
@@ -301,7 +284,7 @@ host_ssh_port
 
 === 添加全局非数据卷
 
-添加多租户数据库容器或单个容器类型SAP HANA系统后、您可以添加HANA系统的全局非数据卷。
+添加多租户数据库容器类型SAP HANA系统后、您可以添加HANA系统的全局非数据卷。
 
 * 步骤 *
 
@@ -313,39 +296,14 @@ host_ssh_port
 +
 .. 从System Type下拉列表中、选择*全局非数据卷*。
 .. 输入SAP HANA系统名称。
+
+
+. 。在*Host Details*页面中，执行以下操作：
++
 .. 指定SAP HANA系统的关联SID。
 .. 选择插件主机
 .. 单击 * 下一步 * 。
 .. 查看所有详细信息、然后单击*添加系统*。
 
 
-
-
-
-
-=== 修改SAP HANA数据库主机
-
-添加SAP HANA数据库主机后、您可以使用REST API修改主机名或插件端口。
-
-* 步骤 *
-
-. 使用GET REST API获取必须删除的SAP HANA数据库主机的ID。 `GET /saphana/hosts`
-   `{`
-    `"num_records": 1,`
-    `"records": [`
-        `{`
-            `"id": "c9a6849f-29ea-45c5-a17f-a1e78ad2a30e",`
-            `"host_name": "galaxy-vm134.netapp.com",`
-            `"port": 443,`
-            `"agent_id": "n3TrgkGvnTOFTJJNBxeh3oPxG8AcrcHeclients"`
-       
-`}`
-    `]`
-`}`
-. 使用以下修补程序API修改主机名或插件端口。
-`PATCH /saphana/hosts/(id)`
-`{`
-`"host_name": "vm136.dummy.com",`
-`"port": 8145,`
-`}`
 

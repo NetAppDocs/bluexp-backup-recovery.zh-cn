@@ -1,0 +1,328 @@
+---
+sidebar: sidebar 
+permalink: task-backup-cloud-native-sql-data.html 
+keywords: BlueXP, scheduled backups, on-demand backups, create policy, SQL database 
+summary: 创建一个策略、分配该策略、然后为SQL数据库创建按需备份。 
+---
+= 备份云原生Microsoft SQL Server数据库
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以通过分配所创建的策略来创建计划备份或按需备份。
+
+
+
+== 创建备份策略
+
+您可以运行此API来创建备份策略。
+
+'发布snapcenter.cloudmanager.cloud.netapp.com/api/mssql/backup/policies'
+
+有关详细信息、请参见： https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/MSSQL%20Backup%20Policies/MSSQLBackupPolicyService_CreateMSSQLBackupPolicy[]
+
+此API创建了一个可从BlueXP UI中的*Job Monitor*选项卡进行跟踪的作业。
+
+
+
+=== Parameters
+
+|===
+| Name | Type | Required 
+
+
+ a| 
+name
+ a| 
+string
+ a| 
+true
+
+
+
+ a| 
+backup_type
+ a| 
+string
+ a| 
+true
+
+
+
+ a| 
+copy_only备份
+ a| 
+string
+ a| 
+false
+
+
+
+ a| 
+为系统定义
+ a| 
+string
+ a| 
+false
+
+
+
+ a| 
+backup_name_format
+ a| 
+string
+ a| 
+true
+
+
+
+ a| 
+schedule_type
+ a| 
+string
+ a| 
+true
+
+
+
+ a| 
+start_time
+ a| 
+数字
+ a| 
+true
+
+
+
+ a| 
+Hours_interval"
+ a| 
+数字
+ a| 
+true
+
+
+
+ a| 
+分钟间隔
+ a| 
+数字
+ a| 
+true
+
+
+
+ a| 
+保留类型
+ a| 
+string
+ a| 
+true
+
+
+
+ a| 
+保留数量
+ a| 
+数字
+ a| 
+true
+
+
+
+ a| 
+End_Time
+ a| 
+数字
+ a| 
+true
+
+|===
+
+
+=== 响应
+
+如果API成功执行、则会显示响应代码201。
+
+示例
+
+[listing]
+----
+{
+    "_links": {
+    "self": {
+        "href": "/api/resourcelink"
+      }
+    }
+}
+----
+
+
+== 将策略分配给SQL数据库实例
+
+您可以运行此API将策略分配给SQL数据库实例。
+
+'发布snapcenter.cloudmanager.cloud.netapp.com/api/mssql/instances/{id}/policy-assignment'
+
+其中、_id_是通过运行发现数据库实例API获取的MSSQL实例ID。有关详细信息，请参见 link:task-add-sqlhost-install-plugin-sql.html#discover-the-database-instances["发现数据库实例"]。
+
+此处输入的是ID数组。例如：
+
+[listing]
+----
+[
+  "c9f3e68d-1f9c-44dc-b9af-72a9dfc54320"
+]
+----
+有关详细信息、请参见： https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/MSSQL%20Policy%20Assignment/PostMSSQLInstanceAssignPolicyRequest[]
+
+此API创建了一个可从BlueXP UI中的*Job Monitor*选项卡进行跟踪的作业。
+
+
+
+=== 响应
+
+如果API成功执行、则显示响应代码202。
+
+示例
+
+[listing]
+----
+{
+  "job": {
+    "_links": {
+      "self": {
+        "href": "/api/resourcelink"
+      }
+    },
+    "uuid": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  }
+}
+----
+
+
+== 创建按需备份
+
+您可以运行此API来创建按需备份。
+
+'发布snapcenter.cloudmanager.cloud.netapp.com/api/mssql/backups'
+
+有关详细信息、请参见： https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/MSSQL%20Backups/CreateMSSQLBackupRequest[]
+
+此API创建了一个可从BlueXP UI中的*Job Monitor*选项卡进行跟踪的作业。
+
+
+
+=== Parameters
+
+|===
+| Name | Type | Required 
+
+
+ a| 
+id
+
+
+NOTE: 这是MSSQL数据库实例的ID。
+ a| 
+string
+ a| 
+true
+
+
+
+ a| 
+资源类型
+ a| 
+string
+ a| 
+true
+
+
+
+ a| 
+policy_id
+ a| 
+string
+ a| 
+true
+
+
+
+ a| 
+schedule_type
+ a| 
+string
+ a| 
+true
+
+|===
+
+
+=== 响应
+
+如果API成功执行、则显示响应代码202。
+
+示例
+
+[listing]
+----
+{
+  "job": {
+    "_links": {
+      "self": {
+        "href": "/api/resourcelink"
+      }
+    },
+    "uuid": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  }
+}
+----
+
+
+== 查看备份
+
+您可以运行这些API来列出所有备份的视图、也可以查看特定备份的详细信息。
+
+'获取snapcenter.cloudmanager.cloud.netapp.com/api/mssql/backups'
+
+'获取snapcenter.cloudmanager.cloud.netapp.com/api/mssql/backups/{id}'
+
+有关详细信息、请参见： https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/MSSQL%20Backups/MSSQLGetBackupsRequest[]
+
+
+
+=== 响应
+
+如果API成功执行、则显示响应代码200。
+
+示例
+
+[listing]
+----
+{
+    "total_records": 1,
+    "num_records": 1,
+    "records": [
+        {
+            "backup_id": "602d7796-8074-43fc-a178-eee8c78566ac",
+            "resource_id": "a779578d-cf78-46f3-923d-b9223255938c",
+            "backup_name": "Hourly_policy2_scspa2722211001_NAMEDINSTANCE1_2023_08_08_07_02_01_81269_0",
+            "policy_name": "policy2",
+            "schedule_type": "Hourly",
+            "start_time": "2023-08-08T07:02:10.203Z",
+            "end_time": "0001-01-01T00:00:00Z",
+            "backup_status": "success",
+            "backup_type": "FullBackup"
+        }
+    ],
+    "_links": {
+        "next": {}
+    }
+}
+----

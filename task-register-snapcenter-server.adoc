@@ -67,6 +67,9 @@ summary: 完成几个步骤以注册SnapCenter 服务器。
 ** 非数据卷(NDV)资源、例如HANA二进制文件、HANA归档日志卷、HANA共享卷等
 
 
+* MongoDB
+* MySQL
+* PostgreSQL
 
 
 不会显示以下数据库：

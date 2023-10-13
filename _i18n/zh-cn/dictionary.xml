@@ -1023,8 +1023,6 @@
   <block id="da60bfd3c8edf7a67f3978209e164121" category="list-text">获取基本挂载路径。`sUdo Docker volume ls | grep SCS_cloud _volume _查｛'print $2'｝_ xargs sudo Docker volume inspect _ grep mountpoint`</block>
   <block id="e67d4d64b1a45fd340729c74de84b847" category="list-text">登录到Connector VM。</block>
   <block id="274f1ac526644b363a1660f91b59759a" category="list-text">下载SnapCenter Linux主机插件二进制文件。`sUdo Docker exec -it cloudmanager_SCS_cloud curl -X get <block ref="b6b73f503ca62442f11ad4b84cc2f0bc" category="inline-link-rx"></block></block>
-  <block id="e83ebe810e7607148882f52b5e3b71fd" category="list-text">将_certificate.p12_从Connector VM的_&lt;base_mount_path&gt;/client/certificate/_路径复制到插件主机上的_/var/opt/snapcenter/spl/etc/。</block>
-  <block id="7550e76395e0f500b3d970b6fa0ec73f" category="list-text">导航到_/var/opt/snapcenter/spl/etc_并执行keytool命令以导入证书。`keytool -v -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12 -destkeystore keystore.jks -deststoretype JKS -srcstorepass SnapCenter -deststorepass SnapCenter -srccalibras agentcert -destalias agentcert -noprop`</block>
   <block id="aeec20fb97ec5b367b439351c1c00204" category="list-text">在应用程序页面中、如果数据库未使用任何策略进行保护、请单击*分配策略*。</block>
   <block id="114872d03378e25021c3cc928e318e8a" category="paragraph">如果使用一个或多个策略保护数据库、则可以通过单击来分配更多策略 <block ref="2231c326e067595aca2fb0545475acf4" category="inline-image-macro-rx" type="image"></block> &gt;*分配策略*。</block>
   <block id="3c7ba9b9e3e6cc576a0786913d32d5df" category="list-text">选择策略并单击*分配*。</block>
@@ -1333,7 +1331,6 @@
   <block id="9330e7377c5511f70bfc35493714892a" category="list-text">在BlueXP UI中、单击*保护*&gt;*备份和恢复*&gt;*虚拟机*&gt;*设置*&gt;*适用于VMware vSphere的SnapCenter 插件*。</block>
   <block id="8fc5a6acddf8678dc2c340b6dfae42a9" category="list-text">单击*备份和恢复*&gt;*虚拟机*。</block>
   <block id="2b36d2f46a4c7d47c05352e78b2ebe53" category="doc">将内部应用程序数据备份到Google Cloud Platform</block>
-  <block id="ded90f27fe65ac910c74189d47b689e7" category="paragraph">您可以将内部ONTAP 系统中的Oracle、Microsoft SQL和SAP HANA应用程序数据备份到Amazon Web Services、Microsoft Azure、Google Cloud Platform和StorageGRID。</block>
   <block id="b4866a33463f80d02c65e0910ff4b146" category="paragraph">您可以创建策略或使用BlueXP中提供的以下预定义策略之一。</block>
   <block id="ca8f6fdf6612f39d01c4ba19ddfa9742" category="list-text">确保BlueXP用户具有"帐户管理员"角色。</block>
   <block id="0d547969bfaddaa4d8899f36a0bf6cfb" category="paragraph">从备份文件还原永久性卷时、BlueXP会使用备份中的数据创建一个_new_卷。您可以将数据还原到同一 Kubernetes 集群中的卷或与源 Kubernetes 集群位于同一云帐户中的其他 Kubernetes 集群。</block>
@@ -1342,7 +1339,6 @@
   <block id="ddb2145ba96507afdc3bec7ae412c714" category="list-text">为BlueXP提供权限的IAM角色必须包括最新版本的S3权限<block ref="ff3f0e305ab9e473aa2748fcb96c0189" category="inline-link-rx"></block>。</block>
   <block id="ef63a877f0594c057f824f4327169a39" category="list-text">支持Google Cloud Platform (GCP)和StorageGRID 备份应用程序一致的快照</block>
   <block id="c95623cd0395d5a6bb6105b9d32f197b" category="inline-link">BlueXP通知</block>
-  <block id="7a45e6298bb69116e2c6db653fb88884" category="sidebar">所有BlueXP文档</block>
   <block id="6403a6932203bef88f20e870a621ac4b" category="inline-link-macro">作业监控面板</block>
   <block id="a3cf64650e9eb74fa59d2c6bad494833" category="inline-link-macro">管理备份文件和备份策略</block>
   <block id="4336fd747538faaa1e106b7141e796a7" category="list-text">您可以 <block ref="b2f822ef5d8e8a888a3a011143834f62" category="inline-link-macro-rx"></block>。其中包括启动和停止备份、删除备份、添加和更改备份计划等。</block>
@@ -1767,17 +1763,13 @@
   <block id="2f17daad641775cccb25673e3b31136b" category="list-text">选择*云原生*&gt;* SAP HANA *、然后单击*下一步*。</block>
   <block id="0e53671fc8cff81722b57059b60e55f3" category="list-text">在*应用程序*页面中、单击*添加系统*。</block>
   <block id="5b0cc95a598bb6ede67addc2262b79e2" category="list-text">在*系统详细信息*页面中、执行以下操作：</block>
-  <block id="32403f6c910a8a0d4190a977cd4bb5a5" category="list-text">选择系统类型作为多租户数据库容器或单个容器。</block>
   <block id="e898199c829d90ae41784a78cdd2d6d9" category="list-text">输入SAP HANA系统名称。</block>
   <block id="a3df030ad26d42c5af0fcbd0e6f513d7" category="list-text">指定 SAP HANA 系统的 SID 。</block>
   <block id="d800d8f61fa1a641d5224e310e459b0c" category="list-text">如果HANA系统配置了HANA系统复制、请启用* HANA系统复制(HSR)系统*。</block>
-  <block id="802a79f8e4284baac3abc3713a39791d" category="list-text">单击* HDB安全用户存储密钥*文本框以添加用户存储密钥详细信息。</block>
   <block id="2145a09d2b376e7f0609f6fb4c6b5be5" category="paragraph">指定密钥名称、系统详细信息、用户名和密码、然后单击*添加密钥*。</block>
   <block id="b53a101b6e60770ada5a46695bb46566" category="paragraph">您可以删除或修改用户存储密钥。</block>
-  <block id="50606df711052c72cb3650915aa18292" category="list-text">在*存储占用空间*页面中、单击*添加存储*并执行以下操作：</block>
   <block id="0b4d4df45dec0f187977abf3a0e77fca" category="list-text">选择工作环境并指定 NetApp 帐户。</block>
   <block id="d253da62a1a7bf3e4d5c1adf904b607a" category="list-text">选择所需的卷。</block>
-  <block id="160c15dad3c86fc7f11c9d0f725a510f" category="list-text">单击 * 添加存储 * 。</block>
   <block id="5d74f0257578ebb70b128ed79394919f" category="list-text">查看所有详细信息、然后单击*添加系统*。</block>
   <block id="718c7b6c3378e6331dfacc19082eceda" category="section-title">添加非数据卷</block>
   <block id="70ece8b209ed1c9476f13c0fa00e2a77" category="list-text">在*应用程序*页面中、单击 <block ref="2231c326e067595aca2fb0545475acf4" category="inline-image-macro-rx" type="image"></block> 对应于要添加非数据卷的系统、然后选择*管理系统*&gt;*非数据卷*。</block>
@@ -2223,7 +2215,6 @@
   <block id="a9d053f343dbeb5aa5043e32e745a751" category="summary">执行从源SAP HANA系统(即生产数据库)到目标系统的刷新。</block>
   <block id="3e1a90c2232c83a5583ba782a21c185a" category="doc">刷新SAP HANA目标系统</block>
   <block id="6a2d5949052d8d9118cfcade0cfdd25c" category="list-text">在执行首次刷新操作之前、应先安装SAP HANA目标系统。</block>
-  <block id="c1c067a0bb1a2fe75a7db399b7e238ad" category="list-text">您应将源HANA系统和目标HANA系统手动添加到云备份中。</block>
   <block id="e58cfb63a12429814fc30c5d8f0e8d76" category="list-text">确保源系统和目标系统上的SAP HANA数据库版本相同。</block>
   <block id="9f4392bfcc6722ccfa013cf6e6660770" category="list-text">您应已确定要使用的刷新脚本。解决方案 技术报告提供了刷新脚本。</block>
   <block id="d648af91bd5d8a9bfbf67955f22a64fc" category="inline-link">自动化示例脚本</block>
@@ -2244,7 +2235,6 @@
   <block id="158a3a34d49db71bd2f895fba2c38243" category="list-text">在*应用程序*页面中、单击 <block ref="2231c326e067595aca2fb0545475acf4" category="inline-image-macro-rx" type="image"></block> 图标以选择与要刷新的系统对应的操作、然后选择*系统刷新*。</block>
   <block id="f573ee64ef887f8b0f16bdb22bf2dd34" category="list-text">在*系统刷新*页面中、执行以下操作：</block>
   <block id="521e5b4ee67bb67042f49209b8653819" category="list-text">选择源系统和Snapshot副本。</block>
-  <block id="445c03c33e1539bd0b41eb36082d3cb2" category="list-text">输入可用于访问新卷的导出地址。</block>
   <block id="5b1b42f6958d8e1fc337204814ce7e96" category="list-text">输入prestpt、postScript和on failure脚本路径。只有在系统刷新操作失败时、才会执行on failure脚本。</block>
   <block id="d687cb57e7c0a2bc72631659265b9d28" category="list-text">单击 * 刷新 * 。</block>
   <block id="9efea5dc57ddf655c92c407f96dd1337" category="paragraph">您应创建一个策略、将应用程序数据备份到云。</block>
@@ -2388,11 +2378,8 @@
   <block id="822058ba42fc85efab976ebaa9802beb" category="section-title">升级适用于SAP HANA数据库的SnapCenter 插件</block>
   <block id="f35f5a5ebccba047b1925b74505fdfbe" category="paragraph">您应升级适用于SAP HANA的SnapCenter 插件数据库、以访问最新的新功能和增强功能。</block>
   <block id="6c2313e6302e3ddccaf89724b45a5b06" category="list-text">运行以下脚本。<block ref="9a9e1cb603fe75305e4d36be20ae9261" prefix=" " category="inline-code"></block></block>
-  <block id="82079d60037e9d0df21acad72b86e52d" category="list-text">(可选)修改HDBSQL操作系统用户。</block>
   <block id="1cb5dc89376339563335539bf6e6b34f" category="paragraph">在删除SAP HANA系统之前、您应删除所有关联的备份并删除此保护。</block>
-  <block id="ed610882a056fb1f63c13e2a503a9aad" category="paragraph">添加多租户数据库容器或单个容器类型SAP HANA系统后、您可以添加HANA系统的非数据卷。</block>
   <block id="d9242f06d616d0d0d92448044927a033" category="paragraph">在发现可用的 SAP HANA 数据库后，您可以将这些资源添加到资源组以执行数据保护操作。</block>
-  <block id="ae2f6000d9cdad6b8f7e1ca8fca0b847" category="paragraph">添加多租户数据库容器或单个容器类型SAP HANA系统后、您可以添加HANA系统的全局非数据卷。</block>
   <block id="303186f87efbb1a1e40a3fc0ec6e6093" category="inline-link-macro">监控作业状态</block>
   <block id="0188976d1f9fb8029533d4b5186f90c3" category="paragraph">直接运行API或使用UI对应用程序的BlueXP备份和恢复的任何外部公开API调用API时、请求详细信息、例如标题、角色、请求正文、 API信息将记录在BlueXP时间线中、审核条目将永久保留在时间线中。API调用的状态和错误响应也会在操作完成后进行审核。如果异步API响应类似于作业、则作业ID也会在响应过程中记录下来。</block>
   <block id="20fbb2bb26c0caf0b8c33c09a6e533a1" category="paragraph">应用程序的BlueXP备份和恢复会记录主机IP、请求正文、操作名称、触发者、某些标头、 和API的运行状态。</block>
@@ -2460,7 +2447,6 @@
   <block id="71cb10bcaacfae27cc9bac41865e97f7" category="list-text">保护备份免受内部二级存储的影响</block>
   <block id="f38022cdfb27bcdacebc0633036b927c" category="list-text">保护SAP HANA应用程序</block>
   <block id="0a2eb5b37c8e172647166550f43db124" category="list-text">保护VMware环境中的Oracle和SQL应用程序</block>
-  <block id="20bf35a5a6263705cb77bbd72a8cbce2" category="list-text">SnapCenter 中至少有一个每日、每周或每月策略、没有标签或与BlueXP中策略的标签相同。</block>
   <block id="5422c69ce598c81146a4b7b614d9df97" category="list-text">在asm_diskstring参数中、您应配置：</block>
   <block id="ee5ee458f53ce64efd817dfc25ec2b7c" category="list-text">AFD：*(如果使用的是ASMFD)</block>
   <block id="39296b55464746596bb049fba7d7e1f2" category="list-text">ORCL：*如果您使用的是ASMLIB</block>
@@ -2733,7 +2719,6 @@
   <block id="70dfad9357f3b3b710b73d8eb3666851" category="paragraph">BlueXP备份和恢复服务可为内部和云端的NetApp ONTAP 数据、Kubelnetes永久性卷、数据库和虚拟机提供高效、安全且经济高效的数据保护。备份会自动生成并存储在公有 或私有云帐户的对象存储中。</block>
   <block id="9a3f2e7eb30992bb084418711e5093f2" category="doc">管理数据存储库和虚拟机数据的保护</block>
   <block id="2131f85f2f51908e5c573c231b274f4c" category="paragraph">您应确保在默认8144端口上运行的适用于VMware vSphere的内部SnapCenter 插件主机与在任何云提供商(Amazon Web Services、Microsoft Azure、Google云平台)或内部运行的BlueXP连接器实例之间的通信是开放的。</block>
-  <block id="40c5998ccd6f421d1eaa29ece0c36b59" category="paragraph">您可以将数据存储库备份到Amazon Web Services S3、Microsoft Azure Blb、Google Cloud Platform和StorageGRID 、并将虚拟机还原回适用于VMware vSphere的内部SnapCenter 插件主机。</block>
   <block id="2a18af02b6c0b7e92a17df9509574f26" category="list-text">您应使用适用于VMware vSphere 4.7P1或更高版本的SnapCenter 插件从内部二级存储备份数据存储库。</block>
   <block id="9fe2f95002b4b4815d52173b68bf9862" category="summary">创建一个策略以备份数据存储库</block>
   <block id="38fb3153d6139974d24ba11e28a0718d" category="list-text">要将备份从对象存储移至归档存储、您应运行ONTAP 9.10.1或更高版本、并且Amazon Web Services或Microsoft Azure应作为云提供商。</block>
@@ -2887,35 +2872,6 @@
   <block id="7eb75a0482cc00856d6f59785ed2196a" category="list-text">对于BlueXP备份和恢复PAYGO许可、您需要订阅<block ref="72b5d28b0fc68220ca561b42693848df" category="inline-link-rx"></block>。BlueXP备份和恢复的计费通过此订阅完成。</block>
   <block id="e59cc93e05cd1a09fee0d3400cb6594b" category="inline-link">Azure Marketplace中的NetApp BlueXP产品</block>
   <block id="1ec47f8d2867e62133816fe5c965e4ea" category="list-text">对于BlueXP备份和恢复PAYGO许可、您需要订阅<block ref="2fad159ac15feeefc5347d9f8b6dbeab" category="inline-link-rx"></block>。BlueXP备份和恢复的计费通过此订阅完成。</block>
-  <block id="297636b2bcb79ee4ccd3bb7671403999" category="section-title">删除SAP HANA数据库主机</block>
-  <block id="a2d13879a7b76ffe897fe8103b434355" category="paragraph">您只能使用REST API删除SAP HANA数据库主机。</block>
-  <block id="b7f6974b5d69aff198f9237a0a2c094d" category="list-text">执行以下步骤以删除SAP HANA数据库主机。</block>
-  <block id="200afc5eca1ab2aaaf44d39b4e461f2a" category="list-text">使用GET REST API获取必须删除的SAP HANA数据库主机的ID。<block ref="51dad906998af1627cfd8c445b8b43ab" prefix=" " category="inline-code"></block>
-  <block ref="f95b70fdc3088560732a5ac135644506" prefix=" " category="inline-code"></block>
-   <block ref="a641cfb5b011b5cb49303b34c80a6cfb" prefix=" " category="inline-code"></block>
-   <block ref="f3b599239bed41162cfb754c5bb9df44" prefix=" " category="inline-code"></block>
-       <block ref="f95b70fdc3088560732a5ac135644506" prefix=" " category="inline-code"></block>
-           <block ref="ed7b8bd22adb1714fa637cd7b3b4331b" prefix=" " category="inline-code"></block>
-           <block ref="f7c6ee9d9565c48c4aa24578d992f34b" prefix=" " category="inline-code"></block>
-           <block ref="095c01fe765e288681985447a475baee" prefix=" " category="inline-code"></block>
-           <block ref="db764a9381e247045b4f4a6c09e121b0" prefix=" " category="inline-code"></block>
-       <block ref="cbb184dd8e05c9709e5dcaedaa0495cf" prefix=" " category="inline-code"></block>
-   <block ref="0fbd1776e1ad22c59a7080d35c7fd4db" prefix=" " category="inline-code"></block><block ref="cbb184dd8e05c9709e5dcaedaa0495cf" prefix=" " category="inline-code"></block></block>
-  <block id="51a11f42ba598ff4a34cf79c1f4610af" category="list-text">通过传递以下REST API中的ID来删除SAP HANA数据库主机。<block ref="60ca3266dc3cf7874e88782aed985504" prefix=" " category="inline-code"></block></block>
-  <block id="d8328889034337fbd81cf76d0c3dce07" category="list-text">使用以下命令卸载数据库主机上的SAP HANA Linux插件。<block ref="45dc69782ede4b4cd03c3ab1172c0756" prefix=" " category="inline-code"></block></block>
-  <block id="190be79bcda9073c7cc174d89a62b124" category="section-title">修改SAP HANA数据库主机</block>
-  <block id="b5c57e960c8315130e111d59c3f6629e" category="paragraph">添加SAP HANA数据库主机后、您可以使用REST API修改主机名或插件端口。</block>
-  <block id="25e29ce32228dfb20b227bafb1c5eff6" category="list-text">使用GET REST API获取必须删除的SAP HANA数据库主机的ID。<block ref="51dad906998af1627cfd8c445b8b43ab" prefix=" " category="inline-code"></block>
-  <block ref="f95b70fdc3088560732a5ac135644506" prefix=" " category="inline-code"></block>
-   <block ref="a641cfb5b011b5cb49303b34c80a6cfb" prefix=" " category="inline-code"></block>
-   <block ref="f3b599239bed41162cfb754c5bb9df44" prefix=" " category="inline-code"></block>
-       <block ref="f95b70fdc3088560732a5ac135644506" prefix=" " category="inline-code"></block>
-           <block ref="ed7b8bd22adb1714fa637cd7b3b4331b" prefix=" " category="inline-code"></block>
-           <block ref="f7c6ee9d9565c48c4aa24578d992f34b" prefix=" " category="inline-code"></block>
-           <block ref="095c01fe765e288681985447a475baee" prefix=" " category="inline-code"></block>
-           <block ref="db764a9381e247045b4f4a6c09e121b0" prefix=" " category="inline-code"></block>
-       <block ref="cbb184dd8e05c9709e5dcaedaa0495cf" prefix=" " category="inline-code"></block>
-   <block ref="0fbd1776e1ad22c59a7080d35c7fd4db" prefix=" " category="inline-code"></block><block ref="cbb184dd8e05c9709e5dcaedaa0495cf" prefix=" " category="inline-code"></block></block>
   <block id="c325ed37b6a44d9e765cfd2dd7779cfb" category="paragraph">对于运行ONTAP 9.13.1或更高版本的内部ONTAP 系统，系统启动的作业(例如正在进行的备份操作)现在可在*作业监控*选项卡中找到。早期的ONTAP 版本将仅显示用户启动的作业。</block>
   <block id="4e4c67e8658214022378968dae080ce5" category="list-text">"CVO Edge Cache"软件包具有与"CVO专业版"软件包相同的功能、但也支持<block ref="0e8295000b498583f7b721745920fe19" category="inline-link-rx"></block> 服务您有权为Cloud Volumes ONTAP 系统上每配置3 TiB的容量部署一个BlueXP边缘缓存边缘系统。此选项可通过Azure和Google Marketplaces使用、但不支持备份内部ONTAP 数据。</block>
   <block id="83e6a84bd8ee7bed2013f07c3bd590c7" category="paragraph"><block ref="e8c794dc8a2003f8106407fa82df9679" category="inline-link-rx"></block>。</block>
@@ -3198,7 +3154,6 @@
   <block id="7c5673794ab84049a1575a551e904955" category="admonition">QoS仅适用于类型为"手动"的容量池。</block>
   <block id="d8e8e1e9be8176a39942efc9316a29da" category="paragraph">对于连接和副本还原操作、请转到Microsoft Azure门户、选择卷、单击*编辑*、然后启用*隐藏Snapshot路径*。</block>
   <block id="9ecc57e66b15cefd0125186929dc1975" category="admonition">主机名必须与用于HSR复制的主机的主机名相同。</block>
-  <block id="4b5d09f1726d80469776849660024054" category="list-text">复制位于以下位置的* sudoer.txt *的内容：_/var/lib/doker/volumes/service-manager[1]-2_Cloud manager_SCS云卷/_data/$(sudo Docker ps|gep -po"Cloud manager_SCS云：.*？"|sed -e 's/*$//'|Cut -f2 -d：")/SC-Linux-host-plugin_</block>
   <block id="d15dde190bd80c4b67a19bec549b644a" category="list-text">使用root用户帐户登录到SAP HANA系统主机。</block>
   <block id="185df8fc7d6cba2b3dc4ddbb241610fe" category="paragraph-title">开始之前</block>
   <block id="2d38677e8a4946bdca4b843432495b0d" category="list-text">使用Connector中提供的脚本安装此插件。<block ref="712ebead777e5d0341cb4c470ac313e6" prefix=" " category="inline-code"></block></block>
@@ -3207,12 +3162,8 @@
   <block id="32ded8361c7915052bda371f53ac1cd2" category="paragraph">此插件二进制文件位于：_cd /var/lib/dDocker /volumes/service-manager[1]-2_Cloud manager_SCS云卷/_data/$(sudo dDocker ps|gep -po"Cloud manager_SCS云：.*？"|sed -e 's/*$//'|Cut -f2 -d：")/SC-Linux-host-plugin_</block>
   <block id="2b331824c3cc83f2a2e03c85bb44862f" category="list-text">为SnapCenter 用户配置sudo。有关信息，请参见 <block ref="5e3b9649d708169ed88a9a242f31b61c" category="inline-xref-macro-rx"></block>。</block>
   <block id="a64a15a54bc15fd76d581f201d8597db" category="paragraph">如果您使用的是旧版Connector、请运行以下命令以升级此插件。<block ref="54993491d663e6aaf93dc6ed29ee78c5" prefix=" " category="inline-code"></block></block>
-  <block id="c1c67d1a62632a7d21817e74b7a9b4b6" category="list-text">选择插件主机。
-(可选)如果未添加主机，请单击*添加插件主机*。</block>
   <block id="010678b7a184d05aec2abd32b800f89b" category="paragraph">从左侧导航窗格中，选择BlueXP *Canves*以添加新的工作环境。</block>
   <block id="6127a1470e4ac9558619287c2c509e80" category="paragraph">您可以从用户界面修改或删除SAP HANA系统。</block>
-  <block id="d65cdf24414c885f7a1b05c0cbb361d5" category="list-text">使用用户界面或以下REST API删除与SAP HANA数据库主机关联的所有系统。<block ref="0c0baa47c52b612c6253de1836b4f5e6" prefix=" " category="inline-code"></block></block>
-  <block id="bfd23c3bc8b4cf882aac94054775463a" category="list-text">使用以下修补程序API修改主机名或插件端口。<block ref="3df630cb139718471dc01612fab9397c" prefix=" " category="inline-code"></block><block ref="f95b70fdc3088560732a5ac135644506" prefix=" " category="inline-code"></block><block ref="a37ea85e4042f80d9f4b6f965b1b2646" prefix=" " category="inline-code"></block><block ref="a783ebe0e7707148dae78011dee49146" prefix=" " category="inline-code"></block><block ref="cbb184dd8e05c9709e5dcaedaa0495cf" prefix=" " category="inline-code"></block></block>
   <block id="51276db22ab007bf8378ddc5150c089e" category="section-title">2023年7月4日</block>
   <block id="91abdc8faafafce1c7b76b1ecb8b37a6" category="list-text">SAP HANA系统</block>
   <block id="bd8b9d76d990f261019903335a2c9e94" category="list-text">支持对具有Azure NetApp Files二级保护的非数据卷和全局非数据卷进行连接和副本还原</block>
@@ -3235,11 +3186,9 @@
   <block id="e7abe879ad8765bcf5e173bd23f0644d" category="paragraph">如果发生数据丢失、您可以先将数据文件和/或控制文件还原到原始位置、然后再恢复数据库。</block>
   <block id="a5233c6b5d691a32f2faf916f0baebe1" category="summary">您可以将SAP HANA数据库从云还原到内部SnapCenter服务器。</block>
   <block id="4916c64add300658e04310a106e04012" category="doc">还原SAP HANA数据库</block>
-  <block id="33f890a5e5f85b7caf971e2a72c73036" category="paragraph">您可以将SAP HANA数据库还原到同一主机。</block>
   <block id="4b214d6e7bd95c0516f3f50fc89a0e3e" category="list-text">在*Filter by *字段中，选择过滤器*Type*，然后从下拉列表中选择*HARA*。</block>
   <block id="839eae4432b00e9cfcdd83d532a31b83" category="list-text">在还原选项页面中、指定以下选项之一：</block>
   <block id="eee7cd91c87d431eb526192fb8d8f8fa" category="list-text">如果快照位于归档存储中、请选择从归档存储还原数据的优先级。</block>
-  <block id="0a7a7ddc8742b5a7471a5c2d0a3cecb0" category="admonition">只有当您使用Amazon Web Services或Microsoft Azure作为云提供商时、才需要指定优先级。</block>
   <block id="cfca0342d906d31ff717aa42ed391bcb" category="list-text">如果源存储上没有足够的空间或源存储已关闭，请选择*更改存储位置*。</block>
   <block id="d0aa9f6dc927738d3c07012b7c8b6e03" category="list-text">在存储映射页面中、指定要存储从对象存储还原的数据的备用存储位置详细信息。</block>
   <block id="d3cb840d450fe62742c860611a591afe" category="paragraph">此操作仅会导出给定主机上选定备份的存储。您应手动挂载文件系统并启动数据库。使用此卷后、存储管理员可以从ONTAP 集群中删除此卷。</block>
@@ -3355,13 +3304,11 @@ _/뚩 阅/｛뚩 阅_id｝/resourceGroups/｛资源组｝/Providers /｛提供�
   <block id="bb4f335f0d25871a3b9c36796484e4bb" category="list-text">在控制台树中，双击*Certificates*。</block>
   <block id="62cf2c06af955668bade109f16b05be8" category="list-text">右键单击*可信根证书颁发机构存储*。</block>
   <block id="f4139147b1b7b2fc4471626b33811546" category="list-text">单击*Import*导入证书，然后按照*Certificate Import Wizard*中的步骤进行操作。</block>
-  <block id="5f9593f53c029e05ad3fe317372bbbb7" category="paragraph">您可以使用SAP HANA源系统的数据刷新SAP HANA目标系统。这可用于将当前生产数据提供到测试系统中。通过云备份、您可以从源系统中选择Snapshot副本、并根据此Snapshot副本创建新的Azure NetApp Files卷。可以使用示例脚本、这些脚本会在数据库主机上执行所需的操作、以恢复SAP HANA数据库。</block>
   <block id="3205bfd250f7e652581ed45c1db8eb26" category="list-text">新卷的"最大吞吐量数"是从具有手动服务质量(QoS)容量池的目标系统的卷中选择的。
 对于自动QoS容量池、吞吐量由源卷的容量定义。</block>
   <block id="170cf8aa630273f26a308eb9c95fb49a" category="list-text">SnapCenter服务器4.6或更高版本</block>
   <block id="a60ee7cfb0bf03a2eb61a9b068a5f2bf" category="list-text">如果要使用以下功能、应使用SnapCenter服务器4.7或更高版本：</block>
   <block id="d3456e6a0908a4918170d02ea0c3ee84" category="list-text">备份的存储导出</block>
-  <block id="0d85057e25566698a3c3dc29d49db941" category="list-text">如果要使用以下功能、应使用SnapCenter服务器4.9：</block>
   <block id="b8507ca67617589814152570680713d8" category="list-text">挂载Oracle数据库备份</block>
   <block id="b1736bc032b4a5b6d651f60785db87f7" category="list-text">还原到备用存储</block>
   <block id="94a7d215d3c763dcc4768c5097b88e2c" category="summary">您可以查看备份详细信息、监控所有作业的状态、删除克隆、审核数据、更新连接器详细信息、配置CA证书、 并管理主机。</block>
@@ -3378,7 +3325,6 @@ _/뚩 阅/｛뚩 阅_id｝/resourceGroups/｛资源组｝/Providers /｛提供�
   <block id="4dc136998723b1723dd65fb967c4745d" category="paragraph">希望使主机退出维护模式</block>
   <block id="3261eb27fd899680f932574f52ee49e3" category="paragraph">单击 <block ref="2231c326e067595aca2fb0545475acf4" category="inline-image-macro-rx" type="image"></block> 对应于正在维护的主机，然后选择*Disable Maintenance mode*。</block>
   <block id="2cd898c5523193b070234ed5d34c815d" category="list-text">将certifice.pm从&lt;base_mount_path&gt;连接器VM的_Connectic/client/certification/_路径复制到插件主机上的_/var/opt/snapcentre/spl/etc/_。</block>
-  <block id="d3794a65ac38525b0f295e41c150ee12" category="list-text">导航到_/var/opt/snapcenter/spl/etc_并运行keytool命令导入certificate.p12文件。<block ref="11eedec2593dcf6deecf4133d03a7613" prefix=" " category="inline-code"></block></block>
   <block id="40827a860546af59127b7a2ff41eb4ce" category="list-text">执行以下操作之一：</block>
   <block id="3a42f0d8ab8360d2ee5a9c291f78ccf8" category="list-text">运行以下命令以获取_&lt;base_mount_path&gt;_：<block ref="22ab9e84fb8aba7e93d8b90366ddca59" prefix=" " category="inline-code"></block></block>
   <block id="3717efafcaa340ed61240daf5d7a6b9b" category="list-text">将所有中间CA和根CA的certificate.pm和证书从Connector复制到插件主机：/var/opt/snapcentre/spl/etc/_。</block>
@@ -4576,4 +4522,229 @@ ONTAP S3</block>
   <block id="522cbb900314aeb84eb5a961c5f94672" category="section-title">获得云提供商文件服务支持</block>
   <block id="f6185bb12f5e53c800be8cda7fbca65b" category="paragraph">有关与云提供商文件服务、其基础架构或使用该服务的任何解决方案相关的技术支持、请参阅该产品的BlueXP文档中的"获得帮助"。</block>
   <block id="3880ae5df9fdc4d0fc4a6d00a2239530" category="paragraph">要获得针对BlueXP及其存储解决方案和服务的技术支持、请使用下面所述的支持选项。</block>
+  <block id="eb018f0a377269905eb589a99448cf57" category="section-title">2023年10月13日</block>
+  <block id="d9a26494c95cbef43a71fa2585292af3" category="list-text">Microsoft SQL Server数据库</block>
+  <block id="270a06ed19fec772bcfb084931cae13d" category="list-text">支持备份、还原和恢复Amazon FSx for NetApp ONTAP上的Microsoft SQL Server数据库</block>
+  <block id="d4da4ec044327991fbcd43ca1778c38f" category="list-text">只有通过REST API才支持所有操作。</block>
+  <block id="3b05cd173ffd47ef0b4346901ab9e0d3" category="list-text">在系统刷新期间、系统会使用工作流(而不是脚本)自动挂载和卸载卷</block>
+  <block id="29db6fe351e2079efe0622a1b5bd15f4" category="list-text">支持添加、删除、编辑、删除、维护、 并使用UI升级插件主机</block>
+  <block id="b4445605950c5dae15c10f509d6f0f79" category="list-text">支持数据锁定和勒索软件保护</block>
+  <block id="188502bd01986373f9c31291dc835e82" category="list-text">支持将备份从StorageGRID移至归档层</block>
+  <block id="541019d49feaf31b8000318aac636f92" category="list-text">支持将MongoDB、MySQL和PostgreSQL应用程序数据从内部ONTAP系统备份到Amazon Web Services、Microsoft Azure、Google云平台和StorageGRID。您可以根据需要还原数据。</block>
+  <block id="11a3809c55f7c25dbda24854a827db05" category="section-title">对虚拟机的BlueXP备份和恢复进行了增强</block>
+  <block id="60a7ad592c196ecee9eebdab38d4ed7e" category="list-text">支持Connector代理部署模式</block>
+  <block id="82725bf31262afb73c02d0bbce2d3389" category="paragraph">系统会为所有BlueXP备份和恢复操作创建作业。您可以监控在每个任务中执行的所有作业和所有子任务。</block>
+  <block id="65e3ba6149c87f14c99c67806cbe8899" category="doc">还原MongoDB、MySQL和PostgreSQL数据库</block>
+  <block id="eb92df223c0140de30f9a1bfb050ab30" category="paragraph">您可以将MongoDB、MySQL和PostgreSQL数据库还原到任何主机。</block>
+  <block id="b89cd7529d8b58accf14d298da485e40" category="list-text">在*Filter By*字段中，选择过滤器*Type*，然后从下拉列表中选择*MongoDB*、*MySQL*或*PostgreSQL。</block>
+  <block id="0aa96c72f941184ee1fddb9f1e93bb8e" category="paragraph">如果选择*更改存储位置*，则可以在目标卷上附加后缀。如果未选中此复选框、则默认情况下会将*_restore *附加到目标卷。</block>
+  <block id="1b7f45b11a0b3c23c673c7b492b95608" category="list-text">驻留在Amazon FSx for NetApp ONTAP上的Microsoft SQL Server数据库</block>
+  <block id="517bdb688e6c84b0e18a16f2d57e6b65" category="section-title">保护Microsoft SQL Server数据库</block>
+  <block id="427c0c21d4da0306e332645c2d0885cc" category="list-text">手动添加主机并部署此插件</block>
+  <block id="3974ae13f8a1f2a9ced9b4edf794e919" category="list-text">手动发现数据库</block>
+  <block id="9c2f9028ae71359c5989e7895d825384" category="list-text">备份Amazon FSx for NetApp ONTAP上的SQL Server实例</block>
+  <block id="005935debd617b1d21ee33bc1decbc01" category="list-text">根据策略计划备份</block>
+  <block id="09463b4b21cca932be39c18ad78a5842" category="list-text">Microsoft SQL Server实例的日志备份</block>
+  <block id="b387ef5ecece4fdf341cd40a2e974951" category="list-text">将数据库还原到原始位置</block>
+  <block id="587dd10f4ff0a4218b9e6cf664ddccc6" category="list-text">只有SQL Server实例才支持备份</block>
+  <block id="4d6796db789f823d90158e326dd2f45e" category="list-text">不支持故障转移集群实例(FCI)配置</block>
+  <block id="d8857d2c7de259a1526f243b862d6e51" category="list-text">BlueXP UI不支持特定于SQL数据库的操作</block>
+  <block id="ba6967a5092def4a6f5a7a11e4b419b4" category="paragraph">所有特定于Microsoft SQL Server数据库的操作均通过运行REST API来执行。</block>
+  <block id="c9739a96cc0c081597fb757f6922b81b" category="list-text">不支持还原到备用位置</block>
+  <block id="aaa14c52f8ab40d691dbaa0e0accaf05" category="summary">在每个SQL数据库主机上安装适用于SQL的SnapCenter插件。</block>
+  <block id="cb465f84fc2fa964f57db77216bdbdbf" category="doc">安装适用于SQL Server的SnapCenter插件并添加数据库主机</block>
+  <block id="fe9579e8db11464e1fbc8b14bd3ac64a" category="paragraph">您应在每个SQL数据库主机上安装适用于SQL Server的SnapCenter插件、添加数据库主机、发现数据库实例并配置数据库实例的凭据。</block>
+  <block id="08bf99571b9b82afc673fb035d644b54" category="section-title">安装适用于SQL Server的SnapCenter插件</block>
+  <block id="c40ea3874f348e43e57fb1101b4b2a6f" category="paragraph">您应下载插件*snapcCenter_service_windows_host_plugin.exe*，然后运行静默安装程序命令在数据库主机上安装该插件。</block>
+  <block id="954ad5658c84798f7b1c55aa74b22532" category="list-text">您应确保满足以下前提条件。</block>
+  <block id="21e4202c3ee900d38275eabeac7d9598" category="list-text">已安装.Net 4.7.2</block>
+  <block id="d6b5f75ce7d1601c4c91df6325ace553" category="list-text">已安装PowerShell 4.0</block>
+  <block id="d27121a4aecaa4be2b69e420dae5864f" category="list-text">可用磁盘空间至少为5 GB</block>
+  <block id="40a9ba36f79f8ec6ceba274601a7e7cd" category="list-text">RAM大小至少为4 GB</block>
+  <block id="5647ce1798fff3b8d7059b740850a8ba" category="list-text">您应运行API以完成客户入职。有关更多信息、请参见：<block ref="ff9af33ae93b9ea753b85111c1bb4f78" category="inline-link-rx"></block></block>
+  <block id="8d0b9bb4ef0c4282c5ce4c8ac803ffef" category="list-text">通过从连接器主机运行API来下载此插件。<block ref="3cbce18f076b94178b1b686c273c9f52" prefix=" " category="inline-code"></block></block>
+  <block id="c46f2c1e7cece7711fa93ceffa5b946b" category="paragraph">此文件的位置为：/var/lib/dDocker卷/service-manager-2_Cloud manager_SCS_Cloud volume/_data/sc-windows-host-plugin/snapcentre_service_windows_host_plugin.exe_&lt;agent_version&gt;。</block>
+  <block id="15e1905699c6d15bec3a24f6b6f7ae4d" category="list-text">使用scp或其他替代方法将_snapcCenter_service_windows_host_plugin.exe_从连接器复制到每个MSSQL Server数据库主机。</block>
+  <block id="f5fe27280bc5a294bce5e07589cec0da" category="list-text">安装插件。
+'C：//ISFeature/silent_Install_SCSQL_flex.log"/log"C：//ISER/HA_Suite_Install_SCSQL_Flex.log"&lt;install_folder&gt;/log"C：//install_folder /" BI_SNACPENter_port=8145 &lt;install_folder&gt; Install=SCSQL"</block>
+  <block id="2fa63a1a862e1a3e085e9db0061167cb" category="list-text">将自签名证书从/var/lib/dkdker/volumes/service-manager-2_Cloud manager_sss_c云集 成_volume/_data/client/certification/certifice.pem_复制到MSSQL Server数据库主机。</block>
+  <block id="6b6be07cee8e3ec8cb1dba2da7cef557" category="paragraph">如果不使用默认证书、还可以生成自签名证书或CA签名证书。</block>
+  <block id="17afa11613a55a7bb8cf4c9c6059e5fc" category="list-text">在Connector主机中将证书从.prom转换为.crt格式。
+"OpenSSL x509 -outform der -in certifice.pm -out certifice.crt"</block>
+  <block id="370b04f1aa72c5c5c1e0bbae86f8cfff" category="list-text">双击证书以将其添加到“个人”和“受信任根证书颁发机构”存储中。</block>
+  <block id="93aeb9a2132e6f8160d289af3bbd5644" category="section-title">添加SQL Server数据库主机</block>
+  <block id="4399183c2c7007fff4bbf707b1f04a13" category="paragraph">您应使用主机FQDN添加MSSQL数据库主机。</block>
+  <block id="a85945882541fbef38f38e088491ff39" category="paragraph">'发布snapcenter.cloudmanager.cloud.netapp.com/api/v1/hosts'</block>
+  <block id="aafb212ffe1e43a6b2073be689998e1f" category="paragraph">有关详细信息、请参见：<block ref="c017ac367d82118efe33e9edf91b01ce" category="inline-link-rx"></block></block>
+  <block id="2a44b2caaf84a8da94f2abe59810d8d3" category="paragraph">此API创建了一个可从BlueXP UI中的*Job Monitor*选项卡进行跟踪的作业。</block>
+  <block id="3225a10b07f1580f10dee4abc3779e6c" category="section-title">Parameters</block>
+  <block id="a1fa27779242b4902f7ae3bdd5c6d508" category="cell">Type</block>
+  <block id="b651efdb98a5d6bd2b3935d0c3f4a5e2" category="cell">Required</block>
+  <block id="3ef9a0d7fab5d2bcabf0978c0a35244e" category="paragraph">Addr</block>
+  <block id="b45cffe084dd3d20d928bee85e7b0f21" category="paragraph">string</block>
+  <block id="f827cf462f62848df37c5e1e94a4da74" category="paragraph">true</block>
+  <block id="2b69d2ab5aec459dabdafdaa2bf52655" category="paragraph">connector_id</block>
+  <block id="b5e4cf8f15340fe583549c72bb27e387" category="paragraph">plugin_type</block>
+  <block id="dac82a1f4d600b10cf3def8851bb0781" category="paragraph">install_方法</block>
+  <block id="b1bc248a7ff2b2e95569f56de68615df" category="paragraph">数字</block>
+  <block id="14c4b06b824ec593239362517f538b29" category="paragraph">username</block>
+  <block id="d64ed3e9c10229648e069f56e32f4c8e" category="section-title">响应</block>
+  <block id="f031e50c868376b26c4a5bb9a2f7a1f3" category="paragraph">如果API成功执行、则显示响应代码202。</block>
+  <block id="81eeab9506186e2dca8faefa78d54067" category="paragraph">示例</block>
+  <block id="4696ee250f842f44c04adb21b847e87d" category="section-title">查看添加的SQL Server数据库主机</block>
+  <block id="31bc9159740971fb9dc74609c30c4db2" category="paragraph">您可以运行此API来查看添加的所有SQL Server数据库主机。</block>
+  <block id="a0680349450a6524501f3b1691973317" category="paragraph">'获取snapcenter.cloudmanager.cloud.netapp.com/api/v1/hosts'</block>
+  <block id="039b59ff3193133f8a35f93c887b8566" category="paragraph">有关详细信息、请参见：<block ref="999902e84118ca4b248b249437dd5328" category="inline-link-rx"></block></block>
+  <block id="ad6a5a04a03dcd1c7ddf68e41cca0167" category="paragraph">如果API成功执行、则显示响应代码200。</block>
+  <block id="1c4d441cefa0a8fa4eb54aa8bfc1ddaf" category="section-title">发现数据库实例</block>
+  <block id="ee581a2186d7bd0d10dc336318d625e4" category="paragraph">您可以运行此API并输入主机ID来发现所有MSSQL实例。</block>
+  <block id="f4ca8afc79d8fe4cce889ea13120d0bd" category="paragraph">'发布snapcenter.cloudmanager.cloud.netapp.com/api/mssql/instances/discovery'</block>
+  <block id="29152cb1595a2170e9ca099a0ed46cfc" category="paragraph">有关详细信息、请参见：<block ref="418542270b6e1faa620e3805d0e63f99" category="inline-link-rx"></block></block>
+  <block id="8396f175b8a7f69db14f4d12e415869d" category="paragraph">host_id</block>
+  <block id="4817d7c5bfbb82d69274eb709a10fe7b" category="section-title">查看已发现的数据库实例</block>
+  <block id="81f51e4104d179eaf15c8b24ac8bc89a" category="paragraph">您可以运行此API来查看所有已发现的数据库实例。</block>
+  <block id="9cd6d90751e08036172df22e21b9502d" category="paragraph">'获取snapcenter.cloudmanager.cloud.netapp.com/api/mssql/instances'</block>
+  <block id="51547d7a40b38b2025c43cfa5e37c344" category="paragraph">有关详细信息、请参见：<block ref="e6cccd2a7e8d81abf532712d71c7ecee" category="inline-link-rx"></block></block>
+  <block id="6cade9418d2953a83e67c4eef00aea73" category="section-title">配置数据库实例凭据</block>
+  <block id="c3a69dae6b2b3822ecca1e687f77d66c" category="paragraph">您可以运行此API来验证和设置数据库实例的凭据。</block>
+  <block id="cdf0fd50cb211928756a59b401044161" category="paragraph">'发布snapcenter.cloudmanager.cloud.netapp.com/api/mssql//api/mssql/credentials-configuration'</block>
+  <block id="2df6fd7718098d10437cb4e49c440f36" category="paragraph">有关详细信息、请参见：<block ref="d6982c00d01bece0ea3e7e55011bce6e" category="inline-link-rx"></block></block>
+  <block id="2eef3504d993383a677995e93a4f9f76" category="paragraph">Instance_ID</block>
+  <block id="5f4dcc3b5aa765d61d8327deb882cf99" category="paragraph">password</block>
+  <block id="c2f317611e4ff4d753766c5bc5aec5b0" category="paragraph">auth_mode</block>
+  <block id="ccb96b4d60af322f1f0f10d1acb10195" category="summary">完成几个步骤即可开始备份Microsoft SQL Server数据库。</block>
+  <block id="4083fee85864d55c66d5e0b21a7928b3" category="list-text">Windows 2016</block>
+  <block id="0a412bceaa4a8d671231ab04d2e0296e" category="list-text">Windows 2019</block>
+  <block id="3ffd22c07b48a1c76b76f941ad1cad96" category="list-text">Windows 2022</block>
+  <block id="07ef77a1b7ac63f701c543115924abb8" category="list-text">NetApp云存储：Amazon FSx for NetApp ONTAP</block>
+  <block id="5beef1beb6565ceb9f5849d1265b9f73" category="list-text">存储布局：SAN (iSCSI)</block>
+  <block id="7be5a6388bd087b8bf70e58fee91d770" category="paragraph">不支持NAS配置。</block>
+  <block id="3d70aee8377c8fd2c6ab572c1ce710d7" category="list-text">数据库版本：</block>
+  <block id="c9cf486f968bed470720b8014710f2cf" category="list-text">Microsoft SQL Server 2016</block>
+  <block id="f6d2c8f6c5f57ce5542457131b856e66" category="list-text">Microsoft SQL Server 2019</block>
+  <block id="1969e2463b90c3e6d0f8a9e57e6e6790" category="list-text">Microsoft SQL Server 2022</block>
+  <block id="e8052b6372945ef61c70f02e7fcee945" category="list-text">数据库配置：</block>
+  <block id="5c80f101108a356211fcb26b3f83eabb" category="list-text">独立</block>
+  <block id="4d82a1ec1af02725042c8c785564ee7a" category="list-text">适用于 NetApp ONTAP 的 Amazon FSX</block>
+  <block id="4bca56bf446030b30e5509102dc7d31d" category="paragraph">BlueXP支持数据锁定和勒索软件保护。如果ONTAP集群运行的是ONTAP 9.12.1或更高版本、并且尚未配置归档存储、则可以保护备份免受覆盖、删除和勒索软件威胁的影响。</block>
+  <block id="bcbbe01c67d093d1c5217f38a5c8bb3f" category="list-text">如果已在策略中配置归档存储、请选择归档层。</block>
+  <block id="a271ff9e1d0739d62e4ef10ba279b1e9" category="list-text">配置数据锁定和勒索软件保护。</block>
+  <block id="6ee247c1c78655e4971dd99925015322" category="list-text">将_certification/pepm_从&lt;base_mount_path&gt;连接器VM的_Connectic/client/certification/_路径复制到插件主机上的_/var/opt/snapcentre/spl/etc/_。</block>
+  <block id="48d029428403cd451e9e9977113b8c28" category="list-text">导航到_/var/opt/snapcentre/spl/ETC_并执行keytool命令以导入certificate．pems。<block ref="d29553c6cbdee9fd0a8fc198c6e1bbe1" prefix=" " category="inline-code"></block></block>
+  <block id="baf1519220b3476b87f2b72bf2f67230" category="list-text">复制位于以下位置的* sudoer.txt *的内容：_/var/lib/doker/volumes/service-manager-2_Cloud manager_schs_Cloud volume/_data/$(sudo doker ps|gep -po"Cloud manager_schs_Cloud：.*？"|sed -e 's/*$//'|Cut -f2 -d：")/SC-Linux-host-plugin_</block>
+  <block id="480a5ae9d6c54a41b779f14faf22d588" category="paragraph">此插件二进制文件位于：_cd /var/lib/docker/volumes/service-manager-2_cloudmanager_SCS_cloud_volume/_data/$(sudo docker ps|grep -po"cloudmanager_SCS_cloud：.*？"|sed -e 's/*$//'|Cut -f2 -d：")/SC-Linux-host-plugin_</block>
+  <block id="a2e1d1f9e874911e6c678a7fdfcd1671" category="list-text">导航到_/var/opt/snapcenter/spl/etc_并执行keytool命令以导入证书。<block ref="d29553c6cbdee9fd0a8fc198c6e1bbe1" prefix=" " category="inline-code"></block></block>
+  <block id="c1586a5991b11f49efb2a70834e56e16" category="list-text">在*BlueXP* UI中，选择*保护*&gt;*备份和恢复*&gt;*应用程序*。</block>
+  <block id="c5c2c06388567c8010b829d486201edd" category="list-text">选择*发现应用程序*。</block>
+  <block id="0618a9ddd7e88e70d7479dfa35e01d86" category="list-text">选择*云原生*&gt;* SAP HAA*并选择*下一步*。</block>
+  <block id="5aeb727bef86ad9ccaac5a82e7e66777" category="list-text">在*应用程序*页中，选择*添加系统*。</block>
+  <block id="69c4d962a907629ca02789bb2119ada9" category="list-text">选择系统类型作为多租户数据库容器或全局非数据卷。</block>
+  <block id="24299d01b3bb01ee051a1b601c8a8df9" category="list-text">(可选)修改OSDB用户。</block>
+  <block id="4e747b9eff790cc47a77ad567b2b8bfb" category="list-text">选择*HDB安全用户存储密钥*文本框以添加用户存储密钥详细信息。</block>
+  <block id="83b4aeed58c081c1701c2ad6bcd70cca" category="list-text">在*Host Details*页面中，执行以下操作：</block>
+  <block id="0e464be44c9a16be3ffaf49a158aa196" category="list-text">选择*添加新主机*或*使用现有主机*。</block>
+  <block id="1a02c8892f8416d639609a335d521127" category="list-text">选择*使用SSL*或*手动*。</block>
+  <block id="b3eb143877addb049a483b7d3074ca84" category="paragraph">对于手动、输入主机FQDN或IP、连接器、用户名、SSH端口、插件端口、 并可选择添加和验证SSH专用密钥。</block>
+  <block id="9a559c034a3ca9c2382dcd0d38f3e6b8" category="paragraph">对于SSH、输入主机FQDN或IP、连接器、用户名和插件端口。</block>
+  <block id="ea78d93af5c804e83d45cdb58b884610" category="list-text">在*Host configuration*页中，验证是否满足配置要求。</block>
+  <block id="63881970bbaf0571639ad5dff80f02aa" category="paragraph">选中复选框进行确认。</block>
+  <block id="c5f8fde5dae5abbe87d152101d5d20ae" category="list-text">在*存储占用空间*页面中，选择*添加存储*并执行以下操作：</block>
+  <block id="bbe06e5eec2cc084e2340e2dc6400440" category="list-text">选择*添加存储*。</block>
+  <block id="61f4a5353c44bbf9bbfa8e2bb857577c" category="list-text">查看所有详细信息并选择*添加系统*。</block>
+  <block id="bb97e08485a32b1b60213ae78dc73ac8" category="paragraph">添加多租户数据库容器类型SAP HANA系统后、您可以添加HANA系统的非数据卷。</block>
+  <block id="13b8c4a95d7b28028a271913dee6da39" category="paragraph">添加多租户数据库容器类型SAP HANA系统后、您可以添加HANA系统的全局非数据卷。</block>
+  <block id="add1dde657a589d908a9cde160eee44b" category="list-text">。在*Host Details*页面中，执行以下操作：</block>
+  <block id="000d02ad3bd664c7ea6bd8e52da45932" category="admonition">计划的作业将在作业完成时间后5分钟(最长)后列在BlueXP作业监控页面中。</block>
+  <block id="63d1835869ddb853434e7e3db1b546e0" category="summary">您可以将SQL数据库从云还原到同一主机。</block>
+  <block id="3424cc7da1d16af06bb6970242ec18c0" category="doc">还原Microsoft SQL Server数据库</block>
+  <block id="fec03b8cc4c44aaabe7c63f81c986be7" category="paragraph">您可以将Microsoft SQL Server数据库还原到同一主机。您应先获取数据库列表、然后再还原数据库。</block>
+  <block id="0a558dd1d7f549e5bb6315bf53077bdf" category="section-title">查看数据库列表</block>
+  <block id="c23ebb820414168ef3ebfccce54446a7" category="paragraph">您可以运行此API来查看数据库列表。</block>
+  <block id="e7fbfce4d9fbdb422a76ed4547091ed5" category="paragraph">'获取snapcenter.cloudmanager.cloud.netapp.com/api/mssql/databases'</block>
+  <block id="fb8d99a8d958b48eda414f1fc374d17e" category="paragraph">有关详细信息、请参见：<block ref="99a98b4ff9e35f9bd5870047483675c8" category="inline-link-rx"></block></block>
+  <block id="3db7e44dcba18afa9414359baa6b1855" category="section-title">还原和恢复MSSQL数据库</block>
+  <block id="924dd545d1cad07f5913f5abdcf05870" category="paragraph">您可以运行此API来还原MSSQL数据库。</block>
+  <block id="020dd1e6ac6217f75e0d57668257cf42" category="paragraph">'发布snapcenter.cloudmanager.cloud.netapp.com/api/mssql/databases/{id}/restore'</block>
+  <block id="3d584902b99b583c0aba1c81c5cfdb31" category="paragraph">其中、_id_是通过运行View数据库API获取的MSSQL数据库ID。有关详细信息，请参见 <block ref="bce1e003aa5f7dcae20591d29f8df376" category="inline-xref-macro-rx"></block>。</block>
+  <block id="8fc108ad806760c879e9230a69685908" category="paragraph">有关详细信息、请参见：<block ref="750ccf486ad0c1766b6fedb08f88b26d" category="inline-link-rx"></block></block>
+  <block id="8a277038af43b865467968046e7a000b" category="paragraph">backup_id</block>
+  <block id="f1d5929d1df959a6acff0193e3ca2e77" category="paragraph">overwrite_database</block>
+  <block id="c506ff134babdd6e68ab3e6350e95305" category="paragraph">池</block>
+  <block id="ac622749dcfadf56eeb7a1f93137789b" category="paragraph">retain复制设置</block>
+  <block id="f8320b26d30ab433c5a54546d21f414c" category="paragraph">false</block>
+  <block id="2d832d9239feee194c8e9a91fc096811" category="paragraph">恢复模式</block>
+  <block id="ac3c8b97f4b281b8134853d957d21cfa" category="paragraph">支持的3个字符串为_Operational _、_NonOperational _和_ReadOnly"。</block>
+  <block id="880905045bc381284d782e85c6604380" category="paragraph">undo_file_directory</block>
+  <block id="6fd11dd3594a4c62311aae93219b377d" category="paragraph">还原类型</block>
+  <block id="206e3718af092fd1d12f80cae771ccac" category="list-text">MongoDB</block>
+  <block id="62a004b95946bb97541afa471dcca73a" category="list-text">MySQL</block>
+  <block id="399bd1ee587245ecac6f39beaa99886f" category="list-text">PostgreSQL</block>
+  <block id="b3b5981b5c14115139a4ba794d8c793a" category="paragraph">您可以将SAP HANA数据库还原到任何主机。</block>
+  <block id="c82ab188948ddcbdff4e3d7a532e7e12" category="paragraph">您可以使用SAP HANA源系统的数据刷新SAP HANA目标系统。这可用于将当前生产数据提供到测试系统中。通过BlueXP备份和恢复、您可以从源系统中选择Snapshot副本、并根据此Snapshot副本创建新的Azure NetApp Files卷。可以使用示例脚本、这些脚本会在数据库主机上执行所需的操作、以恢复SAP HANA数据库。</block>
+  <block id="ff843b4e5e355ba5f31708ace563ca57" category="list-text">您应手动将源和目标HANA系统添加到BlueXP备份和恢复中。</block>
+  <block id="b2604b8680084825e527aff6193ee920" category="list-text">您必须将此插件升级到3.0版。</block>
+  <block id="76f0a90c84b9977f916f987012ea9e29" category="list-text">源SAP HANA系统和目标SAP HANA系统上的数据卷的挂载路径应相同。</block>
+  <block id="1a7ec5a4c5530349d629d5779cc7a842" category="list-text">在首次刷新操作之前、请确保"/etc/fstab"文件不包含目标SAP HANA系统的数据卷条目。</block>
+  <block id="17801831df8690e9e2ba7c5584adac8d" category="list-text">在系统刷新期间、系统会使用工作流(而不是脚本)自动挂载和卸载卷。</block>
+  <block id="a5962e1d1985c8bb9326550afd4c702d" category="list-text">(可选)输入可用于访问新卷的导出地址。</block>
+  <block id="c1fabf9acc4a184cd74cde0d01093de1" category="list-text">(可选)输入最大存储吞吐量(MiB)。</block>
+  <block id="ba4b1fdd90381666d97a2e59fb00966e" category="paragraph">BlueXP支持数据锁定和勒索软件保护。如果ONTAP集群运行的是ONTAP 9.11.1或更高版本、则StorageGRID系统为11.6.0.3或更高版本、如果尚未配置归档存储、则可以保护备份免受覆盖、删除和勒索软件威胁的影响。</block>
+  <block id="9a6113d5326dfb90b5db6b0741ca8825" category="list-text">如果已在策略中配置归档存储、请指定归档层。</block>
+  <block id="7f2e7c1f843724479ad33af92042ed17" category="cell">如果选择</block>
+  <block id="592a3b45c9297fe905b909e9ac714fad" category="cell">执行以下操作...</block>
+  <block id="22c52a6e95d8c684b8eb086270330ab0" category="list-text">从下拉列表中选择StorageGRID或添加StorageGRID集群。</block>
+  <block id="b69c04cbc4cab46d7ef82b0687e311c1" category="list-text">从下拉列表中选择StorageGRID集群或添加集群。</block>
+  <block id="a7abc6648bf0f980d7382b0d6c64a0e0" category="paragraph">BlueXP支持数据锁定和勒索软件保护。如果ONTAP集群运行的是ONTAP 9.11.1或更高版本、并且尚未配置归档存储、则可以保护备份免受覆盖、删除和勒索软件威胁的影响。</block>
+  <block id="495b38ce22b9921d524af6512fbadb82" category="paragraph">您可以将数据存储库备份到Amazon Web Services S3、Microsoft Azure Blb、Google Cloud Platform和StorageGRID 、并将虚拟机还原回适用于VMware vSphere的内部SnapCenter 插件主机。虚拟机的BlueXP备份和恢复还支持连接器代理部署模式。</block>
+  <block id="7148963c1fe9bd20799d84596b688191" category="list-text">要部署配置了代理的连接器、请确保所有传出连接器呼叫都通过代理服务器进行路由。</block>
+  <block id="7cf1f6b25cc54596cbc34164085a3299" category="summary">创建一个策略、分配该策略、然后为SQL数据库创建按需备份。</block>
+  <block id="3330b65184d2418caf781c3b2d954ec2" category="doc">备份云原生Microsoft SQL Server数据库</block>
+  <block id="b43a9686ddd2ab877e9ecc5c9ac38847" category="paragraph">您可以通过分配所创建的策略来创建计划备份或按需备份。</block>
+  <block id="aad49551351256549bb40d89b7e44dc6" category="section-title">创建备份策略</block>
+  <block id="60a92f58e9d87bec38c55e4c409257d0" category="paragraph">您可以运行此API来创建备份策略。</block>
+  <block id="fe0e6faf28179a3c98f94b4a628030ef" category="paragraph">'发布snapcenter.cloudmanager.cloud.netapp.com/api/mssql/backup/policies'</block>
+  <block id="d1e1d2350616ae448c2c5f90ef0b0fc2" category="paragraph">有关详细信息、请参见：<block ref="a85d1c770d5e5866b41b99ebeee98206" category="inline-link-rx"></block></block>
+  <block id="b068931cc450442b63f5b3d276ea4297" category="paragraph">name</block>
+  <block id="4778aad2c248689435962249f68b925d" category="paragraph">backup_type</block>
+  <block id="f412f3f1d8557afb3106c9512cefee73" category="paragraph">copy_only备份</block>
+  <block id="c41ff142f11e4c249906d563ec5aaf92" category="paragraph">为系统定义</block>
+  <block id="2ec907f69df4ccec2c4186f122fda4e7" category="paragraph">backup_name_format</block>
+  <block id="c4d98dbd5badae901761ab6422fa3e70" category="paragraph">start_time</block>
+  <block id="fdb3374343fbd86c32d9c3a4a3f09abb" category="paragraph">Hours_interval"</block>
+  <block id="e5d9c0128ea8329fd9487b6de2fa2dbc" category="paragraph">分钟间隔</block>
+  <block id="f7b3a8f3455de677ae040a5f4e384326" category="paragraph">保留类型</block>
+  <block id="0cac4fe46ccd0085d94017bad554fea9" category="paragraph">保留数量</block>
+  <block id="305d28898e362717b3ad3d0181c15636" category="paragraph">End_Time</block>
+  <block id="e1da8f5f41a3e28ca94b84b31c3ca15b" category="paragraph">如果API成功执行、则会显示响应代码201。</block>
+  <block id="3085603f0133dc9a98cbf7274a497af9" category="section-title">将策略分配给SQL数据库实例</block>
+  <block id="85db300bbf3d600e965c4285adfd05ba" category="paragraph">您可以运行此API将策略分配给SQL数据库实例。</block>
+  <block id="e51c6c754da7f9fe4cef080ef47ecf6f" category="paragraph">'发布snapcenter.cloudmanager.cloud.netapp.com/api/mssql/instances/{id}/policy-assignment'</block>
+  <block id="8e44fab620f20377568ba74aabbde7b3" category="paragraph">其中、_id_是通过运行发现数据库实例API获取的MSSQL实例ID。有关详细信息，请参见 <block ref="e644e627b67ede40a16e6044c1513b0a" category="inline-link-macro-rx"></block>。</block>
+  <block id="28c20f9925fe62aab2600e7884b997a8" category="paragraph">此处输入的是ID数组。例如：</block>
+  <block id="52a0b8ae37ef51698580df45a96b787f" category="paragraph">有关详细信息、请参见：<block ref="a710463455080e679e877c246e7b7d15" category="inline-link-rx"></block></block>
+  <block id="6c4e6d5940a93fcf9cfb1c5d53280da3" category="section-title">创建按需备份</block>
+  <block id="8c0be4da88941592cef6fa5830f6793f" category="paragraph">您可以运行此API来创建按需备份。</block>
+  <block id="b1a4099d18b0533c89d005201fd90c72" category="paragraph">'发布snapcenter.cloudmanager.cloud.netapp.com/api/mssql/backups'</block>
+  <block id="1d47257b0ebeeecd8a90506b424ef2d1" category="paragraph">有关详细信息、请参见：<block ref="8036b06aa038df00c81b08102864fa4d" category="inline-link-rx"></block></block>
+  <block id="b80bb7740288fda1f201890375a60c8f" category="paragraph">id</block>
+  <block id="3de029d1f2e7f5abc188e1684d4e4005" category="admonition">这是MSSQL数据库实例的ID。</block>
+  <block id="4562f0d0d33d5117041bff91f9fadb94" category="paragraph">资源类型</block>
+  <block id="cab0ca13ed5233521e8178702bad40f8" category="paragraph">policy_id</block>
+  <block id="e18f9de3af904d3630a91a45d1c8eae0" category="section-title">查看备份</block>
+  <block id="56d781cd40a338a41972e201fd08621e" category="paragraph">您可以运行这些API来列出所有备份的视图、也可以查看特定备份的详细信息。</block>
+  <block id="6d8c070460107d62495704aaf1bad176" category="paragraph">'获取snapcenter.cloudmanager.cloud.netapp.com/api/mssql/backups'</block>
+  <block id="1b81cc73dcb071bc023bcf4be4d7e64a" category="paragraph">'获取snapcenter.cloudmanager.cloud.netapp.com/api/mssql/backups/{id}'</block>
+  <block id="aedade97989d44aa9c1debd97284c314" category="paragraph">有关详细信息、请参见：<block ref="837bc8e0f022c24e2fdb2c934adf99c9" category="inline-link-rx"></block></block>
+  <block id="ab414934858114c45b862fbf3a2f8f9d" category="list-text">对于MongoDB、MySQL和PostgreSQL、仅会列出数据备份以及每个备份的结束日期。您可以选择备份并在给定主机上执行存储导出。</block>
+  <block id="b990e3bc53a993c1bb7ffa70e2c933ce" category="list-text">如果您使用的是StorageGRID、则应使用ONTAP 9.12.1或更高版本</block>
+  <block id="a2d862330d4e63170bca9d0f51144971" category="paragraph">您可以备份Oracle、Microsoft SQL、SAP HANA、MongoDB、MySQL、 和PostgreSQL应用程序数据从内部ONTAP系统到Amazon Web Services、Microsoft Azure、Google云平台和StorageGRID。</block>
+  <block id="2c0ff6d2d5f06f0642fa97f6503759c8" category="list-text">如果要使用以下功能、应使用SnapCenter服务器4.9或更高版本：</block>
+  <block id="cc85bc216febb004b3c0a27e902bba3c" category="list-text">如果要保护MongoDB、MySQL和PostgreSQL应用程序、应使用SnapCenter Server 4.9P1</block>
+  <block id="78f574473b6c7ae09ac2b3653050e608" category="list-text">在SnapCenter中至少有一个每日、每周或每月策略、与BlueXP中的策略没有标签或标签相同</block>
+  <block id="06820b13b19298866efcc3db6ac97bf5" category="sidebar">使用REST API备份云原生SQL Server数据库</block>
+  <block id="c9451ea35f35ed30a32348021953a59c" category="sidebar">添加主机并安装适用于SQL Server的SnapCenter插件</block>
+  <block id="54bab37592758bedbe84c23554e20c3a" category="sidebar">备份 SQL Server 数据库</block>
+  <block id="f055d7dc297e937dbedf854f4e8d5f28" category="sidebar">还原云原生SQL Server数据库</block>
+  <block id="eacd1d0a9374cb22a99c806b2924cf90" category="sidebar">备份云原生SQL Server数据库</block>
+  <block id="6240606371654cf871393e757b75ae12" category="sidebar">还原云原生SQL Server数据</block>
 </blocks>

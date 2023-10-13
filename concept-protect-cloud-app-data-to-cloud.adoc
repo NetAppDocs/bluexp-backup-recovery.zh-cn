@@ -18,6 +18,7 @@ summary: BlueXP可为驻留在Amazon FSX for NetApp ONTAP 或Cloud Volumes ONTAP
 
 * 驻留在Amazon FSX上的Oracle数据库、适用于NetApp ONTAP 、Cloud Volumes ONTAP 和Azure NetApp Files
 * 驻留在Azure NetApp Files 上的SAP HANA系统
+* 驻留在Amazon FSx for NetApp ONTAP上的Microsoft SQL Server数据库
 
 
 
@@ -139,4 +140,37 @@ IMPORTANT: BlueXP SaaS基础架构能够在区域内灵活应对可用性区域�
 
 * 对于HSR配置、仅支持双节点HSR (1个主节点和1个二级节点)
 * 如果在还原操作期间、后处理脚本失败、则不会触发保留
+
+
+
+
+== 保护Microsoft SQL Server数据库
+
+
+
+=== 功能
+
+* 手动添加主机并部署此插件
+* 手动发现数据库
+* 备份Amazon FSx for NetApp ONTAP上的SQL Server实例
++
+** 按需备份
+** 根据策略计划备份
+** Microsoft SQL Server实例的日志备份
+
+
+* 将数据库还原到原始位置
+
+
+
+
+=== 限制
+
+* 只有SQL Server实例才支持备份
+* 不支持故障转移集群实例(FCI)配置
+* BlueXP UI不支持特定于SQL数据库的操作
++
+所有特定于Microsoft SQL Server数据库的操作均通过运行REST API来执行。
+
+* 不支持还原到备用位置
 

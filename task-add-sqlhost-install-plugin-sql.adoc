@@ -1,0 +1,380 @@
+---
+sidebar: sidebar 
+permalink: task-add-sqlhost-install-plugin-sql.html 
+keywords: Cloud Manager, BlueXP, SnapCenter Plug-in for SQL, SQL, database, host, install, add host, discover 
+summary: 在每个SQL数据库主机上安装适用于SQL的SnapCenter插件。 
+---
+= 安装适用于SQL Server的SnapCenter插件并添加数据库主机
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您应在每个SQL数据库主机上安装适用于SQL Server的SnapCenter插件、添加数据库主机、发现数据库实例并配置数据库实例的凭据。
+
+
+
+== 安装适用于SQL Server的SnapCenter插件
+
+您应下载插件*snapcCenter_service_windows_host_plugin.exe*，然后运行静默安装程序命令在数据库主机上安装该插件。
+
+.开始之前
+* 您应确保满足以下前提条件。
++
+** 已安装.Net 4.7.2
+** 已安装PowerShell 4.0
+** 可用磁盘空间至少为5 GB
+** RAM大小至少为4 GB
+
+
+* 您应运行API以完成客户入职。有关更多信息、请参见： https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/Tenant%20Registration/createTenant[]
+
+
+.步骤
+. 通过从连接器主机运行API来下载此插件。
+`docker exec -it cloudmanager_scs_cloud curl 'http://127.0.0.1/api/v2/pluginpackage/windows'`
++
+此文件的位置为：/var/lib/dDocker卷/service-manager-2_Cloud manager_SCS_Cloud volume/_data/sc-windows-host-plugin/snapcentre_service_windows_host_plugin.exe_<agent_version>。
+
+. 使用scp或其他替代方法将_snapcCenter_service_windows_host_plugin.exe_从连接器复制到每个MSSQL Server数据库主机。
+. 安装插件。
+'C：//ISFeature/silent_Install_SCSQL_flex.log"/log"C：//ISER/HA_Suite_Install_SCSQL_Flex.log"<install_folder>/log"C：//install_folder /" BI_SNACPENter_port=8145 <install_folder> Install=SCSQL"
+. 将自签名证书从/var/lib/dkdker/volumes/service-manager-2_Cloud manager_sss_c云集 成_volume/_data/client/certification/certifice.pem_复制到MSSQL Server数据库主机。
++
+如果不使用默认证书、还可以生成自签名证书或CA签名证书。
+
+. 在Connector主机中将证书从.prom转换为.crt格式。
+"OpenSSL x509 -outform der -in certifice.pm -out certifice.crt"
+. 双击证书以将其添加到“个人”和“受信任根证书颁发机构”存储中。
+
+
+
+
+== 添加SQL Server数据库主机
+
+您应使用主机FQDN添加MSSQL数据库主机。
+
+'发布snapcenter.cloudmanager.cloud.netapp.com/api/v1/hosts'
+
+有关详细信息、请参见： https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/Host%20Management/AddHosts[]
+
+此API创建了一个可从BlueXP UI中的*Job Monitor*选项卡进行跟踪的作业。
+
+
+
+=== Parameters
+
+|===
+| Name | Type | Required 
+
+
+ a| 
+Addr
+ a| 
+string
+ a| 
+true
+
+
+
+ a| 
+connector_id
+ a| 
+string
+ a| 
+true
+
+
+
+ a| 
+plugin_type
+ a| 
+string
+ a| 
+true
+
+
+
+ a| 
+install_方法
+ a| 
+string
+ a| 
+true
+
+
+
+ a| 
+plugin_port
+ a| 
+数字
+ a| 
+true
+
+
+
+ a| 
+username
+ a| 
+string
+ a| 
+true
+
+|===
+
+
+=== 响应
+
+如果API成功执行、则显示响应代码202。
+
+示例
+
+[listing]
+----
+{
+  "job": {
+    "_links": {
+      "self": {
+        "href": "/api/resourcelink"
+      }
+    },
+    "uuid": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  }
+}
+----
+
+
+== 查看添加的SQL Server数据库主机
+
+您可以运行此API来查看添加的所有SQL Server数据库主机。
+
+'获取snapcenter.cloudmanager.cloud.netapp.com/api/v1/hosts'
+
+有关详细信息、请参见： https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/Host%20Management/GetHosts[]
+
+
+
+=== 响应
+
+如果API成功执行、则显示响应代码200。
+
+示例
+
+[listing]
+----
+{
+  "num_records": 1,
+    "total_records": 1,
+    "records": [
+        {
+            "id": "85bd4603-08f7-45f4-ba8e-a0b1e2a0f4d0",
+            "addr": "scspa2722211001.rtp.openenglab.netapp.com",
+            "status": "Running",
+            "connector_id": "fBf8Iwbp4BscBfD02qBwWm6I03gGAesRclients",
+            "plugin_port": 8145,
+            "plugins": [
+                {
+                    "type": "mssql"
+                }
+            ],
+            "os_type": "windows",
+            "platform": "onprem",
+            "username": "administrator",
+            "operating_mode": "production"
+        }
+    ],
+    "_links": {
+        "next": {}
+    }
+}
+----
+
+
+== 发现数据库实例
+
+您可以运行此API并输入主机ID来发现所有MSSQL实例。
+
+'发布snapcenter.cloudmanager.cloud.netapp.com/api/mssql/instances/discovery'
+
+有关详细信息、请参见： https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/MSSQL%20Instances/MSSQLInstancesDiscoveryRequest[]
+
+此API创建了一个可从BlueXP UI中的*Job Monitor*选项卡进行跟踪的作业。
+
+
+
+=== 参数
+
+|===
+| Name | Type | Required 
+
+
+ a| 
+host_id
+ a| 
+string
+ a| 
+true
+
+|===
+
+
+=== 响应
+
+如果API成功执行、则显示响应代码202。
+
+示例
+
+[listing]
+----
+{
+  "job": {
+    "_links": {
+      "self": {
+        "href": "/api/resourcelink"
+      }
+    },
+    "uuid": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  }
+}
+----
+
+
+== 查看已发现的数据库实例
+
+您可以运行此API来查看所有已发现的数据库实例。
+
+'获取snapcenter.cloudmanager.cloud.netapp.com/api/mssql/instances'
+
+有关详细信息、请参见： https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/MSSQL%20Instances/GetMSSQLInstancesRequest[]
+
+
+
+=== 响应
+
+如果API成功执行、则显示响应代码200。
+
+示例
+
+[listing]
+----
+{
+    "num_records": 2,
+    "total_records": 2,
+    "records": [
+        {
+            "id": "953e66de-10d9-4fd9-bdf2-bf4b0eaabfd7",
+            "name": "scspa2722211001\\NAMEDINSTANCE1",
+            "host_id": "85bd4603-08f7-45f4-ba8e-a0b1e2a0f4d0",
+            "status": "Running",
+            "auth_mode": 0,
+            "version": "",
+            "is_clustered": false,
+            "is_credentials_configured": false,
+            "protection_mode": ""
+        },
+        {
+            "id": "18e1b586-4c89-45bd-99c8-26268def787c",
+            "name": "scspa2722211001",
+            "host_id": "85bd4603-08f7-45f4-ba8e-a0b1e2a0f4d0",
+            "status": "Stopped",
+            "auth_mode": 0,
+            "version": "",
+            "is_clustered": false,
+            "is_credentials_configured": false,
+            "protection_mode": ""
+        }
+    ],
+    "_links": {
+        "next": {}
+    }
+}
+----
+
+
+== 配置数据库实例凭据
+
+您可以运行此API来验证和设置数据库实例的凭据。
+
+'发布snapcenter.cloudmanager.cloud.netapp.com/api/mssql//api/mssql/credentials-configuration'
+
+有关详细信息、请参见： https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/MSSQL%20Instances/ConfigureCredentialRequest[]
+
+此API创建了一个可从BlueXP UI中的*Job Monitor*选项卡进行跟踪的作业。
+
+
+
+=== 参数
+
+|===
+| Name | Type | Required 
+
+
+ a| 
+host_id
+ a| 
+string
+ a| 
+true
+
+
+
+ a| 
+Instance_ID
+ a| 
+string
+ a| 
+true
+
+
+
+ a| 
+username
+ a| 
+string
+ a| 
+true
+
+
+
+ a| 
+password
+ a| 
+string
+ a| 
+true
+
+
+
+ a| 
+auth_mode
+ a| 
+string
+ a| 
+true
+
+|===
+
+
+=== 响应
+
+如果API成功执行、则显示响应代码202。
+
+示例
+
+[listing]
+----
+{
+  "job": {
+    "_links": {
+      "self": {
+        "href": "/api/resourcelink"
+      }
+    },
+    "uuid": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  }
+}
+----

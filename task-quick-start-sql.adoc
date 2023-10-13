@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
-permalink: task-quick-start-oracle.html 
-keywords: Cloud Manager, BlueXP, configuration, support, Oracle 
-summary: 完成几个步骤、开始备份Oracle数据库。 
+permalink: task-quick-start-sql.html 
+keywords: Cloud Manager, BlueXP, configuration, support, SQL server 
+summary: 完成几个步骤即可开始备份Microsoft SQL Server数据库。 
 ---
 = 快速入门
 :hardbreaks:
@@ -20,30 +20,28 @@ summary: 完成几个步骤、开始备份Oracle数据库。
 [role="quick-margin-list"]
 * 操作系统
 +
-** RHEL 7.5或更高版本以及8.x
-** OL 7.5或更高版本以及8.x
-** SLES 15 SP4
+** Windows 2016
+** Windows 2019
+** Windows 2022
 
 
-* NetApp云存储：
+* NetApp云存储：Amazon FSx for NetApp ONTAP
+* 存储布局：SAN (iSCSI)
 +
-** 适用于 NetApp ONTAP 的 Amazon FSX
-** Cloud Volumes ONTAP
-** Azure NetApp Files
+不支持NAS配置。
 
-
-* 存储布局：
+* 数据库版本：
 +
-** NFS v3和v4.1 (包括DNFS)
-** 采用ASM的iSCSI (ASMFD、ASMLib和ASMUdev)
+** Microsoft SQL Server 2016
+** Microsoft SQL Server 2019
+** Microsoft SQL Server 2022
+
+
+* 数据库配置：
 +
-
-NOTE: Azure NetApp Files 不支持SAN环境。
-
+** 独立
 
 
-* 数据库布局：Oracle Standard和Oracle Enterprise Standalone (原有和多租户CDB和PDB)
-* 数据库版本：19C和21c
 
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"] 注册到BlueXP

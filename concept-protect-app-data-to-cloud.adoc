@@ -16,7 +16,7 @@ summary: 将适用于应用程序的BlueXP备份和恢复与BlueXP和内部SnapC
 [role="lead"]
 适用于应用程序的BlueXP备份和恢复为从内部ONTAP 主系统到云提供商的应用程序一致的Snapshot提供数据保护功能。
 
-您可以将内部ONTAP 系统中的Oracle、Microsoft SQL和SAP HANA应用程序数据备份到Amazon Web Services、Microsoft Azure、Google Cloud Platform和StorageGRID。
+您可以备份Oracle、Microsoft SQL、SAP HANA、MongoDB、MySQL、 和PostgreSQL应用程序数据从内部ONTAP系统到Amazon Web Services、Microsoft Azure、Google云平台和StorageGRID。
 
 有关应用程序的BlueXP备份和恢复的详细信息、请参见：
 
@@ -44,16 +44,17 @@ summary: 将适用于应用程序的BlueXP备份和恢复与BlueXP和内部SnapC
 *** 取消注册SnapCenter 服务器
 
 
-** 如果要使用以下功能、应使用SnapCenter服务器4.9：
+** 如果要使用以下功能、应使用SnapCenter服务器4.9或更高版本：
 +
 *** 挂载Oracle数据库备份
 *** 还原到备用存储
 
 
+** 如果要保护MongoDB、MySQL和PostgreSQL应用程序、应使用SnapCenter Server 4.9P1
 
 
 * SnapCenter 服务器中应为每个应用程序至少提供一个备份
-* SnapCenter 中至少有一个每日、每周或每月策略、没有标签或与BlueXP中策略的标签相同。
+* 在SnapCenter中至少有一个每日、每周或每月策略、与BlueXP中的策略没有标签或标签相同
 
 
 下图显示了备份到云时的每个组件以及需要在它们之间准备的连接：
