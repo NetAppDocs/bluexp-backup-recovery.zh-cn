@@ -210,9 +210,7 @@
   <block id="ed09c1b67736709db40a3664c46e855a" category="list-text">仅支持从 ONTAP 二级系统进行备份。</block>
   <block id="3dd0180637528cde8671a0c957cf90da" category="list-text">不支持 SM-BC 配置。</block>
   <block id="5f5966e9da5716290dfc2b88ceeb2217" category="list-text">要还原的文件必须使用与目标卷上的语言相同的语言。如果语言不同，您将收到一条错误消息。</block>
-  <block id="1619bac39deaef2fc2adb60633af222f" category="paragraph">如有必要，您可以将整个 _volume" 从备份还原到相同或不同的工作环境。备份 ONTAP 数据时，您还可以选择将备份中的一个或多个 _files_ 还原到相同或不同的工作环境。</block>
   <block id="02fe91ecafd3cfc37675f0776294605f" category="inline-link-macro">请参见此处的详细功能</block>
-  <block id="b5f2f8ae72382a141b81a0a0040bdad2" category="section-title">备份在午夜进行</block>
   <block id="9d4d346f8d68a04c07546d05864bce31" category="list-text">每小时备份从每小时 5 分钟开始。</block>
   <block id="07704c3b46fd42d29ebe46644d5f6447" category="list-text">每天的备份在每天午夜后开始。</block>
   <block id="e6810e9f98ecbf425d91e0dc05f65de5" category="list-text">每周备份将在星期日早晨午夜后开始。</block>
@@ -1131,7 +1129,6 @@
   <block id="d6c6712a796121ab694f0617511d8c7d" category="paragraph">还原文件夹和文件时、您可以选择一些位置选项。</block>
   <block id="ba3609ae3949104249c2d1af6114a9e1" category="list-text">如果您选择的目标工作环境和卷与源文件夹/文件所在的位置相同、则可以选择*维护源文件夹路径*将文件夹或文件还原到源结构中存在的相同文件夹。所有相同的文件夹和子文件夹都必须已存在；不会创建文件夹。将文件还原到其原始位置时、您可以选择覆盖源文件或创建新文件。</block>
   <block id="33de9caf9e73a2815b32070111ac99d4" category="list-text">单击 * 还原 * ，您将返回到还原信息板，以便查看还原操作的进度。您也可以单击*作业监控*选项卡查看还原进度。</block>
-  <block id="ddc1dd6e781e5ceee9400e96abd01aca" category="paragraph">您可以将文件夹或文件还原到原始卷位置、同一工作环境中的其他卷或使用同一云帐户的其他工作环境。您还可以将文件夹和文件还原到内部ONTAP 系统上的卷。</block>
   <block id="ea69bd234559eac714e5d0b94f7c07f5" category="list-text">在使用搜索和还原之前、您需要在要从中还原卷数据的每个源工作环境上启用"索引编制"。这样，索引目录就可以跟踪每个卷的备份文件。</block>
   <block id="39ab479c9e1570ec21d474708fb0280f" category="list-text">选择要还原卷、文件夹或文件的位置、然后单击*还原*。</block>
   <block id="35823b9a43e6a86ef9fc8613d01ca7e0" category="list-text">卷、文件夹或文件已还原。</block>
@@ -1988,8 +1985,6 @@
   <block id="4df1a85d32abc942958400f1bc79add0" category="paragraph">如果您的备份目标为Amazon S3、Azure Blob或NetApp StorageGRID 、则当前可以获得支持。其他存储提供程序目标将在未来版本中添加。</block>
   <block id="3ab813cb58ced99c324082878fbc9261" category="paragraph">如果您的内部集群使用的是ONTAP 9.12.1或更高版本、而您的StorageGRID 系统使用的是11.4或更高版本、则可以在一定天数后将旧备份文件归档到公共云归档存储。目前支持AWS S3 Glacer/S3 Glacier深度归档或Azure归档存储层。 <block ref="363267dd6106568fded10aaeda2ee302" category="inline-link-macro-rx"></block>。</block>
   <block id="27e92fcddc23071f7a376e1c06fa20d6" category="list-text">MetroCluster 支持：</block>
-  <block id="84c7d283de0aa36ab8316be3e98f7f95" category="list-text">使用ONTAP 9.12.1 GA或更高版本时、如果连接到主系统、则支持备份。整个备份配置将传输到二级系统、以便在切换后自动继续备份到云。您无需在二级系统上设置备份(实际上、您会受到限制)。</block>
-  <block id="1c56c2d187d14cd1052a9152c839b453" category="list-text">使用ONTAP 9.12.0及更早版本时、仅支持从ONTAP 二级系统进行备份。</block>
   <block id="6413e2887d9fc1bca42a1d8fa137281d" category="list-text">目前不支持FlexGroup 卷的备份。</block>
   <block id="374f4526af8df5d7623354dc7ae40010" category="section-title">还原限制</block>
   <block id="4378789701cd2498a252a52806a1f3a4" category="section-title">2023年2月6日</block>
@@ -2020,10 +2015,8 @@
   <block id="f87b4b2f51abea38ed1fffa1cc2fe4e9" category="paragraph"><block ref="f87b4b2f51abea38ed1fffa1cc2fe4e9" category="inline-image-macro-rx" type="image"></block></block>
   <block id="da0f161911ade8ba5f822031519efb79" category="list-text">如果集群使用的是ONTAP 9.12.1或更高版本、而StorageGRID 系统使用的是版本11.4或更高版本、则可以选择在一定天数后将较早的备份分层到公共云归档层。目前支持AWS S3 Glacer/S3 Glacier深度归档或Azure归档存储层。 <block ref="c2797d22435b48dabeada89d48523cd9" category="inline-xref-macro-rx"></block>。</block>
   <block id="40046bfa2e6f2f907ffbc04727e57d99" category="admonition">将数据从Azure还原到StorageGRID 系统时、不支持高优先级。</block>
-  <block id="0be2cc016222329564ba86576a1d69ee" category="list-text">输入要用于还原的卷的名称、然后选择此卷要驻留的Storage VM和聚合。还原FlexGroup 卷时、您可以选择多个聚合。默认情况下，使用 * &lt;source_volume_name&gt;_Restore* 作为卷名称。</block>
   <block id="d3d6642cce936e1e178fb7a0f2dfc58f" category="list-text">您可以使用在文件夹中向下导航级别 <block ref="f6625f52b1c71dcdec014baa14bc9e40" category="inline-image-macro-rx" type="image"></block> 按钮以查找特定文件。</block>
   <block id="62813012ad9cc198c144b40ee8b9d777" category="list-text">您可以将鼠标悬停在某个文件夹上并单击 <block ref="f6625f52b1c71dcdec014baa14bc9e40" category="inline-image-macro-rx" type="image"></block> 在行末尾展开以深入到子文件夹，然后选择一个文件夹。</block>
-  <block id="92a755b6d9fa88006d2c9e3907a504a5" category="list-text">对于卷、您可以选择原始目标工作环境、也可以选择备用工作环境。还原FlexGroup 卷时、您可以选择多个聚合。</block>
   <block id="898f472703342efc6d5adc298a7628c8" category="paragraph">您可以在创建策略时提供预处理脚本、后处理脚本和退出脚本。这些脚本将在数据保护操作期间在HANA主机上运行。</block>
   <block id="c5b751b6877453fd04eb6340347e4511" category="paragraph">主机管理员应将预处理文件和后处理文件注册到中<block ref="91d372f85b001dba79ebc4129e5acd32" prefix=" " category="inline-code"></block> 文件</block>
   <block id="0baab2619f15ec742e2bf8b60e516b39" category="paragraph">对于备份工作流、以下环境变量可作为预处理和后处理的一部分提供。</block>
@@ -2169,10 +2162,8 @@
   <block id="d7cfe6967f3004ef3386a27fe99a4610" category="inline-link">与ONTAP S3集成作为目标</block>
   <block id="7126662a353f79c46a7ccefe46dc4c0a" category="sidebar">保护ONTAP 卷数据</block>
   <block id="18a49ef13ab2949d420634845599ca86" category="paragraph">创建连接器后、单击*存储*&gt;*画布*&gt;*我的工作环境*&gt;*添加工作环境*、然后按照提示添加工作环境。确保从Connector连接到Oracle数据库主机和FSX工作环境。此连接器应能够连接到FSX工作环境的集群管理IP地址。</block>
-  <block id="3835d8f8839ebb8c540019c7da03ff7a" category="list-text">在创建或编辑备份策略时，如果没有为该策略分配任何卷，则保留的备份数最多可以为 1018 。为策略分配卷后、您可以编辑此策略以创建多达4000个备份。</block>
   <block id="56387194e2baefbedf3b4e19ea5780fe" category="paragraph">备份和恢复可用于：</block>
   <block id="06548d8c3dd532a955281943d00e4ae0" category="paragraph">下图显示了组件之间的关系：</block>
-  <block id="27af9a77d19fed3cc5992a809811dc11" category="paragraph">备份副本存储在BlueXP在云帐户中创建的对象存储中。每个集群/工作环境有一个对象存储、BlueXP将该对象存储命名如下：<block ref="395f30b009fd80d4c1cba9bc07db445d" prefix=" " category="inline-code"></block>。请确保不要删除此对象存储。</block>
   <block id="610778054da9c0e7c61921555da9ddc9" category="paragraph">如果在同一个NetApp帐户中有多个连接器、则每个连接器会显示相同的备份列表。其中包括与其他连接器中的 Cloud Volumes ONTAP 和内部 ONTAP 实例关联的备份。</block>
   <block id="47abe672471325a3aa63fcd85f6e3367" category="list-text">对于NAS环境、指定要将从对象存储还原的卷导出到的主机的FQDN或IP地址。</block>
   <block id="831b20d8b0ff4f1e50aecadcdcdc885d" category="list-text">对于SAN环境、指定从对象存储还原的卷的LUN要映射到的主机启动程序。</block>
@@ -2608,7 +2599,6 @@
   <block id="c8468a884f0ab2232cc07e56fa1167b5" category="paragraph">要将数据从备份文件还原到生产系统、需要有效的BlueXP备份和恢复许可证。</block>
   <block id="64964208f145e571ed736f861e9c039d" category="admonition">必须已为至少一个工作环境激活BlueXP备份和恢复、并且必须存在初始备份文件。</block>
   <block id="5b8dbbc2163786a4aed9331d66f16125" category="list-text">BlueXP备份和恢复将显示选定备份文件中的文件夹和文件。</block>
-  <block id="cfc95951efd0924eb8070fedaa5642d6" category="paragraph">从备份文件还原卷时、BlueXP备份和恢复会使用备份中的数据创建一个_new_卷。您可以将数据还原为原始工作环境中的卷，也可以还原到与源工作环境位于同一云帐户中的其他工作环境。您还可以将卷还原到内部 ONTAP 系统。</block>
   <block id="3909c405c5c3e8aaab7d2079c933cb0f" category="paragraph">如您所见、您实际上只需要知道部分名称、并通过与您的搜索匹配的所有备份文件执行BlueXP备份和恢复搜索。</block>
   <block id="cde27c2ee36cb857ffdbfe24fb0f0fef" category="paragraph">启用此功能后、BlueXP备份和恢复会在SVM上为卷启用SnapDiff v3、并会执行以下操作：</block>
   <block id="091c3b75fcc63b578a3277a3c06221b8" category="list-text">您已订阅<block ref="b82eb11d49725bb5c7ee9cfd96e7991d" category="inline-link-rx"></block>或您已购买 <block ref="a7c7886675f758752089ea0caddfb19c" category="inline-link-macro-rx"></block> NetApp提供的BlueXP备份和恢复BYOL许可证。</block>
@@ -3042,7 +3032,6 @@
   <block id="dd4543716a6056c2ae27a8132114fdf7" category="list-text">*目标*：任何云提供商、NetApp StorageGRID或ONTAP S3</block>
   <block id="e692b7fe3cb28b404bc6ca3af827d329" category="list-text">* ONTAP版本*：9.13.0</block>
   <block id="cb43048793076d3b50ea5dc6ba1e276c" category="section-title">创建备份清单报告</block>
-  <block id="744e03ca9de30802973248efa9a63423" category="paragraph">在BlueXP备份和恢复报告选项卡中、您可以创建备份清单报告并筛选其内容。通过备份清单报告、您可以查看特定帐户、工作环境或SVM清单的所有备份。</block>
   <block id="25d0ed1de7efcdaaece83057c2756e57" category="paragraph">备份清单报告显示以下信息及更多信息：</block>
   <block id="f00e42ce9cfb8f79aa0acd52b34455ab" category="list-text">帐户、工作环境和SVM</block>
   <block id="6edfddc7ea34dfa23f5f2a25a3af154f" category="list-text">受保护卷和非受保护卷</block>
@@ -3052,7 +3041,6 @@
   <block id="4f19973809c9f50819d754c5d361feaf" category="list-text">DataLock和Ransamor保护状态(监管、合规性或无)</block>
   <block id="edb1f7df1c92279bbf8db022953e164b" category="list-text">已启用归档状态</block>
   <block id="20e266a6449440b3d67b85ead1217fb1" category="list-text">备份副本计数</block>
-  <block id="42cc4dfa35a0b138461f5a0c4d4e085a" category="list-text">备份类型(计划备份或用户启动的临时备份)</block>
   <block id="dd8c5eff0fd4dd0b3760e41db59bfb3a" category="list-text">存储类</block>
   <block id="765c798c0aa1aec3ca7ca68ec68f7e28" category="list-text">Snapshot 标签</block>
   <block id="c3701c973b22b5daa3d8508d20412d6a" category="admonition">备份清单报告不包括过期或失败的备份信息。</block>
@@ -3072,7 +3060,6 @@
   <block id="9c45376ca047b231750db710316d88f1" category="list-text">(可选)选择*下载CSX*以.CSV格式导出报告内容。</block>
   <block id="a28d17eeb154e6438fb5bb2ee152ad16" category="section-title">创建数据保护作业活动报告</block>
   <block id="d1a5e05b6fa32d7e732631d7be6bb196" category="paragraph">主动监控可以减少监控生态系统中所有资源所需的工作量。从ONTAP 9.13.0开始、数据保护作业活动报告可提供有关快照、备份、克隆和还原操作的信息、您可以将这些操作与SLA监控结合使用、并跟踪备份和恢复速率。</block>
-  <block id="ff7551dc4db7de0fd9c26ce70b231cb9" category="paragraph">报告了适用于Cloud Volumes ONTAP、内部、应用程序和Kubelnetes的适用场景BlueXP备份和恢复操作。</block>
   <block id="a85e760999107df75174b2541f8ad4e5" category="paragraph">"数据保护作业活动"报告显示以下信息及更多信息：</block>
   <block id="63a675511a9f5c9715e777ac4620c78c" category="list-text">作业类型(备份或还原)</block>
   <block id="82cf382f9069c5ed2ac1e0548f6d3d23" category="list-text">资源名称(卷或应用程序)</block>
@@ -3557,12 +3544,9 @@ _/뚩 阅/｛뚩 阅_id｝/resourceGroups/｛资源组｝/Providers /｛提供�
   <block id="4f93f3ca615e6f04f63dc2a5c6e51255" category="list-text">*扇出*：从主存储系统到二级_和_的信息从主存储流向对象存储。</block>
   <block id="f25d5a15011bb6fb94fa2a25a3142559" category="inline-link-macro">规划您的保护之旅</block>
   <block id="43960f0643d883b88bfdcf2bec0f408e" category="paragraph">有关这些架构的详细信息、请参见 <block ref="26e6d65b3efbcdaf9fdb0f41b6ffe1ab" category="inline-link-macro-rx"></block>。</block>
-  <block id="8a9e02ee3ebb850e1d927a26ad44bec8" category="list-text">*本地Snap照*：选择现有Snapshot策略。</block>
   <block id="bb259e1451f14e6ee7317954d4ae3d1f" category="inline-link">ONTAP命令行界面&lt;block ref="9548712dac96ee54830150eacbdaba5e" prefix=" " category='inline-code'/&gt;</block>
-  <block id="935a290b2488ed77eee3aeea3fa35089" category="admonition">如果要创建自定义策略、可以使用System Manager或ONTAP命令行界面<block ref="21daf815c4decbf3cba733c88297587b" prefix=" " category="inline-code"></block> 命令：请参见<block ref="ec3ed4692ea8e2ea03ef1cb28143229e" category="inline-link-rx"></block>。</block>
   <block id="213a83a67c5e44c90f0095122508333a" category="list-text">*Replication *：设置以下选项：</block>
   <block id="34bc9b86892e33a64c4e60c365bdd964" category="list-text">*复制目标*：选择目标工作环境和SVM。或者、选择要添加到复制的卷名称中的一个或多个目标聚合以及前缀或后缀。</block>
-  <block id="f73bc0572b8b01db85607914e16b8be0" category="list-text">*复制策略*：选择现有复制策略。</block>
   <block id="4664a31b832c67aff8eca0b294275b24" category="list-text">*备份到对象*：如果选择了*Backup*，请设置以下选项：</block>
   <block id="ce182ee406d8f3ee95a365ecbd21b287" category="list-text">*提供商*：选择* Google Cloud*。</block>
   <block id="240c7b804a6cc97101595949fa6f4019" category="list-text">*提供商设置*：输入要存储备份的提供商详细信息和区域。</block>
@@ -3570,7 +3554,6 @@ _/뚩 阅/｛뚩 阅_id｝/resourceGroups/｛资源组｝/Providers /｛提供�
   <block id="da0548d3a8553d8564284dcd029706f5" category="list-text">*加密密钥*：如果您创建了新的Google存储分段，请输入提供商提供给您的加密密钥信息。选择是使用默认的Google Cloud加密密钥、还是从Google帐户中选择您自己的客户管理密钥来管理数据加密。</block>
   <block id="9d83a21cd37d72af555469c7ed0d2ec9" category="paragraph">如果选择使用自己的客户管理密钥、请输入密钥库和密钥信息。</block>
   <block id="b3aa83b2922f617a64fa1875bdb6aad9" category="admonition">如果您选择了现有的Google Cloud存储分段、则加密信息已经可用、因此您现在无需输入。</block>
-  <block id="56a79d6c89c72f6add2a4e9118883393" category="list-text">*备份策略*：选择现有备份策略。</block>
   <block id="1637762bf8b62862e92c5779dd292872" category="section-title">查看您的选择</block>
   <block id="6ff9dd41947ac05f6484a120fb4310b2" category="paragraph">您可以借此机会查看所做的选择、并在必要时进行调整。</block>
   <block id="5e60167ed1d8120de85b8b38a5697af4" category="list-text">在Review页面中、查看所做的选择。</block>
@@ -3755,7 +3738,6 @@ Cloud Volumes ONTAP</block>
   <block id="48571775d8de6aed87d8f8d075e1eb4a" category="paragraph">达到某个类别或时间间隔的最大备份数后、较早的备份将被删除、以便始终拥有最新的备份(并且废弃的备份不会继续占用空间)。</block>
   <block id="aade39e687ab9fab1294ac7a9d4e92be" category="paragraph">如果集群使用的是ONTAP 9.11.1或更高版本、则可以保护对象存储中的备份免受删除和勒索软件攻击。每个备份策略都为_DataLock和勒索软件保护_提供了一个部分、可在特定时间段(_retention period_)内应用于备份文件。_DataLock_可防止您的备份文件被修改或删除。_勒索 软件保护_扫描您的备份文件、以查找创建备份文件以及还原备份文件中的数据时发生勒索软件攻击的证据。</block>
   <block id="862c33469bbdb829da4d537ae8e3703f" category="paragraph">当要备份的卷位于FabricPool聚合上且已分配除以外的层策略时、需要注意某些事项<block ref="334c4a4c42fdb79d7ebc3e73b517e6f8" prefix=" " category="inline-code"></block>：</block>
-  <block id="924fcd0066c19907c4bd54c4856cf98a" category="list-text">一次只能选择一个FlexGroup卷进行复制。您需要分别为每个FlexGroup卷激活备份。</block>
   <block id="9ca2dd7028a589f084da9ccd2e31f8ba" category="paragraph">FlexVol卷没有限制—您可以选择工作环境中的所有FlexVol卷并分配相同的备份策略。</block>
   <block id="d259f3905ce3425b99746d8c67d3a49b" category="list-text">中支持以下功能<block ref="364ecdc9d3d10126b8b1871a04c6e08f" category="inline-link-rx"></block>，但在使用BlueXP备份和恢复的复制功能时不能：</block>
   <block id="27c6b4b9b51b34d742cb3f51782e8bd8" category="list-text">不支持从卷A复制到卷B以及从卷B复制到卷C的级联配置支持从卷A复制到卷B</block>
@@ -3932,7 +3914,6 @@ ifdef：：AWS。</block>
   <block id="abb8243f73c63e089a9cc6cdf95785b2" category="paragraph">我们将介绍以下选项：</block>
   <block id="9aa0d02835133517fefa42429e73ace5" category="list-text">您将使用哪些保护功能：Snapshot副本、复制的卷和/或备份到云</block>
   <block id="85c221c528aa48303ce42bd715536fcc" category="list-text">您将使用哪种备份架构：卷的级联备份或扇出备份</block>
-  <block id="7b0e593ff97832cb79e91a868e8d660e" category="list-text">您是使用默认备份策略、还是需要在开始之前创建自定义策略</block>
   <block id="f53a4fccf3f0875b00c8fa67a6206306" category="list-text">您希望服务为您创建云分段、还是希望在开始之前创建对象存储容器</block>
   <block id="00b5b9b1074f9d54a5f002412e9e7ebf" category="list-text">您使用的BlueXP Connector部署模式是什么(标准、受限或专用模式)</block>
   <block id="3209a4c33cdeb9752d5832ca2409b75c" category="section-title">您将使用哪些保护功能</block>
@@ -3949,7 +3930,6 @@ ifdef：：AWS。</block>
   <block id="f46d552561904382654668028ef332b7" category="list-text">源卷-&gt; Snapshot副本-&gt;复制的卷-&gt;备份文件</block>
   <block id="6e0f3f7af71dbdcd66969d229d562636" category="list-text">源卷-&gt; Snapshot副本-&gt;备份文件</block>
   <block id="416d6dba97115e0823c4346a7315efbf" category="list-text">源卷-&gt; Snapshot副本-&gt;复制的卷</block>
-  <block id="2238a8ec7857db8e22c0ca21e7faff3d" category="admonition">首次创建复制的卷或备份文件时、会包含源数据的完整副本、这称为基线传输。后续传输仅包含源数据(Snapshot)的差异副本。</block>
   <block id="82cb98664bb5dbaf2f4b1f186155317d" category="section-title">不同备份方法的比较</block>
   <block id="8d4622541c56b47641b741cdbe4f8ddf" category="paragraph">下表显示了这三种备份方法的总体比较。虽然对象存储空间通常比内部磁盘存储成本更低、但如果您认为可能会频繁地从云中还原数据、则云提供商的出口费用可以减少您的部分节省。您需要确定需要从云中的备份文件恢复数据的频率。</block>
   <block id="e2a9bf899dffb889ffbede3dd4e5cc0e" category="inline-link-macro">归档存储设置</block>
@@ -3982,13 +3962,8 @@ ifdef：：AWS。</block>
   <block id="26600063cc603e6d6e1f22a21fde1a3d" category="cell">对源存储系统性能的影响较小、因为它只发送Snapshot副本一次</block>
   <block id="ec56411e6ab7919a698db099e7ce9d99" category="cell">由于所有策略、网络和ONTAP配置都在源系统上完成、因此设置起来更容易</block>
   <block id="2de573829fbd9b8bb14cbeb57e049422" category="cell">还需要从二级系统完成一些网络连接和ONTAP配置。</block>
-  <block id="81089c8191b9977660e2fb73d84b5393" category="section-title">是否会对快照、复制和备份使用默认备份策略</block>
-  <block id="9889969dac5cb95d460c85639c519710" category="paragraph">您可以使用NetApp提供的默认策略创建备份、也可以创建自定义策略。使用激活向导为卷启用备份和恢复服务时、您可以从默认策略以及工作环境(Cloud Volumes ONTAP或内部ONTAP系统)中已存在的任何其他策略中进行选择。如果要使用与现有策略不同的策略、则必须在启动激活向导之前创建此策略。</block>
-  <block id="043cc0d4df28aaa71af4b8c2c2fed53e" category="list-text">默认Snapshot策略会创建每小时、每天和每周Snapshot副本、并保留6个每小时、2个每天和2个每周Snapshot副本。</block>
   <block id="3b2f21b03e64b2a3ead5db6760474df3" category="list-text">默认复制策略会复制每日和每周Snapshot副本、并保留7个每日Snapshot副本和52个每周Snapshot副本。</block>
   <block id="a67640f7cdcc52eaa3b856d6e91a1c2b" category="list-text">默认备份策略会复制每日和每周Snapshot副本、并保留7个每日Snapshot副本和52个每周Snapshot副本。</block>
-  <block id="1711f5c46c237530499df8bd10af41fc" category="paragraph">如果您为复制或备份创建自定义策略、则策略标签(例如"每日"或"每周")必须与Snapshot策略中的标签匹配、否则不会创建复制的卷和备份文件。您可以使用System Manager或ONTAP命令行界面(CLI)创建自定义策略。</block>
-  <block id="d4c627b86ea7fcc97aab9ca0d343fcbe" category="inline-link">使用ONTAP命令行界面创建快照策略</block>
   <block id="350061f867dc1c5e72f04f985e74baee" category="inline-link">使用ONTAP命令行界面创建备份策略</block>
   <block id="8cb2e913decbf9b532c186901104e076" category="inline-link-macro">正在添加新备份策略</block>
   <block id="61dc4b0620e6a61c45bae3557cb28951" category="paragraph">下面列出了几个示例ONTAP命令行界面命令、这些命令可能会在您创建自定义策略时很有用。请注意、您必须使用_admin_ SVM (Storage VM)作为<block ref="f536bcc8fda7ee8ba21dea42b5b1c44d" prefix=" " category="inline-code"></block> 在这些命令中。</block>
@@ -4048,7 +4023,6 @@ ifdef：：AWS。</block>
   <block id="9dccd044e84ddfcbc80bd29ce7dc6e8d" category="paragraph">*注意：*如果包含要还原的数据的备份文件驻留在归档云存储中(从ONTAP 9.10.1开始)、则还原操作将需要较长的时间、并会产生成本。此外、目标集群还必须运行ONTAP 9.10.1或更高版本来还原卷、运行9.11.1来还原文件、运行9.12.1来还原Google Archive和StorageGRID 、运行9.13.1来还原文件夹。</block>
   <block id="bc6bfb0b14fd7cced8ee62c645d8aa17" category="paragraph">*注意：*您可以从任何类型的备份文件还原卷、但此时只能从对象存储中的备份文件还原文件夹或单个文件。</block>
   <block id="6570e12596b3149578b487431c923c26" category="section-title">使用浏览和放大功能还原卷；还原</block>
-  <block id="e3b9b7f5b64aa67090861f80cd124bff" category="paragraph">从备份文件还原卷时、BlueXP备份和恢复会使用备份中的数据创建一个_new_卷。使用云备份时、您可以将数据还原到原始工作环境中的卷、也可以还原到与源工作环境位于同一云帐户中的其他工作环境。您还可以将卷还原到内部 ONTAP 系统。</block>
   <block id="bb52ad67a6160989e585657353648e45" category="paragraph">从复制的卷还原时、您可以将卷还原到原始工作环境、Cloud Volumes ONTAP或内部ONTAP系统。</block>
   <block id="44f3c574b5983f4ad30068b5afb3882a" category="paragraph">如您所见、要执行卷还原、您需要知道源工作环境名称、Storage VM、卷名称和备份文件日期。</block>
   <block id="c884a3e70e8bce1d15f993ac9cb50a73" category="paragraph">"*位置*"列显示备份文件(Snapshot)是*本地*(源系统上的Snapshot副本)、*二级*(二级ONTAP系统上的复制卷)还是*对象存储*(对象存储中的备份文件)。选择要还原的文件。</block>
@@ -4120,18 +4094,10 @@ ifdef：：AWS。</block>
   <block id="1de16ec5bb8b26ffbf7189e724790630" category="paragraph">概括地说、以下是您可以为ONTAP工作环境中的卷创建的有效保护流：</block>
   <block id="62fab0bd5cf92ab36f27224d46c5f233" category="paragraph">扇出*架构将Snapshot副本独立传输到目标存储系统和云中的备份对象。</block>
   <block id="f47293eaa2dd8607290525b210ac8d72" category="paragraph">级联*架构首先将Snapshot副本传输到目标存储系统、然后该系统将副本传输到云中的备份对象。</block>
-  <block id="3477dac7879a3f44096cb4f68455f180" category="inline-link">使用System Manager创建快照策略</block>
   <block id="c614d93309389f7373130aa7f9186f5d" category="inline-link">使用System Manager创建复制策略</block>
   <block id="8a95d969b59555a0a73e2a674b580a6e" category="inline-link">使用ONTAP命令行界面创建复制策略</block>
   <block id="096dfb23f9de3e352342395b7762f0ba" category="inline-link">使用System Manager创建备份策略</block>
-  <block id="b7ad321010459984fa60de2cd7631626" category="paragraph"><block ref="244560fcf5d380e290ecd4b178a412c9" category="inline-link-rx"></block>
-<block ref="d8ea6acc45a89d2ab361031769419dd5" category="inline-link-rx"></block>
-<block ref="6a671fae687ae09ed6ec2eb759a70329" category="inline-link-rx"></block>
-<block ref="76f9b86225921137bc166f71caebf3f1" category="inline-link-rx"></block>
-<block ref="21814359fa3d01fa463924248dc4810b" category="inline-link-rx"></block>
-<block ref="d73f218743fa1184e2a040cf646f920f" category="inline-link-rx"></block></block>
   <block id="bf322ff91252b9377a00e3301a9fb8de" category="paragraph">*注意：*使用System Manager时，选择*异步*作为复制策略的策略类型，然后选择*异步*和*备份到云*作为备份到对象策略。</block>
-  <block id="8c84db8980c0dedab8ce56db7fdbd716" category="paragraph">您可以在BlueXP备份和恢复UI中创建备份到对象存储策略。请参见一节中的 <block ref="535e99780197daca673e274e7a26ba94" category="inline-link-macro-rx"></block> 了解详细信息。您需要使用System Manager或ONTAP命令行界面创建Snapshot和复制策略。</block>
   <block id="434e82511bf6b4566a7be6239e737769" category="cell">Simple Snapshot策略</block>
   <block id="c404f3312a8eec0338ecbc78bdc024ec" category="cell"><block ref="cfcc1000298a724899b278b1bbdc36d0" prefix="" category="inline-code"></block></block>
   <block id="cc5c8f317eab661af83024bda7eef553" category="section-title">我的策略位于何处？</block>
@@ -4267,9 +4233,7 @@ Cloud Volumes ONTAP系统需要使用ONTAP 9.9.1及更高版本。</block>
   <block id="5aaf7cdbb020e8e504b7be6fac6ad19b" category="list-text">您可以将本地内部ONTAP 系统中的数据备份到本地NetApp StorageGRID 系统。请参见操作说明 <block ref="80288d2da91f9794088785363d31b6b5" category="inline-link-macro-rx"></block> 了解详细信息。</block>
   <block id="66d66525e3042eb76508c798726d8853" category="list-text">您可以将本地内部ONTAP系统中的数据备份到本地内部ONTAP系统或为S3对象存储配置的Cloud Volumes ONTAP系统。请参见操作说明 <block ref="033f1a63473843a2d0a7ec99f2bb4e1c" category="inline-link-macro-rx"></block> 了解详细信息。
 ifdef：：AWS。</block>
-  <block id="97c283f935484effb434f460b5c8bb40" category="paragraph">购买BlueXP备份和恢复(Cloud Backup)许可证后、您可以通过输入BlueXP备份和恢复序列号和NSS帐户或上传NLF许可证文件来激活BlueXP中的许可证。以下步骤显示了如果您计划使用此方法，如何获取 NLF 许可证文件。</block>
   <block id="f3cd3d23d33dfe26418bbc5243171a69" category="inline-link">私有模式</block>
-  <block id="9c36143e2141885b9a382c2f1220cff9" category="paragraph">如果您在无法访问Internet的内部站点上运行BlueXP备份和恢复、这意味着您已在中部署BlueXP Connector<block ref="6426a8a427a5eadce24d979d317c10cc" category="inline-link-rx"></block>，您需要从连接Internet的系统获取许可证文件。使用序列号和NSS帐户激活许可证不适用于私用模式安装。</block>
   <block id="e3286b69a705d4ed944e904722ab7c8f" category="paragraph">开始之前、您需要了解以下信息：</block>
   <block id="343317df2f561bc3e097210aa7130d31" category="list-text">BlueXP备份和恢复序列号</block>
   <block id="079aeecf06b109e4316b0a68ea943f2b" category="paragraph">从您的销售订单中找到此号码、或者联系客户团队了解此信息。</block>
@@ -4319,7 +4283,6 @@ Google Cloud 存储
 NetApp StorageGRID
 ONTAP S3</block>
   <block id="6aea87da9521ec65982cf1cd716dd84e" category="paragraph">只有从对象存储进行备份和还原时、才需要备份许可证。创建Snapshot副本和复制的卷不需要许可证。</block>
-  <block id="f53b35304b02e60ceed6340d8695c774" category="paragraph">根据备份类型、备份驻留在各个位置：</block>
   <block id="45bdc387f181cccf76e7a810e96688ad" category="paragraph">+
 **在StorageGRID中，BlueXP使用现有的S3存储分段租户帐户。</block>
   <block id="fd749272599b095f7a34398408b6b874" category="paragraph">+
@@ -4333,12 +4296,10 @@ ONTAP S3</block>
   <block id="dd38f906b37d412de7d1c1dcf4cbf31c" category="paragraph"><block ref="dd38f906b37d412de7d1c1dcf4cbf31c" category="inline-link-macro-rx"></block></block>
   <block id="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-macro"><block ref="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-rx"></block></block>
   <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
-  <block id="adeedaaab4bc8a3fb427741e55cd66b6" category="summary">您可以监控已启动的本地快照、复制和备份到对象存储作业的状态、并还原已启动的作业。您可以查看已完成、正在进行或失败的作业、以便诊断和修复问题。使用BlueXP通知中心、您可以启用通过电子邮件发送通知、以便即使您未登录系统、也可以获得重要系统活动的通知。使用BlueXP时间线、您可以查看通过UI或API启动的所有操作的详细信息。</block>
   <block id="1ca3bd8f6dc961579b0cb3fd37bec744" category="paragraph">您可以监控已启动的本地Snapshot、复制和备份到对象存储作业的状态、并还原已启动的作业。您可以查看已完成、正在进行或失败的作业、以便诊断和修复问题。使用BlueXP通知中心、您可以启用通过电子邮件发送通知、以便即使您未登录系统、也可以获得重要系统活动的通知。使用BlueXP时间线、您可以查看通过UI或API启动的所有操作的详细信息。</block>
   <block id="06bf7dd6f0ab94d87f59e43fc93b6d3c" category="section-title">在作业监视器上查看作业状态</block>
   <block id="7413106917b419812ee4fa6eba953c99" category="paragraph">您可以在*Job Monitoring*选项卡中查看所有Snapshot、复制、备份到对象存储和还原操作及其当前状态的列表。其中包括来自Cloud Volumes ONTAP 、内部ONTAP 、应用程序、虚拟机和Kubernetes系统的操作。每个操作或作业都有一个唯一的 ID 和一个状态。</block>
   <block id="402bab7d605cd8ea629df214c4351f69" category="paragraph">状态可以是：</block>
-  <block id="24019e8dc50e55c4647c9f69a4448eb5" category="paragraph">"作业监控"选项卡中提供了快照、复制、从BlueXP备份和恢复UI和API启动的对象存储和还原操作备份以及系统启动的作业(如正在进行的计划备份操作)。但是、只有运行ONTAP 9.13.0或更高版本的Cloud Volumes ONTAP 系统以及运行ONTAP 9.13.1或更高版本的内部ONTAP 系统才是如此。运行早期版本的ONTAP 时、仅显示用户启动的作业。</block>
   <block id="ac624cf312f41265d4598a7409f6c357" category="list-text">显示其他列(工作环境、SVM、用户名、工作负载、策略名称、 Snapshot标签)、选择 <block ref="67e31c53d0f38fc4da85c525a5be7511" category="inline-image-macro-rx" type="image"></block>。</block>
   <block id="743978dcd7046c82225d9b638969fd96" category="paragraph">您可以使用多个筛选器筛选"作业监控"页面上的操作、例如策略、Snapshot标签、操作类型(保护、还原、保留或其他)和保护类型(本地Snapshot、复制或备份到云)。</block>
   <block id="7f8ba7d41d11ab3b1061dbce2eeadb52" category="paragraph">默认情况下、"作业监控"页面显示过去24小时的保护和恢复作业。您可以使用时间范围筛选器更改时间范围。</block>
@@ -4348,10 +4309,8 @@ ONTAP S3</block>
   <block id="17b4d0b2054bd5ed8d8b6430dc8f6936" category="list-text">只有在选择"Type"(类型)为"Protection (保护)时、才能使用"Protection type"(保护类型)筛选器进行搜索。</block>
   <block id="2dfc0d74279ba9eea9d3eb95a8ec80af" category="paragraph">您可以查看作业类型(计划或按需)、SnapMirror备份类型(初始或定期)开始和结束时间、持续时间、从工作环境传输到对象存储的数据量、平均传输速率、策略名称、启用保留锁定、执行勒索软件扫描、 保护源详细信息和保护目标详细信息。</block>
   <block id="f1a15f873b659fefcf2800c9489b580b" category="section-title">查看保留(备份生命周期)作业</block>
-  <block id="d9b6033ef3f394f8074723c6dcb784d9" category="paragraph">监控保留(备份生命周期)流有助于确保审计完整性、责任和备份安全性。为了帮助您跟踪备份生命周期、您可能需要确定所有备份副本的到期日期。</block>
   <block id="86fa0897ffcce46e8eca8c43e8684ef8" category="paragraph">备份生命周期作业会跟踪所有已删除的Snapshot副本或要删除的队列中的Snapshot副本。从ONTAP 9.13开始、您可以在"作业监控"页面上查看所有称为"保留"的作业类型。</block>
   <block id="cd1b897c85b8fe28d7eeba9cb930852d" category="paragraph">"保留"作业类型会捕获在受BlueXP备份和恢复保护的卷上启动的所有Snapshot删除作业。</block>
-  <block id="7ef34b031a64c8523d3cc6b68b45c80f" category="list-text">选择作业类型"保留"。</block>
   <block id="9e35f94818feb2156d0744e4be9fb2ea" category="cell">操作类型</block>
   <block id="630469b1210edbcdbdfbbd418f05c1ca" category="cell">警报级别</block>
   <block id="cfa4593b1fb6aea2e32d9928f2c4349b" category="cell">电子邮件已发送</block>
@@ -4399,7 +4358,6 @@ ONTAP S3</block>
   <block id="300f031c227ed1b4448a8bb51abec2bb" category="paragraph">\https://netapp-cloud-account.auth0.com</block>
   <block id="809c75c03a253c08bfaa32177821bc49" category="list-text">您选择的卷必须具有相同的SnapLock设置。所有卷都必须启用SnapLock Enterprise或禁用SnapLock。(采用SnapLock合规性模式的卷需要ONTAP 9.14或更高版本。)</block>
   <block id="437f900a689b3effaba13525bf426e50" category="inline-link-macro">创建策略</block>
-  <block id="e4847718f673436ca61df1d6ff85e9ad" category="admonition">要使用用户界面创建自定义策略、请参见 <block ref="63a3f471efcfd7e4daa79f468df674ce" category="inline-link-macro-rx"></block>。</block>
   <block id="63ded913a4470920f93edd534ec90156" category="section-title">2023年9月11日</block>
   <block id="101143ec501ddd03e76bf93ad136c2de" category="section-title">为ONTAP数据提供新的策略管理</block>
   <block id="d3744875712ea1e210c10ab00d139b5b" category="paragraph">此版本支持在用户界面中创建自定义Snapshot策略、复制策略以及用于将ONTAP数据备份到对象存储的策略。</block>
@@ -4414,13 +4372,10 @@ ONTAP S3</block>
   <block id="115e674b1dc0942f53bc91e279bbd7eb" category="inline-link">了解有关保护ONTAP数据的更多信息</block>
   <block id="5ea7c922bf64f9c4520ccdf833e34e39" category="paragraph"><block ref="287ce1c3ffcd9fd04ac3fb9608fef690" category="inline-link-rx"></block>。</block>
   <block id="7b666c0edc9876b87778d0969629cfbf" category="list-text">在备份和恢复栏中选择*卷*。从卷选项卡中，选择*操作* <block ref="29668165f4efcae1e525eece87489e44" category="inline-image-macro-rx" type="image"></block> 图标并为单个卷(尚未启用复制或备份到对象存储)选择*激活备份*。</block>
-  <block id="fee16c8f65e9221b33938ce4c94bb0de" category="admonition">要创建自定义策略、请参见 <block ref="63a3f471efcfd7e4daa79f468df674ce" category="inline-link-macro-rx"></block>。</block>
-  <block id="c1e74c6339bd5a7ce0c8f49560afe41d" category="list-text">*备份策略*：选择现有的备份到对象存储策略。</block>
   <block id="718dfdf9ba4cd59f98163d4d75844472" category="list-text">SnapLock合规性卷(需要ONTAP 9.14或更高版本)</block>
   <block id="ef8c31bba1fe5a62e7a6cfedbb9d29da" category="summary">您可以使用NetApp提供的默认备份策略创建备份、也可以创建自定义策略。策略用于控制备份类型、备份架构、存储系统和备份频率。</block>
   <block id="defb6c38e16057d80b8b116a92ab8665" category="doc">管理ONTAP卷的备份策略</block>
   <block id="7ee9b8ccc530c51b1215b5f1266eee5e" category="paragraph">您可以使用NetApp提供的默认备份策略创建备份、也可以创建自定义策略。备份频率、备份时间以及保留的备份文件数量均由策略控制。</block>
-  <block id="1023513b30fa21977b0dbd6b2e65992c" category="paragraph">使用激活向导为卷启用备份和恢复服务时、您可以从默认策略以及工作环境(Cloud Volumes ONTAP或内部ONTAP系统)中已存在的任何其他策略中进行选择。如果要使用与现有策略不同的策略、则必须在启动激活向导之前创建此策略。</block>
   <block id="c5e61d7841bf9a1c1ef625157d503535" category="paragraph">要了解所提供的默认备份策略、请参见 <block ref="26e6d65b3efbcdaf9fdb0f41b6ffe1ab" category="inline-link-macro-rx"></block>。</block>
   <block id="bea7279384d85082d745d10903672658" category="paragraph">BlueXP备份和恢复提供了三种类型的ONTAP数据备份：快照、复制以及备份到对象存储。根据您使用的架构和备份类型、它们的策略驻留在不同的位置：</block>
   <block id="9c2cf3d903ec11e031aac200337d550f" category="cell">Snapshot策略存储位置</block>
@@ -4439,10 +4394,8 @@ ONTAP S3</block>
   <block id="296b9ff4c428eb1b284df172e8f937be" category="paragraph"><block ref="296b9ff4c428eb1b284df172e8f937be" category="inline-image-macro-rx" type="image"></block></block>
   <block id="0829ebf3236644a786e081485a185704" category="paragraph">默认情况下会显示Snapshot策略。</block>
   <block id="490ebe8423732c19d7c4ed267db26f2f" category="list-text">要查看工作环境中存在的其他策略，请选择*复制策略*或*备份策略*。如果您的备份计划可以使用现有策略、则一切都已准备就绪。如果您需要具有不同特征的策略、可以从此页面创建新策略。</block>
-  <block id="8fb446fc6204f4002da66fd95a8ebf7d" category="section-title">创建快照策略</block>
   <block id="cbad557bcb30ebd6fc0cb19c52d98918" category="paragraph">3-2-1策略的一部分涉及在*主*存储系统上创建卷的Snapshot副本。</block>
   <block id="87d7b16c83e147764f7157c544e8b1f0" category="paragraph">在策略创建过程中、需要确定用于表示计划和保留的Snapshot和SnapMirror标签。您可以使用预定义的标签或创建自己的标签。</block>
-  <block id="5bbd322028180cb2d9c51ea786314b04" category="list-text">在策略页面中，选择*Create new policy*&gt;*Create Snapshot policy*。</block>
   <block id="b7eb033e2f95b4885d2ab78242e53701" category="list-text">指定策略名称。</block>
   <block id="8ea6a94b6e34dd5df6320e7e8b8a2514" category="list-text">选择一个或多个Snapshot计划。最多可以有5个标签。或者、创建计划。</block>
   <block id="4b97d1b547dd6a60145647bd089cb09b" category="list-text">如果选择创建计划：</block>
@@ -4461,17 +4414,13 @@ ONTAP S3</block>
   <block id="e2db720dd9637e04a09a88a6c179ea4c" category="list-text">在"Policy"页面上选择"Cluster 2"。</block>
   <block id="0ef5b185a636e8d973f33fc4c87833bd" category="list-text">忽略Snapshot策略部分。</block>
   <block id="8dd072d2922c8edc60aa60c9bc0cdc46" category="list-text">配置复制和备份到对象策略。</block>
-  <block id="b67380033d7d5bdab053c0dad43a80c0" category="section-title">创建复制策略</block>
   <block id="3dec072d7e14f395b6012bebe3b45fad" category="paragraph">3-2-1策略可能包括复制其他存储系统上的卷。复制策略驻留在*二级*存储系统上。</block>
-  <block id="a279488f43a48271cf71b391369880a3" category="list-text">在策略页面中，选择*创建新策略*&gt;*创建新复制策略*。</block>
   <block id="82927e590f678cf898b673e8ed85274d" category="list-text">指定SnapMirror标签(最多5个)、表示每个标签的保留期限。</block>
   <block id="d034072367cfae53d523d1b9d4c614d7" category="list-text">指定传输计划。</block>
-  <block id="f578bfb9ea0e0cda707a0426ef4bdd1e" category="section-title">创建备份到对象存储策略</block>
   <block id="4a9a4e09559bd837deb6b0db0f17b586" category="paragraph">3-2-1策略可能包括将卷备份到对象存储。</block>
   <block id="1a730740674df2bc24af9ce2e66da7df" category="paragraph">根据备份架构的不同、此存储策略驻留在不同的存储系统位置：</block>
   <block id="7c8ffe07bb7dc70647a194385ea66773" category="list-text">扇出：主存储系统</block>
   <block id="96ab2d22b4464dc324915df8e5067ca9" category="list-text">级联：二级存储系统</block>
-  <block id="868680c8c14bb13ca00e6f4892aeb3c3" category="list-text">在策略管理页面中，选择*创建新策略*&gt;*创建新备份策略*。</block>
   <block id="bfd2bf5ca91b1984485de4fe52e739a9" category="list-text">指定设置、包括传输计划和备份归档时间。</block>
   <block id="ddb011fe917012a700049a04ecd807d0" category="list-text">(可选)要在一定天数后将较早的备份文件移至成本较低的存储类或访问层、请选择*归档*选项并指示数据归档前应经过的天数。</block>
   <block id="88b38144f5678f838e589bb3f66fb7c3" category="inline-link">了解有关归档存储设置的更多信息</block>
@@ -4508,8 +4457,6 @@ ONTAP S3</block>
   <block id="78720f30e58d9a141f5d550176409702" category="admonition">要创建自定义策略、请参见 <block ref="63a3f471efcfd7e4daa79f468df674ce" category="inline-link-macro-rx"></block>...</block>
   <block id="311000e4ce9d283fb43e8211781ee9e3" category="list-text">在备份和恢复栏中选择*卷*。从卷选项卡中，选择*操作* <block ref="29668165f4efcae1e525eece87489e44" category="inline-image-macro-rx" type="image"></block> 图标并为单个卷(尚未启用复制或备份到对象存储)选择*激活备份*。</block>
   <block id="e89b128dbf2037e11616e345055bbd03" category="list-text">您选择的卷必须具有相同的SnapLock设置。所有卷都必须启用SnapLock Enterprise或禁用SnapLock。(当前不支持SnapLock合规性模式的卷需要ONTAP 9.14或更高版本。)</block>
-  <block id="33846815732f0a61e794b0e44401b00f" category="admonition">要创建自定义策略、请参见
-<block ref="63a3f471efcfd7e4daa79f468df674ce" category="inline-link-macro-rx"></block>。</block>
   <block id="6b28ac02ff2a9de6b423b9f57d6a4d09" category="sidebar">管理ONTAP卷的策略</block>
   <block id="49f768fa096c849abfc2310e4f864f5e" category="section-title">能够从出站连接受限的站点中的Cloud Volumes ONTAP系统备份数据</block>
   <block id="39539808000ad0a6d6ca39474e4fb77b" category="paragraph">现在、您可以将数据从AWS和Azure商业区域中安装的Cloud Volumes ONTAP 系统备份到Amazon S3或Azure Blob。这要求您在商业区域的Linux主机上以"受限模式"安装连接器、并在该处部署Cloud Volumes ONTAP系统。请参见<block ref="17dde2a04d27e7ad2a9f0a451a7a0e90" category="inline-link-rx"></block> 和<block ref="e88a100423dadabfc9781439f925633d" category="inline-link-rx"></block>。</block>
@@ -4747,4 +4694,91 @@ ONTAP S3</block>
   <block id="f055d7dc297e937dbedf854f4e8d5f28" category="sidebar">还原云原生SQL Server数据库</block>
   <block id="eacd1d0a9374cb22a99c806b2924cf90" category="sidebar">备份云原生SQL Server数据库</block>
   <block id="6240606371654cf871393e757b75ae12" category="sidebar">还原云原生SQL Server数据</block>
+  <block id="b91f5702154a342b0f24808369863324" category="list-text">*本地Snap照*：选择现有Snapshot策略或创建新的Snapshot策略。</block>
+  <block id="1a9240d843443385061b2272dcfbfff0" category="admonition">如果要在激活Snapshot之前创建自定义策略、可以使用System Manager或ONTAP命令行界面<block ref="21daf815c4decbf3cba733c88297587b" prefix=" " category="inline-code"></block> 命令：请参见<block ref="ec3ed4692ea8e2ea03ef1cb28143229e" category="inline-link-rx"></block>。</block>
+  <block id="e26dd0d96691532707185229fc0a17cb" category="admonition">要在激活Snapshot之前使用此服务创建自定义策略、请参见 <block ref="63a3f471efcfd7e4daa79f468df674ce" category="inline-link-macro-rx"></block>。</block>
+  <block id="adb25d95d88c1a7014ebf4a12b42eec9" category="paragraph">要创建策略，请选择*创建新策略*并执行以下操作：</block>
+  <block id="b9ebe3d0d7df348b69f3c32d402c98f6" category="list-text">输入策略的名称。</block>
+  <block id="5b85cfab1f375787e03761e9b8a1f060" category="list-text">最多可选择5个计划、通常频率不同。</block>
+  <block id="d56f5a6cd93df4bc06d2a6c256936c63" category="list-text">*复制策略*：选择现有复制策略或创建新复制策略。</block>
+  <block id="0773e77bb0db21a781b5bbb39f7a4ee7" category="list-text">*备份策略*：选择现有备份策略或创建新的备份策略。</block>
+  <block id="c14db437f776a13459f3d49279cc036d" category="admonition">您可以使用System Manager或ONTAP命令行界面创建策略。使用ONTAP命令行界面创建自定义策略<block ref="21daf815c4decbf3cba733c88297587b" prefix=" " category="inline-code"></block> 命令、请参见<block ref="ec3ed4692ea8e2ea03ef1cb28143229e" category="inline-link-rx"></block>。</block>
+  <block id="9cf82e73e2aa4201ca0b35cdc9ff3edf" category="admonition">要在使用用户界面激活备份之前创建自定义策略、请参见 <block ref="63a3f471efcfd7e4daa79f468df674ce" category="inline-link-macro-rx"></block>。</block>
+  <block id="fb2530f9293a4ba59cfd3ca6492bb972" category="section-title">2023年10月23日</block>
+  <block id="9b12782cbbc42b370b4d4bc260b1898e" category="section-title">3-2-1在备份激活期间创建策略</block>
+  <block id="356e8ead16eb5dbd3c579052a76bad44" category="paragraph">以前、必须在启动Snapshot、复制或备份之前创建自定义策略。从ONTAP 9.8 P5开始、您现在可以使用BlueXP备份和恢复UI在备份激活过程中创建策略。</block>
+  <block id="75d1ce5c6ad2c6caeaeb5dea13c8ed1b" category="section-title">支持按需快速恢复</block>
+  <block id="176b76bad16e5fd8729393946eb26540" category="paragraph">现在、通过BlueXP备份和恢复、可以将卷从云存储"快速还原"到Cloud Volumes ONTAP系统。快速还原非常适合需要尽快提供对卷的访问权限的灾难恢复情形。快速还原会将元数据从备份文件还原到卷、而不是还原整个备份文件。</block>
+  <block id="e3ed7c0a3f545b64d6f1678b54a9e0f3" category="paragraph">Cloud Volumes ONTAP目标系统必须运行ONTAP 9.13.0或更高版本。</block>
+  <block id="c0a5dc14978eb11df924b206a11f8b19" category="paragraph">BlueXP备份和恢复作业监控器现在可显示有关快速还原作业的信息。</block>
+  <block id="209a2213c8478f88b6a43752e3a502ac" category="paragraph">从备份文件还原卷时、BlueXP备份和恢复会使用备份中的数据创建一个_new_卷。从对象存储使用备份时、您可以将数据还原到原始工作环境中的卷、与源工作环境位于同一云帐户中的其他工作环境或内部ONTAP系统。</block>
+  <block id="896c3888b79484c9760825887d60adb2" category="paragraph">使用ONTAP 9.13.0或更高版本将云备份还原到Cloud Volumes ONTAP系统时、您可以选择执行"快速还原"操作。快速还原非常适合需要尽快提供对卷的访问权限的灾难恢复情形。快速还原会将元数据从备份文件还原到卷、而不是还原整个备份文件。不建议对性能或延迟敏感型应用程序执行快速还原、归档存储中的备份也不支持快速还原。</block>
+  <block id="d32e1d93e3ad3960f0013d75a50ca107" category="admonition">只有在创建云备份的源系统运行的是ONTAP 9.12.1或更高版本时、FlexGroup卷才支持快速还原。并且、只有当源系统运行的是ONTAP 9.11.0或更高版本时、SnapLock卷才支持此功能。</block>
+  <block id="2f7ffcf09fd8291d200be9f94baef41d" category="list-text">输入要用于还原的卷的名称、然后选择此卷要驻留的Storage VM和聚合。还原FlexGroup卷时、您需要选择多个聚合。默认情况下，使用 * &lt;source_volume_name&gt;_Restore* 作为卷名称。</block>
+  <block id="fcde2c072e8aee2aa6a09b37c7ceee0a" category="paragraph">使用ONTAP 9.13.0或更高版本将备份从对象存储还原到Cloud Volumes ONTAP系统时、您可以选择执行"快速还原"操作。</block>
+  <block id="8744543543bca2e8e7812d7c7a8f7f81" category="paragraph">从备份文件还原_full volume_时、BlueXP备份和恢复会使用备份中的数据创建一个_new_卷。您可以将数据作为原始工作环境中的卷还原到与源工作环境位于同一云帐户中的其他工作环境或内部ONTAP系统。</block>
+  <block id="a6d6bf68742281a10bad1dc24bbe8bfc" category="paragraph">您可以将_folder或files_还原到原始卷位置、同一工作环境中的不同卷、使用同一云帐户的不同工作环境或内部ONTAP系统上的卷。</block>
+  <block id="0662a540906c0c217caad41d6b214451" category="list-text">只有在创建云备份的源系统运行的是ONTAP 9.12.1或更高版本时、FlexGroup卷才支持快速还原。只有在创建云备份的源系统运行的是ONTAP 9.11.0或更高版本时、才支持SnapLock卷快速还原。FlexVol卷没有最低要求。</block>
+  <block id="9ea8586e1304278c3a05061b433c1169" category="list-text">对于卷、您可以选择原始目标工作环境、也可以选择备用工作环境。还原FlexGroup卷时、您需要选择多个聚合。</block>
+  <block id="161194bbe48a2135489734e9a8253dbc" category="list-text">*本地Snap照*：选择现有Snapshot策略或创建一个。</block>
+  <block id="86f7231a6add4e3af6c22d160f1fef1b" category="admonition">要在激活备份之前创建自定义策略、请参见 <block ref="63a3f471efcfd7e4daa79f468df674ce" category="inline-link-macro-rx"></block>。</block>
+  <block id="e55e33fb51399237a97d05cee7b9666a" category="list-text">*复制策略*：选择现有复制策略或创建一个复制策略。</block>
+  <block id="467647313d3b271591c978d30d0a3f45" category="admonition">要在激活复制之前创建自定义策略、请参见 <block ref="63a3f471efcfd7e4daa79f468df674ce" category="inline-link-macro-rx"></block>。</block>
+  <block id="2283ed1c2d2204e889a93d07486e3a8b" category="list-text">*备份策略*：选择现有的备份到对象存储策略或创建一个。</block>
+  <block id="94564c9b3e87da6b96d2202774fb278d" category="list-text">能够将卷从云存储"快速还原"到Cloud Volumes ONTAP系统；非常适合需要尽快提供卷访问权限的灾难恢复情形。</block>
+  <block id="19fe226921eb8023a05c222ee84c5db8" category="paragraph">根据备份类型、备份位于不同位置：</block>
+  <block id="fc2fd0a50056e9aa6d11714c9450981b" category="list-text">一次只能选择一个FlexGroup卷进行复制。您需要分别为每个FlexGroup卷激活备份。</block>
+  <block id="3a3d9f6ee5fa05f3aa042e0258eebf58" category="list-text">在没有为备份策略分配任何卷的情况下创建或编辑此策略时、保留的备份数最多可为1018个。为策略分配卷后、您可以编辑此策略以创建多达4000个备份。</block>
+  <block id="fa5ec1bbbde705a6b3fbd36d5f35b9f9" category="list-text">使用ONTAP 9.12.1 GA或更高版本时、如果连接到主系统、则支持备份。整个备份配置将传输到二级系统、以便在切换后自动继续备份到云。您无需在二级系统上设置备份(实际上、您会受到限制)。</block>
+  <block id="a1e9108dbd21ffa07a61d3c3e7ecf506" category="list-text">使用ONTAP 9.12.0及更早版本时、仅支持从ONTAP二级系统进行备份。</block>
+  <block id="c4ce3de681a449c685ec946915a5eb8a" category="list-text">快速还原限制：</block>
+  <block id="31e082fed011780fb88072846029c3e5" category="list-text">目标位置必须是使用ONTAP 9.13.0或更高版本的Cloud Volumes ONTAP系统。</block>
+  <block id="e84bd2928737b9826c8c54b6f73863db" category="list-text">归档存储中的备份不支持此功能。</block>
+  <block id="b5f44cc87942dc7d5bfe6c4b26750821" category="list-text">只有在创建云备份的源系统运行的是ONTAP 9.12.1或更高版本时、才支持FlexGroup卷。</block>
+  <block id="82f72f137722b68957ddade43e2defd1" category="list-text">只有在创建云备份的源系统运行的是ONTAP 9.11.0或更高版本时、才支持SnapLock卷。</block>
+  <block id="ce2a08fb730f789e2b1cd4e7afc9f682" category="paragraph">使用激活向导为卷启用备份和恢复服务时、您可以从默认策略以及工作环境(Cloud Volumes ONTAP或内部ONTAP系统)中已存在的任何其他策略中进行选择。如果要使用与现有策略不同的策略、则可以在使用激活向导之前或期间创建此策略。</block>
+  <block id="ff9a9beae7e6760ee494147f435ae537" category="section-title">在启动Snapshot之前创建Snapshot策略</block>
+  <block id="f2d390fa1db9923459b003140db5abec" category="list-text">在策略页面中，选择*Create policy*&gt;*Create Snapshot policy*。</block>
+  <block id="4dab151c833afe1024538e7c9e3a409e" category="section-title">在启动复制之前创建复制策略</block>
+  <block id="cd1ca0eeb8fdb932e286f62f9740d679" category="list-text">在策略页面中，选择*Create policy*&gt;*Create Replication policy*。</block>
+  <block id="726883ae3f1569950c0fe4f48e4d1105" category="section-title">在启动备份之前、创建备份到对象存储策略</block>
+  <block id="443b26b79fa41de26ed76ff524457f1b" category="list-text">在策略管理页面中，选择*Create policy*&gt;*Create backup policy*。</block>
+  <block id="267898099f8e68a62b670fd699a1d3f5" category="admonition">要在激活Snapshot之前创建自定义策略、请参见 <block ref="63a3f471efcfd7e4daa79f468df674ce" category="inline-link-macro-rx"></block>。</block>
+  <block id="c12d5fb21a1fcbc94b85e916ae79b879" category="admonition">要在激活复制之前创建自定义策略、请参见 <block ref="63a3f471efcfd7e4daa79f468df674ce" category="inline-link-macro-rx"></block>。</block>
+  <block id="410aed6a48c92fe5a14c0f80aea2e49d" category="list-text">*备份策略*：选择现有备份到对象存储策略或创建新策略。</block>
+  <block id="2ce2db49b07d0bd2d1dada807c65d175" category="paragraph">选择要保护的卷。受保护卷是指具有以下一项或多项内容的卷：Snapshot策略、复制策略、备份到对象策略。</block>
+  <block id="91b1870e279924acdf3d4248405f1f98" category="list-text">选择第一个卷后、您可以选择所有FlexVol卷。(一次只能选择一个FlexGroup卷。) 要备份所有现有FlexVol卷、请先选中一个卷、然后选中标题行中的框。（<block ref="2b1190f90c2c717d2aa70aabd2fc4c36" category="inline-image-macro-rx" type="image"></block>）。</block>
+  <block id="6f016177210af1e863aa59b8f2e97752" category="list-text">*备份策略*：选择现有的备份到对象存储策略。</block>
+  <block id="f149f54356387e5794adb107c0cc0a7d" category="paragraph">在BlueXP备份和恢复报告选项卡中、您可以创建备份清单报告并筛选其内容。通过备份清单报告、您可以查看特定帐户、工作环境或SVM清单的所有备份。</block>
+  <block id="09d75137b3fb689dc33f1373da0ca50b" category="list-text">备份类型(计划备份或用户启动的临时备份)</block>
+  <block id="bb556c03f0c66474f3d3666fd4354e8e" category="list-text">根据您选择的报告、查看报告部分(Snapshot策略、复制策略或备份策略)。</block>
+  <block id="dae5b12aa472c177c1e2583718010f3e" category="paragraph">报告了适用于Cloud Volumes ONTAP、内部、应用程序和Kubelnetes数据的适用场景BlueXP备份和恢复操作。</block>
+  <block id="661d052ba9e14a07c1387ef54569e445" category="summary">您可以监控已启动或已计划的本地Snapshot、复制和备份到对象存储作业的状态、以及还原已启动或计划的作业。您可以查看已完成、正在进行或失败的作业、以便诊断和修复问题。使用BlueXP通知中心、您可以启用通过电子邮件发送通知、以便即使您未登录系统、也可以获得重要系统活动的通知。使用BlueXP时间线、您可以查看通过UI或API启动的所有操作的详细信息。</block>
+  <block id="9ee483d0200a76af92f0e7ffaf360da9" category="paragraph">从BlueXP备份和恢复UI和API启动的快照、复制、对象存储备份和还原操作可在作业监控选项卡中找到。</block>
+  <block id="97ed68d89be18084aed5cb3445ac40c1" category="paragraph">监控保留(或_backup生命周期_)流有助于确保审计完整性、责任和备份安全性。为了帮助您跟踪备份生命周期、您可能需要确定所有备份副本的到期日期。</block>
+  <block id="67e8772c27eee052c978af0d5760e36a" category="list-text">选择"保留"作为作业类型。</block>
+  <block id="b240fec42fab4d1361745cc3f51165ed" category="list-text">*本地Snap照*：选择现有Snapshot策略或创建策略。</block>
+  <block id="528899f511e6aa452ca3bf4d1e27defe" category="list-text">*复制策略*：选择现有复制策略或创建策略。</block>
+  <block id="f840f9756698d2642c682c57635ce422" category="list-text">*备份策略*：选择现有备份策略或创建策略。</block>
+  <block id="29ec9eea05a4e021ec0af54e27e66224" category="list-text">*备份策略*：选择现有的备份到对象存储策略或创建一个。</block>
+  <block id="abb095c3ca764fa12daa893d7e619ae1" category="paragraph">如有必要，您可以将整个 _volume" 从备份还原到相同或不同的工作环境。备份ONTAP数据时、您还可以选择将一个文件夹或一个或多个_files_从备份还原到相同或不同的工作环境。</block>
+  <block id="c0e14bdf7e581929bb61c30f0455c35e" category="paragraph">备份副本存储在BlueXP在云帐户中创建的对象存储中。每个集群/工作环境都有一个对象存储、BlueXP将对象存储命名为：<block ref="395f30b009fd80d4c1cba9bc07db445d" prefix=" " category="inline-code"></block>。请确保不要删除此对象存储。</block>
+  <block id="3e8d942114ddd71bc4d36aca5db8bb0a" category="list-text">在ONTAP S3中、BlueXP使用现有用户帐户作为S3存储分段。</block>
+  <block id="ada0ea0c378e640dcf914757628491a1" category="section-title">何时执行备份</block>
+  <block id="f73591df3bffa1bec575368324f40233" category="paragraph">购买BlueXP备份和恢复(Cloud Backup)许可证后、您可以通过输入BlueXP备份和恢复序列号和NetApp 支持站点(NSS)帐户或上传NetApp许可证文件(NLG)来激活BlueXP中的许可证。以下步骤显示了如果您计划使用此方法，如何获取 NLF 许可证文件。</block>
+  <block id="4bfcf52b215e00901db793339d1f5b9e" category="paragraph">如果您在无法访问Internet的内部站点上运行BlueXP备份和恢复、这意味着您已在中部署BlueXP Connector<block ref="6426a8a427a5eadce24d979d317c10cc" category="inline-link-rx"></block>，您需要从连接Internet的系统获取许可证文件。使用序列号和NetApp 支持站点 帐户激活许可证不适用于专用模式安装。</block>
+  <block id="ac2c17b7d9121a38bd0676675759e2d0" category="list-text">您是使用默认备份策略、还是需要创建自定义策略</block>
+  <block id="379c9cb0dad843f8d57008637a4d83e7" category="admonition">在初始创建复制的卷或备份文件时、会包含源数据的完整副本、这称为_baseline传输_。后续传输仅包含源数据(Snapshot)的差异副本。</block>
+  <block id="46a85142d5afdcb478818dd355fabecd" category="section-title">是否会对Snapshot副本、复制和备份使用默认备份策略</block>
+  <block id="8ebfc273389c1b045abce8c48c051970" category="paragraph">您可以使用NetApp提供的默认策略创建备份、也可以创建自定义策略。使用激活向导为卷启用备份和恢复服务时、您可以从默认策略以及工作环境(Cloud Volumes ONTAP或内部ONTAP系统)中已存在的任何其他策略中进行选择。如果要使用与现有策略不同的策略、可以在启动之前或使用激活向导时创建此策略。</block>
+  <block id="4299e803df046f181c6d05e5bcc4a853" category="list-text">默认Snapshot策略会创建每小时、每天和每周Snapshot副本、并保留6个每小时、2个每天和2个每周Snapshot副本。</block>
+  <block id="d15db32d5d9df007a971f75a2640c71c" category="paragraph">如果您为复制或备份创建自定义策略、则策略标签(例如"每日"或"每周")必须与Snapshot策略中的标签匹配、否则不会创建复制的卷和备份文件。</block>
+  <block id="748a8c28fe1e967321c785cb4c772c2c" category="paragraph">您可以使用BlueXP备份恢复、系统管理器或ONTAP命令行界面(CLI)创建自定义策略。</block>
+  <block id="82f49efcbf889d6eb769da07e9bfa832" category="paragraph"><block ref="1d5508fcd8027e26b48962bd984558d5" category="inline-link-rx"></block>
+<block ref="25d9216966497b44f1274c2fdc3f62ee" category="inline-link-rx"></block>
+<block ref="6a671fae687ae09ed6ec2eb759a70329" category="inline-link-rx"></block>
+<block ref="76f9b86225921137bc166f71caebf3f1" category="inline-link-rx"></block>
+<block ref="21814359fa3d01fa463924248dc4810b" category="inline-link-rx"></block>
+<block ref="d73f218743fa1184e2a040cf646f920f" category="inline-link-rx"></block></block>
+  <block id="d0c161747fe8a725393203f97ccd685c" category="paragraph">您可以在BlueXP备份和恢复UI中创建Snapshot、复制和备份到对象存储策略。请参见一节中的 <block ref="535e99780197daca673e274e7a26ba94" category="inline-link-macro-rx"></block> 了解详细信息。</block>
 </blocks>

@@ -413,22 +413,38 @@ NOTE: 如果您选择的卷具有与此步骤中选择的策略不同的Snapshot
 
 
 
-. *本地Snap照*：选择现有Snapshot策略。
+. *本地Snap照*：选择现有Snapshot策略或创建新的Snapshot策略。
 +
 
-TIP: 要创建自定义策略、请参见
-link:task-create-policies-ontap.html["创建策略"]。
+TIP: 要在激活Snapshot之前创建自定义策略、请参见 link:task-create-policies-ontap.html["创建策略"]。
+
++
+要创建策略，请选择*创建新策略*并执行以下操作：
+
++
+** 输入策略的名称。
+** 最多可选择5个计划、通常频率不同。
+** 选择 * 创建 * 。
+
 
 . *Replication *：设置以下选项：
 +
 ** *复制目标*：选择目标工作环境和SVM。或者、选择要添加到复制的卷名称中的一个或多个目标聚合以及前缀或后缀。
-** *复制策略*：选择现有复制策略。
-
-
+** *复制策略*：选择现有复制策略或创建一个复制策略。
 +
 
-TIP: 要创建自定义策略、请参见
-link:task-create-policies-ontap.html["创建策略"]。
+TIP: 要在激活复制之前创建自定义策略、请参见 link:task-create-policies-ontap.html["创建策略"]。
+
++
+要创建策略，请选择*创建新策略*并执行以下操作：
+
++
+*** 输入策略的名称。
+*** 最多可选择5个计划、通常频率不同。
+*** 选择 * 创建 * 。
+
+
+
 
 . *备份到对象*：如果选择了*Backup*，请设置以下选项：
 +
@@ -442,17 +458,25 @@ link:task-create-policies-ontap.html["创建策略"]。
 
 TIP: 选择正确的IP空间可确保BlueXP备份和恢复可以设置从ONTAP 到StorageGRID 对象存储的连接。
 
-** *备份策略*：选择现有的备份到对象存储策略。
+** *备份策略*：选择现有的备份到对象存储策略或创建一个。
 +
 
-TIP: 要创建自定义策略、请参见
-link:task-create-policies-ontap.html["创建策略"]。
+TIP: 要在激活备份之前创建自定义策略、请参见 link:task-create-policies-ontap.html["创建策略"]。
 
++
+要创建策略，请选择*创建新策略*并执行以下操作：
+
++
+*** 输入策略的名称。
+*** 最多可选择5个计划、通常频率不同。
+*** 选择 * 创建 * 。
 +
 如果您的集群使用的是ONTAP 9.11.1或更高版本、则可以选择通过配置_DataLock和勒索软件保护_来保护您的备份免受删除和勒索软件攻击。_DataLock_可防止您的备份文件被修改或删除、_勒索 软件保护_会扫描您的备份文件、以在备份文件中查找勒索软件攻击的证据。 link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["详细了解可用的DataLock设置"^]。
 
 +
 如果集群使用的是ONTAP 9.12.1或更高版本、而StorageGRID 系统使用的是版本11.4或更高版本、则可以选择在一定天数后将较早的备份分层到公共云归档层。目前支持AWS S3 Glacer/S3 Glacier深度归档或Azure归档存储层。 <<Preparing to archive older backup files to public cloud storage,了解如何为此功能配置系统>>。
+
+
 
 ** *将备份分层到公共云*：选择要将备份分层到的云提供商并输入提供商详细信息。
 +

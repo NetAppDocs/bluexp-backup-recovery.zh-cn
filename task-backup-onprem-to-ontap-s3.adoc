@@ -359,15 +359,37 @@ S3 凭据:: 您必须已创建S3用户才能控制对ONTAP S3存储的访问。 
 
 
 
-. *本地Snap照*：选择现有Snapshot策略。
+. *本地Snap照*：选择现有Snapshot策略或创建新的Snapshot策略。
 +
 
-TIP: 如果要创建自定义策略、可以使用System Manager或ONTAP命令行界面 `snapmirror policy create` 命令：请参见。
+TIP: 如果要在激活Snapshot之前创建自定义策略、可以使用System Manager或ONTAP命令行界面 `snapmirror policy create` 命令：请参见。
+
++
+
+TIP: 要在激活Snapshot之前使用此服务创建自定义策略、请参见 link:task-create-policies-ontap.html["创建策略"]。
+
++
+要创建策略，请选择*创建新策略*并执行以下操作：
+
++
+** 输入策略的名称。
+** 最多可选择5个计划、通常频率不同。
+** 选择 * 创建 * 。
+
 
 . *复制*：如果选择了*复制*，请设置以下选项：
 +
 ** *复制目标*：选择目标工作环境和SVM。(可选)选择目标聚合(或FlexGroup卷的聚合)以及要添加到复制的卷名称中的前缀或后缀。
-** *复制策略*：选择现有复制策略。
+** *复制策略*：选择现有复制策略或创建新复制策略。
++
+要创建策略，请选择*创建新策略*并执行以下操作：
+
++
+*** 输入策略的名称。
+*** 最多可选择5个计划、通常频率不同。
+*** 选择 * 创建 * 。
+
+
 
 
 . *备份到对象*：如果选择了*Backup*，请设置以下选项：
@@ -382,14 +404,23 @@ TIP: 如果要创建自定义策略、可以使用System Manager或ONTAP命令�
 
 TIP: 选择正确的IP空间可确保BlueXP备份和恢复可以设置从ONTAP到ONTAP S3对象存储的连接。
 
-** *备份策略*：选择现有备份策略。
+** *备份策略*：选择现有备份策略或创建新的备份策略。
 +
 
-TIP: 如果要创建自定义策略、可以使用System Manager或ONTAP命令行界面 `snapmirror policy create` 命令：请参见。
+TIP: 您可以使用System Manager或ONTAP命令行界面创建策略。使用ONTAP命令行界面创建自定义策略 `snapmirror policy create` 命令、请参见。
 
 +
 
-TIP: 要使用用户界面创建自定义策略、请参见 link:task-create-policies-ontap.html["创建策略"]。
+TIP: 要在使用用户界面激活备份之前创建自定义策略、请参见 link:task-create-policies-ontap.html["创建策略"]。
+
++
+要创建策略，请选择*创建新策略*并执行以下操作：
+
++
+*** 输入策略的名称。
+*** 最多可选择5个计划、通常频率不同。
+*** 选择 * 创建 * 。
+
 
 
 

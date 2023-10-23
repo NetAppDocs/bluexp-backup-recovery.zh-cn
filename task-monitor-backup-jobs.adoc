@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-monitor-backup-jobs.html 
 keywords: cloud backup, bluexp backup and recovery, backup, restore, status, monitor, alert, notification 
-summary: 您可以监控已启动的本地快照、复制和备份到对象存储作业的状态、并还原已启动的作业。您可以查看已完成、正在进行或失败的作业、以便诊断和修复问题。使用BlueXP通知中心、您可以启用通过电子邮件发送通知、以便即使您未登录系统、也可以获得重要系统活动的通知。使用BlueXP时间线、您可以查看通过UI或API启动的所有操作的详细信息。 
+summary: 您可以监控已启动或已计划的本地Snapshot、复制和备份到对象存储作业的状态、以及还原已启动或计划的作业。您可以查看已完成、正在进行或失败的作业、以便诊断和修复问题。使用BlueXP通知中心、您可以启用通过电子邮件发送通知、以便即使您未登录系统、也可以获得重要系统活动的通知。使用BlueXP时间线、您可以查看通过UI或API启动的所有操作的详细信息。 
 ---
 = 监控备份和还原作业的状态
 :hardbreaks:
@@ -31,7 +31,7 @@ summary: 您可以监控已启动的本地快照、复制和备份到对象存�
 * 失败
 
 
-"作业监控"选项卡中提供了快照、复制、从BlueXP备份和恢复UI和API启动的对象存储和还原操作备份以及系统启动的作业(如正在进行的计划备份操作)。但是、只有运行ONTAP 9.13.0或更高版本的Cloud Volumes ONTAP 系统以及运行ONTAP 9.13.1或更高版本的内部ONTAP 系统才是如此。运行早期版本的ONTAP 时、仅显示用户启动的作业。
+从BlueXP备份和恢复UI和API启动的快照、复制、对象存储备份和还原操作可在作业监控选项卡中找到。
 
 
 NOTE: 如果您已将ONTAP 系统升级到9.13.x、但在作业监控器中看不到正在进行的计划备份操作、则需要重新启动BlueXP备份和恢复服务。 link:reference-restart-backup.html["了解如何重新启动BlueXP备份和恢复"]。
@@ -128,7 +128,7 @@ image:screenshot_backup_job_monitor_details2.png["显示备份作业详细信息
 
 == 查看保留(备份生命周期)作业
 
-监控保留(备份生命周期)流有助于确保审计完整性、责任和备份安全性。为了帮助您跟踪备份生命周期、您可能需要确定所有备份副本的到期日期。
+监控保留(或_backup生命周期_)流有助于确保审计完整性、责任和备份安全性。为了帮助您跟踪备份生命周期、您可能需要确定所有备份副本的到期日期。
 
 备份生命周期作业会跟踪所有已删除的Snapshot副本或要删除的队列中的Snapshot副本。从ONTAP 9.13开始、您可以在"作业监控"页面上查看所有称为"保留"的作业类型。
 
@@ -137,7 +137,7 @@ image:screenshot_backup_job_monitor_details2.png["显示备份作业详细信息
 .步骤
 . 选择*作业监控*选项卡。
 . 选择*高级搜索和筛选*区域以打开搜索面板。
-. 选择作业类型"保留"。
+. 选择"保留"作为作业类型。
 
 
 

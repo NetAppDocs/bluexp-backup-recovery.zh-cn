@@ -18,7 +18,7 @@ BlueXP备份和恢复服务可为内部和云端的NetApp ONTAP 数据、Kubelne
 
 该服务可执行块级永久增量复制、并保留所有存储效率、从而显著减少复制和存储的数据量。此外、您只需为受保护的内容付费、并使用可用的最低成本存储层、这使得BlueXP备份和恢复非常经济高效。
 
-如有必要，您可以将整个 _volume" 从备份还原到相同或不同的工作环境。备份 ONTAP 数据时，您还可以选择将备份中的一个或多个 _files_ 还原到相同或不同的工作环境。
+如有必要，您可以将整个 _volume" 从备份还原到相同或不同的工作环境。备份ONTAP数据时、您还可以选择将一个文件夹或一个或多个_files_从备份还原到相同或不同的工作环境。
 
 https://bluexp.netapp.com/cloud-backup["了解有关BlueXP备份和恢复的更多信息"^]。
 
@@ -49,7 +49,7 @@ image:diagram_cloud_backup_general.png["一个示意图、显示了BlueXP备份�
 
 === 备份所在位置
 
-备份副本存储在BlueXP在云帐户中创建的对象存储中。每个集群/工作环境有一个对象存储、BlueXP将该对象存储命名如下： `netapp-backup-clusteruuid`。请确保不要删除此对象存储。
+备份副本存储在BlueXP在云帐户中创建的对象存储中。每个集群/工作环境都有一个对象存储、BlueXP将对象存储命名为： `netapp-backup-clusteruuid`。请确保不要删除此对象存储。
 
 ifdef::aws[]
 
@@ -73,11 +73,12 @@ ifdef::gcp[]
 endif::gcp[]
 
 * 在StorageGRID 中、BlueXP会将现有存储帐户用于对象存储分段。
+* 在ONTAP S3中、BlueXP使用现有用户帐户作为S3存储分段。
 
 
 
 
-=== 备份在午夜进行
+=== 何时执行备份
 
 * 每小时备份从每小时 5 分钟开始。
 * 每天的备份在每天午夜后开始。

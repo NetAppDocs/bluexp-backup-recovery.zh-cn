@@ -16,7 +16,7 @@ summary: 您可以使用NetApp提供的默认备份策略创建备份、也可�
 [role="lead"]
 您可以使用NetApp提供的默认备份策略创建备份、也可以创建自定义策略。备份频率、备份时间以及保留的备份文件数量均由策略控制。
 
-使用激活向导为卷启用备份和恢复服务时、您可以从默认策略以及工作环境(Cloud Volumes ONTAP或内部ONTAP系统)中已存在的任何其他策略中进行选择。如果要使用与现有策略不同的策略、则必须在启动激活向导之前创建此策略。
+使用激活向导为卷启用备份和恢复服务时、您可以从默认策略以及工作环境(Cloud Volumes ONTAP或内部ONTAP系统)中已存在的任何其他策略中进行选择。如果要使用与现有策略不同的策略、则可以在使用激活向导之前或期间创建此策略。
 
 要了解所提供的默认备份策略、请参见 link:concept-protection-journey.html["规划您的保护之旅"]。
 
@@ -62,14 +62,19 @@ image:screenshot_policies_management.png["策略管理页面"]
 
 
 
-== 创建快照策略
+== 在启动Snapshot之前创建Snapshot策略
 
 3-2-1策略的一部分涉及在*主*存储系统上创建卷的Snapshot副本。
 
 在策略创建过程中、需要确定用于表示计划和保留的Snapshot和SnapMirror标签。您可以使用预定义的标签或创建自己的标签。
 
 .步骤
-. 在策略页面中，选择*Create new policy*>*Create Snapshot policy*。
+. 在BlueXP UI中、选择*卷*>*备份设置*。
+. 从备份设置页面中，选择工作环境，然后选择*Actions* image:icon-action.png["操作图标"] 图标，然后选择*策略管理*。
++
+此时将显示策略管理页面。
+
+. 在策略页面中，选择*Create policy*>*Create Snapshot policy*。
 . 指定策略名称。
 . 选择一个或多个Snapshot计划。最多可以有5个标签。或者、创建计划。
 . 如果选择创建计划：
@@ -107,12 +112,12 @@ image:screenshot_policies_management.png["策略管理页面"]
 
 
 
-== 创建复制策略
+== 在启动复制之前创建复制策略
 
 3-2-1策略可能包括复制其他存储系统上的卷。复制策略驻留在*二级*存储系统上。
 
 .步骤
-. 在策略页面中，选择*创建新策略*>*创建新复制策略*。
+. 在策略页面中，选择*Create policy*>*Create Replication policy*。
 . 在策略详细信息部分中、指定策略名称。
 . 指定SnapMirror标签(最多5个)、表示每个标签的保留期限。
 . 指定传输计划。
@@ -121,7 +126,7 @@ image:screenshot_policies_management.png["策略管理页面"]
 
 
 
-== 创建备份到对象存储策略
+== 在启动备份之前、创建备份到对象存储策略
 
 3-2-1策略可能包括将卷备份到对象存储。
 
@@ -132,7 +137,7 @@ image:screenshot_policies_management.png["策略管理页面"]
 
 
 .步骤
-. 在策略管理页面中，选择*创建新策略*>*创建新备份策略*。
+. 在策略管理页面中，选择*Create policy*>*Create backup policy*。
 . 在策略详细信息部分中、指定策略名称。
 . 指定SnapMirror标签(最多5个)、表示每个标签的保留期限。
 . 指定设置、包括传输计划和备份归档时间。
