@@ -22,23 +22,21 @@ summary: 了解BlueXP备份和恢复的新增功能。
 
 
 
-=== 3-2-1在备份激活期间创建策略
+=== 在备份激活期间创建3-2-1备份策略
 
-以前、必须在启动Snapshot、复制或备份之前创建自定义策略。从ONTAP 9.8 P5开始、您现在可以使用BlueXP备份和恢复UI在备份激活过程中创建策略。
+以前、必须在启动Snapshot、复制或备份之前创建自定义策略。现在、您可以使用BlueXP备份和恢复UI在备份激活过程中创建策略。
 
 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-create-policies-ontap.html["详细了解策略"]。
 
 
 
-=== 支持按需快速恢复
+=== 支持按需快速还原ONTAP卷
 
 现在、通过BlueXP备份和恢复、可以将卷从云存储"快速还原"到Cloud Volumes ONTAP系统。快速还原非常适合需要尽快提供对卷的访问权限的灾难恢复情形。快速还原会将元数据从备份文件还原到卷、而不是还原整个备份文件。
 
-Cloud Volumes ONTAP目标系统必须运行ONTAP 9.13.0或更高版本。
+Cloud Volumes ONTAP目标系统必须运行ONTAP 9.13.0或更高版本。 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html["了解有关还原数据的更多信息"]。
 
-https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html["了解有关还原数据的更多信息"]。
-
-BlueXP备份和恢复作业监控器现在可显示有关快速还原作业的信息。
+BlueXP备份和恢复作业监控器还会显示有关快速恢复作业进度的信息。
 
 
 
@@ -100,6 +98,12 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.
 
 
 
+=== 能够立即归档备份数据、而不是先写入标准存储
+
+现在、您可以立即将备份文件发送到归档存储、而无需将数据写入标准云存储。对于很少需要从云备份访问数据的用户或要将备份替换为磁带环境的用户来说、这一点尤其有用。
+
+
+
 === 为备份和还原SnapLock卷提供了更多支持
 
 现在、备份和恢复可以备份使用SnapLock合规性或SnapLock企业保护模式配置的FlexVol和FlexGroup卷。要获得此支持、集群必须运行ONTAP 9.14或更高版本。从ONTAP 9.11.1版开始、支持使用SnapLock企业模式备份FlexVol卷。早期版本的ONTAP不支持备份SnapLock保护卷。
@@ -112,9 +116,12 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-ontap-backup-to-clo
 
 [IMPORTANT]
 ====
-由于增强了安全性、您的Connector现在需要通过出站Internet访问其他端点、以便在公有云环境中管理备份和恢复资源。如果此端点尚未添加到防火墙的"允许"列表中、您将在UI中看到有关"服务不可用"或"无法确定服务状态"的错误：
-
+* 由于增强了安全性、您的Connector现在需要通过出站Internet访问其他端点、以便在公有云环境中管理备份和恢复资源。如果此端点尚未添加到防火墙的"允许"列表中、您将在UI中看到有关"服务不可用"或"无法确定服务状态"的错误：
++
 \https://netapp-cloud-account.auth0.com
+
+* 现在、如果您使用的是"CVO专业版"软件包、可以将Cloud Volumes ONTAP和BlueXP备份和恢复捆绑在一起、则需要订阅备份和恢复PAYGO。过去不需要这样做。符合条件的Cloud Volumes ONTAP系统的备份和恢复订阅不会产生任何费用、但在任何新卷上配置备份时需要此费用。
+
 
 ====
 
@@ -678,74 +685,3 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/task-manage-backup-settings
 === 拖放以启用云备份到StorageGRID 系统
 
 如果 https://docs.netapp.com/us-en/bluexp-storagegrid/task-discover-storagegrid.html["StorageGRID"^] 备份目标作为工作环境存在于Canvas上、您可以将内部ONTAP 工作环境拖动到目标上以启动Cloud Backup设置向导。
-
-
-
-== 2022年8月18日
-
-
-
-=== 增加了对云原生应用程序数据的保护支持
-
-Cloud Backup for Applications是一种基于SaaS的服务、可为在NetApp Cloud Storage上运行的应用程序提供数据保护功能。在BlueXP中启用的适用于应用程序的云备份可为驻留在Amazon FSX for NetApp ONTAP 上的Oracle数据库提供高效、一致且基于策略的备份和还原。
-https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-protect-cloud-app-data-to-cloud.html["了解更多信息。"^]。
-
-
-
-=== 现在、Azure Blob中的备份文件支持搜索和还原
-
-现在、将备份文件存储在Azure Blob存储中的用户可以使用"搜索和还原"方法还原卷和文件。 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html#prerequisites-2["请参见如何使用搜索和放大器还原卷和文件"^]。
-
-请注意、要使用此功能、需要在Connector角色中添加其他权限。使用3.9.21版软件(2022年8月)部署的Connector包含这些权限。如果您使用早期版本部署了Connector、则需要手动添加权限。 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-onprem-to-azure.html#verify-or-add-permissions-to-the-connector["如有必要、请参见如何添加这些权限"^]。
-
-
-
-=== 我们增加了保护备份文件免遭删除和勒索软件攻击的功能
-
-Cloud Backup现在支持对象锁定、用于进行勒索软件安全备份。如果您的集群使用的是ONTAP 9.11.1或更高版本、而您的备份目标是Amazon S3、则现在可以使用一个名为_DataLock和勒索软件保护_的新备份策略选项。DataLock可防止您的备份文件被修改或删除、勒索软件保护功能会扫描您的备份文件、以查找您的备份文件遭到勒索软件攻击的证据。 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-cloud-backup-policies.html#datalock-and-ransomware-protection["详细了解如何使用DataLock和勒索软件保护来保护备份"^]。
-
-请注意、要使用此功能、需要在Connector角色中添加其他权限。使用3.9.21版软件部署的Connector包含这些权限。如果您使用早期版本部署了Connector、则需要手动添加权限。 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-onprem-to-aws.html#set-up-s3-permissions["如有必要、请参见如何添加这些权限"^]。
-
-
-
-=== Cloud Backup现在支持使用自定义SnapMirror标签创建的策略
-
-以前、Cloud Backup仅支持预定义的SnapMirror标签、例如每小时、每天、每周、每小时和每年。现在、Cloud Backup可以发现包含您使用System Manager或CLI创建的自定义SnapMirror标签的SnapMirror策略。这些新标签会显示在Cloud Backup UI中、您可以使用所选的SnapMirror标签将卷备份到云中。
-
-
-
-=== 对ONTAP 系统的备份策略进行了更多改进
-
-某些备份策略页面经过重新设计、可以更轻松地查看每个ONTAP 集群中的卷可用的所有备份策略。这样可以更轻松地查看可用策略的详细信息、以便您可以在卷上应用最佳策略。
-
-
-
-=== 拖放以启用Cloud Backup to Azure Blob和Google Cloud Storage
-
-如果 https://docs.netapp.com/us-en/bluexp-setup-admin/task-viewing-azure-blob.html["Azure Blob"^] 或 https://docs.netapp.com/us-en/bluexp-setup-admin/task-viewing-gcp-storage.html["Google Cloud 存储"^] 备份目标作为工作环境存在于Canvas上、您可以将本地ONTAP 或Cloud Volumes ONTAP 工作环境(安装在Azure或GCP中)拖动到目标上以启动备份设置向导。
-
-Amazon S3存储分段已具有此功能。
-
-
-
-== 2022年7月13日
-
-
-
-=== 添加了对备份SnapLock 企业卷的支持
-
-现在、您可以使用云备份将SnapLock 企业卷备份到公有 和私有云。此功能要求您的ONTAP 系统运行的是ONTAP 9.11.1或更高版本。但是、目前不支持SnapLock 合规性卷。
-
-
-
-=== 现在、您可以在使用内部部署连接器时在公有 云中创建备份文件
-
-过去、您需要将Connector部署在与创建备份文件相同的云提供商中。现在、您可以使用内部部署的Connector创建备份文件、将本地ONTAP 系统备份到Amazon S3、Azure Blob和Google云存储。(在StorageGRID 系统上创建备份文件时、始终需要使用内部连接器。)
-
-
-
-=== 在为ONTAP 系统创建备份策略时、还可以使用其他功能
-
-* 现在可以按年计划进行备份。对于年度备份、默认保留值为1、但如果要访问前几年的许多备份文件、您可以更改此值。
-* 您可以为备份策略命名、以便使用更具描述性的文本来标识策略。
-

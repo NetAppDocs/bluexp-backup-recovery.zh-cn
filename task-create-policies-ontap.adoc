@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: task-create-policies-ontap.html 
-keywords: backing up, back up, backup, backup on-prem ontap, policy, policies, backup policies, cloud backup, aws, aws s3, amazon s3, government 
+keywords: backing up, back up, backup, backup on-prem ontap, policy, policies, backup policies, cloud backup, aws, aws s3, azure, google cloud 
 summary: 您可以使用NetApp提供的默认备份策略创建备份、也可以创建自定义策略。策略用于控制备份类型、备份架构、存储系统和备份频率。 
 ---
 = 管理ONTAP卷的备份策略
@@ -141,9 +141,9 @@ image:screenshot_policies_management.png["策略管理页面"]
 . 在策略详细信息部分中、指定策略名称。
 . 指定SnapMirror标签(最多5个)、表示每个标签的保留期限。
 . 指定设置、包括传输计划和备份归档时间。
-. (可选)要在一定天数后将较早的备份文件移至成本较低的存储类或访问层、请选择*归档*选项并指示数据归档前应经过的天数。
+. (可选)要在一定天数后将较早的备份文件移至成本较低的存储类或访问层、请选择*归档*选项并指示数据归档前应经过的天数。输入*0*作为"Archive after days (天数后的归档)"、将备份文件直接发送到归档存储。
 +
-https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-cloud-backup-policies.html#archival-storage-settings["了解有关归档存储设置的更多信息"]。
+link:concept-cloud-backup-policies.html#archival-storage-settings["了解有关归档存储设置的更多信息"]。
 
 . (可选)要防止备份被修改或删除、请选择* DataLock & Ransamor prot备 份*选项。
 +
