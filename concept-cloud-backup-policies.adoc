@@ -66,6 +66,7 @@ https://bluexp.netapp.com/blog/cbs-blg-the-bluexp-feature-that-protects-backups-
 ====
 * 如果您计划使用DataLock和勒索软件保护、则必须在创建第一个备份策略并为该集群激活BlueXP备份和恢复时启用它。
 * 配置集群后、无法为其禁用DataLock和勒索软件保护。请勿在集群上启用此功能以试用。
+* 如果BlueXP在还原卷数据时扫描备份文件中的勒索软件、则您将承担云提供商为访问备份文件内容而支付的额外传出成本。
 
 
 ====
