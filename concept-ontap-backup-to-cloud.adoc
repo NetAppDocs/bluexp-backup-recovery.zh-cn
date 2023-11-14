@@ -51,6 +51,7 @@ BlueXP备份和恢复利用NetApp的SnapMirror数据复制技术、通过创建S
 +
 ** 一次将多个FlexVol卷复制到二级系统。
 ** 使用用户界面将复制的卷还原到源系统或其他系统。
+** 管理复制策略
 
 
 
@@ -261,7 +262,7 @@ BlueXP备份和恢复可用于以下使用模式：
 
 === 自带许可证
 
-BYOL 基于期限（ 12 ， 24 或 36 个月） _ 和 _ 容量，以 1 TiB 为增量。您需要向 NetApp 支付一段时间（如 1 年）使用此服务的费用，最大容量（如 10 TiB ）。
+BYOL基于期限(1年、2年或3年)以1 TiB为增量以_和_容量为基础。您需要向 NetApp 支付一段时间（如 1 年）使用此服务的费用，最大容量（如 10 TiB ）。
 
 您将收到一个序列号、您可以在BlueXP数字钱包页面中输入此序列号来启用此服务。达到任一限制后，您需要续订许可证。备份 BYOL 许可证适用场景 与关联的所有源系统 https://docs.netapp.com/us-en/bluexp-setup-admin/concept-netapp-accounts.html["BlueXP帐户"^]。
 
@@ -283,7 +284,7 @@ link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-paygo-sub
 
 ifdef::aws[]
 
-使用AWS时、可以获得两份年期合同、合同期限分别为12、24或36个月：
+使用AWS时、有两个为期1年、2年或3年的年度合同可供选择：
 
 * 一种 " 云备份 " 计划，可用于备份 Cloud Volumes ONTAP 数据和内部 ONTAP 数据。
 * 一种"CVO专业人员"计划、可用于捆绑Cloud Volumes ONTAP 和BlueXP备份和恢复。这包括对此许可证付费的 Cloud Volumes ONTAP 卷的无限备份（备份容量不计入此许可证）。
@@ -293,7 +294,11 @@ endif::aws[]
 
 ifdef::azure[]
 
-使用Azure时、您可以向NetApp申请一项私人优惠、然后在激活BlueXP备份和恢复期间从Azure Marketplace订阅时选择计划。
+使用Azure时、有两个为期1年、2年或3年的年度合同可供选择：
+
+* 一种 " 云备份 " 计划，可用于备份 Cloud Volumes ONTAP 数据和内部 ONTAP 数据。
+* 一种"CVO专业人员"计划、可用于捆绑Cloud Volumes ONTAP 和BlueXP备份和恢复。这包括对此许可证付费的 Cloud Volumes ONTAP 卷的无限备份（备份容量不计入此许可证）。
+
 
 endif::azure[]
 
