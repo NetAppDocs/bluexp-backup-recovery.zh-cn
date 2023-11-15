@@ -362,12 +362,7 @@ NOTE: 在AWS中国地区创建备份时、您需要将IAM策略中所有_Resourc
             "Resource": "arn:aws:s3:::netapp-backup-*",
             "Effect": "Allow",
             "Sid": "backupPolicy"
-        }
-    ]
-}
-{
-    "Version": "2012-10-17",
-    "Statement": [
+        },
         {
             "Action": [
                 "s3:ListBucket",
