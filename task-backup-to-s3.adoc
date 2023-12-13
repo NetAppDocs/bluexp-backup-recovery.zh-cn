@@ -182,9 +182,15 @@ Connector必须安装在具有完全或有限Internet访问权限("标准"或"�
         },
 ----
 ====
+[NOTE]
+====
+如果您要在AWS GovCloud或AWS中国地区创建备份、则需要在上述及以下权限集的所有_Resource_部分下更改AWS资源名称"arn"：
 
-NOTE: 在AWS中国地区创建备份时、您需要将IAM策略中所有_Resource_部分下的AWS资源名称"arn"从"aws"更改为"AAWS CN"；例如 `arn:aws-cn:s3:::netapp-backup-*`。
+* 对于AWS GovCloud区域、您需要将"aws"更改为"Aws-us-gov"；例如 `arn:aws-us-gov:s3:::netapp-backup-*`。
+* 对于AWS中国地区、您需要将"aws"更改为"AAWS CN"；例如 `arn:aws-cn:s3:::netapp-backup-*`。
 
+
+====
 所需的AWS Cloud Volumes ONTAP 权限:: 如果您的Cloud Volumes ONTAP 系统运行的是ONTAP 9.12.1或更高版本的软件、则为该工作环境提供权限的IAM角色必须包括一组新的S3权限、专门用于从最新版本进行的BlueXP备份和恢复 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-set-up-iam-roles.html["Cloud Volumes ONTAP 策略"^]。
 +
 --

@@ -721,9 +721,7 @@
   <block id="72828ef5ab3d5aa027bfcdd1a9224f67" category="paragraph">如果您要使用默认Amazon S3加密密钥对内部集群和S3存储分段之间传递的数据进行加密、则会进行全部设置、因为默认安装会使用此类型的加密。</block>
   <block id="486567bdd60f21beefa59174661f6d52" category="section-title">使用VPC端点接口为系统配置专用连接</block>
   <block id="d37ada70a820c5c84f992a48e05045cf" category="inline-link-macro">第一个图</block>
-  <block id="55082684c888abf218793c0bd2f3b5e4" category="paragraph">如果您要使用标准公有 Internet连接、则所有权限均由Connector设置、无需执行任何其他操作。此类型的连接如中所示 <block ref="b1224f75874af139b1e7a51a1da970e9" category="inline-link-macro-rx"></block>。</block>
   <block id="7cb65d7424b08922f4902800ae6b79d0" category="inline-link-macro">第二个图</block>
-  <block id="ca301c03d4c5ce91946df8b15f3dbe5f" category="paragraph">如果您希望通过Internet从内部数据中心到VPC建立更安全的连接、可以在备份激活向导中选择AWS PrivateLink连接。如果您计划使用VPN或AWS Direct Connect通过使用专用IP地址的VPC端点接口连接内部系统、则必须使用此功能。此类型的连接如中所示 <block ref="0f7afb920fb200721cfd6111e33f99d4" category="inline-link-macro-rx"></block>。</block>
   <block id="db46ba2f888d41e44da25c2d8c1f406d" category="summary">您可以查看数据存储库和虚拟机、并编辑适用于VMware vSphere的SnapCenter 插件实例。</block>
   <block id="78166ce4ccceeedfbf6aeb8682851072" category="paragraph">* 关于此任务 *</block>
   <block id="b4aa547260f4fe266f03ec3a845576a5" category="section-title">编辑适用于VMware vSphere的SnapCenter 插件实例</block>
@@ -2794,7 +2792,6 @@
   <block id="9af84f05d8931a3676e35cb449e96606" category="list-text">您需要验证是否已在项目中启用Google "云密钥管理服务(KMS)"API。请参见<block ref="5b19b983398533c382bb79968f58dbf1" category="inline-link-rx"></block> 了解详细信息。</block>
   <block id="db058563d6eb243b453d48635769d049" category="list-text">支持HSM (硬件支持的)和软件生成的密钥。</block>
   <block id="90a4c64194204c56808168a2ae360226" category="summary">您可以通过从云提供商处购买按需购买或年度市场订阅或从NetApp购买自带许可证来许可BlueXP备份和恢复。要在工作环境中激活BlueXP备份和恢复、为生产数据创建备份以及将备份数据还原到生产系统、需要有效的许可证。</block>
-  <block id="6b238043e3f0cbcb294416f3238efea2" category="admonition">在AWS中国地区创建备份时、您需要将IAM策略中所有_Resource_部分下的AWS资源名称"arn"从"aws"更改为"AAWS CN"；例如<block ref="e50d17688e67620204df0dd1b12e2baf" prefix=" " category="inline-code"></block>。</block>
   <block id="72c7fe989ff4840809134384de3dd80c" category="admonition">如果您已将ONTAP 系统升级到9.13.x、但在作业监控器中看不到正在进行的计划备份操作、则需要重新启动BlueXP备份和恢复服务。 <block ref="bdf197dfe0363b0f0f92ecc4a997870a" category="inline-link-macro-rx"></block>。</block>
   <block id="53775c897cfb7fba4b875a6f0ce56341" category="admonition">如果您计划删除具有备份的工作环境或集群，则必须删除备份 * 在删除系统之前 * 。在删除系统时、BlueXP备份和恢复不会自动删除备份、并且UI中当前不支持在删除系统后删除备份。对于任何剩余备份，您仍需支付对象存储成本费用。</block>
   <block id="7063b7db80bf8574d1141e84ae0a1c85" category="list-text">无法将FlexGroup 卷备份移至归档存储。</block>
@@ -3828,28 +3825,6 @@ ifdef：：AWS。</block>
   <block id="12486a40437a6b66be9b1d2eaf68dacb" category="list-text">(可选)使用VPC端点接口为系统配置专用连接。</block>
   <block id="27481ab02cd2907ee58a87a01de37de2" category="list-text">激活此服务后、备份向导将提示您输入访问密钥和机密密钥。这些凭据将传递到 ONTAP 集群，以便 ONTAP 可以将数据备份和还原到 S3 存储分段。为此，您需要创建具有以下权限的 IAM 用户。</block>
   <block id="b4bc25d0b351437deb290fa50a36f062" category="paragraph">请参见<block ref="eb8d2636cc0b0f2875b50c1561ec0060" category="inline-link-rx"></block>。</block>
-  <block id="50b086f5a622de5e2ad8e86ada10bc12" category="paragraph">"操作"：[
-    "S3：ListBucket"
-    "S3：GetBucketLocation"
-]
-"Resource (资源)"："ARN：AWS：S3：：：：*"、
-"影响"："允许"
-｝、
-｛
-    "操作"：[
-        "S3：GetObject"、
-        "S3：PutObject"、
-        "S3：DeleteObject"、
-        "S3：ListAllMyBucbes"、
-        "S3：PutObjectTaging"、
-        "S3：GetObjectTaging"、
-        "S3：Restore"、
-        "S3：GetBucketObjectLockConfiguration "、
-        "S3：GetObject保留"、
-        "S3：PutBucketObjectLockConfiguration "、
-        "S3：PutObject保留"
-        ]
-    "Resource (资源)"："ARN：AWS：S3：：：：*"、</block>
   <block id="e2eb08f750d15308f8411635e75fc5e7" category="inline-link">请参阅如何使用您自己的密钥</block>
   <block id="de4ef5a5f97836ab944189954e7907e4" category="paragraph">如果您要使用自己的客户管理密钥进行数据加密、而不是使用默认密钥、则需要在启动BlueXP备份和恢复向导之前先设置加密管理密钥。<block ref="4f334d1f128fd0a003f5f48bc9fc4cbc" category="inline-link-rx"></block>。</block>
   <block id="b08fc812a1a1619370d32b6eda413475" category="inline-link">请参见有关使用适用于Amazon S3的AWS PrivateLink的详细信息</block>
@@ -4078,7 +4053,6 @@ ifdef：：AWS。</block>
   <block id="594ef985d417f60832e167b7a55944ba" category="paragraph"><block ref="90242aed4d9e662a807d0696ac4bc7d5" category="inline-link-macro-rx"></block>。</block>
   <block id="11a8a2e103fceba512eb133362ab467a" category="inline-link-macro">了解有关创建自己的存储帐户的更多信息</block>
   <block id="b1864ef3e1c982ea79e143744ce2e778" category="paragraph"><block ref="5168b6a061fd7575c70ed688cdecff09" category="inline-link-macro-rx"></block>。</block>
-  <block id="24c3f29f7b3c09228614448507eb27eb" category="paragraph">如果您创建自己的存储分段、则应使用存储分段名称"NetApp-backup"。如果需要使用自定义名称、请编辑<block ref="36f2cf0d90ddea374df0d9a8b6aa6300" prefix=" " category="inline-code"></block> IAMRole、并将以下列表添加到S3权限中。您需要包括<block ref="a99022ed92fce54cbefc53cc3a7bb0a9" prefix=" " category="inline-code"></block> 并分配需要与存储分段关联的所有必要权限。</block>
   <block id="28543445b2c93df38084996ffc019a63" category="section-title">是否要创建自己的对象存储容器</block>
   <block id="44f63148cdcdb30b0f9a4cc99944e0cb" category="paragraph">在工作环境的对象存储中创建备份文件时、默认情况下、备份和恢复服务会在您配置的对象存储帐户中为备份文件创建容器(存储分段或存储帐户)。默认情况下、AWS或GCP存储分段名为&lt;uuid&gt;"。Azure Blb存储帐户名为&lt;uuid&gt; 301"。</block>
   <block id="f108f3b7f4cf5d3e79e581222e60586a" category="paragraph">如果要使用特定前缀或分配特殊属性、您可以在对象提供程序帐户中自行创建容器。如果要创建自己的容器、必须在启动激活向导之前创建它。此容器必须专用于存储ONTAP卷备份文件、不能用于任何其他用途。备份激活向导将自动发现选定帐户和凭据的已配置容器、以便您可以选择要使用的容器。</block>
@@ -4775,4 +4749,14 @@ ONTAP S3</block>
   <block id="aa4c67fd3731395f4450c9686b20f799" category="section-title">支持在作业监控器中计划作业</block>
   <block id="314b40130d46a229c3a19dc5e2e23aa4" category="paragraph">BlueXP备份和恢复作业监控器以前会监控计划的卷到对象存储备份和还原作业、但不会监控通过UI或API计划的本地Snapshot、复制、备份和还原作业。</block>
   <block id="04c6b318fe9c7f19ae925a90e52c6569" category="paragraph">BlueXP备份和恢复作业监控器现在包括本地快照、复制以及对象存储备份的计划作业。</block>
+  <block id="10c83d8d6aa254ef1949380a4435a4d4" category="paragraph">如果您要在AWS GovCloud或AWS中国地区创建备份、则需要在下面两组权限的所有_Resource_部分下更改AWS资源名称"arn"：</block>
+  <block id="4c8fab8f36cba8fb1f202396d9a9ebcd" category="list-text">对于AWS GovCloud区域、您需要将"aws"更改为"Aws-us-gov"；例如<block ref="5437327155aa3716e710fd4319a91b7e" prefix=" " category="inline-code"></block>。</block>
+  <block id="d55b464ea46a7e055a6cefee97d57046" category="list-text">对于AWS中国地区、您需要将"aws"更改为"AAWS CN"；例如<block ref="e50d17688e67620204df0dd1b12e2baf" prefix=" " category="inline-code"></block>。</block>
+  <block id="c791030455c6b061d69eaa3110693967" category="paragraph">如果您创建自己的存储分段、则应使用存储分段名称"NetApp-backup"。如果需要使用自定义名称、请编辑<block ref="36f2cf0d90ddea374df0d9a8b6aa6300" prefix=" " category="inline-code"></block> IAMRole、并将以下列表添加到S3权限中。</block>
+  <block id="a2cea9ad2302bf1c011966b2b76de8a1" category="paragraph">如果您的自定义存储分段位于AWS GovCloud或AWS中国地区、则需要在以下权限的所有_Resource_部分下更改AWS资源名称"arn"：</block>
+  <block id="a306027de621391e07a3f37323f0a7a1" category="list-text">对于AWS GovCloud区域、您需要将"aws"更改为"Aws-us-gov"；例如<block ref="d3c2ab280b3f8c407baa043db6f71305" prefix=" " category="inline-code"></block>。</block>
+  <block id="fdd52d5d7016bf165e6a4cb2d6cab2d3" category="list-text">对于AWS中国地区、您需要将"aws"更改为"AAWS CN"；例如<block ref="bb55156256f7fc6b96c6be713812db69" prefix=" " category="inline-code"></block>。</block>
+  <block id="4ec233ea13ab88b2246fbb211a91665c" category="paragraph">如果您要使用标准公有 Internet连接、则所有权限均由Connector设置、无需执行任何其他操作。此类型的连接如中所示 <block ref="38757d2cfcaca456ef39c830b3fbfbb6" category="inline-link-macro-rx"></block>。</block>
+  <block id="4d9403aeb0d455887fedd3ace41764e0" category="paragraph">如果您希望通过Internet从内部数据中心到VPC建立更安全的连接、可以在备份激活向导中选择AWS PrivateLink连接。如果您计划使用VPN或AWS Direct Connect通过使用专用IP地址的VPC端点接口连接内部系统、则必须使用此功能。此类型的连接如中所示 <block ref="95f59ac3cbae4d92bede28fe387b5a78" category="inline-link-macro-rx"></block>。</block>
+  <block id="d32f70c539312af4cedd6200342bc293" category="paragraph">如果您要在AWS GovCloud或AWS中国地区创建备份、则需要在上述及以下权限集的所有_Resource_部分下更改AWS资源名称"arn"：</block>
 </blocks>
