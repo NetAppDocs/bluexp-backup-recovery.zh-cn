@@ -466,10 +466,6 @@ link:concept-protection-journey.html#do-you-want-to-create-your-own-object-stora
 
 .步骤
 . 使用 Amazon VPC 控制台或命令行创建接口端点配置。 https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html["请参见有关使用适用于Amazon S3的AWS PrivateLink的详细信息"^]。
-. 修改与BlueXP Connector关联的安全组配置。您必须将此策略更改为 "Custom" （自定义）（从 "Full Access" ），并且必须将其更改为 "Custom" （自定义） <<设置 S3 权限,从备份策略添加 S3 权限>> 如前面所示。
-+
-image:screenshot_backup_aws_sec_group.png["与 Connector 关联的 AWS 安全组的屏幕截图。"]
-
 +
 如果您使用端口80 (HTTP)与专用端点进行通信、则已设置完毕。您现在可以在集群上启用BlueXP备份和恢复。
 
