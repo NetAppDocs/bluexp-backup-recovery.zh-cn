@@ -337,7 +337,6 @@
   <block id="0eaadb4fcb48a0a0ed7bc9868be9fbaa" category="list-text">警告</block>
   <block id="d7c8c85bf79bbe1b7188497c32c3b0ca" category="list-text">失败</block>
   <block id="fdb4a732f867f813a90fc7fb3a9bd9ea" category="inline-image-macro">显示作业监控信息板中备份和还原作业的屏幕截图。</block>
-  <block id="6a0946e9e6df1feca77ae10577f6057c" category="paragraph"><block ref="6a0946e9e6df1feca77ae10577f6057c" category="inline-image-macro-rx" type="image"></block></block>
   <block id="9d811f8ab4335c82eeb7d1477874bc1c" category="doc">将 Cloud Volumes ONTAP 数据备份到 Amazon S3</block>
   <block id="f540dcb6244343752d809a32f46fe48c" category="paragraph">开始将卷备份到 S3 之前，请阅读以下要求，以确保您的配置受支持。</block>
   <block id="02c17660d0f6b51d0aeadd6bfd390921" category="paragraph">以下是策略中的特定权限：</block>
@@ -348,8 +347,6 @@
   <block id="ae9c838ce5564e10aa34395e48e9527e" category="paragraph">您需要为备份所在的对象存储空间订阅 AWS 。</block>
   <block id="b539613501183cf10b8570ed60939fea" category="inline-link">AWS 文档：创建角色以向 IAM 用户委派权限</block>
   <block id="a08b285fd78cf03936887841fbc87805" category="inline-link">请参见有关使用适用于 Amazon S3 的 AWS PrivateLink 的详细信息</block>
-  <block id="54979ba354582c6f2824abc12558cf5a" category="inline-image-macro">与 Connector 关联的 AWS 安全组的屏幕截图。</block>
-  <block id="9fffc2ed11f6ca99ac2677ff1c97fd9a" category="paragraph"><block ref="9fffc2ed11f6ca99ac2677ff1c97fd9a" category="inline-image-macro-rx" type="image"></block></block>
   <block id="da6211c797a89720b6883bacdc774e98" category="list-text">或者，选择是否使用先前配置的 AWS PrivateLink 。<block ref="4b288ecb11624923e7ee69f96a59c546" category="inline-link-rx"></block>。</block>
   <block id="d2107ef674d9474576deedf431042a37" category="doc">管理应用程序的保护</block>
   <block id="b7e23f2fbc84fffbedf563f644b8df93" category="section-title">查看策略</block>
@@ -434,7 +431,6 @@
   <block id="0077a889ccca275b521d8fa2e99bc482" category="paragraph"><block ref="0077a889ccca275b521d8fa2e99bc482" category="inline-image-macro-rx" type="image"></block></block>
   <block id="991410d2fec4312c8b648907a268be28" category="list-text">在 _Select Source" 页面中，导航到要还原的卷的备份文件。选择 * 工作环境 * ， * 卷 * 以及具有要还原的日期 / 时间戳的 * 备份 * 文件。</block>
   <block id="d472a94c2cf1de02a17725a3b7fa898d" category="inline-image-macro">选择要还原的工作环境，卷和卷备份文件的屏幕截图。</block>
-  <block id="7460c264ec9185e5da4ecd95b8cabe8d" category="paragraph"><block ref="7460c264ec9185e5da4ecd95b8cabe8d" category="inline-image-macro-rx" type="image"></block></block>
   <block id="23fa18b5a99eb2f784751356513f7961" category="list-text">在 _Select Destination_ 页面中，选择要还原卷的 * 工作环境 * 。</block>
   <block id="aaf0dd17390ced43eaa354f3660fd328" category="inline-image-macro">为要还原的卷选择目标工作环境的屏幕截图。</block>
   <block id="dbbed6352fa8a25df439a79f12dff6ff" category="paragraph"><block ref="dbbed6352fa8a25df439a79f12dff6ff" category="inline-image-macro-rx" type="image"></block></block>
@@ -669,7 +665,6 @@
   <block id="0d0602824136f714807f54069c6d5a89" category="paragraph">您需要配置两组权限：</block>
   <block id="e1e27de3274b6be648bacdf85d89a282" category="list-text">内部 ONTAP 集群的权限，以便可以将数据读写到 S3 存储分段。</block>
   <block id="a6e42fec71384a3a5d77eba684fba2c9" category="inline-link">AWS 文档：编辑 IAM 策略</block>
-  <block id="4adab5b6b391c43cf0cfd73c09d5bdf8" category="inline-xref">从备份策略添加 S3 权限</block>
   <block id="39bab378d876d4ae9f917360ff7b633a" category="list-text">从 AWS 控制台获取端点的 DNS 名称。</block>
   <block id="51cca00855dd27ddbb729c64d6988680" category="inline-image-macro">AWS 控制台中 VPC 端点的 DNS 名称的屏幕截图。</block>
   <block id="63c7ff1056127bdaee465b05c7c83d3c" category="paragraph"><block ref="63c7ff1056127bdaee465b05c7c83d3c" category="inline-image-macro-rx" type="image"></block></block>
@@ -1268,7 +1263,6 @@
   <block id="379dea20c8734742bd3f9c78de134135" category="paragraph">如果您看到这些警告、请使用BlueXP界面右下角的聊天图标续订许可证。</block>
   <block id="2568e9dfbf799a7f4514c6421cdd6535" category="paragraph">BlueXP Connector是BlueXP功能的主要软件。需要使用连接器来备份和还原 ONTAP 数据。</block>
   <block id="a7c7bd193740210990d86811ef377b56" category="inline-link">BlueXP策略</block>
-  <block id="f59bbb6de7b8eafb6ccb2f617135ff84" category="list-text">修改与BlueXP Connector关联的安全组配置。您必须将此策略更改为 "Custom" （自定义）（从 "Full Access" ），并且必须将其更改为 "Custom" （自定义） <block ref="52cd24ecfd99d5b16a10d03c54f9d16b" category="inline-xref-macro-rx"></block> 如前面所示。</block>
   <block id="667b744af05e085368d150edc4b8a344" category="inline-link">登录到托管BlueXP Connector的虚拟机</block>
   <block id="0bd54f980c8a7dce1758331f8faad8aa" category="list-text">在BlueXP UI中、单击*保护*&gt;*备份和恢复*&gt;*应用程序*。</block>
   <block id="29e89229775aefede67526b03124356e" category="paragraph">请注意、如果您希望BlueXP在其他帐户/区域管理您的Cloud Volumes ONTAP 系统、则需要设置vNet对等关系。存储帐户连接不需要建立 vNet 对等关系。</block>
@@ -2960,7 +2954,6 @@
   <block id="71610d9ba03d16f64930e18ad93ed1ff" category="paragraph">备份的数据有两种：</block>
   <block id="3f90954724de2ab33270c2e29ef44d4c" category="list-text">BlueXP备份和恢复数据库-包含所有卷、备份文件、备份策略和配置信息的列表。</block>
   <block id="ae429398e7a8cba2d2c57d308c8ed88a" category="list-text">索引目录文件-包含用于"搜索和还原"功能的详细索引、使您在查找要还原的卷数据时可以快速高效地进行搜索。</block>
-  <block id="c9cfba3160309eb4416746c049e4b9da" category="paragraph">此数据每天午夜备份一次、每个文件最多保留7个副本。如果Connector管理多个内部ONTAP工作环境、BlueXP备份和恢复文件将位于首先激活的工作环境的存储分段中。</block>
   <block id="33cc4fba89a0e27990f9826b52a31440" category="admonition">BlueXP备份和恢复数据库或索引目录文件中从未包含任何卷数据。</block>
   <block id="d59db7846bd10b6d60d21543df9faa9e" category="paragraph-title">您需要的内容</block>
   <block id="e53202674690c06ddcfdb1f7eb32a51c" category="list-text">BlueXP备份和恢复MySQL数据库文件</block>
@@ -2971,7 +2964,6 @@
   <block id="56dd14a7bf28acd20f0a0435a86d17e0" category="list-text">将索引目录备份zip文件(我们将使用示例文件名"索引_目录_DB_Backup_catalogdb1_23_05_2023.zip")从备份位置复制到"/opp/application/NetApp/CBs"文件夹中的新Connector主机。</block>
   <block id="39ba61f148a69dbb1215b6b10c98b11a" category="list-text">使用以下命令解压缩"索引_目录_DB_Backup_catalogdb1_23_05_2023.zip"文件：</block>
   <block id="3b3267745861675e9a5e88b689b4cda8" category="list-text">运行*ls*命令，确保已创建文件夹"catalogdb1"，并在其下面创建了子文件夹"changes"和"fSnaps"。</block>
-  <block id="628b6da02e99f426a81f25cb6fc98d4a" category="summary">借助BlueXP备份和恢复报告、您可以确保根据组织定义的策略保护关键数据、并高效支持对合规性流程的审核。通过备份清单报告、您可以查看特定帐户、工作环境或SVM清单的所有备份。</block>
   <block id="864720dc2dde0915fefa08788be26fb4" category="paragraph">借助BlueXP备份和恢复报告、您可以确保根据组织定义的策略保护关键数据、并针对合规性需求提供审计。</block>
   <block id="3763c7668e8aeb422b9407d01d4e6481" category="paragraph">BlueXP备份和恢复报告可帮助您完成以下任务：</block>
   <block id="1f9ab6f8211cd0f71cb927f72e9fb635" category="list-text">*运营可见性*：监控您在数据保护、备份成功率和备份窗口与业务需求的一致性方面的服务级别协议。</block>
@@ -2987,28 +2979,19 @@
   <block id="25d0ed1de7efcdaaece83057c2756e57" category="paragraph">备份清单报告显示以下信息及更多信息：</block>
   <block id="f00e42ce9cfb8f79aa0acd52b34455ab" category="list-text">帐户、工作环境和SVM</block>
   <block id="6edfddc7ea34dfa23f5f2a25a3af154f" category="list-text">受保护卷和非受保护卷</block>
-  <block id="fe6088e55d445ff8c5e73198a4b10d33" category="list-text">备份目标</block>
-  <block id="44558cf0d95753fc793030cefd55087b" category="list-text">已应用备份策略</block>
   <block id="5a3d5f2f9c8335ce82c10c7357125bb4" category="list-text">加密模式(提供程序管理的密钥或用户管理的密钥)</block>
   <block id="4f19973809c9f50819d754c5d361feaf" category="list-text">DataLock和Ransamor保护状态(监管、合规性或无)</block>
   <block id="edb1f7df1c92279bbf8db022953e164b" category="list-text">已启用归档状态</block>
-  <block id="20e266a6449440b3d67b85ead1217fb1" category="list-text">备份副本计数</block>
   <block id="dd8c5eff0fd4dd0b3760e41db59bfb3a" category="list-text">存储类</block>
   <block id="765c798c0aa1aec3ca7ca68ec68f7e28" category="list-text">Snapshot 标签</block>
   <block id="c3701c973b22b5daa3d8508d20412d6a" category="admonition">备份清单报告不包括过期或失败的备份信息。</block>
   <block id="eee2652f7acf21a40330ddedb0daf852" category="paragraph">此报告的顶部包含一个图形、其中显示了以下信息：</block>
-  <block id="ccf68adbbbaa71c4ed09254c95dc35ed" category="list-text">范围内至少有一个备份的卷计数</block>
   <block id="9bfb08d9b221f2ab6e12df721efa4f2e" category="list-text">非活动卷加上活动卷的总数</block>
-  <block id="4eb47739f755a1148ef510f3d10ca279" category="paragraph">备份清单报告显示以下图表：</block>
-  <block id="8aab504f5ceeb44f855ca81302865568" category="list-text">*卷备份状态*：在选定范围内显示受保护卷与非受保护卷的比较结果。</block>
-  <block id="c9ef4c767ef6317e3bedf50654e6f9db" category="list-text">*按备份计数划分的卷*：按此卷的可用备份副本数对卷进行分组。</block>
   <block id="b775ae7fb34855ffeede56666da9a15c" category="list-text">从顶部菜单中选择*Reports*。</block>
   <block id="5c40c1df71ece7a94ad95386b4e61685" category="list-text">选择*备份清单*。</block>
   <block id="3b0a91a5ea7b77db2fb83f740b7d1303" category="list-text">选择*创建报告*。</block>
   <block id="d2483952bd8a4702aa9c22f305a82129" category="list-text">选择帐户、工作环境和SVM。</block>
-  <block id="da8b2e21cf3fbf1deb6e54876d0bb30e" category="admonition">您可以选择多个工作环境和SVM。</block>
   <block id="e69ed523cba7630efc22d90d22be1746" category="list-text">选择时间范围：过去24小时、周或月。</block>
-  <block id="7c6f87c6386a4b34232097d33f03a21f" category="list-text">(可选)按作业状态筛选结果。</block>
   <block id="9c45376ca047b231750db710316d88f1" category="list-text">(可选)选择*下载CSX*以.CSV格式导出报告内容。</block>
   <block id="a28d17eeb154e6438fb5bb2ee152ad16" category="section-title">创建数据保护作业活动报告</block>
   <block id="d1a5e05b6fa32d7e732631d7be6bb196" category="paragraph">主动监控可以减少监控生态系统中所有资源所需的工作量。从ONTAP 9.13.0开始、数据保护作业活动报告可提供有关快照、备份、克隆和还原操作的信息、您可以将这些操作与SLA监控结合使用、并跟踪备份和恢复速率。</block>
@@ -4226,7 +4209,6 @@ ONTAP S3</block>
   <block id="7413106917b419812ee4fa6eba953c99" category="paragraph">您可以在*Job Monitoring*选项卡中查看所有Snapshot、复制、备份到对象存储和还原操作及其当前状态的列表。其中包括来自Cloud Volumes ONTAP 、内部ONTAP 、应用程序、虚拟机和Kubernetes系统的操作。每个操作或作业都有一个唯一的 ID 和一个状态。</block>
   <block id="402bab7d605cd8ea629df214c4351f69" category="paragraph">状态可以是：</block>
   <block id="ac624cf312f41265d4598a7409f6c357" category="list-text">显示其他列(工作环境、SVM、用户名、工作负载、策略名称、 Snapshot标签)、选择 <block ref="67e31c53d0f38fc4da85c525a5be7511" category="inline-image-macro-rx" type="image"></block>。</block>
-  <block id="743978dcd7046c82225d9b638969fd96" category="paragraph">您可以使用多个筛选器筛选"作业监控"页面上的操作、例如策略、Snapshot标签、操作类型(保护、还原、保留或其他)和保护类型(本地Snapshot、复制或备份到云)。</block>
   <block id="7f8ba7d41d11ab3b1061dbce2eeadb52" category="paragraph">默认情况下、"作业监控"页面显示过去24小时的保护和恢复作业。您可以使用时间范围筛选器更改时间范围。</block>
   <block id="abfa7a0ebf0068a9c8b2a22cab7ee2b3" category="list-text">如果要查找特定作业，请选择*高级搜索和筛选*区域以打开搜索面板。</block>
   <block id="1a33d15f5c704d215e492635449e9991" category="paragraph">此屏幕截图显示了如何在"过去一周"中搜索名为"Volume_1"的卷的所有"卷"备份"作业。</block>
@@ -4667,9 +4649,7 @@ ONTAP S3</block>
   <block id="2ce2db49b07d0bd2d1dada807c65d175" category="paragraph">选择要保护的卷。受保护卷是指具有以下一项或多项内容的卷：Snapshot策略、复制策略、备份到对象策略。</block>
   <block id="91b1870e279924acdf3d4248405f1f98" category="list-text">选择第一个卷后、您可以选择所有FlexVol卷。(一次只能选择一个FlexGroup卷。) 要备份所有现有FlexVol卷、请先选中一个卷、然后选中标题行中的框。（<block ref="2b1190f90c2c717d2aa70aabd2fc4c36" category="inline-image-macro-rx" type="image"></block>）。</block>
   <block id="6f016177210af1e863aa59b8f2e97752" category="list-text">*备份策略*：选择现有的备份到对象存储策略。</block>
-  <block id="f149f54356387e5794adb107c0cc0a7d" category="paragraph">在BlueXP备份和恢复报告选项卡中、您可以创建备份清单报告并筛选其内容。通过备份清单报告、您可以查看特定帐户、工作环境或SVM清单的所有备份。</block>
   <block id="09d75137b3fb689dc33f1373da0ca50b" category="list-text">备份类型(计划备份或用户启动的临时备份)</block>
-  <block id="bb556c03f0c66474f3d3666fd4354e8e" category="list-text">根据您选择的报告、查看报告部分(Snapshot策略、复制策略或备份策略)。</block>
   <block id="dae5b12aa472c177c1e2583718010f3e" category="paragraph">报告了适用于Cloud Volumes ONTAP、内部、应用程序和Kubelnetes数据的适用场景BlueXP备份和恢复操作。</block>
   <block id="661d052ba9e14a07c1387ef54569e445" category="summary">您可以监控已启动或已计划的本地Snapshot、复制和备份到对象存储作业的状态、以及还原已启动或计划的作业。您可以查看已完成、正在进行或失败的作业、以便诊断和修复问题。使用BlueXP通知中心、您可以启用通过电子邮件发送通知、以便即使您未登录系统、也可以获得重要系统活动的通知。使用BlueXP时间线、您可以查看通过UI或API启动的所有操作的详细信息。</block>
   <block id="9ee483d0200a76af92f0e7ffaf360da9" category="paragraph">从BlueXP备份和恢复UI和API启动的快照、复制、对象存储备份和还原操作可在作业监控选项卡中找到。</block>
@@ -4752,11 +4732,47 @@ ONTAP S3</block>
   <block id="10c83d8d6aa254ef1949380a4435a4d4" category="paragraph">如果您要在AWS GovCloud或AWS中国地区创建备份、则需要在下面两组权限的所有_Resource_部分下更改AWS资源名称"arn"：</block>
   <block id="4c8fab8f36cba8fb1f202396d9a9ebcd" category="list-text">对于AWS GovCloud区域、您需要将"aws"更改为"Aws-us-gov"；例如<block ref="5437327155aa3716e710fd4319a91b7e" prefix=" " category="inline-code"></block>。</block>
   <block id="d55b464ea46a7e055a6cefee97d57046" category="list-text">对于AWS中国地区、您需要将"aws"更改为"AAWS CN"；例如<block ref="e50d17688e67620204df0dd1b12e2baf" prefix=" " category="inline-code"></block>。</block>
-  <block id="c791030455c6b061d69eaa3110693967" category="paragraph">如果您创建自己的存储分段、则应使用存储分段名称"NetApp-backup"。如果需要使用自定义名称、请编辑<block ref="36f2cf0d90ddea374df0d9a8b6aa6300" prefix=" " category="inline-code"></block> IAMRole、并将以下列表添加到S3权限中。</block>
   <block id="a2cea9ad2302bf1c011966b2b76de8a1" category="paragraph">如果您的自定义存储分段位于AWS GovCloud或AWS中国地区、则需要在以下权限的所有_Resource_部分下更改AWS资源名称"arn"：</block>
   <block id="a306027de621391e07a3f37323f0a7a1" category="list-text">对于AWS GovCloud区域、您需要将"aws"更改为"Aws-us-gov"；例如<block ref="d3c2ab280b3f8c407baa043db6f71305" prefix=" " category="inline-code"></block>。</block>
   <block id="fdd52d5d7016bf165e6a4cb2d6cab2d3" category="list-text">对于AWS中国地区、您需要将"aws"更改为"AAWS CN"；例如<block ref="bb55156256f7fc6b96c6be713812db69" prefix=" " category="inline-code"></block>。</block>
   <block id="4ec233ea13ab88b2246fbb211a91665c" category="paragraph">如果您要使用标准公有 Internet连接、则所有权限均由Connector设置、无需执行任何其他操作。此类型的连接如中所示 <block ref="38757d2cfcaca456ef39c830b3fbfbb6" category="inline-link-macro-rx"></block>。</block>
   <block id="4d9403aeb0d455887fedd3ace41764e0" category="paragraph">如果您希望通过Internet从内部数据中心到VPC建立更安全的连接、可以在备份激活向导中选择AWS PrivateLink连接。如果您计划使用VPN或AWS Direct Connect通过使用专用IP地址的VPC端点接口连接内部系统、则必须使用此功能。此类型的连接如中所示 <block ref="95f59ac3cbae4d92bede28fe387b5a78" category="inline-link-macro-rx"></block>。</block>
   <block id="d32f70c539312af4cedd6200342bc293" category="paragraph">如果您要在AWS GovCloud或AWS中国地区创建备份、则需要在上述及以下权限集的所有_Resource_部分下更改AWS资源名称"arn"：</block>
+  <block id="8017dc46d55f13a6a86439ecb091248d" category="section-title">2023年12月15日</block>
+  <block id="7ab0753b80059fbad40a2fd72c4592ce" category="section-title">可用于本地Snapshot和复制Snapshot副本的报告</block>
+  <block id="9e6cfaae073aa85c2c955e17e29074a8" category="paragraph">以前、您只能对备份副本生成报告。现在、您还可以创建有关本地Snapshot副本和复制Snapshot副本的报告。</block>
+  <block id="df4821b02d035c9862b3a2ae32691ed8" category="paragraph">通过这些报告、您可以执行以下操作：</block>
+  <block id="bb80777a047b566ac3b10e32c370ca6a" category="list-text">确保根据组织策略保护关键数据。</block>
+  <block id="4af8855be3acb3531c504c5560e50187" category="list-text">确保一组卷的备份运行顺畅。</block>
+  <block id="21c3f5d157e063b8c2a027ddc88be774" category="list-text">为生产数据提供保护证明。</block>
+  <block id="eb6103dddc4e26822e765e4e36dce6cb" category="paragraph">请参见<block ref="76fbdf5883fabf4a66bc2a9d2bdc8b58" category="inline-link-rx"></block>。</block>
+  <block id="e24cbc73c28ff71b40798b880015fb21" category="section-title">卷上提供了自定义标记、用于排序和筛选</block>
+  <block id="080dddcbfae67093013a7e013a7a9bff" category="paragraph">现在、您可以从ONTAP 9.13.1开始为卷添加自定义标记、以便可以在工作环境内和工作环境之间将卷分组在一起。这样、您就可以在BlueXP备份和恢复UI页面中对卷进行排序并在报告中进行筛选。</block>
+  <block id="6bc380f29d7a62cc8a2bd6b0b4dc9ccd" category="section-title">目录备份保留30天</block>
+  <block id="2a7d8d5d92a8e8110b2bc2ab71c0c002" category="paragraph">以前、Catalog.zip备份会保留7天。现在、它们会保留30天。</block>
+  <block id="16f6196e265bdbd3f9da022848c51d8a" category="inline-link">在非公开站点中还原BlueXP备份和恢复数据</block>
+  <block id="89b2c6f6be45f8f05d713b7bae69cd15" category="paragraph">请参见<block ref="5596168e45150b1d53148898addeba07" category="inline-link-rx"></block>。</block>
+  <block id="08953d12d492df51bc90f2f43cd41a5e" category="section-title">将内部ONTAP数据备份到StorageGRID存储分段的保留时间有所增加</block>
+  <block id="c07f9ba29ac424f316877aae26aa07b0" category="paragraph">StorageGRID现在可以在一个存储分段中保留BlueXP备份和恢复中多达30个内部ONTAP数据备份。以前、一个存储分段中最多可有7个备份。</block>
+  <block id="a4304a5e5ad0523cd1e2516efcbb04ea" category="inline-link">了解有关将内部ONTAP 数据备份到StorageGRID 的更多信息</block>
+  <block id="9fa7efa5e741bc1c7fa825541ca578ff" category="paragraph"><block ref="c5cc080595ac6d000b39fc62e24bb795" category="inline-link-rx"></block>。</block>
+  <block id="37cad79be3887e5af23a3b72ee504d6d" category="paragraph">(可选)搜索自定义标记、以便仅列出具有特定标记的卷。</block>
+  <block id="7c3caa9c3fd1fb1fcc416313f95f520c" category="paragraph"><block ref="7c3caa9c3fd1fb1fcc416313f95f520c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="49feba59aa7ad0370913ee7881a2b607" category="paragraph">此数据每天午夜备份一次、每个文件最多保留30个副本。如果Connector管理多个内部ONTAP工作环境、BlueXP备份和恢复文件将位于首先激活的工作环境的存储分段中。</block>
+  <block id="e18a212580deea6e1168cf2df519b5f9" category="paragraph">如果您创建自己的存储分段、则应使用以"NetApp-backup"开头的存储分段名称。如果需要使用自定义名称、请编辑"设置S3权限"部分中使用的策略、以使用与您自己的自定义存储分段前缀匹配的资源ARN。</block>
+  <block id="2dcb89b10f74019d9a3c831460feb047" category="summary">借助BlueXP备份和恢复报告、您可以确保根据组织定义的策略保护关键数据、并高效支持对合规性流程的审核。通过备份清单报告、您可以查看所有本地Snapshot副本、复制和备份。</block>
+  <block id="264f9f7063a386a1c61f47d1330c657c" category="paragraph">在BlueXP备份和恢复报告选项卡中、您可以创建备份清单报告并筛选其内容。通过备份清单报告、您可以查看特定帐户、工作环境或SVM清单的所有本地Snapshot副本、到二级存储的复制以及备份。</block>
+  <block id="c41a31890959544c6523af684561abe5" category="list-text">target</block>
+  <block id="ce3c72bb17e9e75c64f8ddb597b24de8" category="list-text">已应用策略</block>
+  <block id="7a17628d164aaaf3b67bbf67f3ace740" category="list-text">本地Snapshot副本、复制或备份副本的计数</block>
+  <block id="2efdb59bdb9318d558fc5d7af5b6404e" category="list-text">至少具有一个本地Snapshot、复制或备份的卷计数(具体取决于所示的选项卡)</block>
+  <block id="355454effdd54e97bcd6f8c9ed946504" category="inline-image-macro">备份清单报告示例</block>
+  <block id="d08879467c6493ef59052f6379e81e0f" category="paragraph"><block ref="d08879467c6493ef59052f6379e81e0f" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ef16ddee8e5ddacc361e250bd6c8bdb4" category="list-text">选择帐户级别或自定义的报告范围。</block>
+  <block id="c4164f47b30d87e7888c12f3fdbe8af8" category="list-text">选择报告的筛选器：</block>
+  <block id="c6f01c78bfe0a0a495cb5d3ed77824a9" category="list-text">Volumes</block>
+  <block id="344ec8079925c0a9d42c79d780542bb4" category="list-text">保护：选择要在报告中显示的保护类型(本地Snapshot副本、复制或备份)。您可以选择全部三项。此外、还可以选择是否要包括非受保护卷。</block>
+  <block id="d022d12f96f41872be0c2dbe7f553aa5" category="list-text">根据您选择的报告、查看报告选项卡(本地Snapshot、复制或备份)。</block>
+  <block id="93f66acb069f7a06ab0ee856c98d2746" category="paragraph"><block ref="93f66acb069f7a06ab0ee856c98d2746" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f803143ce95b805b1f67a186b607f0a2" category="paragraph">您可以使用多个筛选器筛选"作业监控"页面上的操作、例如策略、Snapshot标签、操作类型(保护、还原、保留或其他)、卷上的自定义标记以及保护类型(本地Snapshot、复制或备份到云)。</block>
 </blocks>

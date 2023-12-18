@@ -18,6 +18,39 @@ summary: 了解BlueXP备份和恢复的新增功能。
 
 
 
+== 2023年12月15日
+
+
+
+=== 可用于本地Snapshot和复制Snapshot副本的报告
+
+以前、您只能对备份副本生成报告。现在、您还可以创建有关本地Snapshot副本和复制Snapshot副本的报告。
+
+通过这些报告、您可以执行以下操作：
+
+* 确保根据组织策略保护关键数据。
+* 确保一组卷的备份运行顺畅。
+* 为生产数据提供保护证明。
+
+
+请参见 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-report-inventory.html["关于数据保护覆盖范围的报告"]。
+
+
+
+=== 卷上提供了自定义标记、用于排序和筛选
+
+现在、您可以从ONTAP 9.13.1开始为卷添加自定义标记、以便可以在工作环境内和工作环境之间将卷分组在一起。这样、您就可以在BlueXP备份和恢复UI页面中对卷进行排序并在报告中进行筛选。
+
+
+
+=== 目录备份保留30天
+
+以前、Catalog.zip备份会保留7天。现在、它们会保留30天。
+
+请参见 https://docs.netapp.com/us-en/bluexp-backup-recovery/reference-backup-cbs-db-in-dark-site.html["在非公开站点中还原BlueXP备份和恢复数据"]。
+
+
+
 == 2023年10月23日
 
 
@@ -37,6 +70,14 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/task-create-policies-ontap.
 Cloud Volumes ONTAP目标系统必须运行ONTAP 9.13.0或更高版本。 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html["了解有关还原数据的更多信息"]。
 
 BlueXP备份和恢复作业监控器还会显示有关快速恢复作业进度的信息。
+
+
+
+=== 将内部ONTAP数据备份到StorageGRID存储分段的保留时间有所增加
+
+StorageGRID现在可以在一个存储分段中保留BlueXP备份和恢复中多达30个内部ONTAP数据备份。以前、一个存储分段中最多可有7个备份。
+
+https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-onprem-private-cloud.html["了解有关将内部ONTAP 数据备份到StorageGRID 的更多信息"]。
 
 
 

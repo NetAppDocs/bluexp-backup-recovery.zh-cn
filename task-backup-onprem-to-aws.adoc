@@ -407,7 +407,7 @@ IP空间中的所有集群间LIF都必须能够访问对象存储。如果无法
 
 link:concept-protection-journey.html#do-you-want-to-create-your-own-object-storage-container["详细了解如何创建您自己的存储分段"^]。
 
-如果您创建自己的存储分段、则应使用存储分段名称"NetApp-backup"。如果需要使用自定义名称、请编辑 `ontapcloud-instance-policy-netapp-backup` IAMRole、并将以下列表添加到S3权限中。
+如果您创建自己的存储分段、则应使用以"NetApp-backup"开头的存储分段名称。如果需要使用自定义名称、请编辑"设置S3权限"部分中使用的策略、以使用与您自己的自定义存储分段前缀匹配的资源ARN。
 
 [%collapsible]
 ====
