@@ -269,15 +269,6 @@ IP空间中的所有集群间LIF都必须能够访问对象存储。如果无法
 * 内部 ONTAP 集群的权限，以便可以将数据读写到 S3 存储分段。
 
 
-[NOTE]
-====
-如果您要在AWS GovCloud或AWS中国地区创建备份、则需要在下面两组权限的所有_Resource_部分下更改AWS资源名称"arn"：
-
-* 对于AWS GovCloud区域、您需要将"aws"更改为"Aws-us-gov"；例如 `arn:aws-us-gov:s3:::netapp-backup-*`。
-* 对于AWS中国地区、您需要将"aws"更改为"AAWS CN"；例如 `arn:aws-cn:s3:::netapp-backup-*`。
-
-
-====
 .步骤
 . 确认以下 S3 权限（从最新版本开始） https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-aws.html["BlueXP策略"^]）是为 Connector 提供权限的 IAM 角色的一部分。如果不是、请参见 https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html["AWS 文档：编辑 IAM 策略"]。
 +
@@ -342,6 +333,10 @@ IP空间中的所有集群间LIF都必须能够访问对象存储。如果无法
       }
 ----
 ====
++
+
+NOTE: 在AWS中国地区创建备份时、您需要将IAM策略中所有_Resource_部分下的AWS资源名称"arn"从"aws"更改为"AAWS CN"；例如 `arn:aws-cn:s3:::netapp-backup-*`。
+
 . 激活此服务后、备份向导将提示您输入访问密钥和机密密钥。这些凭据将传递到 ONTAP 集群，以便 ONTAP 可以将数据备份和还原到 S3 存储分段。为此，您需要创建具有以下权限的 IAM 用户。
 +
 请参见 https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html["AWS 文档：创建角色以向 IAM 用户委派权限"^]。
@@ -403,49 +398,36 @@ IP空间中的所有集群间LIF都必须能够访问对象存储。如果无法
 
 === 创建您自己的存储分段
 
-默认情况下、该服务会为您创建存储分段。如果要使用自己的分段、可以在启动备份激活向导之前创建这些分段、然后在向导中选择这些分段。
+默认情况下、该服务会为您创建存储分段。或者、如果要使用自己的存储分段、您可以在启动备份激活向导之前创建这些存储分段、然后在向导中选择这些存储分段。
 
 link:concept-protection-journey.html#do-you-want-to-create-your-own-object-storage-container["详细了解如何创建您自己的存储分段"^]。
 
-如果您创建自己的存储分段、则应使用以"NetApp-backup"开头的存储分段名称。如果需要使用自定义名称、请编辑"设置S3权限"部分中使用的策略、以使用与您自己的自定义存储分段前缀匹配的资源ARN。
+如果您创建自己的存储分段、则应使用存储分段名称"NetApp-backup"。如果需要使用自定义名称、请编辑 `ontapcloud-instance-policy-netapp-backup` IAMRole、并将以下列表添加到S3权限中。您需要包括 `“Resource”: “arn:aws:s3:::*”` 并分配需要与存储分段关联的所有必要权限。
 
 [%collapsible]
 ====
-[source, json]
-----
-{
-    "Action": [
-        "S3:ListBucket"
-        "S3:GetBucketLocation"
-    ]
-    "Resource": "arn:aws:s3:::*",
-    "Effect": "Allow"
-},
-{
-    "Action": [
-        "S3:GetObject",
-        "S3:PutObject",
-        "S3:DeleteObject",
-        "S3:ListAllMyBuckets",
-        "S3:PutObjectTagging",
-        "S3:GetObjectTagging",
-        "S3:RestoreObject",
-        "S3:GetBucketObjectLockConfiguration",
-        "S3:GetObjectRetention",
-        "S3:PutBucketObjectLockConfiguration",
-        "S3:PutObjectRetention"
-    ]
-    "Resource": "arn:aws:s3:::*",
-}
-----
-====
-[NOTE]
-====
-如果您的自定义存储分段位于AWS GovCloud或AWS中国地区、则需要在以下权限的所有_Resource_部分下更改AWS资源名称"arn"：
-
-* 对于AWS GovCloud区域、您需要将"aws"更改为"Aws-us-gov"；例如 `arn:aws-us-gov:s3:::*`。
-* 对于AWS中国地区、您需要将"aws"更改为"AAWS CN"；例如 `arn:aws-cn:s3:::-*`。
-
+"操作"：[
+    "S3：ListBucket"
+    "S3：GetBucketLocation"
+]
+"Resource (资源)"："ARN：AWS：S3：：：：*"、
+"影响"："允许"
+｝、
+｛
+    "操作"：[
+        "S3：GetObject"、
+        "S3：PutObject"、
+        "S3：DeleteObject"、
+        "S3：ListAllMyBucbes"、
+        "S3：PutObjectTaging"、
+        "S3：GetObjectTaging"、
+        "S3：Restore"、
+        "S3：GetBucketObjectLockConfiguration "、
+        "S3：GetObject保留"、
+        "S3：PutBucketObjectLockConfiguration "、
+        "S3：PutObject保留"
+        ]
+    "Resource (资源)"："ARN：AWS：S3：：：：*"、
 
 ====
 
@@ -460,12 +442,16 @@ link:concept-protection-journey.html#do-you-want-to-create-your-own-object-stora
 
 === 使用VPC端点接口为系统配置专用连接
 
-如果您要使用标准公有 Internet连接、则所有权限均由Connector设置、无需执行任何其他操作。此类型的连接如中所示 link:task-backup-onprem-to-aws.html#identify-the-connection-method["第一个图"]。
+如果您要使用标准公有 Internet连接、则所有权限均由Connector设置、无需执行任何其他操作。此类型的连接如中所示 link:task-backup-onprem-to-aws.html#network-diagrams-for-connection-options["第一个图"]。
 
-如果您希望通过Internet从内部数据中心到VPC建立更安全的连接、可以在备份激活向导中选择AWS PrivateLink连接。如果您计划使用VPN或AWS Direct Connect通过使用专用IP地址的VPC端点接口连接内部系统、则必须使用此功能。此类型的连接如中所示 link:task-backup-onprem-to-aws.html#identify-the-connection-method["第二个图"]。
+如果您希望通过Internet从内部数据中心到VPC建立更安全的连接、可以在备份激活向导中选择AWS PrivateLink连接。如果您计划使用VPN或AWS Direct Connect通过使用专用IP地址的VPC端点接口连接内部系统、则必须使用此功能。此类型的连接如中所示 link:task-backup-onprem-to-aws.html#network-diagrams-for-connection-options["第二个图"]。
 
 .步骤
 . 使用 Amazon VPC 控制台或命令行创建接口端点配置。 https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html["请参见有关使用适用于Amazon S3的AWS PrivateLink的详细信息"^]。
+. 修改与BlueXP Connector关联的安全组配置。您必须将此策略更改为 "Custom" （自定义）（从 "Full Access" ），并且必须将其更改为 "Custom" （自定义） <<设置 S3 权限,从备份策略添加 S3 权限>> 如前面所示。
++
+image:screenshot_backup_aws_sec_group.png["与 Connector 关联的 AWS 安全组的屏幕截图。"]
+
 +
 如果您使用端口80 (HTTP)与专用端点进行通信、则已设置完毕。您现在可以在集群上启用BlueXP备份和恢复。
 

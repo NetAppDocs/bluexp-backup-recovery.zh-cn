@@ -46,9 +46,6 @@ summary: 通过BlueXP备份和恢复服务、您最多可以为源卷创建三�
 |===
 快照是所有备份方法的基础、需要使用备份和恢复服务。Snapshot 副本是卷的只读时间点映像。此映像占用的存储空间极少，并且性能开销极低，因为它仅记录自上次创建 Snapshot 副本以来对文件所做的更改。在卷上创建的Snapshot副本用于使复制的卷和备份文件与对源卷所做的更改保持同步、如图所示。
 
-
-NOTE: 快照的名称必须唯一、否则还原操作将无法正常运行。
-
 image:diagram-321-overview.png["此图显示了备份文件如何作为Snapshot副本、二级存储系统上的复制卷以及对象存储中的备份文件存在于源系统上。"]
 
 您可以选择在另一个ONTAP存储系统上同时创建复制的卷、并在云中创建备份文件。或者、您也可以选择仅创建复制的卷或备份文件、这是您的选择。
@@ -239,7 +236,7 @@ Snapshot策略始终驻留在主存储系统上。
 
 == 您使用的是哪种BlueXP Connector部署模式
 
-如果您已经在使用BlueXP管理存储、则表示已安装BlueXP Connector。如果您计划将同一个Connector与BlueXP备份和恢复结合使用、则一切都准备就绪。如果您需要使用其他Connector、则需要在开始备份和恢复实施之前对其进行部署。
+如果您已经在使用BlueXP管理存储、则表示已安装BlueXP Connector。如果您计划将同一个Connector与BlueXP备份和恢复结合使用、则一切都准备就绪。如果您需要使用其他Connector、则需要在开始备份和恢复实施之前安装它。
 
 BlueXP提供了多种部署模式、使您能够以满足业务和安全要求的方式使用BlueXP。_Standard mode"利用BlueXP SaaS层提供完整功能、而_restricted mode"和_private mode"则可供具有连接限制的组织使用。
 
@@ -248,11 +245,11 @@ https://www.netapp.tv/details/30567["观看此有关BlueXP部署模式的视频"
 
 
 
-=== 使用标准模式时支持
+=== 支持具有完全Internet连接的站点
 
-在标准模式下完全支持BlueXP备份和恢复—站点具有完全Internet连接。在这种情况下、您可以在由BlueXP管理的任何内部ONTAP或Cloud Volumes ONTAP系统上创建复制的卷、并且可以在任何受支持的云提供商的对象存储上创建备份文件。 link:concept-ontap-backup-to-cloud.html#supported-backup-destinations["查看受支持备份目标的完整列表"]。
+在具有完全Internet连接(也称为"标准模式"或"SaaS模式")的站点中使用BlueXP备份和恢复时、您可以在由BlueXP管理的任何内部ONTAP或Cloud Volumes ONTAP系统上创建复制的卷、 您可以在任何受支持的云提供商的对象存储上创建备份文件。 link:concept-ontap-backup-to-cloud.html#supported-backup-destinations["查看受支持备份目标的完整列表"]。
 
-有关有效连接器位置的列表、请参见计划在其中创建备份文件的云提供程序的备份主题。当Connector部署在特定云提供程序中或手动安装在Linux计算机上时、可能存在一些限制。
+有关有效连接器位置的列表、请参见计划在其中创建备份文件的云提供程序的备份主题。必须在Linux计算机上手动安装连接器或将连接器部署在特定云提供商中、这方面存在一些限制。
 
 ifdef::aws[]
 
@@ -284,9 +281,9 @@ endif::gcp[]
 
 
 
-=== 使用受限模式时支持
+=== 支持Internet连接有限的站点
 
-BlueXP备份和恢复在受限模式下受支持- Internet连接受限的站点。在这种情况下、您只能为有限的一组云提供商创建备份文件。您需要在受限区域部署BlueXP Connector。
+BlueXP备份和恢复可在Internet连接受限(也称为"受限模式")的站点中用于备份卷数据。在这种情况下、您需要在受限区域部署BlueXP Connector。
 
 ifdef::aws[]
 
@@ -304,9 +301,9 @@ endif::azure[]
 
 
 
-=== 使用私有模式时支持
+=== 支持无 Internet 连接的站点
 
-在专用模式下支持BlueXP备份和恢复—站点没有Internet连接。在这种情况下、您只能为一组有限的对象存储提供程序创建备份文件。您需要在同一内部站点的Linux主机上部署BlueXP Connector。
+在没有Internet连接的站点(也称为"专用模式"或"非公开"站点)中、可以使用BlueXP备份和恢复来备份卷数据。在这种情况下、您需要在同一站点的Linux主机上部署BlueXP Connector。
 
 * 您可以将本地内部ONTAP 系统中的数据备份到本地NetApp StorageGRID 系统。请参见操作说明 link:task-backup-onprem-private-cloud.html["将内部 ONTAP 数据备份到 StorageGRID"] 了解详细信息。
 * 您可以将本地内部ONTAP系统中的数据备份到本地内部ONTAP系统或为S3对象存储配置的Cloud Volumes ONTAP系统。请参见操作说明 link:task-backup-onprem-to-ontap-s3.html["将内部ONTAP数据备份到ONTAP S3"] 了解详细信息。

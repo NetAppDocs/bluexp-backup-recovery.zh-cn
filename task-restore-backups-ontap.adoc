@@ -23,9 +23,6 @@ ONTAP卷数据的备份可从创建备份的位置获得：Snapshot副本、复�
 
 要将数据从备份文件还原到生产系统、需要有效的BlueXP备份和恢复许可证。
 
-
-NOTE: 快照的名称必须唯一、否则还原操作将无法正常运行。
-
 概括地说、以下是可用于将卷数据还原到ONTAP工作环境的有效流：
 
 * 备份文件->已还原卷
@@ -234,13 +231,10 @@ image:screenshot_restore_volume_selection.png["从还原信息板中选择还原
 
 . 在 _Select Source" 页面中，导航到要还原的卷的备份文件。选择 * 工作环境 * ， * 卷 * 以及具有要还原的日期 / 时间戳的 * 备份 * 文件。
 +
-(可选)搜索自定义标记、以便仅列出具有特定标记的卷。
-
-+
-image:screenshot_restore_select_volume_snapshot2.png["选择要还原的工作环境，卷和卷备份文件的屏幕截图。"]
-
-+
 "*位置*"列显示备份文件(Snapshot)是*本地*(源系统上的Snapshot副本)、*二级*(二级ONTAP系统上的复制卷)还是*对象存储*(对象存储中的备份文件)。选择要还原的文件。
+
++
+image:screenshot_restore_select_volume_snapshot.png["选择要还原的工作环境，卷和卷备份文件的屏幕截图。"]
 
 . 单击 * 下一步 * 。
 +
