@@ -932,7 +932,6 @@
   <block id="57beb7405f0a1c7bc500e793294e4d80" category="list-text">S3 ： GetBucketLocation</block>
   <block id="2575b79b2cd768a027306db8b9e8614a" category="list-text">S3 ： GetObjectVersion</block>
   <block id="e3e16bb73c0250a6a229fb457b4f957e" category="section-title">限制</block>
-  <block id="6c28e9f31a1540537e96cfb66aff6920" category="list-text">如果您已在备份策略中配置归档存储、则无法使用DataLock和勒索软件保护。</block>
   <block id="96832c8d3beeed50f75c2178388e9ff6" category="list-text">如果启用DataLock、则所有卷备份都将被锁定。不能在一个集群中混用锁定卷备份和非锁定卷备份。</block>
   <block id="f5ef24e218bb7a52732b62958bb89c68" category="list-text">扫描备份文件以查找可能的勒索软件攻击、并自动删除/替换受感染的备份。</block>
   <block id="3f28b1a3a0b3b6c8294e56323ec13e18" category="list-text">将旧备份文件分层到归档存储以节省成本。</block>
@@ -1052,8 +1051,6 @@
   <block id="5a7e671d36e7ddbd948f2001988ffe33" category="inline-link">有关详细信息、请参见StorageGRID 文档</block>
   <block id="168036087bcdae960471ab9c23a03efa" category="list-text">不能在对象存储分段上手动启用StorageGRID 对象版本控制。</block>
   <block id="7ada527d1dd84b409531cc41597f383e" category="paragraph">您可以将*文件夹*还原到原始工作环境中的卷、使用相同云帐户的其他工作环境中的卷或内部ONTAP 系统上的卷。</block>
-  <block id="d04e8ed2daf2cfbac4df96c77bda4638" category="cell">浏览文件夹样式的结构以查找单个备份文件中的卷、文件夹或文件</block>
-  <block id="7a035a915239cf76211880a31a8e3764" category="cell">在*所有备份文件*中按部分或完整卷名称、部分或完整文件夹/文件名称、大小范围以及其他搜索筛选器搜索卷、文件夹或文件</block>
   <block id="abbf2484b45da9fd7be677fe96c511eb" category="inline-xref">使用浏览和放大功能还原文件夹和文件；还原</block>
   <block id="17c981b300f2af812caf64b9a2093463" category="list-text"><block ref="19fee869bed89515b1fdf17b227a6fea" category="inline-xref-macro-rx"></block></block>
   <block id="8996e9eaff78ab540aab279a66de20ac" category="inline-xref">使用Search &amp; amp；Restore还原卷、文件夹和文件</block>
@@ -2733,7 +2730,6 @@
   <block id="fa1ec4e51afd35e28a50d8d0539c45d1" category="paragraph">您可以使用UI、脚本或手动部署插件。</block>
   <block id="c870531773e82c374eb4125c8029e25e" category="inline-link">在连接器之间切换</block>
   <block id="f7ee644dab1f17ea82c6cfcd19e39fae" category="paragraph">每个备份策略都为_Labels &amp; Retenation_s提供了一个部分、您可以将其应用于备份文件。请注意、应用于卷的Snapshot策略必须是BlueXP备份和恢复可识别的策略之一、否则不会创建备份文件。</block>
-  <block id="1152b46be2b09f9273e95c2cb3ead800" category="paragraph">这两项功能都可以保护您的备份文件、以便在您的备份受到勒索软件攻击时、您始终拥有一个有效的备份文件来恢复数据。如果备份需要锁定并保留一段时间、则满足某些法规要求也会很有帮助。启用DataLock和勒索软件保护后、作为BlueXP备份和恢复激活一部分配置的云分段将启用对象锁定和对象版本控制。</block>
   <block id="f3ec603ab9c35660f371c0fc057b7fd1" category="list-text">集群必须运行ONTAP 9.11.1或更高版本</block>
   <block id="4f411ed71b5f872404c482a3c45285e2" category="list-text">集群必须运行ONTAP 9.12.1或更高版本</block>
   <block id="43757ece62940efe206ed418c8c8f76b" category="list-text">StorageGRID 系统必须运行11.6.0.3或更高版本</block>
@@ -2763,7 +2759,6 @@
   <block id="40d2dc321bf0d1e8c62d93ca99421fb6" category="inline-link">有关详细信息、请参见BlueXP部署模式</block>
   <block id="98eef7e95983b72b4d417c12eaef0df7" category="inline-link">在标准模式下在Azure中部署Connector (完全Internet访问)</block>
   <block id="25ea6f476e6d2e28d6075e5526758673" category="inline-link">在受限模式下安装连接器(受限出站访问)</block>
-  <block id="b5e4425a80571820c3fc81b638ce52be" category="summary">BlueXP备份和恢复服务(Cloud Backup)可为内部和云端的NetApp ONTAP 数据、Kubernetes永久性卷、数据库和虚拟机提供高效、安全且经济高效的数据保护。</block>
   <block id="d1ce73c34fafec004ce6d188a1769e33" category="list-text">连接器可以安装在具有完全互联网访问("标准模式")或有限互联网连接("受限模式")的站点上。</block>
   <block id="0e58108645de369af6e83522b7945f2b" category="inline-link">在标准模式下在AWS中部署Connector (完全Internet访问)</block>
   <block id="5d8a63e586bb4dfbba4ae7d992161e1c" category="admonition">如果系统上的ONTAP 版本低于9.13.1、则如果备份文件已配置DataLock和防软件、则无法还原文件夹或文件。在这种情况下、您可以从备份文件还原整个卷、然后访问所需的文件。</block>
@@ -3785,7 +3780,6 @@ ifdef：：AWS。</block>
   <block id="639b6c8b0a4b4e6743387986d9aba196" category="paragraph">BlueXP备份和恢复开始对卷进行初始备份。复制的卷和备份文件的基线传输包括主存储系统数据的完整副本。后续传输会包含Snapshot副本中所含主数据的差异副本。</block>
   <block id="fab7b62aef677a7dfc0c2e880e574c3e" category="paragraph">此时将在您输入的S3访问密钥和机密密钥所指示的服务帐户中创建S3存储分段、并将备份文件存储在该帐户中。此时将显示卷备份信息板，以便您可以监控备份的状态。</block>
   <block id="ed551a4fb3427a3e9827d73589a57272" category="admonition">这些策略设置仅与备份到对象存储相关。这些设置均不会影响您的Snapshot或复制策略。将来会为快照和复制添加类似的策略设置。</block>
-  <block id="17fe40afa4bdb095e9bf108ac5b5b34c" category="paragraph">DataLock可保护您的备份文件在一段时间内不会被修改或删除、也称为不可变存储。此功能使用对象存储提供程序提供的技术进行"对象锁定"。备份文件锁定(并保留)的时间段称为DataLock保留期限。它基于您定义的备份策略计划和保留设置、外加14天的缓冲区。任何少于30天的DataLock保留策略将取整为最短30天。</block>
   <block id="9c4425b75076fc68c1827b9effcc5a6b" category="summary">通过BlueXP备份和恢复服务、您最多可以为源卷创建三个副本来保护数据。在卷上启用此服务时、您可以选择许多选项、因此您应查看所做的选择、以便做好准备。</block>
   <block id="abb8243f73c63e089a9cc6cdf95785b2" category="paragraph">我们将介绍以下选项：</block>
   <block id="9aa0d02835133517fefa42429e73ace5" category="list-text">您将使用哪些保护功能：Snapshot副本、复制的卷和/或备份到云</block>
@@ -3877,8 +3871,6 @@ ifdef：：AWS。</block>
   <block id="385ec83416d2acacbf83c42099e5828e" category="list-text">复制的卷-&gt;已还原的卷</block>
   <block id="294431832876ce9e39076e7ab6f99361" category="list-text">Snapshot副本-&gt;已还原卷</block>
   <block id="d111236cacc86fadca19453883d94b63" category="paragraph">下表对这两种方法进行了功能比较。</block>
-  <block id="69c1077679bcc01dbd9a597c194c6524" category="cell">从云中还原时、每个帐户需要额外的存储分段和公共云提供商资源</block>
-  <block id="c97cce3cb42ee080e929331eb7a9798e" category="cell">从云中还原时、扫描备份和卷以查找搜索结果需要额外的成本</block>
   <block id="36bce3524e4446bfe42ccad6f813430a" category="paragraph">此表根据备份文件所在的位置列出了有效的还原操作。</block>
   <block id="a09aa546b6aa449c6baf91e8d0ebb636" category="cell">备份类型</block>
   <block id="cdabcc59f5dffd726bced2c44fc05f05" category="cell">*还原卷*</block>
@@ -3916,7 +3908,6 @@ ifdef：：AWS。</block>
   <block id="ad6bf5019644500ff1f18cebc8bf54f5" category="list-text">在_Filter by"区域中、选择筛选条件。例如、您可以选择数据所在的工作环境和文件类型、例如.JPEG文件。或者、如果您只想在对象存储中的可用Snapshot副本或备份文件中搜索结果、也可以选择备份位置类型。</block>
   <block id="ad87a13113d9bb0f9c5379dc1a793fcb" category="list-text">找到包含要还原的数据的资源，然后单击*查看所有备份*以显示包含匹配卷、文件夹或文件的所有备份文件。</block>
   <block id="66786dceb7a3e837a21752a2db70307e" category="list-text">找到要用于恢复数据的备份文件，然后单击*Restore*。</block>
-  <block id="1b2207e0e63b5e8d114fd13b0ecb4a7e" category="paragraph">请注意，结果还会标识搜索中包含该文件的本地卷 Snapshot 副本。您可以选择从云备份文件或Snapshot副本还原。</block>
   <block id="98ed4c44ab8a3c8a5b08f8e91a585c40" category="list-text">如果您使用的是BYOL许可证、建议同时订阅PAYGO订阅。如果备份的数据超出BYOL许可证的允许范围、或者许可证期限到期、则备份将通过按需购买订阅继续进行、而不会造成服务中断。</block>
   <block id="f717b8ed4d751174af9f9438951b9a4f" category="section-title">2023年7月6日</block>
   <block id="10ffd42b58d1ced7127bffaff7185e32" category="section-title">BlueXP备份和恢复现在可以计划和创建Snapshot副本以及复制的卷</block>
@@ -4561,20 +4552,16 @@ ONTAP S3</block>
   <block id="fb2530f9293a4ba59cfd3ca6492bb972" category="section-title">2023年10月23日</block>
   <block id="176b76bad16e5fd8729393946eb26540" category="paragraph">现在、通过BlueXP备份和恢复、可以将卷从云存储"快速还原"到Cloud Volumes ONTAP系统。快速还原非常适合需要尽快提供对卷的访问权限的灾难恢复情形。快速还原会将元数据从备份文件还原到卷、而不是还原整个备份文件。</block>
   <block id="209a2213c8478f88b6a43752e3a502ac" category="paragraph">从备份文件还原卷时、BlueXP备份和恢复会使用备份中的数据创建一个_new_卷。从对象存储使用备份时、您可以将数据还原到原始工作环境中的卷、与源工作环境位于同一云帐户中的其他工作环境或内部ONTAP系统。</block>
-  <block id="896c3888b79484c9760825887d60adb2" category="paragraph">使用ONTAP 9.13.0或更高版本将云备份还原到Cloud Volumes ONTAP系统时、您可以选择执行"快速还原"操作。快速还原非常适合需要尽快提供对卷的访问权限的灾难恢复情形。快速还原会将元数据从备份文件还原到卷、而不是还原整个备份文件。不建议对性能或延迟敏感型应用程序执行快速还原、归档存储中的备份也不支持快速还原。</block>
   <block id="d32e1d93e3ad3960f0013d75a50ca107" category="admonition">只有在创建云备份的源系统运行的是ONTAP 9.12.1或更高版本时、FlexGroup卷才支持快速还原。并且、只有当源系统运行的是ONTAP 9.11.0或更高版本时、SnapLock卷才支持此功能。</block>
   <block id="2f7ffcf09fd8291d200be9f94baef41d" category="list-text">输入要用于还原的卷的名称、然后选择此卷要驻留的Storage VM和聚合。还原FlexGroup卷时、您需要选择多个聚合。默认情况下，使用 * &lt;source_volume_name&gt;_Restore* 作为卷名称。</block>
-  <block id="fcde2c072e8aee2aa6a09b37c7ceee0a" category="paragraph">使用ONTAP 9.13.0或更高版本将备份从对象存储还原到Cloud Volumes ONTAP系统时、您可以选择执行"快速还原"操作。</block>
   <block id="8744543543bca2e8e7812d7c7a8f7f81" category="paragraph">从备份文件还原_full volume_时、BlueXP备份和恢复会使用备份中的数据创建一个_new_卷。您可以将数据作为原始工作环境中的卷还原到与源工作环境位于同一云帐户中的其他工作环境或内部ONTAP系统。</block>
   <block id="a6d6bf68742281a10bad1dc24bbe8bfc" category="paragraph">您可以将_folder或files_还原到原始卷位置、同一工作环境中的不同卷、使用同一云帐户的不同工作环境或内部ONTAP系统上的卷。</block>
-  <block id="0662a540906c0c217caad41d6b214451" category="list-text">只有在创建云备份的源系统运行的是ONTAP 9.12.1或更高版本时、FlexGroup卷才支持快速还原。只有在创建云备份的源系统运行的是ONTAP 9.11.0或更高版本时、才支持SnapLock卷快速还原。FlexVol卷没有最低要求。</block>
   <block id="9ea8586e1304278c3a05061b433c1169" category="list-text">对于卷、您可以选择原始目标工作环境、也可以选择备用工作环境。还原FlexGroup卷时、您需要选择多个聚合。</block>
   <block id="161194bbe48a2135489734e9a8253dbc" category="list-text">*本地Snap照*：选择现有Snapshot策略或创建一个。</block>
   <block id="86f7231a6add4e3af6c22d160f1fef1b" category="admonition">要在激活备份之前创建自定义策略、请参见 <block ref="63a3f471efcfd7e4daa79f468df674ce" category="inline-link-macro-rx"></block>。</block>
   <block id="e55e33fb51399237a97d05cee7b9666a" category="list-text">*复制策略*：选择现有复制策略或创建一个复制策略。</block>
   <block id="467647313d3b271591c978d30d0a3f45" category="admonition">要在激活复制之前创建自定义策略、请参见 <block ref="63a3f471efcfd7e4daa79f468df674ce" category="inline-link-macro-rx"></block>。</block>
   <block id="2283ed1c2d2204e889a93d07486e3a8b" category="list-text">*备份策略*：选择现有的备份到对象存储策略或创建一个。</block>
-  <block id="94564c9b3e87da6b96d2202774fb278d" category="list-text">能够将卷从云存储"快速还原"到Cloud Volumes ONTAP系统；非常适合需要尽快提供卷访问权限的灾难恢复情形。</block>
   <block id="19fe226921eb8023a05c222ee84c5db8" category="paragraph">根据备份类型、备份位于不同位置：</block>
   <block id="fc2fd0a50056e9aa6d11714c9450981b" category="list-text">一次只能选择一个FlexGroup卷进行复制。您需要分别为每个FlexGroup卷激活备份。</block>
   <block id="3a3d9f6ee5fa05f3aa042e0258eebf58" category="list-text">在没有为备份策略分配任何卷的情况下创建或编辑此策略时、保留的备份数最多可为1018个。为策略分配卷后、您可以编辑此策略以创建多达4000个备份。</block>
@@ -4646,7 +4633,6 @@ ONTAP S3</block>
   <block id="5d8aef9555e5438ddeff623786db2956" category="summary">已知限制用于说明此产品版本不支持的功能或无法与其正确交互的功能。仔细审查这些限制。</block>
   <block id="482723983a4f2af954e36ff41e567451" category="doc">已知限制</block>
   <block id="aa0373aa24c3795f9860b49e074ec0b5" category="section-title">ONTAP卷的备份和还原限制</block>
-  <block id="5a8f207b587cd09b18047f9ee3e8cdc1" category="paragraph">使用AWS、Azure或Google云存储时、您可以在一定天数后将较早的备份文件移至成本较低的归档存储类/访问层。您还可以选择立即将备份文件发送到归档存储、而不将其写入标准云存储。只需输入*0*作为"Archive after days"(天数后归档)，即可将备份文件直接发送到归档存储。对于很少需要从云备份访问数据的用户或要将备份替换为磁带解决方案的用户来说、这一点尤其有用。</block>
   <block id="0bfadff6ad45440425fe5f23292524af" category="paragraph">归档层中的数据无法在需要时立即访问、并且需要较高的检索成本、因此您需要考虑在决定归档备份文件之前、可能需要多久从备份文件中恢复一次数据。</block>
   <block id="09e167bf2b5bda581990fa1f93a488dc" category="list-text">如果启用了DataLock、则无法使用归档存储。</block>
   <block id="324aabe08d5432a326f39205133865e5" category="list-text">在选择*0*天(立即归档)后，无法更改归档策略。</block>
@@ -4771,4 +4757,57 @@ ONTAP S3</block>
   <block id="4e1f7d458412b18adef0e5ff0db2eee8" category="section-title">2024年2月1日</block>
   <block id="a409179aac0b12213b3fa77e0a22bd61" category="list-text">支持将虚拟机还原到备用位置</block>
   <block id="9c75b0f26dddf07ed827e32aaf28bee9" category="list-text">支持取消数据存储库保护</block>
+  <block id="1e4355acc1dfc611f2f5aa191e3468f4" category="list-text">能够将卷从云存储快速还原到Cloud Volumes ONTAP系统或内部系统；非常适合需要尽快提供卷访问权限的灾难恢复情形。</block>
+  <block id="196996ba80340493c0f9064d3dd14aa5" category="summary">BlueXP备份和恢复服务可为内部和云端的NetApp ONTAP数据、Kubelnetes永久性卷、数据库和虚拟机(VM)提供高效、安全且经济高效的数据保护。</block>
+  <block id="2d67cd05b64a3416bc8bae12b4ef5685" category="section-title">2024年3月12日</block>
+  <block id="e713d6072685bf32f36150e9f76ce0c1" category="section-title">能够从云备份"快速还原"到内部ONTAP卷</block>
+  <block id="5a9ee632cba573d0f7355f7d12d908ca" category="paragraph">现在、您可以将卷从云存储快速还原到内部ONTAP目标卷。以前、您只能快速还原到Cloud Volumes ONTAP系统。快速还原非常适合需要尽快提供对卷的访问权限的灾难恢复情形。快速还原比完整卷还原速度快得多；它会将元数据从云快照还原到ONTAP目标卷。源可能来自AWS S3、Azure Blb、Google云服务或NetApp StorageGRID。</block>
+  <block id="07f61dfe973846130f7066ef7bc459ef" category="paragraph">内部ONTAP目标系统必须运行ONTAP 9.14.1或更高版本。</block>
+  <block id="1a68bb97275f0f5acd506d7ad906fa05" category="paragraph">您可以使用浏览和还原过程执行此操作、而不是使用搜索和还原过程。</block>
+  <block id="2c3b2694da8405de44d10ad024f9a37a" category="paragraph">有关详细信息，请参见<block ref="d2c90c25b1a6379e29db7390401794cc" category="inline-link-rx"></block>。</block>
+  <block id="0b15186b9aa75ae921c55dd69591ae94" category="section-title">能够从Snapshot和复制副本还原文件和文件夹</block>
+  <block id="8f859da29f9bc64e255dd02fc2821d0a" category="paragraph">以前、您只能从AWS、Azure和Google Cloud Services中的备份副本还原文件和文件夹。现在、您可以从本地Snapshot副本和复制副本还原文件和文件夹。</block>
+  <block id="71931edd27b41979c47f73ca3194f9c3" category="paragraph">您可以使用搜索和还原过程执行此功能、而不是使用浏览和还原过程。</block>
+  <block id="014fb6165915bb2267eed517efab9cb5" category="cell">浏览文件夹样式的结构以查找单个备份文件中的卷、文件夹或文件。</block>
+  <block id="c601431e32ca59eda5545781d799fc84" category="cell">按部分或完整卷名称、部分或完整文件夹/文件名称、大小范围和其他搜索筛选器在*所有备份文件*中搜索卷、文件夹或文件。</block>
+  <block id="ba3b7ed6a9e20a17536af523c17d7d72" category="cell">从云中还原时、每个帐户需要额外的存储分段和公共云提供商资源。</block>
+  <block id="e4da0c30ee3e36e87eec129bd901c319" category="cell">从云中还原时、扫描备份和卷以查找搜索结果需要额外的成本。</block>
+  <block id="bc7f13477d0119c48bad565ccf971e6a" category="cell">支持快速还原。</block>
+  <block id="acf00c252198c9be0294aaf561c5d662" category="cell">不支持快速还原。</block>
+  <block id="4392d15c8884c7cc66b17ff794eb41d2" category="cell">*从对象存储(备份)*</block>
+  <block id="a4e7ccecf7c1ff2d3e2de88d9f7559d4" category="cell">*从主存储(Snapshot)*</block>
+  <block id="c1ad4111606308626e152e2bc5089a8b" category="cell">*从二级系统(复制)*</block>
+  <block id="a019a781742609ed7930e84dd4bbbfe7" category="cell">至目标工作环境
+
+ifdef：：AWS。</block>
+  <block id="508c69ac69618e417c42c1ec4f1802fe" category="cell">AWS 中的 Cloud Volumes ONTAP
+内部部署 ONTAP 系统
+
+字节名称：：：AWS]]
+
+
+
+ifdef：：azure[]</block>
+  <block id="a57e78a7b424a1f155d5c251bf4bfe16" category="cell">Azure 中的 Cloud Volumes ONTAP
+内部部署 ONTAP 系统
+
+字节名称：：azure[]
+
+
+
+ifdef：：gcp[]</block>
+  <block id="f6bc09197fbc5599ccf48032f3ead672" category="cell">到内部ONTAP系统</block>
+  <block id="c1b52fe790511b9298f4b5f6a53599f4" category="paragraph">在使用ONTAP 9.13.0或更高版本将云备份还原到Cloud Volumes ONTAP系统或运行ONTAP 9.14.1的内部ONTAP系统时、您可以选择执行_quick Restore_oper统。快速还原非常适合需要尽快提供对卷的访问权限的灾难恢复情形。快速还原会将元数据从备份文件还原到卷、而不是还原整个备份文件。不建议对性能或延迟敏感型应用程序执行快速还原、归档存储中的备份也不支持快速还原。</block>
+  <block id="7a2007148011e973184940a379d2cfeb" category="paragraph">在使用ONTAP 9.13.0或更高版本将对象存储备份还原到ONTAP系统或运行Cloud Volumes ONTAP 9.14.1的内部ONTAP系统时、您可以选择执行_quick Restore_oper统。</block>
+  <block id="83d21a839062d4ca006d1f2910616c06" category="list-text">单击*Next*(下一步*)选择是执行正常恢复还是快速恢复过程：</block>
+  <block id="0c3da5360ee5d0f95ea59ce872785636" category="inline-image-macro">显示正常和快速还原过程的屏幕截图。</block>
+  <block id="dccddafd5c384963cd964ee3029e662a" category="paragraph"><block ref="dccddafd5c384963cd964ee3029e662a" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="2618b905cdc9e04055a7d6a5328eebfb" category="list-text">*正常还原*：对需要高性能的卷使用正常还原。在还原过程完成之前、卷将不可用。</block>
+  <block id="64063115b259542737cce343064e3233" category="list-text">*快速还原*：还原的卷和数据将立即可用。请勿在需要高性能的卷上使用此选项、因为在快速还原过程中、对数据的访问速度可能会比平常慢。</block>
+  <block id="406385bac6b7601aab1eff5d8a317cc3" category="paragraph">请注意、这些结果将确定搜索中包含该文件的本地卷Snapshot副本和远程复制卷。您可以选择从云备份文件、Snapshot副本或复制的卷还原。</block>
+  <block id="6b1625dd335c098ed2ca98e2429bd8b5" category="paragraph">这两项功能都可以保护您的备份文件、以便在您的备份受到勒索软件攻击时、您始终拥有一个有效的备份文件来恢复数据。如果备份需要锁定并保留一段时间、则满足某些法规要求也会很有帮助。启用DataLock和防兰软件保护选项后、在BlueXP备份和恢复激活过程中配置的云分段将启用对象锁定和对象版本控制。</block>
+  <block id="b03c01f8cf077f9dee5804db15487474" category="paragraph">DataLock可保护您的备份文件在一段时间内不会被修改或删除、也称为_immutable storage_。此功能使用对象存储提供程序的技术进行"对象锁定"。 锁定(和保留)备份文件的时间段称为DataLock保留期限。它基于您定义的备份策略计划和保留设置、外加14天的缓冲区。任何少于30天的DataLock保留策略将取整为最短30天。</block>
+  <block id="d1fe7d408368bfebc413888300892008" category="list-text">如果已在备份策略中配置归档存储、则DataLock和防抱死系统保护功能不可用。</block>
+  <block id="7bdfdec65541ae8037e909dd7d0643dd" category="paragraph">使用AWS、Azure或Google云存储时、您可以在一段时间后将旧备份文件移至成本较低的归档存储类或访问层。您还可以选择立即将备份文件发送到归档存储、而不将其写入标准云存储。只需输入*0*作为"Archive after days"(天数后归档)，即可将备份文件直接发送到归档存储。对于很少需要从云备份访问数据的用户或要将备份替换为磁带解决方案的用户来说、这一点尤其有用。</block>
+  <block id="8e867c14e8b5b20149da48500624662f" category="list-text">即使选择"0"将所有数据块发送到归档云存储、元数据块也始终写入标准云存储。</block>
 </blocks>

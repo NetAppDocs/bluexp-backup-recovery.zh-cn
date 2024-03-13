@@ -18,6 +18,30 @@ summary: 了解BlueXP备份和恢复的新增功能。
 
 
 
+== 2024年3月12日
+
+
+
+=== 能够从云备份"快速还原"到内部ONTAP卷
+
+现在、您可以将卷从云存储快速还原到内部ONTAP目标卷。以前、您只能快速还原到Cloud Volumes ONTAP系统。快速还原非常适合需要尽快提供对卷的访问权限的灾难恢复情形。快速还原比完整卷还原速度快得多；它会将元数据从云快照还原到ONTAP目标卷。源可能来自AWS S3、Azure Blb、Google云服务或NetApp StorageGRID。
+
+内部ONTAP目标系统必须运行ONTAP 9.14.1或更高版本。
+
+您可以使用浏览和还原过程执行此操作、而不是使用搜索和还原过程。
+
+有关详细信息，请参见 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html["从备份文件还原ONTAP数据"]。
+
+
+
+=== 能够从Snapshot和复制副本还原文件和文件夹
+
+以前、您只能从AWS、Azure和Google Cloud Services中的备份副本还原文件和文件夹。现在、您可以从本地Snapshot副本和复制副本还原文件和文件夹。
+
+您可以使用搜索和还原过程执行此功能、而不是使用浏览和还原过程。
+
+
+
 == 2024年2月1日
 
 
