@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: task-manage-backup-settings-ontap.html 
-keywords: cloud backup, cloud backup service, storage keys, network bandwidth, auto backup, delete yearly snapshot, export snapshots 
-summary: '您可以更改在为每个ONTAP 系统激活BlueXP备份和恢复时设置的多个集群级别备份设置。您还可以修改应用为"默认"备份设置的某些设置。其中包括更改存储密钥、备份到对象存储的传输速率、是否将历史Snapshot副本导出为备份文件等。' 
+keywords: cloud backup, cloud backup service, storage keys, network bandwidth, auto backup, delete yearly snapshot, export snapshots, ransomware scans, scans 
+summary: '您可以更改在为每个ONTAP系统激活BlueXP备份和恢复时设置的许多集群级别备份到对象设置。您还可以修改应用为"默认"备份设置的某些设置。其中包括更改存储密钥、备份到对象存储的传输速率、是否将历史Snapshot副本导出为备份文件等。您还可以为工作环境启用或禁用勒索软件扫描。' 
 ---
-= 管理集群级别的备份设置
+= 在高级设置页面中管理备份到对象存储选项
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,23 +14,22 @@ summary: '您可以更改在为每个ONTAP 系统激活BlueXP备份和恢复时�
 
 
 [role="lead"]
-您可以更改在为每个ONTAP 系统激活BlueXP备份和恢复时设置的多个集群级别备份设置。您还可以修改应用为"默认"备份设置的某些设置。这包括更改备份到对象存储的传输速率、历史Snapshot副本是否导出为备份文件等。
+您可以使用高级设置页面更改在为每个ONTAP系统激活BlueXP备份和恢复时设置的集群级别备份到对象存储设置。您还可以修改应用为"默认"备份设置的某些设置。这包括更改备份到对象存储的传输速率、历史Snapshot副本是否导出为备份文件、以及为工作环境启用或禁用计划内勒索软件扫描。
 
 
-NOTE: 这些设置仅可用于备份到对象存储。这些设置均不会影响您的Snapshot或复制设置。将来会为快照和复制添加类似的集群级别复制设置。
+NOTE: 这些设置仅适用于备份到对象存储。这些设置均不会影响您的Snapshot或复制设置。将来会为快照和复制添加类似的集群级别复制设置。
 
-集群级别的备份设置可在_Advanced Settings_页面中找到。
+您可以在高级设置页面中更改以下选项：
 
-您可以更改的一整套备份设置包括：
-
-* 更改分配用于将备份上传到对象存储的网络带宽
+* 使用最大传输速率选项更改分配用于将备份上传到对象存储的网络带宽
 ifdef：：AWS。
 
 
 endif::aws[]
 
-* 更改历史Snapshot副本是否包含在未来卷的初始基线备份文件中
+* 更改历史Snapshot副本是否作为备份文件导出并包含在未来卷的初始基线备份文件中
 * 更改是否从源系统中删除"每年"快照
+* 为工作环境启用或禁用计划内勒索软件扫描
 
 
 
@@ -53,11 +52,12 @@ image:screenshot_backup_advanced_settings_button.png["屏幕截图显示了备�
 "高级设置"页面显示了该工作环境的当前设置。
 
 +
-image:screenshot_backup_advanced_settings_page.png["显示特定工作环境的备份高级设置值的屏幕截图。"]
+image:screenshot_backup_advanced_settings_page2.png["显示特定工作环境的备份高级设置值的屏幕截图。"]
+
+. 展开选项并进行更改。
 
 
-
-如果需要进行任何更改、只需展开选项并进行更改即可。更改后的所有备份操作都将使用新值。
+更改后的所有备份操作都将使用新值。
 
 请注意、根据源集群上的ONTAP 版本以及备份所在的云提供商目标、某些选项不可用。
 
@@ -65,11 +65,19 @@ image:screenshot_backup_advanced_settings_page.png["显示特定工作环境的�
 
 == 更改可用于将备份上传到对象存储的网络带宽
 
-默认情况下、在为工作环境激活BlueXP备份和恢复时、ONTAP 可以使用无限的带宽将备份数据从工作环境中的卷传输到对象存储。如果您发现备份流量正在影响正常用户工作负载、则可以限制传输期间使用的网络带宽量。您可以选择一个介于1到1、000 Mbps之间的值作为最大传输速率。
+默认情况下、在为工作环境激活BlueXP备份和恢复时、ONTAP 可以使用无限的带宽将备份数据从工作环境中的卷传输到对象存储。如果您发现备份流量正在影响正常用户工作负载、则可以使用高级设置页面中的最大传输速率选项限制传输期间使用的网络带宽量。
 
+.步骤
+. 从 * 卷 * 选项卡中，选择 * 备份设置 * 。
+. 在 _Backup Settings page_ 中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于工作环境、请选择*高级设置*。
+. 在“高级设置”页面中，展开“*最大传输速率*”部分。
++
 image:screenshot_backup_edit_transfer_rate.png["Advanced Settings页面中最大传输速率条目的屏幕截图。"]
 
-选择*受限*单选按钮并输入可使用的最大带宽、或者选择*无限制*以指示没有限制。
+. 选择一个介于1到1、000 Mbps之间的值作为最大传输速率。
+. 选择*受限*单选按钮并输入可使用的最大带宽、或者选择*无限制*以指示没有限制。
+. 选择 * 应用 * 。
+
 
 此设置不会影响分配给可能为工作环境中的卷配置的任何其他复制关系的带宽。
 
@@ -85,9 +93,16 @@ endif::aws[]
 
 请注意、此选项仅对新读/写卷的新备份文件进行适用场景 处理、数据保护(DP)卷不支持此选项。
 
+.步骤
+. 从 * 卷 * 选项卡中，选择 * 备份设置 * 。
+. 在 _Backup Settings page_ 中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于工作环境、请选择*高级设置*。
+. 在高级设置页面中，展开*导出现有Snapshot副本*部分。
++
 image:screenshot_backup_edit_export_snapshots.png["\"高级设置\"页面中的导出现有Snapshot副本条目的屏幕截图。"]
 
-只需选择是否要导出现有Snapshot副本、然后单击*应用*即可。
+. 选择是否要导出现有Snapshot副本。
+. 选择 * 应用 * 。
+
 
 
 
@@ -95,6 +110,38 @@ image:screenshot_backup_edit_export_snapshots.png["\"高级设置\"页面中的�
 
 为任何卷的备份策略选择"每年"备份标签时、创建的Snapshot副本非常大。默认情况下、这些年度快照会在传输到对象存储后自动从源系统中删除。您可以从"年度Snapshot删除"部分更改此默认行为。
 
+.步骤
+. 从 * 卷 * 选项卡中，选择 * 备份设置 * 。
+. 在 _Backup Settings page_ 中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于工作环境、请选择*高级设置*。
+. 在“Advanced Settings”(高级设置)页面中，展开“*每年删除Snapshot”部分。
++
 image:screenshot_backup_edit_yearly_snap_delete.png["\"高级设置\"页面中的\"年度快照\"条目的屏幕截图。"]
 
-如果要在源系统上保留年度快照、请选择*已禁用*并单击*应用*。
+. 选择*Disabled (禁用)*以在源系统上保留每年的快照。
+. 选择 * 应用 * 。
+
+
+
+
+== 启用或禁用计划内勒索软件扫描
+
+默认情况下、计划的勒索软件保护扫描处于启用状态。扫描频率的默认设置为7天。扫描仅在最新的Snapshot副本上进行。您可以使用高级设置页面上的选项对最新Snapshot副本启用或禁用计划的勒索软件扫描。如果启用此功能、则默认情况下每7天执行一次扫描。您可以将该计划更改为天数或周数、也可以将其禁用、从而节省成本。
+
+
+TIP: 启用勒索软件扫描将产生额外费用、具体取决于云提供商。
+
+计划内勒索软件扫描仅对最新的Snapshot副本运行。
+
+如果禁用了计划内勒索软件扫描、您仍然可以执行按需扫描、并且在还原操作期间仍会执行扫描。
+
+请参见 link:task-create-policies-ontap.html["管理策略"] 有关管理实施勒索软件检测的策略的详细信息。
+
+.步骤
+. 从 * 卷 * 选项卡中，选择 * 备份设置 * 。
+. 在 _Backup Settings page_ 中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 对于工作环境、请选择*高级设置*。
+. 在“高级设置”页面中，展开“* Ransy要 扫描*”部分。
+. 选择*计划的勒索软件扫描*。
+. (可选)将每周默认扫描更改为天或周。
+. 设置扫描运行频率(以天或周为单位)。
+. 选择 * 应用 * 。
+

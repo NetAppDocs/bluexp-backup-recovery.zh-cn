@@ -20,7 +20,7 @@ summary: 您可以使用NetApp提供的默认备份策略创建备份、也可�
 
 要了解所提供的默认备份策略、请参见 link:concept-protection-journey.html["规划您的保护之旅"]。
 
-BlueXP备份和恢复提供了三种类型的ONTAP数据备份：快照、复制以及备份到对象存储。根据您使用的架构和备份类型、它们的策略驻留在不同的位置：
+BlueXP备份和恢复提供了三种类型的ONTAP数据备份：快照、复制以及备份到对象存储。根据您使用的架构和备份类型、它们的策略位于不同位置：
 
 [cols="25,25,25,25"]
 |===
@@ -62,7 +62,18 @@ image:screenshot_policies_management.png["策略管理页面"]
 
 
 
-== 在启动Snapshot之前创建Snapshot策略
+== 创建策略
+
+您可以创建策略来管理到对象存储的Snapshot副本、复制和备份：
+
+* <<在启动Snapshot之前创建Snapshot策略>>
+* <<在启动复制之前创建复制策略>>
+* <<在启动备份之前、创建备份到对象存储策略>>
+
+
+
+
+=== 在启动Snapshot之前创建Snapshot策略
 
 3-2-1策略的一部分涉及在*主*存储系统上创建卷的Snapshot副本。
 
@@ -88,9 +99,7 @@ image:screenshot_policies_management.png["策略管理页面"]
 . 选择 * 创建 * 。
 
 
-
-
-=== 使用级联架构的Snapshot策略示例
+*使用级联架构的Snapshot策略示例*
 
 以下示例将创建一个包含两个集群的Snapshot策略：
 
@@ -112,7 +121,7 @@ image:screenshot_policies_management.png["策略管理页面"]
 
 
 
-== 在启动复制之前创建复制策略
+=== 在启动复制之前创建复制策略
 
 3-2-1策略可能包括复制其他存储系统上的卷。复制策略驻留在*二级*存储系统上。
 
@@ -126,7 +135,7 @@ image:screenshot_policies_management.png["策略管理页面"]
 
 
 
-== 在启动备份之前、创建备份到对象存储策略
+=== 在启动备份之前、创建备份到对象存储策略
 
 3-2-1策略可能包括将卷备份到对象存储。
 

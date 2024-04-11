@@ -4,7 +4,7 @@ permalink: concept-cloud-backup-policies.html
 keywords: backing up, back up, backup, back up volumes, cloud backup, backup policies, policies, schedules 
 summary: 通过BlueXP备份和恢复、您可以为内部ONTAP 和Cloud Volumes ONTAP 系统创建具有各种配置设置的备份策略。 
 ---
-= BlueXP备份和恢复策略配置设置
+= 备份到对象策略选项
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,14 +14,14 @@ summary: 通过BlueXP备份和恢复、您可以为内部ONTAP 和Cloud Volumes 
 
 
 [role="lead"]
-通过BlueXP备份和恢复、您可以为内部ONTAP 和Cloud Volumes ONTAP 系统创建具有各种配置设置的备份策略。
+通过BlueXP备份和恢复、您可以为您的ONTAP和Cloud Volumes ONTAP系统创建具有各种设置的备份策略。
 
 
 NOTE: 这些策略设置仅与备份到对象存储相关。这些设置均不会影响您的Snapshot或复制策略。将来会为快照和复制添加类似的策略设置。
 
 
 
-== 备份计划
+== 备份计划选项
 
 通过BlueXP备份和恢复功能、您可以为每个工作环境(集群)创建多个备份策略、并为其创建唯一的计划。您可以为具有不同恢复点目标(RPO)的卷分配不同的备份策略。
 
@@ -52,7 +52,7 @@ image:screenshot_backup_schedule_settings.png["创建备份策略时的备份计
 
 
 
-== DataLock和勒索软件保护
+== DataLock和Ransam用 保护选项
 
 BlueXP备份和恢复支持为卷备份提供DataLock和勒索软件保护。通过这些功能、您可以锁定备份文件并对其进行扫描、以检测备份文件上可能存在的勒索软件。这是一个可选设置、当您希望为集群的卷备份提供额外保护时、可以在备份策略中定义此设置。
 
@@ -64,8 +64,8 @@ https://bluexp.netapp.com/blog/cbs-blg-the-bluexp-feature-that-protects-backups-
 
 [CAUTION]
 ====
-* 如果您计划使用DataLock和勒索软件保护、则必须在创建第一个备份策略并为该集群激活BlueXP备份和恢复时启用它。
-* 配置集群后、无法为其禁用DataLock和勒索软件保护。请勿在集群上启用此功能以试用。
+* 如果您计划使用DataLock和防兰软件保护、则可以在创建第一个备份策略并为该集群激活BlueXP备份和恢复时启用它。您可以稍后使用BlueXP备份和恢复高级设置来启用它。
+* 配置集群以节省成本后、可以对其禁用DataLock和防抱死软件保护。
 * 如果BlueXP在还原卷数据时扫描备份文件中的勒索软件、则您将承担云提供商为访问备份文件内容而支付的额外传出成本。
 
 
@@ -96,7 +96,10 @@ DataLock可保护您的备份文件在一段时间内不会被修改或删除、
 
 勒索软件扫描在备份和还原过程的3个时间点进行：
 
-* 创建备份文件时
+* 创建备份文件时。
++
+您可以选择启用或禁用计划内勒索软件扫描。
+
 +
 首次将备份文件写入云存储时、不会对该备份文件执行扫描、而是在写入*下一个*备份文件时执行扫描。例如、如果为星期二设置了每周备份计划、则在星期二14创建备份。然后、在星期二21日创建另一个备份。此时、勒索软件扫描将从14号开始对备份文件运行。
 
@@ -112,11 +115,15 @@ DataLock可保护您的备份文件在一段时间内不会被修改或删除、
 
 
 
-=== DataLock和勒索软件保护设置
+=== DataLock和防兰索保护选项
 
 每个备份策略都为_DataLock和勒索软件保护_提供了一个部分、您可以将其应用于备份文件。
 
 image:screenshot_datalock_ransomware_settings.png["创建备份策略时AWS、Azure和StorageGRID 的DataLock和勒索软件保护设置的屏幕截图。"]
+
+默认情况下、计划的勒索软件保护扫描处于启用状态。扫描频率的默认设置为7天。扫描仅在最新的Snapshot副本上进行。您可以使用高级设置页面上的选项对最新Snapshot副本启用或禁用计划的勒索软件扫描。如果启用此功能、则默认情况下每7天执行一次扫描。您可以将该计划更改为天数或周数、也可以将其禁用、从而节省成本。
+
+请参见 link:manage-backup-settings-ontap.html["如何在"高级设置"页面中更新"反向软件"保护选项"]。
 
 您可以为每个备份策略选择以下设置：
 
@@ -209,6 +216,9 @@ ifdef::aws[]
 ** 连接器可以部署在云中或内部环境中
 ** 以下S3权限必须属于为Connector提供权限的IAM角色。它们位于资源"arn：AWS：s3：：：：netapp-backup-*"的"backupS3Policy"部分中：
 +
+.AWS S3权限
+[%collapsible]
+====
 *** S3 ： GetObjectVersionTagging
 *** S3 ： GetBucketObjectLockConfiguration
 *** S3：GetObjectVersionAcl
@@ -235,10 +245,11 @@ ifdef::aws[]
 *** S3 ： PutObjectRetention
 *** S3 ： GetBucketLocation
 *** S3 ： GetObjectVersion
+
+
+====
 +
 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-aws.html["查看策略的完整JSON格式、在此可以复制和粘贴所需权限"^]。
-
-
 
 
 
@@ -265,6 +276,9 @@ endif::azure[]
 ** 连接器必须部署在您的内部环境中(可以安装在可访问Internet或不可访问Internet的站点中)
 ** 以下S3权限必须属于为Connector提供权限的IAM角色：
 +
+.StorageGRID S3权限
+[%collapsible]
+====
 *** S3 ： GetObjectVersionTagging
 *** S3 ： GetBucketObjectLockConfiguration
 *** S3：GetObjectVersionAcl
@@ -292,6 +306,7 @@ endif::azure[]
 *** S3 ： GetObjectVersion
 
 
+====
 
 
 
@@ -304,13 +319,13 @@ endif::azure[]
 * 激活BlueXP备份和恢复时选择的DataLock选项必须用于该集群的所有备份策略。
 * 不能在一个集群上使用多个DataLock模式。
 * 如果启用DataLock、则所有卷备份都将被锁定。不能在一个集群中混用锁定卷备份和非锁定卷备份。
-* DataLock和勒索软件保护适用于使用启用了DataLock和勒索软件保护的备份策略的新卷备份。激活BlueXP备份和恢复后、您无法启用此功能。
+* DataLock和勒索软件保护适用于使用启用了DataLock和勒索软件保护的备份策略的新卷备份。您可以稍后使用高级设置选项启用或禁用此功能。
 * 只有在使用ONTAP 9.13.1或更高版本时、FlexGroup卷才能使用DataLock和防抱死软件保护。
 
 
 
 
-== 归档存储设置
+== 归档存储选项
 
 使用AWS、Azure或Google云存储时、您可以在一段时间后将旧备份文件移至成本较低的归档存储类或访问层。您还可以选择立即将备份文件发送到归档存储、而不将其写入标准云存储。只需输入*0*作为"Archive after days"(天数后归档)，即可将备份文件直接发送到归档存储。对于很少需要从云备份访问数据的用户或要将备份替换为磁带解决方案的用户来说、这一点尤其有用。
 

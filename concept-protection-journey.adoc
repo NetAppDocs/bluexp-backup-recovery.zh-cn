@@ -60,9 +60,7 @@ image:diagram-321-overview.png["此图显示了备份文件如何作为Snapshot�
 
 NOTE: 在初始创建复制的卷或备份文件时、会包含源数据的完整副本、这称为_baseline传输_。后续传输仅包含源数据(Snapshot)的差异副本。
 
-
-
-=== 不同备份方法的比较
+*不同备份方法的比较*
 
 下表显示了这三种备份方法的总体比较。虽然对象存储空间通常比内部磁盘存储成本更低、但如果您认为可能会频繁地从云中还原数据、则云提供商的出口费用可以减少您的部分节省。您需要确定需要从云中的备份文件恢复数据的频率。
 
@@ -95,9 +93,7 @@ image:diagram-321-fanout-detailed.png["显示如何使用卷的Snapshot副本创
 
 image:diagram-321-cascade-detailed.png["显示如何使用卷的Snapshot副本创建和更新复制的卷和备份文件的示意图。"]
 
-
-
-=== 不同架构选项的比较
+*不同架构选项的比较*
 
 下表对扇出架构和级联架构进行了比较。
 
@@ -113,7 +109,7 @@ image:diagram-321-cascade-detailed.png["显示如何使用卷的Snapshot副本�
 |===
 
 
-== 是否会对Snapshot副本、复制和备份使用默认备份策略
+== 是否会对Snapshot副本、复制和备份使用默认策略
 
 您可以使用NetApp提供的默认策略创建备份、也可以创建自定义策略。使用激活向导为卷启用备份和恢复服务时、您可以从默认策略以及工作环境(Cloud Volumes ONTAP或内部ONTAP系统)中已存在的任何其他策略中进行选择。如果要使用与现有策略不同的策略、可以在启动之前或使用激活向导时创建此策略。
 
@@ -124,7 +120,9 @@ image:diagram-321-cascade-detailed.png["显示如何使用卷的Snapshot副本�
 
 如果您为复制或备份创建自定义策略、则策略标签(例如"每日"或"每周")必须与Snapshot策略中的标签匹配、否则不会创建复制的卷和备份文件。
 
-您可以使用BlueXP备份恢复、系统管理器或ONTAP命令行界面(CLI)创建自定义策略。
+您可以在BlueXP备份和恢复UI中创建Snapshot、复制和备份到对象存储策略。请参见一节中的 link:task-manage-backups-ontap.html#add-a-new-backup-policy["正在添加新备份策略"] 了解详细信息。
+
+除了使用BlueXP备份恢复创建自定义策略之外、您还可以使用System Manager或ONTAP命令行界面(CLI)。
 
 https://docs.netapp.com/us-en/ontap/task_dp_configure_snapshot.html["使用System Manager创建Snapshot策略"^]
 https://docs.netapp.com/us-en/ontap/data-protection/create-snapshot-policy-task.html["使用ONTAP命令行界面创建Snapshot策略"^]
@@ -134,8 +132,6 @@ https://docs.netapp.com/us-en/ontap/task_dp_back_up_to_cloud.html#create-a-custo
 https://docs.netapp.com/us-en/ontap-cli-9131/snapmirror-policy-create.html#description["使用ONTAP命令行界面创建备份策略"^]
 
 *注意：*使用System Manager时，选择*异步*作为复制策略的策略类型，然后选择*异步*和*备份到云*作为备份到对象策略。
-
-您可以在BlueXP备份和恢复UI中创建Snapshot、复制和备份到对象存储策略。请参见一节中的 link:task-manage-backups-ontap.html#add-a-new-backup-policy["正在添加新备份策略"] 了解详细信息。
 
 下面列出了几个示例ONTAP命令行界面命令、这些命令可能会在您创建自定义策略时很有用。请注意、您必须使用_admin_ SVM (Storage VM)作为 `<vserver_name>` 在这些命令中。
 
@@ -167,15 +163,14 @@ NOTE: 只有存储策略才能用于备份到云关系。
 
 
 
-=== 我的策略位于何处？
+== 我的策略位于何处？
 
 根据您计划使用的备份架构、备份策略位于不同的位置：扇出或级联。复制策略和备份策略的设计方式不同、因为对两个ONTAP存储系统进行复制并将备份到对象使用存储提供程序作为目标。
 
-Snapshot策略始终驻留在主存储系统上。
+* Snapshot策略始终驻留在主存储系统上。
+* 复制策略始终驻留在二级存储系统上。
+* 备份到对象策略在源卷所在的系统上创建-这是扇出配置的主集群、而级联配置的二级集群。
 
-复制策略始终驻留在二级存储系统上。
-
-在源卷所在的系统上创建对象备份策略—这是扇出配置的主集群、而级联配置的二级集群。
 
 下表显示了这些差异。
 
@@ -210,11 +205,9 @@ Snapshot策略始终驻留在主存储系统上。
 
 *注意：*在StorageGRID系统中创建备份或备份到ONTAP S3时、目前不能使用自己的S3存储分段。
 
-如果您计划使用与"NetApp-backup-xxxxxx"不同的存储分段前缀、则需要修改连接器IAM角色的S3权限。有关详细信息、请参见有关创建备份到AWS S3的主题。
+如果您计划使用与"NetApp-backup-xxxxxx"不同的存储分段前缀、则需要修改连接器IAM角色的S3权限。有关详细信息、请参见如何创建备份到AWS S3。
 
-
-
-=== 高级存储分段设置
+*高级存储分段设置*
 
 如果您计划将较早的备份文件移至归档存储、或者计划启用DataLock和勒索软件保护以锁定备份文件并扫描其是否存在可能的勒索软件、则需要使用特定配置设置创建容器：
 
@@ -247,9 +240,9 @@ https://www.netapp.tv/details/30567["观看此有关BlueXP部署模式的视频"
 
 === 支持具有完全Internet连接的站点
 
-在具有完全Internet连接(也称为"标准模式"或"SaaS模式")的站点中使用BlueXP备份和恢复时、您可以在由BlueXP管理的任何内部ONTAP或Cloud Volumes ONTAP系统上创建复制的卷、 您可以在任何受支持的云提供商的对象存储上创建备份文件。 link:concept-ontap-backup-to-cloud.html#supported-backup-destinations["查看受支持备份目标的完整列表"]。
+如果在具有完全Internet连接(也称为_STERD MODE _或_SaaS MODE _)的站点中使用BlueXP备份和恢复、则您可以在由BlueXP管理的任何内部ONTAP或Cloud Volumes ONTAP系统上创建复制的卷、 您可以在任何受支持的云提供商的对象存储上创建备份文件。 link:concept-ontap-backup-to-cloud.html#supported-backup-destinations["查看受支持备份目标的完整列表"]。
 
-有关有效连接器位置的列表、请参见计划在其中创建备份文件的云提供程序的备份主题。必须在Linux计算机上手动安装连接器或将连接器部署在特定云提供商中、这方面存在一些限制。
+有关有效连接器位置的列表、请参阅计划创建备份文件的云提供程序的以下备份过程之一。必须在Linux计算机上手动安装连接器或将连接器部署在特定云提供商中、这方面存在一些限制。
 
 ifdef::aws[]
 
@@ -283,18 +276,18 @@ endif::gcp[]
 
 === 支持Internet连接有限的站点
 
-BlueXP备份和恢复可在Internet连接受限(也称为"受限模式")的站点中用于备份卷数据。在这种情况下、您需要在受限区域部署BlueXP Connector。
+BlueXP备份和恢复可在Internet连接受限(也称为_Restricted mode__)的站点中用于备份卷数据。在这种情况下、您需要在受限区域部署BlueXP Connector。
 
 ifdef::aws[]
 
-* 您可以将数据从AWS商业区域中安装的Cloud Volumes ONTAP 系统备份到Amazon S3。请参见操作说明 link:task-backup-to-s3.html["将 Cloud Volumes ONTAP 数据备份到 Amazon S3"]。
+* 您可以将数据从AWS商业区域中安装的Cloud Volumes ONTAP 系统备份到Amazon S3。 link:task-backup-to-s3.html["将 Cloud Volumes ONTAP 数据备份到 Amazon S3"]。
 
 
 endif::aws[]
 
 ifdef::azure[]
 
-* 您可以将数据从安装在Azure商业区域的Cloud Volumes ONTAP 系统备份到Azure Blob。请参见操作说明 link:task-backup-to-azure.html["将 Cloud Volumes ONTAP 数据备份到 Azure Blob"]。
+* 您可以将数据从安装在Azure商业区域的Cloud Volumes ONTAP 系统备份到Azure Blob。  link:task-backup-to-azure.html["将 Cloud Volumes ONTAP 数据备份到 Azure Blob"]。
 
 
 endif::azure[]
@@ -303,10 +296,10 @@ endif::azure[]
 
 === 支持无 Internet 连接的站点
 
-在没有Internet连接的站点(也称为"专用模式"或"非公开"站点)中、可以使用BlueXP备份和恢复来备份卷数据。在这种情况下、您需要在同一站点的Linux主机上部署BlueXP Connector。
+BlueXP备份和恢复可在没有Internet连接的站点(也称为_private mode_or _dark站点)中用于备份卷数据。在这种情况下、您需要在同一站点的Linux主机上部署BlueXP Connector。
 
-* 您可以将本地内部ONTAP 系统中的数据备份到本地NetApp StorageGRID 系统。请参见操作说明 link:task-backup-onprem-private-cloud.html["将内部 ONTAP 数据备份到 StorageGRID"] 了解详细信息。
-* 您可以将本地内部ONTAP系统中的数据备份到本地内部ONTAP系统或为S3对象存储配置的Cloud Volumes ONTAP系统。请参见操作说明 link:task-backup-onprem-to-ontap-s3.html["将内部ONTAP数据备份到ONTAP S3"] 了解详细信息。
+* 您可以将本地内部ONTAP 系统中的数据备份到本地NetApp StorageGRID 系统。  link:task-backup-onprem-private-cloud.html["将内部 ONTAP 数据备份到 StorageGRID"]。
+* 您可以将本地内部ONTAP系统中的数据备份到本地内部ONTAP系统或为S3对象存储配置的Cloud Volumes ONTAP系统。 link:task-backup-onprem-to-ontap-s3.html["将内部ONTAP数据备份到ONTAP S3"]。
 ifdef：：AWS。
 
 
