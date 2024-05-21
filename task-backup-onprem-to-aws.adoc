@@ -442,9 +442,9 @@ link:concept-protection-journey.html#do-you-want-to-create-your-own-object-stora
 
 === 使用VPC端点接口为系统配置专用连接
 
-如果您要使用标准公有 Internet连接、则所有权限均由Connector设置、无需执行任何其他操作。此类型的连接如中所示 link:task-backup-onprem-to-aws.html#network-diagrams-for-connection-options["第一个图"]。
+如果您要使用标准公有 Internet连接、则所有权限均由Connector设置、无需执行任何其他操作。此类型的连接如中所示 link:task-backup-onprem-to-aws.html#identify-the-connection-method["第一个图"]。
 
-如果您希望通过Internet从内部数据中心到VPC建立更安全的连接、可以在备份激活向导中选择AWS PrivateLink连接。如果您计划使用VPN或AWS Direct Connect通过使用专用IP地址的VPC端点接口连接内部系统、则必须使用此功能。此类型的连接如中所示 link:task-backup-onprem-to-aws.html#network-diagrams-for-connection-options["第二个图"]。
+如果您希望通过Internet从内部数据中心到VPC建立更安全的连接、可以在备份激活向导中选择AWS PrivateLink连接。如果您计划使用VPN或AWS Direct Connect通过使用专用IP地址的VPC端点接口连接内部系统、则必须使用此功能。此类型的连接如中所示 link:task-backup-onprem-to-aws.html#identify-the-connection-method["第二个图"]。
 
 .步骤
 . 使用 Amazon VPC 控制台或命令行创建接口端点配置。 https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html["请参见有关使用适用于Amazon S3的AWS PrivateLink的详细信息"^]。

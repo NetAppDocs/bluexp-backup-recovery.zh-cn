@@ -92,9 +92,9 @@ image:screenshot_restore_dashboard.png["\" 还原信息板 \" 显示了使用 \"
 
 请参见要使用的还原操作类型的要求和还原步骤：
 
-* <<Restoring volumes using Browse & Restore,使用浏览和放大功能还原卷；还原>>
-* <<Restoring folders and files using Browse & Restore,使用浏览和放大功能还原文件夹和文件；还原>>
-* <<Restoring ONTAP data using Search & Restore,使用Search  amp；Restore还原卷、文件夹和文件
+* <<使用浏览和放大功能还原卷；还原,使用浏览和放大功能还原卷；还原>>
+* <<使用浏览和放大功能还原文件夹和文件；还原,使用浏览和放大功能还原文件夹和文件；还原>>
+* <<restore-ontap-data-using-search-restore,使用Search  amp；Restore还原卷、文件夹和文件
 
 
 
@@ -303,19 +303,19 @@ ifdef::aws[]
 
 
 
-link:reference-aws-backup-tiers.html#restoring-data-from-archival-storage["了解有关从 AWS 归档存储还原的更多信息"]。
+link:reference-aws-backup-tiers.html#restore-data-from-archival-storage["了解有关从 AWS 归档存储还原的更多信息"]。
 
 endif::aws[]
 
 ifdef::azure[]
 
-link:reference-azure-backup-tiers.html#restoring-data-from-archival-storage["了解有关从 Azure 归档存储还原的更多信息"]。
+link:reference-azure-backup-tiers.html#restore-data-from-archival-storage["了解有关从 Azure 归档存储还原的更多信息"]。
 
 endif::azure[]
 
 ifdef::gcp[]
 
-link:reference-google-backup-tiers.html#restoring-data-from-archival-storage["了解有关从Google归档存储还原的更多信息"]。Google Archive存储层中的备份文件几乎会立即还原、并且不需要"还原"优先级。
+link:reference-google-backup-tiers.html#restore-data-from-archival-storage["了解有关从Google归档存储还原的更多信息"]。Google Archive存储层中的备份文件几乎会立即还原、并且不需要"还原"优先级。
 
 endif::gcp[]
 
@@ -411,19 +411,19 @@ ifdef::aws[]
 
 
 
-link:reference-aws-backup-tiers.html#restoring-data-from-archival-storage["了解有关从 AWS 归档存储还原的更多信息"]。
+link:reference-aws-backup-tiers.html#restore-data-from-archival-storage["了解有关从 AWS 归档存储还原的更多信息"]。
 
 endif::aws[]
 
 ifdef::azure[]
 
-link:reference-azure-backup-tiers.html#restoring-data-from-archival-storage["了解有关从 Azure 归档存储还原的更多信息"]。
+link:reference-azure-backup-tiers.html#restore-data-from-archival-storage["了解有关从 Azure 归档存储还原的更多信息"]。
 
 endif::azure[]
 
 ifdef::gcp[]
 
-link:reference-google-backup-tiers.html#restoring-data-from-archival-storage["了解有关从Google归档存储还原的更多信息"]。Google Archive存储层中的备份文件几乎会立即还原、并且不需要"还原"优先级。
+link:reference-google-backup-tiers.html#restore-data-from-archival-storage["了解有关从Google归档存储还原的更多信息"]。Google Archive存储层中的备份文件几乎会立即还原、并且不需要"还原"优先级。
 
 endif::gcp[]
 
@@ -500,7 +500,7 @@ image:screenshot_restore_select_dest.png["为要还原的文件选择卷和文�
 
 
 
-== 使用搜索和还原还原 ONTAP 数据
+== 使用搜索和还原还原ONTAP数据
 
 您可以使用搜索和还原从ONTAP 备份文件还原卷、文件夹或文件。使用搜索和还原可以从所有备份中搜索特定卷、文件夹或文件、然后执行还原。您不需要知道确切的工作环境名称、卷名称或文件名、搜索将查找所有卷备份文件。
 
@@ -754,7 +754,7 @@ image:screenshot_restore_enable_indexing.png["显示已激活索引目录的工�
 
 === 使用Search & amp；Restore还原卷、文件夹和文件
 
-你先请 <<Enabling the Indexed Catalog for each working environment,已为您的工作环境启用索引编制>>、您可以使用搜索和还原还原来还原卷、文件夹和文件。这样，您就可以使用多种筛选器来查找要从所有备份文件还原的确切文件或卷。
+你先请 <<enable-the-indexed-catalog-for-each-working-environment,已为您的工作环境启用索引编制>>、您可以使用搜索和还原还原来还原卷、文件夹和文件。这样，您就可以使用多种筛选器来查找要从所有备份文件还原的确切文件或卷。
 
 .步骤
 . 从BlueXP菜单中、选择*保护>备份和恢复*。

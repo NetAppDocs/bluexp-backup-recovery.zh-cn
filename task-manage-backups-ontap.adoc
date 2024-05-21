@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: task-manage-backups-ontap.html 
-keywords: cloud backup, cloud backup service, backup schedule, change schedule, change backup schedule, modify schedule, modify backup schedule, retention, backup retention, delete, delete backups, deleting, deleting backups, disable, disable backups, turn off backups, disable cloud backup, turn off cloud backup 
+keywords: cloud backup, cloud backup service, backup schedule, change schedule, change backup schedule, modify schedule, modify backup schedule, retention, backup retention, delete, delete backups, deleting, deleting backups, disable, disable backups, turn off backups, disable cloud backup, turn off cloud backup, bluexp 
 summary: 您可以通过更改备份计划、创建新备份策略、启用/禁用卷备份、暂停备份、删除备份等方式来管理Cloud Volumes ONTAP 和内部ONTAP 系统的备份。这包括所有类型的备份、包括Snapshot副本、复制的卷以及对象存储中的备份文件。 
 ---
 = 管理ONTAP系统的备份
@@ -136,7 +136,7 @@ image:screenshot_manage_backup_settings.png["屏幕截图、其中显示了在�
 
 备份名称包含时间戳，以便您可以从其他计划的备份中确定按需备份。
 
-如果在为此集群激活BlueXP备份和恢复时启用了_DataLock和勒索软件保护_、则按需备份也会配置DataLock、保留期限为30天。临时备份不支持勒索软件扫描。 link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["了解有关DataLock和勒索软件保护的更多信息"^]。
+如果在为此集群激活BlueXP备份和恢复时启用了_DataLock和勒索软件保护_、则按需备份也会配置DataLock、保留期限为30天。临时备份不支持勒索软件扫描。 link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection-options["了解有关DataLock和勒索软件保护的更多信息"^]。
 
 请注意、在创建临时备份时、系统会在源卷上创建Snapshot。由于此Snapshot不属于正常的Snapshot计划、因此不会关闭它。备份完成后、您可能需要从源卷中手动删除此Snapshot。这样可以释放与此Snapshot相关的块。Snapshot的名称将以`CBS-snapshot-adoc-`开头。 https://docs.netapp.com/us-en/ontap/san-admin/delete-all-existing-snapshot-copies-volume-task.html["请参见如何使用ONTAP 命令行界面删除快照"^]。
 
@@ -323,7 +323,7 @@ endif::gcp[]
 
 在为工作环境启用BlueXP备份和恢复时、您最初选择的所有卷都会使用您定义的默认备份策略进行备份。如果要为具有不同恢复点目标（ RPO ）的某些卷分配不同的备份策略，您可以为该集群创建其他策略并将这些策略分配给其他卷。
 
-如果要对工作环境中的某些卷应用新的备份策略，则首先需要将备份策略添加到工作环境中。然后，您可以 <<Changing the policy assigned to existing volumes,将此策略应用于该工作环境中的卷>>。
+如果要对工作环境中的某些卷应用新的备份策略，则首先需要将备份策略添加到工作环境中。然后，您可以 <<更改分配给现有卷的备份设置,将此策略应用于该工作环境中的卷>>。
 
 [NOTE]
 ====
@@ -390,7 +390,7 @@ CAUTION: 如果您计划删除具有备份的工作环境或集群，则必须�
 
 === 删除工作环境中的所有备份文件
 
-删除工作环境中对象存储上的所有备份不会禁用此工作环境中未来的卷备份。如果要停止在工作环境中创建所有卷的备份，可以停用备份 <<Deactivating BlueXP backup and recovery for a working environment,如此处所述>>。
+删除工作环境中对象存储上的所有备份不会禁用此工作环境中未来的卷备份。如果要停止在工作环境中创建所有卷的备份，可以停用备份 <<为工作环境停用BlueXP备份和恢复,如此处所述>>。
 
 请注意、此操作不会影响Snapshot副本或复制的卷—这些类型的备份文件不会被删除。
 
@@ -449,7 +449,7 @@ image:screenshot_delete_one_backup.png["显示如何删除单个备份文件的�
 您不能从BlueXP备份和恢复用户界面中删除源卷。但是、您可以在"画布"、和上打开"卷详细信息"页面 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-volumes.html#manage-volumes["从该位置删除卷"]。
 
 
-NOTE: 删除关系后、您无法删除单个卷备份文件。但是、您可以 link:task-manage-backups-ontap.html#deleting-all-backup-files-for-a-volume["删除卷的所有备份"] 如果要删除所有备份文件。
+NOTE: 删除关系后、您无法删除单个卷备份文件。但是、您可以删除卷的所有备份。
 
 .步骤
 . 从 * 卷 * 选项卡中，单击 image:screenshot_horizontal_more_button.gif["更多图标"] 并选择*备份*>*删除关系*。
@@ -464,7 +464,7 @@ image:screenshot_delete_relationship_single.png["显示如何删除单个卷的�
 
 停用工作环境的BlueXP备份和恢复会禁用系统上每个卷的备份、同时也会禁用卷还原功能。不会删除任何现有备份。这样不会从此工作环境中取消注册备份服务—它基本上允许您将所有备份和还原活动暂停一段时间。
 
-请注意，除非您的备份使用的容量，否则云提供商会继续向您收取对象存储成本 <<删除工作环境中的所有备份文件,删除备份>>。
+请注意，除非您的备份使用的容量，否则云提供商会继续向您收取对象存储成本 <<删除备份,删除备份>>。
 
 .步骤
 . 从 * 卷 * 选项卡中，选择 * 备份设置 * 。

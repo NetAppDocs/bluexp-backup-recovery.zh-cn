@@ -64,7 +64,7 @@ NOTE: 在初始创建复制的卷或备份文件时、会包含源数据的完�
 
 下表显示了这三种备份方法的总体比较。虽然对象存储空间通常比内部磁盘存储成本更低、但如果您认为可能会频繁地从云中还原数据、则云提供商的出口费用可以减少您的部分节省。您需要确定需要从云中的备份文件恢复数据的频率。
 
-除了此标准之外、如果您使用DataLock和防兰索防备份功能、云存储还提供了其他安全选项、并通过为较早的备份文件选择归档存储类来节省更多成本。 link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["了解有关DataLock和勒索软件保护的更多信息"] 和 link:concept-cloud-backup-policies.html#archival-storage-settings["归档存储设置"]。
+除了此标准之外、如果您使用DataLock和防兰索防备份功能、云存储还提供了其他安全选项、并通过为较早的备份文件选择归档存储类来节省更多成本。 link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection-options["了解有关DataLock和勒索软件保护的更多信息"] 和 link:concept-cloud-backup-policies.html#archival-storage-options["归档存储设置"]。
 
 [cols="18,18,22,18,22"]
 |===
@@ -120,7 +120,7 @@ image:diagram-321-cascade-detailed.png["显示如何使用卷的Snapshot副本�
 
 如果您为复制或备份创建自定义策略、则策略标签(例如"每日"或"每周")必须与Snapshot策略中的标签匹配、否则不会创建复制的卷和备份文件。
 
-您可以在BlueXP备份和恢复UI中创建Snapshot、复制和备份到对象存储策略。请参见一节中的 link:task-manage-backups-ontap.html#add-a-new-backup-policy["正在添加新备份策略"] 了解详细信息。
+您可以在BlueXP备份和恢复UI中创建Snapshot、复制和备份到对象存储策略。请参见一节中的 link:task-manage-backups-ontap.html#add-a-new-backup-to-cloud-policy["正在添加新备份策略"] 了解详细信息。
 
 除了使用BlueXP备份恢复创建自定义策略之外、您还可以使用System Manager或ONTAP命令行界面(CLI)。
 

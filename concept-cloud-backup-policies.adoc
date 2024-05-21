@@ -399,4 +399,5 @@ ifdef::azure[]
 
 endif::azure[]
 
-+link:task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage["了解有关从StorageGRID 归档备份文件的更多信息"^]。
++
+link:task-backup-onprem-private-cloud.html#prepare-to-archive-older-backup-files-to-public-cloud-storage["了解有关从StorageGRID 归档备份文件的更多信息"^]。

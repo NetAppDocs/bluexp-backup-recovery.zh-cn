@@ -58,7 +58,7 @@ NOTE: "内部ONTAP系统"包括FAS、AFF和ONTAP Select系统。
 为Connector设置创建和管理Google Cloud分段的权限。您还需要为内部ONTAP集群设置权限、以便它可以读取数据并将数据写入Google Cloud存储分段。
 
 [role="quick-margin-para"]
-您也可以选择设置自己的自定义托管密钥来进行数据加密、而不是使用默认的Google Cloud加密密钥。 <<Prepare Google Cloud as your backup target,了解如何让您的Google Cloud环境做好接收ONTAP备份的准备。>>
+您也可以选择设置自己的自定义托管密钥来进行数据加密、而不是使用默认的Google Cloud加密密钥。 <<Prepare Google Cloud storage as your backup target,了解如何让您的Google Cloud环境做好接收ONTAP备份的准备。>>
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["六个"] 激活ONTAP卷上的备份
 [role="quick-margin-para"]

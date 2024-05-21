@@ -241,7 +241,7 @@ link:concept-protection-journey.html#do-you-want-to-create-your-own-object-stora
 请参见 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-deploying-otc-azure.html["在 Azure 中启动 Cloud Volumes ONTAP"^] 有关创建 Cloud Volumes ONTAP 系统的要求和详细信息，请参见。
 
 
-NOTE: 如果要选择资源组的名称、请在部署Cloud Volumes ONTAP 时*禁用* BlueXP备份和恢复。按照的步骤进行操作 <<enabling-bluexp-backup-and-recovery-on-an-existing-system,在现有系统上启用BlueXP备份和恢复>> 要启用BlueXP备份和恢复、请选择资源组。
+NOTE: 如果要选择资源组的名称、请在部署Cloud Volumes ONTAP 时*禁用* BlueXP备份和恢复。按照的步骤进行操作 <<enable-bluexp-backup-and-recovery-on-cloud-volumes-ontap,在现有系统上启用BlueXP备份和恢复>> 要启用BlueXP备份和恢复、请选择资源组。
 
 .步骤
 . 从BlueXP Canvas中、选择*添加工作环境*、选择云提供程序、然后选择*添加新*。选择*创建Cloud Volumes ONTAP。

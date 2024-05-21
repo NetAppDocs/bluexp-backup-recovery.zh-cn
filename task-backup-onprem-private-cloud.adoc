@@ -480,7 +480,7 @@ TIP: 要在激活备份之前创建自定义策略、请参见 link:task-create-
 
 
 +
-如果集群使用的是ONTAP 9.12.1或更高版本、而StorageGRID 系统使用的是版本11.4或更高版本、则可以选择在一定天数后将较早的备份分层到公共云归档层。目前支持AWS S3 Glacer/S3 Glacier深度归档或Azure归档存储层。 <<Preparing to archive older backup files to public cloud storage,了解如何为此功能配置系统>>。
+如果集群使用的是ONTAP 9.12.1或更高版本、而StorageGRID 系统使用的是版本11.4或更高版本、则可以选择在一定天数后将较早的备份分层到公共云归档层。目前支持AWS S3 Glacer/S3 Glacier深度归档或Azure归档存储层。 <<准备将旧备份文件归档到公共云存储,了解如何为此功能配置系统>>。
 
 +
 ** *将备份分层到公共云*：选择要将备份分层到的云提供商并输入提供商详细信息。

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: whats-new.html 
-keywords: 'what"s new, features, new, release notes, bugs, limitations, known issues, enhancements, fixes, backup, restore' 
+keywords: 'what"s new, features, new, release notes, bugs, limitations, known issues, enhancements, fixes, backup, restore, bluexp, bluexp backup and recovery' 
 summary: 了解BlueXP备份和恢复的新增功能。 
 ---
 = BlueXP备份和恢复的新增功能
@@ -15,6 +15,24 @@ summary: 了解BlueXP备份和恢复的新增功能。
 
 [role="lead"]
 了解BlueXP备份和恢复的新增功能。
+
+
+
+== 2024年5月17日
+
+
+
+=== 对内部连接器使用RHEL 8和RHEL 9时的限制
+
+对于在RHEL 8或9主机上手动安装Connector软件的任何操作、BlueXP Connector 3.9.40支持Red Hat Enterprise Linux版本8和9的某些版本、而不考虑中所述的操作系统位于何处 https://docs.netapp.com/us-en/bluexp-setup-admin/task-prepare-private-mode.html#step-3-review-host-requirements["主机要求"^]。这些较新的RHEL版本需要使用Podman引擎、而不是Docker引擎。目前、使用Podman引擎时、BlueXP备份和恢复存在两个限制。
+
+请参见 https://docs.netapp.com/us-en/bluexp-backup-recovery/reference-limitations.html["备份和还原限制"] 了解详细信息。
+
+以下过程包括新的Podman说明：
+
+* https://docs.netapp.com/us-en/bluexp-backup-recovery/reference-restart-backup.html["重新启动BlueXP备份和恢复"]
+* https://docs.netapp.com/us-en/bluexp-backup-recovery/reference-backup-cbs-db-in-dark-site.html["在非公开站点中还原BlueXP备份和恢复数据"]
+
 
 
 

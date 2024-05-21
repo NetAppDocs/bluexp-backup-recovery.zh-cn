@@ -32,7 +32,7 @@ link:concept-ontap-backup-to-cloud.html#cost["详细了解与使用BlueXP备份�
 
 如果您在云提供商的市场中注册"按需购买"订阅、则可以获得BlueXP备份和恢复30天免费试用版。免费试用将在您订阅市场列表时开始。请注意、如果您在部署Cloud Volumes ONTAP系统时支付市场订阅费用、然后在10天后开始BlueXP备份和恢复免费试用、则您还可以在20天内使用免费试用。
 
-免费试用结束后、您将自动切换到PAYGO订阅、不会中断。如果您决定不继续使用BlueXP备份和恢复、只需执行以下操作即可 link:task-manage-backups-ontap.html#unregistering-bluexp-backup-and-recovery-for-a-working-environment["从工作环境中取消注册BlueXP备份和恢复"] 在试用结束之前、您不会收到任何费用。
+免费试用结束后、您将自动切换到PAYGO订阅、不会中断。如果您决定不继续使用BlueXP备份和恢复、只需执行以下操作即可 link:task-manage-backups-ontap.html#unregister-bluexp-backup-and-recovery-for-a-working-environment["从工作环境中取消注册BlueXP备份和恢复"] 在试用结束之前、您不会收到任何费用。
 
 
 
@@ -213,7 +213,7 @@ BlueXP添加了许可证、以便BlueXP备份和恢复处于活动状态。
 
 === 更新BlueXP备份和恢复BYOL许可证
 
-如果您的许可期限即将到期，或者您的许可容量即将达到限制，您将在备份 UI 中收到通知。此状态也会显示在BlueXP数字钱包页面和中 https://docs.netapp.com/us-en/bluexp-setup-admin/task-monitor-cm-operations.html#monitoring-operations-status-using-the-notification-center["通知"]。
+如果您的许可期限即将到期，或者您的许可容量即将达到限制，您将在备份 UI 中收到通知。此状态也会显示在BlueXP数字钱包页面和中 https://docs.netapp.com/us-en/bluexp-setup-admin/task-monitor-cm-operations.html#monitor-operations-status-using-the-notification-center["通知"]。
 
 image:screenshot_services_license_expire.png["在BlueXP数字钱包页面中显示即将到期的许可证的屏幕截图。"]
 

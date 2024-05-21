@@ -363,7 +363,7 @@ endif::gcp[]
 +
 **在ONTAP S3中，BlueXP使用S3存储分段的现有用户帐户。
 
-如果您希望将来更改集群的目标对象存储，则需要 link:task-manage-backups-ontap.html#unregistering-bluexp-backup-and-recovery-for-a-working-environment["为工作环境取消注册BlueXP备份和恢复"^]、然后使用新的云提供商信息启用BlueXP备份和恢复。
+如果您希望将来更改集群的目标对象存储，则需要 link:task-manage-backups-ontap.html#unregister-bluexp-backup-and-recovery-for-a-working-environment["为工作环境取消注册BlueXP备份和恢复"^]、然后使用新的云提供商信息启用BlueXP备份和恢复。
 
 
 
@@ -378,9 +378,9 @@ NOTE: 应用于卷的Snapshot策略必须具有复制策略和备份到对象策
 
 达到某个类别或时间间隔的最大备份数后、较早的备份将被删除、以便始终拥有最新的备份(并且废弃的备份不会继续占用空间)。
 
-请参见 link:concept-cloud-backup-policies.html#backup-schedules["备份计划"^] 有关如何使用可用计划选项的更多详细信息。
+请参见 link:concept-cloud-backup-policies.html["备份计划"^] 有关如何使用可用计划选项的更多详细信息。
 
-请注意，您可以 link:task-manage-backups-ontap.html#creating-a-manual-volume-backup-at-any-time["创建卷的按需备份"] 除了从计划的备份创建的备份文件之外，还可以随时从备份信息板访问这些备份文件。
+请注意，您可以 link:task-manage-backups-ontap.html#create-a-manual-volume-backup-at-any-time["创建卷的按需备份"] 除了从计划的备份创建的备份文件之外，还可以随时从备份信息板访问这些备份文件。
 
 
 TIP: 数据保护卷备份的保留期限与源 SnapMirror 关系中定义的保留期限相同。您可以根据需要使用 API 更改此设置。
@@ -403,8 +403,8 @@ TIP: 数据保护卷备份的保留期限与源 SnapMirror 关系中定义的保
 
 有关详细信息、请参见以下信息：
 
-* link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["DataLock和防抱死锁保护的工作原理"]。
-* link:manage-backup-settings-ontap.html["如何在"高级设置"页面中更新"反向软件"保护选项"]。
+* link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection-options["DataLock和防抱死锁保护的工作原理"]。
+* link:task-manage-backup-settings-ontap.html["如何在"高级设置"页面中更新"反向软件"保护选项"]。
 
 
 
@@ -448,11 +448,11 @@ endif::gcp[]
 
 * 在 StorageGRID 中，备份与 _Standard_ 存储类关联。
 +
-如果您的内部集群使用的是ONTAP 9.12.1或更高版本、而您的StorageGRID 系统使用的是11.4或更高版本、则可以在一定天数后将旧备份文件归档到公共云归档存储。目前支持AWS S3 Glacer/S3 Glacier深度归档或Azure归档存储层。 link:task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage["了解有关从StorageGRID 归档备份文件的更多信息"^]。
+如果您的内部集群使用的是ONTAP 9.12.1或更高版本、而您的StorageGRID 系统使用的是11.4或更高版本、则可以在一定天数后将旧备份文件归档到公共云归档存储。目前支持AWS S3 Glacer/S3 Glacier深度归档或Azure归档存储层。 link:task-backup-onprem-private-cloud.html#prepare-to-archive-older-backup-files-to-public-cloud-storage["了解有关从StorageGRID 归档备份文件的更多信息"^]。
 
 
 
-请参见 link:concept-cloud-backup-policies.html#archival-storage-settings["归档存储设置"] 有关归档旧备份文件的更多详细信息。
+请参见 link:concept-cloud-backup-policies.html#archival-storage-options["归档存储设置"] 有关归档旧备份文件的更多详细信息。
 
 
 

@@ -152,14 +152,14 @@ image:screenshot_policies_management.png["策略管理页面"]
 . 指定设置、包括传输计划和备份归档时间。
 . (可选)要在一定天数后将较早的备份文件移至成本较低的存储类或访问层、请选择*归档*选项并指示数据归档前应经过的天数。输入*0*作为"Archive after days (天数后的归档)"、将备份文件直接发送到归档存储。
 +
-link:concept-cloud-backup-policies.html#archival-storage-settings["了解有关归档存储设置的更多信息"]。
+link:concept-cloud-backup-policies.html#archival-storage-options["了解有关归档存储设置的更多信息"]。
 
 . (可选)要防止备份被修改或删除、请选择* DataLock & Ransamor prot备 份*选项。
 +
 如果集群使用的是ONTAP 9.11.1或更高版本、则可以选择通过配置_DataLock_和_Ransamor protue_来 防止备份被删除。
 
 +
-link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection["详细了解可用的DataLock设置"^]。
+link:concept-cloud-backup-policies.html#datalock-and-ransomware-protection-options["详细了解可用的DataLock设置"^]。
 
 . 选择 * 创建 * 。
 
