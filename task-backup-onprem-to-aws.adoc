@@ -462,7 +462,7 @@ image:screenshot_backup_aws_sec_group.png["与 Connector 关联的 AWS 安全组
 +
 image:screenshot_endpoint_dns_aws_console.png["AWS 控制台中 VPC 端点的 DNS 名称的屏幕截图。"]
 
-. 从 VPC S3 端点获取证书。您可以通过执行此操作 https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html#connect-to-the-linux-vm["登录到托管BlueXP Connector的虚拟机"^] 并运行以下命令。输入端点的 DNS 名称时，在开头添加 " 分段 " ，替换 "* " ：
+. 从 VPC S3 端点获取证书。您可以通过执行此操作 https://docs.netapp.com/us-en/bluexp-setup-admin/task-maintain-connectors.html#connect-to-the-linux-vm["登录到托管BlueXP Connector的虚拟机"^] 并运行以下命令。输入端点的 DNS 名称时，在开头添加 " 分段 " ，替换 "* " ：
 +
 [source, text]
 ----

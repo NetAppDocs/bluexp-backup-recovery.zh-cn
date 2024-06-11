@@ -2766,7 +2766,6 @@
   <block id="c0b041ab0557d62205d9f7c2fbff6598" category="paragraph"><block ref="1dea076a83901241f0583b1eba278b63" category="inline-link-rx"></block>。</block>
   <block id="b8c4390ff667478ec0b60750dee2c4c7" category="list-text"><block ref="b8c4390ff667478ec0b60750dee2c4c7" category="inline-link-rx"></block></block>
   <block id="c89f481c3b46af99ed7620462173a07c" category="list-text"><block ref="c89f481c3b46af99ed7620462173a07c" category="inline-link-rx"></block></block>
-  <block id="2aeeba0020a7848f7902186fbd8cb9e8" category="list-text"><block ref="2aeeba0020a7848f7902186fbd8cb9e8" category="inline-link-rx"></block></block>
   <block id="f2952cd66b2c1d62b092c2ae5559eabf" category="list-text">您的StorageGRID 必须是<block ref="27661aa20e8b873c50bd0587758b98a1" category="inline-link-rx"></block>。</block>
   <block id="c2e1ae9092ad1a2b4bccebec9b7fbd42" category="list-text">如果您有<block ref="a7e016fe79f350912ccb5dfe261d7ecb" category="inline-link-rx"></block> 或<block ref="d3d508974cb975126e687a6961f332c5" category="inline-link-rx"></block> 在帐户中、索引目录存储在云提供商处、就像部署在云中的Connector一样。(如果您同时拥有这两个凭据、则默认情况下会选择AWS。)</block>
   <block id="fea98b7ef5d8a09fc1a41665820ca44e" category="paragraph">您应在托管数据库的位置创建适用于ONTAP 工作环境的FSX。有关信息、请参见 <block ref="99bdda3a8ebb4e92b4deac45aac1de8f" category="inline-link-macro-rx"></block> 和 <block ref="221c300fec5ef905fe42ac89652a6952" category="inline-link-macro-rx"></block>。</block>
@@ -2780,7 +2779,6 @@
   <block id="c6d0aba5a4df18df97543934ad4a1185" category="list-text"><block ref="c6d0aba5a4df18df97543934ad4a1185" category="inline-link-rx"></block></block>
   <block id="548e6841e3441d35da2414e7a61ba449" category="paragraph">请参见<block ref="d6cf51858c4dc41eb58119fabea29b51" category="inline-link-rx"></block> 有关创建 Cloud Volumes ONTAP 系统的要求和详细信息，请参见。</block>
   <block id="187e15fe582f53b6ed739ea360c9f408" category="list-text">完成向导中的页面以部署系统，如中所述<block ref="d6cf51858c4dc41eb58119fabea29b51" category="inline-link-rx"></block>。</block>
-  <block id="19876dc921287243c303e7c43a14df3f" category="cell">按照的说明进行操作<block ref="814636d53832f91c925bc44c968204b3" category="inline-link-rx"></block> 取决于您使用的云提供商。</block>
   <block id="190883b84e441e0bd227971c892ce575" category="list-text">您已将Kubernetes集群发现为一个BlueXP工作环境。<block ref="7327129ba68875466d1d1f22b67d23f4" category="inline-link-rx"></block>。</block>
   <block id="3c1c17ea503d5e9470f8439096f625f6" category="paragraph">只有在您使用时，才需要执行这些步骤<block ref="677834f72462157379b8c91854842dcc" category="inline-link-rx"></block>。</block>
   <block id="327e32511f0c97676e41ea866aac0721" category="list-text">通过端口443与BlueXP备份和恢复服务以及Google Cloud存储建立HTTPS连接 <block ref="e228b87eff1d3a92b4544cd5652fc5ad" category="inline-link-rx"></block>）</block>
@@ -2817,7 +2815,6 @@
   <block id="c490eac8fe2144e59b599caa7ff364f2" category="list-text">通过端口443与BlueXP备份和恢复服务以及S3对象存储建立HTTPS连接 <block ref="63b337bf4559a585c3373707ecfcc413" category="inline-link-rx"></block>）</block>
   <block id="aa91817c0e1d6a16a1f290ad2357d467" category="list-text">AWS和AWS GovCloud部署需要其他入站和出站安全组规则。请参见<block ref="ed3ada480c52b8e0c09a903c9cf52508" category="inline-link-rx"></block> 了解详细信息。</block>
   <block id="94bf6d31d85a9e7f628b488ba9a25200" category="list-text">确认以下 S3 权限（从最新版本开始）<block ref="d97dc29944250663fe9dd52fa43d79d7" category="inline-link-rx"></block>）是为 Connector 提供权限的 IAM 角色的一部分。如果不是、请参见<block ref="484fb6182b52563a51349e6fb7cb2cb6" category="inline-link-rx"></block>。</block>
-  <block id="a6b673d310713aa4bdd09f8fd19acf66" category="list-text">从 VPC S3 端点获取证书。您可以通过执行此操作<block ref="bee792b855389ef4e6c81f6aa6136d00" category="inline-link-rx"></block> 并运行以下命令。输入端点的 DNS 名称时，在开头添加 " 分段 " ，替换 "* " ：</block>
   <block id="b46213c291fe93c05313fa11bc5d273c" category="paragraph">备份副本与关联<block ref="94ce6f448900468e79b10f5ddbf648fe" category="inline-link-rx"></block> BlueXP Connector所在位置。</block>
   <block id="2bda192204fc86d57a53bf80ec29ad65" category="list-text">通过端口443与BlueXP备份和恢复服务以及Blob对象存储建立HTTPS连接 <block ref="73abec29c95edc01ed78226396cb9d9e" category="inline-link-rx"></block>）</block>
   <block id="586fb4ce14563af75d1816e73c9d868a" category="list-text">Azure和Azure政府部署还需要其他入站安全组规则。请参见<block ref="179e195cc8e81b19d72f9ddb7460e81f" category="inline-link-rx"></block> 了解详细信息。</block>
@@ -2827,7 +2824,6 @@
   <block id="cb6a777dd3c6e43b0dc441d38519d219" category="paragraph"><block ref="cb6a777dd3c6e43b0dc441d38519d219" category="inline-image-macro-rx" type="image"></block></block>
   <block id="e65065c4fd326b9f3a1eeb9453c30d73" category="paragraph"><block ref="e65065c4fd326b9f3a1eeb9453c30d73" category="inline-image-macro-rx" type="image"></block></block>
   <block id="2ea260929e27ffcb623c8aa35689bd18" category="paragraph"><block ref="2ea260929e27ffcb623c8aa35689bd18" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="0736ad21b3bf8224269719357e7aadda" category="paragraph">安装新的BlueXP Connector时、请确保下载的软件版本与原始Connector上安装的软件版本相同。定期更改BlueXP备份和恢复数据库结构可能会使较新的软件版本与原始数据库备份不兼容。您可以<block ref="d1d5d87c9450fbe53d901c1b5aa0b756" category="inline-link-rx"></block>。</block>
   <block id="6c962f0e820a4789f1eba2c1a38f944d" category="list-text"><block ref="6c962f0e820a4789f1eba2c1a38f944d" category="inline-link-rx"></block></block>
   <block id="9859429ce021a771d55011bbad61663d" category="list-text"><block ref="95020d92addc538671ad8a553222768a" category="inline-link-rx"></block>。</block>
   <block id="dd356e8ea63119f95e3666d6db68f47e" category="paragraph">添加与您的ONTAP 工作环境关联的StorageGRID 系统的详细信息、这些详细信息是在使用的原始连接器设置中设置的<block ref="84b7c1fcfbca071b9004578261b65308" category="inline-link-rx"></block>。</block>
@@ -3596,7 +3592,6 @@ Cloud Volumes ONTAP</block>
   <block id="c34e06cffb92365ae6ffa2950eebec86" category="paragraph">如果连接器和内部ONTAP系统安装在无法访问Internet的内部位置("非公开站点")、则StorageGRID系统必须位于同一内部数据中心。在非公开站点配置中、不支持将旧备份文件归档到公共云。</block>
   <block id="090245d8e86ce328b1076df6d6efa387" category="paragraph">将数据备份到StorageGRID时、您的内部环境必须具有BlueXP连接器。您需要安装新的连接器、或者确保当前选定的连接器驻留在内部。无论是否可访问 Internet ，均可将 Connector 安装在站点中。</block>
   <block id="dd61dca07c56e04220c21764b917992f" category="section-title">准备连接器网络连接要求</block>
-  <block id="420f74958ffaef4d8f08ce850e97c52e" category="list-text">BlueXP备份和恢复功能内置在BlueXP Connector中。在私有模式下安装时、您需要定期更新Connector软件才能访问新功能。检查 <block ref="f2b1fe06debcbb7b96badbcb85471310" category="inline-link-macro-rx"></block> 以查看每个BlueXP备份和恢复版本中的新功能。如果要使用这些新功能、请按照步骤执行操作<block ref="164e4794420610da956934de57a9da8a" category="inline-link-rx"></block>。</block>
   <block id="2c4e4b23bf49a867077416ba2dd23a7d" category="list-text">在SaaS环境中使用BlueXP备份和恢复时、BlueXP备份和恢复配置数据会备份到云中。在无法访问Internet的站点中使用BlueXP备份和恢复时、BlueXP备份和恢复配置数据将备份到存储备份的StorageGRID存储分段。如果您的专用模式站点中发生连接器故障、您可以这样做 <block ref="21b30d1009822b1f508f80c6007a3164" category="inline-link-macro-rx"></block>。</block>
   <block id="113b5e7186c305ad07d9c9c046e30198" category="list-text">如果您使用的IP空间与默认IP空间不同、则可能需要创建静态路由才能访问对象存储。</block>
   <block id="08cdeb7ce64fda06111111c8fea66510" category="section-title">准备StorageGRID作为备份目标</block>
@@ -4916,4 +4911,9 @@ ifdef：：AWS。</block>
   <block id="b48f6c0f91c12dc372d780831385f2f3" category="paragraph"><block ref="9cd661f11a3d57e0743695d693a10908" category="inline-link-macro-rx"></block>。Google Archive存储层中的备份文件几乎会立即还原、并且不需要"还原"优先级。</block>
   <block id="8ba7d24c75d9a4c060c33cf7a127b666" category="section-title">使用搜索和还原还原ONTAP数据</block>
   <block id="c3bc11d3bdd05e4f1cbcfd5dcc1639fe" category="paragraph">你先请 <block ref="e49782369984109313e45bc161ecdd2d" category="inline-xref-macro-rx"></block>、您可以使用搜索和还原还原来还原卷、文件夹和文件。这样，您就可以使用多种筛选器来查找要从所有备份文件还原的确切文件或卷。</block>
+  <block id="c6f5c592a27c54c4a47031416aebf062" category="cell">按照的说明进行操作<block ref="571ca7d044081e209bcef30efa5d6ace" category="inline-link-rx"></block> 取决于您使用的云提供商。</block>
+  <block id="a454364b080d416ad203233987bc1148" category="paragraph">安装新的BlueXP Connector时、请确保下载的软件版本与原始Connector上安装的软件版本相同。定期更改BlueXP备份和恢复数据库结构可能会使较新的软件版本与原始数据库备份不兼容。您可以<block ref="2e0a24ee8438c92516f1c39f0bf156f8" category="inline-link-rx"></block>。</block>
+  <block id="df0ff0042be8059301b11ae842882f69" category="list-text"><block ref="df0ff0042be8059301b11ae842882f69" category="inline-link-rx"></block></block>
+  <block id="26a96558efb5aff5b97e24187bdedaaa" category="list-text">BlueXP备份和恢复功能内置在BlueXP Connector中。在私有模式下安装时、您需要定期更新Connector软件才能访问新功能。检查 <block ref="f2b1fe06debcbb7b96badbcb85471310" category="inline-link-macro-rx"></block> 以查看每个BlueXP备份和恢复版本中的新功能。如果要使用这些新功能、请按照步骤执行操作<block ref="2d7f0c488acd05ac12707e13e58fd7d1" category="inline-link-rx"></block>。</block>
+  <block id="8adbc3c324aa6698c29b0a7962b11b00" category="list-text">从 VPC S3 端点获取证书。您可以通过执行此操作<block ref="b93c91598d8e86da04085f6831b06e68" category="inline-link-rx"></block> 并运行以下命令。输入端点的 DNS 名称时，在开头添加 " 分段 " ，替换 "* " ：</block>
 </blocks>
