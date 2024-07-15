@@ -233,8 +233,7 @@ NOTE: 只有存储策略才能用于备份到云关系。
 
 BlueXP提供了多种部署模式、使您能够以满足业务和安全要求的方式使用BlueXP。_Standard mode"利用BlueXP SaaS层提供完整功能、而_restricted mode"和_private mode"则可供具有连接限制的组织使用。
 
-https://docs.netapp.com/us-en/bluexp-setup-admin/concept-modes.html["详细了解BlueXP部署模式"^]。
-https://www.netapp.tv/details/30567["观看此有关BlueXP部署模式的视频"]。
+https://docs.netapp.com/us-en/bluexp-setup-admin/concept-modes.html["详细了解BlueXP部署模式"^](英文)https://media.netapp.com/video-detail/078912eb-f081-5bd3-8342-bdd2d5c85d44/netapp-bluexp-backup-and-recovery-deployment-modes["观看此有关BlueXP部署模式的视频"^](英文)
 
 
 

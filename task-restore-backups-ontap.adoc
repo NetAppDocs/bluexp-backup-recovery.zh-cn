@@ -31,6 +31,9 @@ ONTAP卷数据的备份可从创建备份的位置获得：Snapshot副本、复�
 
 
 
+NOTE: 有关还原ONTAP数据的限制，请参见 link:reference-limitations.html["ONTAP卷的备份和还原限制"]。
+
+
 
 == 还原信息板
 
