@@ -34,36 +34,21 @@ summary: 完成几个步骤、开始将卷数据从Cloud Volumes ONTAP 系统备
 [role="quick-margin-para"]
 如果您已经在GCP区域部署了Connector、则您已准备就绪。如果没有、则需要在GCP中安装BlueXP连接器、将Cloud Volumes ONTAP数据备份到Google云存储。连接器可以安装在具有完全互联网访问("标准模式")或有限互联网连接("受限模式")的站点上。
 
-[role="quick-margin-para"]
-<<准备您的BlueXP Connector>>
-
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三个"] 验证许可证要求
 [role="quick-margin-para"]
 您需要查看Google Cloud和BlueXP的许可证要求。
-
-[role="quick-margin-para"]
-<<验证许可证要求>>。
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"] 验证复制卷的ONTAP网络要求
 [role="quick-margin-para"]
 确保源系统和目标系统满足ONTAP版本和网络连接要求。
 
-[role="quick-margin-para"]
-<<验证复制卷的ONTAP网络要求>>。
-
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["五个"] 启用BlueXP备份和恢复
 [role="quick-margin-para"]
 选择工作环境、然后单击右侧面板中备份和恢复服务旁边的*启用>备份卷*。
 
-[role="quick-margin-para"]
-<<在Cloud Volumes ONTAP上启用BlueXP备份和恢复>>。
-
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["六个"] 激活ONTAP卷上的备份
 [role="quick-margin-para"]
 按照设置向导选择要使用的复制和备份策略以及要备份的卷。
-
-[role="quick-margin-para"]
-<<激活ONTAP卷上的备份>>。
 
 
 

@@ -2,7 +2,6 @@
 <blocks>
   <block id="4757c134887b4b01e3ff6492a880fb07" category="doc">AWS S3 归档存储类和还原检索时间</block>
   <block id="c3da09e0a65b048cdbca120f1e6b23c9" category="paragraph">首次创建备份文件时，这些备份文件会存储在 S3 _Standard_ 存储中。此层已针对存储不常访问的数据进行了优化，但也允许您立即访问。30 天后，备份将过渡到 S3 _Standard-Infrequent Access_ 存储类以节省成本。</block>
-  <block id="677bc0580cb25ec1cc210c28e0ca26a7" category="inline-xref">从归档存储还原数据</block>
   <block id="c84f9bdf2de63c378b4a57466b3e08bc" category="inline-link">了解 S3 存储课程</block>
   <block id="da714780eb0a2a3ce15dd3c59d515474" category="paragraph"><block ref="fa9857a8e7d680b812395a24af3527ff" category="inline-link-rx"></block>。</block>
   <block id="6ff825aba191f5952e0a944d29e5b588" category="paragraph">虽然将旧备份文件存储在归档存储中的成本要比标准存储或标准 IA 存储低得多，但从归档存储中的备份文件访问数据以执行还原操作将需要较长的时间，并需要较多的成本。</block>
@@ -3305,7 +3304,6 @@ _/뚩 阅/｛뚩 阅_id｝/resourceGroups/｛资源组｝/Providers /｛提供�
   <block id="eee6483ebca29b603119b832ad33fa66" category="paragraph"><block ref="eb1f9e92049de9d40aa33c3c567550dc" category="inline-xref-macro-rx"></block></block>
   <block id="9d1cab52874c58bc5e9f7daf9d7e6663" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block> 验证许可证要求</block>
   <block id="de10f64287fc6b9bf60177f070c9f5f0" category="paragraph">您需要检查Azure和BlueXP的许可证要求。</block>
-  <block id="924d8d8267f7eb18476c2b6d9d3b9452" category="paragraph"><block ref="bd2c1a11f0e63723009063ed65c3e87f" category="inline-xref-macro-rx"></block>。</block>
   <block id="9664e082ac80bbdc73fccdbbbc5615b9" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block> 验证复制卷的ONTAP网络要求</block>
   <block id="1bf8b46ae208ff07eda2feab04911c53" category="paragraph">确保源系统和目标系统满足ONTAP版本和网络连接要求。</block>
   <block id="bb8a661d9491c97851e7313626aa79cc" category="paragraph"><block ref="198284848eacc407630247ca30b310c6" category="inline-xref-macro-rx"></block>。</block>
@@ -3863,7 +3861,6 @@ Cloud Volumes ONTAP</block>
   <block id="a7ab7e41ab0b37b5c56042c5e14df4ff" category="paragraph">已在系统上启用BlueXP备份和恢复。在这些Cloud Volumes ONTAP系统上创建卷后、启动BlueXP备份和恢复以及 <block ref="70d7256195ed88e78bc7994f2215f899" category="inline-link-macro-rx"></block>。</block>
   <block id="b7d972f6553934b1eea5e57436b58de2" category="paragraph">选择是通过公共互联网将内部ONTAP集群直接连接到Google云存储、还是使用VPN或Google云互连并通过使用专用IP地址的专用Google访问接口路由流量。</block>
   <block id="061189bcae2d45b758f44b801f0cafa0" category="paragraph">为Connector设置创建和管理Google Cloud分段的权限。您还需要为内部ONTAP集群设置权限、以便它可以读取数据并将数据写入Google Cloud存储分段。</block>
-  <block id="965fc2d93c14a05bf6aa6d11dccdf7f3" category="inline-xref">了解如何让您的Google Cloud环境做好接收ONTAP备份的准备。</block>
   <block id="9ad048774cfb757660014ae8b3a5e963" category="paragraph">启用BlueXP备份和恢复非常简单。根据您是拥有现有Cloud Volumes ONTAP系统还是新系统、步骤略有不同。</block>
   <block id="50ecfa827055391d1f79881e9faaa9d5" category="paragraph">随时直接从工作环境在现有系统上启用BlueXP备份和恢复。</block>
   <block id="4dd14adc068a21e0671c3acde608dda6" category="paragraph"><block ref="4dd14adc068a21e0671c3acde608dda6" category="inline-image-macro-rx" type="image"></block></block>
@@ -4846,11 +4843,9 @@ ifdef：：AWS。</block>
   <block id="24c8d17b3d2e5d56e90675c0755252e0" category="section-title">能够启用或禁用计划内勒索软件扫描</block>
   <block id="1d5d9f598ed0ef9d579321fc5f2dea76" category="paragraph">以前、您可以启用或禁用勒索软件扫描、但无法对计划扫描执行此操作。</block>
   <block id="c05a6e1c401ef496decb0a82c8e569e3" category="paragraph">在此版本中、您现在可以使用"高级设置"页面上的选项对最新Snapshot副本启用或禁用计划内勒索软件扫描。如果启用此功能、则默认情况下每周执行一次扫描。您可以将该计划更改为天数或周数、也可以将其禁用、从而节省成本。</block>
-  <block id="8e0e573826fedf587c60fd10640e17c8" category="paragraph">如果源集群运行的是 ONTAP 9.10.1 或更高版本，您可以选择在一定天数（通常超过 30 天）后将备份从 _cool_ 分层到 _Azure Archive_ 存储，以便进一步优化成本。此层中的数据无法在需要时立即访问，因此需要较高的检索成本，因此您需要考虑从这些归档备份文件还原数据的频率。请参见下一节 <block ref="7b911fb03c2e33c305d56e0261aa7b5a" category="inline-xref-macro-rx"></block>。</block>
   <block id="bab29573e33c31960ca3e23e51a0db21" category="section-title">从归档存储还原数据</block>
   <block id="7fe9efb1a5fafb19fa9b6e7fc992c504" category="paragraph"><block ref="e235420362596a5fcbb7fdd4a3380e91" category="inline-link-macro-rx"></block>。</block>
   <block id="3c466b40e15796ebb4120cf801b8cb93" category="paragraph"><block ref="072e0f84c1263277af127585d1cb18c3" category="inline-link-macro-rx"></block>。</block>
-  <block id="a9dc8bb5efaac75ae86c6a34933da8e4" category="paragraph">这些层中的数据无法在需要时立即访问，并且需要较高的检索成本，因此您需要考虑从这些归档备份文件还原数据的频率。请参见关于一节 <block ref="7b911fb03c2e33c305d56e0261aa7b5a" category="inline-xref-macro-rx"></block>。</block>
   <block id="bdb79327f3712ed9f0d2910964ca17d6" category="paragraph">+
 <block ref="6a96d9b5ed55776b5555946cb02fa548" category="inline-link-macro-rx"></block>。</block>
   <block id="2dc37cecffdd7077ba99c0ba111ad347" category="section-title">备份到对象限制</block>
@@ -4883,8 +4878,6 @@ ifdef：：AWS。</block>
   <block id="e0488eb5e46e8b3559f678fb3375fe83" category="list-text"><block ref="f39da789221971f7f372bd122012c224" category="inline-link-macro-rx"></block>。</block>
   <block id="82b1ab2145f9360167878fb0aab9d78e" category="paragraph">如果您的内部集群使用的是ONTAP 9.12.1或更高版本、而您的StorageGRID 系统使用的是11.4或更高版本、则可以在一定天数后将旧备份文件归档到公共云归档存储。目前支持AWS S3 Glacer/S3 Glacier深度归档或Azure归档存储层。 <block ref="6a96d9b5ed55776b5555946cb02fa548" category="inline-link-macro-rx"></block>。</block>
   <block id="28af018ba458f766dcff23f60abd6827" category="paragraph">请参见 <block ref="25e09e861cb627cbcd0c16e5c08ee6d8" category="inline-link-macro-rx"></block> 有关归档旧备份文件的更多详细信息。</block>
-  <block id="5a1f79c0f67abb568ef997350bce7081" category="paragraph">如果您的内部集群使用的是ONTAP 9.12.1或更高版本、您可以选择在一定天数(通常超过30天)后、在BlueXP备份和恢复UI中将较早的备份分层到_Archive_存储、以进一步优化成本。此层中的数据需要较高的检索成本、因此您需要考虑从这些归档备份文件还原数据的频率。请参见关于一节 <block ref="7b911fb03c2e33c305d56e0261aa7b5a" category="inline-xref-macro-rx"></block>。</block>
-  <block id="12d9e3e6bca9c44523088ebe2b508205" category="paragraph">您也可以选择设置自己的自定义托管密钥来进行数据加密、而不是使用默认的Google Cloud加密密钥。 <block ref="679b21076509c1a4c895226f7171e8ce" category="inline-xref-macro-rx"></block></block>
   <block id="9274d8b34594d54c9ded6bce60335530" category="paragraph">免费试用结束后、您将自动切换到PAYGO订阅、不会中断。如果您决定不继续使用BlueXP备份和恢复、只需执行以下操作即可 <block ref="45d31e67fc33e9fa27a1cf49eda4f564" category="inline-link-macro-rx"></block> 在试用结束之前、您不会收到任何费用。</block>
   <block id="9513e83b962e2a3ffa6edc4b46feac25" category="paragraph">如果您的许可期限即将到期，或者您的许可容量即将达到限制，您将在备份 UI 中收到通知。此状态也会显示在BlueXP数字钱包页面和中<block ref="62b97dd999de3571d07e2528cb6b6363" category="inline-link-rx"></block>。</block>
   <block id="323d3770e08ff241402a0c3bcc2b9fed" category="summary">您可以查看备份详细信息、监控所有作业的状态、删除克隆、审核数据、更新连接器详细信息、配置CA证书、 并管理主机。</block>
@@ -4920,4 +4913,8 @@ ifdef：：AWS。</block>
   <block id="baa1235434f9122bbcf4cd93c72c3ed3" category="list-text">如果您备份了DP卷、然后决定中断与该卷的SnapMirror关系、则无法将文件还原到该卷、除非同时删除SnapMirror关系或反转SnapMirror方向。</block>
   <block id="97a40c9bbf6946a2928acd09286296b8" category="paragraph">如果使用在Podman中运行的BlueXP连接器(在RHEL 8或9上运行时手动创建的BlueXP连接器)、则不支持用于单文件还原和目录还原的浏览和还原功能。使用Podman时、支持所有其他类型的还原操作、因此您可以使用以下其他方法还原数据、直到解析此问题描述为止：</block>
   <block id="210a764f3461866061c80320620c0eec" category="admonition">有关还原ONTAP数据的限制，请参见 <block ref="15bd83aed33bf3bd63f2e9166e3e91ba" category="inline-link-macro-rx"></block>。</block>
+  <block id="6002f3d623233bc3d9235d8c5956cd60" category="paragraph">这些层中的数据无法在需要时立即访问，并且需要较高的检索成本，因此您需要考虑从这些归档备份文件还原数据的频率。请参见此页面上有关从归档存储还原数据的章节。</block>
+  <block id="6fbe1cea473e2020956491cc962bda52" category="paragraph">如果源集群运行的是 ONTAP 9.10.1 或更高版本，您可以选择在一定天数（通常超过 30 天）后将备份从 _cool_ 分层到 _Azure Archive_ 存储，以便进一步优化成本。此层中的数据无法在需要时立即访问，因此需要较高的检索成本，因此您需要考虑从这些归档备份文件还原数据的频率。请参见此页面上有关从归档存储还原数据的章节。</block>
+  <block id="1cc47ef834e284795bab8becbe58ccfb" category="paragraph">如果您的内部集群使用的是ONTAP 9.12.1或更高版本、您可以选择在一定天数(通常超过30天)后、在BlueXP备份和恢复UI中将较早的备份分层到_Archive_存储、以进一步优化成本。此层中的数据需要较高的检索成本、因此您需要考虑从这些归档备份文件还原数据的频率。请参见此页面上有关从归档存储还原数据的章节。</block>
+  <block id="d8e36d6c03fc165135350c7550f92b0a" category="paragraph">您也可以选择设置自己的自定义托管密钥来进行数据加密、而不是使用默认的Google Cloud加密密钥。</block>
 </blocks>

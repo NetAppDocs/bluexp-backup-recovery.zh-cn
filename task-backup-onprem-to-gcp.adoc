@@ -29,43 +29,28 @@ NOTE: "内部ONTAP系统"包括FAS、AFF和ONTAP Select系统。
 [role="quick-margin-para"]
 选择是通过公共互联网将内部ONTAP集群直接连接到Google云存储、还是使用VPN或Google云互连并通过使用专用IP地址的专用Google访问接口路由流量。
 
-[role="quick-margin-para"]
-<<确定连接方法>>。
-
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"] 准备您的BlueXP Connector
 [role="quick-margin-para"]
 如果您已在Google Cloud Platform VPC中部署了Connector、则可以随时完成所有操作。如果没有、则需要创建BlueXP连接器将ONTAP数据备份到Google Cloud存储。您还需要自定义Connector的网络设置、以便它可以连接到Google Cloud。
-
-[role="quick-margin-para"]
-<<准备您的BlueXP Connector,了解如何创建Connector以及如何定义所需的网络设置。>>
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三个"] 验证许可证要求
 [role="quick-margin-para"]
 您需要查看Google Cloud和BlueXP的许可证要求。
 
-[role="quick-margin-para"]
-请参见 <<验证许可证要求>>。
-
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"] 准备ONTAP集群
 [role="quick-margin-para"]
 在BlueXP中发现ONTAP集群、验证这些集群是否满足最低要求、并自定义网络设置、以便这些集群可以连接到Google Cloud。
-
-[role="quick-margin-para"]
-<<准备ONTAP集群,了解如何让ONTAP集群做好准备。>>
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["五个"] 准备Google Cloud作为备份目标
 [role="quick-margin-para"]
 为Connector设置创建和管理Google Cloud分段的权限。您还需要为内部ONTAP集群设置权限、以便它可以读取数据并将数据写入Google Cloud存储分段。
 
 [role="quick-margin-para"]
-您也可以选择设置自己的自定义托管密钥来进行数据加密、而不是使用默认的Google Cloud加密密钥。 <<Prepare Google Cloud storage as your backup target,了解如何让您的Google Cloud环境做好接收ONTAP备份的准备。>>
+您也可以选择设置自己的自定义托管密钥来进行数据加密、而不是使用默认的Google Cloud加密密钥。
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["六个"] 激活ONTAP卷上的备份
 [role="quick-margin-para"]
 选择工作环境、然后单击右侧面板中备份和恢复服务旁边的*启用>备份卷*。然后、按照设置向导选择要使用的复制和备份策略以及要备份的卷。
-
-[role="quick-margin-para"]
-<<激活ONTAP卷上的备份>>。
 
 
 
