@@ -33,22 +33,25 @@ NOTE: "内部ONTAP系统"包括FAS、AFF和ONTAP Select系统。
 [role="quick-margin-para"]
 如果您已在Google Cloud Platform VPC中部署了Connector、则可以随时完成所有操作。如果没有、则需要创建BlueXP连接器将ONTAP数据备份到Google Cloud存储。您还需要自定义Connector的网络设置、以便它可以连接到Google Cloud。
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三个"] 验证许可证要求
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三个"] 为连接器准备网络连接
+[role="quick-margin-para"]
+确保此连接器具有所需的网络连接。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"] 验证许可证要求
 [role="quick-margin-para"]
 您需要查看Google Cloud和BlueXP的许可证要求。
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"] 准备ONTAP集群
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["五个"] 准备ONTAP集群
 [role="quick-margin-para"]
 在BlueXP中发现ONTAP集群、验证这些集群是否满足最低要求、并自定义网络设置、以便这些集群可以连接到Google Cloud。
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["五个"] 准备Google Cloud作为备份目标
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["六个"] 准备Google Cloud作为备份目标
 [role="quick-margin-para"]
 为Connector设置创建和管理Google Cloud分段的权限。您还需要为内部ONTAP集群设置权限、以便它可以读取数据并将数据写入Google Cloud存储分段。
 
-[role="quick-margin-para"]
 您也可以选择设置自己的自定义托管密钥来进行数据加密、而不是使用默认的Google Cloud加密密钥。
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["六个"] 激活ONTAP卷上的备份
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["七个"] 激活ONTAP卷上的备份
 [role="quick-margin-para"]
 选择工作环境、然后单击右侧面板中备份和恢复服务旁边的*启用>备份卷*。然后、按照设置向导选择要使用的复制和备份策略以及要备份的卷。
 
@@ -268,7 +271,7 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 
 === 设置权限
 
-设置备份时、您需要为具有特定权限的服务帐户提供存储访问密钥。通过服务帐户、BlueXP备份和恢复功能可以对用于存储备份的云存储分段进行身份验证和访问。需要提供密钥，以便 Google Cloud Storage 知道谁在发出请求。
+您需要使用自定义角色为具有特定权限的服务帐户提供存储访问密钥。通过服务帐户、BlueXP备份和恢复功能可以对用于存储备份的云存储分段进行身份验证和访问。需要提供密钥，以便 Google Cloud Storage 知道谁在发出请求。
 
 .步骤
 . 在中 https://console.cloud.google.com["Google Cloud Console"^]下，转到 * 角色 * 页面。

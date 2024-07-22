@@ -275,7 +275,7 @@ image:screenshot_backup_cvo_enable.png["屏幕截图显示了\"启用备份和�
 
 
 
-TIP: 要修改备份设置或添加复制、请参见 link:../task-manage-backups-ontap.html["管理 ONTAP 备份"]。
+TIP: 要修改备份设置或添加复制，请参见 link:task-manage-backups-ontap.html["管理 ONTAP 备份"]。
 
 
 

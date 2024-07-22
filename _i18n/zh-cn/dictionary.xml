@@ -1036,7 +1036,6 @@
   <block id="abbf2484b45da9fd7be677fe96c511eb" category="inline-xref">使用浏览和放大功能还原文件夹和文件；还原</block>
   <block id="8996e9eaff78ab540aab279a66de20ac" category="inline-xref">使用Search &amp; amp；Restore还原卷、文件夹和文件</block>
   <block id="860f07d2ed109437af4b64fd8713b385" category="paragraph">请注意，从归档存储中的备份文件还原卷可能需要数分钟或数小时，具体取决于归档层和还原优先级。您可以单击*作业监控*选项卡查看还原进度。</block>
-  <block id="27816218998e04ffd3077d0806e7798b" category="paragraph">如果您只需要从ONTAP 卷备份还原几个文件、则可以选择还原文件夹或单个文件、而不是还原整个卷。您可以将文件夹和文件还原到原始工作环境中的现有卷、也可以还原到使用同一云帐户的其他工作环境。您还可以将文件夹和文件还原到内部ONTAP 系统上的卷。</block>
   <block id="502b9bcf8737b06b486f332278870bbf" category="list-text">要执行_files_还原操作、ONTAP 版本必须为9.6或更高版本。</block>
   <block id="cee5f78cfda5fc2f3b24ce19bdf5119a" category="section-title">文件夹和文件还原过程</block>
   <block id="f3c6f7e9aebf0c7de403d55832a37318" category="list-text">如果要从卷备份还原文件夹或一个或多个文件、请单击*还原*选项卡、然后单击_Browse &amp; Restore_下的*还原文件或文件夹*。</block>
@@ -2163,8 +2162,6 @@
   <block id="b3bc75275539de4c7c9d62e8364e4698" category="paragraph">您应在每个Oracle数据库主机上安装适用于Oracle的SnapCenter 插件、添加数据库主机并发现主机上的数据库、以分配策略并创建备份。</block>
   <block id="30436b64a4369e46b473bc1b1401fd34" category="list-text">如果为数据库主机启用了SSH、则可以使用以下方法之一安装此插件：</block>
   <block id="19818bd6e255e679bcd2b558dcd8be72" category="list-text">安装此插件并使用SSH选项从UI添加主机。 <block ref="eef94e573988b9bcf7576ada9279c21d" category="inline-xref-macro-rx"></block>。</block>
-  <block id="f5a95c52f600ae7a2606dd65afc76a31" category="list-text">使用脚本安装插件、并使用手动选项从UI添加主机。 <block ref="2d45e41162034e715ba3307387fe903d" category="inline-xref-macro-rx"></block>。</block>
-  <block id="18410e518914ad15f77ada9d10f41c85" category="list-text">如果禁用了SSH、请手动安装此插件、然后使用手动选项从UI添加主机。 <block ref="ca0ca6018928b52917635161072180d8" category="inline-xref-macro-rx"></block>。</block>
   <block id="16bc078ea4ad4b47daa61cfa55cec4cc" category="inline-link-macro">无法验证从BlueXP连接器主机到应用程序数据库主机的连接</block>
   <block id="bb3d3d1149be85da9f3488d99e38818a" category="paragraph">有关如何解决连接问题描述 的信息、请参见 <block ref="dc781d2e4005ea48d6ecaf05b5c8bdc7" category="inline-link-macro-rx"></block>。</block>
   <block id="f9b1747cec7918dca1e5047effaf3259" category="inline-link-macro">更新连接器详细信息</block>
@@ -2388,7 +2385,6 @@
   <block id="584eab89c38498b5c5274ae652e93c92" category="paragraph">设置BlueXP备份和恢复时、系统会提示您使用IP空间。您应选择与每个 LIF 关联的 IP 空间。这可能是您创建的 " 默认 "IP 空间或自定义 IP 空间。</block>
   <block id="83d4153ed0b73bf98f157af1a9cede5d" category="list-text">如有必要、请更新防火墙规则、以允许通过端口443从ONTAP 到对象存储的BlueXP备份和恢复连接、以及通过端口53 (TCP/UDP)从Storage VM到DNS服务器的名称解析流量。</block>
   <block id="2ac4b31a1e8119be12fc66295f51743e" category="paragraph">要使用BlueXP备份和恢复"搜索和还原"功能、您需要对Connector的角色拥有特定权限、以便它可以访问Google Cloud BigQuery服务。请参见以下权限、如果需要修改策略、请按照以下步骤进行操作。</block>
-  <block id="490d27127d1be5dafeff633874e98723" category="paragraph">设置备份时、您需要为具有特定权限的服务帐户提供存储访问密钥。通过服务帐户、BlueXP备份和恢复功能可以对用于存储备份的云存储分段进行身份验证和访问。需要提供密钥，以便 Google Cloud Storage 知道谁在发出请求。</block>
   <block id="f20f604abbd5f4c6fa3dce28e510083d" category="paragraph">稍后在配置备份服务时、您需要在BlueXP备份和恢复中输入密钥。</block>
   <block id="aa7686a1bb9a5c6e028ddc3bb91488c6" category="list-text">与存储帐户关联的服务代理将通过BlueXP备份和恢复为"CryptoKey Encrypter/ Decrypter (roles/cloudkms.CryptoKeyEncrypterDecrypter)" IAM角色分配"CryptoKey Encrypter/Decrypter (角色/cloudkms.CryptoKeyEncrypterDecrypter)"。</block>
   <block id="f978572d4b7f3863b262587adb3dab80" category="list-text">在为集群激活BlueXP备份和恢复之前、您需要从Google订阅按需购买(PAYGO) BlueXP Marketplace产品、或者从NetApp购买并激活BlueXP备份和恢复BYOL许可证。这些许可证适用于您的帐户，可在多个系统中使用。</block>
@@ -3337,7 +3333,6 @@ _/뚩 阅/｛뚩 阅_id｝/resourceGroups/｛资源组｝/Providers /｛提供�
   <block id="a8597301498b7ba277bd04c5d9cec26a" category="section-title">在Cloud Volumes ONTAP上启用BlueXP备份和恢复</block>
   <block id="8a8476fd6836ec12c30dec20bc5004af" category="paragraph">*在新系统上启用BlueXP备份和恢复*</block>
   <block id="901ae31ede407d1b2f9642db905682f2" category="list-text">从BlueXP Canvas中、选择*添加工作环境*、选择云提供程序、然后选择*添加新*。选择*创建Cloud Volumes ONTAP。</block>
-  <block id="2804562bc1e662a5b5b8ecf3b0be67c6" category="admonition">要修改备份设置或添加复制、请参见 <block ref="5cd1a7d7fa9fd41e0b8e095748eb7b5f" category="inline-link-macro-rx"></block>。</block>
   <block id="fc90b8f1413f3c199581e8299d3f470a" category="paragraph">*在现有系统上启用BlueXP备份和恢复*</block>
   <block id="f44b20d5d9a676a009838194fcecc749" category="list-text">从BlueXP Canvas中、选择工作环境、然后选择右侧面板中备份和恢复服务旁边的*启用*。</block>
   <block id="4ade5af203d6e65a0d4f2dfba9bb43b8" category="section-title">激活ONTAP卷上的备份</block>
@@ -3416,7 +3411,6 @@ _/뚩 阅/｛뚩 阅_id｝/resourceGroups/｛资源组｝/Providers /｛提供�
   <block id="4fe600ffd12f47bf3dd1572a88dd9c01" category="paragraph">在BlueXP中发现ONTAP集群、验证这些集群是否满足最低要求、并自定义网络设置、以便这些集群可以连接到Google Cloud。</block>
   <block id="ebd76416ef870c00fade106068d5e4a7" category="inline-xref">了解如何让ONTAP集群做好准备。</block>
   <block id="8db80556c0aafbdfdf9a31fd06ad9f66" category="paragraph"><block ref="63ac2cb8ed6b5e1a480ae04ed133cee6" category="inline-xref-macro-rx"></block></block>
-  <block id="52f2d33185b5d0760fde801c7c14e04f" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block> 准备Google Cloud作为备份目标</block>
   <block id="4f678d696dc9c7564f67b0e43a8f509a" category="paragraph">为Connector设置创建和管理Azure存储分段的权限。您还需要为内部ONTAP集群设置权限、以便它可以向Azure存储分段读取和写入数据。</block>
   <block id="140993c9957beab179c4418f6efee0e0" category="inline-xref">了解如何让您的Azure环境做好接收ONTAP备份的准备。</block>
   <block id="8384c2af974a15d97a9b9f3794602ca9" category="paragraph">或者、您也可以设置自己的自定义托管密钥来进行数据加密、而不是使用默认的Azure加密密钥。 <block ref="e52cf46a280a91ebefdd71696394d452" category="inline-xref-macro-rx"></block></block>
@@ -4783,7 +4777,6 @@ ifdef：：AWS。</block>
   <block id="645f12199dae2b82a1985743cbc3e647" category="section-title">DataLock和防兰索保护选项</block>
   <block id="28393e8d0c5d4d42b764689c3d805dd0" category="example-title">AWS S3权限</block>
   <block id="1ddec8739d8c1b2f7db7d9f2fe4b6069" category="example-title">StorageGRID S3权限</block>
-  <block id="5f77078b118458f75a8520575b6a518e" category="list-text">DataLock和勒索软件保护适用于使用启用了DataLock和勒索软件保护的备份策略的新卷备份。您可以稍后使用高级设置选项启用或禁用此功能。</block>
   <block id="2ed85c9d8759c48194524d439a552ff0" category="section-title">归档存储选项</block>
   <block id="e5c31b44cc452f945aec38b328ab97da" category="section-title">编辑现有云备份策略</block>
   <block id="d3b3f333837b21ed08dfd04c10e48346" category="section-title">添加新的云备份策略</block>
@@ -4917,4 +4910,54 @@ ifdef：：AWS。</block>
   <block id="6fbe1cea473e2020956491cc962bda52" category="paragraph">如果源集群运行的是 ONTAP 9.10.1 或更高版本，您可以选择在一定天数（通常超过 30 天）后将备份从 _cool_ 分层到 _Azure Archive_ 存储，以便进一步优化成本。此层中的数据无法在需要时立即访问，因此需要较高的检索成本，因此您需要考虑从这些归档备份文件还原数据的频率。请参见此页面上有关从归档存储还原数据的章节。</block>
   <block id="1cc47ef834e284795bab8becbe58ccfb" category="paragraph">如果您的内部集群使用的是ONTAP 9.12.1或更高版本、您可以选择在一定天数(通常超过30天)后、在BlueXP备份和恢复UI中将较早的备份分层到_Archive_存储、以进一步优化成本。此层中的数据需要较高的检索成本、因此您需要考虑从这些归档备份文件还原数据的频率。请参见此页面上有关从归档存储还原数据的章节。</block>
   <block id="d8e36d6c03fc165135350c7550f92b0a" category="paragraph">您也可以选择设置自己的自定义托管密钥来进行数据加密、而不是使用默认的Google Cloud加密密钥。</block>
+  <block id="0b9052c66b4ef4c91263dcf2c8581f33" category="list-text">DataLock和勒索软件保护适用于使用启用了DataLock和勒索软件保护的备份策略的新卷备份。您可以稍后使用高级设置选项启用或禁用这些功能。</block>
+  <block id="ccbf8c45039ba817be81bbf5fa2a7521" category="section-title">有关如何降低DataLock成本的提示</block>
+  <block id="fe678e2fcc09672ea124b748f97633cc" category="paragraph">您可以在启用或禁用"防兰森扫描"功能的同时保持DataLock功能处于活动状态。为了避免额外费用、您可以禁用计划内勒索软件扫描。这样、您可以自定义安全设置、避免云提供商产生成本。</block>
+  <block id="ad67d474e8005ade444d72671d5b14f2" category="paragraph">即使禁用了计划内勒索软件扫描、您仍然可以在需要时执行按需扫描。</block>
+  <block id="d3ee7c87ac2ae18b1e773ebabea0ee2e" category="paragraph">您可以选择不同的保护级别：</block>
+  <block id="af7638f7a1ad25e7f7541cb09e590ba7" category="list-text">*DataLock _Without _勒索软件扫描*：为目标存储中的备份数据提供保护、此备份数据可以处于监管模式或合规模式。</block>
+  <block id="55edcf1a7d70eb272dbcec4fb91942d6" category="list-text">*监管模式*：为管理员提供覆盖或删除受保护数据的灵活性。</block>
+  <block id="fcf9f3f8233ccccdace8c9f5e7a9ea42" category="list-text">*兼容模式*：在保留期限到期之前提供完全不可识别性。这有助于满足严格监管的环境中最严格的数据安全要求。数据在其生命周期内无法覆盖或修改、从而为备份副本提供最强的保护级别。</block>
+  <block id="615fc78dc97f95f4ed9be1fd5668d1c4" category="admonition">Microsoft Azure改用锁定和解锁模式。</block>
+  <block id="42b2f7bad0fae50cc138173e28666296" category="list-text">*DataLock _With _勒索软件扫描*：为数据提供额外的安全保护层。此功能有助于检测任何更改备份副本的尝试。如果进行了任何尝试、则会谨慎地创建新版本的数据。扫描频率可更改为1、2、3、4、5、 6天或7天。如果将扫描设置为每7天进行一次、则成本会显著降低。</block>
+  <block id="cb48f77184f9795e5ccef662bca48410" category="paragraph">有关降低DataLock成本的更多提示、请参见 <block ref="6bf14a4871219441054a20f511413643" category="inline-link-rx"></block></block>
+  <block id="6a401c7d1c81a127fcd1224768c6edaf" category="inline-link">BlueXP备份和恢复总拥有成本(TCO)计算器</block>
+  <block id="e62bcce3f6b56efa6b52ab5d87b9850f" category="paragraph">此外，您还可以通过访问来估算与DataLock相关的成本<block ref="53f0527bd2dbcfab03738578b80110f5" category="inline-link-rx"></block>。</block>
+  <block id="ec0522344cdf94ed9ff238d26e67e7d4" category="list-text">使用脚本安装插件、并使用手动选项从UI添加主机。<block ref="cd0002a5ce0991e4ff737bdcb461a17b" category="inline-xref-macro-rx"></block>(英文)</block>
+  <block id="3fcdf51146a0f2de312a4a1a6ba1f507" category="list-text">如果禁用了SSH、请手动安装此插件、然后使用手动选项从UI添加主机。<block ref="df2b89845fbeb0321ae65da8f07b18ce" category="inline-xref-macro-rx"></block>(英文)</block>
+  <block id="a331fd828c6eb830ffdf677817c5f035" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block> 为连接器准备网络连接</block>
+  <block id="2d04634b3cbe9bddda24c70e3fe058c1" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block> 验证许可证要求</block>
+  <block id="c5b3c5fbdaa1657e6943a110d8413405" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block> 准备ONTAP集群</block>
+  <block id="0bec69ffb331a84c17da2695bd9890f4" category="paragraph-title"><block ref="ef78558f80439832e0f51cc22cee8b8c" category="inline-image-macro-rx" type="image"></block> 准备Google Cloud作为备份目标</block>
+  <block id="12e67aac3e7f9227cc35f8f047d7dc74" category="inline-image-macro">七个</block>
+  <block id="0e41efd085d01e393e196b57625ec5fb" category="paragraph-title"><block ref="36915574c413876eaa75cbd48f69fd00" category="inline-image-macro-rx" type="image"></block> 激活ONTAP卷上的备份</block>
+  <block id="ed63cc305ac61371afe05971b5fa71c3" category="paragraph">您需要使用自定义角色为具有特定权限的服务帐户提供存储访问密钥。通过服务帐户、BlueXP备份和恢复功能可以对用于存储备份的云存储分段进行身份验证和访问。需要提供密钥，以便 Google Cloud Storage 知道谁在发出请求。</block>
+  <block id="c3440827f50a036dae81cd2e84081afc" category="list-text">您的Google Cloud Project中有一个服务帐户、该帐户具有一个自定义角色、权限集减少。</block>
+  <block id="110c0a25d695ec4a8714d64d458cdc24" category="admonition">允许BlueXP备份和恢复访问Google Cloud Storage存储分段的服务帐户不再需要存储管理员角色。</block>
+  <block id="3959d8bcb4c6224d3d44d552e82f0df6" category="paragraph">为Connector设置创建和管理Google Cloud分段的权限。</block>
+  <block id="965fc2d93c14a05bf6aa6d11dccdf7f3" category="inline-xref">了解如何让您的Google Cloud环境做好接收ONTAP备份的准备。</block>
+  <block id="ea64f83c7a3c2712595bc9229113d35b" category="paragraph">您也可以选择设置自己的自定义托管密钥来进行数据加密、而不是使用默认的Google Cloud加密密钥。 <block ref="4513dc5134abe27f5500c4191aea3d5e" category="inline-xref-macro-rx"></block></block>
+  <block id="e2220c538d5ed850f5ecb8375389dad3" category="list-text">您需要在Google Cloud Project中拥有一个具有自定义角色的服务帐户。<block ref="bb9056f672c7da9a9c8e1e60191fd39c" category="inline-link-rx"></block>(英文)</block>
+  <block id="f6b23a9e657d0c84ca0f004a895e6b12" category="admonition">要修改备份设置或添加复制，请参见 <block ref="437ca1df9d07fa739678476083489c0d" category="inline-link-macro-rx"></block>。</block>
+  <block id="031305d7be8e01cb27587340a16572f8" category="paragraph">如果您只需要从ONTAP卷备份中还原少量文件、则可以选择还原文件夹或单个文件、而不是还原整个卷。您可以将文件夹和文件还原到原始工作环境中的现有卷、也可以还原到使用同一云帐户的其他工作环境。您还可以将文件夹和文件还原到内部ONTAP 系统上的卷。</block>
+  <block id="87eb849ca11537b79f083ee5fbad6738" category="list-text">对于ONTAP 9.15.1P2、您可以使用浏览并还原选项还原FlexGroup文件夹。</block>
+  <block id="57bb710d517f010c4fce20687ec1c6ff" category="list-text">要使用浏览和还原选项还原FlexGroup目录、ONTAP版本必须为9.15.1P2或更高版本。</block>
+  <block id="ba874eb3ffbdba518b95ce26bc81a861" category="section-title">2024年7月22日</block>
+  <block id="9d5f0e2f1682000ac365243e21301823" category="section-title">还原小于1 GB的卷</block>
+  <block id="a429eb8c690c0a48131f4ae1267eafd1" category="paragraph">在此版本中、您现在可以还原在ONTAP中创建的小于1 GB的卷。可以使用ONTAP创建的最小卷大小为20 MB。</block>
+  <block id="f959c5a51fb8f2a9e9c0063bbb8adb63" category="paragraph">DataLock功能可保护备份文件、使其在指定时间段内不会被修改或删除。这有助于保护文件免受勒索软件攻击。</block>
+  <block id="4822bd9fd85c6d5438ecd9963b5c6897" category="paragraph">有关DataLock的详细信息以及有关如何降低相关成本的提示，请参见 <block ref="d72e0969f8971a4b91ad44a04438bfb9" category="inline-link-macro-rx"></block>。</block>
+  <block id="79cfacda817c1e599649823ffa32c8d7" category="section-title">AWS IAM角色无处不在集成</block>
+  <block id="bebfb016f9defe9a78fff65f418f213b" category="paragraph">通过Amazon Web Services (AWS)身份和访问管理(IAM)角色无处不在服务、您可以对AWS的_Outside _工作负载使用IAM角色和短期凭据来安全地访问AWS API、就像对Workloads_on_ AWS使用IAM角色一样。当您在任意位置使用IAM角色时、私有密钥基础架构和AWS令牌不需要长期AWS访问密钥和机密密钥。这样、您可以更频繁地轮换凭据、从而提高安全性。</block>
+  <block id="24c6cf6b2747b390a5d9eb672e1d54d4" category="paragraph">在此版本中、对AWS IAM角色无处不在服务的支持只是一项技术预览。</block>
+  <block id="75a3bff844d1c7ffb01e7ef22ab82b4d" category="inline-link-macro">将Cloud Volumes ONTAP备份到AWS</block>
+  <block id="4e6ae608536b374d1b71a28785ef9a8b" category="inline-link-macro">将内部ONTAP数据备份到AWS</block>
+  <block id="ff4c4976afafd2cd191e5316fe16ee05" category="paragraph">这适用于备份 <block ref="36745b46d10b0daef886af9c3561dc82" category="inline-link-macro-rx"></block> 和 <block ref="28610eddc6cc2d865303aa5fe254d6ff" category="inline-link-macro-rx"></block>。</block>
+  <block id="ddc7fe4301c8a4aa6a14e1843c25f30b" category="inline-link">BlueXP备份和恢复2024年7月发布博客</block>
+  <block id="f1db3a8ee789ee9607754f5f8a9871b1" category="paragraph">请参阅<block ref="7de2d0863d92330816fac8b7768edb68" category="inline-link-rx"></block>。</block>
+  <block id="5ab4d79a28b46b39467c24096b99316f" category="section-title">FlexGroup文件夹或目录还原现在可用</block>
+  <block id="a821e6c079044462f6ffc9a01ed28fc9" category="paragraph">以前、可以还原FlexVol卷、但无法还原FlexGroup文件夹或目录。对于ONTAP 9.15.1P2、您可以使用浏览并还原选项还原FlexGroup文件夹。</block>
+  <block id="cd4619af82dfe7627dc934e29e85a6e9" category="paragraph">在此版本中、对FlexGroup文件夹还原的支持是一项技术预览。</block>
+  <block id="9b7af6cb2e410e55ce793003b7110047" category="paragraph">有关详细信息，请参见 <block ref="07023d18b01371174abc5a157da41b99" category="inline-link-macro-rx"></block>。</block>
+  <block id="707304f314bfa71975e8ffb352535092" category="paragraph">有关手动启用的详细信息，请参见<block ref="7de2d0863d92330816fac8b7768edb68" category="inline-link-rx"></block>。</block>
 </blocks>

@@ -26,7 +26,11 @@ summary: 完成几个步骤、开始将卷数据从Cloud Volumes ONTAP 系统备
 [role="quick-margin-list"]
 * 您正在GCP中运行Cloud Volumes ONTAP 9.8或更高版本(建议使用ONTAP 9.8P13及更高版本)。
 * 您已为备份所在的存储空间订阅了有效的 GCP 。
-* 您的 Google Cloud Project 中有一个服务帐户，该帐户具有预定义的存储管理员角色。
+* 您的Google Cloud Project中有一个服务帐户、该帐户具有一个自定义角色、权限集减少。
++
+
+NOTE: 允许BlueXP备份和恢复访问Google Cloud Storage存储分段的服务帐户不再需要存储管理员角色。
+
 * 您已订阅 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["BlueXP Marketplace备份服务"^]或您已购买 link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-byol-license["并激活"^] NetApp提供的BlueXP备份和恢复BYOL许可证。
 
 
@@ -46,7 +50,14 @@ summary: 完成几个步骤、开始将卷数据从Cloud Volumes ONTAP 系统备
 [role="quick-margin-para"]
 选择工作环境、然后单击右侧面板中备份和恢复服务旁边的*启用>备份卷*。
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["六个"] 激活ONTAP卷上的备份
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["六个"] 准备Google Cloud作为备份目标
+[role="quick-margin-para"]
+为Connector设置创建和管理Google Cloud分段的权限。
+
+[role="quick-margin-para"]
+您也可以选择设置自己的自定义托管密钥来进行数据加密、而不是使用默认的Google Cloud加密密钥。 <<准备Google Cloud Storage作为备份目标,了解如何让您的Google Cloud环境做好接收ONTAP备份的准备。>>
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["七个"] 激活ONTAP卷上的备份
 [role="quick-margin-para"]
 按照设置向导选择要使用的复制和备份策略以及要备份的卷。
 
@@ -64,8 +75,11 @@ image:diagram_cloud_backup_cvo_google.png["一个示意图、显示了BlueXP备�
 
 支持的 ONTAP 版本:: 最低版本为ONTAP 9.8；建议使用ONTAP 9.8P13及更高版本。
 支持的 GCP 区域:: 所有GCP地区均支持BlueXP备份和恢复 https://cloud.netapp.com/cloud-volumes-global-regions["支持 Cloud Volumes ONTAP 的位置"^]。
-GCP 服务帐户:: 您需要在 Google Cloud Project 中拥有一个具有预定义的存储管理员角色的服务帐户。 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-creating-gcp-service-account.html["了解如何创建服务帐户"^]。
+GCP 服务帐户:: 您需要在Google Cloud Project中拥有一个具有自定义角色的服务帐户。 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-creating-gcp-service-account.html["了解如何创建服务帐户"^](英文)
 
+
+
+NOTE: 允许BlueXP备份和恢复访问Google Cloud Storage存储分段的服务帐户不再需要存储管理员角色。
 
 
 
@@ -224,7 +238,7 @@ image:screenshot_backup_to_gcp.png["显示了工作环境向导中的BlueXP备�
 
 
 
-TIP: 要修改备份设置或添加复制、请参见 link:../task-manage-backups-ontap.html["管理 ONTAP 备份"]。
+TIP: 要修改备份设置或添加复制，请参见 link:task-manage-backups-ontap.html["管理 ONTAP 备份"]。
 
 .结果
 已在系统上启用BlueXP备份和恢复。在这些Cloud Volumes ONTAP系统上创建卷后、启动BlueXP备份和恢复以及 link:task-manage-backups-ontap.html#activate-backup-on-additional-volumes-in-a-working-environment["在要保护的每个卷上激活备份"]。
@@ -244,7 +258,105 @@ image:screenshot_backup_cvo_enable.png["屏幕截图显示了BlueXP备份和恢�
 
 
 
-TIP: 要修改备份设置或添加复制、请参见 link:../task-manage-backups-ontap.html["管理 ONTAP 备份"]。
+TIP: 要修改备份设置或添加复制，请参见 link:task-manage-backups-ontap.html["管理 ONTAP 备份"]。
+
+
+
+== 准备Google Cloud Storage作为备份目标
+
+准备Google Cloud Storage作为备份目标包括以下步骤：
+
+* 设置权限。
+* (可选)创建您自己的存储分段。(如果需要、服务将为您创建存储分段。)
+* (可选)设置客户管理的密钥以进行数据加密
+
+
+
+
+=== 设置权限
+
+您需要使用自定义角色为具有特定权限的服务帐户提供存储访问密钥。通过服务帐户、BlueXP备份和恢复功能可以对用于存储备份的云存储分段进行身份验证和访问。需要提供密钥，以便 Google Cloud Storage 知道谁在发出请求。
+
+.步骤
+. 在中 https://console.cloud.google.com["Google Cloud Console"^]下，转到 * 角色 * 页面。
+. https://cloud.google.com/iam/docs/creating-custom-roles#creating_a_custom_role["创建新角色"^] 具有以下权限：
++
+[source, json]
+----
+storage.buckets.create
+storage.buckets.delete
+storage.buckets.get
+storage.buckets.list
+storage.buckets.update
+storage.buckets.getIamPolicy
+storage.multipartUploads.create
+storage.objects.create
+storage.objects.delete
+storage.objects.get
+storage.objects.list
+storage.objects.update
+----
+. 在 Google Cloud 控制台中， https://console.cloud.google.com/iam-admin/serviceaccounts["转到服务帐户页面"^]。
+. 选择您的云项目。
+. 选择*创建服务帐户*并提供所需信息：
++
+.. * 服务帐户详细信息 * ：输入名称和问题描述。
+.. *授予此服务帐户对项目的访问权限*：选择您刚刚创建的自定义角色。
+.. 选择 * 完成 * 。
+
+
+. 转至 https://console.cloud.google.com/storage/settings["GCP 存储设置"^] 并为服务帐户创建访问密钥：
++
+.. 选择一个项目，然后选择*互操作性*。如果尚未选择*启用互操作性访问*，请选择此选项。
+.. 在*Access keys for service accounts*下，选择*Create a key for a service account*，选择您刚创建的服务帐户，然后单击*Create Key*。
++
+稍后在配置备份服务时、您需要在BlueXP备份和恢复中输入密钥。
+
+
+
+
+
+
+
+=== 创建您自己的存储分段
+
+默认情况下、该服务会为您创建存储分段。或者、如果要使用自己的存储分段、您可以在启动备份激活向导之前创建这些存储分段、然后在向导中选择这些存储分段。
+
+link:concept-protection-journey.html#do-you-want-to-create-your-own-object-storage-container["详细了解如何创建您自己的存储分段"^]。
+
+
+
+=== 设置客户管理的加密密钥(CMDK)以进行数据加密
+
+您可以使用自己由客户管理的密钥进行数据加密、而不是使用默认的Google管理的加密密钥。跨区域键和跨项目键均受支持、因此您可以为与CMDK键项目不同的分段选择项目。
+
+如果您计划使用自己的客户管理密钥：
+
+* 您需要具有密钥环和密钥名称、才能在激活向导中添加此信息。 https://cloud.google.com/kms/docs/cmek["详细了解客户管理的加密密钥"^]。
+* 您需要验证连接器的角色是否包含以下所需权限：
++
+[source, json]
+----
+cloudkms.cryptoKeys.get
+cloudkms.cryptoKeys.getIamPolicy
+cloudkms.cryptoKeys.list
+cloudkms.cryptoKeys.setIamPolicy
+cloudkms.keyRings.get
+cloudkms.keyRings.getIamPolicy
+cloudkms.keyRings.list
+cloudkms.keyRings.setIamPolicy
+----
+* 您需要验证是否已在项目中启用Google "云密钥管理服务(KMS)"API。请参见 https://cloud.google.com/apis/docs/getting-started#enabling_apis["Google Cloud文档：启用API"] 了解详细信息。
+
+
+* CMEE注意事项：*
+
+* 支持HSM (硬件支持的)和软件生成的密钥。
+* 新创建的或导入的Cloud KMS密钥均受支持。
+* 仅支持区域密钥、不支持全局密钥。
+* 目前、仅支持"对称加密/解密"目的。
+* 与存储帐户关联的服务代理将通过BlueXP备份和恢复为"CryptoKey Encrypter/ Decrypter (roles/cloudkms.CryptoKeyEncrypterDecrypter)" IAM角色分配"CryptoKey Encrypter/Decrypter (角色/cloudkms.CryptoKeyEncrypterDecrypter)"。
+
 
 
 
