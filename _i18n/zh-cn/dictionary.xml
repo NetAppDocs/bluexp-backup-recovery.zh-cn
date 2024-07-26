@@ -3774,7 +3774,6 @@ Cloud Volumes ONTAP</block>
   <block id="5e91843f25a40c882d43652a02c8f50e" category="list-text"><block ref="5e91843f25a40c882d43652a02c8f50e" category="inline-link-rx"></block></block>
   <block id="bd83bdfad11f4eb2160cecbaafa5771f" category="section-title">您使用的是哪种BlueXP Connector部署模式</block>
   <block id="40f7e0f171ae7f38e670d73e8a4c284b" category="paragraph">BlueXP提供了多种部署模式、使您能够以满足业务和安全要求的方式使用BlueXP。_Standard mode"利用BlueXP SaaS层提供完整功能、而_restricted mode"和_private mode"则可供具有连接限制的组织使用。</block>
-  <block id="fb67e88bd0479a55df78c8a83275d5e7" category="inline-link">观看此有关BlueXP部署模式的视频</block>
   <block id="0f8751300c4a6857f8a492b7f39fba12" category="inline-link-macro">查看受支持备份目标的完整列表</block>
   <block id="2e87d4ef1e0516d893da73de140af706" category="inline-link-macro">将 Cloud Volumes ONTAP 数据备份到 Azure Blob</block>
   <block id="32f34f4c2eca6b21bfa54bfe2cf7ad10" category="inline-link-macro">将内部 ONTAP 数据备份到 Azure Blob</block>
@@ -4902,7 +4901,6 @@ ifdef：：AWS。</block>
   <block id="90463a14d4c78ea524911daef7d9cf71" category="paragraph">在许多Amazon Web Services、Microsoft Azure和Google Cloud地区、Cloud Volumes ONTAP均支持BlueXP备份和恢复。</block>
   <block id="6c6a0225cb0a619d8872981b7be0ac95" category="inline-link">使用全球区域地图了解更多信息</block>
   <block id="dac27b02289e52ad3bf6be2e625f4031" category="paragraph"><block ref="70c5fe87a2dc0f089282cb7307d783bf" category="inline-link-rx"></block></block>
-  <block id="a0833f9e76bfd36f87ee1d758fbe0cf4" category="paragraph"><block ref="2f5063518a76fb11ac58b566cf1a20ab" category="inline-link-rx"></block>(英文)<block ref="1335d5eb0bcdbaf6050d71dc83f5893f" category="inline-link-rx"></block>(英文)</block>
   <block id="baa1235434f9122bbcf4cd93c72c3ed3" category="list-text">如果您备份了DP卷、然后决定中断与该卷的SnapMirror关系、则无法将文件还原到该卷、除非同时删除SnapMirror关系或反转SnapMirror方向。</block>
   <block id="97a40c9bbf6946a2928acd09286296b8" category="paragraph">如果使用在Podman中运行的BlueXP连接器(在RHEL 8或9上运行时手动创建的BlueXP连接器)、则不支持用于单文件还原和目录还原的浏览和还原功能。使用Podman时、支持所有其他类型的还原操作、因此您可以使用以下其他方法还原数据、直到解析此问题描述为止：</block>
   <block id="210a764f3461866061c80320620c0eec" category="admonition">有关还原ONTAP数据的限制，请参见 <block ref="15bd83aed33bf3bd63f2e9166e3e91ba" category="inline-link-macro-rx"></block>。</block>
@@ -4960,4 +4958,5 @@ ifdef：：AWS。</block>
   <block id="cd4619af82dfe7627dc934e29e85a6e9" category="paragraph">在此版本中、对FlexGroup文件夹还原的支持是一项技术预览。</block>
   <block id="9b7af6cb2e410e55ce793003b7110047" category="paragraph">有关详细信息，请参见 <block ref="07023d18b01371174abc5a157da41b99" category="inline-link-macro-rx"></block>。</block>
   <block id="707304f314bfa71975e8ffb352535092" category="paragraph">有关手动启用的详细信息，请参见<block ref="7de2d0863d92330816fac8b7768edb68" category="inline-link-rx"></block>。</block>
+  <block id="0459722050fe78ea88f3bdcad4866ce0" category="paragraph"><block ref="2f5063518a76fb11ac58b566cf1a20ab" category="inline-link-rx"></block>(英文)</block>
 </blocks>
