@@ -4115,7 +4115,6 @@ ONTAP S3</block>
   <block id="a4ecfc70574394990cf17bd83df499f7" category="cell">事件</block>
   <block id="94798620994cb827b675957027c80437" category="paragraph">由于增强了安全性、您的Connector现在需要通过出站Internet访问其他端点、以便在公有云环境中管理备份和恢复资源。如果此端点尚未添加到防火墙的"允许"列表中、您将在UI中看到有关"服务不可用"或"无法确定服务状态"的错误：</block>
   <block id="300f031c227ed1b4448a8bb51abec2bb" category="paragraph">\https://netapp-cloud-account.auth0.com</block>
-  <block id="809c75c03a253c08bfaa32177821bc49" category="list-text">您选择的卷必须具有相同的SnapLock设置。所有卷都必须启用SnapLock Enterprise或禁用SnapLock。(采用SnapLock合规性模式的卷需要ONTAP 9.14或更高版本。)</block>
   <block id="437f900a689b3effaba13525bf426e50" category="inline-link-macro">创建策略</block>
   <block id="63ded913a4470920f93edd534ec90156" category="section-title">2023年9月11日</block>
   <block id="101143ec501ddd03e76bf93ad136c2de" category="section-title">为ONTAP数据提供新的策略管理</block>
@@ -4131,7 +4130,6 @@ ONTAP S3</block>
   <block id="115e674b1dc0942f53bc91e279bbd7eb" category="inline-link">了解有关保护ONTAP数据的更多信息</block>
   <block id="5ea7c922bf64f9c4520ccdf833e34e39" category="paragraph"><block ref="287ce1c3ffcd9fd04ac3fb9608fef690" category="inline-link-rx"></block>。</block>
   <block id="7b666c0edc9876b87778d0969629cfbf" category="list-text">在备份和恢复栏中选择*卷*。从卷选项卡中，选择*操作* <block ref="29668165f4efcae1e525eece87489e44" category="inline-image-macro-rx" type="image"></block> 图标并为单个卷(尚未启用复制或备份到对象存储)选择*激活备份*。</block>
-  <block id="718dfdf9ba4cd59f98163d4d75844472" category="list-text">SnapLock合规性卷(需要ONTAP 9.14或更高版本)</block>
   <block id="ef8c31bba1fe5a62e7a6cfedbb9d29da" category="summary">您可以使用NetApp提供的默认备份策略创建备份、也可以创建自定义策略。策略用于控制备份类型、备份架构、存储系统和备份频率。</block>
   <block id="defb6c38e16057d80b8b116a92ab8665" category="doc">管理ONTAP卷的备份策略</block>
   <block id="7ee9b8ccc530c51b1215b5f1266eee5e" category="paragraph">您可以使用NetApp提供的默认备份策略创建备份、也可以创建自定义策略。备份频率、备份时间以及保留的备份文件数量均由策略控制。</block>
@@ -4210,7 +4208,6 @@ ONTAP S3</block>
   <block id="fd3268ccfb501d98109da6d282e89db0" category="list-text">在备份和恢复栏中选择*卷*。从卷选项卡中，选择*操作* <block ref="29668165f4efcae1e525eece87489e44" category="inline-image-macro-rx" type="image"></block> 图标选项并为单个卷(尚未启用复制或备份到对象存储)选择*激活备份*。</block>
   <block id="78720f30e58d9a141f5d550176409702" category="admonition">要创建自定义策略、请参见 <block ref="63a3f471efcfd7e4daa79f468df674ce" category="inline-link-macro-rx"></block>...</block>
   <block id="311000e4ce9d283fb43e8211781ee9e3" category="list-text">在备份和恢复栏中选择*卷*。从卷选项卡中，选择*操作* <block ref="29668165f4efcae1e525eece87489e44" category="inline-image-macro-rx" type="image"></block> 图标并为单个卷(尚未启用复制或备份到对象存储)选择*激活备份*。</block>
-  <block id="e89b128dbf2037e11616e345055bbd03" category="list-text">您选择的卷必须具有相同的SnapLock设置。所有卷都必须启用SnapLock Enterprise或禁用SnapLock。(当前不支持SnapLock合规性模式的卷需要ONTAP 9.14或更高版本。)</block>
   <block id="6b28ac02ff2a9de6b423b9f57d6a4d09" category="sidebar">管理ONTAP卷的策略</block>
   <block id="49f768fa096c849abfc2310e4f864f5e" category="section-title">能够从出站连接受限的站点中的Cloud Volumes ONTAP系统备份数据</block>
   <block id="39539808000ad0a6d6ca39474e4fb77b" category="paragraph">现在、您可以将数据从AWS和Azure商业区域中安装的Cloud Volumes ONTAP 系统备份到Amazon S3或Azure Blob。这要求您在商业区域的Linux主机上以"受限模式"安装连接器、并在该处部署Cloud Volumes ONTAP系统。请参见<block ref="17dde2a04d27e7ad2a9f0a451a7a0e90" category="inline-link-rx"></block> 和<block ref="e88a100423dadabfc9781439f925633d" category="inline-link-rx"></block>。</block>
@@ -4959,4 +4956,5 @@ ifdef：：AWS。</block>
   <block id="9b7af6cb2e410e55ce793003b7110047" category="paragraph">有关详细信息，请参见 <block ref="07023d18b01371174abc5a157da41b99" category="inline-link-macro-rx"></block>。</block>
   <block id="707304f314bfa71975e8ffb352535092" category="paragraph">有关手动启用的详细信息，请参见<block ref="7de2d0863d92330816fac8b7768edb68" category="inline-link-rx"></block>。</block>
   <block id="0459722050fe78ea88f3bdcad4866ce0" category="paragraph"><block ref="2f5063518a76fb11ac58b566cf1a20ab" category="inline-link-rx"></block>(英文)</block>
+  <block id="8678ec2b63284b1fce3f9da35c37df05" category="list-text">您选择的卷必须具有相同的SnapLock设置。所有卷都必须启用SnapLock Enterprise或禁用SnapLock。</block>
 </blocks>
