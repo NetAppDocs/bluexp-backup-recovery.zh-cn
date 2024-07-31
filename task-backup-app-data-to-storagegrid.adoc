@@ -21,7 +21,7 @@ BlueXP支持数据锁定和勒索软件保护。如果ONTAP集群运行的是ONT
 .开始之前
 将数据备份到 StorageGRID 时，您的内部必须具有一个连接器。您需要安装新的Connector或确保当前选定的Connector位于内部。无论是否可访问 Internet ，均可将 Connector 安装在站点中。
 
-有关信息，请参见 link:task-backup-onprem-private-cloud.html#creating-or-switching-connectors["为StorageGRID 创建连接器"]。
+有关信息，请参见 link:task-backup-onprem-private-cloud.html#create-or-switch-connectors["为StorageGRID 创建连接器"]。
 
 .步骤
 . 在BlueXP UI中、单击*保护*>*备份和恢复*>*应用程序*。

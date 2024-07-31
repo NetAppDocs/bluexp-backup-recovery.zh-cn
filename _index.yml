@@ -67,13 +67,6 @@ indexpage:
       url: task-backup-app-data-to-gcp.html
     - title: 将内部应用程序数据备份到StorageGRID
       url: task-backup-app-data-to-storagegrid.html
-    - title: 备份云原生Oracle数据库
-      url: task-backup-cloud-native-oracle-data.html
-    - title: 备份云原生SAP HANA数据库
-      flavor: azure
-      url: task-backup-cloud-native-sap-hana-data.html
-    - title: 备份云原生SQL Server数据库
-      url: task-backup-cloud-native-sql-data.html
   - title: 将数据存储库备份到云
     links:
     - title: 将数据存储库备份到Amazon Web Services
@@ -95,13 +88,6 @@ indexpage:
       url: task-restore-oracle-data.html
     - title: 还原内部SQL Server应用程序数据
       url: task-restore-sql-data.html
-    - title: 还原云原生Oracle应用程序数据
-      url: task-restore-cloud-native-oracle-data-to-original-location.html
-    - title: 还原云原生SAP HANA应用程序数据
-      flavor: azure
-      url: task-restore-cloud-native-sap-hana-data.html
-    - title: 还原云原生SQL Server数据
-      url: task-restore-cloud-native-sql-data.html
     - title: 还原虚拟机数据
       url: task-restore-vm-data.html
     - title: 还原Kubernetes卷数据

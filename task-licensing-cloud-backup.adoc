@@ -53,7 +53,6 @@ link:concept-ontap-backup-to-cloud.html#cost["详细了解与使用BlueXP备份�
 +
 请注意、此选项还需要订阅备份和恢复PAYGO、但符合条件的Cloud Volumes ONTAP系统不会产生任何费用。
 
-* "CVO Edge Cache"软件包具有与"CVO专业版"软件包相同的功能、但也支持 https://docs.netapp.com/us-en/bluexp-edge-caching/concept-gfc.html["BlueXP边缘缓存"^] 服务您有权为Cloud Volumes ONTAP 系统上每配置3 TiB的容量部署一个BlueXP边缘缓存边缘系统。此选项可通过Azure和Google Marketplaces使用、但不支持备份内部ONTAP 数据。
 
 
 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html#capacity-based-licensing["详细了解这些基于容量的许可证包"]。

@@ -40,4 +40,4 @@ summary: 您可以将SAP HANA数据库从云还原到内部SnapCenter服务器�
 
 此操作仅会导出给定主机上选定备份的存储。您应手动挂载文件系统并启动数据库。使用此卷后、存储管理员可以从ONTAP 集群中删除此卷。
 
-有关如何启动SAP HANA数据库的信息、请参见、 https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-overview-of-sap-system-copy-workflow-with-snapcenter.html["TR-4667：SnapCenter 的SAP系统复制工作流概述"^] 和 https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-overview-of-sap-system-clone-workflow-with-snapcenter.html["TR-4667：SnapCenter 的SAP系统克隆工作流概述"^]。
+有关如何启动SAP HANA数据库的信息，请参见 https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html["TR-4667：使用SnapCenter 自动执行SAP HANA系统复制和克隆操作"^]。
