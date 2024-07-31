@@ -3953,7 +3953,6 @@ ifdef：：AWS。</block>
   <block id="e2220c538d5ed850f5ecb8375389dad3" category="list-text">您需要在Google Cloud Project中拥有一个具有自定义角色的服务帐户。<block ref="bb9056f672c7da9a9c8e1e60191fd39c" category="inline-link-rx"></block>(英文)</block>
   <block id="f6b23a9e657d0c84ca0f004a895e6b12" category="admonition">要修改备份设置或添加复制，请参见 <block ref="437ca1df9d07fa739678476083489c0d" category="inline-link-macro-rx"></block>。</block>
   <block id="031305d7be8e01cb27587340a16572f8" category="paragraph">如果您只需要从ONTAP卷备份中还原少量文件、则可以选择还原文件夹或单个文件、而不是还原整个卷。您可以将文件夹和文件还原到原始工作环境中的现有卷、也可以还原到使用同一云帐户的其他工作环境。您还可以将文件夹和文件还原到内部ONTAP 系统上的卷。</block>
-  <block id="87eb849ca11537b79f083ee5fbad6738" category="list-text">对于ONTAP 9.15.1P2、您可以使用浏览并还原选项还原FlexGroup文件夹。</block>
   <block id="57bb710d517f010c4fce20687ec1c6ff" category="list-text">要使用浏览和还原选项还原FlexGroup目录、ONTAP版本必须为9.15.1P2或更高版本。</block>
   <block id="ba874eb3ffbdba518b95ce26bc81a861" category="section-title">2024年7月22日</block>
   <block id="9d5f0e2f1682000ac365243e21301823" category="section-title">还原小于1 GB的卷</block>
@@ -3980,4 +3979,7 @@ ifdef：：AWS。</block>
   <block id="a53c24ea75123fb92d916ca3c6592e08" category="paragraph">有关如何启动SAP HANA数据库的信息，请参见<block ref="d89e94a6aaf703375bdbc4104c3e8227" category="inline-link-rx"></block>。</block>
   <block id="a9e237979cbdc38b90d3a128b7a087d1" category="inline-link">将本地ONTAP数据备份到Amazon S3</block>
   <block id="5ab37a7c23f6f643a1684bd78480a163" category="paragraph">请注意、分配给BlueXP Connector的IAM策略需要将All _Resource_部分下的AWS资源名称"arn"从"aws"更改为"AAWS CN"；例如"arn：aws-cn：s3：：：NetApp-backup-*"。有关详细信息、请参见<block ref="6bde8133d7092193dd76584d1547b993" category="inline-link-rx"></block> 和<block ref="54f3812958e7ffc22b3859734114af6b" category="inline-link-rx"></block> 。</block>
+  <block id="15f09261e873aa1d63f5dcc04347b79b" category="list-text">在ONTAP 9.151中、您可以使用"浏览并还原"选项还原FlexGroup文件夹。此功能处于技术预览模式。</block>
+  <block id="db0f3d3c6912a5ee817314070056f087" category="inline-link">BlueXP备份和恢复2024年7月发布博客</block>
+  <block id="ec53b6836352750173251f0c57f2ed93" category="paragraph">您可以使用中所述的特殊标志对其进行测试<block ref="33c6d5d03ae6e02d266d11d3de66dc86" category="inline-link-rx"></block>。</block>
 </blocks>
