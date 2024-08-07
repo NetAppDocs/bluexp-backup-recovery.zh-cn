@@ -184,4 +184,4 @@ curl --location --request GET 'https://api.bluexp.netapp.com/account/account-DpT
 
 == API 参考
 
-有关每个BlueXP备份和恢复API的文档、请参见 https://docs.netapp.com/us-en/bluexp-automation/cbs/overview.html[]。
+有关每个BlueXP  备份和恢复API的文档，请参见 https://docs.netapp.com/us-en/bluexp-automation/cbs/overview.html["BlueXP  自动化"^]。

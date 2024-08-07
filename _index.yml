@@ -1,10 +1,10 @@
 ---
 indexpage:
   title: BlueXP备份和恢复文档
-  summary: BlueXP备份和恢复服务可为内部和云端的NetApp ONTAP数据、Kubelnetes永久性卷、数据库和虚拟机(VM)提供高效、安全且经济高效的数据保护。
-  keywords: bluexp, bluexp backup recovery, ontap, kubernetes, virtual machines, vm,
-    on-premises, data protection
-  lead: BlueXP备份和恢复服务可为内部和云端的NetApp ONTAP 数据、Kubelnetes永久性卷、数据库和虚拟机提供高效、安全且经济高效的数据保护。
+  summary: BlueXP  备份和恢复服务可为内部和云端的NetApp ONTAP数据、数据库和虚拟机(VM)提供高效、安全且经济高效的数据保护。
+  keywords: bluexp, bluexp backup recovery, ontap, virtual machine, vm, on-premises,
+    data protection
+  lead: BlueXP备份和恢复服务可为内部和云端的NetApp ONTAP 数据、数据库和虚拟机提供高效、安全且经济高效的数据保护。
   tiles:
   - title: 入门
     links:
@@ -90,19 +90,6 @@ indexpage:
       url: task-restore-sql-data.html
     - title: 还原虚拟机数据
       url: task-restore-vm-data.html
-    - title: 还原Kubernetes卷数据
-      url: task-restore-backups-kubernetes.html
-  - title: 将 Kubernetes 数据备份到云
-    links:
-    - title: 将Kubbernetes集群备份到Amazon S3
-      url: task-backup-kubernetes-to-s3.html
-      flavor: aws
-    - title: 将Kubnetes集群备份到Azure Blb
-      url: task-backup-kubernetes-to-azure.html
-      flavor: azure
-    - title: 将Kubbernetes集群备份到Google Cloud
-      url: task-backup-kubernetes-to-gcp.html
-      flavor: gcp
   - title: 博客和社区
     links:
     - title: NetApp 社区

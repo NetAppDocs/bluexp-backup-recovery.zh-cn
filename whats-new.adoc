@@ -560,7 +560,7 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.ht
 
 === 对作业监控器进行了多项增强
 
-* 作业监控页面添加了高级筛选功能、因此您可以按时间、工作负载(卷、应用程序、虚拟机或Kubernetes)搜索备份和还原作业。 作业类型、状态、工作环境和Storage VM。您还可以输入自由文本来搜索任何资源、例如"application_3"。  https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html#searching-and-filtering-the-list-of-jobs["请参见如何使用高级筛选器"]。
+* "作业监控"页面添加了高级筛选功能、因此您可以按时间、工作负载(卷、应用程序或虚拟机)、作业类型、 状态、工作环境和Storage VM。您还可以输入自由文本来搜索任何资源、例如"application_3"。 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html#searching-and-filtering-the-list-of-jobs["请参见如何使用高级筛选器"](英文)
 * 对于运行ONTAP 9.13.0或更高版本的Cloud Volumes ONTAP 系统、用户启动的备份和还原操作以及系统启动的作业(如正在进行的备份操作)现在均可在*作业监控*选项卡中找到。早期版本的Cloud Volumes ONTAP 系统和内部ONTAP 系统此时将仅显示用户启动的作业。
 
 
@@ -789,7 +789,7 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/task-manage-backup-settings
 
 已对进行了以下更新 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.html["作业监控页面"]：
 
-* 您可以使用"workload"列筛选页面以查看以下备份服务的作业：卷、应用程序、虚拟机和Kubernetes。
+* "工作负载"列可用、因此您可以筛选页面以查看以下备份服务的作业：卷、应用程序和虚拟机。
 * 如果要查看特定备份作业的这些详细信息、可以为"用户名"和"作业类型"添加新列。
 * "作业详细信息"页面将显示为完成主作业而正在运行的所有子作业。
 * 此页面每15分钟自动刷新一次、以便您始终可以看到最新的作业状态结果。您可以单击*刷新*按钮立即更新此页面。

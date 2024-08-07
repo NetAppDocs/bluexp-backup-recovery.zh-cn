@@ -20,7 +20,7 @@ summary: 您可以监控已启动或已计划的本地Snapshot、复制和备份
 
 == 在作业监视器上查看作业状态
 
-您可以在*Job Monitoring*选项卡中查看所有Snapshot、复制、备份到对象存储和还原操作及其当前状态的列表。其中包括来自Cloud Volumes ONTAP 、内部ONTAP 、应用程序、虚拟机和Kubernetes系统的操作。每个操作或作业都有一个唯一的 ID 和一个状态。
+您可以在*Job Monitoring*选项卡中查看所有Snapshot、复制、备份到对象存储和还原操作及其当前状态的列表。其中包括从Cloud Volumes ONTAP、内部ONTAP、应用程序和虚拟机执行的操作。每个操作或作业都有一个唯一的 ID 和一个状态。
 
 状态可以是：
 
@@ -76,7 +76,6 @@ image:screenshot_backup_job_monitor_filters.png["设置筛选器以仅查看与�
 ** 卷(Cloud Volumes ONTAP和内部ONTAP卷)
 ** 应用程序
 ** 虚拟机
-** Kubernetes
 
 
 +

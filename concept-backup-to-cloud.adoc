@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: concept-backup-to-cloud.html 
-keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, kubernetes, applications, virtual machines, backup and recovery 
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery 
 summary: BlueXP备份和恢复服务可为内部和云端的NetApp ONTAP 数据、数据库和虚拟机提供高效、安全且经济高效的数据保护。备份会自动生成并存储在公有 或私有云帐户的对象存储中。 
 ---
 = 了解有关BlueXP备份和恢复的信息
@@ -14,7 +14,7 @@ summary: BlueXP备份和恢复服务可为内部和云端的NetApp ONTAP 数据�
 
 
 [role="lead"]
-BlueXP备份和恢复服务可为内部和云端的NetApp ONTAP 数据、Kubelnetes永久性卷、数据库和虚拟机提供高效、安全且经济高效的数据保护。备份会自动生成并存储在公有 或私有云帐户的对象存储中。
+BlueXP备份和恢复服务可为内部和云端的NetApp ONTAP 数据、数据库和虚拟机提供高效、安全且经济高效的数据保护。备份会自动生成并存储在公有 或私有云帐户的对象存储中。
 
 该服务可执行块级永久增量复制、并保留所有存储效率、从而显著减少复制和存储的数据量。此外、您只需为受保护的内容付费、并使用可用的最低成本存储层、这使得BlueXP备份和恢复非常经济高效。
 
@@ -25,7 +25,6 @@ https://bluexp.netapp.com/cloud-backup["了解有关BlueXP备份和恢复的更�
 备份和恢复可用于：
 
 * 从Cloud Volumes ONTAP 和内部ONTAP 系统备份和还原ONTAP 卷数据。 link:concept-ontap-backup-to-cloud.html["请参见此处的详细功能"]。
-* 备份和还原Kubernetes永久性卷。 link:concept-kubernetes-backup-to-cloud.html["请参见此处的详细功能"]。
 * 使用适用于应用程序的BlueXP备份和恢复功能从内部部署ONTAP 系统备份应用程序一致的Snapshot。 link:concept-protect-app-data-to-cloud.html["请参见此处的详细功能"]。
 * 使用适用于VMware的BlueXP备份和恢复功能将数据存储库备份到云、并将虚拟机还原回内部vCenter。 link:concept-protect-vm-data.html["请参见此处的详细功能"]。
 
@@ -33,7 +32,7 @@ https://bluexp.netapp.com/cloud-backup["了解有关BlueXP备份和恢复的更�
 https://www.youtube.com/watch?v=DF0knrH2a80["观看快速演示"^]
 
 
-TIP: 如果将BlueXP Connector部署在云中的政府区域或无法访问Internet的站点(非公开站点)中、则BlueXP备份和恢复仅支持从ONTAP 系统执行备份和还原操作。使用这些类型的部署方法时、BlueXP备份和恢复不支持从Kubernetes集群、应用程序或虚拟机执行备份和还原操作。
+TIP: 如果将BlueXP Connector部署在云中的政府区域或无法访问Internet的站点(非公开站点)中、则BlueXP备份和恢复仅支持从ONTAP 系统执行备份和还原操作。使用这些类型的部署方法时、BlueXP  备份和恢复不支持从应用程序或虚拟机执行备份和还原操作。
 
 
 
