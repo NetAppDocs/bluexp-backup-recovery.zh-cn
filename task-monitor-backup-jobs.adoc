@@ -169,7 +169,7 @@ BlueXP通知中心会跟踪您已启动的备份和还原作业的进度、以�
 | Replication | BlueXP备份和恢复复制会暂停作业失败 | error | 否 
 
 
-| Replication | BlueXP备份和恢复复制制动作业失败 | error | 否 
+| Replication | BlueXP  备份和恢复复制中断作业失败 | error | 否 
 
 
 | Replication | BlueXP备份和恢复复制重新同步作业失败 | error | 否 
