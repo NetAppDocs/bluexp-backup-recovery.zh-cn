@@ -2610,7 +2610,6 @@ Cloud Volumes ONTAP</block>
   <block id="7d43c1b3e8a80ec6b8eab793bca8c4ad" category="paragraph">如果您已经在Azure区域中部署了Connector、则一切都准备就绪。如果没有、则需要在Azure中安装BlueXP连接器、将Cloud Volumes ONTAP数据备份到Azure Blb存储。连接器可以安装在具有完全互联网访问("标准模式")或有限互联网连接("受限模式")的站点上。</block>
   <block id="dd7dc066cb6a0b619ef397e8b37b57c3" category="list-text">在Azure门户中、打开虚拟机服务。</block>
   <block id="91290ff1408f6a65a206632246cf7a18" category="paragraph">您可以在激活向导中使用自己的客户管理密钥进行数据加密，而不是使用默认的 Microsoft 管理的加密密钥。在这种情况下、您需要具有Azure订阅、密钥存储名称和密钥。<block ref="50f2f49feb0afd07f1969b5faf2ca775" category="inline-link-rx"></block>。</block>
-  <block id="7bd09fb790fc1d94719af4adc4a6e47e" category="paragraph">BlueXP备份和恢复支持使用_Azure访问策略_作为权限模型。当前不支持_Azure基于角色的访问控制_(Azure RBAC)权限模型。</block>
   <block id="03b5f9f162d01e816da54e835c8a9015" category="list-text">选择*Microsoft Azure"作为云提供程序，然后选择单个节点或HA系统。</block>
   <block id="23f0f5eeb1888d644970aec01dce912f" category="list-text">完成向导中的各个页面以部署BlueXP备份和恢复。</block>
   <block id="88a7904e700f31e4cf7bb57f46eb7a09" category="list-text">如果要启动备份、请继续执行 <block ref="cf0309d29ec4628c69a24a15a021ad35" category="inline-xref-macro-rx"></block>。</block>
@@ -3735,4 +3734,6 @@ ifdef：：AWS。</block>
   <block id="756733f39050e99f4221fe80d10ea604" category="sidebar">BlueXP备份和恢复服务可为内部和云端的NetApp ONTAP 数据、数据库和虚拟机提供高效、安全且经济高效的数据保护。</block>
   <block id="e117f11185531a360eff8bfed09af453" category="sidebar">BlueXP  备份和恢复服务可为内部和云端的NetApp ONTAP数据、数据库和虚拟机(VM)提供高效、安全且经济高效的数据保护。</block>
   <block id="0760245e68680af16b611d238a130354" category="cell">BlueXP  备份和恢复复制中断作业失败</block>
+  <block id="3da2387f3963d6425b4b1d6b322f70c3" category="inline-link">什么是Azure密钥存储托管HSM？</block>
+  <block id="d02466e22d28fb26badb969e9549aef1" category="paragraph">BlueXP  备份和恢复支持_Azure访问策略_、_Azure基于角色的访问控制_(Azure RBAC)权限模型和_托管硬件安全模型_(HSM)(请参见<block ref="c4dbe37ac52a9ba2f5defa0c652294d5" category="inline-link-rx"></block>)。</block>
 </blocks>
