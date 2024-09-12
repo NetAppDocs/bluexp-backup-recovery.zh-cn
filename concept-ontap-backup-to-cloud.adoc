@@ -291,7 +291,7 @@ link:task-licensing-cloud-backup.html#use-a-bluexp-backup-and-recovery-paygo-sub
 
 ifdef::aws[]
 
-使用AWS时、有两个为期1年、2年或3年的年度合同可供选择：
+如果您使用AWS、则可以获得两份为期1年、2年或3年的年度合同：
 
 * 一种 " 云备份 " 计划，可用于备份 Cloud Volumes ONTAP 数据和内部 ONTAP 数据。
 * 一种"CVO专业人员"计划、可用于捆绑Cloud Volumes ONTAP 和BlueXP备份和恢复。这包括对此许可证付费的 Cloud Volumes ONTAP 卷的无限备份（备份容量不计入此许可证）。
@@ -301,7 +301,7 @@ endif::aws[]
 
 ifdef::azure[]
 
-使用Azure时、有两个为期1年、2年或3年的年度合同可供选择：
+使用Azure时、可以获得两份为期1年、2年或3年的年度合同：
 
 * 一种 " 云备份 " 计划，可用于备份 Cloud Volumes ONTAP 数据和内部 ONTAP 数据。
 * 一种"CVO专业人员"计划、可用于捆绑Cloud Volumes ONTAP 和BlueXP备份和恢复。这包括对此许可证付费的 Cloud Volumes ONTAP 卷的无限备份（备份容量不计入此许可证）。
@@ -311,7 +311,7 @@ endif::azure[]
 
 ifdef::gcp[]
 
-使用GCP时、您可以向NetApp申请一个私人优惠、然后在激活BlueXP备份和恢复期间从Google Cloud Marketplace订阅时选择计划。
+使用GCP时、您可以向NetApp申请私人优惠、然后在BlueXP  备份和恢复激活期间从Google云市场订阅该计划时选择该计划。
 
 endif::gcp[]
 
@@ -404,7 +404,7 @@ TIP: 数据保护卷备份的保留期限与源 SnapMirror 关系中定义的保
 
 默认情况下、计划的勒索软件保护扫描处于启用状态。扫描频率的默认设置为7天。扫描仅在最新的Snapshot副本上进行。可以禁用计划扫描以降低成本。您可以使用高级设置页面上的选项对最新Snapshot副本启用或禁用计划的勒索软件扫描。如果启用此功能、则默认情况下每周执行一次扫描。您可以将该计划更改为天数或周数、也可以将其禁用、从而节省成本。
 
-备份保留期限与备份计划保留期限相同；加上14天。例如、保留了_5_副本的_weekly_备份会将每个备份文件锁定5周。保留了_6_副本的_monthly备份将锁定每个备份文件6个月。
+备份保留期限与备份计划保留期限相同、外加最长31天的缓冲区。例如、保留了_5_副本的_weekly_备份会将每个备份文件锁定5周。保留了_6_副本的_monthly备份将锁定每个备份文件6个月。
 
 如果您的备份目标为Amazon S3、Azure Blob或NetApp StorageGRID 、则当前可以获得支持。其他存储提供程序目标将在未来版本中添加。
 

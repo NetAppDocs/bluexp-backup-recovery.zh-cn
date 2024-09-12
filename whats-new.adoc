@@ -283,7 +283,7 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.
 
 === 为备份和还原SnapLock卷提供了更多支持
 
-现在、备份和恢复可以备份使用SnapLock合规性或SnapLock企业保护模式配置的FlexVol和FlexGroup卷。要获得此支持、集群必须运行ONTAP 9.14或更高版本。从ONTAP 9.11.1版开始、支持使用SnapLock企业模式备份FlexVol卷。早期版本的ONTAP不支持备份SnapLock保护卷。
+现在、备份和恢复可以备份使用SnapLock Enterprise保护模式配置的FlexVol和FlexGroup卷。要获得此支持、集群必须运行ONTAP 9.14或更高版本。从ONTAP 9.11.1版开始、支持使用SnapLock企业模式备份FlexVol卷。早期版本的ONTAP不支持备份SnapLock保护卷。
 
 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-ontap-backup-to-cloud.html["了解有关保护ONTAP数据的更多信息"]。
 
