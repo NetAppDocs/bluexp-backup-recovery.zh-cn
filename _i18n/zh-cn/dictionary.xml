@@ -3590,7 +3590,6 @@ ifdef：：AWS。</block>
 <block ref="6a96d9b5ed55776b5555946cb02fa548" category="inline-link-macro-rx"></block>。</block>
   <block id="2dc37cecffdd7077ba99c0ba111ad347" category="section-title">备份到对象限制</block>
   <block id="215d6f1bc8d7005b7bb981d9a3dc7b78" category="section-title">将RHEL 8+与Podman结合使用时的限制</block>
-  <block id="38c44a50a75c15410df928f63928acf8" category="section-title">不支持单文件还原</block>
   <block id="dbeaadfb952b8aa57d00264751776087" category="list-text">如果存在复制的卷、请从复制的卷还原文件或文件夹。</block>
   <block id="e647cb9e3bb11f1dcf4383ae4ae00f0f" category="list-text">使用搜索和还原功能从云备份还原文件或文件夹。</block>
   <block id="b760ac1d9088cf17812b95299a0f4c97" category="list-text">使用浏览和还原从云备份还原卷、然后访问所需的文件或文件夹。</block>
@@ -3736,4 +3735,14 @@ ifdef：：AWS。</block>
   <block id="f88ca0c86817c46ef8ec699cdf83665c" category="paragraph">使用GCP时、您可以向NetApp申请私人优惠、然后在BlueXP  备份和恢复激活期间从Google云市场订阅该计划时选择该计划。</block>
   <block id="78505512ebd89d20931322ac265d9153" category="paragraph">备份保留期限与备份计划保留期限相同、外加最长31天的缓冲区。例如、保留了_5_副本的_weekly_备份会将每个备份文件锁定5周。保留了_6_副本的_monthly备份将锁定每个备份文件6个月。</block>
   <block id="741aaba68ff71f579469a40cd8f92b4f" category="paragraph">现在、备份和恢复可以备份使用SnapLock Enterprise保护模式配置的FlexVol和FlexGroup卷。要获得此支持、集群必须运行ONTAP 9.14或更高版本。从ONTAP 9.11.1版开始、支持使用SnapLock企业模式备份FlexVol卷。早期版本的ONTAP不支持备份SnapLock保护卷。</block>
+  <block id="edaf1dd0d1554f666d48a9fcd0c9ed77" category="section-title">支持单文件还原</block>
+  <block id="13d2a4e10589dd80e0c51d5473113c2a" category="admonition">自2024年9月30日版起、此限制已被删除。</block>
+  <block id="5fcc5d3ffc4bbbcf6d018ab4a9639205" category="section-title">2024年9月27日</block>
+  <block id="aa6a53998d98bae73a6913ff1c2eecbc" category="section-title">RHEL 8或9上的Podman支持以及浏览和还原功能</block>
+  <block id="c6bad3b272d5eeec569990b050d88123" category="paragraph">BlueXP  备份和恢复现在支持使用Podman引擎在Red Hat Enterprise Linux (RHEL) 8和9上还原文件和文件夹。这适用于BlueXP  备份和恢复浏览和还原方法。</block>
+  <block id="f5d370ee9e029c4d62db915f308e04c0" category="paragraph">BlueXP  Connector 3.9.40支持在RHEL 8或9主机上手动安装某些版本的Red Hat Enterprise Linux版本8和9，而不考虑位置以及中提到的操作系统<block ref="9b2a96babeed2ab711a4327ec7f34b5c" category="inline-link-rx"></block>。这些较新的RHEL版本需要使用Podman引擎、而不是Docker引擎。以前、使用Podman引擎时、BlueXP  备份和恢复有两个限制。已删除这些限制。</block>
+  <block id="6111aa812639d5e432842ceca200ea78" category="inline-link">了解有关从备份文件还原ONTAP数据的更多信息</block>
+  <block id="007a407431de4321913728dae6423904" category="paragraph"><block ref="056f97dce802386385ce3734740613e1" category="inline-link-rx"></block>(英文)</block>
+  <block id="3abe4a789c1c33e285d9452cca8c493b" category="section-title">加快目录索引编制速度可改进搜索和还原功能</block>
+  <block id="9353e94049314c6236b51712848f2572" category="paragraph">此版本改进了目录索引功能、可以更快地完成基线索引编制。通过加快索引编制速度、您可以更快地使用搜索和还原功能。</block>
 </blocks>

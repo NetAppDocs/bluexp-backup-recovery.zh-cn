@@ -18,6 +18,28 @@ summary: 了解BlueXP备份和恢复的新增功能。
 
 
 
+== 2024年9月27日
+
+
+
+=== RHEL 8或9上的Podman支持以及浏览和还原功能
+
+BlueXP  备份和恢复现在支持使用Podman引擎在Red Hat Enterprise Linux (RHEL) 8和9上还原文件和文件夹。这适用于BlueXP  备份和恢复浏览和还原方法。
+
+BlueXP  Connector 3.9.40支持在RHEL 8或9主机上手动安装某些版本的Red Hat Enterprise Linux版本8和9，而不考虑位置以及中提到的操作系统 https://docs.netapp.com/us-en/bluexp-setup-admin/task-prepare-private-mode.html#step-3-review-host-requirements["主机要求"^]。这些较新的RHEL版本需要使用Podman引擎、而不是Docker引擎。以前、使用Podman引擎时、BlueXP  备份和恢复有两个限制。已删除这些限制。
+
+https://review.docs.netapp.com/us-en/bluexp-backup-recovery_br-se-ja/task-restore-backups-ontap.html["了解有关从备份文件还原ONTAP数据的更多信息"](英文)
+
+
+
+=== 加快目录索引编制速度可改进搜索和还原功能
+
+此版本改进了目录索引功能、可以更快地完成基线索引编制。通过加快索引编制速度、您可以更快地使用搜索和还原功能。
+
+https://review.docs.netapp.com/us-en/bluexp-backup-recovery_br-se-ja/task-restore-backups-ontap.html["了解有关从备份文件还原ONTAP数据的更多信息"](英文)
+
+
+
 == 2024年7月22日
 
 
