@@ -64,7 +64,11 @@ DataLock功能可保护备份文件、使其在指定时间段内不会被修改
 
 在此版本中、对AWS IAM角色无处不在服务的支持只是一项技术预览。
 
-这适用于备份 link:task-backup-to-s3.html["将Cloud Volumes ONTAP备份到AWS"] 和 link:task-backup-onprem-to-aws.html["将内部ONTAP数据备份到AWS"]。
+ifdef::aws[]
+
+这适用于link:task-backup-to-s3.html["将Cloud Volumes ONTAP备份到AWS"]。这适用于link:task-backup-onprem-to-aws.html["将内部ONTAP数据备份到AWS"]。
+
+endif::aws[]
 
 请参阅 https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-July-2024-Release/ba-p/453993["BlueXP备份和恢复2024年7月发布博客"]。
 
@@ -135,6 +139,12 @@ DataLock功能可保护备份文件、使其在指定时间段内不会被修改
 * https://docs.netapp.com/us-en/bluexp-backup-recovery/task-create-policies-ontap.html["管理ONTAP卷的策略"]
 * https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-cloud-backup-policies.html["备份到对象策略设置"]
 
+
+ifdef::aws[]
+
+请参阅 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-s3.html["将 Cloud Volumes ONTAP 数据备份到 Amazon S3"]和 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-azure.html["将Cloud Volumes ONTAP 数据备份到Azure Blob"]。
+
+endif::aws[]
 
 
 
@@ -329,7 +339,11 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-ontap-backup-to-clo
 
 现在、您可以使用已配置简单存储服务(S3)的ONTAP系统将卷备份到对象存储。内部ONTAP系统和Cloud Volumes ONTAP系统均支持此功能。在云部署和不能访问Internet的内部位置("私有"模式部署)支持此配置。
 
+ifdef::aws[]
+
 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-onprem-to-ontap-s3.html["了解更多信息。"]。
+
+endif::aws[]
 
 
 
@@ -481,7 +495,13 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.ht
 
 === 将卷备份到Google Cloud时、支持跨区域和跨项目客户管理的密钥
 
-现在、您可以选择与客户管理的加密密钥(CMDK)项目不同的项目中的存储分段。 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-onprem-to-gcp.html#preparing-google-cloud-storage-for-backups["详细了解如何设置您自己的客户管理加密密钥"]。
+现在、您可以选择与客户管理的加密密钥(CMDK)项目不同的项目中的存储分段。
+
+ifdef::gcp[]
+
+https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-onprem-to-gcp.html#preparing-google-cloud-storage-for-backups["详细了解如何设置您自己的客户管理加密密钥"](英文)
+
+endif::gcp[]
 
 
 
@@ -489,7 +509,13 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.ht
 
 现在、如果集群运行的是ONTAP 9.12.1或更高版本、则支持将AWS中国北京(CN-north-1)和宁夏(CN-north-1)区域作为备份文件的目标。
 
-请注意、分配给BlueXP Connector的IAM策略需要将All _Resource_部分下的AWS资源名称"arn"从"aws"更改为"AAWS CN"；例如"arn：aws-cn：s3：：：NetApp-backup-*"。有关详细信息、请参见 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-s3.html["将 Cloud Volumes ONTAP 数据备份到 Amazon S3"] 和 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-onprem-to-aws.html["将本地ONTAP数据备份到Amazon S3"] 。
+请注意、分配给BlueXP Connector的IAM策略需要将All _Resource_部分下的AWS资源名称"arn"从"aws"更改为"AAWS CN"；例如"arn：aws-cn：s3：：：NetApp-backup-*"。
+
+ifdef::aws[]
+
+有关详细信息、请参见 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-s3.html["将 Cloud Volumes ONTAP 数据备份到 Amazon S3"] 和 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-onprem-to-aws.html["将本地ONTAP数据备份到Amazon S3"] 。
+
+endif::aws[]
 
 
 
@@ -539,7 +565,19 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.ht
 
 === 能够在"受限"模式下将数据从Cloud Volumes ONTAP 系统备份到云
 
-现在、您可以在"受限模式"下从AWS、Azure和GCP商业区域中安装的Cloud Volumes ONTAP 系统备份数据。这要求您首先在"受限"商业区域安装Connector。 https://docs.netapp.com/us-en/bluexp-setup-admin/concept-modes.html["详细了解BlueXP部署模式"^]。请参见 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-s3.html["将 Cloud Volumes ONTAP 数据备份到 Amazon S3"] 和 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-azure.html["将Cloud Volumes ONTAP 数据备份到Azure Blob"]。
+现在、您可以在"受限模式"下从AWS、Azure和GCP商业区域中安装的Cloud Volumes ONTAP 系统备份数据。这要求您首先在"受限"商业区域安装连接器。 https://docs.netapp.com/us-en/bluexp-setup-admin/concept-modes.html["详细了解BlueXP部署模式"^](英文)。
+
+ifdef::aws[]
+
+请参见 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-s3.html["将 Cloud Volumes ONTAP 数据备份到 Amazon S3"]
+
+endif::aws[]
+
+ifdef::azure[]
+
+请参阅。 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-azure.html["将Cloud Volumes ONTAP 数据备份到Azure Blob"]
+
+endif::azure[]
 
 
 
@@ -576,7 +614,19 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/task-monitor-backup-jobs.ht
 
 === 能够从出站连接受限的站点中的Cloud Volumes ONTAP系统备份数据
 
-现在、您可以将数据从AWS和Azure商业区域中安装的Cloud Volumes ONTAP 系统备份到Amazon S3或Azure Blob。这要求您在商业区域的Linux主机上以"受限模式"安装连接器、并在该处部署Cloud Volumes ONTAP系统。请参见 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-s3.html["将 Cloud Volumes ONTAP 数据备份到 Amazon S3"] 和 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-azure.html["将Cloud Volumes ONTAP 数据备份到Azure Blob"]。
+现在、您可以将数据从AWS和Azure商业区域中安装的Cloud Volumes ONTAP 系统备份到Amazon S3或Azure Blob。这要求您在商业区域的Linux主机上以"受限模式"安装连接器、并在该处部署Cloud Volumes ONTAP系统。
+
+ifdef::aws[]
+
+请参阅。 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-s3.html["将 Cloud Volumes ONTAP 数据备份到 Amazon S3"]
+
+endif::aws[]
+
+ifdef::azure[]
+
+请参阅。 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-to-azure.html["将Cloud Volumes ONTAP 数据备份到Azure Blob"]
+
+endif::azure[]
 
 
 
@@ -654,7 +704,13 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-ontap-backup-to-clo
 
 === 服务帐户不再需要"存储管理员"角色来在Google Cloud Storage中创建备份
 
-在早期版本中、支持BlueXP备份和恢复访问Google Cloud存储分段的服务帐户需要"存储管理员"角色。现在、您可以创建一个自定义角色、并为该服务帐户分配一组经过精简的权限。 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-onprem-to-gcp.html#preparing-google-cloud-storage-for-backups["请参见如何准备用于备份的Google Cloud存储"]。
+在早期版本中、支持BlueXP备份和恢复访问Google Cloud存储分段的服务帐户需要"存储管理员"角色。现在、您可以创建一个自定义角色、并为该服务帐户分配一组经过精简的权限。
+
+ifdef::gcp[]
+
+https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-onprem-to-gcp.html#preparing-google-cloud-storage-for-backups["请参见如何准备用于备份的Google Cloud存储"](英文)
+
+endif::gcp[]
 
 
 
