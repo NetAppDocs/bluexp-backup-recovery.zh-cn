@@ -2835,7 +2835,6 @@ Cloud Volumes ONTAP</block>
   <block id="b1864ef3e1c982ea79e143744ce2e778" category="paragraph"><block ref="5168b6a061fd7575c70ed688cdecff09" category="inline-link-macro-rx"></block>。</block>
   <block id="28543445b2c93df38084996ffc019a63" category="section-title">是否要创建自己的对象存储容器</block>
   <block id="44f63148cdcdb30b0f9a4cc99944e0cb" category="paragraph">在工作环境的对象存储中创建备份文件时、默认情况下、备份和恢复服务会在您配置的对象存储帐户中为备份文件创建容器(存储分段或存储帐户)。默认情况下、AWS或GCP存储分段名为&lt;uuid&gt;"。Azure Blb存储帐户名为&lt;uuid&gt; 301"。</block>
-  <block id="f108f3b7f4cf5d3e79e581222e60586a" category="paragraph">如果要使用特定前缀或分配特殊属性、您可以在对象提供程序帐户中自行创建容器。如果要创建自己的容器、必须在启动激活向导之前创建它。此容器必须专用于存储ONTAP卷备份文件、不能用于任何其他用途。备份激活向导将自动发现选定帐户和凭据的已配置容器、以便您可以选择要使用的容器。</block>
   <block id="e7be09e6760b058dbc55a8f59678d720" category="paragraph">您可以从BlueXP或云提供商创建存储分段。</block>
   <block id="0cacb53d99c416f2596b0157ce4f280d" category="paragraph">如果您计划将较早的备份文件移至归档存储、或者计划启用DataLock和勒索软件保护以锁定备份文件并扫描其是否存在可能的勒索软件、则需要使用特定配置设置创建容器：</block>
   <block id="82ca9ca8a32b3a5b525d7ba630040a08" category="list-text">如果在集群上使用ONTAP 9.10.1或更高版本的软件、则AWS S3存储目前支持您自己存储分段上的归档存储。默认情况下、备份从S3 _Standard"存储类开始。确保使用适当的生命周期规则创建存储分段：</block>
@@ -3756,4 +3755,5 @@ ifdef：：AWS。</block>
   <block id="84142ff06d4e9d4646fc2a3b18cc1d91" category="paragraph"><block ref="a21af64035213e0424a2bf24b7431646" category="inline-link-rx"></block>(英文)</block>
   <block id="2f080abae9949a746e32fbd78d3382f7" category="paragraph">有关DataLock的详细信息以及有关如何降低相关成本的提示，请参见<block ref="116b2987b0e6fcf4c15ff7c1a1a47ed3" category="inline-link-rx"></block>。</block>
   <block id="b1b12c3c76c5dc414df3c68e8a811c2a" category="paragraph">有关详细信息，请参见<block ref="ef40acf6b73cf65ed40d9b8f7f6be1c3" category="inline-link-rx"></block>。</block>
+  <block id="2a26ca1d77691991f2402c219881a81b" category="paragraph">如果要使用特定前缀或分配特殊属性、您可以在对象提供程序帐户中自行创建容器。如果要创建自己的容器、必须在启动激活向导之前创建它。BlueXP  备份和恢复可以使用任何存储分段和共享存储分段。备份激活向导将自动发现选定帐户和凭据的已配置容器、以便您可以选择要使用的容器。</block>
 </blocks>
