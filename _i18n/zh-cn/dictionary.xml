@@ -3477,9 +3477,6 @@ ifdef：：AWS。</block>
   <block id="fc2e47deb6b2e0b0b69b4d23d0c52dc0" category="paragraph">*高级存储分段设置*</block>
   <block id="48aa998a6b6a592f5d7a4dccd6c981e5" category="paragraph">如果在具有完全Internet连接(也称为_STERD MODE _或_SaaS MODE _)的站点中使用BlueXP备份和恢复、则您可以在由BlueXP管理的任何内部ONTAP或Cloud Volumes ONTAP系统上创建复制的卷、 您可以在任何受支持的云提供商的对象存储上创建备份文件。 <block ref="53011d10cc707465ef24eb421fc1dc04" category="inline-link-macro-rx"></block>。</block>
   <block id="353c8b9b4f3b8d79cf3de34b62dedb85" category="paragraph">有关有效连接器位置的列表、请参阅计划创建备份文件的云提供程序的以下备份过程之一。必须在Linux计算机上手动安装连接器或将连接器部署在特定云提供商中、这方面存在一些限制。</block>
-  <block id="cd7822bfaba52280932b79873329daf7" category="paragraph">BlueXP备份和恢复可在Internet连接受限(也称为_Restricted mode__)的站点中用于备份卷数据。在这种情况下、您需要在受限区域部署BlueXP Connector。</block>
-  <block id="1b2ae8fd4fbb8aea97c2363d0b2cc03f" category="list-text">您可以将数据从AWS商业区域中安装的Cloud Volumes ONTAP 系统备份到Amazon S3。 <block ref="b4a611717e08ba4c0f2fa5390556e4e1" category="inline-link-macro-rx"></block>。</block>
-  <block id="5ffa64fdc5f25941da3f4d7d719fc76d" category="list-text">您可以将数据从安装在Azure商业区域的Cloud Volumes ONTAP 系统备份到Azure Blob。  <block ref="d0f49153a0d69289bf4d240d8900efdd" category="inline-link-macro-rx"></block>。</block>
   <block id="a93164b5de348a4fb06ecfebdb6861a8" category="paragraph">BlueXP备份和恢复可在没有Internet连接的站点(也称为_private mode_or _dark站点)中用于备份卷数据。在这种情况下、您需要在同一站点的Linux主机上部署BlueXP Connector。</block>
   <block id="2a7f31b421ebd440283eff6d94322a3b" category="list-text">您可以将本地内部ONTAP 系统中的数据备份到本地NetApp StorageGRID 系统。  <block ref="80288d2da91f9794088785363d31b6b5" category="inline-link-macro-rx"></block>。</block>
   <block id="12df54ded49a677ce2708bf5c0651425" category="list-text">您可以将本地内部ONTAP系统中的数据备份到本地内部ONTAP系统或为S3对象存储配置的Cloud Volumes ONTAP系统。 <block ref="033f1a63473843a2d0a7ec99f2bb4e1c" category="inline-link-macro-rx"></block>。
@@ -3571,8 +3568,6 @@ ifdef：：AWS。</block>
   <block id="346753a5d3dc5273a067b86995fbd568" category="paragraph">使用Podman引擎时、不支持扫描云备份中的勒索软件。如果您要对云备份使用DataLock和勒索软件功能、则需要禁用勒索软件扫描。 <block ref="f4c28073f17b68c88ffe0b411369b71f" category="inline-link-macro-rx"></block>。</block>
   <block id="74fcd9275dc8f4544c3f2e6da14c3a0f" category="cell">Docker命令</block>
   <block id="9865e302853628bbfe9f8357d9e7514f" category="cell">Podman命令</block>
-  <block id="62fbf3095f1e89aabae3804682809c2b" category="cell"><block ref="3d14b961bb7289e76bff64ac921cba5d" prefix="" category="inline-code"></block></block>
-  <block id="bf7ecaf7643e3be49e45cd82469534f1" category="cell"><block ref="55285eccf27fa61af2e97ac2832bdc01" prefix="" category="inline-code"></block></block>
   <block id="2bd2b4226296570c863270e08d511da0" category="list-text">根据您使用的是Docker容器还是Podman容器、使用以下命令之一将备份复制到MySQL Docker容器：</block>
   <block id="4b049f120edc0f4092d8d8e236ea964b" category="list-text">根据您使用的是Docker容器还是Podman容器、使用以下命令之一输入MySQL容器Shell：</block>
   <block id="d5523b519e89c779f9a7f347736d28f5" category="paragraph">如果在为此集群激活BlueXP备份和恢复时启用了_DataLock和勒索软件保护_、则按需备份也会配置DataLock、保留期限为30天。临时备份不支持勒索软件扫描。 <block ref="25ebe908c09aa768262b63d88362088a" category="inline-link-macro-rx"></block>。</block>
@@ -3756,4 +3751,10 @@ ifdef：：AWS。</block>
   <block id="2f080abae9949a746e32fbd78d3382f7" category="paragraph">有关DataLock的详细信息以及有关如何降低相关成本的提示，请参见<block ref="116b2987b0e6fcf4c15ff7c1a1a47ed3" category="inline-link-rx"></block>。</block>
   <block id="b1b12c3c76c5dc414df3c68e8a811c2a" category="paragraph">有关详细信息，请参见<block ref="ef40acf6b73cf65ed40d9b8f7f6be1c3" category="inline-link-rx"></block>。</block>
   <block id="2a26ca1d77691991f2402c219881a81b" category="paragraph">如果要使用特定前缀或分配特殊属性、您可以在对象提供程序帐户中自行创建容器。如果要创建自己的容器、必须在启动激活向导之前创建它。BlueXP  备份和恢复可以使用任何存储分段和共享存储分段。备份激活向导将自动发现选定帐户和凭据的已配置容器、以便您可以选择要使用的容器。</block>
+  <block id="3a66ab30f960deed7e2d6dbe5675eebc" category="paragraph">BlueXP备份和恢复可在Internet连接受限(也称为_Restricted mode__)的站点中用于备份卷数据。在这种情况下、您需要在目标云区域部署BlueXP  连接器。</block>
+  <block id="c042a7ac26c00953bd87e1129908e5c7" category="list-text">您可以将内部ONTAP系统或AWS商业区域中安装的Cloud Volumes ONTAP系统中的数据备份到Amazon S3。<block ref="b4a611717e08ba4c0f2fa5390556e4e1" category="inline-link-macro-rx"></block>(英文)</block>
+  <block id="eb908336fca360ed35207a1e198562b2" category="list-text">您可以将内部ONTAP系统或Azure商业区域中安装的Cloud Volumes ONTAP系统中的数据备份到Azure Blb。<block ref="d0f49153a0d69289bf4d240d8900efdd" category="inline-link-macro-rx"></block>(英文)</block>
+  <block id="ba69c078d6c88577ac4045721cf8bc4b" category="cell"><block ref="1db7b4242367cddbadaf1e041e531c76" prefix="" category="inline-code"></block></block>
+  <block id="e23da6bf724f3225b25342aa20aab822" category="cell"><block ref="1e8904cbbffb7eff1de96297f70cd53e" prefix="" category="inline-code"></block></block>
+  <block id="7a912606781d54fe98a96090d0cd3c74" category="paragraph">如果为备份启用的卷超过五个、则BlueXP  备份和恢复一次仅初始化五个卷。完成这些操作后、它会创建下一批五个子作业、以启动下一组作业、并继续执行此操作、直到所有卷均已初始化为止。</block>
 </blocks>

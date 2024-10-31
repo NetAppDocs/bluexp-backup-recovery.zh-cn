@@ -275,18 +275,18 @@ endif::gcp[]
 
 === 支持Internet连接有限的站点
 
-BlueXP备份和恢复可在Internet连接受限(也称为_Restricted mode__)的站点中用于备份卷数据。在这种情况下、您需要在受限区域部署BlueXP Connector。
+BlueXP备份和恢复可在Internet连接受限(也称为_Restricted mode__)的站点中用于备份卷数据。在这种情况下、您需要在目标云区域部署BlueXP  连接器。
 
 ifdef::aws[]
 
-* 您可以将数据从AWS商业区域中安装的Cloud Volumes ONTAP 系统备份到Amazon S3。 link:task-backup-to-s3.html["将 Cloud Volumes ONTAP 数据备份到 Amazon S3"]。
+* 您可以将内部ONTAP系统或AWS商业区域中安装的Cloud Volumes ONTAP系统中的数据备份到Amazon S3。link:task-backup-to-s3.html["将 Cloud Volumes ONTAP 数据备份到 Amazon S3"](英文)
 
 
 endif::aws[]
 
 ifdef::azure[]
 
-* 您可以将数据从安装在Azure商业区域的Cloud Volumes ONTAP 系统备份到Azure Blob。  link:task-backup-to-azure.html["将 Cloud Volumes ONTAP 数据备份到 Azure Blob"]。
+* 您可以将内部ONTAP系统或Azure商业区域中安装的Cloud Volumes ONTAP系统中的数据备份到Azure Blb。link:task-backup-to-azure.html["将 Cloud Volumes ONTAP 数据备份到 Azure Blob"](英文)
 
 
 endif::azure[]
