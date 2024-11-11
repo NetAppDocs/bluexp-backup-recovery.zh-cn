@@ -191,6 +191,7 @@ BlueXP备份和恢复支持以下类型的卷：
 * FlexVol 读写卷
 * FlexGroup 卷(需要ONTAP 9.12.1或更高版本)
 * SnapLock 企业卷(需要ONTAP 9.11.1或更高版本)
+* 适用于内部卷的SnapLock Compliance (需要ONTAP 9 .14或更高版本)
 * SnapMirror数据保护(DP)目标卷
 
 
