@@ -18,32 +18,6 @@ summary: 了解BlueXP备份和恢复的新增功能。
 
 
 
-== 2024年11月6日
-
-
-
-=== SnapLock Compliance和SnapLock Enterprise保护模式
-
-现在、BlueXP  备份和恢复可以备份使用SnapLock Compliance或SnapLock Enterprise保护模式配置的FlexVol和FlexGroup内部卷。要获得此支持、集群必须运行ONTAP 9.14或更高版本。从ONTAP 9.11.1版开始、支持使用SnapLock企业模式备份FlexVol卷。早期版本的ONTAP不支持备份SnapLock保护卷。
-
-请参见中支持的卷的完整列表 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-ontap-backup-to-cloud.html["了解有关BlueXP备份和恢复的信息"]。
-
-
-
-=== "卷"页面上的"搜索和还原过程索引"
-
-在使用搜索和还原之前、您需要在要从中还原卷数据的每个源工作环境上启用"索引编制"。这样、"已创建目录"就可以跟踪每个卷的备份文件。此时、卷页面将显示索引编制状态：
-
-* Indexed：卷已编制索引。
-* 进行中
-* 未为其提供过任何服务
-* 索引编制已暂停
-* error
-* 未启用
-
-
-
-
 == 2024年9月27日
 
 

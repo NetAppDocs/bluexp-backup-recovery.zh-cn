@@ -832,7 +832,6 @@
   <block id="a30f69ab0ec85d427a3e8835713525bd" category="paragraph">"您无权针对选定服务创建案例"</block>
   <block id="e01df0b4dfd95eba2c59333419e4fac6" category="list-text">使用产品内聊天功能</block>
   <block id="639be990cfca56ab4b63685d8bacd437" category="list-text">通过提交非技术案例<block ref="2298f47e4dad19a3156da7ce6116d9b1" category="inline-link-rx"></block></block>
-  <block id="aa254718f2c52dc147bfd8f98b0c4840" category="inline-link">Cloud Insights 和Cloud Secure</block>
   <block id="86fef274eb09e789513af0922e579b5a" category="inline-link">ONTAP 提供的反勒索软件保护</block>
   <block id="dc52d5a83e31ec66da3344056a4e4e39" category="paragraph">请注意、旧备份会在DataLock保留期限到期后删除、而不是在备份策略保留期限到期后删除。</block>
   <block id="5a080c775e60ee1f55b487821cc05ac3" category="paragraph">DataLock设置为_Compliance"模式、在此保留期间、任何用户都无法覆盖或删除备份文件。已启用勒索软件保护。</block>
@@ -942,7 +941,6 @@
   <block id="42f0dfacb9775e138cb12f277162bec2" category="list-text">您可以选择系统定义的策略之一、这些策略可提供3个月、1年或7年的备份和保留。</block>
   <block id="cc52989062051281d16ab44b8c24cbef" category="list-text">在第8周删除第一个每周备份、并添加第8周的新每周备份(最多保留7个每周备份)</block>
   <block id="1d7733f94633408426a8b5de97f97f13" category="list-text">在第13个月、删除了第一个每月备份、并添加了第13个月的新每月备份(最多保留12个每月备份)</block>
-  <block id="105cf1dd74d7a9079245d031f91df8b0" category="paragraph">此功能不会为源卷提供保护；仅适用于这些源卷的备份。使用NetApp<block ref="2e57621b97dadc1cef3dd80d75e83676" category="inline-link-rx"></block>或部分<block ref="086d55e347fe71de47923b356a73187b" category="inline-link-rx"></block> 以保护源卷。</block>
   <block id="c545a26c4ed6190e3a8c71826161a528" category="paragraph">首次将备份文件写入云存储时、不会对该备份文件执行扫描、而是在写入*下一个*备份文件时执行扫描。例如、如果为星期二设置了每周备份计划、则在星期二14创建备份。然后、在星期二21日创建另一个备份。此时、勒索软件扫描将从14号开始对备份文件运行。</block>
   <block id="83933361b1e2abf7e7f406666cc9c104" category="list-text">对于AWS：</block>
   <block id="328a2c1e7778e9edaf79d90c51409ac4" category="list-text">如果您拥有客户级别的帐户、则可以添加一个或多个NSS帐户。</block>
@@ -3757,16 +3755,6 @@ ifdef：：AWS。</block>
   <block id="ba69c078d6c88577ac4045721cf8bc4b" category="cell"><block ref="1db7b4242367cddbadaf1e041e531c76" prefix="" category="inline-code"></block></block>
   <block id="e23da6bf724f3225b25342aa20aab822" category="cell"><block ref="1e8904cbbffb7eff1de96297f70cd53e" prefix="" category="inline-code"></block></block>
   <block id="7a912606781d54fe98a96090d0cd3c74" category="paragraph">如果为备份启用的卷超过五个、则BlueXP  备份和恢复一次仅初始化五个卷。完成这些操作后、它会创建下一批五个子作业、以启动下一组作业、并继续执行此操作、直到所有卷均已初始化为止。</block>
-  <block id="46206fcd0fa4af78eefe04f1bd8d42c6" category="list-text">适用于内部卷的SnapLock Compliance (需要ONTAP 9 .14或更高版本)</block>
-  <block id="07c8845dbdef949b860ebfc99bd558ac" category="section-title">2024年11月6日</block>
-  <block id="a5fd9c132798873e9eb6aafb58e50034" category="section-title">SnapLock Compliance和SnapLock Enterprise保护模式</block>
-  <block id="139da935670a9f985194d3241917c359" category="paragraph">现在、BlueXP  备份和恢复可以备份使用SnapLock Compliance或SnapLock Enterprise保护模式配置的FlexVol和FlexGroup内部卷。要获得此支持、集群必须运行ONTAP 9.14或更高版本。从ONTAP 9.11.1版开始、支持使用SnapLock企业模式备份FlexVol卷。早期版本的ONTAP不支持备份SnapLock保护卷。</block>
-  <block id="9ddb3e6714694f5c7f619d474fec8169" category="paragraph">请参见中支持的卷的完整列表<block ref="9e68a582cc487ad29425f5a4796c9e45" category="inline-link-rx"></block>。</block>
-  <block id="fec92c3dfb6a0b3db498488c7f4d2f29" category="section-title">"卷"页面上的"搜索和还原过程索引"</block>
-  <block id="20d3b0b7cfe7a9f3dcfdb0faa9398efd" category="paragraph">在使用搜索和还原之前、您需要在要从中还原卷数据的每个源工作环境上启用"索引编制"。这样、"已创建目录"就可以跟踪每个卷的备份文件。此时、卷页面将显示索引编制状态：</block>
-  <block id="cd9b31737e78e0a0a755acc12151f766" category="list-text">Indexed：卷已编制索引。</block>
-  <block id="02e4eb80c967f3b9add2ba16a690eef2" category="list-text">进行中</block>
-  <block id="838534d879f74e7af515a7de57e72b71" category="list-text">未为其提供过任何服务</block>
-  <block id="73d4d0de3c5f56849f3c1a290a6681f2" category="list-text">索引编制已暂停</block>
-  <block id="cb48cbf342305a9ae53e02e21fcb644c" category="list-text">未启用</block>
+  <block id="542b4404b0cd2b4cf01b81a3a97b2c20" category="inline-link">数据基础架构洞察力和Cloud Secure</block>
+  <block id="5212f7d39ed0f1c16c365beda23afc75" category="paragraph">此功能不会为源卷提供保护；仅适用于这些源卷的备份。使用NetApp<block ref="17959d7def942fae173290691e2a40ae" category="inline-link-rx"></block>或某些<block ref="086d55e347fe71de47923b356a73187b" category="inline-link-rx"></block>来保护源卷。</block>
 </blocks>

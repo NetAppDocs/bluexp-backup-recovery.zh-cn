@@ -60,7 +60,7 @@ BlueXP备份和恢复支持为卷备份提供DataLock和勒索软件保护。通
 
 https://bluexp.netapp.com/blog/cbs-blg-the-bluexp-feature-that-protects-backups-from-ransomware["有关详细信息、请参见DataLock和勒索软件保护博客"^]。
 
-此功能不会为源卷提供保护；仅适用于这些源卷的备份。使用NetApp https://cloud.netapp.com/ci-sde-plp-cloud-secure-info-trial?hsCtaTracking=fefadff4-c195-4b6a-95e3-265d8ce7c0cd%7Cb696fdde-c026-4007-a39e-5e986c4d27c6["Cloud Insights 和Cloud Secure"^]或部分 https://docs.netapp.com/us-en/ontap/anti-ransomware/index.html["ONTAP 提供的反勒索软件保护"^] 以保护源卷。
+此功能不会为源卷提供保护；仅适用于这些源卷的备份。使用NetApp https://cloud.netapp.com/ci-sde-plp-cloud-secure-info-trial?hsCtaTracking=fefadff4-c195-4b6a-95e3-265d8ce7c0cd%7Cb696fdde-c026-4007-a39e-5e986c4d27c6["数据基础架构洞察力和Cloud Secure"^]或某些 https://docs.netapp.com/us-en/ontap/anti-ransomware/index.html["ONTAP 提供的反勒索软件保护"^]来保护源卷。
 
 [CAUTION]
 ====
