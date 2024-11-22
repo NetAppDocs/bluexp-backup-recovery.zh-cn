@@ -231,6 +231,8 @@ ONTAP 可在对象存储之间读取和写入数据。对象存储永远不会�
 
 StorageGRID 必须满足以下要求。请参见 https://docs.netapp.com/us-en/storagegrid-117/["StorageGRID 文档"^] 有关详细信息 ...
 
+有关StorageGRID的DataLock和防软件保护要求的详细信息，请参阅link:concept-cloud-backup-policies.html["备份到对象策略选项"]。
+
 支持的 StorageGRID 版本:: 支持 StorageGRID 10.3 及更高版本。
 +
 --
