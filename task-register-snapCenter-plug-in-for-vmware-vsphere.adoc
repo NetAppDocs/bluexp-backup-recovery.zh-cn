@@ -16,9 +16,6 @@ summary: 在BlueXP中注册适用于VMware vSphere主机的SnapCenter 插件。
 [role="lead"]
 您应在BlueXP中注册适用于VMware vSphere的SnapCenter 插件主机、以显示要显示的数据存储库和虚拟机。只有具有管理访问权限的用户才能注册适用于VMware vSphere的SnapCenter 插件主机。
 
-
-NOTE: 您可以在BlueXP中注册多个适用于VMware vSphere的SnapCenter 插件主机。但是、注册后、您将无法删除适用于VMware vSphere的SnapCenter 插件主机。
-
 .步骤
 . 在BlueXP UI中、单击*保护*>*备份和恢复*>*虚拟机*。
 . 从*设置*下拉列表中、单击*适用于VMware vSphere的SnapCenter 插件*。

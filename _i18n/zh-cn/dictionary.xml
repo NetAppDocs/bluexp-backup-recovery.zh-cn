@@ -1444,7 +1444,6 @@
   <block id="06ac0cb7b7615ba7b7f08032fcc97c6a" category="summary">在BlueXP中注册适用于VMware vSphere主机的SnapCenter 插件。</block>
   <block id="437ae89009b207d1aafce3d11e58f524" category="doc">注册适用于VMware vSphere主机的SnapCenter 插件</block>
   <block id="8d69a4a1581a5dfb55d085bec9816e72" category="paragraph">您应在BlueXP中注册适用于VMware vSphere的SnapCenter 插件主机、以显示要显示的数据存储库和虚拟机。只有具有管理访问权限的用户才能注册适用于VMware vSphere的SnapCenter 插件主机。</block>
-  <block id="f352f7544724f99ab1b27e3e40291b49" category="admonition">您可以在BlueXP中注册多个适用于VMware vSphere的SnapCenter 插件主机。但是、注册后、您将无法删除适用于VMware vSphere的SnapCenter 插件主机。</block>
   <block id="ebeea6bd6cc46b0c9f463f2b01659606" category="list-text">在适用于VMware vSphere的SnapCenter 插件字段中、指定适用于VMware vSphere的SnapCenter 插件主机的FQDN或IP地址。</block>
   <block id="463d350eb6c9887e5addb9a6561a47ad" category="list-text">在端口字段中、指定运行适用于VMware vSphere的SnapCenter 插件主机的端口号。</block>
   <block id="1e88a362bd23950ee5a102f645348ac8" category="paragraph">单击*备份和恢复*&gt;*虚拟机*可查看使用适用于VMware vSphere的已注册SnapCenter 插件主机保护的所有数据存储库和虚拟机。</block>
@@ -3769,4 +3768,5 @@ ifdef：：AWS。</block>
   <block id="838534d879f74e7af515a7de57e72b71" category="list-text">未为其提供过任何服务</block>
   <block id="73d4d0de3c5f56849f3c1a290a6681f2" category="list-text">索引编制已暂停</block>
   <block id="cb48cbf342305a9ae53e02e21fcb644c" category="list-text">未启用</block>
+  <block id="8ce617f9e6329a3aea4d9a3a19e56086" category="list-text">如果备份数据存储库的卷已通过卷选项卡(BlueXP  备份和恢复-&gt;卷)进行保护、则无法通过虚拟机选项卡(BlueXP  备份和恢复-&gt;虚拟机)再次保护同一数据存储库。</block>
 </blocks>
