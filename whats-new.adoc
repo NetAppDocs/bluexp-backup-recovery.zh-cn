@@ -94,12 +94,6 @@ DataLock功能可保护备份文件、使其在指定时间段内不会被修改
 
 在此版本中、对AWS IAM角色无处不在服务的支持只是一项技术预览。
 
-ifdef::aws[]
-
-这适用于link:task-backup-to-s3.html["将Cloud Volumes ONTAP备份到AWS"]。这适用于link:task-backup-onprem-to-aws.html["将内部ONTAP数据备份到AWS"]。
-
-endif::aws[]
-
 请参阅 https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-July-2024-Release/ba-p/453993["BlueXP备份和恢复2024年7月发布博客"]。
 
 

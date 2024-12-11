@@ -1,0 +1,45 @@
+= 还原小于1 GB的卷
+:allow-uri-read: 
+
+
+
+
+=== 还原小于1 GB的卷
+
+在此版本中、您现在可以还原在ONTAP中创建的小于1 GB的卷。可以使用ONTAP创建的最小卷大小为20 MB。
+
+
+
+=== 有关如何降低DataLock成本的提示
+
+DataLock功能可保护备份文件、使其在指定时间段内不会被修改或删除。这有助于保护文件免受勒索软件攻击。
+
+有关DataLock的详细信息以及有关如何降低相关成本的提示，请参见 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-cloud-backup-policies.html["备份到对象策略设置"]。
+
+
+
+=== AWS IAM角色无处不在集成
+
+通过Amazon Web Services (AWS)身份和访问管理(IAM)角色无处不在服务、您可以对AWS的_Outside _工作负载使用IAM角色和短期凭据来安全地访问AWS API、就像对Workloads_on_ AWS使用IAM角色一样。当您在任意位置使用IAM角色时、私有密钥基础架构和AWS令牌不需要长期AWS访问密钥和机密密钥。这样、您可以更频繁地轮换凭据、从而提高安全性。
+
+在此版本中、对AWS IAM角色无处不在服务的支持只是一项技术预览。
+
+ifdef::aws[]
+
+这适用于link:task-backup-to-s3.html["将Cloud Volumes ONTAP备份到AWS"]。这适用于link:task-backup-onprem-to-aws.html["将内部ONTAP数据备份到AWS"]。
+
+endif::aws[]
+
+请参阅 https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-July-2024-Release/ba-p/453993["BlueXP备份和恢复2024年7月发布博客"]。
+
+
+
+=== FlexGroup文件夹或目录还原现在可用
+
+以前、可以还原FlexVol卷、但无法还原FlexGroup文件夹或目录。对于ONTAP 9.15.1P2、您可以使用浏览并还原选项还原FlexGroup文件夹。
+
+在此版本中、对FlexGroup文件夹还原的支持是一项技术预览。
+
+有关详细信息，请参见 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html#restore-ontap-data-using-browse-restore["使用浏览和放大功能还原文件夹和文件；还原"]。
+
+有关手动启用的详细信息，请参见 https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-July-2024-Release/ba-p/453993["BlueXP备份和恢复2024年7月发布博客"]。
