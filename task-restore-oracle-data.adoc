@@ -142,8 +142,12 @@ IMPORTANT: 不支持单文件还原(SFR)。
 . 查看详细信息并单击 * 还原 * 。
 
 
+.结果
 "*还原到备用位置"选项可在给定主机上挂载选定备份。您应手动启动数据库。
 
 挂载备份后、您将无法再次挂载它、直到卸载为止。您可以在用户界面中使用*Unmount*选项卸载备份。
 
 有关如何启动Oracle数据库的信息、请参见、 https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Cloud_Manager/How_to_bring_up_Oracle_Database_in_another_NFS_host_after_mounting_storage_from_backup_in_Cloud_Backup_for_Applications["知识库文章"]。
+
+
+NOTE: 如果还原操作未完成、请勿再次尝试还原过程、直到作业监控器显示还原操作失败为止。如果在作业监控器显示还原操作失败之前再次尝试还原过程、还原操作将再次失败。当您看到作业监控器状态为"失败"时、您可以再次尝试还原过程。

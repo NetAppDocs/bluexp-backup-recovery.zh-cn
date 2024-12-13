@@ -3769,4 +3769,5 @@ ifdef：：AWS。</block>
   <block id="73d4d0de3c5f56849f3c1a290a6681f2" category="list-text">索引编制已暂停</block>
   <block id="cb48cbf342305a9ae53e02e21fcb644c" category="list-text">未启用</block>
   <block id="8ce617f9e6329a3aea4d9a3a19e56086" category="list-text">如果备份数据存储库的卷已通过卷选项卡(BlueXP  备份和恢复-&gt;卷)进行保护、则无法通过虚拟机选项卡(BlueXP  备份和恢复-&gt;虚拟机)再次保护同一数据存储库。</block>
+  <block id="569af965dbd3ebb866de69518b576d23" category="admonition">如果还原操作未完成、请勿再次尝试还原过程、直到作业监控器显示还原操作失败为止。如果在作业监控器显示还原操作失败之前再次尝试还原过程、还原操作将再次失败。当您看到作业监控器状态为"失败"时、您可以再次尝试还原过程。</block>
 </blocks>
