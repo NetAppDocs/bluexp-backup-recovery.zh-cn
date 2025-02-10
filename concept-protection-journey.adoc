@@ -36,7 +36,7 @@ summary: 通过BlueXP备份和恢复服务、您最多可以为源卷创建三�
 | 备份类型 | Description 
 
 
-| Snapshot | 在源卷中创建卷的只读时间点映像、并将其作为Snapshot副本。您可以使用Snapshot副本恢复单个文件或还原卷的整个内容。 
+| Snapshot | 在源卷中创建卷的只读时间点映像作为Snapshot副本。您可以使用Snapshot副本恢复单个文件或还原卷的整个内容。 
 
 
 | Replication | 在另一个ONTAP存储系统上创建数据的二级副本、并持续更新二级数据。您的数据始终保持最新、并在需要时始终可用。 
@@ -44,9 +44,9 @@ summary: 通过BlueXP备份和恢复服务、您最多可以为源卷创建三�
 
 | 云备份 | 创建数据备份到云中、以实现保护和长期归档目的。如有必要、您可以将备份中的卷、文件夹或单个文件还原到相同或不同的工作环境。 
 |===
-快照是所有备份方法的基础、需要使用备份和恢复服务。Snapshot 副本是卷的只读时间点映像。此映像占用的存储空间极少，并且性能开销极低，因为它仅记录自上次创建 Snapshot 副本以来对文件所做的更改。在卷上创建的Snapshot副本用于使复制的卷和备份文件与对源卷所做的更改保持同步、如图所示。
+快照是所有备份方法的基础、需要使用备份和恢复服务。Snapshot副本是卷的只读时间点映像。此映像占用的存储空间极少、并且性能开销可以忽略不计、因为它仅会记录自上次创建Snapshot副本以来对文件所做的更改。在卷上创建的Snapshot副本用于使复制的卷和备份文件与对源卷所做的更改保持同步、如图所示。
 
-image:diagram-321-overview.png["此图显示了备份文件如何作为Snapshot副本、二级存储系统上的复制卷以及对象存储中的备份文件存在于源系统上。"]
+image:diagram-321-overview.png["此图显示了备份文件如何作为Snapshot副本存在于源系统上、如何作为二级存储系统上的复制卷存在于对象存储中以及如何作为备份文件存在于源系统上。"]
 
 您可以选择在另一个ONTAP存储系统上同时创建复制的卷、并在云中创建备份文件。或者、您也可以选择仅创建复制的卷或备份文件、这是您的选择。
 
@@ -58,7 +58,7 @@ image:diagram-321-overview.png["此图显示了备份文件如何作为Snapshot�
 
 
 
-NOTE: 在初始创建复制的卷或备份文件时、会包含源数据的完整副本、这称为_baseline传输_。后续传输仅包含源数据(Snapshot)的差异副本。
+NOTE: 在初始创建复制的卷或备份文件时、会包含源数据的完整副本、这称为_baseline传输_。后续传输仅包含源数据(快照)的差异副本。
 
 *不同备份方法的比较*
 
@@ -85,7 +85,7 @@ NOTE: 在初始创建复制的卷或备份文件时、会包含源数据的完�
 
 在创建复制的卷和备份文件时、您可以选择扇出或级联架构来备份卷。
 
-扇出*架构将Snapshot副本独立传输到目标存储系统和云中的备份对象。
+扇出*架构将快照副本独立传输到目标存储系统和云中的备份对象。
 
 image:diagram-321-fanout-detailed.png["显示如何使用卷的Snapshot副本创建和更新复制的卷和备份文件的示意图。"]
 
@@ -102,45 +102,42 @@ image:diagram-321-cascade-detailed.png["显示如何使用卷的Snapshot副本�
 | 扇出 | 级联 
 
 
-| 对源系统的性能影响很小、因为它会向2个不同的系统发送Snapshot副本 | 对源存储系统性能的影响较小、因为它只发送Snapshot副本一次 
+| 对源系统的性能影响很小、因为它会向2个不同的系统发送Snapshot副本 | 对源存储系统性能的影响较小、因为它只发送一次Snapshot副本 
 
 
 | 由于所有策略、网络和ONTAP配置都在源系统上完成、因此设置起来更容易 | 还需要从二级系统完成一些网络连接和ONTAP配置。 
 |===
 
 
-== 是否会对Snapshot副本、复制和备份使用默认策略
+== 是否会对快照、复制和备份使用默认策略
 
 您可以使用NetApp提供的默认策略创建备份、也可以创建自定义策略。使用激活向导为卷启用备份和恢复服务时、您可以从默认策略以及工作环境(Cloud Volumes ONTAP或内部ONTAP系统)中已存在的任何其他策略中进行选择。如果要使用与现有策略不同的策略、可以在启动之前或使用激活向导时创建此策略。
 
-* 默认Snapshot策略会创建每小时、每天和每周Snapshot副本、并保留6个每小时、2个每天和2个每周Snapshot副本。
-* 默认复制策略会复制每日和每周Snapshot副本、并保留7个每日Snapshot副本和52个每周Snapshot副本。
-* 默认备份策略会复制每日和每周Snapshot副本、并保留7个每日Snapshot副本和52个每周Snapshot副本。
+* 默认Snapshot策略会创建每小时、每日和每周Snapshot副本、并保留6个每小时、2个每日和2个每周Snapshot副本。
+* 默认复制策略会复制每日和每周Snapshot副本、并保留7个每日和52个每周Snapshot副本。
+* 默认备份策略会复制每日和每周Snapshot副本、并保留7个每日和52个每周Snapshot副本。
 
 
-如果您为复制或备份创建自定义策略、则策略标签(例如"每日"或"每周")必须与Snapshot策略中的标签匹配、否则不会创建复制的卷和备份文件。
+如果您为复制或备份创建自定义策略、则策略标签(例如"每日"或"每周")必须与快照策略中的标签匹配、否则不会创建复制的卷和备份文件。
 
-您可以在BlueXP备份和恢复UI中创建Snapshot、复制和备份到对象存储策略。请参见一节中的 link:task-manage-backups-ontap.html#add-a-new-backup-to-cloud-policy["正在添加新备份策略"] 了解详细信息。
+您可以在BlueXP  备份和恢复UI中创建快照、复制和备份到对象存储策略。有关详细信息、请参见一节link:task-manage-backups-ontap.html#add-a-new-backup-to-cloud-policy["正在添加新备份策略"]。
 
-除了使用BlueXP备份恢复创建自定义策略之外、您还可以使用System Manager或ONTAP命令行界面(CLI)。
+除了使用BlueXP  备份和恢复创建自定义策略之外、您还可以使用System Manager或ONTAP命令行界面(CLI)：
 
-https://docs.netapp.com/us-en/ontap/task_dp_configure_snapshot.html["使用System Manager创建Snapshot策略"^]
-https://docs.netapp.com/us-en/ontap/data-protection/create-snapshot-policy-task.html["使用ONTAP命令行界面创建Snapshot策略"^]
-https://docs.netapp.com/us-en/ontap/task_dp_create_custom_data_protection_policies.html["使用System Manager创建复制策略"^]
-https://docs.netapp.com/us-en/ontap/data-protection/create-custom-replication-policy-concept.html["使用ONTAP命令行界面创建复制策略"^]
-https://docs.netapp.com/us-en/ontap/task_dp_back_up_to_cloud.html#create-a-custom-cloud-backup-policy["使用System Manager创建备份策略"^]
-https://docs.netapp.com/us-en/ontap-cli-9131/snapmirror-policy-create.html#description["使用ONTAP命令行界面创建备份策略"^]
+* https://docs.netapp.com/us-en/ontap/task_dp_configure_snapshot.html["使用System Manager或ONTAP命令行界面创建快照策略"^]
+* https://docs.netapp.com/us-en/ontap/task_dp_create_custom_data_protection_policies.html["使用System Manager或ONTAP命令行界面创建复制策略"^]
+
 
 *注意：*使用System Manager时，选择*异步*作为复制策略的策略类型，然后选择*异步*和*备份到云*作为备份到对象策略。
 
-下面列出了几个示例ONTAP命令行界面命令、这些命令可能会在您创建自定义策略时很有用。请注意、您必须使用_admin_ SVM (Storage VM)作为 `<vserver_name>` 在这些命令中。
+下面列出了一些示例ONTAP命令行界面命令、这些命令在您创建自定义策略时可能会很有用。请注意、您必须在这些命令中使用_admin_ SVM (Storage VM)作为 `<vserver_name>`。
 
 [cols="30,70"]
 |===
 | 策略问题描述 | 命令 
 
 
-| Simple Snapshot策略 | `snapshot policy create -policy WeeklySnapshotPolicy -enabled true -schedule1 weekly -count1 10 -vserver ClusterA -snapmirror-label1 weekly` 
+| 简单快照策略 | `snapshot policy create -policy WeeklySnapshotPolicy -enabled true -schedule1 weekly -count1 10 -vserver ClusterA -snapmirror-label1 weekly` 
 
 
 | 轻松备份到云 | `snapmirror policy create -policy <policy_name> -transfer-priority normal -vserver <vserver_name> -create-snapshot-on-source false -type vault`
