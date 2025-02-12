@@ -3759,4 +3759,13 @@ ifdef：：AWS。</block>
   <block id="f179e47ab5bf8661b5b27f915bed468d" category="list-text"><block ref="f179e47ab5bf8661b5b27f915bed468d" category="inline-link-rx"></block></block>
   <block id="6990fc7ee6c7db5f6430ee974dfb8cfa" category="paragraph">下面列出了一些示例ONTAP命令行界面命令、这些命令在您创建自定义策略时可能会很有用。请注意、您必须在这些命令中使用_admin_ SVM (Storage VM)作为<block ref="f536bcc8fda7ee8ba21dea42b5b1c44d" prefix=" " category="inline-code"></block>。</block>
   <block id="aca1b97d5bf0573ac64cc6e0f6f4dc09" category="cell">简单快照策略</block>
+  <block id="f5ccb197277a619c88128af4cd2e1114" category="list-text">BlueXP  备份和恢复将Cloud Volume ONTAP备份到AWS中国地区(包括北京和宁夏)的对象存储；但是、您可能需要先手动修改身份和访问管理(IAM)策略。</block>
+  <block id="cd10ae990b1a676dcb9da574833197dc" category="inline-link">在AWS中安装连接器</block>
+  <block id="bfd50db7da0325053eeebfa5cb52b3a4" category="paragraph">有关在AWS中创建连接器的详细信息，请参见<block ref="ed99b863e2b8e641bb0c2fedb58f3636" category="inline-link-rx"></block>。</block>
+  <block id="fe99cb308e076a8fe35419694145d10e" category="inline-link">BlueXP  备份和恢复功能博客2023年5月</block>
+  <block id="2753f358d85a358faa8e64a04217f62d" category="paragraph">有关博文中的其他详细信息，请参见<block ref="a5e59c531cbb1038287f1b734bd79714" category="inline-link-rx"></block>。</block>
+  <block id="c6e0dd289d2bd12103cead1918541bfb" category="list-text">BlueXP  备份和恢复不支持Microsoft Azure中国地区。</block>
+  <block id="698b05231bfe12b062cbf4a5381b3d2f" category="inline-link">在Azure中安装Connector</block>
+  <block id="e65cf67a9fbc4609855f67bb18ecf589" category="paragraph">有关在Azure中创建连接器的详细信息，请参见<block ref="eb0bd2c194a1c467beaf233333f1c26d" category="inline-link-rx"></block>。</block>
+  <block id="757ec8d082a1a9becacdf32c01678f5b" category="list-text">从源或目标进行备份时、SVM-DR和卷备份和恢复完全独立工作。唯一的限制是、SVM-DR不会复制SnapMirror云关系。在灾难恢复情形下、如果SVM在二级位置联机、则必须手动更新SnapMirror云关系。</block>
 </blocks>
