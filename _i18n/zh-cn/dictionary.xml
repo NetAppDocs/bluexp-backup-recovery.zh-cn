@@ -413,24 +413,6 @@
   <block id="b683b107618e7bb3827713f6892f7a58" category="list-text">查看详细信息并单击 * 激活备份 * 。</block>
   <block id="80186f1230af2267e2c2e4d2ab8c030e" category="paragraph">在阅读其他内容之前，请先阅读一些注释：</block>
   <block id="70af97100aa32faf0090b5c729f50df0" category="paragraph">NetApp 自带许可证的期限为 1 年， 2 年或 3 年。您只需为所保护的数据付费，此费用由要备份的源 ONTAP 卷的逻辑已用容量（ _before_any 的效率）计算得出。此容量也称为前端 TB （前端 TB ）。</block>
-  <block id="9d2169c1c2855b78a7aeaa4f42d27dc7" category="inline-link">NetApp 支持站点</block>
-  <block id="80c4b6e3dfa1d4f33033585b7c74e7e9" category="list-text">登录到<block ref="fcc52edac3ce57829c48ee35d97a295d" category="inline-link-rx"></block> 然后单击 * 系统 &gt; 软件许可证 * 。</block>
-  <block id="5190e9ec018f5e661ec4b31ff1b34423" category="inline-image-macro">按序列号搜索后显示许可证表的屏幕截图。</block>
-  <block id="193bccfc2cf277cad00678895e527b35" category="paragraph"><block ref="193bccfc2cf277cad00678895e527b35" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="a6cfac773f21906007a8ddf407596067" category="list-text">在 * 许可证密钥 * 列中，单击 * 获取 NetApp 许可证文件 * 。</block>
-  <block id="56273f3344c87fabbf5196fba9816fff" category="inline-image-macro">屏幕截图显示了获取许可证对话框，您可以在其中输入租户 ID ，然后单击提交下载许可证文件。</block>
-  <block id="7ca3a83129f844a42c263755a0fa4a32" category="paragraph"><block ref="7ca3a83129f844a42c263755a0fa4a32" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="ea9a2b9ac34c9aab133f21aa5b67976e" category="list-text">单击 * 添加许可证 * 。</block>
-  <block id="c1b2dc0798d3960e25b8a12c751f53ec" category="list-text">在 _Add License_ 对话框中，输入许可证信息并单击 * 添加许可证 * ：</block>
-  <block id="cb365723ea49a8e0727d9887fcd819ad" category="list-text">如果您有备份许可证序列号并且知道您的 NSS 帐户，请选择 * 输入序列号 * 选项并输入该信息。</block>
-  <block id="a274f4d4670213a9045ce258c6c56b80" category="inline-link">通知</block>
-  <block id="b2b168bd64a341a85c749cb61bba40cb" category="inline-xref">从 NetApp 支持站点获取许可证文件</block>
-  <block id="3ce750f001c2369e23b68f3210d9f100" category="inline-image-macro">选择特定服务的更新许可证按钮的屏幕截图。</block>
-  <block id="9d37072f5a1b76b16e647a14826ade70" category="paragraph"><block ref="9d37072f5a1b76b16e647a14826ade70" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="41e921305ae1b027e5d364af4a2a9df2" category="list-text">在 _Update License_ 页面中，上传许可证文件并单击 * 更新许可证 * 。</block>
-  <block id="7d3786abf2ebb473a5ba70b680734525" category="section-title">BYOL 许可证注意事项</block>
-  <block id="7425d5f89a4e332992c97c91d4ed6317" category="list-text">备份达到许可容量的 80% 时，再次达到限制时</block>
-  <block id="d8ea74d0bc0e6f3c5be22312a953d7fb" category="list-text">许可证到期前 30 天，许可证到期后再次</block>
   <block id="2a42635401c2f16c2080bd6994708fa1" category="inline-link-macro">了解有关使用 Azure 归档存储的更多信息</block>
   <block id="2ee1435ab41f69d919a20dc4c3d48cc8" category="inline-link-macro">了解有关使用 AWS 归档存储的更多信息</block>
   <block id="75f0ab2aa06321fc5a92c205273b43b6" category="paragraph">备份名称包含时间戳，以便您可以从其他计划的备份中确定按需备份。</block>
@@ -511,9 +493,6 @@
   <block id="a9805696126ef48bc68224dc06136bbd" category="list-text">在 _Backup Settings page_ 中，单击 <block ref="50acd719b1954eb4890c002b3b5e71a6" category="inline-image-macro-rx" type="image"></block> 对于要禁用备份的工作环境，请选择 * 停用备份 * 。</block>
   <block id="5ef05167488611c5bd4ff0f410595ce4" category="section-title">30 天免费试用</block>
   <block id="9fddc1f9c7fd56a9a852b0bd4cd2e8e7" category="paragraph">对于按需购买、您需要通过一个订阅按小时为云提供商支付对象存储成本和NetApp备份许可成本。即使您拥有免费试用版或自带许可证（ BYOL ），也应订阅：</block>
-  <block id="1c13d659a0c62fc2dcf4332ea8957263" category="paragraph">BYOL许可证到期后、可能会发生以下两种情况：</block>
-  <block id="5b517e301694c9f9491db430482b4297" category="list-text">如果您正在使用的帐户没有Marketplace帐户、备份服务将继续运行、但您仍会看到警告。</block>
-  <block id="d279d008f3f2141ce1fc250d370bf6a9" category="paragraph">已转移到 PAYGO 许可证的系统将自动返回到 BYOL 许可证。如果系统运行时没有许可证、则会停止显示警告。</block>
   <block id="10f89ed6604369a92daf5a87a1c4f18c" category="list-text">验证并向Connector添加权限</block>
   <block id="cd94368c3fb0f5830daaa821b7867010" category="list-text">使用页面顶部的下拉列表，选择包含要编辑的角色的项目或组织。</block>
   <block id="8d8630ce63e489500c1a1b11f72bee42" category="list-text">在AWS中、<block ref="d5a3b912b6075cc4f090f53976a7cdd5" category="inline-link-rx"></block> 和<block ref="b9cad212d942ecacb38ec39aea6c65ac" category="inline-link-rx"></block> 资源部署在新的S3存储分段中。</block>
@@ -611,7 +590,6 @@
   <block id="360446e3fb6e2087ba1eda4d6e9eafde" category="list-text">节点的集群间 LIF 可以访问对象存储（如果在 " 非公开 " 站点中安装了 Connector ，则不需要）。</block>
   <block id="f6428d68ab8312cad4e05d9222dbabc5" category="inline-link">在无法访问 Internet 的 Linux 主机上安装 Connector</block>
   <block id="f4cec0313eb4678996dc68cfe81c6f4f" category="inline-link">升级 Connector 软件</block>
-  <block id="664bf8c6e31ba8a710f5213d1874cd18" category="list-text">如果您有备份许可证文件（安装在非公开站点时需要），请选择 * 上传许可证文件 * 选项，然后按照提示附加该文件。</block>
   <block id="6f44a1bf2246f054fd573ae9473909b6" category="inline-link">请参见如何在脱机站点中安装Connector</block>
   <block id="38692e39e588de5b1294ee4cca656080" category="list-text">* BYOL*：从NetApp购买的许可证、可用于任何云提供商。</block>
   <block id="9757bd87f9a5ff6758600430092b3955" category="paragraph">请注意、首次注册PAYGO订阅时、您可以获得30天免费试用。</block>
@@ -950,10 +928,6 @@
   <block id="800de79585a9dadbf8cf5d2e105d09bb" category="list-text">在StorageGRID 中、BlueXP会将现有存储帐户用于对象存储分段。</block>
   <block id="ea8bcfb1baf19f84e4a5e1f8a744b022" category="list-text">从BlueXP菜单中、选择*保护&gt;备份和恢复*。</block>
   <block id="d24c531f67e59e16184a6f74c9a59f91" category="paragraph">如果要使用此选项、您可以在创建Cloud Volumes ONTAP 工作环境时设置年度合同、并且BlueXP会提示您订阅AWS Marketplace。</block>
-  <block id="f68bf28051d836364652b5a91d1bcd3a" category="list-text">输入您的BlueXP帐户ID (在支持站点上称为租户ID)、然后单击*提交*下载许可证文件。</block>
-  <block id="8d080a0104c2b8b29f5fc2be913926af" category="list-text">从BlueXP菜单中、单击*监管&gt;数字电子钱包*、然后选择*数据服务许可证*选项卡。</block>
-  <block id="bae190eec3db4a0dd635ae72756acde8" category="inline-link">将NSS帐户添加到BlueXP</block>
-  <block id="379dea20c8734742bd3f9c78de134135" category="paragraph">如果您看到这些警告、请使用BlueXP界面右下角的聊天图标续订许可证。</block>
   <block id="2568e9dfbf799a7f4514c6421cdd6535" category="paragraph">BlueXP Connector是BlueXP功能的主要软件。需要使用连接器来备份和还原 ONTAP 数据。</block>
   <block id="a7c7bd193740210990d86811ef377b56" category="inline-link">BlueXP策略</block>
   <block id="667b744af05e085368d150edc4b8a344" category="inline-link">登录到托管BlueXP Connector的虚拟机</block>
@@ -1592,21 +1566,6 @@
   <block id="c04968186bb3df4bd0331429c63f8641" category="paragraph">有几个PAYGO BlueXP备份和恢复计划：</block>
   <block id="c02893129433d085ea6dfbc155a79562" category="paragraph">使用以下链接从云提供商市场订阅BlueXP备份和恢复：</block>
   <block id="1ef27d8ce33d6626bd77a4ae3f7b5f47" category="section-title">使用BlueXP备份和恢复BYOL许可证</block>
-  <block id="78eb4db020e2c993d3997277acf3700c" category="section-title">获取您的BlueXP备份和恢复许可证文件</block>
-  <block id="df1557a9b76e8e22566ae571ed66d8d5" category="list-text">输入您的BlueXP备份和恢复许可证序列号。</block>
-  <block id="fda78c118f583aef58210df788084452" category="section-title">将BlueXP备份和恢复BYOL许可证添加到您的帐户中</block>
-  <block id="affa7da483903ef78f13bda66b93fbbd" category="paragraph">在为NetApp帐户购买BlueXP备份和恢复许可证后、您需要将此许可证添加到BlueXP。</block>
-  <block id="599a418db930a1edc006d10798ed2f61" category="inline-image-macro">显示用于添加BlueXP备份和恢复BYOL许可证的页面的屏幕截图。</block>
-  <block id="1ea77740f669721296818b111e874615" category="paragraph"><block ref="1ea77740f669721296818b111e874615" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="f914a0b78ceecabe51b4eca3467359e2" category="paragraph">BlueXP添加了许可证、以便BlueXP备份和恢复处于活动状态。</block>
-  <block id="a7a2e296ff3e4bd717ab8d87223bae0e" category="section-title">更新BlueXP备份和恢复BYOL许可证</block>
-  <block id="3d2aca918343e87b5a15dddf47015bdd" category="paragraph">您可以在BlueXP备份和恢复许可证到期之前对其进行更新、以便备份和还原数据的能力不会中断。</block>
-  <block id="7afb79d53be8b1758a25e5febc20f119" category="list-text">单击BlueXP右下角的聊天图标或联系支持部门、请求延长您的期限或为特定序列号的BlueXP备份和恢复许可证增加容量。</block>
-  <block id="67990bb3ffbbb0cf3899dc48f473dfb1" category="list-text">您可以 <block ref="a616d03e9ddd1728142b7b9a2231868a" category="inline-xref-macro-rx"></block>。</block>
-  <block id="20ea092b61e7673402c5d7e75a4b5cef" category="paragraph">BlueXP会更新许可证、以便BlueXP备份和恢复继续处于活动状态。</block>
-  <block id="4a8ea1dafbb8ca5d2f3e300614ab9ebb" category="paragraph">使用BlueXP备份和恢复BYOL许可证时、如果要备份的所有数据的大小接近容量限制或接近许可证到期日期、则BlueXP将在用户界面中显示警告。您将收到以下警告：</block>
-  <block id="631b9866a4bc7453c541fe31e96a4098" category="inline-link-macro">如何更新BlueXP备份和恢复许可证</block>
-  <block id="43b1faa261ae69df7d5f9f7ff39d989f" category="paragraph">续订BYOL订阅后、BlueXP会自动更新许可证。如果BlueXP无法通过安全Internet连接访问此许可证文件(例如、安装在非公开站点时)、您可以自行获取此文件并手动将其上传到BlueXP。有关说明，请参见 <block ref="c65b28ef4f0eaa8e30036fa87c613036" category="inline-link-macro-rx"></block>。</block>
   <block id="bce7aaa6525470c7d109db99a527a9a7" category="list-text">如果在为此集群激活BlueXP备份和恢复时在初始策略中启用了_DataLock和勒索软件保护_、则您编辑的任何策略都必须使用相同的DataLock设置(监管或合规)进行配置。如果在激活BlueXP备份和恢复时未启用_DataLock和勒索软件保护_、则无法立即启用DataLock。</block>
   <block id="9654c82254496464c3d5ce1931326ecc" category="list-text">在AWS上创建备份时、如果在激活BlueXP备份和恢复时在第一个备份策略中选择了_S3 Glacer_或_S3 Glacier Deep Archive_、则在编辑备份策略时、该层将是唯一可用的归档层。如果您在第一个备份策略中未选择任何归档层、则在编辑策略时、_S3 Glacer_将是您的唯一归档选项。</block>
   <block id="36918a9b1fb1d7e1ebe50145aff21ea7" category="inline-image-macro">屏幕截图显示了BlueXP备份和恢复的归档存储设置分层。</block>
@@ -1711,10 +1670,6 @@
   <block id="33871b6190a8d5adbe8b15282054766c" category="sidebar">新增功能</block>
   <block id="3daba77ab92b57915950a36f17f965c3" category="summary">BlueXP备份和恢复服务可为内部和云端的NetApp ONTAP 数据、数据库和虚拟机提供高效、安全且经济高效的数据保护。备份会自动生成并存储在公有 或私有云帐户的对象存储中。</block>
   <block id="0a190b7a7b571c1c4ae19e069137c2ac" category="paragraph">您可以使用BlueXP电子钱包管理BYOL许可证。您可以通过BlueXP电子钱包添加新许可证、更新现有许可证以及查看许可证状态。</block>
-  <block id="0553876f11122be0920f9fa9c803d152" category="inline-image-macro">在BlueXP数字钱包页面中显示即将到期的许可证的屏幕截图。</block>
-  <block id="3ef315abed0cef6dcc1d41cb39b4322b" category="paragraph"><block ref="3ef315abed0cef6dcc1d41cb39b4322b" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="b23b97d3c26b0f7e2265329756cea9ca" category="paragraph">在您为许可证付费并将其注册到NetApp 支持站点 之后、BlueXP会自动更新BlueXP电子钱包中的许可证、并且数据服务许可证页面将在5到10分钟内反映此更改。</block>
-  <block id="858d57a70137ab2d1ecb54acde00b982" category="list-text">在BlueXP数字钱包页面_Data Services Licenss_选项卡上、单击 <block ref="50acd719b1954eb4890c002b3b5e71a6" category="inline-image-macro-rx" type="image"></block> 对于要更新的服务序列号，请单击 * 更新许可证 * 。</block>
   <block id="59c9e6a866010a647915edad57105749" category="paragraph">BlueXP备份和恢复中定义了十类端点：</block>
   <block id="272ea43c17bb748acf948f028cd26513" category="summary">创建您自己的策略以保护应用程序。</block>
   <block id="9647181c2307f39ebfee949998c189db" category="paragraph">适用于虚拟机的BlueXP备份和恢复通过备份数据存储库和还原虚拟机来提供数据保护功能。</block>
@@ -1748,7 +1703,6 @@
   <block id="e0dc422915e1979552ba5565e14ce286" category="list-text">一个"CVO专业版"软件包、可用于捆绑Cloud Volumes ONTAP 和BlueXP备份和恢复。这包括使用许可证为Cloud Volumes ONTAP 系统备份的数量不限(备份容量不计入许可容量)。此选项不支持备份内部ONTAP 数据。</block>
   <block id="d22f1915c8293b6f49d0b06129807ca5" category="list-text">一种"CVO专业人员"计划、可用于捆绑Cloud Volumes ONTAP 和BlueXP备份和恢复。这包括使用许可证为Cloud Volumes ONTAP 系统备份的数量不限(备份容量不计入许可容量)。此选项不支持备份内部ONTAP 数据。</block>
   <block id="6e61fbc9ca4c7e1fac15fae1b823c181" category="paragraph">如果您没有BlueXP备份和恢复BYOL许可证、请单击BlueXP右下角的聊天图标购买一个。</block>
-  <block id="5810a6765696da7b12979cf90b9b287c" category="list-text">如果BlueXP无法自动更新许可证(例如、安装在非公开站点时)、则需要手动上传许可证文件。</block>
   <block id="64d3d37e27efd6f22e6fa648ce465b2e" category="sidebar">重新启动BlueXP备份和恢复</block>
   <block id="a3e9bcad86b818f7875704d49bbe6240" category="list-text">对于预制策略、适用于VMware vSphere的SnapCenter 插件中的数据存储库和云中的计划层应相同。</block>
   <block id="c870531773e82c374eb4125c8029e25e" category="inline-link">在连接器之间切换</block>
@@ -1801,7 +1755,6 @@
   <block id="7d17ede22a66ff897bf29e0913870d0b" category="paragraph">如果要使用此选项，请从 Marketplace 页面设置您的订阅，然后再执行<block ref="3e7d826ab39799649c48f6e2f8f11222" category="inline-link-rx"></block>。请注意、您还需要使用此年度合同订阅为Cloud Volumes ONTAP 系统付费、因为在BlueXP中、您只能为AWS凭据分配一个有效订阅。</block>
   <block id="ad05f3c2a42e28f22c97d13c62c20e21" category="paragraph">请参见<block ref="fe3dd1b4143f543014e8974529e1079b" category="inline-link-rx"></block> 了解有关此许可选项的更多信息。</block>
   <block id="4d6157a62532904beb4910b24be9f6fb" category="paragraph">或者、如果您有一个不会使用的未分配的基于节点的Cloud Volumes ONTAP 许可证、则可以将其转换为具有相同美元等价性和相同到期日期的BlueXP备份和恢复许可证。<block ref="f4c32a82791cf9fc58c736c0aed05092" category="inline-link-rx"></block>。</block>
-  <block id="30fc689a9c3cd4222329fe3a4c818a33" category="paragraph">如果下拉列表中没有您的 NetApp 支持站点帐户，<block ref="06a3bc9d474b5d4e44d1a2733cac785a" category="inline-link-rx"></block>。</block>
   <block id="4f05ae706b300f473408b4c787786f71" category="list-text">为BlueXP Connector提供权限的IAM角色包括最新版本的S3权限<block ref="d9402e229f205a91caf82712b1637f11" category="inline-link-rx"></block>。</block>
   <block id="92490379d9b5dee2a5a37001cb55e664" category="paragraph">对于能够同时备份 Cloud Volumes ONTAP 数据和内部 ONTAP 数据的年度合同，您需要从订阅<block ref="85c21eb306ec4bcbda7252ca6117fc5c" category="inline-link-rx"></block> 然后<block ref="630dd2aae912349621adf70336b8d324" category="inline-link-rx"></block>。</block>
   <block id="0f66f2296645800ca15c524b02cff8c4" category="list-text">您可以在激活向导中选择自己的客户管理的数据加密密钥，而不是使用默认的 Amazon S3 加密密钥。在这种情况下，您需要已设置加密受管密钥。<block ref="c9562b880df747e2a8aa25f072c81683" category="inline-link-rx"></block>。</block>
@@ -2910,7 +2863,6 @@ Cloud Volumes ONTAP系统需要使用ONTAP 9.9.1及更高版本。</block>
   <block id="1ae6339958d856a24702bf25c6a3d382" category="paragraph">*注意：*在StorageGRID系统中创建备份或备份到ONTAP S3时、目前不能使用自己的S3存储分段。</block>
   <block id="26170b18548ee3b6f0b39b9db8ffed13" category="inline-link-macro">将内部ONTAP备份到ONTAP S3</block>
   <block id="2a6174ce3d27995b8923b0872f99c9dd" category="list-text"><block ref="2a6174ce3d27995b8923b0872f99c9dd" category="inline-link-macro-rx"></block></block>
-  <block id="f3cd3d23d33dfe26418bbc5243171a69" category="inline-link">私有模式</block>
   <block id="6f3e72444230083b70d3de9ca100232f" category="list-text">*将现有Snapshot副本作为备份副本导出到对象存储*：如果此工作环境中的卷具有与您刚刚为此工作环境选择的备份计划标签(例如每日、每周等)匹配的任何本地Snapshot副本、则会显示此附加提示。选中此框可将所有历史Snapshot作为备份文件复制到对象存储、以确保对卷进行最全面的保护。</block>
   <block id="7fe6981833e8fe7fd89e0a99a55573da" category="list-text">在BlueXP中、选择*帮助&gt;支持*。</block>
   <block id="6a1b74969231967ed071d465206b15c7" category="list-text">如果您想通过电话与某人通话，请选择*呼叫我们*。系统会将您定向到netapp.com上的一个页面、其中列出了您可以拨打的电话号码。</block>
@@ -3219,8 +3171,6 @@ ONTAP S3</block>
   <block id="c0e14bdf7e581929bb61c30f0455c35e" category="paragraph">备份副本存储在BlueXP在云帐户中创建的对象存储中。每个集群/工作环境都有一个对象存储、BlueXP将对象存储命名为：<block ref="395f30b009fd80d4c1cba9bc07db445d" prefix=" " category="inline-code"></block>。请确保不要删除此对象存储。</block>
   <block id="3e8d942114ddd71bc4d36aca5db8bb0a" category="list-text">在ONTAP S3中、BlueXP使用现有用户帐户作为S3存储分段。</block>
   <block id="ada0ea0c378e640dcf914757628491a1" category="section-title">何时执行备份</block>
-  <block id="f73591df3bffa1bec575368324f40233" category="paragraph">购买BlueXP备份和恢复(Cloud Backup)许可证后、您可以通过输入BlueXP备份和恢复序列号和NetApp 支持站点(NSS)帐户或上传NetApp许可证文件(NLG)来激活BlueXP中的许可证。以下步骤显示了如果您计划使用此方法，如何获取 NLF 许可证文件。</block>
-  <block id="4bfcf52b215e00901db793339d1f5b9e" category="paragraph">如果您在无法访问Internet的内部站点上运行BlueXP备份和恢复、这意味着您已在中部署BlueXP Connector<block ref="6426a8a427a5eadce24d979d317c10cc" category="inline-link-rx"></block>，您需要从连接Internet的系统获取许可证文件。使用序列号和NetApp 支持站点 帐户激活许可证不适用于专用模式安装。</block>
   <block id="ac2c17b7d9121a38bd0676675759e2d0" category="list-text">您是使用默认备份策略、还是需要创建自定义策略</block>
   <block id="8ebfc273389c1b045abce8c48c051970" category="paragraph">您可以使用NetApp提供的默认策略创建备份、也可以创建自定义策略。使用激活向导为卷启用备份和恢复服务时、您可以从默认策略以及工作环境(Cloud Volumes ONTAP或内部ONTAP系统)中已存在的任何其他策略中进行选择。如果要使用与现有策略不同的策略、可以在启动之前或使用激活向导时创建此策略。</block>
   <block id="22edee525474fff8dff91ac36bee6386" category="paragraph">如果您计划使用BlueXP备份和恢复在二级ONTAP系统上创建复制的卷、请确保源系统和目标系统满足以下网络连接要求。</block>
@@ -3263,7 +3213,6 @@ ONTAP S3</block>
   <block id="b7cee6af996f21267fdad2eebd5f4c54" category="paragraph">如果要使用此选项、您可以在创建Cloud Volumes ONTAP工作环境时设置年度合同、BlueXP会提示您订阅Azure Marketplace。</block>
   <block id="ab788bf4fa445771d4446e36e923ffe4" category="paragraph">使用GCP时、请联系您的NetApp销售代表以购买年度合同。此合同在Google Cloud Marketplace中以私人优惠形式提供。</block>
   <block id="c71d991dee047ce8fa870270654b44c0" category="paragraph">在NetApp与您共享私人优惠后、您可以在激活BlueXP备份和恢复期间从Google Cloud Marketplace订阅年度计划。</block>
-  <block id="17ffabdffcf9cad7bd6ae2054c4f6e24" category="list-text">如果您正在使用的帐户具有Marketplace PAYGO帐户、备份服务将继续运行、但您将转移到PAYGO许可模式。您需要为备份所使用的容量付费。</block>
   <block id="727c837c47e40b96ddd39f15636181fe" category="list-text">管理复制策略</block>
   <block id="61f06895b4fcad7d6460158ccfc33c17" category="paragraph">BYOL基于期限(1年、2年或3年)以1 TiB为增量以_和_容量为基础。您需要向 NetApp 支付一段时间（如 1 年）使用此服务的费用，最大容量（如 10 TiB ）。</block>
   <block id="aa4c67fd3731395f4450c9686b20f799" category="section-title">支持在作业监控器中计划作业</block>
@@ -3546,7 +3495,6 @@ ifdef：：AWS。</block>
   <block id="82b1ab2145f9360167878fb0aab9d78e" category="paragraph">如果您的内部集群使用的是ONTAP 9.12.1或更高版本、而您的StorageGRID 系统使用的是11.4或更高版本、则可以在一定天数后将旧备份文件归档到公共云归档存储。目前支持AWS S3 Glacer/S3 Glacier深度归档或Azure归档存储层。 <block ref="6a96d9b5ed55776b5555946cb02fa548" category="inline-link-macro-rx"></block>。</block>
   <block id="28af018ba458f766dcff23f60abd6827" category="paragraph">请参见 <block ref="25e09e861cb627cbcd0c16e5c08ee6d8" category="inline-link-macro-rx"></block> 有关归档旧备份文件的更多详细信息。</block>
   <block id="9274d8b34594d54c9ded6bce60335530" category="paragraph">免费试用结束后、您将自动切换到PAYGO订阅、不会中断。如果您决定不继续使用BlueXP备份和恢复、只需执行以下操作即可 <block ref="45d31e67fc33e9fa27a1cf49eda4f564" category="inline-link-macro-rx"></block> 在试用结束之前、您不会收到任何费用。</block>
-  <block id="9513e83b962e2a3ffa6edc4b46feac25" category="paragraph">如果您的许可期限即将到期，或者您的许可容量即将达到限制，您将在备份 UI 中收到通知。此状态也会显示在BlueXP数字钱包页面和中<block ref="62b97dd999de3571d07e2528cb6b6363" category="inline-link-rx"></block>。</block>
   <block id="6e76cf157a9da4f73d4367380e942a3f" category="paragraph">除了此标准之外、如果您使用DataLock和防兰索防备份功能、云存储还提供了其他安全选项、并通过为较早的备份文件选择归档存储类来节省更多成本。 <block ref="41f5d0363680f0f70edb05636427b12e" category="inline-link-macro-rx"></block> 和 <block ref="60091673d77ccc83382ea728fd21045e" category="inline-link-macro-rx"></block>。</block>
   <block id="2159bd9a6e8b2b983d8bb6cc43b01d98" category="admonition">如果要选择资源组的名称、请在部署Cloud Volumes ONTAP 时*禁用* BlueXP备份和恢复。按照的步骤进行操作 <block ref="c917f8f516b9e0eb9478f5642522460c" category="inline-xref-macro-rx"></block> 要启用BlueXP备份和恢复、请选择资源组。</block>
   <block id="188fd7f75e50a8a882a75c15dcb630a1" category="section-title">2024年5月17日</block>
@@ -3668,17 +3616,6 @@ ifdef：：AWS。</block>
   <block id="98d90e398fc56688ddc647e5f49075ec" category="paragraph">工作环境列表位于您在服务顶部横幅中选择的BlueXP  组织(或帐户)、项目(或工作空间)和连接器的范围内。</block>
   <block id="2d590dc5b59c3f75bf8c7f817f68b833" category="list-text">BlueXP  备份和恢复自带许可证(BYOL)是一种浮动许可证、可在与您的BlueXP  组织或帐户关联的所有系统上使用。因此、如果现有BYOL许可证提供了足够的备份容量、则无需再购买一个BYOL许可证。</block>
   <block id="c626a56ce888d4e9324d2a1bcf746248" category="paragraph">BYOL BlueXP  备份和恢复许可证是一种浮动许可证、其中总容量在与您的BlueXP  组织或帐户关联的所有系统之间共享。对于ONTAP系统、您可以通过对计划备份的卷运行命令行界面命令来大致估算所需的容量<block ref="2a47fed7b3c4b7d59e03f10c018cf5cc" prefix=" " category="inline-code"></block>。</block>
-  <block id="70bf2d10b395e656c03e3bc74e6d0f0d" category="paragraph">您需要BlueXP  备份和恢复序列号。从您的销售订单中找到此号码、或者联系客户团队了解此信息。</block>
-  <block id="e53331a3231a958d20a4871d8efc35d8" category="list-text">查找您的BlueXP  帐户ID：</block>
-  <block id="e0e8a7d90375792efecad34c0c923e32" category="inline-image-macro">BlueXP  Web控制台右上角显示的设置图标。</block>
-  <block id="cd42e1c1af0a908f68d68ae6103b5c30" category="list-text">在BlueXP  控制台的右上角，选择<block ref="32173ab85f1c68a28384d1a40cf387db" category="inline-image-macro-rx" type="image"></block>&gt;*身份和访问管理*。</block>
-  <block id="3bcef3f6238058ae825d608e1557c538" category="list-text">在"Organization"页面上、查找并复制您的帐户ID。</block>
-  <block id="2bd8c9344d3768dd44b910db169ef1fa" category="paragraph">如果未列出帐户ID、而您只有一个组织ID、则需要复制该组织ID的前八个字符并将其附加到_account-_</block>
-  <block id="14da2ef10b9e4cc4d0981b05fff98072" category="paragraph">例如、假设这是您的组织ID：</block>
-  <block id="2740d3013330ec13ae7693ee76bc6509" category="paragraph">e10e1c6-80cc-4219-8e99-3c3e6b161ba5.</block>
-  <block id="6ffe1a2d88424dc37ba43bdf5999183e" category="paragraph">您的帐户ID如下所示：</block>
-  <block id="c0b58edc6437b03c81d24f7ded6f3648" category="paragraph">account-e10e1c6</block>
-  <block id="1e698178fbab1b271247235577e84a76" category="admonition">对于不能访问Internet的私有模式站点，请使用*ACCOUNT-HARKSITE1*。</block>
   <block id="525660225b8a21f3d11a20a241b06acd" category="paragraph">默认情况下、BlueXP  组织和帐户管理员会收到所有"严重"和"建议"警报的电子邮件。默认情况下、所有其他用户和收件人均设置为不接收任何通知电子邮件。您可以向NetApp云帐户中的任何BlueXP用户或需要了解备份和还原活动的任何其他收件人发送电子邮件。</block>
   <block id="29360bfcdbc91d3f1514c372b4585965" category="list-text">注册BlueXP  帐户序列号(20位960xxxxxxxxx序列号位于BlueXP  的支持资源页面)。</block>
   <block id="444b74bc81e823cc1c4c704219ad8ed3" category="section-title">注册BlueXP  以获得NetApp支持</block>
@@ -3768,4 +3705,6 @@ ifdef：：AWS。</block>
   <block id="698b05231bfe12b062cbf4a5381b3d2f" category="inline-link">在Azure中安装Connector</block>
   <block id="e65cf67a9fbc4609855f67bb18ecf589" category="paragraph">有关在Azure中创建连接器的详细信息，请参见<block ref="eb0bd2c194a1c467beaf233333f1c26d" category="inline-link-rx"></block>。</block>
   <block id="757ec8d082a1a9becacdf32c01678f5b" category="list-text">从源或目标进行备份时、SVM-DR和卷备份和恢复完全独立工作。唯一的限制是、SVM-DR不会复制SnapMirror云关系。在灾难恢复情形下、如果SVM在二级位置联机、则必须手动更新SnapMirror云关系。</block>
+  <block id="2fb18b7eb7edfd6ac0fa8586ecbd9a12" category="inline-link">了解如何使用电子钱包添加许可证</block>
+  <block id="e2a36029181f04d6208811edf66b0c62" category="paragraph"><block ref="039fd09b60dad6f86188402eac2ef738" category="inline-link-rx"></block>(英文)</block>
 </blocks>
