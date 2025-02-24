@@ -55,6 +55,13 @@ FlexVol卷没有限制—您可以选择工作环境中的所有FlexVol卷并分
 
 === 备份到对象限制
 
+* BlueXP  备份和恢复不会将卷备份到在ONTAP中启用了NetApp卷加密(NVE)和NetApp聚合加密(NAE)的对象存储。
++
+有关这些加密类型的说明，请参阅https://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-netapp-volume-encryption-concept.html["配置 NetApp 卷加密概述"^]。
+
+
+
+* 如果使用SnapMirror策略中的计划在SnapMirror目标卷上启用了长期保留快照、则会直接在目标卷上创建快照。在这种情况下、不应使用BlueXP  备份和恢复来备份这些卷、因为这些快照不会移动到对象存储。
 * 在没有为备份策略分配任何卷的情况下创建或编辑此策略时、保留的备份数最多可为1018个。为策略分配卷后、您可以编辑此策略以创建多达4000个备份。
 * 备份数据保护(DP)卷时：
 +

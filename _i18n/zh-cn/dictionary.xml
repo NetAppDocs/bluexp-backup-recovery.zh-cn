@@ -342,9 +342,6 @@
   <block id="304514e0e009199a95060650dbf9337e" category="inline-link">AWS 无服务器数据集成服务</block>
   <block id="0848cf03c413f3904ce1aede12f02101" category="list-text">如果要从卷备份还原卷或文件，请在 _Search &amp; Restore_ 下单击 * 搜索和还原 * 。</block>
   <block id="721f0292b89494d52fd3ab7655e44491" category="paragraph">在使用搜索和还原之前，您需要在计划从中还原卷或文件的每个源工作环境上启用 " 索引编制 " 。这样，索引目录就可以跟踪每个卷和每个备份文件，从而使搜索非常快速高效。</block>
-  <block id="8c3d8e8290011affd1cc36d8fb6ca3a8" category="paragraph">要为工作环境启用索引编制，请执行以下操作：</block>
-  <block id="77b424e494cba30c234da205f975c6ba" category="list-text">如果尚未为工作环境编制索引，请在 "Restore Dashboard" 中的 _Search &amp; Restore_ 下，单击 * 为工作环境启用索引 * ，然后单击 * 为工作环境启用索引 * 。</block>
-  <block id="3c672ca6b1c8663911932efdc7cb9761" category="list-text">如果至少有一个工作环境已编制索引，请在 "Restore Dashboard" 中的 "_Search &amp; Restore" 下，单击 * 索引设置 * ，然后单击 * 为工作环境启用索引 * 。</block>
   <block id="d76950a27877cc1b2fad2a533be5bd70" category="paragraph">配置完所有服务并激活索引目录后，工作环境将显示为 "Active" 。</block>
   <block id="22a8553a7fcf088b4624bfb22aca2c00" category="inline-image-macro">显示已激活索引目录的工作环境的屏幕截图。</block>
   <block id="2e6096622065e7d9092ff099425f8bf0" category="paragraph"><block ref="2e6096622065e7d9092ff099425f8bf0" category="inline-image-macro-rx" type="image"></block></block>
@@ -2578,8 +2575,6 @@ Cloud Volumes ONTAP</block>
   <block id="12486a40437a6b66be9b1d2eaf68dacb" category="list-text">(可选)使用VPC端点接口为系统配置专用连接。</block>
   <block id="27481ab02cd2907ee58a87a01de37de2" category="list-text">激活此服务后、备份向导将提示您输入访问密钥和机密密钥。这些凭据将传递到 ONTAP 集群，以便 ONTAP 可以将数据备份和还原到 S3 存储分段。为此，您需要创建具有以下权限的 IAM 用户。</block>
   <block id="b4bc25d0b351437deb290fa50a36f062" category="paragraph">请参见<block ref="eb8d2636cc0b0f2875b50c1561ec0060" category="inline-link-rx"></block>。</block>
-  <block id="e2eb08f750d15308f8411635e75fc5e7" category="inline-link">请参阅如何使用您自己的密钥</block>
-  <block id="de4ef5a5f97836ab944189954e7907e4" category="paragraph">如果您要使用自己的客户管理密钥进行数据加密、而不是使用默认密钥、则需要在启动BlueXP备份和恢复向导之前先设置加密管理密钥。<block ref="4f334d1f128fd0a003f5f48bc9fc4cbc" category="inline-link-rx"></block>。</block>
   <block id="b08fc812a1a1619370d32b6eda413475" category="inline-link">请参见有关使用适用于Amazon S3的AWS PrivateLink的详细信息</block>
   <block id="13cd6093990a3e2c61bd412a51d79d85" category="list-text">使用 Amazon VPC 控制台或命令行创建接口端点配置。<block ref="305e52fbffac106a7d23bf32a329bc5d" category="inline-link-rx"></block>。</block>
   <block id="901a404d02799cf2fc58dfa5d97923ad" category="paragraph">如果Canvas上存在用于备份的Amazon S3目标作为工作环境、则可以将ONTAP集群拖动到Amazon S3对象存储上。</block>
@@ -3707,4 +3702,59 @@ ifdef：：AWS。</block>
   <block id="757ec8d082a1a9becacdf32c01678f5b" category="list-text">从源或目标进行备份时、SVM-DR和卷备份和恢复完全独立工作。唯一的限制是、SVM-DR不会复制SnapMirror云关系。在灾难恢复情形下、如果SVM在二级位置联机、则必须手动更新SnapMirror云关系。</block>
   <block id="2fb18b7eb7edfd6ac0fa8586ecbd9a12" category="inline-link">了解如何使用电子钱包添加许可证</block>
   <block id="e2a36029181f04d6208811edf66b0c62" category="paragraph"><block ref="039fd09b60dad6f86188402eac2ef738" category="inline-link-rx"></block>(英文)</block>
+  <block id="9126fc20b93ed61d342990460cdaaa43" category="doc">高性能索引编制</block>
+  <block id="c31a2ae5c0b165eb1cee78223b508907" category="paragraph">BlueXP  备份和恢复引入了一项经过更新的索引编制功能、可提高源工作环境中数据的索引编制效率。新的索引编制功能包括更新用户界面、提高搜索和还原数据方法的性能、升级全局搜索功能以及更好的可扩展性。</block>
+  <block id="135dcb5e7fddaabc736ce2d72074e3bf" category="paragraph">以下是改进的细分：</block>
+  <block id="2fd910d863c39557d994a40fedd27b38" category="list-text">*文件夹整合*：更新后的版本使用包含特定标识符的名称将文件夹分组在一起，使索引编制过程更顺畅。</block>
+  <block id="415e39ccfe49c5161a2a27cbc19cbaac" category="list-text">*镶木地板文件缩减*：更新后的版本减少了为每个卷编制索引所使用的文件数量，从而简化了流程，并且不再需要额外的数据库。</block>
+  <block id="c53ca191fcf89c8c42d05fd203ce3d03" category="list-text">*通过更多会话实现横向扩展*：新版本增加了更多会话来处理索引编制任务、从而加快了处理速度。</block>
+  <block id="9ad2108ab54a2f84cdce51c70aedf218" category="list-text">*支持多个索引容器*：新版本使用多个容器来更好地管理和分发索引任务。</block>
+  <block id="4a3dba07ec28235aef40beaad924f29a" category="list-text">*拆分索引工作流*：新版本将索引编制过程分为两部分，提高了效率。</block>
+  <block id="4524da26c6e536d9203dad25cbe67e46" category="list-text">*改进的并发性*：新版本可以同时删除或移动目录，从而加快索引编制过程。</block>
+  <block id="4cd005b9bd7832f2f50d7bfa9ef8c5bd" category="paragraph-title">谁可以从该功能中受益？</block>
+  <block id="c0b0a9d9f7b65ce3e277b13bce1241d3" category="paragraph">所有新客户均可使用新的索引功能。</block>
+  <block id="eb3dc66c3f5547559da4bd69622b70f1" category="paragraph-title">如何启用索引编制？</block>
+  <block id="1928ef25d05266e1052541c930f2737c" category="paragraph">在使用搜索和还原方法还原数据之前、您需要在计划从中还原卷或文件的每个源工作环境上启用"索引编制"。这样、索引目录就可以跟踪每个卷和每个备份文件、从而使搜索快速高效。</block>
+  <block id="d28994d1a9691ce26fcae71b9a05d1bc" category="paragraph">在执行搜索和还原时、通过选择"启用索引"选项、在源工作环境中启用索引。</block>
+  <block id="6b14c6e0d643870ea727335d7739df30" category="inline-link">如何使用搜索和恢复来恢复ONTAP数据(&amp;A)</block>
+  <block id="9031cfd1bcd3de043cd6391f098dc91b" category="paragraph">有关详细信息，请参见文档<block ref="7ae860a58fb7c028461eb3a0f3043711" category="inline-link-rx"></block>。</block>
+  <block id="2d31667baed414ccd330141663dac284" category="paragraph-title">支持的扩展</block>
+  <block id="b2ec30cb49afbacbac6cc89a95133887" category="paragraph">新的索引编制功能支持以下功能：</block>
+  <block id="3201cddda2c272104ed2ef30674f361a" category="list-text">不到3分钟即可实现全局搜索效率</block>
+  <block id="5386e74ecf10139fea9af2308674b2f3" category="list-text">最多50亿个文件</block>
+  <block id="ed6f4100c4fab2301cff975ad76b4882" category="list-text">每个集群最多5000个卷</block>
+  <block id="1154c1f5439a3f20019e89d49f3ba075" category="list-text">每个卷最多10万个快照</block>
+  <block id="bca4b5a9086c6c17f64be092486e45ad" category="list-text">基线索引编制的最长时间不超过7天。实际时间因环境而异。</block>
+  <block id="783d72b35e6b2ea46fd074f6f0960e45" category="section-title">全局搜索性能改进</block>
+  <block id="66fba34c17d26bb2c0e9b396915f9a4f" category="paragraph">此版本还对全局搜索性能进行了增强。现在、您将看到进度指示器和更详细的搜索结果、包括文件计数和搜索所用时间。用于搜索和索引编制的专用容器可确保在五分钟内完成全局搜索。</block>
+  <block id="ba7df4741bd77385c236fcf981dd357a" category="paragraph">请注意以下与全局搜索相关的注意事项：</block>
+  <block id="03602fc4621dad9ee00f9e5d533ff5ea" category="list-text">不会对标记为每小时的快照执行新索引。</block>
+  <block id="2bacd7c8c96302172c5d0324d784cf03" category="list-text">新的索引编制功能仅适用于FlexVol上的快照、不适用于FlexGroup上的快照。</block>
+  <block id="9a817228de7a6ae8f0c7de31a40bf58e" category="list-text">BlueXP  备份和恢复不会将卷备份到在ONTAP中启用了NetApp卷加密(NVE)和NetApp聚合加密(NAE)的对象存储。</block>
+  <block id="c638f77e97a62d0d11f775816222d62a" category="inline-link">配置 NetApp 卷加密概述</block>
+  <block id="3553f96cf9281793975488d9cea2ab17" category="paragraph">有关这些加密类型的说明，请参阅<block ref="4e5be28408ee7dfd001133bf87f0a28f" category="inline-link-rx"></block>。</block>
+  <block id="e00d7f7aeae26763ad3c75c98433f2e9" category="list-text">如果使用SnapMirror策略中的计划在SnapMirror目标卷上启用了长期保留快照、则会直接在目标卷上创建快照。在这种情况下、不应使用BlueXP  备份和恢复来备份这些卷、因为这些快照不会移动到对象存储。</block>
+  <block id="01413f389bd4cf68af61ca2a62ee7d87" category="paragraph">如果您要使用自己的客户管理密钥进行数据加密、而不是使用默认密钥、则需要在启动BlueXP备份和恢复向导之前先设置加密管理密钥。</block>
+  <block id="81d60e20c02d2dc4f1f049ef17d9c0f3" category="inline-link">请参阅如何在Cloud Volumes ONTAP中使用您自己的亚马逊加密密钥</block>
+  <block id="88ccd2720227f5c1164c6497d4ae47f6" category="paragraph"><block ref="8ab54e2b609b251be3bd34cf7a9c9391" category="inline-link-rx"></block>(英文)</block>
+  <block id="76cbe937e740eca839bf63ad19034f3f" category="inline-link">请参阅如何在BlueXP  备份和恢复中使用您自己的Amazon加密密钥</block>
+  <block id="6fdce727e6de4160eacd28b15da69c4f" category="paragraph"><block ref="a3f58d2c0ba0e72062adb488b84ae17c" category="inline-link-rx"></block>(英文)</block>
+  <block id="f92649b1217dc96d6552e63d3b09c966" category="paragraph">有关"已编目的目录v2"的信息、请参阅下面有关如何启用"已编目的目录"的章节。</block>
+  <block id="166abda58938787377e1425ec8d5bfe0" category="paragraph">索引目录是一个数据库、用于存储工作环境中所有卷和备份文件的元数据。搜索和还原功能可使用它快速查找包含要还原的数据的备份文件。</block>
+  <block id="ace26ef20d7de77728de7522bd26d7de" category="paragraph-title">索引目录v2功能</block>
+  <block id="c63a5bc5fc4b32b1bff45d50374410d4" category="paragraph">2025年2月发布的"已编入目录v2"新增了一些功能、使其更高效、更易于使用。此版本的性能得到了显著增强、默认情况下会为所有新客户启用。</block>
+  <block id="e45e80a3aa32c47a9d6ef311dd8f2980" category="paragraph">查看有关v2的以下注意事项：</block>
+  <block id="b98d519952606f96dcc615efa4f4e85c" category="list-text">已编入目录v2可在预览模式下使用。</block>
+  <block id="951398abbe6e1c3079efe911a6951621" category="list-text">如果您是现有客户、并希望使用目录v2、则需要对您的环境重新编制完整索引。</block>
+  <block id="eb720e0effbb1828841ea62695a758b9" category="list-text">Catalog v2仅为具有Snapshot标签的快照编制索引。</block>
+  <block id="2c3a11da75201509ee9fcbd0114229d0" category="list-text">BlueXP  备份和恢复不会为具有"每小时" SnapMirror标签的快照编制索引。如果要为SnapMirror标签为"每小时"的快照创建索引、则需要在v2处于预览模式时手动启用它。</block>
+  <block id="30de1e9ffcdc3df41ad87fe991035205" category="list-text">BlueXP  备份和恢复将仅使用目录v2为与受BlueXP  备份和恢复保护的工作环境关联的卷和快照编制索引。在BlueXP  平台上发现的其他工作环境不会编制索引。</block>
+  <block id="cba8da890b429c54fa89c60426136832" category="paragraph">已编目目录v2支持以下内容：</block>
+  <block id="46428b76e969ff123fba9ae4f0798b31" category="paragraph-title">为工作环境启用"已编目"</block>
+  <block id="e7a2b56d589698a713ae6f0ee11d094a" category="list-title">为工作环境启用索引编制的步骤：</block>
+  <block id="365d382b2d9ecca9b0d40171c69b38ff" category="list-text">执行以下操作之一：</block>
+  <block id="a3d610bf46189d3cbce48f595c45499f" category="list-text">如果没有为任何工作环境编制索引，请在"Restore Dashboard (恢复仪表板)"的_Search &amp; Restore_下选择*Enable Indexing for Working *(为工作环境启用索引)。</block>
+  <block id="4d15abe2ea84fc45daf040e94beae3f3" category="list-text">如果至少有一个工作环境已编制索引，请在"Restore Dashboard (恢复仪表板)"的_Search &amp; Restore_下单击*Indexing Settings*。</block>
+  <block id="96c51ce828ef9cc79ee2121bdd9dc630" category="list-text">为工作环境选择*启用索引*。</block>
+  <block id="09d7c2dac047caa965175fead07159aa" category="section-title">2025年2月21日</block>
 </blocks>
