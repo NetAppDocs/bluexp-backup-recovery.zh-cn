@@ -3208,7 +3208,6 @@ ONTAP S3</block>
   <block id="b7cee6af996f21267fdad2eebd5f4c54" category="paragraph">如果要使用此选项、您可以在创建Cloud Volumes ONTAP工作环境时设置年度合同、BlueXP会提示您订阅Azure Marketplace。</block>
   <block id="ab788bf4fa445771d4446e36e923ffe4" category="paragraph">使用GCP时、请联系您的NetApp销售代表以购买年度合同。此合同在Google Cloud Marketplace中以私人优惠形式提供。</block>
   <block id="c71d991dee047ce8fa870270654b44c0" category="paragraph">在NetApp与您共享私人优惠后、您可以在激活BlueXP备份和恢复期间从Google Cloud Marketplace订阅年度计划。</block>
-  <block id="727c837c47e40b96ddd39f15636181fe" category="list-text">管理复制策略</block>
   <block id="61f06895b4fcad7d6460158ccfc33c17" category="paragraph">BYOL基于期限(1年、2年或3年)以1 TiB为增量以_和_容量为基础。您需要向 NetApp 支付一段时间（如 1 年）使用此服务的费用，最大容量（如 10 TiB ）。</block>
   <block id="aa4c67fd3731395f4450c9686b20f799" category="section-title">支持在作业监控器中计划作业</block>
   <block id="314b40130d46a229c3a19dc5e2e23aa4" category="paragraph">BlueXP备份和恢复作业监控器以前会监控计划的卷到对象存储备份和还原作业、但不会监控通过UI或API计划的本地Snapshot、复制、备份和还原作业。</block>
@@ -3730,7 +3729,6 @@ ifdef：：AWS。</block>
   <block id="ba7df4741bd77385c236fcf981dd357a" category="paragraph">请注意以下与全局搜索相关的注意事项：</block>
   <block id="03602fc4621dad9ee00f9e5d533ff5ea" category="list-text">不会对标记为每小时的快照执行新索引。</block>
   <block id="2bacd7c8c96302172c5d0324d784cf03" category="list-text">新的索引编制功能仅适用于FlexVol上的快照、不适用于FlexGroup上的快照。</block>
-  <block id="9a817228de7a6ae8f0c7de31a40bf58e" category="list-text">BlueXP  备份和恢复不会将卷备份到在ONTAP中启用了NetApp卷加密(NVE)和NetApp聚合加密(NAE)的对象存储。</block>
   <block id="c638f77e97a62d0d11f775816222d62a" category="inline-link">配置 NetApp 卷加密概述</block>
   <block id="3553f96cf9281793975488d9cea2ab17" category="paragraph">有关这些加密类型的说明，请参阅<block ref="4e5be28408ee7dfd001133bf87f0a28f" category="inline-link-rx"></block>。</block>
   <block id="e00d7f7aeae26763ad3c75c98433f2e9" category="list-text">如果使用SnapMirror策略中的计划在SnapMirror目标卷上启用了长期保留快照、则会直接在目标卷上创建快照。在这种情况下、不应使用BlueXP  备份和恢复来备份这些卷、因为这些快照不会移动到对象存储。</block>
@@ -3757,4 +3755,14 @@ ifdef：：AWS。</block>
   <block id="4d15abe2ea84fc45daf040e94beae3f3" category="list-text">如果至少有一个工作环境已编制索引，请在"Restore Dashboard (恢复仪表板)"的_Search &amp; Restore_下单击*Indexing Settings*。</block>
   <block id="96c51ce828ef9cc79ee2121bdd9dc630" category="list-text">为工作环境选择*启用索引*。</block>
   <block id="09d7c2dac047caa965175fead07159aa" category="section-title">2025年2月21日</block>
+  <block id="30ba4ee29fda0b7285b4297943459cf9" category="doc">SMB快照浏览</block>
+  <block id="024bc4989e66777454fa98cbaf9a7d3e" category="paragraph">此BlueXP  备份和恢复更新解决了客户无法在SMB环境中浏览本地快照的问题。</block>
+  <block id="151a83fcfdad3b420d256dbc19095068" category="section-title">AWS GovCloud环境更新</block>
+  <block id="c4ff0af994997811a9867969c1b26bf3" category="paragraph">此BlueXP  备份和恢复更新修复了由于TLS证书错误而导致UI无法连接到AWS GovCloud环境的问题。已使用BlueXP  连接器主机名而非IP地址解决此问题。</block>
+  <block id="a758068ed72f0a6858316a7ff791b4ba" category="section-title">备份策略保留限制</block>
+  <block id="7937af8bb9aecdab11a666bfc7946c61" category="paragraph">以前、BlueXP  备份和恢复用户界面会将备份限制为999个副本、而命令行界面则允许更多副本。现在、您最多可以将4、000个卷连接到一个备份策略、并将1、018个未连接到备份策略的卷包括在内。此更新包含可防止超过这些限制的其他验证。</block>
+  <block id="d5479e738a91b3a64956ed9f9e81bc5a" category="section-title">SnapMirror云重新同步</block>
+  <block id="06476618a5631fabf79c4d5ebe8b60b0" category="paragraph">此更新可确保在删除SnapMirror关系后、无法从不受支持的ONTAP版本的BlueXP  备份和恢复启动SnapMirror云重新同步。</block>
+  <block id="23bb8a9252b3eccc5dbbed85d71a4b89" category="list-text">备份数据时、BlueXP  备份和恢复将不会保持NetApp卷加密(NVE)。这意味着、在将数据传输到目标时、将对NVE卷上的加密数据进行解密、并且不会保持加密状态。</block>
+  <block id="499d067ffbbd553e23809aa38aa67bfa" category="section-title">2025年3月17日</block>
 </blocks>

@@ -55,7 +55,7 @@ FlexVol卷没有限制—您可以选择工作环境中的所有FlexVol卷并分
 
 === 备份到对象限制
 
-* BlueXP  备份和恢复不会将卷备份到在ONTAP中启用了NetApp卷加密(NVE)和NetApp聚合加密(NAE)的对象存储。
+* 备份数据时、BlueXP  备份和恢复将不会保持NetApp卷加密(NVE)。这意味着、在将数据传输到目标时、将对NVE卷上的加密数据进行解密、并且不会保持加密状态。
 +
 有关这些加密类型的说明，请参阅https://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-netapp-volume-encryption-concept.html["配置 NetApp 卷加密概述"^]。
 
