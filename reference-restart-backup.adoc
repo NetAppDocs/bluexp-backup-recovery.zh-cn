@@ -38,10 +38,10 @@ BlueXP备份和恢复功能内置在BlueXP Connector中。根据是在云中部�
 | 连接器位置 | Docker命令 | Podman命令 
 
 
-| 云部署 | `docker restart cloudmanager_cbs` | `podman restart cloudmanager cbs` 
+| 云部署 | `docker restart cloudmanager_cbs` | `podman restart cloudmanager_cbs` 
 
 
-| 通过互联网访问手动安装 | `docker restart cloudmanager_cbs` | `podman restart cloudmanager cbs` 
+| 通过互联网访问手动安装 | `docker restart cloudmanager_cbs` | `podman restart cloudmanager_cbs` 
 
 
 | 手动安装、不能访问Internet | `docker restart ds_cloudmanager_cbs_1` | `podman restart ds_cloudmanager_cbs_1` 
