@@ -3765,4 +3765,28 @@ ifdef：：AWS。</block>
   <block id="23bb8a9252b3eccc5dbbed85d71a4b89" category="list-text">备份数据时、BlueXP  备份和恢复将不会保持NetApp卷加密(NVE)。这意味着、在将数据传输到目标时、将对NVE卷上的加密数据进行解密、并且不会保持加密状态。</block>
   <block id="499d067ffbbd553e23809aa38aa67bfa" category="section-title">2025年3月17日</block>
   <block id="c11347a85201b35f4b0302aff21bc226" category="cell"><block ref="c9017d174080d415365a112c68422e95" prefix="" category="inline-code"></block></block>
+  <block id="46c8a90c914cf567466d573545fb57d9" category="doc">增强的卷信息板(预览)</block>
+  <block id="d4400da5c041019019538ea47e6a4d7e" category="paragraph">现在、卷信息板加载时间不到10秒、从而提供了一个速度更快、效率更高的界面。此预览版可供部分客户使用、让他们可以及早了解这些改进。</block>
+  <block id="a43e01afb7862afba8cef123bb022bd8" category="section-title">UI改进</block>
+  <block id="d631beb153bc97ac47e69041180f2bda" category="paragraph">此版本通过简化界面增强了用户体验：</block>
+  <block id="7945214ab9edda2604c048e3254b6820" category="list-text">在V2信息板的卷表中、从卷表中删除聚合列以及Snapshot策略、备份策略和复制策略列后、布局将更加简化。</block>
+  <block id="1f4ea4d0a55155c1ea9271081e2e118f" category="list-text">从下拉列表中排除未激活的工作环境可减少界面的干扰、提高导航效率并加快加载速度。</block>
+  <block id="c42ae4d1274def078f227f6b5526ed38" category="list-text">禁用标记列排序后、您仍可查看标记、以确保重要信息始终易于访问。</block>
+  <block id="ee5a89c90c463c21f6188d8945b6a165" category="list-text">去除保护图标上的标签有助于使外观更清晰、并减少加载时间。</block>
+  <block id="4deca0db77c0cb1d491b7636aff218c4" category="list-text">在工作环境激活过程中、对话框会显示一个加载图标、以提供反馈、直到发现过程完成、从而提高系统操作的透明度和可信度。</block>
+  <block id="e933dec5f784259760ab3c9400fb8e0b" category="section-title">支持第三方芥末对象存储(预览)</block>
+  <block id="57a83bf4b6d8f755d141ebf2bb282ed3" category="paragraph">BlueXP  备份和恢复现在将其支持扩展到第三方对象存储、主要侧重于芥末。通过这一新的预览功能、您可以利用任何与S3兼容的对象存储来满足备份和恢复需求。</block>
+  <block id="da21b58c44ce1975cb8550ec689df5b3" category="section-title">开始使用芥末</block>
+  <block id="f3afa8b48aa14a1da6a21d82ad964f5d" category="paragraph">要开始使用此功能、您必须在BlueXP  UI中启用一个标志。然后、您可以输入第三方对象存储的连接详细信息、并将其集成到备份和恢复工作流中。</block>
+  <block id="9b6d9b582a741bc832b2557c16d31b09" category="section-title">预览模式限制</block>
+  <block id="fdf10a1d090d444123d00414152f7943" category="paragraph">在预览此功能时、请考虑以下限制：</block>
+  <block id="7ebc42140a656312f7a985f14e55f3a6" category="list-text">不支持自带存储分段(BYOB)。</block>
+  <block id="1361fc3308297e6892c65225fef43d57" category="list-text">不支持在策略中启用DataLock。</block>
+  <block id="250e26d77f45f9c60f2e7d28e0011265" category="list-text">不支持在策略中启用归份模式。</block>
+  <block id="b86033acef55ce16df9b8accc019fc9d" category="list-text">仅支持内部ONTAP环境。</block>
+  <block id="5ba05bcaf18ef618c0ef794d4ae3e855" category="list-text">不支持MetroCluster。</block>
+  <block id="2a9854e98da75bbc07132378bef6de4d" category="list-text">不支持用于启用存储分段级别加密的选项。</block>
+  <block id="f98d5407ffd34a829996a4bb36d6e582" category="paragraph">在此预览期间、我们建议您探索这一新功能、并在推出完整功能之前提供有关与第三方对象存储集成的反馈。</block>
+  <block id="c2539a9855f013822344851d0fcb1184" category="admonition">BlueXP  备份和恢复不支持FlexCache卷的备份。</block>
+  <block id="801c0fa0d304ca22d8afec06189bcf93" category="section-title">2025年4月16日</block>
 </blocks>

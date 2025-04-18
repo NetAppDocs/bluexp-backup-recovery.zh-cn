@@ -194,6 +194,9 @@ BlueXP备份和恢复支持以下类型的卷：
 * SnapMirror数据保护(DP)目标卷
 
 
+
+NOTE: BlueXP  备份和恢复不支持FlexCache卷的备份。
+
 请参见中的章节 link:reference-limitations.html#backup-to-object-limitations["备份和还原限制"] 了解其他要求和限制。
 
 

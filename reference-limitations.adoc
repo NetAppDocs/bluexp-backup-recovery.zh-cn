@@ -31,6 +31,7 @@ summary: 已知限制用于说明此产品版本不支持的功能或无法与�
 +
 有关在Azure中创建连接器的详细信息，请参见 https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-azure-bluexp.html["在Azure中安装Connector"^]。
 
+* BlueXP  备份和恢复不支持FlexCache卷的备份。
 
 
 
