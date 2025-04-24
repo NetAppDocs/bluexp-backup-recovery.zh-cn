@@ -1641,13 +1641,9 @@
   <block id="132598d89b5e84bc5af9cc03e23a4175" category="list-text">如有必要、请更新防火墙规则、以允许通过端口443从ONTAP 到对象存储的BlueXP备份和恢复连接、以及通过端口53 (TCP/UDP)从Storage VM到DNS服务器的名称解析流量。</block>
   <block id="0767994029638623b0279d117f71bcc7" category="list-text">在为集群激活BlueXP备份和恢复之前、您需要从AWS订阅按需购买(PAYGO) BlueXP Marketplace产品、或者从NetApp购买并激活BlueXP备份和恢复BYOL许可证。这些许可证适用于您的帐户，可在多个系统中使用。</block>
   <block id="f98bd8688162885c52860bed1262784f" category="paragraph">如果您使用端口80 (HTTP)与专用端点进行通信、则已设置完毕。您现在可以在集群上启用BlueXP备份和恢复。</block>
-  <block id="edff5ebe6fa75b91836dac47d7940449" category="section-title">将BlueXP备份和恢复数据还原到新的Connector</block>
-  <block id="815289240ead1921d67ba2c1e806a37b" category="paragraph">如果您的内部连接器发生灾难性故障、则需要安装新的Connector、然后将BlueXP备份和恢复数据还原到新的Connector。</block>
-  <block id="eced51eb44e5e285c2a52b0b05c4b03b" category="paragraph">要将您的BlueXP备份和恢复系统恢复为工作状态、您需要执行4项任务：</block>
   <block id="6b7f0194ee0161c1ec6ef481e87fdaa2" category="list-text">还原BlueXP备份和恢复数据库</block>
   <block id="a68527cebf1aaeae64bda2645985b661" category="list-text">使用以下命令还原BlueXP备份和恢复MySQL数据库：</block>
   <block id="391b3817ffe9fe659a3a443a7fba86f2" category="list-text">使用以下SQL命令验证是否已正确还原BlueXP备份和恢复MySQL数据库：</block>
-  <block id="dc79d96009c6f59868049e029c8bb68e" category="list-text">使用与工作环境关联的StorageGRID 系统的详细信息更新BlueXP备份和恢复数据库。请务必输入StorageGRID 的完全限定域名以及访问密钥和存储密钥、如下所示：</block>
   <block id="119ce87fb0068eaf943265dcfa7867a2" category="section-title">验证BlueXP备份和恢复设置</block>
   <block id="703a23cc0f04926bc0f88cc7699dbb25" category="summary">通过BlueXP备份和恢复、您可以为内部ONTAP 和Cloud Volumes ONTAP 系统创建具有各种配置设置的备份策略。</block>
   <block id="9eea85cb75720c2962892ce404724c85" category="paragraph">通过BlueXP备份和恢复功能、您可以为每个工作环境(集群)创建多个备份策略、并为其创建唯一的计划。您可以为具有不同恢复点目标(RPO)的卷分配不同的备份策略。</block>
@@ -1846,8 +1842,6 @@
   <block id="f1a109ae8d953da8e05cf5534df6b22b" category="list-text">对于运行ONTAP 9.13.0或更高版本的Cloud Volumes ONTAP 系统、用户启动的备份和还原操作以及系统启动的作业(如正在进行的备份操作)现在均可在*作业监控*选项卡中找到。早期的ONTAP 版本将仅显示用户启动的作业。</block>
   <block id="732b0ab66e04245a9430107793fd1d96" category="paragraph"><block ref="3422a8d7040fc7a0bf0d737d556a20c0" category="inline-link-rx"></block>。</block>
   <block id="5e8c098d325749413b23d5eba5837aad" category="doc">在非公开站点中还原BlueXP备份和恢复数据</block>
-  <block id="39be554c0f9c606fc89e879c11dfe9e9" category="paragraph">请注意、如果在云提供商处部署了BlueXP Connector的SaaS环境中使用BlueXP备份和恢复、或者在可访问Internet的您自己的主机系统上使用BlueXP备份和恢复、则所有重要的BlueXP备份和恢复配置数据都会在云中进行备份和保护。如果您的问题描述具有连接器、只需创建一个新连接器并添加您的工作环境、备份详细信息就会自动还原。</block>
-  <block id="71610d9ba03d16f64930e18ad93ed1ff" category="paragraph">备份的数据有两种：</block>
   <block id="3f90954724de2ab33270c2e29ef44d4c" category="list-text">BlueXP备份和恢复数据库-包含所有卷、备份文件、备份策略和配置信息的列表。</block>
   <block id="ae429398e7a8cba2d2c57d308c8ed88a" category="list-text">索引目录文件-包含用于"搜索和还原"功能的详细索引、使您在查找要还原的卷数据时可以快速高效地进行搜索。</block>
   <block id="33cc4fba89a0e27990f9826b52a31440" category="admonition">BlueXP备份和恢复数据库或索引目录文件中从未包含任何卷数据。</block>
@@ -3420,7 +3414,6 @@ ifdef：：AWS。</block>
   <block id="e5c31b44cc452f945aec38b328ab97da" category="section-title">编辑现有云备份策略</block>
   <block id="d3b3f333837b21ed08dfd04c10e48346" category="section-title">添加新的云备份策略</block>
   <block id="6c08aad63d31acac8bc5248c2bfd34f2" category="paragraph">如果您的集群使用的是ONTAP 9.11.1或更高版本、则可以选择通过配置_DataLock和勒索软件保护_来保护您的备份免受删除和勒索软件攻击。_DataLock_可防止您的备份文件被修改或删除、而_勒索 软件保护_会扫描您的备份文件、以查找备份文件中存在勒索软件攻击的证据。</block>
-  <block id="427911e9853111f28c07f559c3b84c6a" category="paragraph">在无法访问Internet的站点中使用BlueXP备份和恢复时、称为_private mode_、BlueXP备份和恢复配置数据将备份到存储备份的StorageGRID或ONTAP S3存储分段。如果将来您的问题描述与BlueXP Connector主机系统结合使用、则可以部署新的Connector并还原关键的BlueXP备份和恢复数据。</block>
   <block id="27b14a69b7d1dfde3096980cc202af91" category="sidebar">创建有关数据保护覆盖范围的报告</block>
   <block id="c1d2d81968b4f89d4185d4baf66ba468" category="sidebar">将 ONTAP 数据备份到云</block>
   <block id="4c371e6c984a858ae1f9d8d607a2cfd4" category="sidebar">管理 ONTAP 备份文件</block>
@@ -3777,7 +3770,6 @@ ifdef：：AWS。</block>
   <block id="e933dec5f784259760ab3c9400fb8e0b" category="section-title">支持第三方芥末对象存储(预览)</block>
   <block id="57a83bf4b6d8f755d141ebf2bb282ed3" category="paragraph">BlueXP  备份和恢复现在将其支持扩展到第三方对象存储、主要侧重于芥末。通过这一新的预览功能、您可以利用任何与S3兼容的对象存储来满足备份和恢复需求。</block>
   <block id="da21b58c44ce1975cb8550ec689df5b3" category="section-title">开始使用芥末</block>
-  <block id="f3afa8b48aa14a1da6a21d82ad964f5d" category="paragraph">要开始使用此功能、您必须在BlueXP  UI中启用一个标志。然后、您可以输入第三方对象存储的连接详细信息、并将其集成到备份和恢复工作流中。</block>
   <block id="9b6d9b582a741bc832b2557c16d31b09" category="section-title">预览模式限制</block>
   <block id="fdf10a1d090d444123d00414152f7943" category="paragraph">在预览此功能时、请考虑以下限制：</block>
   <block id="7ebc42140a656312f7a985f14e55f3a6" category="list-text">不支持自带存储分段(BYOB)。</block>
@@ -3789,4 +3781,25 @@ ifdef：：AWS。</block>
   <block id="f98d5407ffd34a829996a4bb36d6e582" category="paragraph">在此预览期间、我们建议您探索这一新功能、并在推出完整功能之前提供有关与第三方对象存储集成的反馈。</block>
   <block id="c2539a9855f013822344851d0fcb1184" category="admonition">BlueXP  备份和恢复不支持FlexCache卷的备份。</block>
   <block id="801c0fa0d304ca22d8afec06189bcf93" category="section-title">2025年4月16日</block>
+  <block id="0c9e9a971e295d08b39001ef71ddfca9" category="paragraph">要开始使用第三方存储作为对象存储、必须在BlueXP  连接器中启用一个标志。然后、您可以输入第三方对象存储的连接详细信息、并将其集成到备份和恢复工作流中。</block>
+  <block id="09c224692df6f6a3d6045847d63b5e86" category="list-text">通过SSH连接到您的连接器。</block>
+  <block id="d4abc9f6a0f7759f15272b587badc33b" category="list-text">转到BlueXP  备份和恢复CBS服务器容器：</block>
+  <block id="e5b842eef10876fd5aec5be48ecec9b3" category="list-text">通过VIM或任何其他编辑器打开<block ref="a4f5e59b80d929d30eba10ee00d7450d" prefix=" " category="inline-code"></block>文件夹中的文件<block ref="2245023265ae4cf87d02c8b6ba991139" prefix=" " category="inline-code"></block>：</block>
+  <block id="14ee6952f3be48ef4395f003ecfdac2c" category="list-text">修改<block ref="05e4358c747c33d991f9217e4b509fcc" prefix=" " category="inline-code"></block>：false到<block ref="05e4358c747c33d991f9217e4b509fcc" prefix=" " category="inline-code"></block>：true。</block>
+  <block id="08c4f5aee4f8b6cabdcd558ad1452ad2" category="list-text">保存更改。</block>
+  <block id="4b891dca63ef1ab4f9daab8d3bd76368" category="list-text">退出容器。</block>
+  <block id="3dc3e984a5412f225aea00167c9309bf" category="list-text">重新启动BlueXP  备份和恢复CBS服务器容器。</block>
+  <block id="15c66d710af89e601163f082e2d62e63" category="paragraph">重新打开容器后、打开BlueXP  备份和恢复UI。启动备份或编辑备份策略时、您将看到新的提供程序"S3兼容"与AWS、Microsoft Azure、Google Cloud、StorageGRID和ONTAP S3的其他备份提供程序一起列出。</block>
+  <block id="78097a3e132faf1442e6668a39b8040c" category="inline-link-macro">支持第三方对象存储</block>
+  <block id="b1da0655bbf0fa38d6ccffac2f8f51db" category="admonition">BlueXP  备份和恢复将其支持扩展到第三方对象存储作为预览选项。通过此预览功能、您可以利用任何与S3兼容的对象存储来满足备份和恢复需求。有关启用此预览功能的详细信息、请参见<block ref="01bf6a646623e07aa807ece43107b9ce" category="inline-link-macro-rx"></block>一节。</block>
+  <block id="b60143d8607e2a12a97d5dc98902b3a3" category="paragraph">在无法访问Internet的站点中使用BlueXP备份和恢复时、称为_private mode_、BlueXP备份和恢复配置数据将备份到存储备份的StorageGRID或ONTAP S3存储分段。如果BlueXP  连接器主机系统出现问题、您可以部署新连接器并还原关键的BlueXP  备份和恢复数据。</block>
+  <block id="400d95f0927e7eaac4a93498115f8b4f" category="paragraph">如果在SaaS环境中使用BlueXP  备份和恢复、而BlueXP  连接器部署在云提供商处、或者部署在可访问互联网的您自己的主机系统上、则所有重要的BlueXP  备份和恢复配置数据都会在云中进行备份和保护。如果您的问题描述具有连接器、只需创建一个新连接器并添加您的工作环境、备份详细信息就会自动还原。</block>
+  <block id="28f81c5bbd7730901f36546c0e51e06f" category="paragraph">备份的数据有两种：</block>
+  <block id="7aa13416e899895bea151695a08fc22d" category="section-title">将BlueXP  备份和恢复数据还原到新的BlueXP  连接器</block>
+  <block id="11c11cb03c79f4af018caa66bf0c66d4" category="paragraph">如果您的内部BlueXP  连接器发生灾难性故障、您需要安装新连接器、然后将BlueXP  备份和恢复数据还原到新连接器。</block>
+  <block id="6c9913da2722f6c96e97b9d6aa37bb46" category="paragraph">要将BlueXP  备份和恢复系统恢复到工作状态、您需要执行以下任务：</block>
+  <block id="da2ba8762d0dcb78945a22c9a375fffa" category="inline-link">DarkSite Cloud Backup：MySQL和已为目录创建备份和还原</block>
+  <block id="bb10a63044b830cc42091d93b78fd668" category="paragraph">以下信息适用于从BlueXP  3.9.xx开始的专用模式安装。对于较旧版本，请使用以下过程：<block ref="2da286ce66fc5078574abb0f7864085c" category="inline-link-rx"></block>。</block>
+  <block id="e29798cefe7dc354983bc30c2c9fccdf" category="paragraph">虽然IP地址、用户名和密码是自定义值、但帐户名不是。帐户名称始终为"account-DarkSITE1"。</block>
+  <block id="2decbd35e1c4f4abc73df06a5256970a" category="list-text">使用与工作环境关联的StorageGRID系统的详细信息更新BlueXP  备份和恢复数据库。请务必输入StorageGRID 的完全限定域名以及访问密钥和存储密钥、如下所示：</block>
 </blocks>
