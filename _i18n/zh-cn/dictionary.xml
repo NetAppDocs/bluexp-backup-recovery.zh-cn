@@ -1216,7 +1216,6 @@
   <block id="47088be6cbcb439bd7241ec72edf3a91" category="section-title">发现ONTAP 集群和StorageGRID 系统</block>
   <block id="8a817b57889a6e642ad7fb06e7b26c80" category="section-title">设置StorageGRID 环境详细信息</block>
   <block id="95405ad3ad814456093255e6d36ee69e" category="inline-link">BlueXP API</block>
-  <block id="ed28e31454bb8c9849e6271a030b2762" category="paragraph">您需要对要将数据备份到StorageGRID 的每个ONTAP 系统执行这些步骤。</block>
   <block id="3f1b9decb18d57a001f26c7273adeddc" category="list-text">使用以下OAuth/令牌API提取授权令牌。</block>
   <block id="f2b2dd8a7061a4f2836de5feda40a45e" category="paragraph">此API将返回如下响应。您可以检索授权令牌、如下所示。</block>
   <block id="74e96d8b9d4abdf183199553dd665e53" category="list-text">使用租户/外部/资源API提取工作环境ID和X-Agent-ID。</block>
@@ -3800,6 +3799,7 @@ ifdef：：AWS。</block>
   <block id="6c9913da2722f6c96e97b9d6aa37bb46" category="paragraph">要将BlueXP  备份和恢复系统恢复到工作状态、您需要执行以下任务：</block>
   <block id="da2ba8762d0dcb78945a22c9a375fffa" category="inline-link">DarkSite Cloud Backup：MySQL和已为目录创建备份和还原</block>
   <block id="bb10a63044b830cc42091d93b78fd668" category="paragraph">以下信息适用于从BlueXP  3.9.xx开始的专用模式安装。对于较旧版本，请使用以下过程：<block ref="2da286ce66fc5078574abb0f7864085c" category="inline-link-rx"></block>。</block>
-  <block id="e29798cefe7dc354983bc30c2c9fccdf" category="paragraph">虽然IP地址、用户名和密码是自定义值、但帐户名不是。帐户名称始终为"account-DarkSITE1"。</block>
   <block id="2decbd35e1c4f4abc73df06a5256970a" category="list-text">使用与工作环境关联的StorageGRID系统的详细信息更新BlueXP  备份和恢复数据库。请务必输入StorageGRID 的完全限定域名以及访问密钥和存储密钥、如下所示：</block>
+  <block id="241380d8d42b823d8bd7c25c9fc3014f" category="paragraph">您需要对要将数据备份到StorageGRID的每个系统执行这些步骤。</block>
+  <block id="cd6c5272ababe8075a9145908c571172" category="paragraph">虽然IP地址、用户名和密码是自定义值、但帐户名不是。帐户名称始终为"account-DarkSITE1"。此外、用户名必须使用电子邮件格式的名称。</block>
 </blocks>

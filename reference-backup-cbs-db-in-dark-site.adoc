@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: reference-backup-cbs-db-in-dark-site.html 
-keywords: backup database, recover database 
+keywords: backup database, recover database, dark site, private mode, restore database, backup and recovery, BlueXP Connector 
 summary: '在无法访问Internet的站点中使用BlueXP备份和恢复时(称为"专用模式")、BlueXP备份和恢复配置数据将备份到存储备份的StorageGRID或ONTAP S3存储分段。如果将来您的问题描述与BlueXP Connector主机系统结合使用、则可以部署新的Connector并还原关键的BlueXP备份和恢复数据。' 
 ---
 = 在非公开站点中还原BlueXP备份和恢复数据
@@ -153,17 +153,17 @@ unzip Indexed_Catalog_DB_Backup_catalogdb1_23_05_2023.zip -d catalogdb1
 
 以下信息适用于从BlueXP  3.9.xx开始的专用模式安装。对于较旧版本，请使用以下过程： https://community.netapp.com/t5/Tech-ONTAP-Blogs/DarkSite-Cloud-Backup-MySQL-and-Indexed-Catalog-Backup-and-Restore/ba-p/440800["DarkSite Cloud Backup：MySQL和已为目录创建备份和还原"^]。
 
-您需要对要将数据备份到StorageGRID 的每个ONTAP 系统执行这些步骤。
+您需要对要将数据备份到StorageGRID的每个系统执行这些步骤。
 
 . 使用以下OAuth/令牌API提取授权令牌。
 +
 [source, http]
 ----
-curl 'http://10.193.192.202/oauth/token' -X POST -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:100101 Firefox/108.0' -H 'Accept: application/json' -H 'Accept-Language: en-US,en;q=0.5' -H 'Accept-Encoding: gzip, deflate' -H 'Content-Type: application/json' -d '{"username":"admin@netapp.com","password":"Netapp@123","grant_type":"password"}
+curl 'http://10.193.192.202/oauth/token' -X POST -H 'Accept: application/json' -H 'Accept-Language: en-US,en;q=0.5' -H 'Accept-Encoding: gzip, deflate' -H 'Content-Type: application/json' -d '{"username":"admin@netapp.com","password":"Netapp@123","grant_type":"password"}
 > '
 ----
 +
-虽然IP地址、用户名和密码是自定义值、但帐户名不是。帐户名称始终为"account-DarkSITE1"。
+虽然IP地址、用户名和密码是自定义值、但帐户名不是。帐户名称始终为"account-DarkSITE1"。此外、用户名必须使用电子邮件格式的名称。
 
 +
 此API将返回如下响应。您可以检索授权令牌、如下所示。
