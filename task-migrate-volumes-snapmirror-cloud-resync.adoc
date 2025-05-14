@@ -1,0 +1,138 @@
+---
+sidebar: sidebar 
+permalink: task-migrate-volumes-snapmirror-cloud-resync.html 
+keywords: backing up, back up, backup, backup on-prem ontap, on-premises, back up volumes, cloud backup, cloud, snapmirror, migrate, volume migration, resync, 
+summary: 完成几个步骤即可开始将卷数据从内部ONTAP系统备份到二级存储系统和Google云存储。 
+---
+= 使用SnapMirror迁移卷到云重新同步
+:allow-uri-read: 
+
+
+[role="lead"]
+SnapMirror到云重新同步功能可简化NetApp环境中卷迁移期间的数据保护和连续性。使用SnapMirror逻辑复制(LRSE)将卷迁移到内部NetApp部署或Cloud Volumes ONTAP或Cloud Volumes Service等基于云的解决方案时、SnapMirror到云重新同步可确保现有云备份保持完好且正常运行。
+
+此功能无需执行耗时且资源密集型的重新基线操作、从而可以在迁移后继续执行备份操作。此功能在工作负载迁移方案中非常有用、可同时支持FlexVol和FlexGroup、并可从ONTAP 9.161版开始使用。
+
+通过在不同环境之间保持备份连续性、SnapMirror到云重新同步可提高运营效率、并降低混合云和多云数据管理的复杂性。
+
+
+
+== BlueXP  备份和恢复SnapMirror到云重新同步的工作原理
+
+如果您完成技术更新或将卷从一个ONTAP集群迁移到另一个集群、请务必确保备份能够持续运行而不会中断。BlueXP  备份和恢复SnapMirror到云重新同步有助于确保云备份即使在卷迁移后也保持一致。
+
+以下是一个示例：
+
+假设您有一个名为Vol1a的内部卷。此卷包含三个快照：S1、S2和S3。这些快照类似于还原点。已使用SnapMirror到云(SM-C)将vol1备份到云对象存储端点。但是、到目前为止、只有S1和S2备份到对象存储。
+
+现在、您要将vol1迁移到另一个ONTAP集群。为此、您需要创建与名为Vol1b的新云卷的SnapMirror逻辑复制(LRSE)关系。此操作会将所有三个快照(S1、S2和S3)从Vol1a传输到Vol1b。
+
+迁移完成后、您将进行以下设置：
+
+* 原始SM-C关系(Vol1a→对象存储)将被删除。
+* LRSE关系(Vol1a→Vol1b)也会被删除。
+* Vol1b现在是您的活动卷。
+
+
+此时、您希望继续将Vol1b备份到同一云端点。但是、您不需要从头开始执行完整备份(这将需要时间和资源)、而是使用SnapMirror到云重新同步。
+
+以下是重新同步的工作原理：
+
+* 系统将检查Vol1a和对象存储之间是否存在通用快照。在这种情况下、两者都具有S2。
+* 由于此共享快照、系统只需要在S2和S3之间传输增量更改。
+
+
+这意味着、只有S2发送到对象存储后添加的新数据、而不是整个卷。
+
+此过程可避免重新发送已备份的数据、节省带宽、并确保备份链在迁移后保持平稳。
+
+image:diagram-snapmirror-cloud-resync-migration.png["BlueXP  备份和恢复SnapMirror到云重新同步"]
+
+
+
+== 过程注释
+
+* 目标ONTAP集群必须运行ONTAP 9.16.1或更高版本。
+* 旧的源ONTAP集群必须使用BlueXP  备份和恢复进行保护。
+* 迁移和技术更新不会使用BlueXP  备份和恢复。这些操作应由专业服务团队或合格的存储管理员来执行。
+* NetApp迁移团队负责在源集群和目标ONTAP集群之间创建SnapMirror关系、以便于卷迁移。
+* 确保技术更新期间的迁移基于基于基于SnapMirror的迁移。
+* 目前不支持在使用SVM-Migrate、SVM-DR或机头交换方法进行迁移后重新同步SnapMirror到云。
+
+
+
+
+== 如何使用SnapMirror将卷迁移到云重新同步
+
+使用SnapMirror将卷迁移到云重新同步涉及以下主要步骤、下文将对每个步骤进行详细介绍：
+
+* *遵循迁移前检查清单*：在开始迁移之前，NetApp技术更新团队确保满足以下前提条件，以避免数据丢失并确保迁移过程顺利进行。
+* *遵循迁移后检查清单*：迁移后，NetApp技术更新团队确保完成以下步骤以建立保护并为重新同步做准备。
+* *执行SnapMirror到云重新同步*：迁移后、NetApp技术更新团队将执行SnapMirror到云重新同步操作、以便从新迁移的卷恢复云备份。
+
+
+image:diagram-snapmirror-cloud-resync-migration-steps.png["使用SnapMirror迁移卷到云重新同步的步骤"]
+
+
+
+=== 请遵循迁移前检查清单
+
+在开始迁移之前、NetApp技术更新团队会确保满足以下前提条件、以避免数据丢失并确保迁移过程顺利进行。
+
+. 确保要迁移的所有卷均通过BlueXP  备份和恢复得到保护。
+. 记录卷实例的UID。开始迁移之前、请记下所有卷的实例UID。这些标识符对于稍后的映射和重新同步操作至关重要。
+. 在删除任何SnapMirror关系之前、为每个卷创建最终快照以保留最新状态。
+. 记录SnapMirror策略。记录当前附加到每个卷关系的SnapMirror策略。稍后、在SnapMirror到云重新同步过程中将需要执行此操作。
+. 删除与对象存储的SnapMirror云关系。
+. 与新ONTAP集群创建标准SnapMirror关系、将卷迁移到新的目标ONTAP集群。
+
+
+
+
+=== 请遵循迁移后检查清单
+
+迁移完成后、NetApp技术更新团队将确保完成以下步骤、以建立保护并为重新同步做准备。
+
+. 记录目标ONTAP集群中所有已迁移卷的新卷实例UID。
+. 确认已在新SnapMirror集群中正确配置旧ONTAP集群中提供的所有必需ONTAP策略。
+. 在BlueXP  画布中将新的ONTAP集群添加为工作环境。
+
+
+
+
+=== 执行SnapMirror到云的重新同步
+
+迁移后、NetApp技术更新团队将执行SnapMirror到云重新同步操作、以便从新迁移的卷恢复云备份。
+
+. 在BlueXP  画布中将新的ONTAP集群添加为工作环境。
+. 查看BlueXP  备份和恢复卷页面、确保旧的源工作环境详细信息可用。
+. 从BlueXP  备份和恢复卷页面中，选择*备份设置*。
+. 从菜单中选择*重新同步备份*。
+. 在重新同步工作环境页面中、执行以下操作：
++
+.. *新的源工作环境*：输入卷已迁移到的新ONTAP集群。
+.. *现有目标对象存储*：选择包含旧源工作环境中备份的目标对象存储。
+
+
+. 选择*下载CSV模板*以下载重新同步详细信息Excel表格。使用此工作表可输入要迁移的卷的详细信息。在CSV文件中、输入以下详细信息：
++
+** 源集群中的旧卷实例UUID
+** 目标集群中的新卷实例UUID
+** 要应用于新关系的SnapMirror策略。
+
+
+. 在*上传卷映射详细信息*下选择*上传*、将完成的CSV表格上传到BlueXP  备份和恢复UI。
+. 输入重新同步操作所需的提供程序和网络配置信息。
+. 选择*提交*以启动验证过程。
++
+BlueXP  备份和恢复会验证为重新同步选择的每个卷是否至少具有一个通用快照。这样可确保卷已为SnapMirror到云重新同步操作做好准备。
+
+. 查看验证结果、包括新的源卷名称以及每个卷的重新同步状态。
+. 检查卷资格。系统将检查卷是否符合重新同步条件。如果卷不符合条件、则表示未找到通用快照。
++
+
+IMPORTANT: 要确保卷仍然符合SnapMirror到云重新同步操作的条件、请在迁移前阶段删除任何SnapMirror关系之前为每个卷创建最终快照。这样可以保留数据的最新状态。
+
+. 选择*Resync*以启动重新同步操作。系统使用通用快照仅传输增量更改、以确保备份连续性。
+. 在"Job Monitor"页面中监控重新同步过程。
+

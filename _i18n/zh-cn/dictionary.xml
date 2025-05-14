@@ -3802,4 +3802,106 @@ ifdef：：AWS。</block>
   <block id="2decbd35e1c4f4abc73df06a5256970a" category="list-text">使用与工作环境关联的StorageGRID系统的详细信息更新BlueXP  备份和恢复数据库。请务必输入StorageGRID 的完全限定域名以及访问密钥和存储密钥、如下所示：</block>
   <block id="241380d8d42b823d8bd7c25c9fc3014f" category="paragraph">您需要对要将数据备份到StorageGRID的每个系统执行这些步骤。</block>
   <block id="cd6c5272ababe8075a9145908c571172" category="paragraph">虽然IP地址、用户名和密码是自定义值、但帐户名不是。帐户名称始终为"account-DarkSITE1"。此外、用户名必须使用电子邮件格式的名称。</block>
+  <block id="89f166f25960d4442ee3cf41fb712de0" category="doc">SnapMirror到云重新同步以进行卷迁移</block>
+  <block id="f3afa2391337e5c71f0a9b02dedc2753" category="paragraph">SnapMirror到云重新同步功能可简化NetApp环境中卷迁移期间的数据保护和连续性。使用SnapMirror逻辑复制(LRSE)将卷迁移到内部NetApp部署或Cloud Volumes ONTAP或Cloud Volumes Service等基于云的解决方案时、SnapMirror到云重新同步可确保现有云备份保持完好且正常运行。</block>
+  <block id="9de9a72e99be1fee8dc0790411738dd4" category="paragraph">此功能无需执行耗时且资源密集型的重新基线操作、从而可以在迁移后继续执行备份操作。此功能在工作负载迁移方案中非常有用、可同时支持FlexVol和FlexGroup、并可从ONTAP 9.161版开始使用。</block>
+  <block id="9c69774894ac0ae0f2bbae9b12964cfe" category="paragraph">通过在不同环境之间保持备份连续性、SnapMirror到云重新同步可提高运营效率、并降低混合云和多云数据管理的复杂性。</block>
+  <block id="5746bb5eeaa153936151cb52823109e6" category="inline-link">使用SnapMirror迁移卷到云重新同步</block>
+  <block id="3a55cfa97f4682f930352f0f81220899" category="paragraph">有关如何执行重新同步操作的详细信息，请参见<block ref="207dcf1aaf014b22c1836348f392f25c" category="inline-link-rx"></block>。</block>
+  <block id="d7aa9347c7a241e0b5959147e0834507" category="section-title">支持第三方MinIO对象存储(预览)</block>
+  <block id="74f850f0e7d77a9dfb658a6664c11580" category="paragraph">BlueXP  备份和恢复现在将其支持扩展到第三方对象存储、并主要侧重于MinIO。通过这一新的预览功能、您可以利用任何与S3兼容的对象存储来满足备份和恢复需求。</block>
+  <block id="fba2533d6fb852f662ab27cb8831c6c2" category="paragraph">在此预览版本中、我们希望确保在推出完整功能之前与第三方对象存储实现强大集成。我们鼓励您探索这项新功能、并提供反馈以帮助改进服务。</block>
+  <block id="3d1e2e322f867e2abdc8070d562a4fe2" category="admonition">此功能不应在生产环境中使用。</block>
+  <block id="992cf3dc32e72bdb90286b4c5941d343" category="paragraph">*预览模式限制*</block>
+  <block id="252d166070160d49f855fee5ec9639fc" category="paragraph">在预览此功能时、存在一些限制：</block>
+  <block id="2a42543b31a44385d9801b2e6d715417" category="list-text">不支持在策略中启用DataLock。</block>
+  <block id="bd38f0d8ed5d82f6a34eef6f60e82afc" category="list-text">不支持在策略中启用归位模式。</block>
+  <block id="7f4d22b3de45045172408ddd711a85a1" category="paragraph">* 入门 *</block>
+  <block id="5955ccac697a810563b00d68d2e643a8" category="paragraph">要开始使用此预览功能、您必须在BlueXP  连接器上启用一个标志。然后、您可以通过在备份部分中选择*第三方兼容*对象存储、在保护工作流中输入您的Minio第三方对象存储的连接详细信息。</block>
+  <block id="3e49d780723839a4238980f0ed8f0e54" category="inline-link">在BlueXP  备份和恢复中启用预览功能</block>
+  <block id="e4d99443f32762da8fffc177c52518aa" category="paragraph">有关如何启用预览功能的说明，请参阅<block ref="918e5958ca0f0d47162ab1a4f8ffabd1" category="inline-link-rx"></block>。</block>
+  <block id="21ade0a59a521983cc4ace159928965c" category="section-title">BlueXP  备份和恢复SnapMirror到云重新同步的工作原理</block>
+  <block id="5f6d83d4b0c669ea7f7bd4da5824cd65" category="paragraph">如果您完成技术更新或将卷从一个ONTAP集群迁移到另一个集群、请务必确保备份能够持续运行而不会中断。BlueXP  备份和恢复SnapMirror到云重新同步有助于确保云备份即使在卷迁移后也保持一致。</block>
+  <block id="4d947fe0b5c4693f487f4fd1a4295c99" category="paragraph">以下是一个示例：</block>
+  <block id="b9dfd7ca98edd49bd3f4a7fdd06d6b04" category="paragraph">假设您有一个名为Vol1a的内部卷。此卷包含三个快照：S1、S2和S3。这些快照类似于还原点。已使用SnapMirror到云(SM-C)将vol1备份到云对象存储端点。但是、到目前为止、只有S1和S2备份到对象存储。</block>
+  <block id="d6bb362713fc9bbaf305d5ff71996c0c" category="paragraph">现在、您要将vol1迁移到另一个ONTAP集群。为此、您需要创建与名为Vol1b的新云卷的SnapMirror逻辑复制(LRSE)关系。此操作会将所有三个快照(S1、S2和S3)从Vol1a传输到Vol1b。</block>
+  <block id="3bda701e519ceab26170e54382cd7422" category="paragraph">迁移完成后、您将进行以下设置：</block>
+  <block id="739f62b90902f9151f57bd05f8b5cb41" category="list-text">原始SM-C关系(Vol1a→对象存储)将被删除。</block>
+  <block id="03e29bc44ba20362fc96d07158a5764e" category="list-text">LRSE关系(Vol1a→Vol1b)也会被删除。</block>
+  <block id="917f63208cf9092b33e37fecbad0b131" category="list-text">Vol1b现在是您的活动卷。</block>
+  <block id="6526b4c3e0ccd4406625779e8f929780" category="paragraph">此时、您希望继续将Vol1b备份到同一云端点。但是、您不需要从头开始执行完整备份(这将需要时间和资源)、而是使用SnapMirror到云重新同步。</block>
+  <block id="a7207aeb7788cb3ab210fbeb3af7870a" category="paragraph">以下是重新同步的工作原理：</block>
+  <block id="ab8b63838f3094c2b29261c6de23249d" category="list-text">系统将检查Vol1a和对象存储之间是否存在通用快照。在这种情况下、两者都具有S2。</block>
+  <block id="87f6e8ca301c2bbabf7f7c871f3faaef" category="list-text">由于此共享快照、系统只需要在S2和S3之间传输增量更改。</block>
+  <block id="9c228330cd96a2b87676d562aaee89a3" category="paragraph">这意味着、只有S2发送到对象存储后添加的新数据、而不是整个卷。</block>
+  <block id="5d6616ae783c86c93ea04206e03d7bf8" category="paragraph">此过程可避免重新发送已备份的数据、节省带宽、并确保备份链在迁移后保持平稳。</block>
+  <block id="ae950c16bf3f58791238528fefc2ccfc" category="inline-image-macro">BlueXP  备份和恢复SnapMirror到云重新同步</block>
+  <block id="82ded9bf6698fb4eacdbf0bcc767c94b" category="paragraph"><block ref="82ded9bf6698fb4eacdbf0bcc767c94b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d362ffc6c099983b4f38471b15cc8db7" category="section-title">过程注释</block>
+  <block id="c8f1c31ff80f86ac3f0e5c6f159fae6e" category="list-text">目标ONTAP集群必须运行ONTAP 9.16.1或更高版本。</block>
+  <block id="4fa757b8765c2c33598a2a12a6736a4a" category="list-text">旧的源ONTAP集群必须使用BlueXP  备份和恢复进行保护。</block>
+  <block id="8538f003a449f093065312ef200d9a8c" category="list-text">迁移和技术更新不会使用BlueXP  备份和恢复。这些操作应由专业服务团队或合格的存储管理员来执行。</block>
+  <block id="c57f78e106fcf67deb2b45f545b5d5cd" category="list-text">NetApp迁移团队负责在源集群和目标ONTAP集群之间创建SnapMirror关系、以便于卷迁移。</block>
+  <block id="c95c640e56df80e4ff47d4e0332f1f55" category="list-text">确保技术更新期间的迁移基于基于基于SnapMirror的迁移。</block>
+  <block id="0fd23837527e02397f6d558e79af8f07" category="list-text">目前不支持在使用SVM-Migrate、SVM-DR或机头交换方法进行迁移后重新同步SnapMirror到云。</block>
+  <block id="6dc593a28a72529a8cc11a78416ebec9" category="section-title">如何使用SnapMirror将卷迁移到云重新同步</block>
+  <block id="67ceb37b59ef9beeaf11cf13c81bd82a" category="paragraph">使用SnapMirror将卷迁移到云重新同步涉及以下主要步骤、下文将对每个步骤进行详细介绍：</block>
+  <block id="4d6ea55ab99fe3e9b60123803e0b6a86" category="list-text">*遵循迁移前检查清单*：在开始迁移之前，NetApp技术更新团队确保满足以下前提条件，以避免数据丢失并确保迁移过程顺利进行。</block>
+  <block id="3b13662a99fc8fb9872a7e6d97f04d6c" category="list-text">*遵循迁移后检查清单*：迁移后，NetApp技术更新团队确保完成以下步骤以建立保护并为重新同步做准备。</block>
+  <block id="6727cb6cff6a2fa33b7f63ed1557be99" category="list-text">*执行SnapMirror到云重新同步*：迁移后、NetApp技术更新团队将执行SnapMirror到云重新同步操作、以便从新迁移的卷恢复云备份。</block>
+  <block id="7484331568c74c6afaa6368d5b9840f2" category="inline-image-macro">使用SnapMirror迁移卷到云重新同步的步骤</block>
+  <block id="9e2bbdca5b19270a9ef188c9e57a724f" category="paragraph"><block ref="9e2bbdca5b19270a9ef188c9e57a724f" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0da49596473896920fb454c7b4adef70" category="section-title">请遵循迁移前检查清单</block>
+  <block id="8edf9aba5b36a329f95932f0cff7cce9" category="paragraph">在开始迁移之前、NetApp技术更新团队会确保满足以下前提条件、以避免数据丢失并确保迁移过程顺利进行。</block>
+  <block id="c66a376643e0a75febdb68f9fda5e860" category="list-text">确保要迁移的所有卷均通过BlueXP  备份和恢复得到保护。</block>
+  <block id="65ca768e388254cc115e6164e083ed93" category="list-text">记录卷实例的UID。开始迁移之前、请记下所有卷的实例UID。这些标识符对于稍后的映射和重新同步操作至关重要。</block>
+  <block id="dcf3f9a7750b00044c988ae0a71a2525" category="list-text">在删除任何SnapMirror关系之前、为每个卷创建最终快照以保留最新状态。</block>
+  <block id="6139c1886c79ee84383ecfefb52b2bdb" category="list-text">记录SnapMirror策略。记录当前附加到每个卷关系的SnapMirror策略。稍后、在SnapMirror到云重新同步过程中将需要执行此操作。</block>
+  <block id="a386843f9f5cc4dfdb53989254f5e6bb" category="list-text">删除与对象存储的SnapMirror云关系。</block>
+  <block id="aab84690bad73d1c3cddfbd933bc0236" category="list-text">与新ONTAP集群创建标准SnapMirror关系、将卷迁移到新的目标ONTAP集群。</block>
+  <block id="683dd99d889ffbb646216d8705ddb538" category="section-title">请遵循迁移后检查清单</block>
+  <block id="550260e35c58825169c5a10628a84b83" category="paragraph">迁移完成后、NetApp技术更新团队将确保完成以下步骤、以建立保护并为重新同步做准备。</block>
+  <block id="3131c5d700378b3b5743073b991e6eb6" category="list-text">记录目标ONTAP集群中所有已迁移卷的新卷实例UID。</block>
+  <block id="a1c64acc727f1680d07c183d7417c391" category="list-text">确认已在新SnapMirror集群中正确配置旧ONTAP集群中提供的所有必需ONTAP策略。</block>
+  <block id="50f9ee7e618db121270dc374787af245" category="list-text">在BlueXP  画布中将新的ONTAP集群添加为工作环境。</block>
+  <block id="fb1c875049b82d3e8916e16279519645" category="section-title">执行SnapMirror到云的重新同步</block>
+  <block id="1021b9c8250d77e53ebbe2b723308310" category="paragraph">迁移后、NetApp技术更新团队将执行SnapMirror到云重新同步操作、以便从新迁移的卷恢复云备份。</block>
+  <block id="f0a6e63f9874da060b9652f8a6e0aee6" category="list-text">查看BlueXP  备份和恢复卷页面、确保旧的源工作环境详细信息可用。</block>
+  <block id="a9e0f9aeff77fc2d81cc947830a4b7a4" category="list-text">从BlueXP  备份和恢复卷页面中，选择*备份设置*。</block>
+  <block id="f97138a90cb6e21eabb198d42ed0387e" category="list-text">从菜单中选择*重新同步备份*。</block>
+  <block id="a57d5f068c07e5dcba448d4a6b80a903" category="list-text">在重新同步工作环境页面中、执行以下操作：</block>
+  <block id="c071408d31971fbdd055d954db1883e3" category="list-text">*新的源工作环境*：输入卷已迁移到的新ONTAP集群。</block>
+  <block id="b9847141e98ed3fb845a609b99d42ac8" category="list-text">*现有目标对象存储*：选择包含旧源工作环境中备份的目标对象存储。</block>
+  <block id="be98b129cb6fc9e3e142f41b28b0b223" category="list-text">选择*下载CSV模板*以下载重新同步详细信息Excel表格。使用此工作表可输入要迁移的卷的详细信息。在CSV文件中、输入以下详细信息：</block>
+  <block id="9e7ec0365cbe89b4593076ec85f1c3bb" category="list-text">源集群中的旧卷实例UUID</block>
+  <block id="1a8fb5bb97934f112f1bead6af1c0c3e" category="list-text">目标集群中的新卷实例UUID</block>
+  <block id="1e9a7760dd90f2ef7038fc53bc0773ea" category="list-text">要应用于新关系的SnapMirror策略。</block>
+  <block id="65a310e1b322abd34d751c86280849c5" category="list-text">在*上传卷映射详细信息*下选择*上传*、将完成的CSV表格上传到BlueXP  备份和恢复UI。</block>
+  <block id="52fe5bc906babbd082ffb0764b349da3" category="list-text">输入重新同步操作所需的提供程序和网络配置信息。</block>
+  <block id="43b0700358df39b882c5da30b98d8dcd" category="list-text">选择*提交*以启动验证过程。</block>
+  <block id="57952d689cfe89dd52b7d4ab5690a6bf" category="paragraph">BlueXP  备份和恢复会验证为重新同步选择的每个卷是否至少具有一个通用快照。这样可确保卷已为SnapMirror到云重新同步操作做好准备。</block>
+  <block id="8463b887dbd61aa1995dcc0260b60f9f" category="list-text">查看验证结果、包括新的源卷名称以及每个卷的重新同步状态。</block>
+  <block id="125ba11f83659b86acb7de1fbe8050df" category="list-text">检查卷资格。系统将检查卷是否符合重新同步条件。如果卷不符合条件、则表示未找到通用快照。</block>
+  <block id="4d37de81f19963c13dc2e27a80c87068" category="admonition">要确保卷仍然符合SnapMirror到云重新同步操作的条件、请在迁移前阶段删除任何SnapMirror关系之前为每个卷创建最终快照。这样可以保留数据的最新状态。</block>
+  <block id="a76b942eff6c38201458980a134c56db" category="list-text">选择*Resync*以启动重新同步操作。系统使用通用快照仅传输增量更改、以确保备份连续性。</block>
+  <block id="6271b2e5ee34db655c152c41d48231ca" category="list-text">在"Job Monitor"页面中监控重新同步过程。</block>
+  <block id="14731cd6965934ba1d6c28bc96fbfc63" category="paragraph">BlueXP  备份和恢复提供了预览功能、使您能够在新功能完全发布之前对其进行测试。这些功能旨在增强您的备份和恢复体验、但可能不完全受支持或不稳定。</block>
+  <block id="8d74125454a4a39b93746a76a1b5e057" category="admonition">这些功能处于预览模式、不应在生产环境中使用。它们仅用于测试和反馈目的。</block>
+  <block id="5760817f42cfdcd9c310ec63890ecb27" category="section-title">启用预览功能</block>
+  <block id="c39776e62a21f45efc8bf60e10a03116" category="paragraph">要在BlueXP  备份和恢复中启用预览功能、您需要在BlueXP  连接器上设置一个标志。此标志使您可以访问和测试服务中可用的预览功能。</block>
+  <block id="580eee7d5e7e4bdf42fa292d170a7d6c" category="list-text">登录到BlueXP  连接器。</block>
+  <block id="85769ba297548addfe4d17f9afba9cf8" category="list-text">切换到超级用户。运行命令：</block>
+  <block id="e2f3c27d6024b2532f8b2a5d75141be2" category="paragraph"><block ref="e73620038e8b54deb176b2581c7558a7" prefix="" category="inline-code"></block></block>
+  <block id="1d75718e1e494b5b2501c494ae510c09" category="list-text">列出Docker卷并确定哥伦比亚广播公司卷。运行命令：</block>
+  <block id="d15e02bf0c54e008af2e8212aa7c7d4f" category="paragraph">预期输出：</block>
+  <block id="c24450f0e1e6fcc2fa6e6c07c79dd3a8" category="list-text">检查卷以获取装载点。运行命令：</block>
+  <block id="606ba6d5810c04f45a2192f720b50a14" category="list-text">运行命令：</block>
+  <block id="28ef99c245e63819b305d93c19d29f91" category="list-text">导航到Docker卷目录。将目录更改为上一步中获得的装载点：</block>
+  <block id="22cb8a711fd0104b48dede469158201f" category="list-text">找到并编辑<block ref="f75ec94858c3cb7483e22bf2aca20589" prefix=" " category="inline-code"></block>文件。</block>
+  <block id="01a012e7a0034b3146903c769f34f576" category="list-text">确保您位于正确的目录中且<block ref="f75ec94858c3cb7483e22bf2aca20589" prefix=" " category="inline-code"></block>文件存在。</block>
+  <block id="a8875bf0b902f4f3971e9caa99280a9f" category="list-text">在首选文本编辑器中打开<block ref="f75ec94858c3cb7483e22bf2aca20589" prefix=" " category="inline-code"></block>文件、然后添加以下JSON代码段、以确保JSON结构得到正确维护：</block>
+  <block id="5a0dfd405c0424a01f42cdb7e596d91c" category="list-text">将更改保存到文件。</block>
+  <block id="22188f18f00fe4800630b34c371548cc" category="list-text">重新启动BlueXP  备份和恢复Cloud Manager哥伦比亚广播服务。运行命令：</block>
+  <block id="71df7d09aaee8e6796df0c3d10989fbd" category="section-title">2025年5月13日</block>
+  <block id="ddfe37c06d76259ae290f107c8524b45" category="sidebar">使用SnapMirror将卷迁移到云重新同步</block>
 </blocks>

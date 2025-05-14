@@ -1,0 +1,96 @@
+---
+sidebar: sidebar 
+permalink: task-preview-enable.html 
+keywords: cloud backup, bluexp backup and recovery, backup, restore, preview, enable, object storage, third-party, MinIO, S3-compatible 
+summary: 您可以监控已启动或已计划的本地Snapshot、复制和备份到对象存储作业的状态、以及还原已启动或计划的作业。您可以查看已完成、正在进行或失败的作业、以便诊断和修复问题。使用BlueXP通知中心、您可以启用通过电子邮件发送通知、以便即使您未登录系统、也可以获得重要系统活动的通知。使用BlueXP时间线、您可以查看通过UI或API启动的所有操作的详细信息。 
+---
+= 在BlueXP  备份和恢复中启用预览功能
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+BlueXP  备份和恢复提供了预览功能、使您能够在新功能完全发布之前对其进行测试。这些功能旨在增强您的备份和恢复体验、但可能不完全受支持或不稳定。
+
+
+IMPORTANT: 这些功能处于预览模式、不应在生产环境中使用。它们仅用于测试和反馈目的。
+
+
+
+== 启用预览功能
+
+要在BlueXP  备份和恢复中启用预览功能、您需要在BlueXP  连接器上设置一个标志。此标志使您可以访问和测试服务中可用的预览功能。
+
+.步骤
+. 登录到BlueXP  连接器。
+. 切换到超级用户。运行命令：
++
+`sudo su`
+
+. 列出Docker卷并确定哥伦比亚广播公司卷。运行命令：
++
+[listing]
+----
+podman volume ls | grep cbs
+----
++
+预期输出：
+
++
+[listing]
+----
+local service-manager-2_cloudmanager_cbs_volume
+----
+. 检查卷以获取装载点。运行命令：
++
+[listing]
+----
+podman volume inspect service-manager-2_cloudmanager_cbs_volume | grep Mountpoint
+----
+. 运行命令：
++
+[listing]
+----
+podman volume inspect service-manager-2_cloudmanager_cbs_volume | grep Mountpoint
+----
++
+预期输出：
+
++
+[listing]
+----
+Mountpoint:
+/var/lib/docker/volumes/service-manager-2_cloudmanager_cbs_volume/_data
+----
+. 导航到Docker卷目录。将目录更改为上一步中获得的装载点：
++
+[listing]
+----
+cd /var/lib/docker/volumes/service-manager-2_cloudmanager_cbs_volume/_data/cbs_config
+
+----
+. 找到并编辑 `production-customer.json`文件。
+. 确保您位于正确的目录中且 `production-customer.json`文件存在。
+. 在首选文本编辑器中打开 `production-customer.json`文件、然后添加以下JSON代码段、以确保JSON结构得到正确维护：
++
+[listing]
+----
+{
+   "feature-flags":
+    {
+        "volumes-dashboard-v2": true
+     }
+}
+----
+. 将更改保存到文件。
+. 重新启动BlueXP  备份和恢复Cloud Manager哥伦比亚广播服务。运行命令：
++
+[listing]
+----
+podman restart cloudmanager_cbs
+----
+
