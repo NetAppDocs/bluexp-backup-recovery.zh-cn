@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: task-licensing-cloud-backup.html 
-keywords: license, licensing, updating license, paygo license, byol license, nlf, license generator, backup license, add backup license, update backup license, annual 
+keywords: license, licensing, updating license, paygo license, byol license, nlf, license generator, backup license, add backup license, update backup license, annual, netapp intelligent services 
 summary: 您可以通过从云提供商处购买按需购买或年度市场订阅或从NetApp购买自带许可证来许可BlueXP备份和恢复。要在工作环境中激活BlueXP备份和恢复、为生产数据创建备份以及将备份数据还原到生产系统、需要有效的许可证。 
 ---
 = 为BlueXP备份和恢复设置许可
@@ -14,7 +14,7 @@ summary: 您可以通过从云提供商处购买按需购买或年度市场订�
 
 
 [role="lead"]
-您可以通过从云提供商购买按需购买(PAYGO)或年度市场订阅、或者从NetApp购买自带许可证(BYOL)来获得BlueXP备份和恢复的许可。要在工作环境中激活BlueXP备份和恢复、为生产数据创建备份以及将备份数据还原到生产系统、需要有效的许可证。
+您可以通过从云提供商购买按需购买(PAYGO)或按年在市场上订阅* NetApp智能服务*来许可BlueXP  备份和恢复、也可以从NetApp购买自带许可证(BYOL)来获得许可。要在工作环境中激活BlueXP备份和恢复、为生产数据创建备份以及将备份数据还原到生产系统、需要有效的许可证。
 
 在阅读其他内容之前，请先阅读一些注释：
 
@@ -30,7 +30,7 @@ link:concept-ontap-backup-to-cloud.html#cost["详细了解与使用BlueXP备份�
 
 == 30 天免费试用
 
-如果您在云提供商的市场中注册"按需购买"订阅、则可以获得BlueXP备份和恢复30天免费试用版。免费试用将在您订阅市场列表时开始。请注意、如果您在部署Cloud Volumes ONTAP系统时支付市场订阅费用、然后在10天后开始BlueXP备份和恢复免费试用、则您还可以在20天内使用免费试用。
+如果您在云提供商的市场上注册"按需购买"订阅* NetApp智能服务*、则可以获得BlueXP  备份和恢复30天免费试用版。免费试用将在您订阅市场列表时开始。请注意、如果您在部署Cloud Volumes ONTAP系统时支付市场订阅费用、然后在10天后开始BlueXP备份和恢复免费试用、则您还可以在20天内使用免费试用。
 
 免费试用结束后、您将自动切换到PAYGO订阅、不会中断。如果您决定不继续使用BlueXP备份和恢复、只需执行以下操作即可 link:task-manage-backups-ontap.html#unregister-bluexp-backup-and-recovery-for-a-working-environment["从工作环境中取消注册BlueXP备份和恢复"] 在试用结束之前、您不会收到任何费用。
 
@@ -38,7 +38,7 @@ link:concept-ontap-backup-to-cloud.html#cost["详细了解与使用BlueXP备份�
 
 == 使用BlueXP备份和恢复PAYGO订阅
 
-对于按需购买、您需要通过一个订阅按小时为云提供商支付对象存储成本和NetApp备份许可成本。即使您拥有免费试用版或自带许可证（ BYOL ），也应订阅：
+对于按需购买、您需要通过一个订阅按小时为云提供商支付对象存储成本和NetApp备份许可成本。即使您有免费试用版或自带许可证(BYOL)，您也应在市场中订阅* NetApp智能服务*：
 
 * 订阅可确保在免费试用结束后不会中断服务。试用结束后、系统将根据您备份的数据量按小时向您收费。
 * 如果备份的数据超过BYOL许可证允许的数量、则数据备份和还原操作将通过按需购买订阅继续进行。例如，如果您拥有 10 TiB BYOL 许可证，则 10 TiB 以上的所有容量均通过 PAYGO 订阅付费。
@@ -61,21 +61,21 @@ https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html#
 
 ifdef::aws[]
 
-* AWS https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4["有关定价详细信息、请访问BlueXP Marketplace产品"^]。
+* AWS： https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4["有关定价详细信息、请访问NetApp智能服务的市场产品"^]。
 
 
 endif::aws[]
 
 ifdef::azure[]
 
-* Azure 酒店 https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["有关定价详细信息、请访问BlueXP Marketplace产品"^]。
+* Azure： https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["有关定价详细信息、请访问NetApp智能服务的市场产品"^]。
 
 
 endif::azure[]
 
 ifdef::gcp[]
 
-* Google Cloud https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project["有关定价详细信息、请访问BlueXP Marketplace产品"^]。
+* Google Cloud： https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project["有关定价详细信息、请访问NetApp智能服务的市场产品"^]。
 
 
 endif::gcp[]
