@@ -4,7 +4,7 @@ permalink: reference-backup-multi-account-azure.html
 keywords: microsoft azure, azure, regions, blob, multiple accounts, multiple regions, backup 
 summary: 通过BlueXP备份和恢复、您可以在Azure帐户中创建备份文件、该帐户与源Cloud Volumes ONTAP 卷所在位置不同、并且与BlueXP Connector所在的帐户不同。 
 ---
-= 在 Azure 中配置用于多帐户访问的备份
+= 使用 BlueXP 备份和恢复配置 Azure 中的多帐户访问备份
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

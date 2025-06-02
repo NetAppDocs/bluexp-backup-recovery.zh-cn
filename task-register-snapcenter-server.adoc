@@ -4,7 +4,7 @@ permalink: task-register-snapcenter-server.html
 keywords: SnapCenter Server, register 
 summary: 完成几个步骤以注册SnapCenter 服务器。 
 ---
-= 注册 SnapCenter 服务器
+= 注册 SnapCenter 服务器以进行 BlueXP 备份和恢复
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 完成几个步骤以注册SnapCenter 服务器。
 
 
 [role="lead"]
-只有具有SnapCenterAdmin角色的用户才能注册运行SnapCenter 服务器4.6或更高版本的主机。您可以在BlueXP中注册多个SnapCenter 服务器主机。
+只有具有SnapCenterAdmin角色的用户才能注册运行SnapCenter 服务器4.6或更高版本的主机。您可以在 BlueXP 备份和恢复中注册多个 SnapCenter Server 主机。
 
 .步骤
 . 在BlueXP UI中、单击*保护*>*备份和恢复*>*应用程序*。

@@ -4,7 +4,7 @@ permalink: task-create-policies-apps.html
 keywords: policy, create, pre-canned polices, custom policies, protection policies 
 summary: 创建您自己的策略以保护应用程序。 
 ---
-= 创建用于备份应用程序的策略
+= 创建使用 BlueXP 备份和恢复来备份应用程序的策略
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 创建您自己的策略以保护应用程序。
 
 
 [role="lead"]
-您应创建一个策略、将应用程序数据备份到云。
+您应该创建一个策略，使用 BlueXP 备份和恢复将应用程序数据备份到云端。
 
 .开始之前
 * 如果要将备份从对象存储移至归档存储、请确保使用所需的ONTAP版本。

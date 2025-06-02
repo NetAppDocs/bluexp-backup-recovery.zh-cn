@@ -4,7 +4,7 @@ permalink: task-manage-backups-ontap.html
 keywords: cloud backup, cloud backup service, backup schedule, change schedule, change backup schedule, modify schedule, modify backup schedule, retention, backup retention, delete, delete backups, deleting, deleting backups, disable, disable backups, turn off backups, disable cloud backup, turn off cloud backup, bluexp 
 summary: 您可以通过更改备份计划、创建新备份策略、启用/禁用卷备份、暂停备份、删除备份等方式来管理Cloud Volumes ONTAP 和内部ONTAP 系统的备份。这包括所有类型的备份、包括Snapshot副本、复制的卷以及对象存储中的备份文件。 
 ---
-= 管理ONTAP系统的备份
+= 使用 BlueXP 备份和恢复管理 ONTAP 系统的备份
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 您可以通过更改备份计划、创建新备份策略、启用/禁�
 
 
 [role="lead"]
-您可以通过更改备份计划、启用/禁用卷备份、暂停备份、删除备份等方式来管理Cloud Volumes ONTAP和内部ONTAP系统的备份。这包括所有类型的备份、包括Snapshot副本、复制的卷以及对象存储中的备份文件。
+使用 BlueXP 备份和恢复，通过更改备份计划、启用/禁用卷备份、暂停备份、删除备份等，管理 Cloud Volumes ONTAP 和本地 ONTAP 系统的备份。这包括所有类型的备份、包括Snapshot副本、复制的卷以及对象存储中的备份文件。
 
 
 CAUTION: 请勿直接在存储系统上或从云提供商环境管理或更改备份文件。这可能会损坏文件并导致配置不受支持。

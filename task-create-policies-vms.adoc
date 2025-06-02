@@ -4,7 +4,7 @@ permalink: task-create-policies-vms.html
 keywords: create policy, protection policies, predefined policies, custom policies 
 summary: 创建一个策略以备份数据存储库 
 ---
-= 创建一个策略以备份数据存储库
+= 创建使用 BlueXP 备份和恢复备份数据存储的策略
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 创建一个策略以备份数据存储库
 
 
 [role="lead"]
-您可以创建策略或使用BlueXP中提供的以下预定义策略之一。
+您可以创建一个策略或使用 BlueXP 备份和恢复中提供的以下预定义策略之一。
 
 .开始之前
 * 如果不想编辑预定义策略、应创建策略。

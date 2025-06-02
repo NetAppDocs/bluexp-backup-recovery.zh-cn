@@ -4,7 +4,7 @@ permalink: concept-protection-journey.html
 keywords: backing up, restoring, recovery, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, storage grid, back up volumes, cloud backup, restore volumes, on-premises ontap, onprem, replication, backup and recovery 
 summary: 通过BlueXP备份和恢复服务、您最多可以为源卷创建三个副本来保护数据。在卷上启用此服务时、您可以选择许多选项、因此您应查看所做的选择、以便做好准备。 
 ---
-= 规划您的保护之旅
+= 使用 BlueXP 备份和恢复规划您的保护之旅
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

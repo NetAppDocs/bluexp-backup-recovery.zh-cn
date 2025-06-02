@@ -4,7 +4,7 @@ permalink: task-restore-hana-backup.html
 keywords: restore, mount application backups, SAP HANA database 
 summary: 您可以将SAP HANA数据库从云还原到内部SnapCenter服务器。 
 ---
-= 还原SAP HANA数据库
+= 使用 BlueXP 备份和恢复来恢复 SAP HANA 数据库
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 您可以将SAP HANA数据库从云还原到内部SnapCenter服务器�
 
 
 [role="lead"]
-您可以将SAP HANA数据库还原到任何主机。
+您可以使用 BlueXP 备份和恢复将 SAP HANA 数据库恢复到任何主机
 
 * 步骤 *
 

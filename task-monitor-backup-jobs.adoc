@@ -4,7 +4,7 @@ permalink: task-monitor-backup-jobs.html
 keywords: cloud backup, bluexp backup and recovery, backup, restore, status, monitor, alert, notification 
 summary: 您可以监控已启动或已计划的本地Snapshot、复制和备份到对象存储作业的状态、以及还原已启动或计划的作业。您可以查看已完成、正在进行或失败的作业、以便诊断和修复问题。使用BlueXP通知中心、您可以启用通过电子邮件发送通知、以便即使您未登录系统、也可以获得重要系统活动的通知。使用BlueXP时间线、您可以查看通过UI或API启动的所有操作的详细信息。 
 ---
-= 监控备份和还原作业的状态
+= 监控 BlueXP 备份和恢复备份和还原作业的状态
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 您可以监控已启动或已计划的本地Snapshot、复制和备份
 
 
 [role="lead"]
-您可以监控已启动的本地Snapshot、复制和备份到对象存储作业的状态、并还原已启动的作业。您可以查看已完成、正在进行或失败的作业、以便诊断和修复问题。使用BlueXP通知中心、您可以启用通过电子邮件发送通知、以便即使您未登录系统、也可以获得重要系统活动的通知。使用BlueXP时间线、您可以查看通过UI或API启动的所有操作的详细信息。
+使用 BlueXP 备份和恢复，监控您启动的本地快照、复制和备份到对象存储作业的状态，以及您启动的恢复作业。您可以查看已完成、正在进行或失败的作业、以便诊断和修复问题。使用BlueXP通知中心、您可以启用通过电子邮件发送通知、以便即使您未登录系统、也可以获得重要系统活动的通知。使用BlueXP时间线、您可以查看通过UI或API启动的所有操作的详细信息。
 
 
 

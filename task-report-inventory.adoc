@@ -4,7 +4,7 @@ permalink: task-report-inventory.html
 keywords: cloud backup, backup and recovery service, backup and recovery, backup, restore, report, inventory, bluexp 
 summary: 借助BlueXP备份和恢复报告、您可以确保根据组织定义的策略保护关键数据、并高效支持对合规性流程的审核。通过备份清单报告、您可以查看特定帐户、工作环境或SVM清单的所有备份。 
 ---
-= 关于数据保护覆盖范围的报告
+= 使用 BlueXP 备份和恢复报告数据保护覆盖范围
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 借助BlueXP备份和恢复报告、您可以确保根据组织定义�
 
 
 [role="lead"]
-借助BlueXP备份和恢复报告、您可以确保根据组织定义的策略保护关键数据、并针对合规性需求提供审计。
+使用 BlueXP 备份和恢复报告，确保关键数据根据组织定义的策略受到保护，并提供合规性需求的审计。
 
 BlueXP备份和恢复报告可帮助您完成以下任务：
 

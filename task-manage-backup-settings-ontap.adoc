@@ -4,7 +4,7 @@ permalink: task-manage-backup-settings-ontap.html
 keywords: cloud backup, cloud backup service, storage keys, network bandwidth, auto backup, delete yearly snapshot, export snapshots, ransomware scans, scans 
 summary: '您可以更改在为每个ONTAP系统激活BlueXP备份和恢复时设置的许多集群级别备份到对象设置。您还可以修改应用为"默认"备份设置的某些设置。其中包括更改存储密钥、备份到对象存储的传输速率、是否将历史Snapshot副本导出为备份文件等。您还可以为工作环境启用或禁用勒索软件扫描。' 
 ---
-= 在高级设置页面中管理备份到对象存储选项
+= 在 BlueXP 备份和恢复的高级设置页面中管理备份到对象存储选项
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

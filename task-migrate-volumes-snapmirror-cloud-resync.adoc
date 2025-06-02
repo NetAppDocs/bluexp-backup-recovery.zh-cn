@@ -4,12 +4,12 @@ permalink: task-migrate-volumes-snapmirror-cloud-resync.html
 keywords: backing up, back up, backup, backup on-prem ontap, on-premises, back up volumes, cloud backup, cloud, snapmirror, migrate, volume migration, resync, 
 summary: 完成几个步骤即可开始将卷数据从内部ONTAP系统备份到二级存储系统和Google云存储。 
 ---
-= 使用SnapMirror迁移卷到云重新同步
+= 使用 SnapMirror 将卷迁移到 Cloud Resync，并使用 BlueXP 备份和恢复
 :allow-uri-read: 
 
 
 [role="lead"]
-SnapMirror到云重新同步功能可简化NetApp环境中卷迁移期间的数据保护和连续性。使用SnapMirror逻辑复制(LRSE)将卷迁移到内部NetApp部署或Cloud Volumes ONTAP或Cloud Volumes Service等基于云的解决方案时、SnapMirror到云重新同步可确保现有云备份保持完好且正常运行。
+BlueXP 备份和恢复中的 SnapMirror 到 Cloud Resync 功能简化了 NetApp 环境中卷迁移期间的数据保护和连续性。使用SnapMirror逻辑复制(LRSE)将卷迁移到内部NetApp部署或Cloud Volumes ONTAP或Cloud Volumes Service等基于云的解决方案时、SnapMirror到云重新同步可确保现有云备份保持完好且正常运行。
 
 此功能无需执行耗时且资源密集型的重新基线操作、从而可以在迁移后继续执行备份操作。此功能在工作负载迁移方案中非常有用、可同时支持FlexVol和FlexGroup、并可从ONTAP 9.161版开始使用。
 

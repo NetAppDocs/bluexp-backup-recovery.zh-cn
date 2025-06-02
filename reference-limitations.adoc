@@ -4,7 +4,7 @@ permalink: reference-limitations.html
 keywords: limitations, backup, restore, backup and recovery 
 summary: 已知限制用于说明此产品版本不支持的功能或无法与其正确交互的功能。仔细审查这些限制。 
 ---
-= 已知限制
+= BlueXP 备份和恢复的已知限制
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

@@ -4,7 +4,7 @@ permalink: task-restore-oracle-data.html
 keywords: restore, Azure, Amazon Web services, Oracle database 
 summary: 您可以将 Oracle 数据库从云还原到内部 SnapCenter 服务器。 
 ---
-= 还原 Oracle 数据库
+= 使用 BlueXP 备份和恢复来恢复 Oracle 数据库
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 您可以将 Oracle 数据库从云还原到内部 SnapCenter 服务器
 
 
 [role="lead"]
-您可以将Oracle数据库还原到原始位置或备用位置。对于RAC数据库、数据将还原到创建备份的内部节点。
+您可以使用 BlueXP 备份和恢复将 Oracle 数据库还原到原始位置或备用位置。对于RAC数据库、数据将还原到创建备份的内部节点。
 
 仅支持具有控制文件还原的完整数据库。如果归档日志不在 AFS 中，则应指定包含恢复所需归档日志的位置。
 

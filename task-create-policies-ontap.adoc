@@ -4,7 +4,7 @@ permalink: task-create-policies-ontap.html
 keywords: backing up, back up, backup, backup on-prem ontap, policy, policies, backup policies, cloud backup, aws, aws s3, azure, google cloud 
 summary: 您可以使用NetApp提供的默认备份策略创建备份、也可以创建自定义策略。策略用于控制备份类型、备份架构、存储系统和备份频率。 
 ---
-= 管理ONTAP卷的备份策略
+= 使用 BlueXP 备份和恢复管理 ONTAP 卷的备份策略
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 您可以使用NetApp提供的默认备份策略创建备份、也可�
 
 
 [role="lead"]
-您可以使用NetApp提供的默认备份策略创建备份、也可以创建自定义策略。备份频率、备份时间以及保留的备份文件数量均由策略控制。
+使用 BlueXP 备份和恢复，使用 NetApp 提供的默认备份策略来创建备份，或创建自定义策略。备份频率、备份时间以及保留的备份文件数量均由策略控制。
 
 使用激活向导为卷启用备份和恢复服务时、您可以从默认策略以及工作环境(Cloud Volumes ONTAP或内部ONTAP系统)中已存在的任何其他策略中进行选择。如果要使用与现有策略不同的策略、则可以在使用激活向导之前或期间创建此策略。
 

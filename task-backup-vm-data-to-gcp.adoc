@@ -4,7 +4,7 @@ permalink: task-backup-vm-data-to-gcp.html
 keywords: back up, backup, backup datastore, gcp, google cloud platform, backup datastores 
 summary: 将数据存储库从内部ONTAP 备份到Google云平台。 
 ---
-= 将数据存储库备份到Google Cloud Platform
+= 使用 BlueXP 备份和恢复将数据存储备份到 Google Cloud Platform
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 将数据存储库从内部ONTAP 备份到Google云平台。
 
 
 [role="lead"]
-通过将适用于VMware vSphere的SnapCenter 插件主机与BlueXP集成、您可以将一个或多个数据存储库备份到Google云平台。这将有助于VM管理员轻松快速地备份和归档数据以提高存储效率、并加快云过渡速度。
+您可以通过将适用于 VMware vSphere 主机的 SnapCenter 插件与 BlueXP 备份和恢复集成，将一个或多个数据存储区备份到 Google Cloud Platform。这将有助于VM管理员轻松快速地备份和归档数据以提高存储效率、并加快云过渡速度。
 
 .开始之前
 确保您已满足所有要求 link:concept-protect-vm-data.html["要求"] 将数据存储库备份到云之前。

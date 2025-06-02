@@ -4,7 +4,7 @@ permalink: task-backup-onprem-to-ontap-s3.html
 keywords: backing up, back up, backup, backup on-prem ontap, on-prem, on-premises, back up volumes, cloud backup, ontap s3 
 summary: '完成几个步骤即可开始从内部ONTAP主系统备份卷数据。您可以将备份发送到二级ONTAP存储系统(复制的卷)或配置为S3服务器的ONTAP系统上的存储分段(备份文件)、也可以同时发送到这两者。' 
 ---
-= 将内部ONTAP数据备份到ONTAP S3
+= 使用 BlueXP 备份和恢复将本地 ONTAP 数据备份到 ONTAP S3
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: '完成几个步骤即可开始从内部ONTAP主系统备份卷数据�
 
 
 [role="lead"]
-完成几个步骤即可开始从内部ONTAP主系统备份卷数据。您可以将备份发送到二级ONTAP存储系统(复制的卷)或配置为S3服务器的ONTAP系统上的存储分段(备份文件)、也可以同时发送到这两者。
+完成 BlueXP 备份和恢复中的几个步骤，开始从主本地 ONTAP 系统备份卷数据。您可以将备份发送到二级ONTAP存储系统(复制的卷)或配置为S3服务器的ONTAP系统上的存储分段(备份文件)、也可以同时发送到这两者。
 
 主内部ONTAP系统可以是FAS、AFF或ONTAP Select系统。二级ONTAP系统可以是内部ONTAP或Cloud Volumes ONTAP系统。对象存储可以位于已启用简单存储服务(S3)对象存储服务器的内部ONTAP系统或Cloud Volumes ONTAP系统上。
 

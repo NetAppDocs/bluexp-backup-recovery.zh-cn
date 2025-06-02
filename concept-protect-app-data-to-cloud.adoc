@@ -4,7 +4,7 @@ permalink: concept-protect-app-data-to-cloud.html
 keywords: backing up, back up, backup, backup application data, Azure, Amazon Web services, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, policy, requirements, SAP HANA database, Cloud Manager, BlueXP, backup and recovery 
 summary: 将适用于应用程序的BlueXP备份和恢复与BlueXP和内部SnapCenter 相集成、将应用程序一致的Snapshot从内部ONTAP 备份到云。 
 ---
-= 保护内部应用程序数据
+= 使用 BlueXP 备份和恢复保护您的本地应用程序数据
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -20,7 +20,6 @@ summary: 将适用于应用程序的BlueXP备份和恢复与BlueXP和内部SnapC
 
 有关应用程序的BlueXP备份和恢复的详细信息、请参见：
 
-* https://cloud.netapp.com/blog/cbs-cloud-backup-and-snapcenter-integration["使用BlueXP备份和恢复以及SnapCenter 进行应用程序感知型备份"^]
 * https://soundcloud.com/techontap_podcast/episode-322-cloud-backup-for-applications[""适用于应用程序的BlueXP备份和恢复"播客"^]
 
 

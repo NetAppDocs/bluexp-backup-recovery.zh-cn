@@ -4,7 +4,7 @@ permalink: task-backup-onprem-to-aws.html
 keywords: backing up, back up, backup, backup on-prem ontap, on-premises, back up volumes, cloud backup, aws, aws s3, amazon s3, govcloud, government 
 summary: 完成几个步骤即可开始将卷数据从内部ONTAP系统备份到Amazon S3云存储。 
 ---
-= 将内部 ONTAP 数据备份到 Amazon S3
+= 使用 BlueXP 备份和恢复将本地 ONTAP 数据备份到 Amazon S3
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 完成几个步骤即可开始将卷数据从内部ONTAP系统备份到
 
 
 [role="lead"]
-完成几个步骤即可开始将卷数据从内部ONTAP系统备份到二级存储系统和Amazon S3云存储。
+完成 BlueXP 备份和恢复中的几个步骤，开始将卷数据从本地 ONTAP 系统备份到二级存储系统和 Amazon S3 云存储。
 
 
 NOTE: "内部ONTAP系统"包括FAS、AFF和ONTAP Select系统。
@@ -144,7 +144,7 @@ BlueXP Connector是BlueXP功能的主要软件。需要使用连接器来备份�
 
 *支持的地区*
 
-您可以在所有地区创建从内部系统到 Amazon S3 的备份 https://cloud.netapp.com/cloud-volumes-global-regions["支持 Cloud Volumes ONTAP 的位置"^]；包括 AWS GovCloud 地区。您可以在设置服务时指定要存储备份的区域。
+您可以在所有区域（包括 AWS GovCloud 区域）中从本地系统创建到 Amazon S3 的备份。您可以在设置服务时指定要存储备份的区域。
 
 
 

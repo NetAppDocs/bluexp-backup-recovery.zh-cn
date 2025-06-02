@@ -4,7 +4,7 @@ permalink: task-restore-sql-data.html
 keywords: restore, Azure, Amazon Web services, Microsoft SQL Server database 
 summary: 您可以将 SQL Server 数据库从云还原到内部 SnapCenter Server 。 
 ---
-= 还原 SQL Server 数据库
+= 使用 BlueXP 备份和恢复来恢复 SQL Server 数据库
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 您可以将 SQL Server 数据库从云还原到内部 SnapCenter Serve
 
 
 [role="lead"]
-您可以将SQL Server数据库还原到原始位置或备用位置。
+您可以使用 BlueXP 备份和恢复将 SQL Server 数据库还原到原始位置或备用位置。
 
 
 NOTE: 不支持单文件还原(SFR)、日志备份恢复以及可用性组重新密封。
