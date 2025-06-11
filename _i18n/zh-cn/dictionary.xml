@@ -283,7 +283,6 @@
   <block id="024205acf9405311336c02bbd2193b70" category="inline-image-macro">更多按钮</block>
   <block id="831398533cc7b96ac5d2f2f0c698f22a" category="inline-image-macro">" 还原信息板 " 显示了使用 " 浏览和标记 " ， " 还原 " 或 " 搜索和标记 " ， " 还原 " 功能的选项。</block>
   <block id="0926cc88101f4f93d295f001c8d31d31" category="paragraph"><block ref="d456723a7b2b287ea97734b5600ab596" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="d879bbb4f68f76e08e2778efe314b107" category="paragraph">如您所见，还原信息板提供了两种不同的方法来从备份文件还原数据： * 浏览和还原 * 和 * 搜索和还原 * 。</block>
   <block id="6b0b2f1ade447e93ec60561aec84daae" category="section-title">比较浏览和还原以及搜索和还原</block>
   <block id="1181e345cf6d2eaef5900c975d430d7d" category="cell">浏览和还原</block>
   <block id="7d0014a7ab187c6931fc2183a6074420" category="cell">搜索和还原</block>
@@ -299,8 +298,6 @@
   <block id="1dd03ba197149a65e271bc932ccd3df2" category="paragraph">以下视频显示了还原卷的快速演练：</block>
   <block id="c656fd75a514c45e55cc9307b0939ee3" category="list-text">单击 * 还原 * 选项卡，此时将显示还原信息板。</block>
   <block id="d4aa01b5673aa73c8800032959090ed7" category="list-text">在 _Browse &amp; Restore_ 部分中，单击 * 还原卷 * 。</block>
-  <block id="9381dff0dbb7f66b351ff304e7dae8f4" category="inline-image-macro">从还原信息板中选择还原卷按钮的屏幕截图。</block>
-  <block id="0077a889ccca275b521d8fa2e99bc482" category="paragraph"><block ref="0077a889ccca275b521d8fa2e99bc482" category="inline-image-macro-rx" type="image"></block></block>
   <block id="991410d2fec4312c8b648907a268be28" category="list-text">在 _Select Source" 页面中，导航到要还原的卷的备份文件。选择 * 工作环境 * ， * 卷 * 以及具有要还原的日期 / 时间戳的 * 备份 * 文件。</block>
   <block id="d472a94c2cf1de02a17725a3b7fa898d" category="inline-image-macro">选择要还原的工作环境，卷和卷备份文件的屏幕截图。</block>
   <block id="23fa18b5a99eb2f784751356513f7961" category="list-text">在 _Select Destination_ 页面中，选择要还原卷的 * 工作环境 * 。</block>
@@ -342,9 +339,6 @@
   <block id="22a8553a7fcf088b4624bfb22aca2c00" category="inline-image-macro">显示已激活索引目录的工作环境的屏幕截图。</block>
   <block id="2e6096622065e7d9092ff099425f8bf0" category="paragraph"><block ref="2e6096622065e7d9092ff099425f8bf0" category="inline-image-macro-rx" type="image"></block></block>
   <block id="525771ad8c8d45a1f0506d1712926a4f" category="inline-xref">已为您的工作环境启用索引编制</block>
-  <block id="56ff4fd3df0fde32d3c1dcf4cb5bcdb7" category="list-text">在 _Search &amp; Restore_ 部分中，单击 * 搜索和还原 * 。</block>
-  <block id="8f283cf99c9393300284fe54e3d41e97" category="inline-image-macro">从还原信息板中选择搜索和放大器；还原按钮的屏幕截图。</block>
-  <block id="827adac6e37a6c58c103d232f7a79440" category="paragraph"><block ref="311110a0553c8da839bc4bc66aca30d7" category="inline-image-macro-rx" type="image"></block></block>
   <block id="e6301cd8968e7a495a6ebd5123992937" category="inline-image-macro">显示搜索条件和搜索结果的屏幕截图，位于 Search &amp;amp ； Restore 页面上。</block>
   <block id="84695d39594ca9a806b659d7656a7759" category="paragraph"><block ref="ab776a4c9416b5752b635547f5049e75" category="inline-image-macro-rx" type="image"></block></block>
   <block id="e09cd23a3f64c40b39bba1a2fb22c7fd" category="inline-image-macro">显示如何查看符合搜索条件的所有备份的屏幕截图。</block>
@@ -746,8 +740,6 @@
   <block id="d42c359fe46e4f3098aa0613aa3b4254" category="list-text">选择要还原文件夹或文件的目标位置(工作环境、卷和文件夹)、然后单击*还原*。</block>
   <block id="c79cc2b3c961c5a0573405966e1758c2" category="paragraph">如您所见、要执行文件夹或文件还原、您需要知道工作环境名称、卷名称、备份文件日期和文件夹/文件名称。</block>
   <block id="b5c44e6ce6d0f512dfebdfd45cf80369" category="list-text">在_Browse &amp; Restore_部分中、单击*还原文件或文件夹*。</block>
-  <block id="1a4a7ceeeddcdf87579c5f144c14d814" category="inline-image-macro">从还原信息板中选择还原文件或文件夹按钮的屏幕截图。</block>
-  <block id="467fdea656fbc22581d6b8c6cf18c411" category="paragraph"><block ref="467fdea656fbc22581d6b8c6cf18c411" category="inline-image-macro-rx" type="image"></block></block>
   <block id="db6e1cf4c1d9707cf6370182a43333c0" category="list-text">在_Select Source"页面中、导航到包含要还原的文件夹或文件的卷的备份文件。选择具有要从中还原文件的日期 / 时间戳的 * 工作环境 * ， * 卷 * 和 * 备份 * 。</block>
   <block id="666ed8be10916b8df1e91c68afc70837" category="inline-image-macro">为要还原的项目选择卷和备份的屏幕截图。</block>
   <block id="3241f00f6afec47c1dd4ded721e91f06" category="paragraph"><block ref="3241f00f6afec47c1dd4ded721e91f06" category="inline-image-macro-rx" type="image"></block></block>
@@ -770,14 +762,10 @@
   <block id="35823b9a43e6a86ef9fc8613d01ca7e0" category="list-text">卷、文件夹或文件已还原。</block>
   <block id="03a6f07a65b68a9b91d1456b096d425e" category="inline-image-macro">一个示意图、用于显示使用Search &amp;amp；Restore执行卷、文件夹或文件还原操作的流程。</block>
   <block id="326eb26933ce22b49d0c6ddf7a6e6180" category="paragraph"><block ref="1d155a4bab8461674fe4d884066d77ce" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="6a1045c38df0108483f2877a13921a70" category="list-text">在Search to Restore页面中：</block>
   <block id="50804d8e3eafe9323d24fb2bfd7d13dc" category="list-text">在_Search bag_中、输入完整或部分卷名称、文件夹名称或文件名。</block>
   <block id="46937cc6416c5746cc8a700eea0e8703" category="list-text">选择资源类型：*卷*、*文件*、*文件夹*或*全部*。</block>
-  <block id="8fd8f2cbd7c78243cf068e97e2f01668" category="list-text">单击*搜索*、搜索结果区域将显示具有与您的搜索匹配的文件、文件夹或卷的所有资源。</block>
-  <block id="8be1e1a6d2ac4b49f49a7f1f37997551" category="list-text">选择要还原卷、文件夹或文件的目标位置、然后单击*还原*。</block>
   <block id="74b5efa4496e2e9e98c43dd6f32429ec" category="list-text">对于文件夹、您可以还原到原始位置、也可以选择其他位置、包括工作环境、卷和文件夹。</block>
   <block id="eaea7e11b9b9011f44311456a9459522" category="list-text">对于文件、您可以还原到原始位置、也可以选择其他位置、包括工作环境、卷和文件夹。选择原始位置时、您可以选择覆盖源文件或创建新文件。</block>
-  <block id="3a90d49b063db68cc26f9102adf34b70" category="paragraph">此时将还原卷、文件夹或文件、并将您返回到还原信息板、以便您可以查看还原操作的进度。您也可以单击*作业监控*选项卡查看还原进度。</block>
   <block id="ab288ae4b4c50ebb9a997e0f0debbd15" category="section-title">2022年9月19日</block>
   <block id="4b60b47d2569a6a3e984e451c382fbdb" category="section-title">可以为StorageGRID 系统中的备份文件配置DataLock和勒索软件保护</block>
   <block id="7db81221e474d169032014280bbe8e36" category="paragraph">请注意、您需要运行的Connector软件版本为3.9.22或更高版本。连接器必须安装在您的内部环境中、并且可以安装在可访问Internet或不可访问Internet的站点中。</block>
@@ -2634,8 +2622,6 @@ Cloud Volumes ONTAP</block>
   <block id="e016f6fcb5a977bef723854890b3c1cb" category="paragraph">根据工作环境中卷的大小以及所有3个备份位置中的备份文件数量、初始索引编制过程可能需要长达一小时的时间。之后，它会每小时透明地更新一次，并进行增量更改，以保持最新状态。</block>
   <block id="2a35c64a629740823e349ab7d8194529" category="section-title">使用Search &amp; amp；Restore还原卷、文件夹和文件</block>
   <block id="ad6bf5019644500ff1f18cebc8bf54f5" category="list-text">在_Filter by"区域中、选择筛选条件。例如、您可以选择数据所在的工作环境和文件类型、例如.JPEG文件。或者、如果您只想在对象存储中的可用Snapshot副本或备份文件中搜索结果、也可以选择备份位置类型。</block>
-  <block id="ad87a13113d9bb0f9c5379dc1a793fcb" category="list-text">找到包含要还原的数据的资源，然后单击*查看所有备份*以显示包含匹配卷、文件夹或文件的所有备份文件。</block>
-  <block id="66786dceb7a3e837a21752a2db70307e" category="list-text">找到要用于恢复数据的备份文件，然后单击*Restore*。</block>
   <block id="98ed4c44ab8a3c8a5b08f8e91a585c40" category="list-text">如果您使用的是BYOL许可证、建议同时订阅PAYGO订阅。如果备份的数据超出BYOL许可证的允许范围、或者许可证期限到期、则备份将通过按需购买订阅继续进行、而不会造成服务中断。</block>
   <block id="f717b8ed4d751174af9f9438951b9a4f" category="section-title">2023年7月6日</block>
   <block id="10ffd42b58d1ced7127bffaff7185e32" category="section-title">BlueXP备份和恢复现在可以计划和创建Snapshot副本以及复制的卷</block>
@@ -2710,7 +2696,6 @@ Cloud Volumes ONTAP</block>
   <block id="82ca9ca8a32b3a5b525d7ba630040a08" category="list-text">如果在集群上使用ONTAP 9.10.1或更高版本的软件、则AWS S3存储目前支持您自己存储分段上的归档存储。默认情况下、备份从S3 _Standard"存储类开始。确保使用适当的生命周期规则创建存储分段：</block>
   <block id="3d7057c39307e6a609e1b9cdaa358d36" category="list-text">30天后、将整个分段范围内的对象移动到S3 _Standard" iA_。</block>
   <block id="2941442c0abac11ede27eaf951f43a66" category="list-text">将标记为"smm_push tO_archive：true "的对象移动到_Glacier"灵活的Retriiver_(原S3 Glacier）</block>
-  <block id="5659d14ca79ef74b1e0df2b8ec78dfc0" category="list-text">如果在集群上使用ONTAP 9.11.1或更高版本的软件、则AWS存储支持DataLock和防抱死软件保护；如果使用ONTAP 9.12.1或更高版本的软件、则Azure存储支持DataLock和防抱死软件保护。</block>
   <block id="d1e78885195470cf33cb8f9291c0bba6" category="list-text">对于AWS、您必须在保留期限为30天的存储分段上启用对象锁定。</block>
   <block id="bc8f2392396da79157f4c431c6896bbc" category="list-text">对于Azure、您需要创建具有版本级不可变形支持的存储类。</block>
   <block id="e2f760131280f3fd361a50b428c7b92d" category="section-title">能够创建用于备份到对象存储的存储容器</block>
@@ -2799,7 +2784,6 @@ Cloud Volumes ONTAP系统需要使用ONTAP 9.9.1及更高版本。</block>
   <block id="682f8e921eb37ddb3e47689c62db0a2e" category="list-text">(可选)选中*自动将Snapshot策略标签与复制和备份策略标签同步*复选框。此操作将创建具有与复制和备份策略中的标签匹配的标签的Snapshot。如果策略不匹配、则不会创建备份。</block>
   <block id="6d8ebd5077cde41afdccb797e756b149" category="inline-link">从BlueXP创建Amazon S3存储分段</block>
   <block id="e31328e6b19f8953d764e27dc4ec1b78" category="list-text"><block ref="e31328e6b19f8953d764e27dc4ec1b78" category="inline-link-rx"></block></block>
-  <block id="1ae6339958d856a24702bf25c6a3d382" category="paragraph">*注意：*在StorageGRID系统中创建备份或备份到ONTAP S3时、目前不能使用自己的S3存储分段。</block>
   <block id="26170b18548ee3b6f0b39b9db8ffed13" category="inline-link-macro">将内部ONTAP备份到ONTAP S3</block>
   <block id="2a6174ce3d27995b8923b0872f99c9dd" category="list-text"><block ref="2a6174ce3d27995b8923b0872f99c9dd" category="inline-link-macro-rx"></block></block>
   <block id="6f3e72444230083b70d3de9ca100232f" category="list-text">*将现有Snapshot副本作为备份副本导出到对象存储*：如果此工作环境中的卷具有与您刚刚为此工作环境选择的备份计划标签(例如每日、每周等)匹配的任何本地Snapshot副本、则会显示此附加提示。选中此框可将所有历史Snapshot作为备份文件复制到对象存储、以确保对卷进行最全面的保护。</block>
@@ -3314,7 +3298,6 @@ ifdef：：AWS。</block>
   <block id="72d6d7225fde1dafbc05317df9f5b442" category="paragraph">*不同备份方法的比较*</block>
   <block id="38a76ea4648b1e59685f3787ddf9021d" category="paragraph">*不同架构选项的比较*</block>
   <block id="461a4b7bdf54706b24604798ad342c56" category="list-text">备份到对象策略在源卷所在的系统上创建-这是扇出配置的主集群、而级联配置的二级集群。</block>
-  <block id="3c19b33d0fc21e605844e33509d57f4f" category="paragraph">如果您计划使用与"NetApp-backup-xxxxxx"不同的存储分段前缀、则需要修改连接器IAM角色的S3权限。有关详细信息、请参见如何创建备份到AWS S3。</block>
   <block id="fc2e47deb6b2e0b0b69b4d23d0c52dc0" category="paragraph">*高级存储分段设置*</block>
   <block id="48aa998a6b6a592f5d7a4dccd6c981e5" category="paragraph">如果在具有完全Internet连接(也称为_STERD MODE _或_SaaS MODE _)的站点中使用BlueXP备份和恢复、则您可以在由BlueXP管理的任何内部ONTAP或Cloud Volumes ONTAP系统上创建复制的卷、 您可以在任何受支持的云提供商的对象存储上创建备份文件。 <block ref="53011d10cc707465ef24eb421fc1dc04" category="inline-link-macro-rx"></block>。</block>
   <block id="353c8b9b4f3b8d79cf3de34b62dedb85" category="paragraph">有关有效连接器位置的列表、请参阅计划创建备份文件的云提供程序的以下备份过程之一。必须在Linux计算机上手动安装连接器或将连接器部署在特定云提供商中、这方面存在一些限制。</block>
@@ -3667,7 +3650,6 @@ ifdef：：AWS。</block>
   <block id="f92649b1217dc96d6552e63d3b09c966" category="paragraph">有关"已编目的目录v2"的信息、请参阅下面有关如何启用"已编目的目录"的章节。</block>
   <block id="166abda58938787377e1425ec8d5bfe0" category="paragraph">索引目录是一个数据库、用于存储工作环境中所有卷和备份文件的元数据。搜索和还原功能可使用它快速查找包含要还原的数据的备份文件。</block>
   <block id="ace26ef20d7de77728de7522bd26d7de" category="paragraph-title">索引目录v2功能</block>
-  <block id="c63a5bc5fc4b32b1bff45d50374410d4" category="paragraph">2025年2月发布的"已编入目录v2"新增了一些功能、使其更高效、更易于使用。此版本的性能得到了显著增强、默认情况下会为所有新客户启用。</block>
   <block id="e45e80a3aa32c47a9d6ef311dd8f2980" category="paragraph">查看有关v2的以下注意事项：</block>
   <block id="b98d519952606f96dcc615efa4f4e85c" category="list-text">已编入目录v2可在预览模式下使用。</block>
   <block id="951398abbe6e1c3079efe911a6951621" category="list-text">如果您是现有客户、并希望使用目录v2、则需要对您的环境重新编制完整索引。</block>
@@ -3937,4 +3919,34 @@ ifdef：：AWS。</block>
   <block id="d640d79008b735ca2dc6f9998f6e6b0c" category="paragraph">您可以使用 BlueXP 备份和恢复将 SQL Server 数据库还原到原始位置或备用位置。</block>
   <block id="e2ff8a804078a87e79588e39359c1c3c" category="doc">使用 BlueXP 备份和恢复从云端恢复虚拟机数据</block>
   <block id="231e73289131d2027069457c140a2c22" category="paragraph">您可以使用 BlueXP 备份和恢复将虚拟机数据从云端恢复到本地 vCenter。您可以将虚拟机还原到与创建备份位置完全相同的位置或备用位置。如果虚拟机是使用归档策略备份的、则可以设置归档还原优先级。</block>
+  <block id="2c5854d2e2f5eea8fdb60c2eab7c9f48" category="doc">索引目录支持更新</block>
+  <block id="53aeb816923ef5b0712bab3d06115f47" category="paragraph">2025 年 2 月，我们推出了更新的索引功能（索引目录 v2），您可以在“搜索和还原”数据还原方法中使用此功能。上一版本显著提升了本地环境中的数据索引性能。在此版本中，索引目录现已可在 Amazon Web Services、Microsoft Azure 和 Google Cloud Platform (GCP) 环境中使用。</block>
+  <block id="109a536d105313ba22a3a245fbe42d66" category="paragraph">如果您是新客户，所有新环境均默认启用索引目录 v2。如果您是现有客户，您可以重新索引您的环境以利用索引目录 v2。</block>
+  <block id="ed568c90c2ab6e924749399e3a2572f7" category="paragraph">在使用搜索和还原方法还原数据之前、您需要在计划从中还原卷或文件的每个源工作环境上启用"索引编制"。执行搜索和恢复时，选择“*启用索引*”选项。</block>
+  <block id="53b903d5c7d704138f78087fb044d909" category="paragraph">索引目录可以跟踪每个卷和备份文件，使您的搜索快速而高效。</block>
+  <block id="b135d75112998c5959ea2e656baaca04" category="paragraph">有关详细信息，请参见<block ref="7ae860a58fb7c028461eb3a0f3043711" category="inline-link-rx"></block>。</block>
+  <block id="a5e1a06a60e331b5d516136e96719929" category="section-title">Azure 专用链接终结点和服务终结点</block>
+  <block id="a6f1ad5d9fc5adf781d978f4d43bae4c" category="paragraph">通常，BlueXP 备份和恢复会与云提供商建立私有端点，以处理各种保护任务。此版本引入了一项可选设置，可让您启用或禁用 BlueXP 备份和恢复自动创建私有端点的功能。如果您希望更好地控制私有端点的创建过程，这项设置可能会对您有所帮助。</block>
+  <block id="8ee64b87fd8e5fd67f5f38194c7faf59" category="paragraph">如果禁用此设置，则必须手动创建专用端点，以确保 BlueXP 备份和恢复功能正常运行。如果没有正确的连接，您可能无法成功执行备份和恢复任务。</block>
+  <block id="fad4c67d1d97874133e7a367fe5038fd" category="section-title">ONTAP S3 上支持 SnapMirror 到云重新同步</block>
+  <block id="8e0a943cdbcd7f9c7f29128489119715" category="paragraph">上一版本引入了对 SnapMirror 到云重新同步 (SM-C Resync) 的支持。该功能简化了 NetApp 环境中卷迁移期间的数据保护。此版本增加了对 ONTAP S3 以及其他兼容 S3 的提供商（例如 Wasabi 和 MinIO）上的 SM-C Resync 的支持。</block>
+  <block id="fa551b5810fe894fcd21bf7c8ffc98d1" category="section-title">为 StorageGRID 带来您自己的存储桶</block>
+  <block id="f2ff9aeba193e347e07d88061902be70" category="paragraph">当您在对象存储中为工作环境创建备份文件时，BlueXP 备份和恢复功能会默认在您配置的对象存储帐户中为备份文件创建容器（存储桶或存储帐户）。之前，您可以覆盖此设置，并为 Amazon S3、Azure Blob Storage 和 Google Cloud Storage 指定您自己的容器。在此版本中，您现在可以自带 StorageGRID 对象存储容器。</block>
+  <block id="e6e5a011626c6db86099687e0a358c1f" category="inline-link">创建您自己的对象存储容器</block>
+  <block id="68c8f46b97e6aeb1e429ccce285cfda1" category="paragraph">请参阅。<block ref="7a95086a5f98875b2249d837314b5c45" category="inline-link-rx"></block></block>
+  <block id="8cc135257549041a5024c6e351c58dfb" category="paragraph">如果您计划使用与"NetApp-backup-xxxxxx"不同的存储分段前缀、则需要修改连接器IAM角色的S3权限。</block>
+  <block id="73c86e71b090fff443b784dff449590a" category="list-text">在集群上使用 ONTAP 9.11.1 或更高版本软件时，AWS 存储支持 DataLock 和勒索软件保护；使用 ONTAP 9.12.1 或更高版本软件时，Azure 存储支持 DataLock 和勒索软件保护。</block>
+  <block id="18a05ed293e5a9815ac509be9947a561" category="paragraph">如您所见，恢复仪表板提供了两种从备份文件恢复数据的不同方法：*浏览和恢复*和*搜索和恢复*。</block>
+  <block id="eb3e11343b7aaea59c83d36c6e8c8591" category="paragraph">索引目录 v2 于 2025 年 2 月发布，并于 2025 年 6 月更新，其功能使其更高效、更易于使用。此版本的性能得到了显著增强、默认情况下会为所有新客户启用。</block>
+  <block id="d018a9ab185158e1903377238af640ce" category="list-text">使用 Catalog v2 进行数据索引可在本地环境以及 Amazon Web Services、Microsoft Azure 和 Google Cloud Platform (GCP) 环境中进行。</block>
+  <block id="df204e8416f0cbb8b40861f5ebcf6068" category="list-text">单击 * 还原 * 选项卡。</block>
+  <block id="34665adc29a08218ab9b3a861376ecb2" category="paragraph">将显示恢复仪表板。</block>
+  <block id="de3d19c77cb360691c924a85eb9b5af2" category="list-text">从“搜索和恢复”部分，选择“*搜索和恢复*”。</block>
+  <block id="2d11ad8508024a513d6b7186c8a38a23" category="list-text">在 Search &amp; Restore 页面中：</block>
+  <block id="85a46e33aff0f68ce9ba52bf07ca5bc7" category="list-text">选择*搜索*，搜索结果区域将显示所有具有与您的搜索相匹配的文件、文件夹或卷的资源。</block>
+  <block id="78406c28c28b069751b1b5a8f5dea6f8" category="list-text">找到包含您要恢复的数据的资源，然后选择“查看所有备份”以显示包含匹配卷、文件夹或文件的所有备份文件。</block>
+  <block id="2990ab511029f6c10e696e43177d4fdd" category="list-text">找到您想要用于恢复数据的备份文件并选择*恢复*。</block>
+  <block id="4d1f1dc63841491797cde0fde7dec31d" category="list-text">选择您想要恢复卷、文件夹或文件的目标位置，然后选择*恢复*。</block>
+  <block id="dc98364e6680ec201dcd1e55df5cf2e1" category="paragraph">此时将还原卷、文件夹或文件、并将您返回到还原信息板、以便您可以查看还原操作的进度。您还可以选择“*作业监控*”选项卡来查看恢复进度。</block>
+  <block id="791d05d0e9072626d0316ef0a7cf21bc" category="section-title">2025 年 6 月 9 日</block>
 </blocks>
