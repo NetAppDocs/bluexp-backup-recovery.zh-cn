@@ -1,0 +1,83 @@
+---
+sidebar: sidebar 
+permalink: br-use-protect-kubernetes-applications.html 
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery, snapcenter 
+summary: BlueXP backup and recovery可让您管理工作负载主机信息、数据库信息和实例信息。您可以查看、编辑和删除库存的保护设置。 
+---
+= 添加和保护 Kubernetes 应用程序
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+BlueXP backup and recovery可让您管理工作负载主机信息、数据库信息和实例信息。您可以查看、编辑和删除库存的保护设置。
+
+.所需的BlueXP角色
+组织管理员或SnapCenter管理员。link:reference-roles.html["了解BlueXP backup and recovery访问角色"] 。  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["了解所有服务的 BlueXP 访问角色"^] 。
+
+
+
+== 添加并保护新的 Kubernetes 应用程序
+
+保护 Kubernetes 应用程序的第一步是在BlueXP backup and recovery中创建应用程序。创建应用程序时，您可以让BlueXP感知 Kubernetes 集群上正在运行的应用程序。
+
+.步骤
+. 在BlueXP backup and recovery中，选择 *Inventory* > *Applications*。
+. 选择*创建应用程序*。
+. 输入应用程序的名称。
+. 选择以下任意字段来搜索您想要保护的资源：
++
+** 关联集群
+** 关联的命名空间
+** 资源类型
+** 标签选择器
+
+
+. （可选）选择“集群范围资源”****，以选择任何集群级别范围且未包含在应用程序中的资源。如果包含这些资源，它们会在创建应用程序时添加到应用程序中。
+. 选择*搜索*以根据您的搜索条件查找资源。
+. BlueXP显示符合您的搜索条件的资源列表。
+. 如果列表包含您想要保护的资源，请选择“*下一步*”。
+. 在“*策略*”区域中，选择现有的保护策略来保护应用程序或创建新策略。
+. 在“*脚本和后记*”区域中，启用并配置要在备份操作之前或之后运行的任何脚本或后记执行挂钩。要启用脚本或后记，您必须已创建至少一个link:br-use-manage-execution-hook-templates.html["执行钩子模板"] 。
+. 选择 * 创建 * 。
+
+
+.结果
+应用程序已创建并显示在 Kubernetes 清单的“应用程序”选项卡中的应用程序列表中。BlueXPBlueXP根据您的设置启用应用程序保护，您可以在备份和恢复的“监控”区域中监控进度。
+
+
+
+== 保护现有的 Kubernetes 应用程序
+
+在已添加的 Kubernetes 应用程序上启用保护策略。
+
+.步骤
+. 在BlueXP backup and recovery中，选择 *Inventory* > *Applications*。
+. 在应用程序列表中，选择您想要保护的应用程序并选择相关的操作菜单。
+. 选择*保护*。
+. 在“*策略*”区域中，选择现有的保护策略来保护应用程序或创建新策略。
+. 在“*前言和后记*”区域中，启用并配置要在备份操作之前或之后运行的任何前言或后记执行钩子。您可以配置执行钩子的类型、它使用的模板、参数和标签选择器。
+. 选择 * 完成 * 。
+
+
+.结果
+BlueXP根据您的设置启用对应用程序的保护，并且您可以在备份和恢复的*监控*区域中监控进度。
+
+
+
+== 立即备份 Kubernetes 应用程序
+
+手动创建 Kubernetes 应用程序的备份，为未来的备份和快照建立基线，或确保最新数据受到保护。
+
+.步骤
+. 在BlueXP backup and recovery中，选择 *Inventory* > *Applications*。
+. 在应用程序列表中，选择要备份的应用程序并选择相关的操作菜单。
+. 选择*立即备份*。
+. 确保选择了正确的应用程序名称。
+. 从策略列表中选择一个保护策略。
+. 选择*备份*。
+

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: concept-backup-to-cloud.html 
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery 
-summary: BlueXP备份和恢复服务可为内部和云端的NetApp ONTAP 数据、数据库和虚拟机提供高效、安全且经济高效的数据保护。备份会自动生成并存储在公有 或私有云帐户的对象存储中。 
+summary: BlueXP backup and recovery服务为本地和云端的NetApp数据库和实例提供高效、安全且经济实惠的数据保护。备份会自动生成并存储在公有 或私有云帐户的对象存储中。 
 ---
 = 了解有关BlueXP备份和恢复的信息
 :hardbreaks:
@@ -14,60 +14,232 @@ summary: BlueXP备份和恢复服务可为内部和云端的NetApp ONTAP 数据�
 
 
 [role="lead"]
-BlueXP备份和恢复服务可为内部和云端的NetApp ONTAP 数据、数据库和虚拟机提供高效、安全且经济高效的数据保护。备份会自动生成并存储在公有 或私有云帐户的对象存储中。
-
-该服务可执行块级永久增量复制、并保留所有存储效率、从而显著减少复制和存储的数据量。此外、您只需为受保护的内容付费、并使用可用的最低成本存储层、这使得BlueXP备份和恢复非常经济高效。
-
-如有必要，您可以将整个 _volume" 从备份还原到相同或不同的工作环境。备份ONTAP数据时、您还可以选择将一个文件夹或一个或多个_files_从备份还原到相同或不同的工作环境。
-
-https://bluexp.netapp.com/cloud-backup["了解有关BlueXP备份和恢复的更多信息"^]。
-
-备份和恢复可用于：
-
-* 从Cloud Volumes ONTAP 和内部ONTAP 系统备份和还原ONTAP 卷数据。 link:concept-ontap-backup-to-cloud.html["请参见此处的详细功能"]。
-* 使用适用于应用程序的BlueXP备份和恢复功能从内部部署ONTAP 系统备份应用程序一致的Snapshot。 link:concept-protect-app-data-to-cloud.html["请参见此处的详细功能"]。
-* 使用适用于VMware的BlueXP备份和恢复功能将数据存储库备份到云、并将虚拟机还原回内部vCenter。 link:concept-protect-vm-data.html["请参见此处的详细功能"]。
+BlueXP backup and recovery服务为ONTAP卷、Microsoft SQL Server 实例和数据库（预览版）以及 VMware 工作负载提供高效、安全且经济实惠的数据保护。
 
 
-https://www.youtube.com/watch?v=DF0knrH2a80["观看快速演示"^]
+NOTE: 有关保护 MICROSOFT SQL SERVER 工作负载的文档以技术预览的形式提供。对于此预览版产品、NetApp保留在正式发布之前修改产品详细信息、内容和时间表的权利。
 
 
-TIP: 如果将BlueXP Connector部署在云中的政府区域或无法访问Internet的站点(非公开站点)中、则BlueXP备份和恢复仅支持从ONTAP 系统执行备份和还原操作。使用这些类型的部署方法时、BlueXP  备份和恢复不支持从应用程序或虚拟机执行备份和还原操作。
+
+== BlueXP backup and recovery功能
+
+使用BlueXP backup and recovery来实现以下目标：
+
+* ONTAP卷工作负载：
++
+** 创建本地快照、复制到二级存储，并将ONTAP卷从本地ONTAP或Cloud Volumes ONTAP系统备份到公共或私有云帐户中的对象存储。
+** 创建块级、增量永久备份，存储在另一个ONTAP集群上以及云中的对象存储中。
+
+
+* Microsoft SQL Server 工作负载（预览版）：
++
+** 从本地ONTAP或Cloud Volumes ONTAP系统备份 Microsoft SQL Server 实例和数据库。
+** 将 Microsoft SQL Server 数据库还原到相同或备用主机，从而为数据恢复提供灵活性。
+
+
+* VMware 工作负载：
++
+** 将数据存储备份到 Amazon Web Services S3、Microsoft Azure Blob、Google Cloud Platform 和StorageGRID ，并将虚拟机还原回SnapCenter Plug-in for VMware vSphere。
+** 使用BlueXP backup and recovery将虚拟机数据从云端恢复到本地 vCenter。您可以将虚拟机还原到与创建备份位置完全相同的位置或备用位置。
+
+
+
+
+
+
+== 使用BlueXP backup and recovery的好处
+
+BlueXP backup and recovery具有以下优势：
+
+* **高效**： BlueXP backup and recovery执行块级永久增量复制，显著减少了需要复制和存储的数据量。这有助于最大限度地降低网络流量和存储成本。
+* **安全**： BlueXP backup and recovery对传输中和静止的数据进行加密，并使用安全通信协议来保护您的数据。
+* **经济高效**： BlueXP backup and recovery使用云帐户中可用的成本最低的存储层，有助于降低成本。
+* **自动化**： BlueXP backup and recovery根据预定义的时间表自动生成备份，这有助于确保您的数据受到保护。
+* **灵活**： BlueXP backup and recovery使您能够将数据恢复到相同或不同的工作环境，从而为数据恢复提供了灵活性。
+
+
+
+
+== 成本
+
+NetApp不会向您收取试用版使用费用。但是，您需要承担与所使用的云资源相关的费用，例如存储和数据传输费用。
+
+使用BlueXP backup and recovery到对象功能与ONTAP系统一起使用有两种类型的成本：
+
+* 资源费用
+* 服务费用
+
+
+除了存储快照副本和复制卷所需的磁盘空间外，创建快照副本或复制卷不收取任何费用。
+
+* 资源费用 *
+
+向云提供商支付对象存储容量以及向云写入和读取备份文件的资源费用。
+
+* 对于备份到对象存储、您需要支付云提供商的对象存储成本。
++
+由于BlueXP backup and recovery保留了源卷的存储效率，因此您需要向云提供商对象存储支付ONTAP效率之后的数据费用（针对应用重复数据删除和压缩后的较少量的数据）。
+
+* 要使用"搜索和还原"还原数据、某些资源由云提供商配置、搜索请求扫描的数据量会产生每TiB成本。(浏览和还原不需要这些资源。)
++
+ifdef::aws[]
+
++
+** 在AWS中、 https://aws.amazon.com/athena/faqs/["Amazon Athena"^] 和 https://aws.amazon.com/glue/faqs/["AWS 胶水"^] 资源部署在新的S3存储分段中。
++
+endif::aws[]
+
+
+
++
+ifdef::azure[]
+
++
+** 在Azure中、是 https://azure.microsoft.com/en-us/services/synapse-analytics/?&ef_id=EAIaIQobChMI46_bxcWZ-QIVjtiGCh2CfwCsEAAYASAAEgKwjvD_BwE:G:s&OCID=AIDcmm5edswduu_SEM_EAIaIQobChMI46_bxcWZ-QIVjtiGCh2CfwCsEAAYASAAEgKwjvD_BwE:G:s&gclid=EAIaIQobChMI46_bxcWZ-QIVjtiGCh2CfwCsEAAYASAAEgKwjvD_BwE["Azure Synapse工作空间"^] 和 https://azure.microsoft.com/en-us/services/storage/data-lake-storage/?&ef_id=EAIaIQobChMIuYz0qsaZ-QIVUDizAB1EmACvEAAYASAAEgJH5fD_BwE:G:s&OCID=AIDcmm5edswduu_SEM_EAIaIQobChMIuYz0qsaZ-QIVUDizAB1EmACvEAAYASAAEgJH5fD_BwE:G:s&gclid=EAIaIQobChMIuYz0qsaZ-QIVUDizAB1EmACvEAAYASAAEgJH5fD_BwE["Azure数据湖存储"^] 在您的存储帐户中配置以存储和分析数据。
++
+endif::azure[]
+
+
+
+
+
+ifdef::gcp[]
+
+* 在 Google 中，部署了一个新的 bucket，并且 https://cloud.google.com/bigquery["Google Cloud BigQuery服务"^]在帐户/项目级别进行配置。endif::gcp[]
++
+** 如果您计划从已移至归档对象存储的备份文件还原卷数据、则需要从云提供商处支付额外的每GiB检索费用和按请求付费。
+** 如果您计划在恢复卷数据的过程中扫描备份文件中的勒索软件（如果您为云备份启用了 DataLock 和勒索软件保护），那么您还将承担来自云提供商的额外出口成本。
+
+
+
+
+* 服务费用 *
+
+服务费用支付给NetApp、用于支付向对象存储和从这些备份向卷或文件创建_备份的成本。您只需为对象存储中保护的数据付费，该费用按备份到对象存储的ONTAP卷的源逻辑使用容量（ ONTAP效率之前）计算。此容量也称为前端 TB （前端 TB ）。
+
+有三种方式可以支付备份服务费用：
+
+* 第一种选择是从云提供商订阅，这样您可以按月付费。
+* 第二种选择是获得年度合同。
+* 第三种选择是直接从 NetApp 购买许可证。阅读<<许可,许可>>部分了解详情。
+
+
+
+
+== 许可
+
+BlueXP backup and recovery现已推出免费试用版。您可以在限定时间内无需许可证密钥即可使用该服务。
+
+BlueXP备份和恢复可用于以下使用模式：
+
+* *自带许可证 (BYOL)*：从NetApp购买的许可证，可与任何云提供商一起使用。
+* *即用即付 (PAYGO)*：从云提供商的市场按小时订阅。
+* *年度*：云提供商市场提供的年度合同。
+
+
+只有从对象存储进行备份和还原时、才需要备份许可证。创建Snapshot副本和复制的卷不需要许可证。
+
+*请自备驾照*
+
+BYOL 是基于期限（1、2 或 3 年）和容量的，以 1 TiB 为增量。您需要向 NetApp 支付一段时间（如 1 年）使用此服务的费用，最大容量（如 10 TiB ）。
+
+您将收到一个序列号、您可以在BlueXP数字钱包页面中输入此序列号来启用此服务。达到任一限制后，您需要续订许可证。备份BYOL许可证适用于与您的BlueXP  组织或帐户关联的所有源系统。
+
+link:br-start-licensing.html["了解如何设置许可证"](英文)
+
+*按使用量付费订阅*
+
+BlueXP备份和恢复以按需购买模式提供基于消费的许可。通过云提供商的市场订阅后、您可以按GiB为备份的数据付费、无需预先支付费用。您的云提供商会通过每月账单向您开具账单。
+
+请注意、首次注册PAYGO订阅时、您可以获得30天免费试用。
+
+*年度合同*
+
+ifdef::aws[]
+
+使用 AWS 时，有两种年度合同可供选择，分别为 1 年、2 年或 3 年：
+
+* 一种 " 云备份 " 计划，可用于备份 Cloud Volumes ONTAP 数据和内部 ONTAP 数据。
+* 一种"CVO专业人员"计划、可用于捆绑Cloud Volumes ONTAP 和BlueXP备份和恢复。这包括根据此许可证收费的Cloud Volumes ONTAP卷的无限制备份（备份容量不计入许可证）。endif::aws[]
+
+
+ifdef::azure[]
+
+使用 Azure 时，有两种年度合同可供选择，分别为 1 年、2 年或 3 年：
+
+* 一种 " 云备份 " 计划，可用于备份 Cloud Volumes ONTAP 数据和内部 ONTAP 数据。
+* 一种"CVO专业人员"计划、可用于捆绑Cloud Volumes ONTAP 和BlueXP备份和恢复。这包括根据此许可证收费的Cloud Volumes ONTAP卷的无限制备份（备份容量不计入许可证）。endif::azure[]
+
+
+ifdef::gcp[]
+
+当您使用 GCP 时，您可以向NetApp请求私人优惠，然后在BlueXP backup and recovery激活期间从 Google Cloud Marketplace 订阅时选择该计划。endif::gcp[]
+
+
+
+== 支持的数据源、工作环境和备份目标
+
+.支持的工作负载数据源
+该服务保护以下基于应用程序的工作负载：
+
+* ONTAP卷
+* 用于物理、VMware 虚拟机文件系统 (VMFS) 和 VMware 虚拟机磁盘 (VMDK) NFS（预览版）的 Microsoft SQL Server 实例和数据库
+* VMware 数据存储库
+* 更多内容即将推出
+
+
+.支持的工作环境
+* 本地ONTAP SAN（iSCSI 协议）和 NAS（使用 NFS 和 CIFS 协议），采用ONTAP 9.8 及更高版本
+* 适用于 AWS 的Cloud Volumes ONTAP 9.8 或更高版本（使用 SAN 和 NAS）
+
+
+* 适用于 Microsoft Azure 的Cloud Volumes ONTAP 9.8 或更高版本（使用 SAN 和 NAS）
+* 适用于 NetApp ONTAP 的 Amazon FSX
+
+
+.支持备份目标
+* Amazon Web Services (AWS) S3
+* Microsoft Azure Blob
+* StorageGRID
+* ONTAP S3
+
+
+
+
+== BlueXP backup and recovery使用适用于 Microsoft SQL Server 的SnapCenter插件
+
+BlueXP backup and recovery会在托管 Microsoft SQL Server 的服务器上安装适用于 Microsoft SQL Server 的插件。该插件是一个主机端组件，可对 Microsoft SQL Server 数据库和实例进行应用程序感知的数据保护管理。
 
 
 
 == BlueXP备份和恢复的工作原理
 
-在Cloud Volumes ONTAP 或内部部署ONTAP 系统上启用BlueXP备份和恢复时、此服务将对您的数据执行完整备份。备份映像中不包含卷快照。初始备份之后，所有额外备份都是增量备份，这意味着只会备份更改的块和新块。这样可以将网络流量降至最低。
+启用BlueXP backup and recovery后，该服务会对您的数据执行完整备份。初始备份后，所有其他备份均为增量备份。这样可以将网络流量降至最低。
 
-下图显示了组件之间的关系：
+下图显示了组件之间的关系。
 
-image:diagram_cloud_backup_general.png["一个示意图、显示了BlueXP备份和恢复如何与备份文件所在的源系统和目标对象存储上的卷进行通信。"]
+image:diagram-br-321-aff-a.png["该图展示了BlueXP backup and recovery如何使用 3-2-1 保护策略"]
+
+
+NOTE: 还支持从主存储到对象存储，而不仅仅是从二级存储到对象存储。
 
 
 
-=== 备份所在位置
+=== 备份在对象存储位置中的位置
 
-备份副本存储在BlueXP在云帐户中创建的对象存储中。每个集群/工作环境都有一个对象存储、BlueXP将对象存储命名为： `netapp-backup-clusteruuid`。请确保不要删除此对象存储。
+备份副本存储在BlueXP在云帐户中创建的对象存储中。每个集群或工作环境都有一个对象存储， BlueXP对对象存储的命名如下：  `netapp-backup-clusteruuid` 。请确保不要删除此对象存储。
 
 ifdef::aws[]
 
-* 在AWS中、BlueXP会启用 https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html["Amazon S3 块公有访问功能"^] 在 S3 存储分段上。
+* 在 AWS 中， BlueXP支持 https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html["Amazon S3 块公有访问功能"^]在 S3 存储桶上。endif::aws[]
 
-
-endif::aws[]
 
 ifdef::azure[]
 
-* 在Azure中、BlueXP使用新的或现有的资源组以及Blob容器的存储帐户。BlueXP https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent["阻止对 Blob 数据的公有访问"] 默认情况下。
+* 在Azure中、BlueXP使用新的或现有的资源组以及Blob容器的存储帐户。BlueXP  https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent["阻止对 Blob 数据的公有访问"]默认情况下。endif::azure[]
 
-
-endif::azure[]
 
 ifdef::gcp[]
-
-* 在GCP中、BlueXP使用新项目或现有项目、并为Google Cloud Storage存储分段使用存储帐户。
-
 
 endif::gcp[]
 
@@ -76,25 +248,21 @@ endif::gcp[]
 
 
 
-NOTE: BlueXP  备份和恢复将其支持扩展到第三方对象存储作为预览选项。通过此预览功能、您可以利用任何与S3兼容的对象存储来满足备份和恢复需求。有关启用此预览功能的详细信息、请参见link:whats-new.html["支持第三方对象存储"]一节。
-
-
-
-=== 何时执行备份
-
-* 每小时备份从每小时 5 分钟开始。
-* 每天的备份在每天午夜后开始。
-* 每周备份将在星期日早晨午夜后开始。
-* 每月备份从每个月第一天午夜后开始。
-* 每年的备份从一年中第一天午夜之后开始。
-
-
-开始时间取决于每个源 ONTAP 系统上设置的时区。您不能从用户界面计划在用户指定的时间执行备份操作。有关详细信息，请联系您的系统工程师。
-
-
 
 === 备份副本与您的 NetApp 帐户关联
 
-备份副本与关联 https://docs.netapp.com/us-en/bluexp-setup-admin/concept-netapp-accounts.html["NetApp 帐户"^] BlueXP Connector所在位置。
+备份副本与 https://docs.netapp.com/us-en/bluexp-setup-admin/concept-netapp-accounts.html["BlueXP帐户"^] BlueXP连接器所在的位置。
 
-如果在同一个NetApp帐户中有多个连接器、则每个连接器会显示相同的备份列表。其中包括与其他连接器中的 Cloud Volumes ONTAP 和内部 ONTAP 实例关联的备份。
+如果同一个BlueXP帐户中有多个连接器，则每个连接器都会显示相同的备份列表。
+
+
+
+== 可能对您使用BlueXP backup and recovery有帮助的术语
+
+了解一些与保护相关的术语可能会对您有所帮助。
+
+* *保护*： BlueXP backup and recovery中的保护意味着确保使用保护策略定期将快照和不可变备份发生到不同的安全域。
+
+
+* *工作负载*： BlueXP backup and recovery中的工作负载可以包括 Microsoft SQL Server 实例和数据库、VMware 数据存储区或ONTAP卷。
+

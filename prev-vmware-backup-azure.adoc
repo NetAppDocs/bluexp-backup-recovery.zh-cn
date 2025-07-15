@@ -1,0 +1,61 @@
+---
+sidebar: sidebar 
+permalink: prev-vmware-backup-azure.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: 使用NetApp BlueXP backup and recovery保护您的 VMware 工作负载。 
+---
+= 使用 BlueXP 备份和恢复将数据存储备份到 Microsoft Azure
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以通过将适用于 VMware vSphere 主机的 SnapCenter 插件与 BlueXP 备份和恢复集成，将一个或多个数据存储区备份到 Microsoft Azure。这将有助于VM管理员轻松快速地备份和归档数据以提高存储效率、并加快云过渡速度。
+
+如果数据存储库与归档策略关联、则您可以选择归档层。支持的归档层是Azure Archive Blob Storage。
+
+[]
+====
+*注意* 要切换到BlueXP backup and recovery工作负载，请参阅link:br-start-switch-ui.html["切换到不同的BlueXP backup and recovery工作负载"] 。
+
+====
+.开始之前
+确保你已经满足了所有link:prev-vmware-prereqs.html["虚拟机保护要求"]在将数据存储备份到云端之前。
+
+.步骤
+. 在BlueXP UI 中，选择 *保护* > *备份和恢复* > *虚拟机*。
+. 选择image:icon-action.png["Action"]对应于您要备份的数据存储并选择*激活备份*。
+. 在分配策略页面中，选择策略并选择*下一步*。
+. 添加工作环境。
++
+配置希望BlueXP发现的集群管理LIF。为其中一个数据存储库添加工作环境后、可以对同一ONTAP 集群上的所有其他数据存储库重复使用该环境。
+
++
+.. 选择与 SVM 对应的 *添加工作环境*。
+.. 在添加工作环境向导中：
++
+... 指定集群管理LIF的IP地址。
+... 指定ONTAP 集群用户的凭据。
+
+
+.. 选择“*添加工作环境*”。
+
+
+. 选择* Microsoft Azure*将其配置为云提供程序。
++
+.. 指定 Azure 订阅 ID 。
+.. 选择要创建备份的区域。
+.. 创建新资源组或使用现有资源组。
+.. 指定已添加为工作环境的集群管理LIF的IP地址。
+.. 选择归档层。
++
+建议设置存档层，因为这是一次性活动，以后将不允许您进行设置。
+
+
+
+. 查看详细信息并选择*激活备份*。
+

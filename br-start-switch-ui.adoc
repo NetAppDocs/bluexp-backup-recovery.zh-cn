@@ -1,0 +1,38 @@
+---
+sidebar: sidebar 
+permalink: br-start-switch-ui.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: 您可以在不同的BlueXP backup and recovery工作负载之间切换。某些工作负载使用不同的 UI。 
+---
+= 切换到不同的BlueXP backup and recovery工作负载
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以在不同的BlueXP backup and recovery工作负载之间切换。某些工作负载使用不同的 UI。
+
+*您如何知道您正在使用哪个 UI？*
+
+Microsoft SQL Server 工作负载的任务栏如下所示： image:screen-br-menu-unified.png["BlueXP backup and recovery的新 UI 屏幕截图"]
+
+ONTAP卷和 VMware 工作负载的菜单栏如下所示： image:screen-br-menu-legacy.png["上一个BlueXP backup and recovery的UI 屏幕截图"]
+
+
+
+== 切换到不同的工作负载
+
+您可以在BlueXP backup and recoveryUI 中切换到不同的工作负载。
+
+.步骤
+. 从BlueXP左侧导航中，选择 *保护* > *备份和恢复*。
+. 从页面右上角，选择*切换工作负载*下拉列表。
+. 选择您想要切换到的工作负载。 image:screen-br-menu-switch-ui.png["BlueXP backup and recovery的交换机工作负载屏幕截图"]
++
+页面刷新并在适当的 UI 中显示所选的工作负载。
+
+

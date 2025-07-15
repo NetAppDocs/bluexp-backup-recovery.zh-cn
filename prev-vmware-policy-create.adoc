@@ -1,0 +1,84 @@
+---
+sidebar: sidebar 
+permalink: prev-vmware-policy-create.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: 使用NetApp BlueXP backup and recovery保护您的 VMware 工作负载。 
+---
+= 在BlueXP backup and recovery中创建备份数据存储的策略
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以创建一个策略或使用 BlueXP 备份和恢复中提供的以下预定义策略之一。
+
+[]
+====
+*注意* 要切换到BlueXP backup and recovery工作负载，请参阅link:br-start-switch-ui.html["切换到不同的BlueXP backup and recovery工作负载"] 。
+
+====
+.开始之前
+* 如果不想编辑预定义策略、应创建策略。
+* 要将备份从对象存储移至归档存储、您应运行ONTAP 9.10.1或更高版本、并且Amazon Web Services或Microsoft Azure应作为云提供商。
+* 您应为每个云提供商配置归档访问层。
+
+
+.关于此任务
+BlueXP中提供了以下预定义策略：
+
+|===
+| Policy name | Label | 保留值 
+
+
+ a| 
+1年每日LTR (长期保留)
+ a| 
+每天
+ a| 
+366.
+
+
+
+ a| 
+5 年每日 LTR
+ a| 
+每天
+ a| 
+1830 年
+
+
+
+ a| 
+7 年每周 LTR
+ a| 
+每周
+ a| 
+370
+
+
+
+ a| 
+10 年每月 LTR
+ a| 
+每月
+ a| 
+120
+
+|===
+.步骤
+. 在虚拟机页面的设置下拉列表中、选择*策略*。
+. 选择*创建策略*。
+. 在策略详细信息部分中、指定策略名称。
+. 在保留部分中、选择一种保留类型并指定要保留的备份数。
+. 选择主存储源或二级存储作为备份存储源。
+. (可选)如果要在经过一定天数后将备份从对象存储移动到归档存储以实现成本优化、请选中*将备份分层到归档*复选框、然后输入应在多少天后将备份归档。
+. 选择 * 创建 * 。
++
+
+NOTE: 您不能编辑或删除与数据存储库关联的策略。
+
+

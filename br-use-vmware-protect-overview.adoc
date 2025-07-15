@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: br-use-vmware-protect-overview.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: 使用NetApp BlueXP backup and recovery保护您的 VMware 工作负载。 
+---
+= 使用BlueXP backup and recovery概述保护 VMware 工作负载
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+使用BlueXP backup and recovery保护您的 VMware 工作负载。BlueXPBlueXP backup and recovery为虚拟机、数据存储区和 VMDK 提供快速、节省空间、崩溃一致性和虚拟机一致性的备份和还原操作。
+
+您可以将数据存储库备份到Amazon Web Services S3、Microsoft Azure Blb、Google Cloud Platform和StorageGRID 、并将虚拟机还原回适用于VMware vSphere的内部SnapCenter 插件主机。
+
+[]
+====
+*注意* 此功能使用的是旧版BlueXP backup and recoveryUI。如需切换至BlueXP backup and recoveryUI 版本，请参阅link:br-start-switch-ui.html["切换到以前的BlueXP backup and recoveryUI"] 。
+
+====
+有关使用以前的BlueXP backup and recoveryUI 的说明，请参阅以下主题：

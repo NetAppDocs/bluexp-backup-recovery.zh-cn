@@ -1,0 +1,232 @@
+---
+sidebar: sidebar 
+permalink: br-start-discover.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: BlueXP backup and recovery服务需要首先发现工作负载，您才能使用该服务。 
+---
+= 发现 Microsoft SQL Server 工作负载并可选择从BlueXP backup and recovery中的SnapCenter导入
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+BlueXP backup and recovery服务需要先发现 Microsoft SQL Server 工作负载，您才能使用该服务。如果您已安装SnapCenter ，则可以选择从SnapCenter导入备份数据和策略。
+
+*必需的BlueXP角色* 备份和恢复超级管理员。了解link:reference-roles.html["备份和恢复角色和权限"] 。  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["了解所有服务的 BlueXP 访问角色"^] 。
+
+
+
+== 发现 Microsoft SQL Server 工作负载并选择性地导入SnapCenter资源
+
+在发现过程中， BlueXP backup and recovery会分析组织内工作环境中的 Microsoft SQL Server 实例和数据库。
+
+BlueXP backup and recovery可评估 Microsoft SQL Server 应用程序。该服务会评估现有保护级别，包括当前的备份保护策略、快照副本以及备份和恢复选项。
+
+发现以下列方式发生：
+
+* 如果您已有SnapCenter ，请使用BlueXP backup and recoveryUI 将SnapCenter资源导入BlueXP backup and recovery中。
++
+
+NOTE: 如果您已拥有SnapCenter，请先检查以确保已满足先决条件，然后再从SnapCenter导入。例如，在从SnapCenter导入之前，应先在BlueXP Canvas 中为所有本地SnapCenter集群存储创建工作环境。请参阅。 link:concept-start-prereq-snapcenter-import.html["从SnapCenter导入资源的先决条件"]
+
+* 如果您还没有SnapCenter，您仍然可以通过手动添加 vCenter 并执行发现来发现工作环境中的工作负载。
+
+
+
+
+=== 如果已安装SnapCenter ，请将SnapCenter资源导入BlueXP backup and recovery
+
+如果您已安装SnapCenter ，请按照以下步骤将SnapCenter资源导入BlueXP backup and recovery。BlueXPBlueXP会从SnapCenter中发现资源、主机、凭据和计划；您无需重新创建所有这些信息。
+
+您可以通过以下方式执行此操作：
+
+* 在发现期间，选择一个选项从SnapCenter导入资源。
+* 发现后，从“清单”页面选择一个选项来导入SnapCenter资源。
+* 发现后，从“设置”菜单中选择一个选项来导入SnapCenter资源。有关详细信息，请参见 link:br-start-configure.html["配置BlueXP backup and recovery"]。
+
+
+这是一个由两部分组成的过程：
+
+* 导入SnapCenter Server 应用程序和主机资源
+* 管理选定的SnapCenter主机资源
+
+
+
+
+==== 导入SnapCenter Server 应用程序和主机资源
+
+第一步是从SnapCenter导入主机资源，并在BlueXP backup and recovery清单页面中显示这些资源。此时，这些资源尚未由BlueXP backup and recovery管理。
+
+
+TIP: 导入SnapCenter主机资源后， BlueXP backup and recovery不会自动接管保护管理。为此，您必须明确选择在BlueXP backup and recovery中管理导入的资源。这可确保您已准备好通过BlueXP backup and recovery这些资源。
+
+.步骤
+. 从BlueXP左侧导航中，选择 *保护* > *备份和恢复*。
+. 从顶部菜单中选择*库存*。
++
+image:screen-br-inventory.png["BlueXP backup and recovery的库存屏幕截图"]
+
+. 从顶部菜单中选择*发现资源*。
++
+image:../media/screen-br-discover-workloads.png["发现工作负载资源屏幕截图"]
+
+. 从BlueXP backup and recovery发现工作负载资源页面中，选择*从SnapCenter导入*。
++
+image:../media/screen-br-discover-import-snapcenter.png["用于导入SnapCenter服务器资源的设置选项"]
+
+. 输入* SnapCenter应用程序凭据*：
++
+.. * SnapCenter FQDN 或 IP 地址*：输入SnapCenter应用程序本身的 FQDN 或 IP 地址。
+.. *端口*：输入SnapCenter服务器的端口号。
+.. *用户名*和*密码*：输入SnapCenter服务器的用户名和密码。
+.. *连接器*：选择SnapCenter的BlueXP连接器。
+
+
+. 输入* SnapCenter服务器主机凭据*：
++
+.. *现有凭证*：如果选择此选项，您可以使用已添加的现有凭证。请选择凭证名称。
+.. *添加新凭据*：如果您没有现有的SnapCenter主机凭据，则可以添加新凭据。输入凭据名称、身份验证模式、用户名和密码。
+
+
+. 选择“*导入*”来验证您的条目并注册SnapCenter服务器。
++
+
+NOTE: 如果SnapCenter服务器已注册，您可以更新现有的注册详细信息。
+
+
+
+.结果
+清单页面显示导入的SnapCenter资源，包括 MS SQL 主机、实例和数据库。
+
+image:../media/screen-br-inventory.png["显示导入的SnapCenter资源的清单页面"]
+
+要查看导入的SnapCenter资源的详细信息，请从“操作”菜单中选择“查看详细信息”选项。 image:../media/screen-br-inventory-details.png["显示导入的SnapCenter资源和详细信息的清单页面"]
+
+
+
+==== 管理SnapCenter主机资源
+
+导入SnapCenter资源后，请在BlueXP backup and recovery中管理这些主机资源。选择管理这些资源后， BlueXP backup and recovery能够备份和恢复您从SnapCenter导入的资源。您不再在SnapCenter服务器中管理这些资源。
+
+.步骤
+. 导入SnapCenter资源后，从顶部菜单中选择“*Inventory*”。
+. 从“清单”页面中，选择您希望从现在开始使用BlueXP backup and recovery进行管理的导入的SnapCenter主机。
++
+image:../media/screen-br-inventory.png["显示导入的SnapCenter资源的清单页面"]
+
+. 选择“操作”图标image:../media/icon-action.png["操作选项"] > *查看详情*显示工作量详情。
++
+image:../media/screen-br-inventory-manage-option.png["显示导入的SnapCenter资源和管理选项的库存页面"]
+
+. 在清单 > 工作负载页面中，选择操作图标image:../media/icon-action.png["操作选项"] > *管理* 显示管理主机页面。
+. 选择 * 管理 * 。
+. 在管理主机页面中，选择使用现有 vCenter 或添加新的 vCenter。
+. 选择 * 管理 * 。
++
+库存页面显示新管理的SnapCenter资源。
+
+
+
+您可以选择从“操作”菜单中选择“生成报告”选项来创建管理资源的报告。
+
+
+
+==== 从清单页面发现后导入SnapCenter资源
+
+如果您已经发现资源，则可以从清单页面导入SnapCenter资源。
+
+.步骤
+. 从BlueXP左侧导航中，选择 *保护* > *备份和恢复*。
+. 从顶部菜单中选择*库存*。
++
+image:../media/screen-br-inventory.png["库存页面"]
+
+. 从“库存”页面中，选择“导入SnapCenter资源”。
+. 按照上面“导入SnapCenter资源”部分中的步骤导入SnapCenter资源。
+
+
+
+
+=== 如果您尚未安装SnapCenter ，请添加 vCenter 并发现资源
+
+如果您尚未安装SnapCenter ，请添加 vCenter 信息，并让BlueXP backup and recovery发现工作负载。在每个BlueXP连接器中，选择要发现工作负载的工作环境。
+
+.步骤
+. 从BlueXP左侧导航中，选择 *保护* > *备份和恢复*。
++
+如果这是您第一次登录此服务，您已经在BlueXP中拥有工作环境，但尚未发现任何资源，则会出现“欢迎使用新的BlueXP backup and recovery”登录页面并显示*发现资源*选项。
+
++
+image:screen-br-landing-discover-import-buttons.png["BlueXP blueXP 备份和恢复（未发现资源）的登陆页面截图"]
+
+. 选择*发现资源*。
++
+image:screen-br-discover-workloads.png["发现工作负载资源屏幕截图"]
+
+. 输入以下信息：
++
+.. *工作负载类型*：对于此版本，仅 Microsoft SQL Server 可用。
+.. *vCenter 设置*：选择现有 vCenter 或添加新的 vCenter。要添加新的 vCenter，请输入 vCenter 的 FQDN 或 IP 地址、用户名、密码、端口和协议。
++
+
+TIP: 如果您要输入 vCenter 信息，请同时输入 vCenter 设置和主机注册信息。如果您在此处添加或输入了 vCenter 信息，则接下来还需要在“高级设置”中添加插件信息。
+
+.. *主机注册*：选择*添加凭据*并输入包含您想要发现的工作负载的主机的信息。
++
+
+TIP: 如果要添加独立服务器而不是 vCenter 服务器，则仅输入主机信息。
+
+
+
+. 选择*发现*。
++
+
+TIP: 此过程可能需要几分钟时间。
+
+. 继续高级设置。
+
+
+
+
+==== 在发现期间设置高级设置选项并安装插件
+
+使用“高级设置”，您可以在所有已注册的服务器上手动安装插件代理。这样，您就可以将所有SnapCenter工作负载导入BlueXP backup and recovery，以便在那里管理备份和恢复。BlueXPBlueXP backup and recovery显示了安装插件所需的步骤。
+
+.步骤
+. 在“发现资源”页面中，单击右侧的向下箭头继续进行“高级设置”。
++
+image:screen-br-discover-workloads-newly-discovered2.png["新发现的工作环境屏幕截图"]
+
+. 在发现工作负载资源页面中，输入以下信息。
++
+** *输入插件端口号*：输入插件使用的端口号。
+** *安装路径*：输入插件的安装路径。
+
+
+. 如果要手动安装SnapCenter代理，请选中以下选项的复选框：
++
+** *使用手动安装*：选中此框可手动安装插件。
+** *添加集群中的所有主机*：选中此框可在发现期间将集群中的所有主机添加到BlueXP backup and recovery中。
+** *跳过可选的预安装检查*：勾选此框可跳过可选的预安装检查。例如，如果您知道内存或空间方面的考虑因素在不久的将来会发生变化，并且您想立即安装插件，则可以执行此操作。
+
+
+. 选择*发现*。
+
+
+
+
+==== 继续前往BlueXP backup and recovery仪表板
+
+. 要显示BlueXP backup and recovery仪表板，请从顶部菜单中选择“*仪表板*”。
+. 检查数据保护的运行状况。处于风险中或受保护的工作负载的数量会根据新发现、受保护和备份的工作负载的数量而增加。
++
+image:screen-br-dashboard2.png["BlueXP backup and recovery仪表板"]
+
++
+link:br-use-dashboard.html["了解仪表板显示的内容"](英文)
+
+

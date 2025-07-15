@@ -1,0 +1,81 @@
+---
+sidebar: sidebar 
+permalink: br-use-restore-kubernetes-applications.html 
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery 
+summary: BlueXP backup and recovery使您能够恢复已使用保护策略保护的应用程序。 
+---
+= 恢复 Kubernetes 应用程序
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+BlueXP backup and recovery使您能够恢复已使用保护策略保护的应用程序。要恢复应用程序，该应用程序的保护状态必须为“受保护”，并且必须具有关联的保护策略。您可以使用还原点来恢复应用程序，该还原点由本地快照、辅助快照和对象存储备份组成。您可以使用本地、辅助或对象存储存档来恢复应用程序。
+
+.所需的BlueXP角色
+组织管理员或SnapCenter管理员。link:reference-roles.html["了解BlueXP backup and recovery访问角色"] 。  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["了解所有服务的 BlueXP 访问角色"^] 。
+
+.步骤
+. 在BlueXP backup and recovery中，选择 *Inventory*。
+. 选择一个 Kubernetes 工作负载，然后在该工作负载的“主机”列中选择“查看”。
+. 在应用程序列表中，选择要恢复的应用程序并选择相关的操作菜单。
+. 选择*查看和恢复*。
++
+出现还原点列表。
+
+. 打开您要使用的还原点的操作菜单，然后选择*还原*。
+
+
+[discrete]
+===== 常规设置
+
+. 选择要从中恢复的源（本地、辅助或对象存储）。
+. 从“*集群*”列表中选择目标集群。
+. 选择恢复目标命名空间（原始或新的）。
++
+请注意，不支持恢复到不同的集群和原始命名空间。
+
+. 选择 * 下一步 * 。
+
+
+[discrete]
+===== 资源选择
+
+. 选择是否要恢复与应用程序相关的所有资源，或者使用过滤器选择要恢复的特定资源：
+
+
+[role="tabbed-block"]
+====
+.恢复所有资源
+--
+. 选择*恢复所有资源*。
+. 选择 * 下一步 * 。
+
+
+--
+.恢复特定资源
+--
+. 选择*选择性资源*。
+. 选择资源过滤器的行为。如果选择“包含”，则所选资源将被恢复。如果选择“排除”，则所选资源不会被恢复。
+. 选择“添加规则”以添加定义用于选择资源的过滤器的规则。您至少需要一条规则来过滤资源。
++
+每个规则可以根据资源命名空间、标签、组、版本和种类等标准进行过滤。
+
+. 选择*保存*来保存每条规则。
+. 添加完所有需要的规则后，选择*搜索*即可查看备份档案中符合过滤条件的可用资源。
+. 对结果满意后，选择*下一步*。
+
+
+--
+====
+[discrete]
+===== 目标设置
+
+. 选择恢复到默认存储类或其他存储类。
+. 或者，如果您选择还原到其他存储类别，请选择一个与每个源存储类别匹配的目标存储类别。目标存储类别必须在目标集群上可用。
+. 选择 * 还原 * 。
+

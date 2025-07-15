@@ -1,0 +1,468 @@
+---
+sidebar: sidebar 
+permalink: prev-ontap-backup-cvo-azure.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: 使用NetApp BlueXP backup and recovery保护您的 VMware 工作负载。 
+---
+= 使用 BlueXP 备份和恢复将 Cloud Volumes ONTAP 数据备份到 Azure Blob 存储
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+完成 BlueXP 备份和恢复中的几个步骤，开始将卷数据从 Cloud Volumes ONTAP 系统备份到 Azure Blob 存储。
+
+[]
+====
+*注意* 要切换到BlueXP backup and recovery工作负载，请参阅link:br-start-switch-ui.html["切换到不同的BlueXP backup and recovery工作负载"] 。
+
+====
+
+
+== 验证是否支持您的配置
+
+在开始将卷备份到 Azure Blob 存储之前，请阅读以下要求，以确保您的配置受支持。
+
+下图显示了每个组件以及它们之间需要准备的连接。
+
+或者、您也可以使用公共或专用连接连接到二级ONTAP系统以存储复制的卷。
+
+image:diagram_cloud_backup_cvo_azure.png["一个示意图、显示了BlueXP备份和恢复如何与备份文件所在的源系统和目标存储上的卷进行通信。"]
+
+支持的 ONTAP 版本:: 最低版本为ONTAP 9.8；建议使用ONTAP 9.8P13及更高版本。
+支持的 Azure 区域:: 所有 Azure 区域（包括 Azure 政府区域）都支持 BlueXP 备份和恢复。
++
+--
+默认情况下、BlueXP备份和恢复会为Blob容器配置本地冗余(LRS)以实现成本优化。如果要确保在不同分区之间复制数据、您可以在激活BlueXP备份和恢复后将此设置更改为区域冗余(ZRS)。请参见的Microsoft说明 https://learn.microsoft.com/en-us/azure/storage/common/redundancy-migration?tabs=portal["更改存储帐户的复制方式"^]。
+
+--
+在其他 Azure 订阅中创建备份所需的设置:: 默认情况下，备份是使用与 Cloud Volumes ONTAP 系统相同的订阅创建的。
+
+
+
+
+== 验证许可证要求
+
+对于BlueXP备份和恢复PAYGO许可、在启用BlueXP备份和恢复之前、需要通过Azure Marketplace订阅。BlueXP备份和恢复的计费通过此订阅完成。 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-deploying-otc-azure.html["您可以从工作环境向导的详细信息和 amp ；凭据页面订阅"^]。
+
+对于BlueXP备份和恢复BYOL许可、您需要NetApp提供的序列号、以便在许可证有效期和容量内使用此服务。link:br-start-licensing.html["了解如何管理 BYOL 许可证"](英文)如果Connector和Cloud Volumes ONTAP 系统部署在非公开站点("专用模式")中、则必须使用BYOL许可证。
+
+您需要为备份所在的存储空间订阅 Microsoft Azure 。
+
+
+
+== 准备您的BlueXP Connector
+
+Connector可以安装在具有完全或有限Internet访问权限("标准"或"受限"模式)的Azure区域中。 https://docs.netapp.com/us-en/bluexp-setup-admin/concept-modes.html["有关详细信息、请参见BlueXP部署模式"^]。
+
+* https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["了解连接器"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-azure.html["在标准模式下在Azure中部署Connector (完全Internet访问)"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-restricted-mode.html["在受限模式下安装连接器(受限出站访问)"^]
+
+
+
+
+=== 验证并向Connector添加权限
+
+要使用BlueXP备份和恢复搜索和还原功能、您需要对Connector的角色拥有特定权限、以便它可以访问Azure Synapse Workspace和Data Lake存储帐户。请参见以下权限、如果需要修改策略、请按照以下步骤进行操作。
+
+.开始之前
+* 您必须在订阅中注册Azure Synapse分析资源提供程序(称为"microsoft.Synape")。 https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider["了解如何为您的订阅注册此资源提供商"^]。您必须是订阅*所有者*或*贡献者*才能注册资源提供程序。
+* 端口1433必须处于打开状态、以便在Connector和Azure Synapse SQL服务之间进行通信。
+
+
+.步骤
+. 确定分配给 Connector 虚拟机的角色：
++
+.. 在Azure门户中、打开虚拟机服务。
+.. 选择 Connector 虚拟机。
+.. 在设置下，选择 * 身份 * 。
+.. 选择*Azure角色分配*。
+.. 记下分配给 Connector 虚拟机的自定义角色。
+
+
+. 更新自定义角色：
++
+.. 在 Azure 门户中，打开 Azure 订阅。
+.. 选择*访问控制(IAM)>角色*。
+.. 选择自定义角色的省略号(*...*)，然后选择*Edit*。
+.. 选择*JSX*并添加以下权限：
++
+[%collapsible]
+====
+[source, json]
+----
+"Microsoft.Storage/storageAccounts/listkeys/action",
+"Microsoft.Storage/storageAccounts/read",
+"Microsoft.Storage/storageAccounts/write",
+"Microsoft.Storage/storageAccounts/blobServices/containers/read",
+"Microsoft.Storage/storageAccounts/listAccountSas/action",
+"Microsoft.KeyVault/vaults/read",
+"Microsoft.KeyVault/vaults/accessPolicies/write",
+"Microsoft.Network/networkInterfaces/read",
+"Microsoft.Resources/subscriptions/locations/read",
+"Microsoft.Network/virtualNetworks/read",
+"Microsoft.Network/virtualNetworks/subnets/read",
+"Microsoft.Resources/subscriptions/resourceGroups/read",
+"Microsoft.Resources/subscriptions/resourcegroups/resources/read",
+"Microsoft.Resources/subscriptions/resourceGroups/write",
+"Microsoft.Authorization/locks/*",
+"Microsoft.Network/privateEndpoints/write",
+"Microsoft.Network/privateEndpoints/read",
+"Microsoft.Network/privateDnsZones/virtualNetworkLinks/write",
+"Microsoft.Network/virtualNetworks/join/action",
+"Microsoft.Network/privateDnsZones/A/write",
+"Microsoft.Network/privateDnsZones/read",
+"Microsoft.Network/privateDnsZones/virtualNetworkLinks/read",
+"Microsoft.Network/networkInterfaces/delete",
+"Microsoft.Network/networkSecurityGroups/delete",
+"Microsoft.Resources/deployments/delete",
+"Microsoft.ManagedIdentity/userAssignedIdentities/assign/action",
+"Microsoft.Synapse/workspaces/write",
+"Microsoft.Synapse/workspaces/read",
+"Microsoft.Synapse/workspaces/delete",
+"Microsoft.Synapse/register/action",
+"Microsoft.Synapse/checkNameAvailability/action",
+"Microsoft.Synapse/workspaces/operationStatuses/read",
+"Microsoft.Synapse/workspaces/firewallRules/read",
+"Microsoft.Synapse/workspaces/replaceAllIpFirewallRules/action",
+"Microsoft.Synapse/workspaces/operationResults/read",
+"Microsoft.Synapse/workspaces/privateEndpointConnectionsApproval/action"
+----
+====
++
+https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-azure.html["查看策略的完整 JSON 格式"^]
+
+.. 选择*查看+更新*，然后选择*更新*。
+
+
+
+
+
+
+=== 使用客户管理的密钥进行数据加密所需的信息
+
+您可以在激活向导中使用自己的客户管理密钥进行数据加密，而不是使用默认的 Microsoft 管理的加密密钥。在这种情况下、您需要具有Azure订阅、密钥存储名称和密钥。 https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["了解如何使用您自己的密钥"^]。
+
+BlueXP  备份和恢复支持_Azure访问策略_、_Azure基于角色的访问控制_(Azure RBAC)权限模型和_托管硬件安全模型_(HSM)(请参见 https://learn.microsoft.com/en-us/azure/key-vault/managed-hsm/overview["什么是Azure密钥存储托管HSM？"])。
+
+
+
+=== 创建您的Azure Blb存储帐户
+
+默认情况下、该服务会为您创建存储帐户。如果要使用自己的存储帐户、您可以在启动备份激活向导之前创建这些帐户、然后在向导中选择这些存储帐户。
+
+link:prev-ontap-protect-journey.html["了解有关创建自己的存储帐户的更多信息"](英文)
+
+
+
+== 验证复制卷的ONTAP网络要求
+
+如果您计划使用BlueXP备份和恢复在二级ONTAP系统上创建复制的卷、请确保源系统和目标系统满足以下网络连接要求。
+
+
+
+==== 内部ONTAP网络要求
+
+* 如果集群位于您的内部环境中、则您应在企业网络与云提供商中的虚拟网络之间建立连接。这通常是一个 VPN 连接。
+* ONTAP 集群必须满足其他子网、端口、防火墙和集群要求。
++
+由于您可以复制到Cloud Volumes ONTAP或内部系统、因此请查看内部ONTAP系统的对等要求。 https://docs.netapp.com/us-en/ontap-sm-classic/peering/reference_prerequisites_for_cluster_peering.html["在 ONTAP 文档中查看集群对等的前提条件"^]。
+
+
+
+
+
+==== Cloud Volumes ONTAP网络连接要求
+
+* 实例的安全组必须包含所需的入站和出站规则：具体来说，是 ICMP 以及端口 11104 和 11105 的规则。这些规则包括在预定义的安全组中。
+
+
+* 要在不同子网的两个 Cloud Volumes ONTAP 系统之间复制数据、必须将子网路由在一起（这是默认设置）。
+
+
+
+
+== 在Cloud Volumes ONTAP上启用BlueXP备份和恢复
+
+启用BlueXP备份和恢复非常简单。根据您是拥有现有Cloud Volumes ONTAP系统还是新系统、步骤略有不同。
+
+*在新系统上启用BlueXP备份和恢复*
+
+默认情况下、在工作环境向导中会启用BlueXP备份和恢复。请务必保持此选项处于启用状态。
+
+请参见 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-deploying-otc-azure.html["在 Azure 中启动 Cloud Volumes ONTAP"^] 有关创建 Cloud Volumes ONTAP 系统的要求和详细信息，请参见。
+
+
+NOTE: 如果要选择资源组的名称、请在部署Cloud Volumes ONTAP 时*禁用* BlueXP备份和恢复。
+
+.步骤
+. 从BlueXP Canvas中、选择*添加工作环境*、选择云提供程序、然后选择*添加新*。选择*创建Cloud Volumes ONTAP。
+. 选择*Microsoft Azure"作为云提供程序，然后选择单个节点或HA系统。
+. 在“定义 Azure 凭据”页面中，输入凭据名称、客户端 ID、客户端机密和目录 ID，然后选择“继续”。
+. 填写“详细信息和凭据”页面并确保已订阅 Azure 市场，然后选择“*继续*”。
+. 在服务页面上，保持服务处于启用状态，然后选择*CONTINUD*。
+. 完成向导中的页面以部署系统。
+
+
+.结果
+已在系统上启用BlueXP备份和恢复。在这些Cloud Volumes ONTAP系统上创建卷后，启动BlueXP backup and recovery，然后link:prev-ontap-backup-manage.html["在要保护的每个卷上激活备份"] 。
+
+*在现有系统上启用BlueXP备份和恢复*
+
+随时直接从工作环境启用BlueXP备份和恢复。
+
+.步骤
+. 从BlueXP Canvas中、选择工作环境、然后选择右侧面板中备份和恢复服务旁边的*启用*。
++
+如果您的备份的Azure Blob目标作为工作环境存在于Canvas上、您可以将集群拖动到Azure Blob工作环境中以启动设置向导。
+
+. 完成向导中的各个页面以部署BlueXP备份和恢复。
+. 如果要启动备份、请继续执行 <<激活ONTAP卷上的备份>>。
+
+
+
+
+== 激活ONTAP卷上的备份
+
+随时直接从内部工作环境激活备份。
+
+向导将引导您完成以下主要步骤：
+
+* <<选择要备份的卷>>
+* <<定义备份策略>>
+* <<查看您的选择>>
+
+
+您也可以 <<显示API命令>> 在审核步骤中、这样您就可以复制代码、以便为未来的工作环境自动激活备份。
+
+
+
+=== 启动向导
+
+.步骤
+. 使用以下方式之一访问激活备份和恢复向导：
++
+** 从BlueXP画布中、选择工作环境、然后在右侧面板中的备份和恢复服务旁边选择*启用>备份卷*。
++
+如果备份的Azure目标在Canvas上以工作环境的形式存在、则可以将ONTAP集群拖动到Azure Blb对象存储上。
+
+** 在备份和恢复栏中选择*卷*。从卷选项卡中，选择*操作* image:icon-action.png["操作图标"] 图标并为单个卷(尚未启用复制或备份到对象存储)选择*激活备份*。
+
+
++
+向导的"简介"页面显示了保护选项、包括本地Snapshot、复制和备份。如果您执行了此步骤中的第二个选项、则会显示Define Backup Strategy"页面、并选择一个卷。
+
+. 继续执行以下选项：
++
+** 如果您已经拥有BlueXP Connector、则一切都已准备就绪。只需选择*下一步*。
+** 如果您还没有BlueXP Connector，将显示*Add a Connecter*选项。请参见 <<准备您的BlueXP Connector>>。
+
+
+
+
+
+
+=== 选择要备份的卷
+
+选择要保护的卷。受保护卷是指具有以下一项或多项内容的卷：Snapshot策略、复制策略、备份到对象策略。
+
+您可以选择保护FlexVol或FlexGroup卷；但是、在为工作环境激活备份时、不能混合选择这些卷。了解如何link:prev-ontap-backup-manage.html["为工作环境中的其他卷激活备份"] （FlexVol或FlexGroup）在为初始卷配置备份之后。
+
+[NOTE]
+====
+* 一次只能在一个FlexGroup卷上激活备份。
+* 您选择的卷必须具有相同的SnapLock设置。所有卷都必须启用SnapLock Enterprise或禁用SnapLock。
+
+
+====
+.步骤
+如果您选择的卷已经应用了快照或复制策略，那么您稍后选择的策略将覆盖这些现有策略。
+
+. 在选择卷页面中、选择要保护的一个或多个卷。
++
+** (可选)筛选行以仅显示具有特定卷类型、样式等的卷、以便于选择。
+** 选择第一个卷后、您可以选择所有FlexVol卷。（一次只能选择一个FlexGroup卷。）要备份所有现有FlexVol卷、请先选中一个卷、然后选中标题行中的框。
+** 要备份单个卷，请选中每个卷对应的框。
+
+
+. 选择 * 下一步 * 。
+
+
+
+
+=== 定义备份策略
+
+定义备份策略包括设置以下选项：
+
+* 您是否需要一个或所有备份选项：本地快照、复制和备份到对象存储
+* 架构
+* 本地快照策略
+* 复制目标和策略
++
+
+NOTE: 如果您选择的卷具有与您在此步骤中选择的策略不同的快照和复制策略，则现有策略将被覆盖。
+
+* 备份到对象存储信息(提供程序、加密、网络连接、备份策略和导出选项)。
+
+
+.步骤
+. 在"Define backup stry"页面中、选择以下一项或全部。默认情况下、所有这三个选项均处于选中状态：
++
+** *本地快照*：如果您正在执行复制或备份到对象存储，则必须创建本地快照。
+** *复制*：在另一个ONTAP存储系统上创建复制的卷。
+** *Backup*：将卷备份到对象存储。
+
+
+. *Architecture *：如果选择复制和备份，请选择以下信息流之一：
++
+** *级联*：信息从主存储系统流向二级存储、从二级存储流向对象存储。
+** *扇出*：从主存储系统到二级_和_的信息从主存储流向对象存储。
++
+有关这些架构的详细信息，请参阅link:prev-ontap-protect-journey.html["规划您的保护之旅"] 。
+
+
+
+. *本地快照*：选择现有的快照策略或创建一个。
++
+
+TIP: 要在激活快照之前创建自定义策略，请参阅link:br-use-policies-create.html["创建策略"] 。
+
++
+要创建策略，请选择*创建新策略*并执行以下操作：
+
++
+** 输入策略的名称。
+** 选择最多五个时间表，通常频率不同。
+** 选择 * 创建 * 。
+
+
+. *Replication *：设置以下选项：
++
+** *复制目标*：选择目标工作环境和SVM。或者、选择要添加到复制的卷名称中的一个或多个目标聚合以及前缀或后缀。
+** *复制策略*：选择现有复制策略或创建一个复制策略。
++
+
+TIP: 要在激活复制之前创建自定义策略，请参阅link:br-use-policies-create.html["创建策略"] 。
+
++
+要创建策略，请选择*创建新策略*并执行以下操作：
+
++
+*** 输入策略的名称。
+*** 选择最多五个时间表，通常频率不同。
+*** 选择 * 创建 * 。
+
+
+
+
+. *备份到对象*：如果选择了*Backup*，请设置以下选项：
++
+** *Provider*：选择*Microsoft Azure"。
+** *提供商设置*：输入提供商详细信息。
++
+输入要存储备份的区域。此区域可以与 Cloud Volumes ONTAP 系统所在的区域不同。
+
++
+创建新存储帐户或选择现有帐户。
+
++
+输入用于存储备份的Azure订阅。此订阅可以与 Cloud Volumes ONTAP 系统所在的订阅不同。
+
++
+您可以创建自己的资源组来管理Blb容器，也可以选择资源组类型和组。
+
++
+
+TIP: 如果要防止备份文件被修改或删除、请确保在创建存储帐户时启用了不可变存储、保留期限为30天。
+
++
+
+TIP: 如果要将较早的备份文件分层到Azure归档存储以进一步优化成本、请确保存储帐户具有适当的生命周期规则。
+
+** *加密密钥*：如果您创建了新的Azure存储帐户、请输入提供商提供给您的加密密钥信息。选择是使用默认Azure加密密钥、还是从Azure帐户中选择您自己的客户管理密钥来管理数据加密。
++
+如果您选择使用自己的客户管理密钥，请输入密钥保管库和密钥信息。  https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["了解如何使用您自己的密钥"^] 。
+
+
+
++
+
+NOTE: 如果您选择了现有的Microsoft存储帐户、则加密信息已可用、因此您现在无需输入。
+
++
+** *联网*：选择IP空间，以及是否使用专用端点。默认情况下、专用端点处于禁用状态。
++
+... 要备份的卷所在的 ONTAP 集群中的 IP 空间。此 IP 空间的集群间 LIF 必须具有出站 Internet 访问权限。
+... （可选）选择是否使用之前配置的 Azure 专用终结点。  https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview["了解如何使用Azure私有端点"^] 。
+
+
+** *备份策略*：选择现有的备份到对象存储策略。
++
+
+TIP: 要在激活备份之前创建自定义策略，请参阅link:br-use-policies-create.html["创建策略"] 。
+
++
+要创建策略，请选择*创建新策略*并执行以下操作：
+
++
+*** 输入策略的名称。
+*** 对于备份到对象策略、请设置DataLock和防兰森保护设置。有关 DataLock 和勒索软件保护的详细信息，请参阅link:prev-ontap-policy-object-options.html["备份到对象策略设置"] 。
+*** 选择最多五个时间表，通常频率不同。
+*** 选择 * 创建 * 。
+
+
+** *将现有的 Snapshot 副本导出到对象存储作为备份副本*：如果此工作环境中的卷有任何本地快照副本与您刚刚为此工作环境选择的备份计划标签（例如，每日、每周等）相匹配，则会显示此附加提示。选中此框可将所有历史Snapshot作为备份文件复制到对象存储、以确保对卷进行最全面的保护。
+
+
+. 选择 * 下一步 * 。
+
+
+
+
+=== 查看您的选择
+
+您可以借此机会查看所做的选择、并在必要时进行调整。
+
+.步骤
+. 在Review页面中、查看所做的选择。
+. (可选)选中*自动将Snapshot策略标签与复制和备份策略标签同步*复选框。此操作将创建具有与复制和备份策略中的标签匹配的标签的Snapshot。
+. 选择*激活备份*。
+
+
+.结果
+BlueXP备份和恢复开始对卷进行初始备份。复制的卷和备份文件的基线传输包括主存储系统数据的完整副本。后续传输会包含Snapshot副本中所含主存储数据的差异副本。
+
+此时将在目标集群中创建一个复制的卷、该卷将与主卷同步。
+
+此时将在您输入的资源组中创建Blb存储容器、并在该资源组中存储备份文件。
+
+默认情况下、BlueXP备份和恢复会为Blob容器配置本地冗余(LRS)以实现成本优化。如果要确保在不同分区之间复制数据、可以将此设置更改为区域冗余(ZRS)。请参见的Microsoft说明 https://learn.microsoft.com/en-us/azure/storage/common/redundancy-migration?tabs=portal["更改存储帐户的复制方式"^]。
+
+此时将显示卷备份信息板，以便您可以监控备份的状态。
+
+您还可以使用link:br-use-monitor-tasks.html["作业监控页面"] 。
+
+
+
+=== 显示API命令
+
+您可能希望显示并(可选)复制激活备份和恢复向导中使用的API命令。您可能希望执行此操作、以便在未来工作环境中自动激活备份。
+
+.步骤
+. 从激活备份和恢复向导中，选择*View API Request*。
+. 要将命令复制到剪贴板，请选择*复制*图标。
+
+
+
+
+== 下一步是什么？
+
+* 您可以link:prev-ontap-backup-manage.html["管理备份文件和备份策略"]。其中包括启动和停止备份、删除备份、添加和更改备份计划等。
+* 您可以link:prev-ontap-policy-object-advanced-settings.html["管理集群级别的备份设置"]。其中包括更改ONTAP 用于访问云存储的存储密钥、更改可用于将备份上传到对象存储的网络带宽、更改未来卷的自动备份设置等。
+* 您还可以link:prev-ontap-restore.html["从备份文件还原卷、文件夹或单个文件"]到 AWS 中的Cloud Volumes ONTAP系统，或到本地ONTAP系统。
+

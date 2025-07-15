@@ -1,0 +1,35 @@
+---
+sidebar: sidebar 
+permalink: prev-vmware-protect-overview.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: 使用NetApp BlueXP backup and recovery保护您的 VMware 工作负载。 
+---
+= 在BlueXP backup and recovery概述中保护虚拟机工作负载
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+使用BlueXP backup and recovery保护您的虚拟机工作负载。BlueXPBlueXP backup and recovery为虚拟机、数据存储区和 VMDK 提供快速、节省空间、崩溃一致性和虚拟机一致性的备份和还原操作。
+
+您可以将数据存储库备份到Amazon Web Services S3、Microsoft Azure Blb、Google Cloud Platform和StorageGRID 、并将虚拟机还原回适用于VMware vSphere的内部SnapCenter 插件主机。
+
+[]
+====
+*注意* 要切换到BlueXP backup and recovery工作负载，请参阅link:br-start-switch-ui.html["切换到不同的BlueXP backup and recovery工作负载"] 。
+
+====
+有关保护虚拟机工作负载的说明，请参阅以下主题：
+
+* link:prev-vmware-policy-create.html["为 VMware 工作负载创建策略"]
+* link:prev-vmware-backup-aws.html["将 VMware 数据存储备份到 Amazon Web Services"]
+* link:prev-vmware-backup-azure.html["将 VMware 数据存储备份到 Microsoft Azure"]
+* link:prev-vmware-backup-gcp.html["将 VMware 数据存储区备份到 Google Cloud Platform"]
+* link:prev-vmware-backup-storagegrid.html["将 VMware 数据存储备份到StorageGRID"]
+* link:prev-vmware-restore.html["恢复 VMware 工作负载"]
+* link:prev-vmware-manage.html["管理 VMware 工作负载的保护"]
+

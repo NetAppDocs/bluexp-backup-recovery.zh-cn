@@ -1,10 +1,10 @@
 ---
 indexpage:
   title: BlueXP备份和恢复文档
-  summary: BlueXP  备份和恢复服务可为内部和云端的NetApp ONTAP数据、数据库和虚拟机(VM)提供高效、安全且经济高效的数据保护。
-  keywords: bluexp, bluexp backup recovery, ontap, virtual machine, vm, on-premises,
-    data protection
-  lead: BlueXP备份和恢复服务可为内部和云端的NetApp ONTAP 数据、数据库和虚拟机提供高效、安全且经济高效的数据保护。
+  summary: BlueXP backup and recovery服务为本地和云端的数据库提供高效、安全且经济实惠的数据保护。
+  keywords: bluexp, bluexp backup recovery, ontap, on-premises, data protection, sql,
+    workloads, backup,
+  lead: BlueXP backup and recovery服务为本地和云端的数据库提供高效、安全且经济实惠的数据保护。
   tiles:
   - title: 入门
     links:
@@ -12,84 +12,50 @@ indexpage:
       url: concept-backup-to-cloud.html
     - title: 新增功能
       url: whats-new.html
-    - title: 设置许可
-      url: task-licensing-cloud-backup.html
-    - title: 监控备份和还原作业的状态
-      url: task-monitor-backup-jobs.html
-    - title: 创建有关数据保护覆盖范围的报告
-      url: task-report-inventory.html
-  - title: 将 ONTAP 数据备份到云
+    - title: 前提条件
+      url: concept-start-prereq.html
+    - title: 在使用BlueXP backup and recovery之前设置备份目标
+      url: br-start-setup.html
+    - title: 配置BlueXP backup and recovery设置
+      url: br-start-configure.html
+  - title: 管理备份和恢复策略
     links:
-    - title: 将 Cloud Volumes ONTAP 备份到 Amazon S3
-      url: task-backup-to-s3.html
-      flavor: aws
-    - title: 将 Cloud Volumes ONTAP 备份到 Azure Blob
-      url: task-backup-to-azure.html
-      flavor: azure
-    - title: 将 Cloud Volumes ONTAP 备份到 Google Cloud
-      url: task-backup-to-gcp.html
-      flavor: gcp
-    - title: 将内部 ONTAP 备份到 Amazon S3
-      url: task-backup-onprem-to-aws.html
-      flavor: aws
-    - title: 将内部 ONTAP 备份到 Azure Blob
-      url: task-backup-onprem-to-azure.html
-      flavor: azure
-    - title: 将内部 ONTAP 备份到 Google Cloud
-      url: task-backup-onprem-to-gcp.html
-      flavor: gcp
-    - title: 将内部ONTAP备份到ONTAP S3
-      url: task-backup-onprem-to-ontap-s3.html
-    - title: 将内部 ONTAP 备份到 StorageGRID
-      url: task-backup-onprem-private-cloud.html
-  - title: 管理 ONTAP 备份文件
+    - title: 创建策略来管理备份和恢复
+      url: br-use-policies-create.html
+    - title: 在仪表板中查看保护健康状况
+      url: br-use-dashboard.html
+  - title: 保护ONTAP卷工作负载
     links:
-    - title: 管理ONTAP系统的备份
-      url: task-manage-backups-ontap.html
-    - title: 管理ONTAP卷的策略
-      url: task-create-policies-ontap.html
-    - title: 备份到对象策略选项(DataLock和防兰索保护)
-      url: concept-cloud-backup-policies.html
-    - title: 在高级设置中管理备份到对象选项
-      url: task-manage-backup-settings-ontap.html
-    - title: 管理复制关系
-      url: task-manage-backups-ontap.html#manage-the-replication-relationship-with-the-source-volume
-  - title: 将应用程序数据备份到云
+    - title: 保护ONTAP卷工作负载概述
+      url: prev-ontap-protect-overview.html
+    - title: 规划ONTAP卷工作负载的保护之旅
+      url: prev-ontap-protect-journey.html
+    - title: 管理ONTAP卷工作负载的策略
+      url: prev-ontap-policy-manage.html
+    - title: ONTAP卷的备份到对象策略选项
+      url: prev-ontap-policy-object-options.html
+    - title: 恢复ONTAP卷工作负载
+      url: prev-ontap-restore.html
+  - title: 保护 Microsoft SQL Server 工作负载（预览版）
     links:
-    - title: 将内部应用程序数据备份到Amazon Web Services
-      flavor: aws
-      url: task-backup-app-data-to-aws.html
-    - title: 将内部应用程序数据备份到Microsoft Azure
-      flavor: azure
-      url: task-backup-app-data-to-azure.html
-    - title: 将内部应用程序数据备份到Google Cloud
-      flavor: gcp
-      url: task-backup-app-data-to-gcp.html
-    - title: 将内部应用程序数据备份到StorageGRID
-      url: task-backup-app-data-to-storagegrid.html
-  - title: 将数据存储库备份到云
+    - title: 保护 Microsoft SQL Server 工作负载概述
+      url: br-use-mssql-protect-overview.html
+    - title: 发现 Microsoft SQL Server 工作负载并选择性地导入SnapCenter资源
+      url: br-start-discover.html
+    - title: 备份 Microsoft SQL Server 工作负载
+      url: br-use-mssql-backup.html
+    - title: 恢复 Microsoft SQL Server 工作负载
+      url: br-use-mssql-restore.html
+    - title: 克隆 Microsoft SQL Server 工作负载
+      url: br-use-mssql-clone.html
+  - title: 保护虚拟机工作负载
     links:
-    - title: 将数据存储库备份到Amazon Web Services
-      flavor: aws
-      url: task-backup-vm-data-to-aws.html
-    - title: 将数据存储库备份到Microsoft Azure
-      flavor: azure
-      url: task-backup-vm-data-to-azure.html
-    - title: 将数据存储库备份到Google Cloud Platform
-      flavor: gcp
-      url: task-backup-vm-data-to-gcp.html
-    - title: 将数据存储库备份到StorageGRID
-      url: task-backup-vm-data-to-storagegrid.html
-  - title: 从云中还原数据
-    links:
-    - title: 还原ONTAP 卷数据
-      url: task-restore-backups-ontap.html
-    - title: 还原内部Oracle应用程序数据
-      url: task-restore-oracle-data.html
-    - title: 还原内部SQL Server应用程序数据
-      url: task-restore-sql-data.html
-    - title: 还原虚拟机数据
-      url: task-restore-vm-data.html
+    - title: 保护虚拟机工作负载概述
+      url: prev-vmware-protect-overview.html
+    - title: 创建备份虚拟机工作负载的策略
+      url: prev-vmware-policy-create.html
+    - title: 恢复虚拟机工作负载
+      url: prev-vmware-restore.html
   - title: 博客和社区
     links:
     - title: NetApp 社区

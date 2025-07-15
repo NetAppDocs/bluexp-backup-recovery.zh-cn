@@ -1,0 +1,47 @@
+---
+sidebar: sidebar 
+permalink: br-use-manage-kubernetes-clusters.html 
+keywords: discover, backup and recovery, snapcenter, kubernetes, k8s, clusters, applications, inventory 
+summary: BlueXP backup and recovery使您能够发现和管理您的 Kubernetes 集群，以便您可以保护集群托管的资源。 
+---
+= 管理 Kubernetes 集群
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+BlueXP backup and recovery使您能够发现和管理您的 Kubernetes 集群，以便您可以保护集群托管的资源。
+
+.所需的BlueXP角色
+组织管理员或SnapCenter管理员。link:reference-roles.html["了解BlueXP backup and recovery访问角色"] 。  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["了解所有服务的 BlueXP 访问角色"^] 。
+
+
+
+== 编辑 Kubernetes 集群信息
+
+如果需要更改集群名称，您可以编辑集群。
+
+.步骤
+. 在BlueXP backup and recovery中，选择 *Inventory* > *Clusters*。
+. 在集群列表中，选择要编辑的集群并选择相关的操作菜单。
+. 选择*编辑集群*。
+. 对集群名称进行任何必要的更改。
+. 选择 * 完成 * 。
+
+
+
+
+== 删除 Kubernetes 集群
+
+如果您不再需要保护 Kubernetes 集群托管的资源，可以将其从BlueXP backup and recovery中移除。移除集群并不会删除集群或其资源；它只会将集群从BlueXP清单中移除。在移除集群之前，您需要禁用保护并从BlueXP backup and recovery中删除关联的应用程序。
+
+.步骤
+. 在BlueXP backup and recovery中，选择 *Inventory* > *Clusters*。
+. 在集群列表中，选择要编辑的集群并选择相关的操作菜单。
+. 选择*删除集群*。
+. 查看确认对话框中的信息，然后选择*删除*。
+

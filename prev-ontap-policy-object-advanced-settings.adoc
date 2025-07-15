@@ -1,0 +1,157 @@
+---
+sidebar: sidebar 
+permalink: prev-ontap-policy-object-advanced-settings.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: 使用NetApp BlueXP backup and recovery保护您的 VMware 工作负载。 
+---
+= 在BlueXP backup and recovery高级设置中管理备份到对象存储选项
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以使用高级设置页面更改在为每个ONTAP系统激活BlueXP备份和恢复时设置的集群级别备份到对象存储设置。您还可以修改应用为"默认"备份设置的某些设置。这包括更改备份到对象存储的传输速率、历史Snapshot副本是否导出为备份文件、以及为工作环境启用或禁用勒索软件扫描。
+
+
+NOTE: 这些设置仅适用于备份到对象存储。这些设置均不会影响您的Snapshot或复制设置。
+
+[]
+====
+*注意* 要切换到BlueXP backup and recovery工作负载，请参阅link:br-start-switch-ui.html["切换到不同的BlueXP backup and recovery工作负载"] 。
+
+====
+您可以在高级设置页面中更改以下选项：
+
+* 使用最大传输速率选项更改分配用于将备份上传到对象存储的网络带宽
+ifdef：：AWS。
+
+
+endif::aws[]
+
+* 更改历史Snapshot副本是否作为备份文件导出并包含在未来卷的初始基线备份文件中
+* 更改是否从源系统中删除"每年"快照
+* 为工作环境启用或禁用勒索软件扫描、包括计划内扫描
+
+
+
+
+== 查看集群级别的备份设置
+
+您可以查看每个工作环境的集群级别备份设置。
+
+.步骤
+. 从BlueXP菜单中、选择*保护>备份和恢复*。
+. 从 * 卷 * 选项卡中，选择 * 备份设置 * 。
++
+image:screenshot_backup_settings_button.png["屏幕截图显示了备份设置按钮、您可以通过该按钮查看如何为所有工作环境配置备份。"]
+
+. 在“备份设置”页面中，单击image:icon-actions-horizontal.gif["更多图标"]为工作环境并选择*高级设置*。
++
+image:screenshot_backup_advanced_settings_button.png["屏幕截图显示了备份设置页面中的高级设置按钮。"]
+
++
+"高级设置"页面显示了该工作环境的当前设置。
+
++
+image:screenshot_backup_advanced_settings_page2.png["显示特定工作环境的备份高级设置值的屏幕截图。"]
+
+. 展开选项并进行更改。
+
+
+更改后的所有备份操作都将使用新值。
+
+请注意、根据源集群上的ONTAP 版本以及备份所在的云提供商目标、某些选项不可用。
+
+
+
+== 更改可用于将备份上传到对象存储的网络带宽
+
+默认情况下、在为工作环境激活BlueXP备份和恢复时、ONTAP 可以使用无限的带宽将备份数据从工作环境中的卷传输到对象存储。如果您发现备份流量正在影响正常用户工作负载、则可以使用高级设置页面中的最大传输速率选项限制传输期间使用的网络带宽量。
+
+.步骤
+. 从 * 卷 * 选项卡中，选择 * 备份设置 * 。
+. 在“备份设置”页面中，单击image:icon-actions-horizontal.gif["更多图标"]为工作环境并选择*高级设置*。
+. 在“高级设置”页面中，展开“*最大传输速率*”部分。
++
+image:screenshot_backup_edit_transfer_rate.png["Advanced Settings页面中最大传输速率条目的屏幕截图。"]
+
+. 选择一个介于1到1、000 Mbps之间的值作为最大传输速率。
+. 选择*受限*单选按钮并输入可使用的最大带宽、或者选择*无限制*以指示没有限制。
+. 选择 * 应用 * 。
+
+
+此设置不会影响分配给可能为工作环境中的卷配置的任何其他复制关系的带宽。
+
+ifdef::aws[]
+
+endif::aws[]
+
+
+
+== 更改是否将历史快照副本导出为备份文件
+
+如果有任何与您在此工作环境中使用的备份计划标签（例如，每日、每周等）匹配的卷的本地快照副本，则可以将这些历史快照作为备份文件导出到对象存储。这样、您可以通过将旧的Snapshot副本移动到基线备份副本中来初始化云中的备份。
+
+请注意、此选项仅对新读/写卷的新备份文件进行适用场景 处理、数据保护(DP)卷不支持此选项。
+
+.步骤
+. 从 * 卷 * 选项卡中，选择 * 备份设置 * 。
+. 在“备份设置”页面中，单击image:icon-actions-horizontal.gif["更多图标"]为工作环境并选择*高级设置*。
+. 在高级设置页面中，展开*导出现有Snapshot副本*部分。
++
+image:screenshot_backup_edit_export_snapshots.png["\"高级设置\"页面中的导出现有Snapshot副本条目的屏幕截图。"]
+
+. 选择是否要导出现有Snapshot副本。
+. 选择 * 应用 * 。
+
+
+
+
+== 更改是否从源系统中删除"每年"快照
+
+为任何卷的备份策略选择"每年"备份标签时、创建的Snapshot副本非常大。默认情况下、这些年度快照会在传输到对象存储后自动从源系统中删除。您可以从"年度Snapshot删除"部分更改此默认行为。
+
+.步骤
+. 从 * 卷 * 选项卡中，选择 * 备份设置 * 。
+. 在“备份设置”页面中，单击image:icon-actions-horizontal.gif["更多图标"]为工作环境并选择*高级设置*。
+. 在“Advanced Settings”(高级设置)页面中，展开“*每年删除Snapshot”部分。
++
+image:screenshot_backup_edit_yearly_snap_delete.png["\"高级设置\"页面中的\"年度快照\"条目的屏幕截图。"]
+
+. 选择*Disabled (禁用)*以在源系统上保留每年的快照。
+. 选择 * 应用 * 。
+
+
+
+
+== 启用或禁用勒索软件扫描
+
+默认情况下、勒索软件保护扫描处于启用状态。扫描频率的默认设置为7天。扫描仅针对最新的快照副本进行。您可以使用“高级设置”页面上的选项，在最新快照副本上启用或禁用勒索软件扫描。如果启用此功能、则默认情况下每7天执行一次扫描。
+
+有关 DataLock 和勒索软件保护选项的详细信息，请参阅link:prev-ontap-policy-object-options.html["DataLock和防兰索保护选项"] 。
+
+您可以将该计划更改为天数或周数、也可以将其禁用、从而节省成本。
+
+
+TIP: 启用勒索软件扫描将产生额外费用、具体取决于云提供商。
+
+计划的勒索软件扫描仅在最新的快照副本上运行。
+
+如果禁用了计划内勒索软件扫描、您仍然可以执行按需扫描、并且在还原操作期间仍会执行扫描。
+
+参考link:prev-ontap-policy-manage.html["管理策略"]有关管理实施勒索软件检测的政策的详细信息。
+
+.步骤
+. 从 * 卷 * 选项卡中，选择 * 备份设置 * 。
+. 在“备份设置”页面中，单击image:icon-actions-horizontal.gif["更多图标"]为工作环境并选择*高级设置*。
+. 在“高级设置”页面中，展开“* Ransy要 扫描*”部分。
+. 启用或禁用*勒索软件扫描*。
+. 选择*计划的勒索软件扫描*。
+. (可选)将每周默认扫描更改为天或周。
+. 设置扫描运行频率(以天或周为单位)。
+. 选择 * 应用 * 。
+

@@ -1,0 +1,107 @@
+---
+sidebar: sidebar 
+permalink: br-limitations.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: BlueXP backup and recovery服务需要先发现数据，您才能使用该服务。在发现过程中， BlueXP backup and recovery会分析您组织内工作环境中的所有卷和文件。 
+---
+= BlueXP backup and recoveryMicrosoft SQL Server 工作负载的已知限制
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+已知限制确定了本产品版本不支持的平台、设备或功能、或者这些平台、设备或功能无法与产品正确交互操作。仔细审查这些限制。
+
+
+
+== 仅限标准部署模式
+
+BlueXP backup and recovery版本仅在标准部署模式下工作，不适用于受限或私人模式。
+
+
+
+== Windows 群集名称限制
+
+Windows 集群名称不能包含下划线 (_) 字符。
+
+
+
+== SnapCenter迁移问题
+
+将资源从SnapCenter迁移到BlueXP backup and recovery有以下限制。
+
+有关SnapCenter策略如何迁移到BlueXP backup and recovery策略的详细信息，请参阅link:reference-policy-differences-snapcenter.html["SnapCenter中的策略与BlueXP backup and recovery中的策略比较"] 。
+
+
+
+=== 资源组限制
+
+如果资源组中的所有资源都受到保护，并且其中一个资源在资源组外部也受到保护，则从SnapCenter迁移将被阻止。
+
+*解决方法*：在资源组中或单独保护资源，但不能同时保护两者。
+
+
+
+=== 不支持使用相同计划层的多个策略的资源
+
+您不能为一个资源分配多个使用相同计划层级（例如，每小时、每天、每周等）的策略。BlueXPBlueXP backup and recovery不会从SnapCenter导入这些资源。
+
+*解决方法*：仅将使用相同计划层的一项策略附加到资源。
+
+
+
+=== 每小时政策必须从每小时开始时开始
+
+如果您的SnapCenter策略每小时重复一次，但小时数并非以小时为间隔，BlueXP backup and recovery将不会导入该资源。例如，不支持计划时间为 1:30、2:30、3:30 等的策略，但支持计划时间为 1:00、2:00、3:00 等的策略。
+
+*解决方法*：使用从整点开始以 1 小时为间隔重复的策略。
+
+
+
+=== 不支持将每日和每月策略附加到同一个资源
+
+如果SnapCenter策略以天和月为间隔重复，则BlueXP backup and recovery将不会导入该策略。
+
+例如，您不能将每日策略（少于或等于 7 天或大于 7 天）附加到资源，也不能将每月策略附加到同一资源。
+
+*解决方法*：使用以每日或每月为间隔的策略，但不能同时使用两者。
+
+
+
+=== 按需备份策略未迁移
+
+BlueXP backup and recovery不会从SnapCenter导入按需备份策略。
+
+
+
+=== 仅日志备份策略未迁移
+
+BlueXP backup and recovery不会从SnapCenter导入仅日志备份策略。如果SnapCenter策略包含仅日志备份，BlueXP backup and recovery将不会导入该资源。
+
+*解决方法*：在SnapCenter中使用不仅仅使用日志备份的策略。
+
+
+
+=== 主机映射
+
+SnapCenter无法将资源的存储集群或 SVM 映射到主机，但BlueXP backup and recovery可以。在BlueXP backup and recovery预览版中，本地ONTAP集群或 SVM 不会映射到主机。此外， BlueXP不支持 SVM。
+
+*解决方法*：在从SnapCenter导入资源之前，请在BlueXP backup and recovery中为所有在本地SnapCenter中注册的本地ONTAP存储系统创建一个工作环境。然后，将该集群的资源从SnapCenter导入BlueXP backup and recovery中。
+
+
+
+=== 班次间隔不为 15 分钟
+
+如果您有一个SnapCenter策略计划，该计划在特定时间启动并每隔几分钟重复一次，但间隔时间不是 15 分钟，BlueXP backup and recovery将不会导入该计划。
+
+*解决方法*：使用SnapCenter调整策略，使其以 15 分钟的间隔重复。
+
+
+
+=== 日志备份保留
+
+使用SnapCenter，您可以在附加到资源的多个策略中设置多个保留值。但是， BlueXP backup and recovery预览版仅支持对附加到资源的所有策略使用单个保留值。

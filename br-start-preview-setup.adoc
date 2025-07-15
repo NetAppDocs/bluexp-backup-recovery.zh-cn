@@ -1,0 +1,61 @@
+---
+sidebar: sidebar 
+permalink: br-start-preview-setup.html 
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery 
+summary: 通过参与BlueXP backup and recovery预览版，您将在完善和增强BlueXP backup and recovery服务方面发挥关键作用。对于BlueXP backup and recovery预览版，我们将协助您进行设置。以下是设置流程。 
+---
+= 设置BlueXP backup and recovery预览版
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+通过参与BlueXP backup and recovery预览版，您将在完善和增强BlueXP backup and recovery服务方面发挥关键作用。对于BlueXP backup and recovery预览版，我们将协助您进行设置。以下是设置流程。
+
+. *注册*：如果您还没有BlueXP帐户，请注册一个。方法如下：
++
+.. 访问 https://bluexp.netapp.com/["BlueXP门户"] 。
++
+image:screen-preview-bluexp-portal.png["BlueXP门户屏幕"]
+
+.. 选择*开始*。
++
+image:screen-preview-login.png["登录门户屏幕"]
+
+.. 选择 * 注册 * 。
++
+image:screen-preview-signup-profile.png["注册BlueXP屏幕"]
+
+.. 输入您的姓名、电子邮件地址、组织名称和其他详细信息，然后选择*下一步*。
++
+您将收到一封带有链接的电子邮件，用于验证您的电子邮件地址。
+
+.. 选择电子邮件中的链接来验证您的电子邮件地址。
+.. 登录BlueXP门户。
+.. 输入以下信息来完成您的个人资料：
++
+*** *组织 ID*：注册后，您将收到一个组织名称和 ID。请在此处输入。
+*** *共享 ID*：与NetApp产品团队共享组织名称和 ID。
++
+*访问时间范围*：48-72 小时内，您将可以访问BlueXP backup and recovery服务。
+
+
+
+
+
+. *探索*该服务，测试其功能，并将其与您现有的 SQL Server 工作负载集成。
+. *保持定期联系*。在整个预览会议期间，请定期与NetApp产品团队进行沟通。这些会议有助于您了解服务并提供反馈：
++
+** *了解最新消息*：您将了解与预览相关的最新进展。
+** *提出问题*并从BlueXP团队获得立即答复。
+** 向NetApp产品团队提供*反馈*以改进服务。
+** *分享最佳实践*和有效使用该服务的技巧。
+** *促进合作*：与其他用户合作，分享经验，相互学习。
+
+
+. 向NetApp产品团队*提供反馈*。
+

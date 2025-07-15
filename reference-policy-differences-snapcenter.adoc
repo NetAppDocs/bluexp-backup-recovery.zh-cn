@@ -1,0 +1,96 @@
+---
+sidebar: sidebar 
+permalink: reference-policy-differences-snapcenter.html 
+keywords: backup policy, backup policies, snapcenter, migration 
+summary: BlueXP backup and recovery中使用的策略与SnapCenter中使用的策略之间存在一些差异。 
+---
+= SnapCenter中的策略与BlueXP backup and recovery中的策略比较
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+SnapCenter中使用的策略与BlueXP backup and recovery中使用的策略之间存在一些差异，这可能会影响您从SnapCenter导入资源和策略后看到的内容。
+
+SnapCenter和BlueXP backup and recovery使用略有不同的策略计划。
+
+SnapCenter使用以下计划层：
+
+* *每小时*：多个小时和分钟，任意小时（0-23）和任意分钟（0-60）。
+* *每日*：包括每隔几天重复一次的选项，例如每 3 天。
+* *每周*：周日至周一，可选择在一周的第一天或一周的多天执行快照。
+* *每月*：一月至十二月，可选择在每月的特定日期执行，例如每月 7 号，甚至每月的多天。
+
+
+BlueXP backup and recovery使用以下计划层，它们略有不同：
+
+* *每小时*：仅以 15 分钟为间隔执行快照，例如 1 小时或 15 分钟的间隔小于 60。
+* *每日*：一天中的小时数（0-23），开始时间例如为上午 10:00，并可选择每隔几小时执行一次。
+* *每周*：星期几（周日至周一），可选择单日或多日执行。这与SnapCenter相同。
+* *每月*：每月的日期（0-30），开始时间是每月的多个日期。
+* *每年*：每月。这与 SnapCenter 的每月一致。
+
+
+
+
+== SnapCenter中具有相同计划层的多个策略
+
+您可以将具有相同计划层的多个策略分配给SnapCenter中的资源。但是， BlueXP backup and recovery不支持在使用相同计划层的资源上应用多个策略。
+
+*示例*：如果您在SnapCenter中使用三个策略（用于数据、日志和快照日志），则从SnapCenter迁移后， BlueXP backup and recovery将使用单个策略而不是全部三个策略。
+
+
+
+== 导入的SnapCenter每日计划
+
+BlueXP backup and recovery按如下方式调整SnapCenter计划：
+
+* 如果SnapCenter 的计划设置为少于或等于 7 天， BlueXP backup and recovery会将计划设置为每周一次。本周内某些快照将被跳过。
++
+*示例*：如果您有一个SnapCenter每日策略，其重复间隔为从星期一开始每 3 天，BlueXP backup and recovery会将计划设置为每周一、周四和周日。由于并非每 3 天准确执行一次，因此某些日期会被跳过。
+
+* 如果SnapCenter 的计划设置为超过 7 天， BlueXP backup and recovery会将计划设置为每月一次。因此，该月期间会跳过某些快照。
++
+*示例*：如果您有一个SnapCenter每日策略，其重复间隔为从每月 2 号开始每 10 天一次，则BlueXP backup and recovery（迁移后）会将计划设置为每月 2 日、12 日和 22 日执行。下个月将跳过某些日期。
+
+
+
+
+
+== 导入的SnapCenter每小时计划
+
+重复间隔大于一小时的SnapCenter每小时策略在BlueXP backup and recovery中转换为每日策略。
+
+任何重复间隔不是 24 倍（例如 5、7 等）的每小时策略都会跳过一天中的某些快照。
+
+*示例*：如果您的SnapCenter每小时策略设定为从凌晨 1:00 开始每 5 小时重复一次，BlueXP backup and recovery（迁移后）会将计划设置为每天，分别在凌晨 1:00、早上 6:00、上午 11:00、下午 4:00 和晚上 9:00 执行，间隔 5 小时。某些时段会被跳过，例如晚上 9:00 之后应该在凌晨 2:00 执行，以便每 5 小时重复一次，但实际执行时间始终为凌晨 1:00。
+
+
+
+== SnapCenter策略的日志保留
+
+如果SnapCenter中的资源具有多个策略， BlueXP backup and recovery将使用以下优先级顺序来分配日志保留值：
+
+* 对于SnapCenter中的“使用日志备份策略的完整备份”加上“仅日志”策略， BlueXP backup and recovery使用仅日志策略保留值。
+* 对于SnapCenter中的“仅带日志的完整备份”和“完整和日志”策略， BlueXP backup and recovery使用仅日志的保留值。
+* 对于SnapCenter中的“完整备份和日志”加上“完整备份”， BlueXP backup and recovery使用“完整备份和日志”保留值。
+* 如果您在SnapCenter中只有完整备份，BlueXP backup and recovery不会启用日志备份。
+
+
+
+
+== SnapCenter策略的保留计数
+
+如果您在SnapCenter中启用了二级保护的资源具有多个源卷、多个目标卷和多个SnapMirror关系，BlueXP backup and recovery仅使用第一个策略的保留计数。
+
+*示例*：如果您有一个保留计数为 5 的SnapCenter策略和另一个保留计数为 10 的策略，BlueXP backup and recovery将使用保留计数 5。
+
+
+
+== SnapCenter策略中的SnapMirror标签
+
+即使层级发生变化， SnapCenter中每个策略的SnapMirror标签在迁移后仍保持不变。
+
+*示例*： SnapCenter中的每小时策略可能会在BlueXP backup and recovery中更改为每日策略。但是，迁移后SnapMirror标签保持不变。

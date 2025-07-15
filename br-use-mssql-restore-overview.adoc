@@ -1,0 +1,39 @@
+---
+sidebar: sidebar 
+permalink: br-use-mssql-restore-overview.html 
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery 
+summary: 您可以从创建备份的位置还原数据备份，其中包括快照、复制以及对象存储中的备份。请查看要还原的还原位置、还原点和资源类型。 
+---
+= 使用BlueXP backup and recovery还原 Microsoft SQL 工作负载概览
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+BlueXP backup and recovery中的 Microsoft SQL Server 数据备份可从您移动备份的位置进行还原：快照、复制或对象存储中的备份。您可以将工作负载还原到原始工作环境、使用同一云帐户的其他工作环境或本地ONTAP系统。请查看要还原的还原位置、还原点和资源类型。
+
+.从这些位置恢复
+您可以从不同的起始位置恢复工作负载：
+
+* 从主要位置恢复
+* 从复制的资源还原
+* 从对象存储备份恢复
+
+
+.恢复到这些点
+您可以将数据还原到最新快照或以下点：
+
+* 从快照还原
+* 还原到特定时间点。如果您知道文件的名称和位置，以及文件上次处于良好状态的日期，这将很有帮助。
+* 恢复到最新备份
+
+
+
+
+== 下一步行动
+
+有关如何恢复工作负载的详细信息，请参阅link:br-use-mssql-restore.html["恢复工作负载"] 。

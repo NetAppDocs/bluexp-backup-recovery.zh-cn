@@ -1,0 +1,145 @@
+---
+sidebar: sidebar 
+permalink: concept-start-prereq.html 
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, backup and recovery 
+summary: 验证您的运行环境、 BlueXP连接器和BlueXP帐户是否已准备就绪，即可开始使用BlueXP backup and recovery。要使用BlueXP backup and recovery，您需要满足以下先决条件。 
+---
+= BlueXP backup and recovery先决条件
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+验证您的运行环境、 BlueXP连接器和BlueXP帐户是否已准备就绪，即可开始使用BlueXP backup and recovery。要使用BlueXP backup and recovery，您需要满足以下先决条件。
+
+
+
+== 适用于ONTAP 9.8及更高版本
+
+必须在本地ONTAP实例上启用ONTAP One 许可证。
+
+
+
+== 用于备份到对象存储
+
+要使用对象存储作为备份目标，您需要一个拥有 AWS S3、Microsoft Azure Blob、 StorageGRID或ONTAP的帐户并配置适当的访问权限。
+
+* link:prev-ontap-protect-overview.html["保护ONTAP 卷数据"]
+* link:br-use-mssql-protect-overview.html["保护您的 Microsoft SQL Server 数据库"]
+* link:prev-vmware-protect-overview.html["保护虚拟机工作负载"]
+
+
+
+
+== 在BlueXP  中
+
+* BlueXP用户应具备在 Microsoft SQL Server 工作负载上执行操作所需的角色和权限。要发现资源，您必须拥有BlueXP backup and recovery超级管理员角色。请参阅link:reference-roles.html["BlueXP backup and recovery基于角色的访问功能"]有关在BlueXP backup and recovery中执行操作所需的角色和权限的详细信息。
+* 一个BlueXP组织，至少拥有一个活动的BlueXP连接器，用于连接到本地ONTAP集群或Cloud Volumes ONTAP。请参阅下面的“初始预览设置流程”。
+* 至少一个具有NetApp本地ONTAP或Cloud Volumes ONTAP集群的BlueXP工作环境。
+* BlueXP连接器
++
+请参阅 https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["了解如何配置BlueXP  连接器"] 和 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html["标准BlueXP要求"^]。
+
++
+** 预览版需要连接器的 Ubuntu 22.04 LTS 操作系统。
+
+
+
+
+
+
+=== 设置BlueXP
+
+下一步是设置BlueXP和BlueXP backup and recovery服务。
+
+请查看。 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html["标准BlueXP要求"^]
+
+
+
+=== 创建BlueXP Connector
+
+您应该联系您的NetApp产品团队来试用这项服务。然后、当您使用BlueXP Connector时、它将包括适用于此服务的功能。
+
+要在使用此服务之前在BlueXP  中创建连接器，请参阅BlueXP  文档中描述的 https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["如何创建BlueXP Connector"^]。
+
+.在哪里安装BlueXP连接器
+要完成还原操作，连接器可以安装在以下位置：
+
+ifdef::aws[]
+
+* 对于 Amazon S3，连接器可以部署在您的场所。
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+* 对于 Azure Blob，连接器可以部署在您的场所。
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+endif::gcp[]
+
+* 对于StorageGRID，连接器必须部署在您的场所；无论是否有互联网访问。
+* 对于ONTAP S3、连接器可以部署在您的内部环境(无论是否可访问Internet)或云提供商环境中
+
+
+
+NOTE: 对“本地ONTAP系统”的引用包括FAS和AFF系统。
+
+
+
+== Microsoft SQL Server 主机要求
+
+要使用BlueXP backup and recoverySQL Server 工作负载，您需要满足以下主机系统、空间和大小调整先决条件。
+
+[cols="33,66a"]
+|===
+| 物品 | 要求 
+
+
+| 操作系统  a| 
+Microsoft Windows 有关受支持版本的最新信息，请参阅 https://imt.netapp.com/matrix/imt.jsp?components=121074;&solution=1257&isHWU&src=IMT#welcome["NetApp 互操作性表工具"^] 。
+
+
+
+| Microsoft SQL Server 版本  a| 
+VMware 虚拟机文件系统 (VMFS) 和 VMware 虚拟机磁盘 (VMDK) NFS 支持 2012 及更高版本。
+
+
+
+| SnapCenter服务器版本  a| 
+如果您要将现有数据从SnapCenter导入BlueXP backup and recovery，则需要SnapCenter Server 5.0 或更高版本。
+
+
+NOTE: 如果您已经拥有SnapCenter，请先检查以确保在从SnapCenter导入之前已满足先决条件。请参阅。 link:concept-start-prereq-snapcenter-import.html["从SnapCenter导入资源的先决条件"]
+
+
+
+| SQL Server 主机上插件的最小 RAM  a| 
+1 GB
+
+
+
+| SQL Server 主机上插件的最小安装和日志空间  a| 
+5 GB
+
+分配足够的磁盘空间，并监控日志文件夹的存储空间消耗。所需的日志空间取决于执行的备份数量和数据保护操作的频率。如果空间不足，则不会为操作创建日志。
+
+
+
+| 所需的软件包  a| 
+* ASP.NET Core Runtime 8.0.12 托管包（以及所有后续 8.0.x 补丁）
+* PowerShell核心7.4.2
+
+
+有关受支持版本的最新信息，请参见 https://imt.netapp.com/matrix/imt.jsp?components=121074;&solution=1257&isHWU&src=IMT#welcome["NetApp 互操作性表工具"^]。
+
+|===

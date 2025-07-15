@@ -1,0 +1,67 @@
+---
+sidebar: sidebar 
+permalink: br-use-manage-kubernetes-applications.html 
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery, snapcenter 
+summary: BlueXP backup and recovery可让您管理工作负载主机信息、数据库信息和实例信息。您可以查看、编辑和删除库存的保护设置。 
+---
+= 管理 Kubernetes 应用程序
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+BlueXP backup and recovery使您能够管理 Kubernetes 应用程序及其相关资源。您可以创建、查看、编辑和删除 Kubernetes 应用程序的保护设置。
+
+.所需的BlueXP角色
+组织管理员或SnapCenter管理员。link:reference-roles.html["了解BlueXP backup and recovery访问角色"] 。  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["了解所有服务的 BlueXP 访问角色"^] 。
+
+
+
+== 编辑 Kubernetes 应用程序
+
+如果与应用程序相关的资源发生了变化，您可以修改现有 Kubernetes 应用程序的设置。
+
+.步骤
+. 在BlueXP backup and recovery中，选择 *Inventory* > *Applications*。
+. 在应用程序列表中，选择要编辑的应用程序并选择相关的操作菜单。
+. 选择 * 编辑 * 。
+. 对应用程序定义进行任何必要的更改，例如名称或包含的资源。
+. 完成后，选择*下一步*。
+. 对保护设置进行任何必要的更改。
+. 完成后，选择*完成*。
+
+
+
+
+== 取消保护 Kubernetes 应用程序
+
+如果您不再需要保护某个应用程序，可以取消保护。取消保护后， BlueXP backup and recovery将停止保护该应用程序，但会保留所有相关的备份和快照，直至其过期。
+
+.步骤
+. 在BlueXP backup and recovery中，选择 *Inventory* > *Applications*。
+. 在应用程序列表中，选择要取消保护的应用程序并选择相关的操作菜单。
+. 选择*取消保护*。
+. 阅读通知，准备好后，选择*取消保护*。
+
+
+
+
+== 删除 Kubernetes 应用程序
+
+如果您不再需要某个应用程序，可以将其删除。删除应用程序后， BlueXP backup and recovery将停止对该应用程序的保护，并且（如果您选择这样做）还会删除所有关联的备份和快照。
+
+.步骤
+. 在BlueXP backup and recovery中，选择 *Inventory* > *Applications*。
+. 在应用程序列表中，选择要删除的应用程序并选择相关的操作菜单。
+. 选择 * 删除 * 。
+. 或者，启用*删除快照和备份*以删除应用程序的所有快照和备份。
++
+
+CAUTION: 如果您这样做，您将无法再使用这些快照和备份恢复应用程序。
+
+. 确认操作并选择*删除*。
+

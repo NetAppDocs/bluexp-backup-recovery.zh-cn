@@ -1,0 +1,100 @@
+---
+sidebar: sidebar 
+permalink: br-start-faq.html 
+keywords: backup and recovery faq, bluexp backup and recovery frequently asked questions 
+summary: 如果您只是想快速了解问题解答，此常见问题解答会很有帮助。 
+---
+= BlueXP backup and recovery的常见问题
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+如果您只是想快速了解问题解答，此常见问题解答会很有帮助。
+
+
+
+== 部署
+
+*您需要许可证才能使用BlueXP备份和恢复预览版吗？*
+
+您可以使用以下许可证类型：
+
+* 注册30天免费试用。
+
+
+*如何启用BlueXP backup and recovery？*BlueXP backup and recovery无需任何启用。备份和恢复选项会在BlueXP左侧导航栏中自动启用。
+
+要开始使用此服务、您需要注册或联系NetApp销售代表、以试用此服务。然后、当您使用BlueXP Connector时、它将包括适用于此服务的功能。
+
+要开始使用BlueXP backup and recovery，请在其初始登录页面上单击“开始发现工作负载”。
+
+* BlueXP backup and recovery是否在标准、受限和私人模式下可用？*目前， BlueXP backup and recovery预览版仅在标准模式下可用。敬请关注更多信息。
+
+有关所有BlueXP  服务中这些模式的说明，请参阅 https://docs.netapp.com/us-en/bluexp-setup-admin/concept-modes.html["BlueXP部署模式"^]。
+
+
+
+== 使用权
+
+* BlueXP backup and recoveryURL 是什么？*对于URL、在浏览器中输入： https://console.bluexp.netapp.com/["https://console.bluexp.netapp.com/backup-and-recovery"^] 以访问BlueXP  控制台。
+
+*如何处理访问权限？*只有组织管理员才能启动服务并发现工作负载(因为这涉及到对资源的使用)。后续交互可由任何角色完成。
+
+*什么设备分辨率是最佳的？*BlueXP backup and recovery的推荐设备分辨率为 1920x1080 或更高。
+
+*我应该使用哪种浏览器？*任何现代浏览器都能正常工作。
+
+
+
+== 与其他服务的交互
+
+* BlueXP backup and recovery是否知道NetApp ONTAP中所做的保护设置？*是的， BlueXP backup and recovery可以发现ONTAP中设置的快照计划。
+
+*如果您使用BlueXP backup and recovery设置策略，那么您是否只需在此服务中进行将来的更改？*我们建议您从BlueXP backup and recovery服务进行策略更改。
+
+
+
+== 工作负载
+
+*工作负载由哪些组成？*工作负载是指 2025 预览版中的应用程序。工作负载包括单个应用程序实例使用的所有卷。例如，部署在 mssql3.host.com 上的 Microsoft SQL Server 数据库实例可以分别使用 vol1 和 vol2 来存储其数据和日志。这些卷共同构成了该数据库实例的工作负载。
+
+* BlueXP backup and recovery支持哪些工作负载？*
+
+对于预览版 2025， BlueXP backup and recovery可以识别以下工作负载：Microsoft SQL Server 应用程序。
+
+*什么是"受保护"工作负载？*在BlueXP backup and recovery中，当启用主要检测策略时，工作负载将显示“受保护”状态。
+
+*什么是"面临风险"的工作负载？*如果工作负载未启用主检测策略、则即使启用了备份和快照策略、它也会处于"风险"状态。
+
+*添加了新的工作负载，但尚未出现* 如果您向环境中添加了新的工作负载，请再次启动发现并应用保护策略来保护该新资源。
+
+
+
+== 保护策略
+
+* BlueXP backup and recovery是否能够识别NetApp ONTAP中的保护设置？*
+
+是的， BlueXP backup and recovery会发现在ONTAP中设置的快照计划以及在发现的工作负载中是否启用了 ARP 和 FPolicy。您最初在信息板中看到的信息是从其他NetApp解决方案和产品中汇总的。
+
+* BlueXP backup and recovery是否知道SnapCenter中已经制定的策略？*
+
+是的，如果您在SnapCenter中管理工作负载，则这些产品管理的策略将被纳入BlueXP backup and recovery。
+
+*您可以修改从SnapCenter继承的策略吗？*
+
+是的，您可以修改BlueXP backup and recovery中由SnapCenter管理的策略。
+
+*如果ONTAP中存在策略（已在系统管理器中启用，例如 ARP、FPolicy 和快照），那么这些策略是否会在BlueXP backup and recovery中发生变化？*
+
+不会。BlueXPBlueXP backup and recovery不会修改ONTAP的任何现有检测策略（ARP、FPolicy 设置）。
+
+*注册BlueXP backup and recovery后，如果在SnapCenter中添加新策略会发生什么情况？*
+
+BlueXP backup and recovery可识别在SnapCenter中创建的任何新策略。
+
+*是否可以从ONTAP更改策略？*
+
+是的，您可以在BlueXP backup and recovery中更改ONTAP策略。您还可以在BlueXP backup and recovery中创建新策略并将其应用于工作负载。此操作会将现有ONTAP策略替换为在BlueXP backup and recovery中创建的策略。

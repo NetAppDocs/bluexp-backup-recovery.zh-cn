@@ -1,0 +1,233 @@
+---
+sidebar: sidebar 
+permalink: br-use-mssql-backup.html 
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery 
+summary: 将 Microsoft SQL Server 应用程序数据从本地ONTAP系统备份到 Amazon Web Services、Microsoft Azure、Google Cloud Platform 和StorageGRID ，确保您的数据受到保护。备份会自动生成并存储在公有 或私有云帐户的对象存储中。您可以实施 3-2-1 策略，即在 2 个不同的存储系统上保留 3 个源数据副本，并在云端保留 1 个副本。 
+---
+= 使用BlueXP backup and recoveryMicrosoft SQL Server 工作负载
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+将 Microsoft SQL Server 应用程序数据从本地ONTAP系统备份到 Amazon Web Services、Microsoft Azure 和StorageGRID ，以确保您的数据受到保护。备份会自动生成并存储在公有 或私有云帐户的对象存储中。
+
+* 要按计划备份工作负载，请创建管理备份和还原操作的策略。有关说明、请参见。 link:br-use-policies-create.html["创建策略"]
+* 在启动备份之前配置已发现主机的日志目录。
+* 立即备份工作负载（立即创建按需备份）。
+
+
+
+
+== 查看工作负载保护状态
+
+在启动备份之前，请查看工作负载的保护状态。
+
+*必需的BlueXP角色* 组织管理员、文件夹或项目管理员、备份和恢复超级管理员、备份和恢复备份管理员、备份和恢复恢复管理员、备份和恢复克隆管理员或备份和恢复查看者角色。了解link:reference-roles.html["备份和恢复角色和权限"] 。  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["了解所有服务的 BlueXP 访问角色"^] 。
+
+.步骤
+. 从BlueXP backup and recovery菜单中，选择 *Inventory*。
++
+image:screen-br-inventory.png["BlueXP backup and recovery的库存屏幕截图"]
+
+. 选择一个工作负载来查看保护详情。
+. 选择“操作”图标image:../media/icon-action.png["操作选项"] > *查看详情*。
++
+image:screen-br-inventory-sql.png["BlueXP backup and recovery的库存详情页面截图"]
+
+. 查看主机、保护组、可用性组、实例和数据库选项卡上的详细信息。
+
+
+
+
+== 管理主机
+
+您可以管理在工作环境中发现的主机。您可以单独管理它们，也可以将它们作为组进行管理。
+
+
+TIP: 您只能管理“主机”列中显示“未管理”状态的主机。如果状态为“已管理”，则表示该主机已由BlueXP backup and recovery管理。
+
+在您管理BlueXP backup and recovery中的主机后， SnapCenter不再管理这些主机上的资源。
+
+*所需的BlueXP角色* 组织管理员、文件夹或项目管理员，或备份和恢复超级管理员。  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["了解所有服务的 BlueXP 访问角色"^] 。
+
+.步骤
+. 从菜单中选择*库存*。
++
+image:screen-br-inventory.png["BlueXP backup and recovery的库存屏幕截图"]
+
+. 选择一个工作负载来查看保护详情。
+. 选择“操作”图标image:../media/icon-action.png["操作选项"] > *查看详情*。
++
+image:screen-br-inventory-sql.png["BlueXP backup and recovery的库存详情页面截图"]
+
+. 选择“*主机*”选项卡。
+. 选择一个或多个主机。如果选择多个主机，将出现“批量操作”选项，您可以在其中选择“管理（最多 5 个主机）”。
+. 选择“操作”图标image:../media/icon-action.png["操作选项"] > *管理*。
++
+image:screen-br-inventory-details-manage-hosts.png["管理主机页面"]
+
+. 查看主机依赖关系：
++
+** 如果未显示 vCenter，请选择铅笔图标来添加或编辑 vCenter 详细信息。
+** 如果您添加了 vCenter，您还必须通过选择“注册 vCenter”来注册 vCenter。
+
+
+. 选择*验证设置*来测试您的设置。
+. 选择*管理*来管理主机。
+
+
+
+
+== 配置发现主机的日志目录
+
+在备份工作负载之前，请设置已发现主机的活动日志路径。这有助于您跟踪操作状态。
+
+*必需的BlueXP角色* 组织管理员、文件夹或项目管理员、备份和恢复超级管理员、备份和恢复备份管理员或备份和恢复恢复管理员角色。  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["了解所有服务的 BlueXP 访问角色"^] 。
+
+.步骤
+. 从BlueXP backup and recovery菜单中，选择 *Inventory*。
++
+image:screen-br-inventory.png["BlueXP backup and recovery的库存屏幕截图"]
+
+. 选择一个工作负载来查看保护详情。
+. 选择“操作”图标image:../media/icon-action.png["操作选项"] > *查看详情*。
+. 选择一个主机。
+. 选择“操作”图标image:../media/icon-action.png["操作选项"] > *配置日志目录*。
++
+image:screen-br-inventory-details-configurelog-option.png["配置日志屏幕"]
+
+. 提供主机路径或浏览主机或主机上的节点主机列表以找到您想要存储主机日志的位置。
+. 选择您想要存储日志的那些。
++
+
+NOTE: 显示的字段根据所选的部署模型而有所不同，例如故障转移群集实例或独立实例。
+
+. 选择 * 保存 * 。
+
+
+
+
+== 创建保护组
+
+您可以创建保护组来管理一组工作负载的备份和还原操作。保护组是您想要一起保护的工作负载的逻辑分组。
+
+*必需的BlueXP角色* 组织管理员、文件夹或项目管理员、备份和恢复超级管理员或备份和恢复备份管理员角色。  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["了解所有服务的 BlueXP 访问角色"^] 。
+
+.步骤
+. 从BlueXP backup and recovery菜单中，选择 *Inventory*。
++
+image:screen-br-inventory.png["BlueXP backup and recovery的库存屏幕截图"]
+
+. 选择一个工作负载来查看保护详情。
+. 选择“操作”图标image:../media/icon-action.png["操作选项"] > *查看详情*。
+. 选择“*保护组*”选项卡。
+. 选择*创建保护组*。
+. 为保护组提供一个名称。
+. 选择要包含在保护组中的实例或数据库。
+. 选择 * 下一步 * 。
+. 选择要应用于保护组的“备份策略”。
++
+如果要创建策略，请选择*创建新策略*并按照提示创建策略。有关详细信息、请参见 link:br-use-policies-create.html["创建策略"] 。
+
+. 选择 * 下一步 * 。
+. 检查配置。
+. 选择“*创建*”来创建保护组。
+
+
+
+
+== 立即使用按需备份来备份工作负载
+
+立即创建按需备份。如果你即将更改系统，并且希望确保在开始之前已备份，则可能需要运行按需备份。
+
+*必需的BlueXP角色* 组织管理员、文件夹或项目管理员、备份和恢复超级管理员或备份和恢复备份管理员角色。  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["了解所有服务的 BlueXP 访问角色"^] 。
+
+.步骤
+. 从菜单中选择*库存*。
++
+image:screen-br-inventory.png["BlueXP backup and recovery的库存屏幕截图"]
+
+. 选择一个工作负载来查看保护详情。
+. 选择“操作”图标image:../media/icon-action.png["操作选项"] > *查看详情*。
+. 选择“*保护组*”、“*实例*”或“*数据库*”选项卡。
+. 选择要备份的实例或数据库。
+. 选择“操作”图标image:../media/icon-action.png["操作选项"] > *立即备份*。
+. 选择要应用于备份的策略。
+. 选择计划层级。
+. 选择*立即备份*。
+
+
+
+
+== 暂停备份计划
+
+暂停计划会暂时阻止备份在计划的时间运行。如果您正在对系统进行维护，或者备份遇到问题，则可能需要执行此操作。
+
+*所需的BlueXP角色* 组织管理员、文件夹或项目管理员、备份和恢复超级管理员、备份和恢复备份管理员、备份和恢复恢复管理员或备份和恢复克隆管理员角色。  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["了解所有服务的 BlueXP 访问角色"^] 。
+
+.步骤
+. 从BlueXP backup and recovery菜单中，选择 *Inventory*。
++
+image:screen-br-inventory.png["BlueXP backup and recovery的库存屏幕截图"]
+
+. 选择一个工作负载来查看保护详情。
+. 选择“操作”图标image:../media/icon-action.png["操作选项"] > *查看详情*。
+. 选择“*保护组*”、“*实例*”或“*数据库*”选项卡。
+. 选择要暂停的保护组、实例或数据库。
++
+image:../media/screen-br-inventory-sql-details-actions-menu.png["BlueXP backup and recovery的操作菜单屏幕截图"]
+
+. 选择“操作”图标image:../media/icon-action.png["操作选项"] > *暂停*。
+
+
+
+
+== 删除保护组
+
+您可以创建保护组来管理一组工作负载的备份和还原操作。保护组是您想要一起保护的工作负载的逻辑分组。
+
+*必需的BlueXP角色* 组织管理员、文件夹或项目管理员、备份和恢复超级管理员或备份和恢复备份管理员角色。  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["了解所有服务的 BlueXP 访问角色"^] 。
+
+.步骤
+. 从BlueXP backup and recovery菜单中，选择 *Inventory*。
++
+image:screen-br-inventory.png["BlueXP backup and recovery的库存屏幕截图"]
+
+. 选择一个工作负载来查看保护详情。
+. 选择“操作”图标image:../media/icon-action.png["操作选项"] > *查看详情*。
+. 选择“*保护组*”选项卡。
+. 选择“操作”图标image:../media/icon-action.png["操作选项"] > *删除保护组*。
++
+image:../media/screen-br-inventory-sql-details-actions-menu.png["BlueXP backup and recovery的操作菜单屏幕截图"]
+
+
+
+
+
+== 删除工作负载的保护
+
+如果您不再想要备份某个工作负载或者想要停止在BlueXP backup and recovery中管理它，则可以从该工作负载中删除保护。
+
+*必需的BlueXP角色* 组织管理员、文件夹或项目管理员、备份和恢复超级管理员或备份和恢复备份管理员角色。  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["了解所有服务的 BlueXP 访问角色"^] 。
+
+.步骤
+. 从BlueXP backup and recovery菜单中，选择 *Inventory*。
++
+image:screen-br-inventory.png["BlueXP backup and recovery的库存屏幕截图"]
+
+. 选择一个工作负载来查看保护详情。
+. 选择“操作”图标image:../media/icon-action.png["操作选项"] > *查看详情*。
+. 选择“*保护组*”、“*实例*”或“*数据库*”选项卡。
+. 选择保护组、实例或数据库。
++
+image:../media/screen-br-inventory-sql-details-actions-menu.png["BlueXP backup and recovery的操作菜单屏幕截图"]
+
+. 选择“操作”图标image:../media/icon-action.png["操作选项"] > *移除保护*。
+. 在“删除保护”对话框中，选择是否要保留备份和元数据或删除它们。
+. 选择“*删除*”以确认操作。
+

@@ -1,0 +1,287 @@
+---
+sidebar: sidebar 
+permalink: reference-roles.html 
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, virtual machines, backup and recovery, roles, permissions, access control, role-based access control, rbac 
+summary: BlueXP backup and recovery使用角色来管理每个用户对特定功能和操作的访问权限 
+---
+= BlueXP backup and recovery基于角色的访问功能
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+BlueXP backup and recovery采用角色来管理每个用户对特定功能和操作的访问权限。
+
+该服务使用特定于BlueXP backup and recovery的以下角色。
+
+* *备份和恢复超级管理员*：在BlueXP backup and recovery中执行任何操作。
+* *备份管理*：在BlueXP backup and recovery中执行备份到本地快照、复制到二级存储以及备份到对象存储的操作。
+* *恢复管理员*：使用BlueXP backup and recovery恢复工作负载。
+* *克隆管理员*：使用BlueXP backup and recovery克隆应用程序和数据。
+* *备份和恢复查看器*：查看BlueXP backup and recovery中的信息，但不执行任何操作。
+
+
+有关所有BlueXP访问角色的详细信息，请参阅 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["BlueXP  设置和管理文档"^] 。
+
+下表列出了每个BlueXP backup and recovery角色可以执行的操作。
+
+[cols="20,20,15,15a,15a,15a"]
+|===
+| 功能和操作 | 备份和恢复超级管理员 | 备份管理员 | 恢复管理员 | 克隆管理员 | 查看器 
+
+
+| 添加、编辑或删除主机 | 是的。 | 否  a| 
+否
+ a| 
+否
+ a| 
+否
+
+
+
+| 安装插件 | 是的。 | 否  a| 
+否
+ a| 
+否
+ a| 
+否
+
+
+
+| 添加凭据（主机、实例、vCenter） | 是的。 | 否  a| 
+否
+ a| 
+否
+ a| 
+否
+
+
+
+| 查看信息板和所有选项卡 | 是的。 | 是的。  a| 
+是的。
+ a| 
+是的。
+ a| 
+是的。
+
+
+
+| 开始免费试用 | 是的。 | 否  a| 
+否
+ a| 
+否
+ a| 
+否
+
+
+
+| 启动工作负载发现 | 否 | 是的。  a| 
+是的。
+ a| 
+是的。
+ a| 
+否
+
+
+
+| 查看许可证信息 | 是的。 | 是的。  a| 
+是的。
+ a| 
+是的。
+ a| 
+是的。
+
+
+
+| 激活许可证 | 是的。 | 否  a| 
+否
+ a| 
+否
+ a| 
+否
+
+
+
+| 查看主机 | 是的。 | 是的。  a| 
+是的。
+ a| 
+是的。
+ a| 
+是的。
+
+
+
+6+| *时间表*: 
+
+
+| 激活计划 | 是的。 | 是的。  a| 
+是的。
+ a| 
+是的。
+ a| 
+否
+
+
+
+| 暂停时间表 | 是的。 | 是的。  a| 
+是的。
+ a| 
+是的。
+ a| 
+否
+
+
+
+6+| *政策与保护*： 
+
+
+| 查看保护计划 | 是的。 | 是的。  a| 
+是的。
+ a| 
+是的。
+ a| 
+是的。
+
+
+
+| 创建、修改或删除保护 | 是的。 | 是的。  a| 
+否
+ a| 
+否
+ a| 
+否
+
+
+
+| 恢复工作负载 | 是的。 | 否  a| 
+是的。
+ a| 
+否
+ a| 
+否
+
+
+
+| 创建克隆、分裂克隆或删除克隆 | 是的。 | 否  a| 
+否
+ a| 
+是的。
+ a| 
+否
+
+
+
+| 创建、修改或删除策略 | 是的。 | 是的。  a| 
+否
+ a| 
+否
+ a| 
+否
+
+
+
+6+| *报告*： 
+
+
+| 查看报告 | 是的。 | 是的。  a| 
+是的。
+ a| 
+是的。
+ a| 
+是的。
+
+
+
+| 创建报告 | 是的。 | 是的。  a| 
+是的。
+ a| 
+是的。
+ a| 
+否
+
+
+
+| 删除报告 | 是的。 | 否  a| 
+否
+ a| 
+否
+ a| 
+否
+
+
+
+6+| *从SnapCenter导入并管理主机*： 
+
+
+| 查看导入的SnapCenter数据 | 是的。 | 是的。  a| 
+是的。
+ a| 
+是的。
+ a| 
+是的。
+
+
+
+| 从SnapCenter导入数据 | 是的。 | 是的。  a| 
+否
+ a| 
+否
+ a| 
+否
+
+
+
+| 管理（迁移）主机 | 是的。 | 是的。  a| 
+否
+ a| 
+否
+ a| 
+否
+
+
+
+6+| *配置设置*： 
+
+
+| 配置日志目录 | 是的。 | 是的。  a| 
+是的。
+ a| 
+否
+ a| 
+否
+
+
+
+| 关联或删除实例凭证 | 是的。 | 是的。  a| 
+是的。
+ a| 
+否
+ a| 
+否
+
+
+
+6+| *桶*： 
+
+
+| 查看存储分段 | 是的。 | 是的。  a| 
+是的。
+ a| 
+是的。
+ a| 
+是的。
+
+
+
+| 创建、编辑或删除存储桶 | 是的。 | 是的。  a| 
+否
+ a| 
+否
+ a| 
+否
+
+|===

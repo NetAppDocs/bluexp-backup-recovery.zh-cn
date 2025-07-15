@@ -1,0 +1,170 @@
+---
+sidebar: sidebar 
+permalink: concept-start-prereq-snapcenter-import.html 
+keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, backup and recovery, snapcenter, import, migration, migrate 
+summary: 验证您的运行环境、 BlueXP连接器和BlueXP帐户是否已准备就绪，即可开始使用BlueXP backup and recovery。要使用BlueXP backup and recovery，您需要满足以下先决条件。 
+---
+= 如果从SnapCenter导入BlueXP backup and recovery，请配置其他项目
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+如果您要将资源从SnapCenter导入BlueXP backup and recovery，则需要配置更多项目。
+
+
+
+== 确保安装SnapCenter插件的主机要求
+
+要从SnapCenter导入资源，请确保满足安装 Microsoft SQL Server 的SnapCenter插件的主机要求。
+
+专门检查SnapCenter要求link:concept-start-prereq.html["BlueXP backup and recovery先决条件"] 。
+
+
+
+== 禁用用户帐户控制远程限制
+
+从SnapCenter导入资源之前，请禁用SnapCenter Windows 主机上的用户帐户控制 (UAC) 远程限制。如果您使用本地管理帐户远程连接到SnapCenter服务器主机或 SQL 主机，请禁用 UAC。
+
+*安全考虑*
+
+在禁用 UAC 远程限制之前，请考虑以下问题：
+
+* 安全风险：禁用令牌过滤可能会使您的系统面临安全漏洞，尤其是在本地管理帐户被恶意行为者破坏的情况下。
+* 谨慎使用：
++
+** 仅当该设置对于您的管理任务至关重要时才修改它。
+** 确保采用强密码和其他安全措施来保护管理帐户。
+
+
+
+
+*替代解决方案*
+
+* 如果需要远程管理访问，请考虑使用具有适当权限的域帐户。
+* 使用符合最佳安全实践的安全远程管理工具来最大限度地降低风险。
+
+
+.禁用用户帐户控制远程限制的步骤
+. 修改 `LocalAccountTokenFilterPolicy` SnapCenter Windows 主机上的注册表项。
++
+使用下列方法之一执行此操作，并按照下面的说明进行操作：
+
++
+** 方法 1：注册表编辑器
+** 方法 2：PowerShell 脚本
+
+
+
+
+
+
+=== 方法 1：使用注册表编辑器禁用用户帐户控制
+
+这是您可以用来禁用用户帐户控制的方法之一。
+
+.步骤
+. 通过执行以下操作，在SnapCenter Windows 主机上打开注册表编辑器：
++
+.. 按 `Windows+R`打开运行对话框。
+.. 类型 `regedit`并按 `Enter` 。
+
+
+. 导航至策略密钥：
++
+`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System`
+
+. 创建或修改 `DWORD`价值：
++
+.. 定位：  `LocalAccountTokenFilterPolicy`
+.. 如果不存在，则创建一个新的 `DWORD` （32 位）值命名 `LocalAccountTokenFilterPolicy` 。
+
+
+. 支持以下值。对于此场景，请将值设置为 `1` ：
++
+** `0` （默认）：启用 UAC 远程限制。本地帐户在远程访问时已过滤令牌。
+** `1` ：UAC 远程限制已禁用。本地帐户绕过令牌过滤，并在远程访问时拥有完全的管理权限。
+
+
+. 单击 * 确定 * 。
+. 关闭注册表编辑器。
+. 重新启动SnapCenter Windows 主机。
+
+
+.注册表修改示例
+此示例将 LocalAccountTokenFilterPolicy 设置为“1”，禁用 UAC 远程限制。
+
+[listing]
+----
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
+
+"LocalAccountTokenFilterPolicy"=dword:00000001
+----
+
+
+=== 方法 2：使用 PowerShell 脚本禁用用户帐户控制
+
+这是您可以用来禁用用户帐户控制的另一种方法。
+
+
+CAUTION: 使用提升权限运行 PowerShell 命令可能会影响系统设置。请确保在运行这些命令之前了解它们及其含义。
+
+.步骤
+. 在SnapCenter Windows 主机上打开具有管理权限的 PowerShell 窗口：
++
+.. 单击“*开始*”菜单。
+.. 搜索 *PowerShell 7* 或 *Windows Powershell*。
+.. 右键单击该选项并选择*以管理员身份运行*。
+
+
+. 确保系统上已安装 PowerShell。安装后，它应该出现在“开始”菜单中。
++
+
+TIP: Windows 7 及更高版本默认包含 PowerShell。
+
+. 要禁用 UAC 远程限制，请通过运行以下命令将 LocalAccountTokenFilterPolicy 设置为“1”：
++
+[listing]
+----
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "LocalAccountTokenFilterPolicy" -Value 1 -Type DWord
+----
+. 验证当前值是否设置为“1”  `LocalAccountTokenFilterPolicy``通过运行：
++
+[listing]
+----
+Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "LocalAccountTokenFilterPolicy"
+----
++
+** 如果值为 1，则禁用 UAC 远程限制。
+** 如果值为 0，则启用 UAC 远程限制。
+
+
+. 要应用更改，请重新启动计算机。
+
+
+.禁用 UAC 远程限制的 PowerShell 7 命令示例：
+此示例中的值设置为“1”，表示 UAC 远程限制被禁用。
+
+[listing]
+----
+# Disable UAC remote restrictions
+
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "LocalAccountTokenFilterPolicy" -Value 1 -Type DWord
+
+# Verify the change
+
+Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "LocalAccountTokenFilterPolicy"
+
+# Output
+
+LocalAccountTokenFilterPolicy : 1
+----
+
+
+== 首先在BlueXP Canvas 中创建工作环境
+
+如果要从SnapCenter导入资源，则应先在BlueXP Canvas 中为所有本地SnapCenter集群存储创建工作环境，然后再从SnapCenter导入。这可确保能够正确发现和导入主机资源。

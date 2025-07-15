@@ -1,0 +1,115 @@
+---
+sidebar: sidebar 
+permalink: prev-vmware-manage.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: 使用NetApp BlueXP backup and recovery保护您的 VMware 工作负载。 
+---
+= 管理BlueXP backup and recovery中的数据存储和虚拟机的保护
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以在使用 BlueXP 备份和恢复备份和还原数据之前查看策略、数据存储和虚拟机。根据数据库、策略或资源组的变化、您可以从BlueXP用户界面查看更新。
+
+[]
+====
+*注意* 要切换到BlueXP backup and recovery工作负载，请参阅link:br-start-switch-ui.html["切换到不同的BlueXP backup and recovery工作负载"] 。
+
+====
+
+
+== 查看策略
+
+您可以查看所有默认预制策略。对于其中每个策略、在查看详细信息时、将列出所有关联的策略和虚拟机。
+
+. 在BlueXP UI 中，选择 *保护* > *备份和恢复* > *虚拟机*。
+. 从“*设置*”下拉菜单中，选择“*策略*”。
+. 选择您想要查看其详细信息的策略对应的“查看详细信息”*。
+
+
+此时将列出关联的策略和虚拟机。
+
+
+
+== 查看数据存储库和虚拟机
+
+此时将显示使用适用于VMware vSphere的已注册SnapCenter 插件主机保护的数据存储库和虚拟机。
+
+.步骤
+. 在BlueXP UI 中，选择 *保护* > *备份和恢复* > *虚拟机* > *设置* > *SnapCenter Plug-in for VMware vSphere*。
+. 选择要查看其数据存储区和虚拟机的适用SnapCenter Plug-in for VMware vSphere。
+
+
+
+
+== 取消数据存储库保护
+
+您可以取消保护先前已受保护的数据存储库。如果您要删除云备份或不再想将数据存储库备份到云、则可以取消数据存储库保护。成功取消保护后、可以重新保护此数据存储库。
+
+.步骤
+. 在BlueXP UI 中，选择 *保护* > *备份和恢复* > *虚拟机*。
+. 选择“操作”图标image:icon-action.png["Action"]对应于您要取消保护的数据存储，然后选择*取消保护*。
+
+
+
+
+== 编辑适用于VMware vSphere的SnapCenter 插件实例
+
+您可以在BlueXP中编辑适用于VMware vSphere的SnapCenter 插件主机的详细信息。
+
+.步骤
+. 在BlueXP UI 中，选择 *保护* > *备份和恢复* > *虚拟机* > *设置* > *SnapCenter Plug-in for VMware vSphere*。
+. 选择“操作”图标image:icon-action.png["Action"]并选择*编辑*。
+. 根据需要修改详细信息。
+. 选择 * 保存 * 。
+
+
+
+
+== 刷新资源和备份
+
+如果要查看已添加到应用程序中的最新数据存储库和备份、则应刷新资源和备份。此时将开始发现资源和备份、并显示最新详细信息。
+
+. 选择“备份和恢复”>“虚拟机”。
+. 从“*设置*”下拉菜单中，选择“SnapCenter Plug-in for VMware vSphere*”。
+. 选择“操作”图标image:icon-action.png["Action"]对应于SnapCenter Plug-in for VMware vSphere，然后选择*刷新资源和备份*。
+
+
+
+
+== 刷新策略或资源组
+
+如果策略或资源组发生更改、则应刷新保护关系。
+
+. 选择“备份和恢复”>“虚拟机”。
+. 选择“操作”图标image:icon-action.png["Action"]对应于数据存储并选择*刷新保护*。
+
+
+
+
+== 取消注册适用于VMware vSphere的SnapCenter插件主机
+
+与适用于VMware vSphere的SnapCenter插件主机关联的所有数据存储库和虚拟机都将不受保护。
+
+. 选择“备份和恢复”>“虚拟机”。
+. 从“*设置*”下拉菜单中，选择“SnapCenter Plug-in for VMware vSphere*”。
+. 选择“操作”图标image:icon-action.png["Action"]对应于SnapCenter Plug-in for VMware vSphere并选择*取消注册*。
+
+
+
+
+== 监控作业
+
+系统会为所有BlueXP备份和恢复操作创建作业。您可以监控在每个任务中执行的所有作业和所有子任务。
+
+. 选择*备份和恢复*>*作业监控*。
++
+启动操作时，将显示一个窗口，指出作业已启动。您可以选择链接来监控该作业。
+
+. 选择主要任务来查看子任务以及每个子任务的状态。
+

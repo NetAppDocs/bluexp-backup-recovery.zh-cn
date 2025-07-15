@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: prev-vmware-prereqs.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: 使用NetApp BlueXP backup and recovery保护您的 VMware 工作负载。 
+---
+= BlueXP backup and recovery中虚拟机工作负载的先决条件
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在开始使用BlueXP backup and recovery保护虚拟机工作负载之前，请确保满足以下先决条件：
+
+* 适用于VMware vSphere 4.6P1或更高版本的SnapCenter 插件
++
+** 您应使用适用于VMware vSphere 4.7P1或更高版本的SnapCenter 插件从内部二级存储备份数据存储库。
+
+
+* ONTAP 9.8 或更高版本
+* BlueXP
+* 支持NFS和VMFS数据存储库。不支持此类卷。
+* 为了支持 VMFS，SnapCenter Plug-in for VMware vSphere应在 4.9 或更高版本上运行。如果适用于VMware vSphere的SnapCenter插件主机已从早期版本升级到4.9版、请确保对VMFS数据存储库进行备份。
+* 适用于VMware vSphere 4.6P1的SnapCenter 插件应至少已创建一个备份。
+* 适用于VMware vSphere的SnapCenter 插件中至少有一个每日、每周或每月策略、没有与BlueXP中虚拟机策略相同的标签。
+* 对于预制策略、适用于VMware vSphere的SnapCenter 插件和云中的数据存储库的计划层应相同。
+* 确保数据存储库中没有FlexGroup 卷、因为不支持备份和还原FlexGroup 卷。
+* 在所需资源组上禁用"*近期*"。如果为资源组启用了"*近期*"、则这些资源组的备份不能用于云数据保护、因此无法用于还原操作。
+* 确保要还原虚拟机的目标数据存储库具有足够的空间来容纳所有虚拟机文件的副本、例如VMDK、VMx、VMSD等。
+* 确保目标数据存储库不包含先前还原操作失败时格式为restore_xxx.xxxxxx_filename的陈旧虚拟机文件。在触发还原操作之前、您应删除陈旧的文件。
+* 要部署配置了代理的连接器、请确保所有传出连接器呼叫都通过代理服务器进行路由。
+* 如果备份数据存储库的卷已通过卷选项卡(BlueXP  备份和恢复->卷)进行保护、则无法通过虚拟机选项卡(BlueXP  备份和恢复->虚拟机)再次保护同一数据存储库。
+
+
+下图显示了每个组件以及需要在它们之间准备的连接：
+
+image:cloud_backup_vm.png["架构图"]

@@ -1,0 +1,51 @@
+---
+sidebar: sidebar 
+permalink: prev-reference-gcp-archive-storage-tiers.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database 
+summary: BlueXP备份和恢复支持一个Google归档存储类以及大多数地区。 
+---
+= 通过BlueXP backup and recovery支持 Google 存档存储层
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+BlueXP备份和恢复支持一个Google归档存储类以及大多数地区。
+
+[]
+====
+*注意* 要切换到BlueXP backup and recoveryUI 版本，请参阅link:br-start-switch-ui.html["切换到以前的BlueXP backup and recoveryUI"] 。
+
+====
+
+
+== 支持用于BlueXP备份和恢复的Google归档存储类
+
+首次创建备份文件时、这些备份文件会存储在_Standard_存储中。此层已针对存储不常访问的数据进行了优化，但也允许您立即访问。
+
+如果您的内部集群使用的是ONTAP 9.12.1或更高版本、您可以选择在一定天数(通常超过30天)后、在BlueXP备份和恢复UI中将较早的备份分层到_Archive_存储、以进一步优化成本。此层中的数据需要较高的检索成本、因此您需要考虑从这些归档备份文件还原数据的频率。请参见此页面上有关从归档存储还原数据的章节。
+
+请注意、在使用此类生命周期规则配置BlueXP备份和恢复时、在Google帐户中设置存储分段时不得配置任何生命周期规则。
+
+https://cloud.google.com/storage/docs/storage-classes["了解Google存储类"^]。
+
+
+
+== 从归档存储还原数据
+
+虽然将旧备份文件存储在归档存储中的成本要比标准存储低得多、但从归档存储中的备份文件访问数据以执行还原操作将需要稍长的时间、并会花费更多的资金。
+
+从Google Archive还原数据的成本是多少？:: 有关按区域列出的Google Cloud Storage详细定价、请访问 https://cloud.google.com/storage/pricing["Google Cloud Storage定价页面"^]。
+还原在Google Archive中归档的对象需要多长时间？:: 总还原时间由两部分组成：
++
+--
+* *检索时间*：从归档中检索备份文件并将其置于标准存储中的时间。这有时称为 " 再融合 " 时间。与其他云提供商提供的"最冷"存储解决方案不同、您可以在几毫秒内访问数据。
+* * 还原时间 * ：从标准存储中的备份文件还原数据的时间。此时间与直接从标准存储执行的典型还原操作并无不同，因为此时不使用归档层。
+
+
+--
+
