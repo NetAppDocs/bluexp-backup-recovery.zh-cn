@@ -20,10 +20,3 @@ summary: 您可以保护从本地ONTAP系统到 Amazon Web Services、Microsoft 
 NOTE: 本文档以技术预览形式提供。在预览期间，不建议将 Kubernetes 功能用于生产工作负载。对于此预览版产品、NetApp保留在正式发布之前修改产品详细信息、内容和时间表的权利。
 
 您可以完成与管理 Kubernetes 工作负载相关的以下任务：
-
-* link:br-start-discover.html#discover-kubernetes-workloads["发现 Kubernetes 工作负载"](英文)
-* link:br-use-manage-kubernetes-clusters.html["管理 Kubernetes 集群"](英文)
-* link:br-use-protect-kubernetes-applications.html["添加和保护 Kubernetes 应用程序"](英文)
-* link:br-use-manage-kubernetes-applications.html["管理 Kubernetes 应用程序"](英文)
-* link:br-use-restore-kubernetes-applications.html["恢复 Kubernetes 应用程序"](英文)
-

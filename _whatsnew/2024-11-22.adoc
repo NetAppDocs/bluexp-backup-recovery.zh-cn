@@ -8,7 +8,7 @@
 
 现在、BlueXP  备份和恢复可以备份使用SnapLock Compliance或SnapLock Enterprise保护模式配置的FlexVol和FlexGroup内部卷。要获得此支持、集群必须运行ONTAP 9.14或更高版本。从ONTAP 9.11.1版开始、支持使用SnapLock企业模式备份FlexVol卷。早期版本的ONTAP不支持备份SnapLock保护卷。
 
-请参见中支持的卷的完整列表 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-ontap-backup-to-cloud.html["了解有关BlueXP备份和恢复的信息"]。
+请参见中支持的卷的完整列表 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["了解有关BlueXP备份和恢复的信息"]。
 
 
 

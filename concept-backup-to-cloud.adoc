@@ -249,11 +249,11 @@ endif::gcp[]
 
 
 
-=== 备份副本与您的 NetApp 帐户关联
+=== 备份副本与您的BlueXP组织相关联
 
-备份副本与 https://docs.netapp.com/us-en/bluexp-setup-admin/concept-netapp-accounts.html["BlueXP帐户"^] BlueXP连接器所在的位置。
+备份副本与BlueXP Connector 所在的BlueXP组织相关联。  https://docs.netapp.com/us-en/bluexp-setup-admin/concept-identity-and-access-management.html["了解BlueXP  身份和访问管理"^] 。
 
-如果同一个BlueXP帐户中有多个连接器，则每个连接器都会显示相同的备份列表。
+如果同一个BlueXP组织中有多个连接器，则每个连接器都会显示相同的备份列表。
 
 
 

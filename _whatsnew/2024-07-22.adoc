@@ -14,7 +14,7 @@
 
 DataLock功能可保护备份文件、使其在指定时间段内不会被修改或删除。这有助于保护文件免受勒索软件攻击。
 
-有关DataLock的详细信息以及有关如何降低相关成本的提示，请参见 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-cloud-backup-policies.html["备份到对象策略设置"]。
+有关DataLock的详细信息以及有关如何降低相关成本的提示，请参见 https://docs.netapp.com/us-en/bluexp-backup-recovery/prev-ontap-policy-object-options.html["备份到对象策略设置"]。
 
 
 
@@ -26,7 +26,7 @@ DataLock功能可保护备份文件、使其在指定时间段内不会被修改
 
 ifdef::aws[]
 
-这适用于link:task-backup-to-s3.html["将Cloud Volumes ONTAP备份到AWS"]。这适用于link:task-backup-onprem-to-aws.html["将内部ONTAP数据备份到AWS"]。
+这适用于link:prev-ontap-backup-cvo-aws.html["将Cloud Volumes ONTAP备份到AWS"]。
 
 endif::aws[]
 
@@ -40,6 +40,6 @@ endif::aws[]
 
 在此版本中、对FlexGroup文件夹还原的支持是一项技术预览。
 
-有关详细信息，请参见 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html#restore-ontap-data-using-browse-restore["使用浏览和放大功能还原文件夹和文件；还原"]。
+有关详细信息，请参见 https://docs.netapp.com/us-en/bluexp-backup-recovery/prev-ontap-restore.html["使用浏览和放大功能还原文件夹和文件；还原"]。
 
 有关手动启用的详细信息，请参见 https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-Backup-and-Recovery-July-2024-Release/ba-p/453993["BlueXP备份和恢复2024年7月发布博客"]。

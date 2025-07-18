@@ -15,13 +15,13 @@
 
 索引目录可以跟踪每个卷和备份文件，使您的搜索快速而高效。
 
-有关详细信息，请参见 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html#restore-ontap-data-using-search-restore["如何使用搜索和恢复来恢复ONTAP数据()"]。
+有关详细信息，请参阅 https://docs.netapp.com/us-en/bluexp-backup-recovery/prev-ontap-restore.html["启用搜索和还原索引"]。
 
 
 
 === Azure 专用链接终结点和服务终结点
 
-通常，BlueXP 备份和恢复会与云提供商建立私有端点，以处理各种保护任务。此版本引入了一项可选设置，可让您启用或禁用 BlueXP 备份和恢复自动创建私有端点的功能。如果您希望更好地控制私有端点的创建过程，这项设置可能会对您有所帮助。
+通常， BlueXP backup and recovery会与云提供商建立一个私有端点来处理保护任务。此版本引入了一项可选设置，可让您启用或禁用 BlueXP 备份和恢复自动创建私有端点的功能。如果您希望更好地控制私有端点的创建过程，这项设置可能会对您有所帮助。
 
 您可以在启用保护或开始恢复过程时启用或禁用此选项。
 
@@ -39,4 +39,4 @@
 
 当您在对象存储中为工作环境创建备份文件时，BlueXP 备份和恢复功能会默认在您配置的对象存储帐户中为备份文件创建容器（存储桶或存储帐户）。之前，您可以覆盖此设置，并为 Amazon S3、Azure Blob Storage 和 Google Cloud Storage 指定您自己的容器。在此版本中，您现在可以自带 StorageGRID 对象存储容器。
 
-请参阅。 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-protection-journey.html#do-you-want-to-create-your-own-object-storage-container["创建您自己的对象存储容器"]
+请参阅。 https://docs.netapp.com/us-en/bluexp-backup-recovery/prev-ontap-protect-journey.html["创建您自己的对象存储容器"]

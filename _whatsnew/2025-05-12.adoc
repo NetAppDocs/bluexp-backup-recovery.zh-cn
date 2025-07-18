@@ -12,7 +12,7 @@ SnapMirror到云重新同步功能可简化NetApp环境中卷迁移期间的数�
 
 通过在不同环境之间保持备份连续性、SnapMirror到云重新同步可提高运营效率、并降低混合云和多云数据管理的复杂性。
 
-有关如何执行重新同步操作的详细信息，请参见 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-migrate-volumes-snapmirror-cloud-resync.html["使用SnapMirror迁移卷到云重新同步"]。
+有关如何执行重新同步操作的详细信息，请参见 https://docs.netapp.com/us-en/bluexp-backup-recovery/prev-ontap-migrate-resync.html["使用SnapMirror迁移卷到云重新同步"]。
 
 
 
@@ -40,5 +40,3 @@ IMPORTANT: 此功能不应在生产环境中使用。
 * 入门 *
 
 要开始使用此预览功能、您必须在BlueXP  连接器上启用一个标志。然后、您可以通过在备份部分中选择*第三方兼容*对象存储、在保护工作流中输入您的Minio第三方对象存储的连接详细信息。
-
-有关如何启用预览功能的说明，请参阅 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-preview-enable.html["在BlueXP  备份和恢复中启用预览功能"]。

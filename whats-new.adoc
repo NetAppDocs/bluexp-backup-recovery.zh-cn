@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: whats-new.html 
-keywords: 'what"s new, features, new, release notes, bugs, limitations, known issues, enhancements, fixes, backup, restore, bluexp, bluexp backup and recovery, protection' 
+keywords: 'what"s new, features, new, release notes, bugs, limitations, known issues, enhancements, fixes, backup, restore, bluexp, bluexp backup and recovery, protection, sql server, workloads, volumes, snapshots' 
 summary: 了解BlueXP备份和恢复的新增功能。 
 ---
 = BlueXP 备份和恢复的新功能
@@ -78,13 +78,13 @@ NOTE: 本文档是关于保护微软 SQL SERVER 工作负载的，作为技术�
 
 索引目录可以跟踪每个卷和备份文件，使您的搜索快速而高效。
 
-有关详细信息，请参见 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html#restore-ontap-data-using-search-restore["如何使用搜索和恢复来恢复ONTAP数据()"]。
+有关详细信息，请参阅 https://docs.netapp.com/us-en/bluexp-backup-recovery/prev-ontap-restore.html["启用搜索和还原索引"]。
 
 
 
 === Azure 专用链接终结点和服务终结点
 
-通常，BlueXP 备份和恢复会与云提供商建立私有端点，以处理各种保护任务。此版本引入了一项可选设置，可让您启用或禁用 BlueXP 备份和恢复自动创建私有端点的功能。如果您希望更好地控制私有端点的创建过程，这项设置可能会对您有所帮助。
+通常， BlueXP backup and recovery会与云提供商建立一个私有端点来处理保护任务。此版本引入了一项可选设置，可让您启用或禁用 BlueXP 备份和恢复自动创建私有端点的功能。如果您希望更好地控制私有端点的创建过程，这项设置可能会对您有所帮助。
 
 您可以在启用保护或开始恢复过程时启用或禁用此选项。
 
@@ -102,7 +102,7 @@ NOTE: 本文档是关于保护微软 SQL SERVER 工作负载的，作为技术�
 
 当您在对象存储中为工作环境创建备份文件时，BlueXP 备份和恢复功能会默认在您配置的对象存储帐户中为备份文件创建容器（存储桶或存储帐户）。之前，您可以覆盖此设置，并为 Amazon S3、Azure Blob Storage 和 Google Cloud Storage 指定您自己的容器。在此版本中，您现在可以自带 StorageGRID 对象存储容器。
 
-请参阅。 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-protection-journey.html#do-you-want-to-create-your-own-object-storage-container["创建您自己的对象存储容器"]
+请参阅。 https://docs.netapp.com/us-en/bluexp-backup-recovery/prev-ontap-protect-journey.html["创建您自己的对象存储容器"]
 
 
 
@@ -120,7 +120,7 @@ SnapMirror到云重新同步功能可简化NetApp环境中卷迁移期间的数�
 
 通过在不同环境之间保持备份连续性、SnapMirror到云重新同步可提高运营效率、并降低混合云和多云数据管理的复杂性。
 
-有关如何执行重新同步操作的详细信息，请参见 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-migrate-volumes-snapmirror-cloud-resync.html["使用SnapMirror迁移卷到云重新同步"]。
+有关如何执行重新同步操作的详细信息，请参见 https://docs.netapp.com/us-en/bluexp-backup-recovery/prev-ontap-migrate-resync.html["使用SnapMirror迁移卷到云重新同步"]。
 
 
 
@@ -148,8 +148,6 @@ IMPORTANT: 此功能不应在生产环境中使用。
 * 入门 *
 
 要开始使用此预览功能、您必须在BlueXP  连接器上启用一个标志。然后、您可以通过在备份部分中选择*第三方兼容*对象存储、在保护工作流中输入您的Minio第三方对象存储的连接详细信息。
-
-有关如何启用预览功能的说明，请参阅 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-preview-enable.html["在BlueXP  备份和恢复中启用预览功能"]。
 
 
 
@@ -287,7 +285,7 @@ BlueXP  备份和恢复引入了一项经过更新的索引编制功能、可�
 
 在执行搜索和还原时、通过选择"启用索引"选项、在源工作环境中启用索引。
 
-有关详细信息，请参见文档 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html#restore-ontap-data-using-search-restore["如何使用搜索和恢复来恢复ONTAP数据()"]。
+有关详细信息，请参见文档 https://docs.netapp.com/us-en/bluexp-backup-recovery/prev-ontap-restore.html["如何使用搜索和恢复来恢复ONTAP数据()"]。
 
 .支持的扩展
 新的索引编制功能支持以下功能：
@@ -346,7 +344,7 @@ NOTE: 本文档以技术预览形式提供。对于此预览版产品、NetApp�
 
 现在、BlueXP  备份和恢复可以备份使用SnapLock Compliance或SnapLock Enterprise保护模式配置的FlexVol和FlexGroup内部卷。要获得此支持、集群必须运行ONTAP 9.14或更高版本。从ONTAP 9.11.1版开始、支持使用SnapLock企业模式备份FlexVol卷。早期版本的ONTAP不支持备份SnapLock保护卷。
 
-请参见中支持的卷的完整列表 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-ontap-backup-to-cloud.html["了解有关BlueXP备份和恢复的信息"]。
+请参见中支持的卷的完整列表 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["了解有关BlueXP备份和恢复的信息"]。
 
 
 
@@ -376,7 +374,7 @@ BlueXP  备份和恢复现在支持使用Podman引擎在Red Hat Enterprise Linu
 
 BlueXP  Connector 3.9.40支持在RHEL 8或9主机上手动安装某些版本的Red Hat Enterprise Linux版本8和9，而不考虑位置以及中提到的操作系统 https://docs.netapp.com/us-en/bluexp-setup-admin/task-prepare-private-mode.html#step-3-review-host-requirements["主机要求"^]。这些较新的RHEL版本需要使用Podman引擎、而不是Docker引擎。以前、使用Podman引擎时、BlueXP  备份和恢复有两个限制。已删除这些限制。
 
-https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html["了解有关从备份文件还原ONTAP数据的更多信息"](英文)
+https://docs.netapp.com/us-en/bluexp-backup-recovery/prev-ontap-restore.html["了解有关从备份文件还原ONTAP数据的更多信息"](英文)
 
 
 
@@ -384,4 +382,4 @@ https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.
 
 此版本改进了目录索引功能、可以更快地完成基线索引编制。通过加快索引编制速度、您可以更快地使用搜索和还原功能。
 
-https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-backups-ontap.html["了解有关从备份文件还原ONTAP数据的更多信息"](英文)
+https://docs.netapp.com/us-en/bluexp-backup-recovery/prev-ontap-restore.html["了解有关从备份文件还原ONTAP数据的更多信息"](英文)

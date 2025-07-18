@@ -120,7 +120,7 @@ sidebar:
         url: "/prev-vmware-prereqs.html"
       - title: 注册适用于VMware vSphere主机的SnapCenter 插件
         url: "/prev-vmware-register-snapcenter.html"
-      - title: 创建备份 VMware 数据存储区的策略
+      - title: 创建备份虚拟机数据的策略
         url: "/prev-vmware-policy-create.html"
       - title: 将数据存储库备份到Amazon Web Services
         url: "/prev-vmware-backup-aws.html"
@@ -132,7 +132,7 @@ sidebar:
         url: "/prev-vmware-backup-storagegrid.html"
       - title: 管理数据存储库和虚拟机数据的保护
         url: "/prev-vmware-manage.html"
-      - title: 还原 VMware 数据存储区
+      - title: 恢复虚拟机数据和数据存储
         url: "/prev-vmware-restore.html"
     - title: 监控作业
       url: "/br-use-monitor-tasks.html"
