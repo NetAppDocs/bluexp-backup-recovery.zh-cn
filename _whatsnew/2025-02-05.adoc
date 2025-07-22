@@ -9,7 +9,7 @@
 BlueXP backup and recovery的预览版本提供了更新的用户界面，使您能够使用BlueXP backup and recovery服务中熟悉的 3-2-1 保护策略来管理 Microsoft SQL Server 工作负载。使用此新版本，您可以将这些工作负载备份到主存储，复制到辅助存储，然后备份到云对象存储。
 
 
-NOTE: 本文档以技术预览形式提供。对于此预览版产品、NetApp保留在正式发布之前修改产品详细信息、内容和时间表的权利。
+NOTE: 本文档作为技术预览提供。对于此预览版产品、NetApp保留在正式发布之前修改产品详细信息、内容和时间表的权利。
 
 此版本的BlueXP backup and recovery预览版 2025 包括以下更新。
 

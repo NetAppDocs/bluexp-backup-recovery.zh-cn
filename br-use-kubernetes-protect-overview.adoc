@@ -17,6 +17,6 @@ summary: 您可以保护从本地ONTAP系统到 Amazon Web Services、Microsoft 
 通过在BlueXP backup and recovery中管理 Kubernetes 工作负载，您可以在一处集中管理和保护您的 Kubernetes 集群和应用程序。您可以管理 Kubernetes 集群托管的资源和应用程序，还可以管理 Kubernetes 工作负载的保护设置。
 
 
-NOTE: 本文档以技术预览形式提供。在预览期间，不建议将 Kubernetes 功能用于生产工作负载。对于此预览版产品、NetApp保留在正式发布之前修改产品详细信息、内容和时间表的权利。
+NOTE: 本文档作为技术预览提供。在预览期间，不建议将 Kubernetes 功能用于生产工作负载。对于此预览版产品、NetApp保留在正式发布之前修改产品详细信息、内容和时间表的权利。
 
 您可以完成与管理 Kubernetes 工作负载相关的以下任务：
