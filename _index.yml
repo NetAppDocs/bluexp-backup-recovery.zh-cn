@@ -18,12 +18,6 @@ indexpage:
       url: br-start-setup.html
     - title: 配置BlueXP backup and recovery设置
       url: br-start-configure.html
-  - title: 管理备份和恢复策略
-    links:
-    - title: 创建策略来管理备份和恢复
-      url: br-use-policies-create.html
-    - title: 在仪表板中查看保护健康状况
-      url: br-use-dashboard.html
   - title: 保护ONTAP卷工作负载
     links:
     - title: 保护ONTAP卷工作负载概述
@@ -56,6 +50,20 @@ indexpage:
       url: prev-vmware-policy-create.html
     - title: 恢复虚拟机工作负载
       url: prev-vmware-restore.html
+  - title: 保护 Kubernetes 工作负载（预览版）
+    links:
+    - title: 保护 Kubernetes 工作负载概述
+      url: br-use-kubernetes-protect-overview.html
+    - title: 发现 Kubernetes 工作负载
+      url: br-start-discover-kubernetes.html
+    - title: 添加和保护 Kubernetes 应用程序
+      url: link:br-use-protect-kubernetes-applications.html
+    - title: 管理 Kubernetes 集群
+      url: br-use-manage-kubernetes-clusters.html
+    - title: 管理 Kubernetes 应用程序
+      url: br-use-manage-kubernetes-applications.html
+    - title: 恢复 Kubernetes 应用程序
+      url: br-use-restore-kubernetes-applications.html
   - title: 博客和社区
     links:
     - title: NetApp 社区

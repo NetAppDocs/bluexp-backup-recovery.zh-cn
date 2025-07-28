@@ -20,6 +20,9 @@ BlueXP backup and recovery使您能够发现和管理您的 Kubernetes 集群，
 组织管理员或SnapCenter管理员。link:reference-roles.html["了解BlueXP backup and recovery访问角色"] 。  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["了解所有服务的 BlueXP 访问角色"^] 。
 
 
+NOTE: 要发现 Kubernetes 集群，请参阅link:br-start-discover.html["发现 Kubernetes 工作负载"] 。
+
+
 
 == 编辑 Kubernetes 集群信息
 
@@ -29,7 +32,7 @@ BlueXP backup and recovery使您能够发现和管理您的 Kubernetes 集群，
 . 在BlueXP backup and recovery中，选择 *Inventory* > *Clusters*。
 . 在集群列表中，选择要编辑的集群并选择相关的操作菜单。
 . 选择*编辑集群*。
-. 对集群名称进行任何必要的更改。
+. 对集群名称进行任何必要的更改。集群名称需要与您在发现过程中使用 Helm 命令的名称相匹配。
 . 选择 * 完成 * 。
 
 

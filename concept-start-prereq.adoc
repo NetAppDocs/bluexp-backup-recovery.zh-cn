@@ -37,7 +37,7 @@ summary: 验证您的运行环境、 BlueXP连接器和BlueXP帐户是否已准�
 
 == 在BlueXP  中
 
-* BlueXP用户应具备在 Microsoft SQL Server 工作负载上执行操作所需的角色和权限。要发现资源，您必须拥有BlueXP backup and recovery超级管理员角色。请参阅link:reference-roles.html["BlueXP backup and recovery基于角色的访问功能"]有关在BlueXP backup and recovery中执行操作所需的角色和权限的详细信息。
+* BlueXP用户应具备在 Microsoft SQL Server 和 Kubernetes 工作负载上执行操作所需的角色和权限。要发现资源，您必须拥有BlueXP backup and recovery超级管理员角色。请参阅link:reference-roles.html["BlueXP backup and recovery基于角色的访问功能"]有关在BlueXP backup and recovery中执行操作所需的角色和权限的详细信息。
 * 一个BlueXP组织，至少拥有一个活动的BlueXP连接器，用于连接到本地ONTAP集群或Cloud Volumes ONTAP。请参阅下面的“初始预览设置流程”。
 * 至少一个具有NetApp本地ONTAP或Cloud Volumes ONTAP集群的BlueXP工作环境。
 * BlueXP连接器
@@ -143,3 +143,28 @@ NOTE: 如果您已经拥有SnapCenter，请先检查以确保在从SnapCenter导
 有关受支持版本的最新信息，请参见 https://imt.netapp.com/matrix/imt.jsp?components=121074;&solution=1257&isHWU&src=IMT#welcome["NetApp 互操作性表工具"^]。
 
 |===
+
+
+== 用于保护 Kubernetes 应用程序
+
+您需要特定的要求来发现 Kubernetes 资源并保护您的 Kubernetes 应用程序。
+
+有关BlueXP要求，请参阅<<在BlueXP  中>> 。
+
+* 主ONTAP系统（ONTAP 9.16.1 或更高版本）
+* Kubernetes 集群 - 支持的 Kubernetes 发行版和版本包括：
++
+** Anthos On-Prem (VMware) 和 Anthos on Bare Metal 1.16
+** Kubernetes 1.27 - 1.33
+** OpenShift 4.10 - 4.18
+** Rancher Kubernetes Engine 2（RKE2）v1.26.7+rke2r1、v1.28.5+rke2r1
+
+
+* NetApp Trident 24.10 或更高版本
+* NetApp Trident Protect 25.07 或更高版本（在 Kubernetes 工作负载发现期间安装）
+* NetApp Trident Protect Connector 25.07 或更高版本（在 Kubernetes 工作负载发现期间安装）
++
+** 确保 Kubernetes 集群、 Trident保护连接器和Trident保护代理之间的出站方向的 TCP 端口 443 未经过滤。
+
+
+

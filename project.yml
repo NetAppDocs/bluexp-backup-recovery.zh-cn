@@ -133,6 +133,22 @@ sidebar:
         url: "/prev-vmware-manage.html"
       - title: 恢复虚拟机数据和数据存储
         url: "/prev-vmware-restore.html"
+    - title: 保护 Kubernetes 工作负载（预览版）
+      entries:
+      - title: 保护 Kubernetes 工作负载概述
+        url: "/br-use-kubernetes-protect-overview.html"
+      - title: 发现 Kubernetes 工作负载
+        url: br-start-discover-kubernetes.html
+      - title: 添加和保护 Kubernetes 应用程序
+        url: "/br-use-protect-kubernetes-applications.html"
+      - title: 恢复 Kubernetes 应用程序
+        url: "/br-use-restore-kubernetes-applications.html"
+      - title: 管理 Kubernetes 集群
+        url: "/br-use-manage-kubernetes-clusters.html"
+      - title: 管理 Kubernetes 应用程序
+        url: "/br-use-manage-kubernetes-applications.html"
+      - title: 管理 Kubernetes 工作负载的执行钩子模板
+        url: "/br-use-manage-execution-hook-templates.html"
     - title: 监控作业
       url: "/br-use-monitor-tasks.html"
     - title: 重新启动BlueXP备份和恢复

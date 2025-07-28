@@ -14,7 +14,7 @@ summary: BlueXP backup and recovery可让您管理工作负载主机信息、数
 
 
 [role="lead"]
-BlueXP backup and recovery可让您管理工作负载主机信息、数据库信息和实例信息。您可以查看、编辑和删除库存的保护设置。
+BlueXP backup and recovery让您能够轻松发现 Kubernetes 集群，无需生成和上传 kubeconfig 文件。您只需从BlueXP用户界面复制简单的命令，即可连接 Kubernetes 集群并安装所需的软件。
 
 .所需的BlueXP角色
 组织管理员或SnapCenter管理员。link:reference-roles.html["了解BlueXP backup and recovery访问角色"] 。  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["了解所有服务的 BlueXP 访问角色"^] 。
@@ -25,11 +25,16 @@ BlueXP backup and recovery可让您管理工作负载主机信息、数据库信
 
 保护 Kubernetes 应用程序的第一步是在BlueXP backup and recovery中创建应用程序。创建应用程序时，您可以让BlueXP感知 Kubernetes 集群上正在运行的应用程序。
 
+.开始之前
+在添加和保护 Kubernetes 应用程序之前，您需要link:br-start-discover.html["发现 Kubernetes 工作负载"] 。
+
 .步骤
-. 在BlueXP backup and recovery中，选择 *Inventory* > *Applications*。
+. 在BlueXP backup and recovery中，选择 *Inventory*。
+. 选择一个 Kubernetes 实例，然后选择“查看”以查看与该实例关联的资源。
+. 选择“*应用程序*”选项卡。
 . 选择*创建应用程序*。
 . 输入应用程序的名称。
-. 选择以下任意字段来搜索您想要保护的资源：
+. 或者，选择以下任意字段来搜索您想要保护的资源：
 +
 ** 关联集群
 ** 关联的命名空间
@@ -37,11 +42,15 @@ BlueXP backup and recovery可让您管理工作负载主机信息、数据库信
 ** 标签选择器
 
 
-. （可选）选择“集群范围资源”****，以选择任何集群级别范围且未包含在应用程序中的资源。如果包含这些资源，它们会在创建应用程序时添加到应用程序中。
-. 选择*搜索*以根据您的搜索条件查找资源。
+. （可选）选择“集群范围资源”以选择任何在集群级别范围限定的资源。如果包含这些资源，它们会在创建应用程序时添加到应用程序中。
+. 或者，选择“*搜索*”以根据您的搜索条件查找资源。
++
+
+NOTE: BlueXP不存储搜索参数或结果；这些参数用于在选定的 Kubernetes 集群中搜索可以包含在应用程序中的资源。
+
 . BlueXP显示符合您的搜索条件的资源列表。
 . 如果列表包含您想要保护的资源，请选择“*下一步*”。
-. 在“*策略*”区域中，选择现有的保护策略来保护应用程序或创建新策略。
+. （可选）在“*策略*”区域中，选择现有保护策略来保护应用程序，或者创建新策略。如果不选择策略，则创建的应用程序将不带保护策略。您可以稍后添加策略。
 . 在“*脚本和后记*”区域中，启用并配置要在备份操作之前或之后运行的任何脚本或后记执行挂钩。要启用脚本或后记，您必须已创建至少一个link:br-use-manage-execution-hook-templates.html["执行钩子模板"] 。
 . 选择 * 创建 * 。
 
@@ -56,7 +65,9 @@ BlueXP backup and recovery可让您管理工作负载主机信息、数据库信
 在已添加的 Kubernetes 应用程序上启用保护策略。
 
 .步骤
-. 在BlueXP backup and recovery中，选择 *Inventory* > *Applications*。
+. 在BlueXP backup and recovery中，选择 *Inventory*。
+. 选择一个 Kubernetes 实例，然后选择“查看”以查看与该实例关联的资源。
+. 选择“*应用程序*”选项卡。
 . 在应用程序列表中，选择您想要保护的应用程序并选择相关的操作菜单。
 . 选择*保护*。
 . 在“*策略*”区域中，选择现有的保护策略来保护应用程序或创建新策略。
@@ -65,7 +76,7 @@ BlueXP backup and recovery可让您管理工作负载主机信息、数据库信
 
 
 .结果
-BlueXP根据您的设置启用对应用程序的保护，并且您可以在备份和恢复的*监控*区域中监控进度。
+BlueXP会根据您的设置启用应用程序保护，您可以在备份和恢复的“监控”区域中监控进度。一旦您启用应用程序保护， BlueXP就会创建该应用程序的完整备份。任何未来的增量备份都将根据您在与该应用程序关联的保护策略中定义的计划创建。
 
 
 
@@ -74,10 +85,14 @@ BlueXP根据您的设置启用对应用程序的保护，并且您可以在备�
 手动创建 Kubernetes 应用程序的备份，为未来的备份和快照建立基线，或确保最新数据受到保护。
 
 .步骤
-. 在BlueXP backup and recovery中，选择 *Inventory* > *Applications*。
+. 在BlueXP backup and recovery中，选择 *Inventory*。
+. 选择一个 Kubernetes 实例，然后选择“查看”以查看与该实例关联的资源。
+. 选择“*应用程序*”选项卡。
 . 在应用程序列表中，选择要备份的应用程序并选择相关的操作菜单。
 . 选择*立即备份*。
 . 确保选择了正确的应用程序名称。
-. 从策略列表中选择一个保护策略。
 . 选择*备份*。
 
+
+.结果
+BlueXP会创建应用程序的备份，并在备份和恢复的“监控”区域中显示进度。该备份是根据与应用程序关联的保护策略创建的。

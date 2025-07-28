@@ -1,0 +1,65 @@
+---
+sidebar: sidebar 
+permalink: br-start-discover-kubernetes.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Kubernetes 
+summary: BlueXP backup and recovery服务需要首先发现工作负载，您才能使用该服务。 
+---
+= 在BlueXP backup and recovery中发现 Kubernetes 工作负载
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+BlueXP backup and recovery服务需要首先发现 Kubernetes 工作负载，您才能使用该服务。
+
+*必需的BlueXP角色* 备份和恢复超级管理员。了解link:reference-roles.html["备份和恢复角色和权限"] 。  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["了解所有服务的 BlueXP 访问角色"^] 。
+
+
+
+== 发现 Kubernetes 工作负载
+
+在备份和恢复清单中，您可以发现环境中正在运行的 Kubernetes 工作负载。发现工作负载会将 Kubernetes 集群添加到BlueXP backup and recovery，从而使您能够将应用程序添加到该集群并保护该集群托管的资源。
+
+.步骤
+. 执行以下操作之一：
++
+** 如果您是第一次发现 Kubernetes 工作负载，请在BlueXP backup and recovery中，选择 Kubernetes 工作负载类型下的 *发现和管理*。
+** 如果您已经发现 Kubernetes 工作负载，请在BlueXP backup and recovery中选择 *Inventory* > *Workloads*，然后选择 *Discover resources*。
+
+
+. 选择 *Kubernetes* 工作负载类型。
+. 输入集群名称并选择与集群一起使用的连接器。
+. 按照出现的命令行说明进行操作：
++
+** 创建Trident保护命名空间
+** 创建 Kubernetes 机密
+** 添加 Helm 存储库
+** 安装Trident Protect 和Trident Protect 连接器
++
+这些步骤确保BlueXP backup and recovery可以与集群交互。
+
+
+
+. 完成这些步骤后，选择*发现*。
++
+该集群已添加到清单中。
+
+. 在关联的 Kubernetes 工作负载中选择“查看”以查看该工作负载的应用程序、集群和命名空间列表。
+
+
+
+
+== 继续前往BlueXP backup and recovery仪表板
+
+要显示BlueXP backup and recovery仪表板，请按照以下步骤操作。
+
+. 从顶部菜单中选择*仪表板*。
+. 检查数据保护的运行状况。处于风险中或受保护的工作负载的数量会根据新发现、受保护和备份的工作负载的数量而增加。
++
+link:br-use-dashboard.html["了解仪表板显示的内容"](英文)
+
+
