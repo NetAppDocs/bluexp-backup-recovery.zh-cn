@@ -1,10 +1,10 @@
-= Kubernetes 工作负载支持作为公共技术预览
+= Kubernetes 工作负载支持预览版
 :allow-uri-read: 
 
 
 
 
-=== Kubernetes 工作负载支持作为公共技术预览
+=== Kubernetes 工作负载支持预览版
 
 此版本的BlueXP backup and recovery引入了对发现和管理 Kubernetes 工作负载的支持：
 
@@ -16,3 +16,5 @@
 * 使用在 Kubernetes 上运行的容器和虚拟机。
 * 使用执行挂钩和模板创建应用程序一致的备份。
 
+
+有关保护 Kubernetes 工作负载的详细信息，请参阅 https://docs.netapp.com/us-en/bluexp-backup-recovery/br-use-kubernetes-protect-overview.html["保护 Kubernetes 工作负载概述"] 。
