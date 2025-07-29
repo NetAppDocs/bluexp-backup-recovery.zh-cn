@@ -192,6 +192,7 @@ ifdef::gcp[]
 * ONTAP卷
 * 用于物理、VMware 虚拟机文件系统 (VMFS) 和 VMware 虚拟机磁盘 (VMDK) NFS（预览版）的 Microsoft SQL Server 实例和数据库
 * VMware 数据存储库
+* Kubernetes 工作负载（预览版）
 
 
 .支持的工作环境
