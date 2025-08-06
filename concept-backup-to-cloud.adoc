@@ -14,7 +14,7 @@ summary: BlueXP backup and recovery服务为本地和云端的NetApp数据库和
 
 
 [role="lead"]
-BlueXP backup and recovery服务为ONTAP卷、Microsoft SQL Server 实例和数据库（预览版）以及 VMware 工作负载提供高效、安全且经济实惠的数据保护。
+BlueXP backup and recovery服务为ONTAP卷、Microsoft SQL Server 实例和数据库（预览版）、VMware 工作负载和 Kubernetes 工作负载（预览版）提供高效、安全且经济高效的数据保护。
 
 
 NOTE: 本文档作为技术预览提供。对于此预览版产品、NetApp保留在正式发布之前修改产品详细信息、内容和时间表的权利。
@@ -187,7 +187,7 @@ ifdef::gcp[]
 == 支持的数据源、工作环境和备份目标
 
 .支持的工作负载数据源
-该服务保护以下基于应用程序的工作负载：
+该服务保护以下工作负载：
 
 * ONTAP卷
 * 用于物理、VMware 虚拟机文件系统 (VMFS) 和 VMware 虚拟机磁盘 (VMDK) NFS（预览版）的 Microsoft SQL Server 实例和数据库
