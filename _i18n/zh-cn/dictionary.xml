@@ -2799,7 +2799,6 @@ ifdef：：AWS。</block>
   <block id="c7b4d968f2d50c900d950efc28b21602" category="summary">BlueXP backup and recovery服务需要首先发现工作负载，您才能使用该服务。</block>
   <block id="4ed9d079b0f878e88f1e524c5e40334b" category="doc">发现 Microsoft SQL Server 工作负载并可选择从BlueXP backup and recovery中的SnapCenter导入</block>
   <block id="88867c168356c4e4806b5412f199a98e" category="paragraph">BlueXP backup and recovery服务需要先发现 Microsoft SQL Server 工作负载，您才能使用该服务。如果您已安装SnapCenter ，则可以选择从SnapCenter导入备份数据和策略。</block>
-  <block id="9b4181d03263555437f8a40593f311f0" category="paragraph">*必需的BlueXP角色* 备份和恢复超级管理员。了解<block ref="c66026e4383ae9f791b566ffeb2b3bc3" category="inline-link-macro-rx"></block> 。 <block ref="c46fcff617e849cb6f8ded33051f7905" category="inline-link-rx"></block> 。</block>
   <block id="da39a7712232603b7b60f32ff70cea25" category="section-title">发现 Microsoft SQL Server 工作负载并选择性地导入SnapCenter资源</block>
   <block id="b329a8668afc5358ec61c1d17bcc1160" category="paragraph">在发现过程中， BlueXP backup and recovery会分析组织内工作环境中的 Microsoft SQL Server 实例和数据库。</block>
   <block id="0e991171704ddccf2cbcd439d58f5def" category="paragraph">BlueXP backup and recovery可评估 Microsoft SQL Server 应用程序。该服务会评估现有保护级别，包括当前的备份保护策略、快照副本以及备份和恢复选项。</block>
@@ -4662,4 +4661,6 @@ ifdef：：AWS。</block>
   <block id="52406c3fd83be5518f3dd4d7253e4388" category="paragraph">提供复制到辅助存储的信息。本地快照设置的计划信息会显示在辅助设置中。这些设置不适用于 Kubernetes 工作负载。</block>
   <block id="5f62fed28c117ffda0827b12f19c440d" category="paragraph">BlueXP backup and recovery服务为ONTAP卷、Microsoft SQL Server 实例和数据库（预览版）、VMware 工作负载和 Kubernetes 工作负载（预览版）提供高效、安全且经济高效的数据保护。</block>
   <block id="b884440e8464e067fc1993b8e7564b2c" category="paragraph">该服务保护以下工作负载：</block>
+  <block id="a7834976a2cbdc12ddeb76acc0345f2d" category="inline-link-macro">备份和恢复数据服务角色和权限</block>
+  <block id="092238820de0395a7d97ae63a784ea7f" category="paragraph">*所需的BlueXP角色* 此任务需要数据服务备份和恢复超级管理员角色。了解<block ref="48e53f0dd24db48908da75d62a8f8086" category="inline-link-macro-rx"></block>。<block ref="c46fcff617e849cb6f8ded33051f7905" category="inline-link-rx"></block> 。</block>
 </blocks>
