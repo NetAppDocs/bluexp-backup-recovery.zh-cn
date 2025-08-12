@@ -58,6 +58,45 @@ BlueXP backup and recovery可让您管理 Microsoft SQL Server 工作负载主�
 
 
 
+=== 管理主机
+
+您可以管理在工作环境中发现的主机。您可以单独管理它们，也可以将它们作为组进行管理。
+
+
+TIP: 您只能管理“主机”列中显示“未管理”状态的主机。如果状态为“已管理”，则表示该主机已由BlueXP backup and recovery管理。
+
+在您管理BlueXP backup and recovery中的主机后， SnapCenter不再管理这些主机上的资源。
+
+*所需的BlueXP角色* 组织管理员、文件夹或项目管理员，或备份和恢复超级管理员。  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["了解所有服务的 BlueXP 访问角色"^] 。
+
+.步骤
+. 从菜单中选择*库存*。
++
+image:screen-br-inventory.png["BlueXP backup and recovery的库存屏幕截图"]
+
+. 选择一个工作负载来查看保护详情。
+. 选择“操作”图标image:../media/icon-action.png["操作选项"] > *查看详情*。
++
+image:screen-br-inventory-sql.png["BlueXP backup and recovery的库存详情页面截图"]
+
+. 选择“*主机*”选项卡。
+. 选择一个或多个主机。如果选择多个主机，将出现“批量操作”选项，您可以在其中选择“管理（最多 5 个主机）”。
+. 选择“操作”图标image:../media/icon-action.png["操作选项"] > *管理*。
++
+image:screen-br-inventory-details-manage-hosts.png["管理主机页面"]
+
+. 查看主机依赖关系：
++
+** 如果未显示 vCenter，请选择铅笔图标来添加或编辑 vCenter 详细信息。
+** 如果您添加了 vCenter，您还必须通过选择“注册 vCenter”来注册 vCenter。
+
+
+. 选择*验证设置*来测试您的设置。
+. 选择*管理*来管理主机。
+
+
+
+
 === 暂停时间表
 
 您可以暂停计划以停止主机的备份和还原操作。如果您需要在主机上执行维护活动，则可能需要执行此操作。

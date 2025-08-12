@@ -4,7 +4,7 @@ permalink: concept-start-prereq-snapcenter-import.html
 keywords: backing up, restoring, back up, backup, restore, cloud volumes ontap, aws, azure, s3, blob, google cloud, storagegrid, back up volumes, cloud backup, restore volumes, cost, on-premises ontap, onprem, applications, backup and recovery, snapcenter, import, migration, migrate 
 summary: 验证您的运行环境、 BlueXP连接器和BlueXP帐户是否已准备就绪，即可开始使用BlueXP backup and recovery。要使用BlueXP backup and recovery，您需要满足以下先决条件。 
 ---
-= 如果从SnapCenter导入BlueXP backup and recovery，请配置其他项目
+= 从插件服务导入BlueXP backup and recovery的先决条件
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,13 +14,19 @@ summary: 验证您的运行环境、 BlueXP连接器和BlueXP帐户是否已准�
 
 
 [role="lead"]
-如果您要将资源从SnapCenter导入BlueXP backup and recovery，则需要配置更多项目。
+如果您要将资源从 Microsoft SQL Server 的SnapCenter插件服务导入BlueXP backup and recovery，则需要配置更多项目。
+
+
+
+== 首先在BlueXP Canvas 中创建工作环境
+
+如果要从SnapCenter导入资源，则应先在BlueXP Canvas 中为所有本地SnapCenter集群存储创建工作环境，然后再从SnapCenter导入。这可确保能够正确发现和导入主机资源。
 
 
 
 == 确保安装SnapCenter插件的主机要求
 
-要从SnapCenter导入资源，请确保满足安装 Microsoft SQL Server 的SnapCenter插件的主机要求。
+要从适用于 Microsoft SQL Server 的SnapCenter插件导入资源，请确保满足安装适用于 Microsoft SQL Server 的SnapCenter插件的主机要求。
 
 专门检查SnapCenter要求link:concept-start-prereq.html["BlueXP backup and recovery先决条件"] 。
 
@@ -163,8 +169,3 @@ Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 
 LocalAccountTokenFilterPolicy : 1
 ----
-
-
-== 首先在BlueXP Canvas 中创建工作环境
-
-如果要从SnapCenter导入资源，则应先在BlueXP Canvas 中为所有本地SnapCenter集群存储创建工作环境，然后再从SnapCenter导入。这可确保能够正确发现和导入主机资源。

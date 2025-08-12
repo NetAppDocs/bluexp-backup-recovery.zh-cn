@@ -27,7 +27,7 @@ summary: 在使用BlueXP backup and recovery之前，请执行几个步骤来设
 请参阅 https://docs.netapp.com/us-en/bluexp-storagegrid/task-discover-storagegrid.html["了解StorageGRID"^]。
 
 +
-参考 https://docs.netapp.com/us-en/storagegrid-117/index.html["StorageGRID 文档"^]有关StorageGRID的详细信息。
+参考 https://docs.netapp.com/us-en/storagegrid/index.html["StorageGRID 文档"^]有关StorageGRID的详细信息。
 
 * 亚马逊网络服务。请参阅 https://docs.netapp.com/us-en/bluexp-s3-storage/index.html["Amazon S3 文档"^]。
 +

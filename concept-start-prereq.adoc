@@ -24,13 +24,85 @@ summary: 验证您的运行环境、 BlueXP连接器和BlueXP帐户是否已准�
 
 
 
-== 用于备份到对象存储
+== 备份到对象存储的先决条件
 
 要使用对象存储作为备份目标，您需要一个拥有 AWS S3、Microsoft Azure Blob、 StorageGRID或ONTAP的帐户并配置适当的访问权限。
 
-* link:prev-ontap-protect-overview.html["保护ONTAP 卷数据"]
-* link:br-use-mssql-protect-overview.html["保护您的 Microsoft SQL Server 数据库"]
-* link:prev-vmware-protect-overview.html["保护虚拟机工作负载"]
+看link:br-start-setup.html["在使用BlueXP backup and recovery之前设置备份目标"]有关如何设置备份目的地的详细信息。
+
+
+
+== Microsoft SQL Server 工作负载要求
+
+要使用BlueXP backup and recoverySQL Server 工作负载，您需要满足以下主机系统、空间和大小调整先决条件。
+
+[cols="33,66a"]
+|===
+| 物品 | 要求 
+
+
+| 操作系统  a| 
+Microsoft Windows 有关受支持版本的最新信息，请参阅 https://imt.netapp.com/matrix/imt.jsp?components=121074;&solution=1257&isHWU&src=IMT#welcome["NetApp 互操作性表工具"^] 。
+
+
+
+| Microsoft SQL Server 版本  a| 
+VMware 虚拟机文件系统 (VMFS) 和 VMware 虚拟机磁盘 (VMDK) NFS 支持 2012 及更高版本。
+
+
+
+| SnapCenter服务器版本  a| 
+如果您要将现有数据从SnapCenter导入BlueXP backup and recovery，则需要SnapCenter Server 5.0 或更高版本。
+
+
+NOTE: 如果您已经拥有SnapCenter，请先检查以确保在从SnapCenter导入之前已满足先决条件。请参阅。 link:concept-start-prereq-snapcenter-import.html["从SnapCenter导入资源的先决条件"]
+
+
+
+| SQL Server 主机上插件的最小 RAM  a| 
+1 GB
+
+
+
+| SQL Server 主机上插件的最小安装和日志空间  a| 
+5 GB
+
+分配足够的磁盘空间，并监控日志文件夹的存储空间消耗。所需的日志空间取决于执行的备份数量和数据保护操作的频率。如果空间不足，则不会为操作创建日志。
+
+
+
+| 所需的软件包  a| 
+* ASP.NET Core Runtime 8.0.12 托管包（以及所有后续 8.0.x 补丁）
+* PowerShell核心7.4.2
+
+
+有关受支持版本的最新信息，请参见 https://imt.netapp.com/matrix/imt.jsp?components=121074;&solution=1257&isHWU&src=IMT#welcome["NetApp 互操作性表工具"^]。
+
+|===
+
+
+== Kubernetes 工作负载要求
+
+您需要特定的要求来发现 Kubernetes 资源并保护您的 Kubernetes 应用程序。
+
+有关BlueXP要求，请参阅<<在BlueXP  中>> 。
+
+* 主ONTAP系统（ONTAP 9.16.1 或更高版本）
+* Kubernetes 集群 - 支持的 Kubernetes 发行版和版本包括：
++
+** Anthos On-Prem (VMware) 和 Anthos on Bare Metal 1.16
+** Kubernetes 1.27 - 1.33
+** OpenShift 4.10 - 4.18
+** Rancher Kubernetes Engine 2（RKE2）v1.26.7+rke2r1、v1.28.5+rke2r1
+
+
+* NetApp Trident 24.10 或更高版本
+* NetApp Trident Protect 25.07 或更高版本（在 Kubernetes 工作负载发现期间安装）
+* NetApp Trident Protect Connector 25.07 或更高版本（在 Kubernetes 工作负载发现期间安装）
++
+** 确保 Kubernetes 集群、 Trident保护连接器和Trident保护代理之间的出站方向的 TCP 端口 443 未经过滤。
+
+
 
 
 
@@ -93,78 +165,3 @@ endif::gcp[]
 
 
 NOTE: 对“本地ONTAP系统”的引用包括FAS和AFF系统。
-
-
-
-== Microsoft SQL Server 主机要求
-
-要使用BlueXP backup and recoverySQL Server 工作负载，您需要满足以下主机系统、空间和大小调整先决条件。
-
-[cols="33,66a"]
-|===
-| 物品 | 要求 
-
-
-| 操作系统  a| 
-Microsoft Windows 有关受支持版本的最新信息，请参阅 https://imt.netapp.com/matrix/imt.jsp?components=121074;&solution=1257&isHWU&src=IMT#welcome["NetApp 互操作性表工具"^] 。
-
-
-
-| Microsoft SQL Server 版本  a| 
-VMware 虚拟机文件系统 (VMFS) 和 VMware 虚拟机磁盘 (VMDK) NFS 支持 2012 及更高版本。
-
-
-
-| SnapCenter服务器版本  a| 
-如果您要将现有数据从SnapCenter导入BlueXP backup and recovery，则需要SnapCenter Server 5.0 或更高版本。
-
-
-NOTE: 如果您已经拥有SnapCenter，请先检查以确保在从SnapCenter导入之前已满足先决条件。请参阅。 link:concept-start-prereq-snapcenter-import.html["从SnapCenter导入资源的先决条件"]
-
-
-
-| SQL Server 主机上插件的最小 RAM  a| 
-1 GB
-
-
-
-| SQL Server 主机上插件的最小安装和日志空间  a| 
-5 GB
-
-分配足够的磁盘空间，并监控日志文件夹的存储空间消耗。所需的日志空间取决于执行的备份数量和数据保护操作的频率。如果空间不足，则不会为操作创建日志。
-
-
-
-| 所需的软件包  a| 
-* ASP.NET Core Runtime 8.0.12 托管包（以及所有后续 8.0.x 补丁）
-* PowerShell核心7.4.2
-
-
-有关受支持版本的最新信息，请参见 https://imt.netapp.com/matrix/imt.jsp?components=121074;&solution=1257&isHWU&src=IMT#welcome["NetApp 互操作性表工具"^]。
-
-|===
-
-
-== 用于保护 Kubernetes 应用程序
-
-您需要特定的要求来发现 Kubernetes 资源并保护您的 Kubernetes 应用程序。
-
-有关BlueXP要求，请参阅<<在BlueXP  中>> 。
-
-* 主ONTAP系统（ONTAP 9.16.1 或更高版本）
-* Kubernetes 集群 - 支持的 Kubernetes 发行版和版本包括：
-+
-** Anthos On-Prem (VMware) 和 Anthos on Bare Metal 1.16
-** Kubernetes 1.27 - 1.33
-** OpenShift 4.10 - 4.18
-** Rancher Kubernetes Engine 2（RKE2）v1.26.7+rke2r1、v1.28.5+rke2r1
-
-
-* NetApp Trident 24.10 或更高版本
-* NetApp Trident Protect 25.07 或更高版本（在 Kubernetes 工作负载发现期间安装）
-* NetApp Trident Protect Connector 25.07 或更高版本（在 Kubernetes 工作负载发现期间安装）
-+
-** 确保 Kubernetes 集群、 Trident保护连接器和Trident保护代理之间的出站方向的 TCP 端口 443 未经过滤。
-
-
-

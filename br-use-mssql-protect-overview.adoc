@@ -50,15 +50,18 @@ BlueXP backup and recovery使您能够将 Microsoft SQL Server 实例和数据�
 
 
 | AWS 中的 Cloud Volumes ONTAP | AWS 中的 Cloud Volumes ONTAP
-内部部署 ONTAP 系统 | Amazon S3 
+内部部署 ONTAP 系统 | 亚马逊 S3 ONTAP S3 
 
 
 | Azure 中的 Cloud Volumes ONTAP | Azure 中的 Cloud Volumes ONTAP
-内部部署 ONTAP 系统 | Azure Blob 
+内部部署 ONTAP 系统 | Azure Blob ONTAP S3 
 
 
 | 内部部署 ONTAP 系统 | Cloud Volumes ONTAP
-内部部署 ONTAP 系统 | Amazon S3 Azure Blob NetApp StorageGRID ifdef::gcp[] endif::gcp[] ifdef::gcp[] endif::gcp[] 
+内部部署 ONTAP 系统 | Amazon S3 Azure Blob NetApp StorageGRID ONTAP S3 
+
+
+| 适用于 NetApp ONTAP 的 Amazon FSX | 适用于 NetApp ONTAP 的 Amazon FSX | 不适用 ifdef::gcp[] endif::gcp[] ifdef::gcp[] endif::gcp[] 
 |===
 .支持的还原目标
 您可以将 Microsoft SQL Server 实例和数据库从驻留在主存储或辅助工作环境（复制卷）或对象存储（备份文件）中的备份还原到以下工作环境。Snapshot副本位于源工作环境中、只能还原到同一系统。
@@ -72,15 +75,18 @@ BlueXP backup and recovery使您能够将 Microsoft SQL Server 实例和数据�
 
 
 | Amazon S3 | AWS 中的 Cloud Volumes ONTAP
-内部部署 ONTAP 系统 | AWS 本地ONTAP系统中的 Cloud Volumes 
+内部部署 ONTAP 系统 | AWS 本地ONTAP系统ONTAP S3 中的云卷 
 
 
 | Azure Blob | Azure 中的 Cloud Volumes ONTAP
-内部部署 ONTAP 系统 | Azure 本地ONTAP系统中的Cloud Volumes ONTAP ifdef::gcp[] endif::gcp[] 
+内部部署 ONTAP 系统 | Azure 中的Cloud Volumes ONTAP本地ONTAP系统ONTAP S3 ifdef::gcp[] endif::gcp[] 
 
 
 | StorageGRID | Cloud Volumes ONTAP
-内部部署 ONTAP 系统 | 内部部署 ONTAP 系统 
+内部部署 ONTAP 系统 | 本地ONTAP系统ONTAP S3 
+
+
+| 适用于 NetApp ONTAP 的 Amazon FSX | 适用于 NetApp ONTAP 的 Amazon FSX | 不适用 
 |===
 
 NOTE: “本地ONTAP系统”包括FAS和AFF系统。

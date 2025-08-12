@@ -14,10 +14,10 @@ summary: BlueXP backup and recovery服务为本地和云端的NetApp数据库和
 
 
 [role="lead"]
-BlueXP backup and recovery服务为ONTAP卷、Microsoft SQL Server 实例和数据库（预览版）、VMware 工作负载和 Kubernetes 工作负载（预览版）提供高效、安全且经济高效的数据保护。
+BlueXP backup and recovery服务为ONTAP卷、Microsoft SQL Server 实例和数据库、VMware 工作负载和 Kubernetes 工作负载（预览版）提供高效、安全且经济的数据保护。
 
 
-NOTE: 本文档作为技术预览提供。对于此预览版产品、NetApp保留在正式发布之前修改产品详细信息、内容和时间表的权利。
+NOTE: 其中一些文档作为技术预览提供。对于此预览版产品， NetApp保留在正式发布之前修改产品详细信息、内容和时间表的权利。
 
 
 
@@ -31,16 +31,17 @@ NOTE: 本文档作为技术预览提供。对于此预览版产品、NetApp保�
 ** 创建块级、增量永久备份，存储在另一个ONTAP集群上以及云中的对象存储中。
 
 
-* Microsoft SQL Server 工作负载（预览版）：
+* Microsoft SQL Server 工作负载：
 +
-** 从本地ONTAP或Cloud Volumes ONTAP系统备份 Microsoft SQL Server 实例和数据库。
-** 将 Microsoft SQL Server 数据库还原到相同或备用主机，从而为数据恢复提供灵活性。
+** 从本地ONTAP、 Cloud Volumes ONTAP或Amazon FSx for NetApp ONTAP备份 Microsoft SQL Server 实例和数据库。
+** 还原 Microsoft SQL Server 数据库。
+** 克隆 Microsoft SQL Server 数据库。
 
 
-* VMware 工作负载：
+* 虚拟机工作负载：
 +
 ** 将数据存储备份到 Amazon Web Services S3、Microsoft Azure Blob、Google Cloud Platform 和StorageGRID ，并将虚拟机还原回SnapCenter Plug-in for VMware vSphere。
-** 使用BlueXP backup and recovery将虚拟机数据从云端恢复到本地 vCenter。您可以将虚拟机还原到与创建备份位置完全相同的位置或备用位置。
+** 使用BlueXP backup and recovery将虚拟机数据从云端恢复到本地 vCenter。
 
 
 * Kubernetes 工作负载（预览版）：
@@ -124,6 +125,9 @@ ifdef::gcp[]
 
 服务费用支付给NetApp、用于支付向对象存储和从这些备份向卷或文件创建_备份的成本。您只需为对象存储中保护的数据付费，该费用按备份到对象存储的ONTAP卷的源逻辑使用容量（ ONTAP效率之前）计算。此容量也称为前端 TB （前端 TB ）。
 
+
+NOTE: 对于 Microsoft SQL Server，当您启动将快照复制到辅助ONTAP目标或对象存储时，会产生费用。
+
 有三种方式可以支付备份服务费用：
 
 * 第一种选择是从云提供商订阅，这样您可以按月付费。
@@ -190,7 +194,7 @@ ifdef::gcp[]
 该服务保护以下工作负载：
 
 * ONTAP卷
-* 用于物理、VMware 虚拟机文件系统 (VMFS) 和 VMware 虚拟机磁盘 (VMDK) NFS（预览版）的 Microsoft SQL Server 实例和数据库
+* 用于物理、VMware 虚拟机文件系统 (VMFS) 和 VMware 虚拟机磁盘 (VMDK) NFS 的 Microsoft SQL Server 实例和数据库
 * VMware 数据存储库
 * Kubernetes 工作负载（预览版）
 
@@ -213,7 +217,7 @@ ifdef::gcp[]
 
 
 
-== BlueXP backup and recovery使用适用于 Microsoft SQL Server 的SnapCenter插件
+== BlueXP backup and recovery使用 Microsoft SQL Server 插件
 
 BlueXP backup and recovery会在托管 Microsoft SQL Server 的服务器上安装适用于 Microsoft SQL Server 的插件。该插件是一个主机端组件，可对 Microsoft SQL Server 数据库和实例进行应用程序感知的数据保护管理。
 
