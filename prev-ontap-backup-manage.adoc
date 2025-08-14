@@ -14,7 +14,7 @@ summary: 使用BlueXP backup and recovery，您可以更改备份计划、启用
 
 
 [role="lead"]
-使用 BlueXP 备份和恢复，通过更改备份计划、启用/禁用卷备份、暂停备份、删除备份等，管理 Cloud Volumes ONTAP 和本地 ONTAP 系统的备份。这涵盖所有类型的备份，包括快照副本、复制卷以及对象存储中的备份文件。您还可以取消注册BlueXP backup and recovery。
+使用BlueXP backup and recovery，通过更改备份计划、启用/禁用卷备份、暂停备份、删除备份、强制删除备份等，管理Cloud Volumes ONTAP和本地ONTAP系统的备份。这包括所有类型的备份，包括快照副本、复制卷和对象存储中的备份文件。您还可以取消注册BlueXP backup and recovery。
 
 
 CAUTION: 请勿直接在存储系统上或从云提供商环境管理或更改备份文件。这可能会损坏文件并导致配置不受支持。
@@ -371,7 +371,20 @@ CAUTION: 如果您计划删除具有备份的工作环境或集群，则必须�
 image:screenshot_backup_settings_button.png["屏幕截图显示了备份设置按钮，您可以在选择工作环境后使用该按钮。"]
 
 . 选择image:icon-actions-horizontal.gif["操作图标"]对于您想要删除所有备份的工作环境，然后选择*删除所有备份*。
-. 在确认对话框中，输入工作环境的名称并选择*删除*。
++
+image:screenshot_backup_delete_all_backups-working-env.png["显示“删除所有备份”选项的屏幕截图"]
+
+. 在确认对话框中，输入工作环境的名称。
+. 选择“高级设置”。
+. *强制删除备份*：指示是否要强制删除所有备份。
++
+在某些极端情况下，您可能希望BlueXP backup and recovery不再访问备份。例如，如果服务不再有权访问备份存储桶或备份受到 DataLock 保护但您不再需要它们，则可能会发生这种情况。以前，您无法自行删除这些内容，而需要致电NetApp支持。在此版本中，您可以使用选项强制删除备份（在卷和工作环境级别）。
+
++
+
+CAUTION: 请谨慎使用此选项，并且仅在极端清理需要时使用。即使这些备份未被从对象存储中删除， BlueXP backup and recovery也将无法再访问这些备份。您需要前往云提供商并手动删除备份。
+
+. 选择 * 删除 * 。
 
 
 
@@ -392,7 +405,16 @@ image:screenshot_backup_view_backups_button.png["屏幕截图显示了单个卷�
 +
 image:screenshot_backup_delete_all_backups.png["显示“删除所有备份”选项的屏幕截图"]
 
-. 输入卷名并指明是否要强制删除所有备份。
+. 输入卷名称。
+. 选择“高级设置”。
+. *强制删除备份*：指示是否要强制删除所有备份。
++
+在某些极端情况下，您可能希望BlueXP backup and recovery不再访问备份。例如，如果服务中没有下级有权访问备份存储桶，或者备份受到 DataLock 保护但您不再需要它们，则可能会发生这种情况。以前，您无法自行删除这些内容，而需要致电NetApp支持。在此版本中，您可以使用选项强制删除备份（在卷和工作环境级别）。
+
++
+
+CAUTION: 请谨慎使用此选项，并且仅在极端清理需要时使用。即使这些备份未被从对象存储中删除， BlueXP backup and recovery也将无法再访问这些备份。您需要前往云提供商并手动删除备份。
+
 . 选择 * 删除 * 。
 
 

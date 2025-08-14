@@ -2613,7 +2613,6 @@ ifdef：：AWS。</block>
   <block id="04691de3768fe7039c2c412d7b4595b2" category="paragraph">如果您有一个SnapCenter策略计划，该计划在特定时间启动并每隔几分钟重复一次，但间隔时间不是 15 分钟，BlueXP backup and recovery将不会导入该计划。</block>
   <block id="da5c7a32fb1f34042f2d0d433f50328c" category="paragraph">*解决方法*：使用SnapCenter调整策略，使其以 15 分钟的间隔重复。</block>
   <block id="572e4e930a93aaf8ecb497410b31bcae" category="section-title">日志备份保留</block>
-  <block id="647c2420ebb99caa8af94d848bf32dc5" category="paragraph">使用SnapCenter，您可以在附加到资源的多个策略中设置多个保留值。但是， BlueXP backup and recovery预览版仅支持对附加到资源的所有策略使用单个保留值。</block>
   <block id="cb836aaac7ed6e97ca43d8b38d0d27bc" category="doc">BlueXP backup and recoveryONTAP卷的已知限制</block>
   <block id="c772b48db71b62774173b09358a6272c" category="paragraph">已知限制标识了此版本的BlueXP backup and recovery不支持的功能，或者不能与其正确互操作的功能。仔细审查这些限制。</block>
   <block id="a8a0607f859b592d67071c436d8a3293" category="section-title">ONTAP卷的复制限制</block>
@@ -2876,47 +2875,6 @@ ifdef：：AWS。</block>
   <block id="0d03bc1841a7715444e6ab8b4f36fa63" category="paragraph"><block ref="0d03bc1841a7715444e6ab8b4f36fa63" category="inline-image-macro-rx" type="image"></block></block>
   <block id="09799d4864834161536cca195023364b" category="inline-link-macro">了解仪表板显示的内容</block>
   <block id="d5292ed1370bb405095587cd10827f95" category="paragraph"><block ref="2a35d34f81dbac907e6068b45b5d538a" category="inline-link-macro-rx"></block>(英文)</block>
-  <block id="b1151aae9531d2f5e85d085e8878cea6" category="summary">如果您只是想快速了解问题解答，此常见问题解答会很有帮助。</block>
-  <block id="4ef5e2df08f16b412c25bf31670b109d" category="doc">BlueXP backup and recovery的常见问题</block>
-  <block id="ea355214fd4bc7c57f471bd92918879b" category="section-title">部署</block>
-  <block id="2499669cd400d71d3b95894f8345a23d" category="paragraph">*您需要许可证才能使用BlueXP备份和恢复预览版吗？*</block>
-  <block id="924cc6eaf82618251de609e2689ed733" category="paragraph">您可以使用以下许可证类型：</block>
-  <block id="63f202b7fcd80e9277a9e585cd35c7ae" category="list-text">注册30天免费试用。</block>
-  <block id="e70cecf933eba8a711bc2b91937cde3b" category="paragraph">*如何启用BlueXP backup and recovery？*BlueXP backup and recovery无需任何启用。备份和恢复选项会在BlueXP左侧导航栏中自动启用。</block>
-  <block id="532ffb2f3fab7d7b22de1e6940021707" category="paragraph">要开始使用此服务、您需要注册或联系NetApp销售代表、以试用此服务。然后、当您使用BlueXP Connector时、它将包括适用于此服务的功能。</block>
-  <block id="c12b8175d2e983ee8b8ce043ae10f1cb" category="paragraph">要开始使用BlueXP backup and recovery，请在其初始登录页面上单击“开始发现工作负载”。</block>
-  <block id="b180bd10a1fd7b4eca59ca9a369bdcae" category="paragraph">* BlueXP backup and recovery是否在标准、受限和私人模式下可用？*目前， BlueXP backup and recovery预览版仅在标准模式下可用。敬请关注更多信息。</block>
-  <block id="2579d10862aa7770a64b058fb84ce858" category="inline-link">BlueXP部署模式</block>
-  <block id="d29231e4316da436d079d40f2271015e" category="paragraph">有关所有BlueXP  服务中这些模式的说明，请参阅<block ref="333027f5702e4d8adf36d6f2355422dc" category="inline-link-rx"></block>。</block>
-  <block id="bf733d8a933c1601697f364223fc7ecb" category="section-title">使用权</block>
-  <block id="b8efad953c71d3c13cd9e6259b52050b" category="inline-link"><block ref="b8efad953c71d3c13cd9e6259b52050b" category="inline-link-rx"></block></block>
-  <block id="965d02098cf19eab5a686aeb79965a74" category="paragraph">* BlueXP backup and recoveryURL 是什么？*对于URL、在浏览器中输入：<block ref="f7adc20e3c7166869a0baacb09b84649" category="inline-link-rx"></block> 以访问BlueXP  控制台。</block>
-  <block id="6b95918551f87e6ece870e17dd0bb85f" category="paragraph">*如何处理访问权限？*只有组织管理员才能启动服务并发现工作负载(因为这涉及到对资源的使用)。后续交互可由任何角色完成。</block>
-  <block id="50f57e8a04f9e81cccea59d08d0cbcc2" category="paragraph">*什么设备分辨率是最佳的？*BlueXP backup and recovery的推荐设备分辨率为 1920x1080 或更高。</block>
-  <block id="3462920d936c74204339015d2f24872a" category="paragraph">*我应该使用哪种浏览器？*任何现代浏览器都能正常工作。</block>
-  <block id="cf49c80b52a1cb095928d387f3ae47ed" category="section-title">与其他服务的交互</block>
-  <block id="07d2b565e1ee7870eff3c5ee0251548a" category="paragraph">* BlueXP backup and recovery是否知道NetApp ONTAP中所做的保护设置？*是的， BlueXP backup and recovery可以发现ONTAP中设置的快照计划。</block>
-  <block id="cde60122ad9e09a8b3596d49c2d4b8c6" category="paragraph">*如果您使用BlueXP backup and recovery设置策略，那么您是否只需在此服务中进行将来的更改？*我们建议您从BlueXP backup and recovery服务进行策略更改。</block>
-  <block id="35084d885dea7b061e6894c1cf3036d9" category="section-title">工作负载</block>
-  <block id="d402524aad46e7fd520fcc6819d646ba" category="paragraph">*工作负载由哪些组成？*工作负载是指 2025 预览版中的应用程序。工作负载包括单个应用程序实例使用的所有卷。例如，部署在 mssql3.host.com 上的 Microsoft SQL Server 数据库实例可以分别使用 vol1 和 vol2 来存储其数据和日志。这些卷共同构成了该数据库实例的工作负载。</block>
-  <block id="ba69f65299b1fbca3d8af94cc200eaef" category="paragraph">* BlueXP backup and recovery支持哪些工作负载？*</block>
-  <block id="c81d9a0e8eaaab00a6dbbd70f3a9ac5c" category="paragraph">对于预览版 2025， BlueXP backup and recovery可以识别以下工作负载：Microsoft SQL Server 应用程序。</block>
-  <block id="4069d1b0660b91602ac9db989206f6d2" category="paragraph">*什么是"受保护"工作负载？*在BlueXP backup and recovery中，当启用主要检测策略时，工作负载将显示“受保护”状态。</block>
-  <block id="4909b811fdf0fea4db96f92f4f78a663" category="paragraph">*什么是"面临风险"的工作负载？*如果工作负载未启用主检测策略、则即使启用了备份和快照策略、它也会处于"风险"状态。</block>
-  <block id="e4244b45de1484571df7257e76a4102e" category="paragraph">*添加了新的工作负载，但尚未出现* 如果您向环境中添加了新的工作负载，请再次启动发现并应用保护策略来保护该新资源。</block>
-  <block id="5d1184f76781faaf229c6b885314bcd3" category="section-title">保护策略</block>
-  <block id="ea95a58451a1989c175ccd67b54a9a5c" category="paragraph">* BlueXP backup and recovery是否能够识别NetApp ONTAP中的保护设置？*</block>
-  <block id="aa217fda6986b6fa796d252c5b5bf862" category="paragraph">是的， BlueXP backup and recovery会发现在ONTAP中设置的快照计划以及在发现的工作负载中是否启用了 ARP 和 FPolicy。您最初在信息板中看到的信息是从其他NetApp解决方案和产品中汇总的。</block>
-  <block id="f5f6ffba7652b213c1041b8c1376525f" category="paragraph">* BlueXP backup and recovery是否知道SnapCenter中已经制定的策略？*</block>
-  <block id="6e0480718d9964a63da356415b52f7a0" category="paragraph">是的，如果您在SnapCenter中管理工作负载，则这些产品管理的策略将被纳入BlueXP backup and recovery。</block>
-  <block id="65b1c67f533e18ce83c9880a7f09c9a7" category="paragraph">*您可以修改从SnapCenter继承的策略吗？*</block>
-  <block id="bedcd85d57f8ea040dea1ca4d99f0039" category="paragraph">是的，您可以修改BlueXP backup and recovery中由SnapCenter管理的策略。</block>
-  <block id="7b14cb9145e6a8f73746c6843dbed3a4" category="paragraph">*如果ONTAP中存在策略（已在系统管理器中启用，例如 ARP、FPolicy 和快照），那么这些策略是否会在BlueXP backup and recovery中发生变化？*</block>
-  <block id="a3586452db18e2fa414a1eb5ae8d17cc" category="paragraph">不会。BlueXPBlueXP backup and recovery不会修改ONTAP的任何现有检测策略（ARP、FPolicy 设置）。</block>
-  <block id="1f102fdd144462324993234d7144754c" category="paragraph">*注册BlueXP backup and recovery后，如果在SnapCenter中添加新策略会发生什么情况？*</block>
-  <block id="486197dde031f487d2826b6993b6bcc8" category="paragraph">BlueXP backup and recovery可识别在SnapCenter中创建的任何新策略。</block>
-  <block id="518f0b9f41f0f038466364ab7781803f" category="paragraph">*是否可以从ONTAP更改策略？*</block>
-  <block id="b6b9673775332f978f238fe3752a6399" category="paragraph">是的，您可以在BlueXP backup and recovery中更改ONTAP策略。您还可以在BlueXP backup and recovery中创建新策略并将其应用于工作负载。此操作会将现有ONTAP策略替换为在BlueXP backup and recovery中创建的策略。</block>
   <block id="e12f47a69c86e30f0a5db1108ff58262" category="paragraph"><block ref="e12f47a69c86e30f0a5db1108ff58262" category="inline-link-macro-rx"></block></block>
   <block id="9a0032d5f65be045870969ee7b059114" category="paragraph">免费试用结束后、您将自动切换到PAYGO订阅、不会中断。如果您决定不再继续使用BlueXP backup and recovery，只需<block ref="63ddedb28f0e4bad0f842e2bd919ad67" category="inline-link-macro-rx"></block>在试用期结束前，您将不会被收费。</block>
   <block id="edb466d68f36c5d8f76ba746b949c72f" category="list-text">AWS： <block ref="e5469c6686b5a2c86b78502f7ea8c335" category="inline-link-rx"></block> .endif::aws[]</block>
@@ -4006,7 +3964,6 @@ ifdef：：AWS。</block>
   <block id="9a243911fa9310348bcfd0c1703da065" category="paragraph"><block ref="b8c311ba5d17296f83798faf3af622bb" category="inline-link-macro-rx"></block>(英文)</block>
   <block id="138c352248ca19ae50fddb3da317946e" category="paragraph">启用BlueXP backup and recovery步骤略有不同，具体取决于您拥有现有的Cloud Volumes ONTAP系统还是新的系统。</block>
   <block id="de001bf2f5f1715efab739a30cdfd691" category="summary">使用BlueXP backup and recovery，您可以更改备份计划、启用卷备份、暂停备份、删除备份等操作，管理Cloud Volumes ONTAP和本地ONTAP系统的备份。您还可以取消注册BlueXP backup and recovery。</block>
-  <block id="0ac8e1da7de1134c2e31b3c1a0ecd0e7" category="paragraph">使用 BlueXP 备份和恢复，通过更改备份计划、启用/禁用卷备份、暂停备份、删除备份等，管理 Cloud Volumes ONTAP 和本地 ONTAP 系统的备份。这涵盖所有类型的备份，包括快照副本、复制卷以及对象存储中的备份文件。您还可以取消注册BlueXP backup and recovery。</block>
   <block id="f37795430af0be1df0ff157c264939b5" category="paragraph">您可以在卷备份信息板中查看当前正在备份的所有卷的列表。这包括所有类型的备份，包括快照副本、复制卷和对象存储中的备份文件。您还可以查看当前未备份的工作环境中的卷。</block>
   <block id="fadcca31332cb3ca4ffb014def85ccca" category="list-text">选择“*Volumes*”选项卡以查看Cloud Volumes ONTAP和本地ONTAP系统的备份卷列表。</block>
   <block id="967a559f8463f8584f05c86c2fe8737e" category="paragraph">要显示其他列（聚合、安全样式（Windows 或 UNIX）、快照策略、复制策略和备份策略），请选择加号。</block>
@@ -4043,7 +4000,6 @@ ifdef：：AWS。</block>
   <block id="0eb7e8c21301092887a8677e9e19a3a3" category="list-text">在“添加新策略”页面中，选择向下箭头展开“标签和保留”部分以定义计划和备份保留，然后选择“保存”。</block>
   <block id="e349061d3500a23acb2f4629950fa23f" category="paragraph">您无法删除已使用 DataLock 和勒索软件保护锁定的备份文件。如果您选择了一个或多个锁定的备份文件，则 UI 中的“删除”选项将不可用。</block>
   <block id="282e41e144ea29af4a0b285331b59ba4" category="list-text">选择<block ref="3ca8d030cf9d4a36f5b783e677ebccee" category="inline-image-macro-rx" type="image"></block>对于您想要删除所有备份的工作环境，然后选择*删除所有备份*。</block>
-  <block id="6126938e40a034209c1c70b1449968c0" category="list-text">在确认对话框中，输入工作环境的名称并选择*删除*。</block>
   <block id="22f12d99e813b34048e25ac4a5f568f3" category="section-title">删除卷的所有备份文件</block>
   <block id="a8ba6304562632a6eb4762aebfe0d175" category="paragraph">删除卷的所有备份也会禁用该卷的未来备份。</block>
   <block id="fac3794c7ab19ecf79400a46e7b334b1" category="list-text">在“卷”选项卡中，单击<block ref="a1d09704e1f652cf0082bca28cb44e87" category="inline-image-macro-rx" type="image"></block>对于源卷并选择*详细信息和备份列表*。</block>
@@ -4053,7 +4009,6 @@ ifdef：：AWS。</block>
   <block id="2c9220461da540ceac8b243e96929a74" category="list-text">选择*操作* &gt; *删除所有备份*。</block>
   <block id="624ecdc29248b4d270234342590e62e7" category="inline-image-macro">显示“删除所有备份”选项的屏幕截图</block>
   <block id="1b080a8f11c49f34d248636294b2a55d" category="paragraph"><block ref="1b080a8f11c49f34d248636294b2a55d" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="2b0e92328f433f20d847a41a4f27ee4b" category="list-text">输入卷名并指明是否要强制删除所有备份。</block>
   <block id="c6f11bef049f9978b6acc052d17daf5a" category="list-text">从“卷”选项卡中选择<block ref="a1d09704e1f652cf0082bca28cb44e87" category="inline-image-macro-rx" type="image"></block>对于源卷并选择*查看卷详细信息*。</block>
   <block id="720c9e00fafd4e708d8298f7f3cc89cd" category="paragraph">此时将显示卷的详细信息，您可以选择*Snap照*、*复制*或*Backup*来查看卷的所有备份文件列表。默认情况下，显示可用的快照副本。</block>
   <block id="8dac01775d5cf014de7509d0b8b228e4" category="list-text">选择<block ref="3ca8d030cf9d4a36f5b783e677ebccee" category="inline-image-macro-rx" type="image"></block>对于要删除的卷备份文件，然后选择*删除*。</block>
@@ -4303,7 +4258,6 @@ ifdef：：AWS。</block>
   <block id="6cd8cc5fdd9e1409bcb46d17177068ee" category="list-text">选择“操作”图标<block ref="1d94ccc08c31bc8efbc06bfabc6854b6" category="inline-image-macro-rx" type="image"></block>对应于要还原的虚拟机并选择*还原*。</block>
   <block id="65c21609a555003c2d87b338ad06f851" category="summary">BlueXP backup and recovery中使用的策略与SnapCenter中使用的策略之间存在一些差异。</block>
   <block id="bdb2c9fdb7d584eed557444b42bc0d49" category="paragraph">SnapCenter中使用的策略与BlueXP backup and recovery中使用的策略之间存在一些差异，这可能会影响您从SnapCenter导入资源和策略后看到的内容。</block>
-  <block id="eed1fc7cfee5bcc66b97468735bf9e60" category="paragraph">SnapCenter和BlueXP backup and recovery使用略有不同的策略计划。</block>
   <block id="23f9c52e4c2d311c3072f509e50b4d03" category="paragraph">SnapCenter使用以下计划层：</block>
   <block id="b8d71d1c739c4b9834c70d9c7beec28e" category="list-text">*每小时*：多个小时和分钟，任意小时（0-23）和任意分钟（0-60）。</block>
   <block id="88695f8ce2149aa505995ad3f760a282" category="list-text">*每日*：包括每隔几天重复一次的选项，例如每 3 天。</block>
@@ -4628,7 +4582,6 @@ ifdef：：AWS。</block>
   <block id="b884440e8464e067fc1993b8e7564b2c" category="paragraph">该服务保护以下工作负载：</block>
   <block id="a7834976a2cbdc12ddeb76acc0345f2d" category="inline-link-macro">备份和恢复数据服务角色和权限</block>
   <block id="092238820de0395a7d97ae63a784ea7f" category="paragraph">*所需的BlueXP角色* 此任务需要数据服务备份和恢复超级管理员角色。了解<block ref="48e53f0dd24db48908da75d62a8f8086" category="inline-link-macro-rx"></block>。<block ref="c46fcff617e849cb6f8ded33051f7905" category="inline-link-rx"></block> 。</block>
-  <block id="2cf6a2d8c1cb12d031a59d63b2674c2d" category="list-text">*备份目标*：（仅限 Kubernetes 工作负载）选择托管 Kubernetes 应用程序资源的存储桶。快照将存储在此存储桶中。确保存储桶在您的备份环境中可访问。</block>
   <block id="4d3ca3588667d04ddbd4f318cdd7677e" category="inline-link-macro">添加保护策略</block>
   <block id="2769be0838f5e6f63e01200eeeec1910" category="list-text">（可选）在“*策略*”区域中，选择现有保护策略来保护应用程序，或者创建新策略。如果不选择策略，则创建的应用程序将不带保护策略。你可以<block ref="99c823f28a98717f81cda4eb0c448db5" category="inline-link-macro-rx"></block>之后。</block>
   <block id="f58eabeb108df6c5973f0ece276c562f" category="list-text">在“*策略*”区域中，选择现有的保护策略来保护应用程序或创建新策略。参考<block ref="3739f9f9696bd133d77df1c4736a8480" category="inline-link-macro-rx"></block>有关创建保护策略的更多信息。</block>
@@ -4719,4 +4672,15 @@ ifdef：：AWS。</block>
   <block id="af45dce32c393d74375fcf6543060be0" category="paragraph">BlueXP backup and recovery采用身份和访问管理 (IAM) 来管理每个用户对特定功能和操作的访问权限。</block>
   <block id="d341f0c47f4b7ad5cc1b4c9bb210cfda" category="section-title">2025年8月12日</block>
   <block id="3d5a9cd83b30ec6ec9f0802593907f05" category="sidebar">保护 Microsoft SQL Server 工作负载</block>
+  <block id="94909f2ec8275797b7659a53af432b61" category="list-text">*备份目标*：（仅限 Kubernetes 工作负载）选择托管 Kubernetes 应用程序资源的存储桶。快照时的应用程序资源定义存储在此存储桶中。确保存储桶在您的备份环境中可访问。</block>
+  <block id="5c851bd90645848b446210999f3e2a77" category="paragraph">使用BlueXP backup and recovery，通过更改备份计划、启用/禁用卷备份、暂停备份、删除备份、强制删除备份等，管理Cloud Volumes ONTAP和本地ONTAP系统的备份。这包括所有类型的备份，包括快照副本、复制卷和对象存储中的备份文件。您还可以取消注册BlueXP backup and recovery。</block>
+  <block id="bc57a9fce0dfbc05c202b0f5a0ea83d6" category="paragraph"><block ref="bc57a9fce0dfbc05c202b0f5a0ea83d6" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="182c10c8f0a6db351a76261c01e00ab4" category="list-text">在确认对话框中，输入工作环境的名称。</block>
+  <block id="b2efc38b6f353a6ab5275e1b97a3207b" category="list-text">选择“高级设置”。</block>
+  <block id="faf054b5001a252d9df902ee16e53f79" category="list-text">*强制删除备份*：指示是否要强制删除所有备份。</block>
+  <block id="5aea9e9558836559d5fe9a8137f4ed8b" category="paragraph">在某些极端情况下，您可能希望BlueXP backup and recovery不再访问备份。例如，如果服务不再有权访问备份存储桶或备份受到 DataLock 保护但您不再需要它们，则可能会发生这种情况。以前，您无法自行删除这些内容，而需要致电NetApp支持。在此版本中，您可以使用选项强制删除备份（在卷和工作环境级别）。</block>
+  <block id="125aa7ed80cb288006b134021f74ae4d" category="list-text">输入卷名称。</block>
+  <block id="2cc9cb7cd5398e9028f9c98c0685d1a6" category="paragraph">在某些极端情况下，您可能希望BlueXP backup and recovery不再访问备份。例如，如果服务中没有下级有权访问备份存储桶，或者备份受到 DataLock 保护但您不再需要它们，则可能会发生这种情况。以前，您无法自行删除这些内容，而需要致电NetApp支持。在此版本中，您可以使用选项强制删除备份（在卷和工作环境级别）。</block>
+  <block id="aa029ba3399a1aa8daaa58567b0e0a96" category="section-title">计划层级</block>
+  <block id="46ab31129184c1b6b0ef3989168fee15" category="paragraph">使用SnapCenter，您可以在附加到资源的多个策略中设置多个保留值。但是， BlueXP backup and recovery仅支持与资源相关的所有策略使用单个保留值。</block>
 </blocks>

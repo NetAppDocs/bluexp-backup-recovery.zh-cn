@@ -109,9 +109,3 @@ SnapCenter无法将资源的存储集群或 SVM 映射到主机，但BlueXP back
 如果您有一个SnapCenter策略计划，该计划在特定时间启动并每隔几分钟重复一次，但间隔时间不是 15 分钟，BlueXP backup and recovery将不会导入该计划。
 
 *解决方法*：使用SnapCenter调整策略，使其以 15 分钟的间隔重复。
-
-
-
-=== 日志备份保留
-
-使用SnapCenter，您可以在附加到资源的多个策略中设置多个保留值。但是， BlueXP backup and recovery预览版仅支持对附加到资源的所有策略使用单个保留值。
