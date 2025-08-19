@@ -4,7 +4,7 @@ permalink: prev-ontap-migrate-resync.html
 keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, Oracle database, Microsoft SQL Server database, SAP HANA database, migrate volumes, SnapMirror to Cloud Resync, ONTAP, NetApp, NetApp ONTAP, NetApp Cloud Volumes ONTAP, NetApp Cloud Volumes Service, FlexVols, FlexGroups 
 summary: BlueXP 备份和恢复中的 SnapMirror 到 Cloud Resync 功能简化了 NetApp 环境中卷迁移期间的数据保护和连续性。 
 ---
-= 在BlueXP backup and recovery中使用SnapMirror将卷迁移到 Cloud Resync
+= 使用 SnapMirror 将卷迁移到 Cloud Resync，并使用 BlueXP 备份和恢复
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -28,6 +28,20 @@ NOTE: 此功能从 2025 年 5 月发布的BlueXP backup and recovery版本 4.0.3
 *注意* 要切换到BlueXP backup and recovery工作负载，请参阅link:br-start-switch-ui.html["切换到不同的BlueXP backup and recovery工作负载"] 。
 
 ====
+.开始之前
+确保满足以下先决条件：
+
+* 目标ONTAP集群必须运行ONTAP 9.16.1或更高版本。
+* 必须使用BlueXP backup and recovery保护旧的源ONTAP集群。
+* SnapMirror到 Cloud Resync 功能从 2025 年 5 月发布的BlueXP backup and recovery版本 4.0.3 开始提供。
+* 对象存储中的最新备份必须是跨旧源、新源和对象存储的公共快照。公共快照不能早于备份到对象存储的最新快照。
+* 在开始重新同步操作之前，必须在新ONTAP集群上创建在旧ONTAP上使用的快照和SnapMirror策略。如果要在重新同步过程中使用任何策略，则还必须创建该策略。重新同步操作不会创建策略。
+* 确保应用于迁移卷SnapMirror关系的SnapMirror策略包含云关系使用的相同标签。为避免出现问题，请使用管理卷和所有快照的精确镜像的策略。
+
+
+
+NOTE: 目前不支持在使用SVM-Migrate、SVM-DR或机头交换方法进行迁移后重新同步SnapMirror到云。
+
 
 
 == BlueXP backup and recoverySnapMirror到 Cloud Resync 的工作原理
@@ -65,12 +79,9 @@ image:diagram-snapmirror-cloud-resync-migration.png["BlueXP  备份和恢复Sna
 
 == 过程注释
 
-* 目标ONTAP集群必须运行ONTAP 9.16.1或更高版本。
-* 旧的源ONTAP集群必须使用BlueXP  备份和恢复进行保护。
 * 迁移和技术更新不会使用BlueXP  备份和恢复。这些操作应由专业服务团队或合格的存储管理员来执行。
 * NetApp迁移团队负责在源集群和目标ONTAP集群之间创建SnapMirror关系、以便于卷迁移。
 * 确保技术更新期间的迁移基于基于基于SnapMirror的迁移。
-* 目前不支持在使用SVM-Migrate、SVM-DR或机头交换方法进行迁移后重新同步SnapMirror到云。
 
 
 
@@ -109,6 +120,10 @@ image:diagram-snapmirror-cloud-resync-migration-steps.png["使用SnapMirror迁�
 . 记录目标ONTAP集群中所有已迁移卷的新卷实例UID。
 . 确认已在新SnapMirror集群中正确配置旧ONTAP集群中提供的所有必需ONTAP策略。
 . 在BlueXP  画布中将新的ONTAP集群添加为工作环境。
++
+
+NOTE: 应该使用卷实例 UUID，而不是卷 ID。卷实例 UUID 是一个唯一标识符，在迁移过程中保持一致，而卷 ID 可能会在迁移后发生变化。
+
 
 
 
@@ -120,7 +135,11 @@ image:diagram-snapmirror-cloud-resync-migration-steps.png["使用SnapMirror迁�
 . 在BlueXP  画布中将新的ONTAP集群添加为工作环境。
 . 查看BlueXP  备份和恢复卷页面、确保旧的源工作环境详细信息可用。
 . 从BlueXP  备份和恢复卷页面中，选择*备份设置*。
-. 从菜单中选择*重新同步备份*。
++
+** 在备份设置页面中，选择*查看全部*。
+** 从新源右侧的操作...菜单中，选择*重新同步备份*。
+
+
 . 在重新同步工作环境页面中、执行以下操作：
 +
 .. *新的源工作环境*：输入卷已迁移到的新ONTAP集群。
@@ -135,17 +154,21 @@ image:diagram-snapmirror-cloud-resync-migration-steps.png["使用SnapMirror迁�
 
 
 . 在*上传卷映射详细信息*下选择*上传*、将完成的CSV表格上传到BlueXP  备份和恢复UI。
++
+
+NOTE: 应该使用卷实例 UUID，而不是卷 ID。卷实例 UUID 是一个唯一标识符，在迁移过程中保持一致，而卷 ID 可能会在迁移后发生变化。
+
 . 输入重新同步操作所需的提供程序和网络配置信息。
 . 选择*提交*以启动验证过程。
 +
-BlueXP  备份和恢复会验证为重新同步选择的每个卷是否至少具有一个通用快照。这样可确保卷已为SnapMirror到云重新同步操作做好准备。
+BlueXP backup and recovery验证选择重新同步的每个卷是否是最新快照，并且至少有一个通用快照。这可确保卷已准备好进行SnapMirror到 Cloud Resync 操作。
 
 . 查看验证结果、包括新的源卷名称以及每个卷的重新同步状态。
-. 检查卷资格。系统将检查卷是否符合重新同步条件。如果卷不符合条件、则表示未找到通用快照。
+. 检查容量是否合格。系统检查卷是否符合重新同步的条件。如果卷不符合条件，则意味着它不是最新的快照或未找到通用快照。
 +
 
 IMPORTANT: 要确保卷仍然符合SnapMirror到云重新同步操作的条件、请在迁移前阶段删除任何SnapMirror关系之前为每个卷创建最终快照。这样可以保留数据的最新状态。
 
-. 选择*Resync*以启动重新同步操作。系统使用通用快照仅传输增量更改、以确保备份连续性。
-. 在"Job Monitor"页面中监控重新同步过程。
+. 选择*重新同步*以开始重新同步操作。系统使用最新且通用的快照仅传输增量更改，确保备份的连续性。
+. 在作业监视器页面中监视重新同步过程。
 
