@@ -1,0 +1,33 @@
+---
+sidebar: sidebar 
+permalink: br-limitations-vmware.html 
+keywords: backing up, back up, backup, backup application data, Amazon Web services, AWS, BlueXP backup and recovery, vmware, vcenter 
+summary: BlueXP backup and recovery服务需要先发现数据，您才能使用该服务。在发现过程中， BlueXP backup and recovery会分析您组织内工作环境中的所有卷和文件。 
+---
+= BlueXP backup and recoveryVMware 工作负载的已知限制
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+已知限制确定了本产品版本不支持的平台、设备或功能、或者这些平台、设备或功能无法与产品正确交互操作。仔细审查这些限制。
+
+BlueXP backup and recovery中的 VMware 工作负载预览版不支持以下操作：
+
+* 挂载
+* 卸载
+* 恢复至备用位置
+* 还原 VMDK
+* 附加 VMDK
+* 分离 VMDK
+* vVol 支持
+* NVMe 支持
+* 电子邮件集成
+* 编辑政策
+* 编辑保护组
+* 基于角色的访问控制 (RBAC) 支持
+

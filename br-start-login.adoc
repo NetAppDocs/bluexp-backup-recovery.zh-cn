@@ -16,7 +16,7 @@ summary: 您使用NetApp BlueXP登录BlueXP backup and recovery服务。
 [role="lead"]
 您使用NetApp BlueXP登录BlueXP backup and recovery服务。
 
-BlueXP backup and recovery使用基于角色的访问控制 (RBAC) 来管理每个用户对特定操作的访问权限。
+BlueXP backup and recovery使用身份和访问管理来控制每个用户对特定操作的访问权限。
 
 有关每个角色可以执行的操作的详细信息，请参见link:reference-roles.html["BlueXP backup and recovery用户角色"]。
 
@@ -47,6 +47,9 @@ image:screen-br-landing-unified-trial.png["BlueXP备份和恢复的登陆页面�
 
 . 如果您还没有这样做，请选择*发现和管理*选项。
 +
-对于 Microsoft SQL Server 工作负载，请参阅link:br-start-discover.html["发现 Microsoft SQL Server 工作负载"] 。
+** 对于 Microsoft SQL Server 工作负载，请参阅link:br-start-discover.html["发现 Microsoft SQL Server 工作负载"] 。
+** 对于 VMware 工作负载，请参阅link:br-use-vmware-discovery.html["发现 VMware 工作负载"]。
+** 对于 Kubernetes 工作负载，请参阅link:br-start-discover-kubernetes.html["发现 Kubernetes 工作负载"]。
+
 
 

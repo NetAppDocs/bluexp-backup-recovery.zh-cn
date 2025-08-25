@@ -42,14 +42,18 @@ indexpage:
       url: br-use-mssql-restore.html
     - title: 克隆 Microsoft SQL Server 工作负载
       url: br-use-mssql-clone.html
-  - title: 保护虚拟机工作负载
+  - title: 保护 VMware 工作负载（预览版）
     links:
-    - title: 保护虚拟机工作负载概述
-      url: prev-vmware-protect-overview.html
-    - title: 创建备份虚拟机工作负载的策略
-      url: prev-vmware-policy-create.html
-    - title: 恢复虚拟机工作负载
-      url: prev-vmware-restore.html
+    - title: 保护 VMware 工作负载概述
+      url: br-use-vmware-protect-overview.html
+    - title: 发现 VMware 工作负载
+      url: br-use-vmware-discovery.html
+    - title: 为 VMware 工作负载创建和管理保护组
+      url: br-use-vmware-protection-groups.html
+    - title: 备份 VMware 工作负载
+      url: br-use-vmware-backup.html
+    - title: 恢复 VMware 工作负载
+      url: br-use-vmware-restore.html
   - title: 保护 Kubernetes 工作负载（预览版）
     links:
     - title: 保护 Kubernetes 工作负载概述
