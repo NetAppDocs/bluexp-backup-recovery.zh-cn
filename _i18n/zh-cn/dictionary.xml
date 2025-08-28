@@ -4919,11 +4919,11 @@ ifdef：：AWS。</block>
   <block id="40e80975f18e076da51a2f87004f77ab" category="summary">当您在没有互联网访问的站点（称为“私人模式”）中使用BlueXP backup and recovery时， BlueXP backup and recovery配置数据将备份到存储备份的StorageGRID或ONTAP S3 存储桶中。如果您将来遇到BlueXP Connector 主机系统问题，您可以部署新的 Connector 并恢复关键的BlueXP backup and recovery数据。</block>
   <block id="b1e27f8c2d43223a85b44c94d6a02cc0" category="paragraph">当您在没有互联网访问的站点（称为_私人模式_）中使用BlueXP backup and recovery时， BlueXP backup and recovery配置数据将备份到存储备份的StorageGRID或ONTAP S3 存储桶中。如果您遇到BlueXP Connector 主机系统问题，您可以部署新的 Connector 并恢复关键的BlueXP backup and recovery数据。</block>
   <block id="0428e48e7f58929099e52febd0558232" category="section-title">2025年8月25日</block>
-  <block id="b9d888f58b09c4007db0247286e392b5" category="section-title">2025年8月11日</block>
   <block id="0d8cae156f9904fac41e4f76eb3502db" category="sidebar">保护 VMware 工作负载（预览版）</block>
   <block id="79d4e4bc94bda2b257f4190786069be1" category="sidebar">保护 VMware 工作负载概述</block>
   <block id="fe5216e8c6ca199aaa9802985fb31c17" category="sidebar">VMware 工作负载的已知限制</block>
   <block id="f4aa5ca6921e92380246ea7a562973a9" category="sidebar">保护 VMware 工作负载（无需 VMware SnapCenter插件即可预览）</block>
   <block id="b1b8c22062b7762d4a3c459e880dee3b" category="sidebar">保护 VMware 工作负载（使用适用于 VMware 的SnapCenter插件）</block>
   <block id="5e8c098d325749413b23d5eba5837aad" category="sidebar">在暗站中恢复BlueXP backup and recovery数据</block>
+  <block id="2c7a4c64b750d295df0cbadb67206302" category="paragraph">BlueXP backup and recovery会保留作业信息 15 天，之后会被清除并且不再显示在作业监视器中。</block>
 </blocks>
