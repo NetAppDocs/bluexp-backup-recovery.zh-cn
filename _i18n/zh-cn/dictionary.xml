@@ -4925,4 +4925,9 @@ ifdef：：AWS。</block>
   <block id="88472e063f606ad2f77738ceb4d37acb" category="section-title">NetApp备份和恢复中的勒索软件防护是什么</block>
   <block id="795ab216ad8b11d65fc809d4416ecd34" category="paragraph">NetApp Backup and Recovery 中的勒索软件防护选项会扫描您的备份文件以查找勒索软件攻击的证据。勒索软件攻击的检测是使用校验和比较来执行的。如果在新的备份文件与之前的备份文件中发现潜在的勒索软件，则该较新的备份文件将被未显示任何勒索软件攻击迹象的最新备份文件替换。  （被判定为遭受勒索软件攻击的文件在被替换1天后被删除。）</block>
   <block id="cac16948593f636903d672a22d06f5cb" category="list-text">DataLock 和勒索软件保护适用于使用启用了 DataLock 和勒索软件保护的备份策略的新卷备份。您可以稍后使用高级设置选项启用或禁用勒索软件扫描选项。</block>
+  <block id="681575e078ff8d0f7388ab20fe174908" category="paragraph">默认情况下， NetApp Backup and Recovery 会在数据保护操作期间自动冻结和解冻某些应用程序（例如 KubeVirt）的文件系统。您可以选择根据Trident保护文档中的说明全局或针对特定应用程序禁用此行为：</block>
+  <block id="ac84b7596169ab3fb6c24e8a5c85c234" category="inline-link">使用 KubeVirt 虚拟机保护数据</block>
+  <block id="e71db3dcefde23f3505bd780d11437a6" category="list-text">要为所有应用程序禁用此行为，请参阅<block ref="cdee12d0fdecb470fee17a09aa7ec297" category="inline-link-rx"></block>。</block>
+  <block id="2fd92693952062fc00d949899370185d" category="inline-link">定义应用程序</block>
+  <block id="036aac0642f3af1dc8d2725fea34ffc0" category="list-text">要针对特定应用程序禁用此行为，请参阅<block ref="f71f47db01d2016b07aab53f31e42ddd" category="inline-link-rx"></block>。</block>
 </blocks>

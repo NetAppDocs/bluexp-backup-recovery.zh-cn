@@ -16,6 +16,15 @@ summary: BlueXP backup and recovery使您能够管理执行挂钩，以便在应
 [role="lead"]
 执行钩子是一种自定义操作，您可以将其配置为与托管 Kubernetes 应用程序的数据保护操作一起运行。例如、如果您有一个数据库应用程序、则可以使用执行挂钩在快照之前暂停所有数据库事务、并在快照完成后恢复事务。这样可以确保应用程序一致的快照。创建执行钩子模板时，您可以指定钩子的类型、要运行的脚本以及用于确定该钩子适用哪些容器的筛选条件。然后，您可以使用该模板将执行钩子与您的应用程序关联。
 
+[NOTE]
+====
+默认情况下， NetApp Backup and Recovery 会在数据保护操作期间自动冻结和解冻某些应用程序（例如 KubeVirt）的文件系统。您可以选择根据Trident保护文档中的说明全局或针对特定应用程序禁用此行为：
+
+* 要为所有应用程序禁用此行为，请参阅 https://docs.netapp.com/us-en/trident/trident-protect/trident-protect-requirements.html#protecting-data-with-kubevirt-vms["使用 KubeVirt 虚拟机保护数据"]。
+* 要针对特定应用程序禁用此行为，请参阅 https://docs.netapp.com/us-en/trident/trident-protect/trident-protect-manage-applications.html#define-an-application["定义应用程序"]。
+
+
+====
 .所需的BlueXP角色
 组织管理员或SnapCenter管理员。link:reference-roles.html["了解BlueXP backup and recovery访问角色"] 。  https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html["了解所有服务的 BlueXP 访问角色"^] 。
 
